@@ -4525,7 +4525,7 @@ def _render_application():
     _render_semantic_director_studio(params)
 
     # 2. Ajustes Manuales y Panel de Capas (Plegable)
-    with st.expander("🛠️ Panel Técnico de Capas y Parámetros Manuales", expanded=False):
+    with st.expander("🛠️ Panel Técnico de Capas y Parámetros Manuales (Guion, Vídeo, Locución, BGM y Subtítulos)", expanded=True):
         with st.container(key="main_settings_grid"):
             panel = st.columns(4)
         left_panel = panel[0]
