@@ -4489,6 +4489,8 @@ def _render_sidebar_navigation():
         st.page_link("pages/4_🎞️_Cinema_Master_Player.py", label="🎞️ Cinema Master Player", icon="🎞️")
         st.page_link("pages/5_📚_Docs_Guia_Maestra.py", label="📚 Guía Maestra & Docs SOTA", icon="📚")
         st.page_link("pages/6_🎵_Flow_Music_Studio.py", label="🎵 Flow Music Studio (Lyria 3)", icon="🎵")
+        st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
+        st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
         
         st.markdown("---")
         st.markdown("### ⚡ Motores Activos")

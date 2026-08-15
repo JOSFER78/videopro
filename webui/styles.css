@@ -437,3 +437,22 @@ div[class*="st-key-task_row_"] button[kind="secondary"] p {
         min-width: 1.75rem !important;
     }
 }
+
+/* Force sidebar to be always visible and styled */
+section[data-testid="stSidebar"] {
+    background-color: #0b0f19 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    min-width: 280px !important;
+    display: block !important;
+    visibility: visible !important;
+}
+
+section[data-testid="stSidebar"] .stPageLink {
+    margin-bottom: 4px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+}
+
+section[data-testid="stSidebar"] .stPageLink:hover {
+    background: rgba(56, 189, 248, 0.1) !important;
+}
