@@ -14,7 +14,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Optional, List, Dict, Any, Union
 
-from config import BASE_DIR, SERVER_DIR, WEB_DIR, SCRIPTS_DIR, OUTPUTS_DIR, VIBEVOICE_PYTHON
+try:
+    from config import BASE_DIR, SERVER_DIR, WEB_DIR, SCRIPTS_DIR, OUTPUTS_DIR, VIBEVOICE_PYTHON
+except ImportError:
+    from server.config import BASE_DIR, SERVER_DIR, WEB_DIR, SCRIPTS_DIR, OUTPUTS_DIR, VIBEVOICE_PYTHON
 
 app = FastAPI(title="VideoPro Cinematic Studio v2.0", description="Hybrid AI Video Production Engine")
 
