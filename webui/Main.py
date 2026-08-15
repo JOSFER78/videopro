@@ -4481,7 +4481,7 @@ def _render_sidebar_navigation():
         </div>
         """, unsafe_allow_html=True)
         
-        st.markdown("### 🧭 Páginas del Estudio")
+        st.markdown("#### 🧭 Páginas del Estudio")
         st.page_link("Main.py", label="🏠 Generador Principal", icon="🎬")
         st.page_link("pages/1_🛸_LTX25_FLUX3_Studio.py", label="🛸 LTX-2.5 & FLUX 3 Studio", icon="🛸")
         st.page_link("pages/2_🎙️_Voice_Studio_ElevenLabs.py", label="🎙️ Voice Studio SOTA", icon="🎙️")
@@ -4490,10 +4490,27 @@ def _render_sidebar_navigation():
         st.page_link("pages/5_📚_Docs_Guia_Maestra.py", label="📚 Guía Maestra & Docs SOTA", icon="📚")
         st.page_link("pages/6_🎵_Flow_Music_Studio.py", label="🎵 Flow Music Studio (Lyria 3)", icon="🎵")
         st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
-        st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
         
         st.markdown("---")
-        st.markdown("### ⚡ Motores Activos")
+        st.markdown("#### 🌐 Ecosistema de Webs & Portales")
+        
+        web_portals = [
+            ("📰 AIDaily News", "/pro/aidaily/"),
+            ("🎨 Matiza Studio", "/pro/matiza/"),
+            ("⚓ Ancora Pro", "/pro/ancora/"),
+            ("🎀 Mabelita de la Cruz", "/pro/mabelita/"),
+            ("🔮 Inkpunk App", "/pro/inkpunk/"),
+            ("🔍 LuxScaler SuperRes", "/pro/luxscaler/"),
+            ("🌍 Earth Distópico", "/pro/earth/"),
+            ("🎙️ VibeVoice Hub", "/pro/vibevoice/"),
+            ("⚡ AutoFlow Studio", "/pro/autoflow/"),
+            ("🏢 Mi Vecino Jose", "/pro/mivecinojose/"),
+        ]
+        for name, path in web_portals:
+            st.markdown(f"<a href='{path}' target='_blank' style='display:flex; align-items:center; padding:6px 10px; margin-bottom:4px; border-radius:8px; background:rgba(15,23,42,0.6); border:1px solid rgba(255,255,255,0.06); color:#e2e8f0; text-decoration:none; font-size:13px; font-weight:500; transition:all 0.2s ease;'><span style='flex-grow:1;'>{name}</span><span style='color:#38bdf8; font-size:11px;'>↗</span></a>", unsafe_allow_html=True)
+        
+        st.markdown("---")
+        st.markdown("#### ⚡ Motores Activos")
         st.markdown("""
 • **Vídeo:** LTX-2.5 (22B) + FLUX 3 🟢
 • **Voz:** Kokoro HD (24kHz) + Vibe 🟢
