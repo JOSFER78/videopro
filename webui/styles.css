@@ -1,3 +1,11 @@
+
+/* PERMANENT EXPANDED SIDEBAR */
+section[data-testid="stSidebar"] {
+}
+
+div[data-testid="stSidebarNav"] {
+}
+
 header[data-testid="stHeader"],
 div[data-testid="stToolbar"],
 div[data-testid="stDecoration"],
