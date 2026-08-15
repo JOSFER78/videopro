@@ -4522,7 +4522,8 @@ def _render_sidebar_navigation():
 
 
 def _render_application():
-    _render_sidebar_navigation()    """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
+    _render_sidebar_navigation()
+    """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
     _render_top_bar()
 
     if st.session_state.get("settings_dialog_open", False):
