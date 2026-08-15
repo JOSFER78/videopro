@@ -4520,95 +4520,9 @@ def _render_sidebar_navigation():
 
 
 
-def _render_horizontal_nav_bar():
-    st.markdown("""
-    <style>
-    .studio-pills-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 6px;
-        margin: 8px 0 16px 0;
-        padding: 8px 12px;
-        background: rgba(15, 23, 42, 0.7);
-        border: 1px solid rgba(56, 189, 248, 0.2);
-        border-radius: 12px;
-        align-items: center;
-    }
-    .studio-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        border-radius: 20px;
-        background: rgba(30, 41, 59, 0.8);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        font-size: 12.5px;
-        font-weight: 600;
-        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .studio-pill:hover {
-        background: #0284c7;
-        border-color: #38bdf8;
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
-    }
-    .web-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        padding: 4px 10px;
-        border-radius: 6px;
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(168, 85, 247, 0.3);
-        font-size: 12px;
-        font-weight: 500;
-        transition: all 0.2s ease;
-    }
-    .web-pill:hover {
-        background: rgba(168, 85, 247, 0.25);
-        border-color: #a855f7;
-    }
-    </style>
-    <div class="studio-pills-container">
-        <span style="font-size: 11px; font-weight: 800; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 4px;">ESTUDIOS:</span>
-        <a class="studio-pill" href="pages/1_🛸_LTX25_FLUX3_Studio.py" target="_self">🛸 LTX-2.5 & FLUX 3</a>
-        <a class="studio-pill" href="pages/2_🎙️_Voice_Studio_ElevenLabs.py" target="_self">🎙️ Voice Studio</a>
-        <a class="studio-pill" href="pages/3_🔑_Serverless_API_Hub.py" target="_self">🔑 API Hub</a>
-        <a class="studio-pill" href="pages/4_🎞️_Cinema_Master_Player.py" target="_self">🎞️ Cinema Player</a>
-        <a class="studio-pill" href="pages/5_📚_Docs_Guia_Maestra.py" target="_self">📚 Guía Maestra</a>
-        <a class="studio-pill" href="pages/6_🎵_Flow_Music_Studio.py" target="_self">🎵 Flow Music</a>
-        <a class="studio-pill" href="pages/7_📊_Matriz_Maestra_Live.py" target="_self">📊 Matriz Live</a>
-    </div>
-    <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; align-items: center;">
-        <span style="font-size: 11px; font-weight: 800; color: #a855f7; text-transform: uppercase; letter-spacing: 0.05em; margin-right: 4px;">🌐 WEBS & PORTALES:</span>
-        <a class="web-pill" href="/pro/aidaily/" target="_blank">📰 AIDaily ↗</a>
-        <a class="web-pill" href="/pro/matiza/" target="_blank">🎨 Matiza ↗</a>
-        <a class="web-pill" href="/pro/ancora/" target="_blank">⚓ Ancora ↗</a>
-        <a class="web-pill" href="/pro/mabelita/" target="_blank">🎀 Mabelita ↗</a>
-        <a class="web-pill" href="/pro/inkpunk/" target="_blank">🔮 Inkpunk ↗</a>
-        <a class="web-pill" href="/pro/luxscaler/" target="_blank">🔍 LuxScaler ↗</a>
-        <a class="web-pill" href="/pro/earth/" target="_blank">🌍 Earth 3D ↗</a>
-        <a class="web-pill" href="/pro/vibevoice/" target="_blank">🎙️ VibeVoice ↗</a>
-        <a class="web-pill" href="/pro/autoflow/" target="_blank">⚡ AutoFlow ↗</a>
-    </div>
-    <script>
-    (function() {
-        try {
-            const doc = window.parent.document || document;
-            const sidebar = doc.querySelector('section[data-testid="stSidebar"]');
-            const btn = doc.querySelector('button[data-testid="baseButton-headerNoPadding"]') || doc.querySelector('[data-testid="stSidebarCollapsedControl"] button');
-            if (sidebar && sidebar.getAttribute('aria-expanded') === 'false' && btn) {
-                btn.click();
-            }
-        } catch(e) {}
-    })();
-    </script>
-    """, unsafe_allow_html=True)
 
 def _render_application():
-    _render_sidebar_navigation()
-    _render_horizontal_nav_bar()
-    """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
+    _render_sidebar_navigation()    """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
     _render_top_bar()
 
     if st.session_state.get("settings_dialog_open", False):

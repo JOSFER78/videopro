@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 set -e
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-export PYTHONPATH="$DIR/server:$DIR:$PYTHONPATH"
-
-echo "=== [🚀 VideoPro Cinematic Studio v2.0] ==="
-echo "📁 Directorio: $DIR"
-echo "🌐 Puerto: 7001"
-
-exec /home/ubuntu/vibevoice-venv/bin/python -m uvicorn videopro_server:app \
-    --app-dir "$DIR/server" \
-    --host 0.0.0.0 \
-    --port 7001 \
-    --reload
+export PYTHONPATH="$DIR:$PYTHONPATH"
+cd "$DIR"
+exec /home/ubuntu/MoneyPrinterTurbo/.venv/bin/python -m streamlit run "$DIR/webui/Main.py" \
+    --server.address=0.0.0.0 \
+    --server.port=7001 \
+    --server.headless=true \
+    --server.runOnSave=true \
+    --browser.gatherUsageStats=false \
+    --client.toolbarMode=minimal \
+    --logger.hideWelcomeMessage=true \
+    --server.showEmailPrompt=false \
+    --server.enableCORS=true
