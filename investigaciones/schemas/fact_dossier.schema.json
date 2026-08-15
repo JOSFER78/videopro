@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "FactDossierSchema",
+  "description": "Contrato de datos para la investigación, verificación y trazabilidad de hechos en el documental cinematográfico.",
+  "type": "object",
+  "required": ["episode_id", "project_title", "case_overview", "verified_claims", "legal_risk_assessment"],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "pattern": "^S[0-9]{2}E[0-9]{2}$",
+      "example": "S01E07"
+    },
+    "project_title": {
+      "type": "string",
+      "example": "The Code Lost $460 Million in 45 Minutes"
+    },
+    "case_overview": {
+      "type": "object",
+      "required": ["historical_date_range", "geographic_location", "core_conflict", "truth_mode"],
+      "properties": {
+        "historical_date_range": { "type": "string", "example": "August 1, 2012" },
+        "geographic_location": { "type": "string", "example": "Jersey City / New York Stock Exchange" },
+        "core_conflict": { "type": "string" },
+        "truth_mode": {
+          "type": "string",
+          "enum": ["DOCUMENTED_RECONSTRUCTION", "COMPOSITE_STORY", "HYPOTHESIS_SCENARIO"]
+        }
+      }
+    },
+    "verified_claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["claim_id", "statement", "claim_type", "certainty_level", "sources", "visual_verification_requirement"],
+        "properties": {
+          "claim_id": {
+            "type": "string",
+            "pattern": "^CLM-[0-9]{3,}$",
+            "example": "CLM-001"
+          },
+          "statement": {
+            "type": "string",
+            "description": "Afirmación factual precisa sin adjetivos sensacionalistas."
+          },
+          "claim_type": {
+            "type": "string",
+            "enum": ["PRIMARY_FACT", "LEGAL_ALLEGATION", "DISPUTED_CLAIM", "TECHNICAL_MECHANISM", "INFERENCE"]
+          },
+          "certainty_level": {
+            "type": "string",
+            "enum": ["VERIFIED_HIGH", "PROBABLE_MEDIUM", "UNCONFIRMED_LOW"]
+          },
+          "sources": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["source_name", "source_type", "citation_or_url"],
+              "properties": {
+                "source_name": { "type": "string", "example": "SEC Administrative Proceeding File No. 3-15570" },
+                "source_type": {
+                  "type": "string",
+                  "enum": ["JUDICIAL_REGULATORY", "TECHNICAL_PAPER", "PRIMARY_ARCHIVE", "INVESTIGATIVE_JOURNALISM", "CORPORATE_FILING"]
+                },
+                "citation_or_url": { "type": "string" },
+                "relevant_quote": { "type": "string" }
+              }
+            }
+          },
+          "visual_verification_requirement": {
+            "type": "string",
+            "enum": ["EXACT_DATA_GFX", "ATMOSPHERIC_RECONSTRUCTION", "METAPHORIC_INTERPRETATION", "ARCHIVAL_REPRODUCTION"]
+          }
+        }
+      }
+    },
+    "legal_risk_assessment": {
+      "type": "object",
+      "required": ["living_persons_depicted", "defamation_risk", "ip_copyright_status", "ai_disclosure_required"],
+      "properties": {
+        "living_persons_depicted": { "type": "boolean" },
+        "defamation_risk": { "type": "string", "enum": ["NONE_COMPOSITE_USED", "LOW_PUBLIC_FIGURE", "REQUIRES_LEGAL_CLEARANCE"] },
+        "ip_copyright_status": { "type": "string", "enum": ["PUBLIC_DOMAIN_FACTS", "LICENSED_ASSETS", "FAIR_USE_ANALYSIS"] },
+        "ai_disclosure_required": { "type": "boolean", "default": true }
+      }
+    }
+  }
+}

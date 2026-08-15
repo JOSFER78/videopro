@@ -1,0 +1,77 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CinematicStoryboardSchema",
+  "description": "Contrato de especificación de planos cinematográficos con inyección de 7 dimensiones y trazabilidad factual.",
+  "type": "object",
+  "required": ["episode_id", "scene_sequence_id", "shots"],
+  "properties": {
+    "episode_id": { "type": "string", "example": "S01E07" },
+    "scene_sequence_id": { "type": "string", "example": "SC03_THE_CRASH" },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_id",
+          "timecode_start",
+          "timecode_end",
+          "duration_seconds",
+          "voiceover_text",
+          "truth_classification",
+          "cinematic_interpretation_note",
+          "canonical_7d_prompt",
+          "audio_layer_spec"
+        ],
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "pattern": "^S[0-9]{2}E[0-9]{2}_SC[0-9]{2}_SH[0-9]{3}$",
+            "example": "S01E07_SC03_SH012"
+          },
+          "timecode_start": { "type": "string", "example": "00:03:45:00" },
+          "timecode_end": { "type": "string", "example": "00:03:49:12" },
+          "duration_seconds": { "type": "number", "minimum": 0.5, "maximum": 30.0, "example": 4.5 },
+          "voiceover_text": {
+            "type": "string",
+            "example": "A las 9:30, el algoritmo comenzó a comprar caro y vender barato a una velocidad de 40 órdenes por milisegundo."
+          },
+          "truth_classification": {
+            "type": "object",
+            "required": ["mode", "linked_claim_id"],
+            "properties": {
+              "mode": { "type": "string", "enum": ["FACT", "RECONSTRUCTION", "CINEMATIC_METAPHOR", "GFX_TELEMETRY"] },
+              "linked_claim_id": { "type": "string", "example": "CLM-007" }
+            }
+          },
+          "cinematic_interpretation_note": {
+            "type": "string",
+            "description": "Explicación de por qué este plano evita la ilustración literal y qué subtexto emocional comunica.",
+            "example": "En lugar de animar billetes o flechas rojas, la cámara se concentra en la vibración de una taza de café sobre el escritorio producida por el zumbido de los servidores acelerando, con el reflejo de las cifras cayendo en la pupila de Michael."
+          },
+          "canonical_7d_prompt": {
+            "type": "object",
+            "required": ["subject_dim", "environment_dim", "action_dim", "camera_dim", "lighting_dim", "atmosphere_dim", "continuity_dim"],
+            "properties": {
+              "subject_dim": { "type": "string", "example": "[Subject: Character_Michael_Age36_BibleID] sitting rigid, eyes locked forward" },
+              "environment_dim": { "type": "string", "example": "[Environment: Location_WallStreet_TradingFloor_1999], trading terminal glowing in foreground" },
+              "action_dim": { "type": "string", "example": "[Action: Michael's hand freezes above mouse, subtle pulse in neck vein, zero blink]" },
+              "camera_dim": { "type": "string", "example": "[Camera: Tight Close-up, simulated 85mm Portrait lens, f/1.8, extremely slow Dolly-in 10cm, Eye-level]" },
+              "lighting_dim": { "type": "string", "example": "[Lighting: Intense cyan monitor glow (5600K) keying face from below-front, dark shadow falloff, faint red emergency warning light rim]" },
+              "atmosphere_dim": { "type": "string", "example": "[Atmosphere: High-tension stillness, micro 35mm film grain, sharp crisp edge definition, stylized 3D premium aesthetic]" },
+              "continuity_dim": { "type": "string", "example": "[Continuity: Looking from left to right, unbuttoned navy collar, left wrist scar partially visible] [Negative: face drift, extra fingers, cartoon distortions, motion blur smearing]" }
+            }
+          },
+          "audio_layer_spec": {
+            "type": "object",
+            "required": ["diegetic_foley", "ambient_soundtrack", "sub_bass_pulse"],
+            "properties": {
+              "diegetic_foley": { "type": "string", "example": "High-pitched server coil whine increasing in frequency + subtle ceramic cup rattle on laminate wood" },
+              "ambient_soundtrack": { "type": "string", "example": "Leitmotiv note 3 held on low cello drone, no percussion" },
+              "sub_bass_pulse": { "type": "boolean", "default": true }
+            }
+          }
+        }
+      }
+    }
+  }
+}

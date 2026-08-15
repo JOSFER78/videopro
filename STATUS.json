@@ -1,0 +1,16 @@
+{
+  "project": "videopro",
+  "title": "VideoPro Studio — Estudio Cinematográfico Híbrido Autónomo",
+  "version": "2.0.0",
+  "status": "production",
+  "public_url": "https://143-47-35-167.sslip.io/pro/videopro/",
+  "api_url": "https://143-47-35-167.sslip.io/pro/videopro/api/",
+  "engines": {
+    "tts": "VibeVoice 1.5B (es-emilio, local VPS zero-cost)",
+    "generation_mode_1": "Stock DB (Local Asset DB & Pexels)",
+    "generation_mode_2": "FLUX.1 Keyframe 0 (35mm Kodak RAW & Ken Burns 2.5D)",
+    "generation_mode_3": "Google Flow Playwright Runner (Gemini Omni Flash CDP)",
+    "rendering": "FFmpeg 6.1.1 & MoviePy"
+  },
+  "updated_at": "2026-08-15T04:12:00Z"
+}

@@ -1,0 +1,15 @@
+{
+  "project_slug": "pogačar-redesign",
+  "assets": {
+    "photos": "assets/photos/",
+    "illustrations": "assets/illustrations/",
+    "cutouts": "assets/cutouts/",
+    "broll": "assets/broll/",
+    "logos": "assets/logos/",
+    "audio": "assets/audio/"
+  },
+  "compositions": [
+    "src/Composition.tsx"
+  ],
+  "notes": "Replace stock images with real Tadej Pogačar assets and remove hue-rotate filter."
+}

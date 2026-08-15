@@ -1,0 +1,15 @@
+[Unit]
+Description=VideoPro Studio v2.0 Cinematic Engine
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/workspace/pro/hermes/10_videopro/server
+ExecStart=/home/ubuntu/vibevoice-venv/bin/python videopro_server.py
+Restart=always
+RestartSec=5
+MemoryMax=8G
+
+[Install]
+WantedBy=multi-user.target

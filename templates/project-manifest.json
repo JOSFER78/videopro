@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "project_id": "YYYY-MM-DD_<project_slug>",
+  "title": "Documental / Video Project Title",
+  "slug": "project-slug",
+  "version": "v1",
+  "created_at": "2026-08-14T00:00:00Z",
+  "updated_at": "2026-08-14T00:00:00Z",
+  "metadata": {
+    "topic": "Primary subject and research question",
+    "category": "technology",
+    "style": "vox_documentary",
+    "narrative_framework": "bbc_3_act",
+    "target_duration_seconds": 45,
+    "actual_duration_seconds": null,
+    "resolution": {
+      "width": 1920,
+      "height": 1080,
+      "aspect_ratio": "16:9",
+      "fps": 24
+    },
+    "language": {
+      "locale": "es-ES",
+      "tts_voice": "es-ES-AlvaroNeural",
+      "rate_adjustment": "+0%"
+    },
+    "captions_mode": "karaoke_highlight"
+  },
+  "directory_structure": {
+    "project_root": "projects/YYYY/MM/YYYY-MM-DD_<project_slug>/v1/",
+    "research_dossier": "RESEARCH_DOSSIER.md",
+    "scenes_plan": "scenes.json",
+    "vo_durations": "vo_durations.json",
+    "manifest_file": "project_manifest.json",
+    "assets": {
+      "root": "assets/",
+      "photos": "assets/photos/",
+      "cutouts": "assets/cutouts/",
+      "broll": "assets/broll/",
+      "logos": "assets/logos/",
+      "audio": {
+        "root": "assets/audio/",
+        "narration": "assets/audio/narration.mp3",
+        "bgm": "assets/audio/bgm/",
+        "sfx": "assets/audio/sfx/"
+      }
+    },
+    "scene_data": "scene_data/",
+    "src": "src/",
+    "out": {
+      "root": "out/",
+      "final_video": "out/final.mp4",
+      "qa_report": "out/qa_report.json"
+    }
+  },
+  "pipeline_lifecycle": {
+    "phase_1_bootstrap": {
+      "status": "pending",
+      "timestamp": null
+    },
+    "phase_2_research_and_dossier": {
+      "status": "pending",
+      "dossier_path": "RESEARCH_DOSSIER.md",
+      "verified_facts_count": 0,
+      "sources_count": 0,
+      "timestamp": null
+    },
+    "phase_3_storyboard_and_scenes": {
+      "status": "pending",
+      "scenes_count": 0,
+      "shots_total": 0,
+      "timestamp": null
+    },
+    "phase_4_assets_acquisition": {
+      "status": "pending",
+      "photos_count": 0,
+      "broll_clips_count": 0,
+      "cutouts_count": 0,
+      "min_asset_size_bytes_verified": false,
+      "timestamp": null
+    },
+    "phase_5_audio_and_sync": {
+      "status": "pending",
+      "narration_generated": false,
+      "narration_duration_s": null,
+      "whisper_timestamps_extracted": false,
+      "bgm_ducking_configured": true,
+      "timestamp": null
+    },
+    "phase_6_render_and_composition": {
+      "status": "pending",
+      "engine_used": "moviepy2",
+      "render_time_s": null,
+      "output_file": "out/final.mp4",
+      "timestamp": null
+    },
+    "phase_7_qa_and_delivery": {
+      "status": "pending",
+      "qa_status": "pending",
+      "filesize_bytes": 0,
+      "filesize_mb": 0.0,
+      "telegram_notified": false,
+      "telegram_caption": null,
+      "timestamp": null
+    }
+  },
+  "engine_specifications": {
+    "video_engine": "gemini-omni-flash-preview",
+    "image_engine": "gemini-3.1-flash-image",
+    "audio_tts_engine": "edge-tts",
+    "stt_engine": "whisper-stable-ts",
+    "render_backend": "moviepy2",
+    "video_encoder": {
+      "codec": "libx264",
+      "crf": 28,
+      "preset": "slow",
+      "audio_codec": "aac",
+      "audio_bitrate": "96k"
+    }
+  },
+  "assets_manifest": [
+    {
+      "id": "asset_sample_photo_01",
+      "name": "sample_photo.jpg",
+      "type": "photo",
+      "path": "assets/photos/sample_photo.jpg",
+      "source_engine": "nanobanana",
+      "filesize_bytes": 1048576,
+      "sha256": "placeholder_sha256",
+      "verified": true
+    }
+  ],
+  "qa_checks": {
+    "no_placeholders": true,
+    "min_asset_size_gate_passed": true,
+    "no_blackdetect_pure_black": true,
+    "audio_duration_sync_tolerance_ms": 100,
+    "telegram_under_50mb_passed": true,
+    "ffprobe_verified": true
+  }
+}
