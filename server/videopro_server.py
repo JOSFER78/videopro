@@ -402,4 +402,5 @@ def download_file(filename: str):
     return JSONResponse({"error": "File not found"}, status_code=404)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=7895)
+    port = int(os.getenv("PORT", 7001))
+    uvicorn.run(app, host="0.0.0.0", port=port)
