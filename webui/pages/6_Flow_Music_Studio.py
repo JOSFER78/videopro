@@ -20,25 +20,7 @@ with col_back:
     st.page_link("Main.py", label="← Volver al Inicio")
 with col_title:
     st.title("Flow Music Studio")
-st.caption("Composicion y generacion de pistas musicales estructuradas.")
-",
-    page_icon="🎵",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
-
-# Estilos Glassmorphism Premium
-
-
-st.markdown("""
-<div class="music-hero">
-    <div class="flow-badge">AUDIO-DRIVEN CINEMATIC PIPELINE</div>
-    <h1 style="color:#ffffff; margin:0; font-size:32px; font-weight:900;">🎵 Flow Music Studio (Google Lyria 3 Pro)</h1>
-    <p style="color:#cbd5e1; margin:6px 0 0 0; font-size:15px;">
-        Generación de bandas sonoras multi-minuto, análisis de compases y troceado automatizado de audio sincronizado con <b>LTX-2.5 & FLUX 3</b>.
-    </p>
-</div>
-""", unsafe_allow_html=True)
+st.caption("Composicion y generacion de pistas musicales estructuradas con Google Lyria 3 Pro.")
 
 tab_prompt, tab_slice, tab_workflows, tab_docs = st.tabs([
     "🎹 1. Diseñador de Prompts Musicales",
