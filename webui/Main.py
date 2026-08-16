@@ -1,4 +1,17 @@
 from webui.nav import render_top_navigation
+from webui.views import (
+    view_settings_projects,
+    view_ltx_flux,
+    view_voice,
+    view_api_hub,
+    view_cinema,
+    view_flow_music,
+    view_matriz,
+    view_boveda,
+    view_docs
+)
+
+from webui.nav import render_top_navigation
 import hashlib
 import html
 import json
@@ -1205,11 +1218,14 @@ def _render_top_bar():
         ):
             _render_task_manager_entry()
 
-            st.page_link(
-                "pages/8_Ajustes_y_Gestion_de_Proyectos.py",
-                label=tr("Settings"),
+            if st.button(
+                tr("Settings"),
+                key="open_settings_view_btn",
+                type="secondary",
                 icon=":material/settings:"
-            )
+            ):
+                st.session_state["active_view"] = "settings_projects"
+                st.rerun()
 
             language_codes = list(locales.keys())
             selected_index = 0
@@ -4515,8 +4531,38 @@ def _render_sidebar_navigation():
 
 
 def _render_application():
-    _render_sidebar_navigation()
     render_top_navigation()
+    
+    active_view = st.session_state.get("active_view", "main")
+    
+    if active_view == "settings_projects":
+        view_settings_projects.render_view()
+        return
+    elif active_view == "ltx_flux":
+        view_ltx_flux.render_view()
+        return
+    elif active_view == "voice":
+        view_voice.render_view()
+        return
+    elif active_view == "api_hub":
+        view_api_hub.render_view()
+        return
+    elif active_view == "cinema":
+        view_cinema.render_view()
+        return
+    elif active_view == "flow_music":
+        view_flow_music.render_view()
+        return
+    elif active_view == "matriz":
+        view_matriz.render_view()
+        return
+    elif active_view == "boveda":
+        view_boveda.render_view()
+        return
+    elif active_view == "docs":
+        view_docs.render_view()
+        return
+
     """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
     _render_top_bar()
 

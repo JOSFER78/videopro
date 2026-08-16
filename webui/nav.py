@@ -1,53 +1,77 @@
+"""
+Módulo de Navegación Superior Unificada — VideoPro
+Estilo 100% sobrio, limpio y sin emoticonos.
+Enrutador de vistas SPA (Single-Page Application).
+"""
+
 import streamlit as st
 
-def render_top_navigation(current_page=""):
+NAV_VIEWS = [
+    ("main", "Generador Principal"),
+    ("ltx_flux", "LTX & FLUX"),
+    ("voice", "Voice Studio"),
+    ("api_hub", "API Hub"),
+    ("cinema", "Cinema Player"),
+    ("flow_music", "Flow Music"),
+    ("matriz", "Matriz Live"),
+    ("settings_projects", "Ajustes y Proyectos"),
+    ("boveda", "Bóveda"),
+    ("docs", "Guía")
+]
+
+
+def render_top_navigation():
     """
-    Barra de navegacion superior limpia, sobria y horizontal.
-    Sin colores estridentes ni emoticonos.
+    Renderiza la barra de navegación superior interactiva.
+    Permite cambiar de vista instantáneamente sin recargas de página ni menús laterales molestos.
     """
+    if "active_view" not in st.session_state:
+        st.session_state["active_view"] = "main"
+
+    active = st.session_state["active_view"]
+
+    # Inyección de estilos sobrios y neutrales para la navegación
     st.markdown("""
     <style>
-    div[data-testid="stHorizontalBlock"]:has(a[data-testid="stPageLink-NavLink"]) {
-        background: #0f172a;
-        border: 1px solid #334155;
-        border-radius: 6px;
-        padding: 4px 8px;
-        margin-bottom: 16px;
+    /* Ocultar barra lateral automática de Streamlit para mantener interfaz limpia */
+    section[data-testid="stSidebar"] {
+        display: none !important;
+    }
+    .stAppDeployButton, [data-testid="stSidebarCollapsedControl"] {
+        display: none !important;
+    }
+    
+    /* Contenedor de barra superior */
+    div.nav-bar-container {
+        display: flex;
         align-items: center;
-    }
-    a[data-testid="stPageLink-NavLink"] {
-        padding: 4px 10px !important;
-        border-radius: 4px !important;
-        font-size: 13px !important;
-        color: #cbd5e1 !important;
-        transition: background 0.15s ease !important;
-    }
-    a[data-testid="stPageLink-NavLink"]:hover {
-        background: #1e293b !important;
-        color: #ffffff !important;
+        justify-content: space-between;
+        padding: 6px 12px;
+        background-color: #0f172a;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        margin-bottom: 12px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    cols = st.columns([1.3, 1.1, 1.1, 0.9, 1.1, 1.0, 1.0, 1.5, 0.9, 0.7], vertical_alignment="center", gap="small")
-    
-    with cols[0]:
-        st.page_link("Main.py", label="Inicio / Generador")
-    with cols[1]:
-        st.page_link("pages/1_LTX25_FLUX3_Studio.py", label="LTX & FLUX")
-    with cols[2]:
-        st.page_link("pages/2_Voice_Studio.py", label="Voice Studio")
-    with cols[3]:
-        st.page_link("pages/3_Serverless_API_Hub.py", label="API Hub")
-    with cols[4]:
-        st.page_link("pages/4_Cinema_Player.py", label="Cinema Player")
-    with cols[5]:
-        st.page_link("pages/6_Flow_Music_Studio.py", label="Flow Music")
-    with cols[6]:
-        st.page_link("pages/7_Matriz_Maestra_Live.py", label="Matriz Live")
-    with cols[7]:
-        st.page_link("pages/8_Ajustes_y_Gestion_de_Proyectos.py", label="Ajustes y Proyectos")
-    with cols[8]:
-        st.page_link("pages/9_Boveda_Multimedia.py", label="Boveda")
-    with cols[9]:
-        st.page_link("pages/5_Docs_Guia_Maestra.py", label="Guia")
+    # Barra horizontal de navegación usando columnas
+    cols = st.columns(len(NAV_VIEWS))
+    for i, (view_key, view_label) in enumerate(NAV_VIEWS):
+        is_active = (active == view_key)
+        btn_type = "primary" if is_active else "secondary"
+        with cols[i]:
+            if st.button(view_label, key=f"nav_btn_{view_key}", type=btn_type, use_container_width=True):
+                if st.session_state["active_view"] != view_key:
+                    st.session_state["active_view"] = view_key
+                    st.rerun()
+
+    # Si estamos en una vista secundaria, mostrar botón de retorno inmediato
+    if active != "main":
+        st.markdown("<div style='margin-top: 4px; margin-bottom: 8px;'></div>", unsafe_allow_html=True)
+        col_back, col_space = st.columns([2.5, 7.5], vertical_alignment="center")
+        with col_back:
+            if st.button("← Volver al Generador Principal", key="btn_global_return_home", type="secondary", use_container_width=True):
+                st.session_state["active_view"] = "main"
+                st.rerun()
+        st.markdown("---")
