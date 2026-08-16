@@ -19,6 +19,19 @@
 
 ---
 
+## 🔒 Política Estricta de Seguridad: CERO Tokens y CERO Contenido en Repositorios
+
+> [!IMPORTANT]
+> **REGLA DE ORO DE SEGURIDAD:**
+> 1. **NUNCA subir claves API, tokens, secretos o credenciales** (`config.toml`, `.env`, `*key*.json`, `*secret*.json`, `serviceAccountKey*.json`, tokens de Replicate, Gemini, OpenAI, Groq, Cloudflare R2, ElevenLabs, HuggingFace, etc.) al repositorio Git ni a GitHub.
+> 2. **NUNCA subir contenido multimedia generado o renders locales** (`storage/tasks/`, `outputs/`, archivos `.mp4`, `.mov`, `.wav`, `.mp3`, `.mkv`). Todo el contenido generado se almacena de forma local o sincronizado remotamente en Cloudflare R2 / S3 / Firestore bajo credenciales privadas.
+> 3. **Gestión de Configuración Segura:**
+>    - El archivo [config.example.toml](file:///home/ubuntu/workspace/pro/hermes/10_videopro/config.example.toml) sirve como plantilla pública sin claves.
+>    - El archivo local `config.toml` contiene las claves de trabajo locales y está **100% excluido e ignorado en [.gitignore](file:///home/ubuntu/workspace/pro/hermes/10_videopro/.gitignore)**.
+>    - La persistencia y respaldo en la nube se gestiona de forma segura a través de **Firebase Firestore** y **Cloudflare R2** desde la pestaña de **Ajustes** en la WebUI, nunca mediante commits a Git.
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```

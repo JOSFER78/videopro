@@ -1,11 +1,88 @@
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.venv/
-venv/
+# ==============================================================================
+# SEGURIDAD Y PRIVACIDAD — NUNCA SUBIR CLAVES, TOKENS, ARCHIVOS O CONTENIDO
+# ==============================================================================
+
+# Archivos de configuración con claves API y secretos (Usar config.example.toml)
+config.toml
+*.config.toml
+.env
+.env.*
+!.env.example
+
+# Credenciales, cuentas de servicio y tokens
+*key*.json
+*secret*.json
+serviceAccountKey*.json
+service-account*.json
+firebase-tools.json
+.firebase/
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Almacenamiento local de tareas, proyectos, guiones y contenido generado
+storage/
+storage/tasks/
+storage/cache/
+storage/audio/
+storage/video/
 outputs/
-*.bak
-.DS_Store
-.streamlit/
+temp/
+tmp/
+*.r2_synced.json
+
+# Contenido multimedia pesado y renders (Vídeos, Audios, Foley, Materiales)
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.webm
+*.flv
+*.ts
+*.mp3
+*.wav
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.raw
+
+# Archivos temporales de Python y entornos virtuales
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Logs y backups
 *.log
+*.bak
+*.swp
+*~
+
+# IDEs y sistemas operativos
+.DS_Store
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.streamlit/secrets.toml

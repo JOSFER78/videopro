@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 
-DEFAULT_LLM_PROVIDER_ID = "moonshot"
+DEFAULT_LLM_PROVIDER_ID = "antigravity"
 
 
 @dataclass(frozen=True, slots=True)
@@ -72,6 +72,19 @@ class LLMProviderSpec:
 # 通常只需要在这里增加一项并补充 locale；只有协议不同的 Provider 才需要在
 # app/services/llm.py 中增加对应 adapter 实现。
 LLM_PROVIDER_REGISTRY = (
+    # Antigravity Bridge Principal
+    LLMProviderSpec(
+        "antigravity",
+        "Antigravity Bridge (Gemini 3.7 Flash / Puerto 8742)",
+        adapter="openai_compatible",
+        api_key_url="http://127.0.0.1:8742/v1",
+        default_model="gemini-3.7-flash-high",
+        default_base_url="http://127.0.0.1:8742/v1",
+        requires_api_key=False,
+        show_api_key=False,
+        requires_base_url=False,
+        show_base_url=False,
+    ),
     # 推荐 Provider
     LLMProviderSpec(
         "moonshot",

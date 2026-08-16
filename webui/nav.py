@@ -1,17 +1,18 @@
 """
-Módulo de Navegación Superior Ultra-Compacta (Dense Dashboard) — VideoPro
-Estilo 100% sobrio, ultra-compacto, monocromático, sin colores chillones ni emoticonos.
+Módulo de Navegación Superior y Tema Visual — VideoPro Studio
+Diseño profesional, moderno, oscuro (Dark IDE Theme) con alta legibilidad.
 """
 
 import streamlit as st
 
 NAV_VIEWS = [
-    ("main", "Generador"),
-    ("settings_projects", "Proyectos y Ajustes"),
-    ("ltx_flux", "LTX y FLUX"),
-    ("audio_studio", "Audio y Música"),
-    ("cinema_vault", "Galería y Vídeos"),
-    ("docs", "Guía Técnica")
+    ("main", "🎬 Generador"),
+    ("projects", "📁 Proyectos"),
+    ("settings", "⚙️ Ajustes"),
+    ("ltx_flux", "⚡ LTX y FLUX"),
+    ("audio_studio", "🎙️ Audio y Música"),
+    ("cinema_vault", "🎞️ Galería y Vídeos"),
+    ("docs", "📖 Guía Técnica")
 ]
 
 def render_top_navigation():
@@ -20,7 +21,7 @@ def render_top_navigation():
 
     active = st.session_state["active_view"]
 
-    # Inyección de estilos de máxima densidad y escala ultra-compacta
+    # Inyección de estilos CSS modernos, profesionales y legibles
     st.markdown("""
     <style>
     /* Ocultar elementos nativos de Streamlit */
@@ -32,185 +33,201 @@ def render_top_navigation():
         display: none !important;
     }
 
-    /* Base oscura y tamaño de fuente denso tipo IDE */
+    /* Tema oscuro profundo y tipografía refinada */
     html, body, [data-testid="stAppViewContainer"], .stApp {
-        background-color: #070a11 !important;
-        color: #94a3b8 !important;
-        font-size: 11px !important;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+        background-color: #070b14 !important;
+        color: #cbd5e1 !important;
+        font-size: 13px !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
     }
 
-    /* Padding de página mínimo */
+    /* Padding de página equilibrado */
     .block-container {
-        padding: 4px 8px !important;
+        padding: 8px 16px 24px 16px !important;
         max-width: 100% !important;
     }
 
-    /* Espaciado mínimo entre bloques */
+    /* Espaciado vertical natural */
     [data-testid="stVerticalBlock"] {
-        gap: 2px !important;
+        gap: 8px !important;
     }
     [data-testid="stHorizontalBlock"] {
-        gap: 4px !important;
+        gap: 10px !important;
     }
 
-    /* Títulos sobrios y ultra compactos */
+    /* Títulos sobrios y claros */
     h1, h2, h3, h4, h5, h6 {
-        color: #e2e8f0 !important;
+        color: #f1f5f9 !important;
         font-weight: 600 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        line-height: 1.2 !important;
+        margin: 4px 0 !important;
+        line-height: 1.3 !important;
     }
-    h1 { font-size: 12px !important; }
-    h2 { font-size: 11.5px !important; }
-    h3, h4 { font-size: 11px !important; }
-    p, span, div {
-        font-size: 11px !important;
-    }
+    h1 { font-size: 18px !important; }
+    h2 { font-size: 16px !important; }
+    h3 { font-size: 14px !important; }
+    h4 { font-size: 13px !important; }
+
     .stCaption, [data-testid="stCaptionContainer"] {
-        font-size: 10px !important;
+        font-size: 11.5px !important;
         color: #64748b !important;
-        margin: 0 !important;
-        padding: 0 !important;
     }
 
-    /* Etiquetas de controles ultra compactas */
+    /* Etiquetas de controles legibles y bien posicionadas */
     label, [data-testid="stWidgetLabel"] p {
-        font-size: 10.5px !important;
+        font-size: 12px !important;
         font-weight: 500 !important;
-        margin: 0 0 1px 0 !important;
-        padding: 0 !important;
-        line-height: 1 !important;
+        margin-bottom: 4px !important;
         color: #94a3b8 !important;
     }
 
-    /* Inputs, Selectboxes ultra compactos (22px de alto) */
+    /* Inputs y Selectboxes con altura estándar y texto visible */
     div[data-baseweb="input"],
     div[data-baseweb="base-input"],
     div[data-baseweb="select"] > div {
-        min-height: 22px !important;
-        height: 22px !important;
-        padding: 0 !important;
+        min-height: 36px !important;
+        height: 36px !important;
         background-color: #0f172a !important;
-        border-radius: 2px !important;
-        border: 1px solid #1e293b !important;
+        border-radius: 6px !important;
+        border: 1px solid #334155 !important;
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    div[data-baseweb="input"]:focus-within,
+    div[data-baseweb="base-input"]:focus-within,
+    div[data-baseweb="select"] > div:focus-within {
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25) !important;
     }
 
     div[data-baseweb="input"] input,
     div[data-baseweb="base-input"] input {
-        height: 20px !important;
-        font-size: 10.5px !important;
-        padding: 1px 5px !important;
-        color: #f1f5f9 !important;
+        height: 34px !important;
+        font-size: 13px !important;
+        padding: 4px 10px !important;
+        color: #f8fafc !important;
     }
 
     div[data-baseweb="select"] span {
-        font-size: 10.5px !important;
+        font-size: 12.5px !important;
+        color: #f8fafc !important;
     }
 
-    /* Botones ultra compactos (20px de alto, sobrios) */
-    .stButton button, [data-testid="stBaseButton-secondary"], [data-testid="stBaseButton-primary"] {
-        font-size: 10.5px !important;
-        height: 20px !important;
-        min-height: 20px !important;
-        padding: 0 6px !important;
-        line-height: 18px !important;
-        border-radius: 2px !important;
+    /* Textareas con scroll y altura cómoda */
+    .stTextArea textarea {
+        font-size: 12.5px !important;
+        padding: 8px 10px !important;
+        background-color: #0f172a !important;
+        border: 1px solid #334155 !important;
+        color: #f8fafc !important;
+        border-radius: 6px !important;
+    }
+
+    /* Botones estándar con buena interacción */
+    .stButton button, [data-testid="stBaseButton-secondary"] {
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 0 12px !important;
+        border-radius: 5px !important;
         border: 1px solid #334155 !important;
         background-color: #1e293b !important;
-        color: #cbd5e1 !important;
+        color: #e2e8f0 !important;
         box-shadow: none !important;
-        margin: 0 !important;
+        transition: all 0.15s ease !important;
     }
-    .stButton button:hover {
+
+    .stButton button:hover, [data-testid="stBaseButton-secondary"]:hover {
         background-color: #334155 !important;
-        color: #f8fafc !important;
+        color: #ffffff !important;
         border-color: #475569 !important;
     }
 
-    /* Pestañas ultra compactas (20px de alto) */
-    div[data-baseweb="tab-list"] {
-        gap: 2px !important;
-        margin-bottom: 2px !important;
-        border-bottom: 1px solid #1e293b !important;
+    [data-testid="stBaseButton-primary"] {
+        font-size: 12px !important;
+        font-weight: 600 !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 0 14px !important;
+        border-radius: 5px !important;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
+        border: 1px solid #3b82f6 !important;
+        color: #ffffff !important;
     }
+
+    [data-testid="stBaseButton-primary"]:hover {
+        background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+        box-shadow: 0 0 8px rgba(59, 130, 246, 0.4) !important;
+    }
+
+    /* Pestañas (Tabs) claras y bien separadas */
+    div[data-baseweb="tab-list"] {
+        gap: 6px !important;
+        margin-bottom: 8px !important;
+        border-bottom: 1px solid #1e293b !important;
+        padding-bottom: 2px !important;
+    }
+
     button[data-baseweb="tab"] {
-        font-size: 10.5px !important;
-        height: 20px !important;
-        min-height: 20px !important;
-        padding: 0 6px !important;
-        color: #64748b !important;
+        font-size: 12px !important;
+        font-weight: 500 !important;
+        height: 32px !important;
+        min-height: 32px !important;
+        padding: 0 12px !important;
+        color: #94a3b8 !important;
         background: transparent !important;
+        border-radius: 4px 4px 0 0 !important;
         border: none !important;
     }
+
+    button[data-baseweb="tab"]:hover {
+        color: #e2e8f0 !important;
+        background: rgba(255, 255, 255, 0.03) !important;
+    }
+
     button[data-baseweb="tab"][aria-selected="true"] {
-        color: #f8fafc !important;
-        border-bottom: 2px solid #64748b !important;
+        color: #38bdf8 !important;
+        border-bottom: 2px solid #38bdf8 !important;
         font-weight: 600 !important;
     }
 
-    /* Textareas compactas */
-    .stTextArea textarea {
-        font-size: 10.5px !important;
-        padding: 2px 4px !important;
-        background-color: #0f172a !important;
-        border: 1px solid #1e293b !important;
-        color: #f1f5f9 !important;
-        border-radius: 2px !important;
-    }
-
-    /* Contenedores ultra compactos */
+    /* Contenedores con borde */
     div[data-testid="stVerticalBlockBorderWrapper"] {
-        padding: 2px 4px !important;
-        border-radius: 2px !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
         border: 1px solid #1e293b !important;
-        background-color: #090e1a !important;
-    }
-
-    /* Métricas */
-    div[data-testid="stMetric"] {
-        padding: 1px 3px !important;
-    }
-    div[data-testid="stMetricValue"] {
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        color: #f8fafc !important;
-    }
-    div[data-testid="stMetricLabel"] {
-        font-size: 9.5px !important;
-        color: #64748b !important;
+        background-color: #0b1120 !important;
     }
 
     /* Separadores */
     hr {
-        margin: 2px 0 !important;
+        margin: 8px 0 !important;
         border-color: #1e293b !important;
     }
 
     /* Barra de navegación superior */
-    .top-bar-row {
+    .top-nav-container {
         display: flex;
         align-items: center;
-        gap: 4px;
-        padding-bottom: 3px;
-        margin-bottom: 3px;
+        gap: 6px;
+        padding: 4px 0 8px 0;
+        margin-bottom: 8px;
         border-bottom: 1px solid #1e293b;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    # 1 sola fila ultra compacta para la navegación
-    cols = st.columns([1.0, 1.3, 1.7, 1.3, 1.3, 1.4, 1.1])
+    # Barra superior de navegación moderna
+    cols = st.columns([1.1, 1.2, 1.2, 1.1, 1.3, 1.4, 1.4, 1.2], vertical_alignment="center")
     
     with cols[0]:
-        st.markdown("<div style='font-size:11px; font-weight:700; color:#e2e8f0; line-height:20px;'>VideoPro</div>", unsafe_allow_html=True)
+        st.markdown("<div style='font-size:13px; font-weight:800; background:linear-gradient(135deg,#38bdf8,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:28px;'>VideoPro</div>", unsafe_allow_html=True)
 
     for i, (view_key, view_label) in enumerate(NAV_VIEWS):
         is_active = (active == view_key)
         with cols[i + 1]:
-            label_text = f"• {view_label}" if is_active else view_label
-            if st.button(label_text, key=f"nav_btn_{view_key}", use_container_width=True):
+            btn_type = "primary" if is_active else "secondary"
+            if st.button(view_label, key=f"nav_btn_{view_key}", type=btn_type, use_container_width=True):
                 if st.session_state["active_view"] != view_key:
                     st.session_state["active_view"] = view_key
                     st.rerun()

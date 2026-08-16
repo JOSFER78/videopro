@@ -1,13 +1,13 @@
 from webui.nav import render_top_navigation
 from webui.views import (
+    view_projects,
+    view_settings,
     view_settings_projects,
     view_ltx_flux,
     view_audio_studio,
     view_cinema_vault,
     view_docs
 )
-
-from webui.nav import render_top_navigation
 import hashlib
 import html
 import json
@@ -1187,73 +1187,13 @@ def _render_pending_version_check():
 
 
 def _render_top_bar():
-    """渲染品牌、任务管理、设置和语言切换组成的页面顶部栏。"""
-    # 顶部栏分为品牌区和操作区两个独立区域。窄屏下由 Streamlit
-    # 将两个区域整体换行，操作区内部再根据剩余宽度自动换行。
+    """Renderiza el encabezado de marca de VideoPro de forma limpia y sobria."""
     with st.container(key="top_bar"):
-        brand_col, actions_col = st.columns(
-            [3.5, 2.0],
-            vertical_alignment="center",
-            gap="small",
-        )
-
-    with brand_col:
         update_snapshot = version_checker.poll_available_update(config.project_version)
         if update_snapshot.complete:
             _render_brand(update_snapshot.available_version)
         else:
             _render_pending_version_check()
-
-    with actions_col:
-        with st.container(
-            key="top_bar_actions",
-            horizontal=True,
-            horizontal_alignment="right",
-            vertical_alignment="center",
-            gap="small",
-            width="stretch",
-        ):
-            _render_task_manager_entry()
-
-            if st.button(
-                tr("Settings"),
-                key="open_settings_view_btn",
-                type="secondary",
-                icon=":material/settings:"
-            ):
-                st.session_state["active_view"] = "settings_projects"
-                st.rerun()
-
-            language_codes = list(locales.keys())
-            selected_index = 0
-            for i, code in enumerate(language_codes):
-                if code == st.session_state.get("ui_language", ""):
-                    selected_index = i
-
-            selected_language_code = st.selectbox(
-                "Language / 语言",
-                options=language_codes,
-                index=selected_index,
-                format_func=lambda code: locales[code].get("Language", code),
-                key="top_language_code_selector",
-                label_visibility="collapsed",
-                width=180,
-            )
-            if selected_language_code:
-                previous_language = st.session_state.get("ui_language", "")
-                if selected_language_code != previous_language:
-                    logger.info(
-                        "UI language changed by user: "
-                        f"previous_language={previous_language or '<empty>'}, "
-                        f"selected_language={selected_language_code}"
-                    )
-                    st.session_state["ui_language"] = selected_language_code
-                    # 浏览器自动识别只影响当前会话；只有用户主动切换下拉框时才
-                    # 写入 config.toml，后续新会话将优先使用该明确选择。
-                    _set_runtime_config("ui", "language", selected_language_code)
-                    _save_runtime_config()
-                    # 切换语言后强制刷新，避免 selectbox 继续展示旧语言文案。
-                    st.rerun()
 
 
 support_locales = [
@@ -2344,18 +2284,26 @@ def _render_video_settings(panel, params):
                 (tr("Sequential"), "sequential"),
                 (tr("Random"), "random"),
             ]
-            video_sources = [
-                (tr("Híbrido Inteligente (Stock + Fotos Reales + FLUX + Flow)"), "hybrid"),
-                (tr("Fotos & Noticias Reales del Día (Wikimedia / Google News)"), "real_news"),
-                (tr("Google Flow Playwright (Gemini Ultra Drones)"), "google_flow"),
-                (tr("FLUX 3 Nous AI Keyframes"), "flux"),
-                (tr("Pexels (Stock DB)"), "pexels"),
-                (tr("Pixabay (Stock DB)"), "pixabay"),
-                (tr("Coverr (Stock DB)"), "coverr"),
-                (tr("Local file"), "local"),
-            ]
+            from app.core.providers import registry as prov_reg
+            reg_data = prov_reg.load_registry()
 
-            saved_video_source_name = config.app.get("video_source", "pexels")
+            # Fuentes de vídeo dinámicas sincronizadas con la Matriz Maestra y Registro Central
+            video_sources = [
+                (tr("Híbrido Inteligente (Stock + Fotos Reales + FLUX + Flow)"), "hybrid")
+            ]
+            for p_id, p_info in reg_data.items():
+                if p_info.get("category") == "visual" and p_info.get("enabled", True):
+                    eng_id = p_info.get("source_engine", p_id)
+                    eng_label = p_info.get("label", p_info.get("name", p_id))
+                    if not any(v == eng_id for _, v in video_sources):
+                        video_sources.append((eng_label, eng_id))
+
+            if not any(v == "local" for _, v in video_sources):
+                video_sources.append((tr("Local file"), "local"))
+
+            saved_video_source_name = config.app.get("video_source", "hybrid")
+            if saved_video_source_name not in [v for _, v in video_sources]:
+                saved_video_source_name = video_sources[0][1]
 
             params.video_source = stable_selectbox(
                 tr("Video Source"),
@@ -2364,7 +2312,7 @@ def _render_video_settings(panel, params):
                 key="video_source_select",
                 format_func=lambda value: dict(
                     (v, label) for label, v in video_sources
-                )[value],
+                ).get(value, value),
             )
             _set_runtime_config("app", "video_source", params.video_source)
 
@@ -3358,23 +3306,38 @@ def _render_audio_settings(panel, params):
             _set_runtime_config("ui", "voice_mode", voice_mode)
             tts_mode_enabled = voice_mode == VOICE_MODE_TTS
 
-            # Provider 下拉只负责选择自动配音服务；无配音已经由上方模式控制，
-            # 不再作为 TTS Provider 混入列表，避免两个入口表达同一状态。
-            tts_servers = [
-                ("vibevoice", "VibeVoice 1.5B (Local Pro TTS - es-emilio)"),
-                ("azure-tts-v1", "Azure TTS V1 / EdgeTTS"),
-                ("azure-tts-v2", "Azure TTS V2"),
-                ("siliconflow", "SiliconFlow TTS"),
-                ("gemini-tts", "Google Gemini TTS"),
-                ("mimo-tts", "Xiaomi MiMo TTS"),
-                ("minimax-tts", "MiniMax TTS"),
-                ("elevenlabs", "ElevenLabs TTS"),
-                ("chatterbox", "Chatterbox TTS"),
-            ]
+            # Provider dinámico de voces sincronizado con la Matriz Maestra y Registro Central
+            from app.core.providers import registry as prov_reg
+            reg_voices = prov_reg.load_registry()
+
+            voice_mapping = {
+                "vibevoice_local": ("vibevoice", "VibeVoice 1.5B (Local Pro TTS - es-emilio)"),
+                "vibevoice_serverless": ("vibevoice", "VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool)"),
+                "vibevoice": ("vibevoice", "VibeVoice 1.5B (Neural Pro TTS)"),
+                "edge_tts": ("azure-tts-v1", "Edge-TTS Neural ($0 Microsoft Cloud)"),
+                "elevenlabs": ("elevenlabs", "ElevenLabs Cinema Voices"),
+                "fish_audio": ("fish_audio", "Fish Audio Neural"),
+                "minimax": ("minimax-tts", "MiniMax Speech 01"),
+                "kokoro_local": ("kokoro", "Kokoro TTS HD ($0 Local CPU Puerto 7892)"),
+                "kokoro": ("kokoro", "Kokoro TTS HD ($0 Local CPU Puerto 7892)"),
+            }
+
+            tts_servers = []
+            for p_id, p_info in reg_voices.items():
+                if p_info.get("category") == "voice" and p_info.get("enabled", True):
+                    if p_id in voice_mapping:
+                        eng_key, eng_lbl = voice_mapping[p_id]
+                        if not any(v == eng_key for v, _ in tts_servers):
+                            tts_servers.append((eng_key, p_info.get("label", eng_lbl)))
+                    else:
+                        tts_servers.append((p_id, p_info.get("label", p_info.get("name", p_id))))
+
+            if not tts_servers:
+                tts_servers.append(("azure-tts-v1", "Edge-TTS Neural ($0 Microsoft Cloud)"))
 
             tts_server_values = [server_value for server_value, _ in tts_servers]
             if saved_tts_server not in tts_server_values:
-                saved_tts_server = "azure-tts-v1"
+                saved_tts_server = tts_server_values[0]
 
             if tts_mode_enabled:
                 selected_tts_server = stable_selectbox(
@@ -3384,7 +3347,7 @@ def _render_audio_settings(panel, params):
                     key="tts_server_select",
                     format_func=lambda value: dict(
                         (v, label) for v, label in tts_servers
-                    )[value],
+                    ).get(value, value),
                 )
             else:
                 # 非自动配音模式不渲染 TTS 控件，但保留上次选择，切回后可以继续使用。
@@ -4516,8 +4479,11 @@ def _render_application():
     
     active_view = st.session_state.get("active_view", "main")
     
-    if active_view == "settings_projects" or active_view == "matriz" or active_view == "api_hub":
-        view_settings_projects.render_view()
+    if active_view == "projects" or active_view == "tasks":
+        view_projects.render_view()
+        return
+    elif active_view == "settings" or active_view == "settings_projects" or active_view == "matriz" or active_view == "api_hub":
+        view_settings.render_view()
         return
     elif active_view == "ltx_flux":
         view_ltx_flux.render_view()

@@ -1,0 +1,87 @@
+# VideoPro Studio — Plantilla de Configuración Segura (Sin Claves / Tokens)
+# Copia este archivo a config.toml y completa tus credenciales locales.
+
+log_level = "INFO"
+listen_host = "127.0.0.1"
+listen_port = 8080
+
+[app]
+hide_config = false
+edge_tts_timeout = 60
+tls_verify = true
+max_concurrent_tasks = 1
+max_queued_tasks = 50
+subtitle_provider = "edge"
+ffmpeg_path = "/usr/bin/ffmpeg"
+video_source = "hybrid"
+pexels_api_keys = []
+pixabay_api_keys = []
+coverr_api_keys = []
+twelvelabs_api_keys = []
+twelvelabs_rerank_terms = false
+match_materials_to_script = false
+material_directory = ""
+endpoint = ""
+sonilo_api_key = ""
+sonilo_base_url = "https://api.sonilo.com"
+sonilo_timeout = 600
+llm_provider = "Gemini (Google AI Studio)"
+openai_api_key = ""
+openai_base_url = ""
+openai_model_name = "gemini-3.7-flash-high"
+ollama_base_url = "http://127.0.0.1:11434/v1"
+ollama_model_name = "phi4-mini:latest"
+pollinations_api_key = ""
+pollinations_base_url = "https://gen.pollinations.ai/v1"
+pollinations_model_name = "openai-fast"
+deepseek_api_key = ""
+deepseek_base_url = "https://api.deepseek.com"
+deepseek_model_name = "deepseek-chat"
+gemini_api_key = ""
+gemini_model_name = "gemini-2.5-flash"
+groq_api_key = ""
+groq_base_url = "https://api.groq.com/openai/v1"
+groq_model_name = "llama-3.3-70b-versatile"
+azure_api_key = ""
+minimax_api_key = ""
+fal_api_key = ""
+siliconflow_api_key = ""
+fish_audio_api_key = ""
+elevenlabs_api_key = ""
+replicate_api_token = ""
+flowmusic_session = ""
+openrouter_api_key = ""
+pexels_api_key = ""
+pixabay_api_key = ""
+together_api_key = ""
+cerebras_api_key = ""
+anthropic_api_key = ""
+suno_api_key = ""
+whisper_provider = "Groq Whisper Cloud"
+subtitle_max_words = 2
+subtitle_style = "Vox Highlight (Amarillo Dinámico)"
+default_resolution = "1080x1920 (9:16 Vertical)"
+default_fps = 24
+ffmpeg_threads = 4
+s3_endpoint = ""
+s3_access_key = ""
+s3_bucket = "videopro-masters"
+s3_secret_key = ""
+auto_upload_r2 = false
+firebase_project_id = ""
+
+[whisper]
+model_size = "base"
+device = "cpu"
+compute_type = "int8"
+
+[ui]
+hide_log = false
+language = "es-ES"
+video_aspect = "9:16"
+
+[replicate]
+api_token = ""
+
+[serverless_pool]
+hf_tokens = []

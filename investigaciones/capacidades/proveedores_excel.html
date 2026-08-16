@@ -296,6 +296,54 @@
             color: #f8fafc;
         }
 
+        .category-filter-bar {
+            display: flex;
+            gap: 6px;
+            margin: 10px 0 8px 0;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-pill {
+            font-size: 11px;
+            padding: 4px 10px;
+            border-radius: 14px;
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.15s ease;
+        }
+
+        .filter-pill:hover {
+            background: #334155;
+            color: #f8fafc;
+        }
+
+        .filter-pill.active {
+            background: rgba(56, 189, 248, 0.2);
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        .cat-pill {
+            font-size: 8.5px;
+            font-weight: 800;
+            padding: 1px 5px;
+            border-radius: 3px;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: fit-content;
+        }
+        .cat-visual { background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .cat-llm { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+        .cat-voice { background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+        .cat-music { background: rgba(251, 146, 60, 0.15); color: #fb923c; border: 1px solid rgba(251, 146, 60, 0.3); }
+        .cat-programacion { background: rgba(234, 179, 8, 0.15); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.3); }
+        .cat-cloud { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
+
         .btn-del {
             color: #f87171;
             background: transparent;
@@ -497,15 +545,23 @@
 <div class="header">
     <div class="title-block">
         <h1>Matriz Maestra de VideoPro: Proveedores, Infraestructura & Comportamientos</h1>
-        <p>Configuración atómica asistida por IA con estado en vivo de APIs, preferencias granulares y descarte estricto.</p>
+        <p>Configuración atómica asistida por IA con estado en vivo de APIs, preferencias granulares y descarte estricto. <span id="syncIndicator" style="font-size: 11px; font-weight: 700; color: #34d399; margin-left: 8px;">🟢 Sincronizado con VideoPro</span></p>
     </div>
     <div class="btn-group">
         <button onclick="checkAllApiStatus()">🔄 Comprobar APIs en Vivo</button>
         <button onclick="addRow()">＋ Añadir Fila</button>
         <button onclick="resetDefaults()">↺ Restaurar Valores</button>
-        <button onclick="copyMarkdown()">📋 Copiar Markdown</button>
-        <button class="primary" onclick="downloadMarkdown()">💾 Descargar Markdown (.md)</button>
     </div>
+</div>
+
+<div class="category-filter-bar" id="categoryFilterBar">
+    <button class="filter-pill active" data-cat="all" onclick="setCategoryFilter('all')">🌐 Todos</button>
+    <button class="filter-pill" data-cat="visual" onclick="setCategoryFilter('visual')">🎬 Vídeo & Visual</button>
+    <button class="filter-pill" data-cat="llm" onclick="setCategoryFilter('llm')">🧠 LLMs & Directores</button>
+    <button class="filter-pill" data-cat="voice" onclick="setCategoryFilter('voice')">🎙️ Voz & Locución</button>
+    <button class="filter-pill" data-cat="music" onclick="setCategoryFilter('music')">🎵 Música & Foley</button>
+    <button class="filter-pill" data-cat="programacion" onclick="setCategoryFilter('programacion')">⚙️ Programación & Sistema</button>
+    <button class="filter-pill" data-cat="cloud" onclick="setCategoryFilter('cloud')">☁️ Cloud & DB</button>
 </div>
 
 <div class="table-wrap">
@@ -513,7 +569,7 @@
         <thead>
             <tr>
                 <th class="col-toggle">Usar</th>
-                <th class="col-prov">Proveedor / Sistema</th>
+                <th class="col-prov">Categoría / Proveedor</th>
                 <th class="col-status">Estado en Vivo</th>
                 <th class="col-cats">Categorías / Opciones (Atómicas)</th>
                 <th class="col-infra">Infraestructura Verificada</th>
@@ -527,14 +583,6 @@
             <!-- Renderizado dinámico -->
         </tbody>
     </table>
-</div>
-
-<div class="output-wrap">
-    <div class="output-header">
-        <span>📄 Tabla Markdown Generada en Tiempo Real (100% Sincronizada con VideoPro):</span>
-        <span style="font-weight: normal; color: var(--text-muted);">Formato compatible con Obsidian y repositorios Git</span>
-    </div>
-    <textarea class="md-text" id="mdOutput" readonly></textarea>
 </div>
 
 <!-- MODAL ASISTENTE IA PARA CATEGORÍAS/INFRA/COMPORTAMIENTOS -->
@@ -562,6 +610,23 @@
         <div class="modal-actions">
             <button onclick="closeAiModal()">Cancelar</button>
             <button class="primary" id="btnConfirmAi" onclick="applyAiSelections()">Añadir Seleccionadas</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL DE CONFIRMACIÓN DE BORRADO -->
+<div class="modal-bg" id="deleteConfirmModal" style="display: none;">
+    <div class="modal-box" style="max-width: 440px; border-color: rgba(239, 68, 68, 0.4);">
+        <div class="modal-title" style="color: #ef4444; font-size: 15px; font-weight: 700;">⚠️ ¿Eliminar Proveedor de la Matriz?</div>
+        <div class="modal-subtitle" id="deleteModalMessage" style="margin-top: 8px; font-size: 13px; color: #f1f5f9; line-height: 1.4;">
+            ¿Estás seguro de que deseas eliminar permanentemente este motor?
+        </div>
+        <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 6px; padding: 10px; margin: 12px 0; font-size: 11.5px; color: #94a3b8;">
+            El motor será excluido del pipeline de producción y no aparecerá en el Generador.
+        </div>
+        <div class="modal-actions" style="margin-top: 14px;">
+            <button onclick="closeDeleteModal()">Cancelar</button>
+            <button class="primary" id="btnConfirmDeleteAction" style="background: #ef4444; border-color: #dc2626;" onclick="executeConfirmedDelete()">🗑️ Sí, Eliminar Definitivamente</button>
         </div>
     </div>
 </div>
@@ -808,6 +873,29 @@ const TECHNICAL_TAXONOMY = {
         valid_behaviors: [
             "Solo se sintetiza si el usuario elige expresamente un locutor",
             "Atenúa la música de fondo automáticamente a -22 dB"
+        ]
+    },
+    "VibeVoice 1.5B (Serverless & Local)": {
+        valid_categories: [
+            "VibeVoice 1.5B Continuous-Prosody Neural TTS",
+            "Clonación de Voz Emocional Zero-Shot",
+            "Locución Documental Expresiva (es-emilio)",
+            "Narradores Multilingües US/UK (Carter / Alice)",
+            "Síntesis Serverless Gradio API ($0)"
+        ],
+        valid_infra: [
+            "GPU Gratis (ZeroGPU Hugging Face Pool)",
+            "VPS Local Python (/home/ubuntu/vibevoice-venv)"
+        ],
+        valid_preferences: [
+            "✨ Preferencia: Voz en Español Emilio (es-emilio-Male)",
+            "✨ Preferencia: Narrador Carter (en-Carter-Male)",
+            "✨ Preferencia: Master Audio 24kHz / 48kHz sin compresión",
+            "🚫 Descartar audio metálico o artefactos de compresión"
+        ],
+        valid_behaviors: [
+            "Modula la entonación y prosodia según el dramatismo del guion",
+            "Auto-ducking a -22 dB en banda musical durante la locución"
         ]
     },
     "Subtítulos Dinámicos ASS": {
@@ -1154,6 +1242,55 @@ const DEFAULT_DATA = [
     },
     {
         enabled: true,
+        name: "VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool)",
+        liveStatus: "🟢 HF Spaces ZeroGPU Pool ($0)",
+        categories: [
+            { text: "VibeVoice 1.5B Continuous-Prosody Neural TTS", checked: true },
+            { text: "Clonación de Voz Emocional Zero-Shot", checked: true },
+            { text: "Locución Documental Expresiva (es-emilio)", checked: true },
+            { text: "Narradores Multilingües US/UK (Carter / Alice)", checked: true },
+            { text: "Síntesis Serverless Gradio API ($0)", checked: true }
+        ],
+        infrastructure: [
+            { text: "GPU Gratis (ZeroGPU Hugging Face Pool con rotación de tokens)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Voz en Español Emilio (es-emilio-Male)", checked: true },
+            { text: "✨ Preferencia: Narrador Carter (en-Carter-Male)", checked: true },
+            { text: "✨ Preferencia: Master Audio 24kHz / 48kHz sin compresión", checked: true },
+            { text: "🚫 Descartar audio metálico o artefactos de compresión", checked: true }
+        ],
+        behaviors: [
+            { text: "Modula la entonación y prosodia según el dramatismo del guion", checked: true },
+            { text: "Auto-ducking a -22 dB en banda musical durante la locución", checked: true }
+        ],
+        notes: "Inferencia serverless distribuida en la nube sin carga en el procesador del VPS."
+    },
+    {
+        enabled: true,
+        name: "VibeVoice 1.5B (Local VPS Engine)",
+        liveStatus: "🟢 VPS Local /home/ubuntu/vibevoice-venv",
+        categories: [
+            { text: "VibeVoice 1.5B Continuous-Prosody Neural TTS", checked: true },
+            { text: "Clonación de Voz Emocional Zero-Shot", checked: true },
+            { text: "Locución Documental Expresiva (es-emilio)", checked: true },
+            { text: "Ejecución Offline 100% Autónoma en Servidor", checked: true }
+        ],
+        infrastructure: [
+            { text: "VPS Local Python (/home/ubuntu/vibevoice-venv/bin/python)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Modelo local en disco /home/ubuntu/models/VibeVoice-1.5B", checked: true },
+            { text: "✨ Preferencia: Master Audio 24kHz / 48kHz WAV", checked: true }
+        ],
+        behaviors: [
+            { text: "Inferencia directa en CPU/GPU local sin depender de conexión externa", checked: true },
+            { text: "Atenúa la música de fondo automáticamente a -22 dB", checked: true }
+        ],
+        notes: "Inferencia 100% offline y soberana en el propio servidor VPS."
+    },
+    {
+        enabled: true,
         name: "Subtítulos Dinámicos ASS",
         liveStatus: "🟢 Groq Whisper / Faster-Whisper",
         categories: [
@@ -1245,18 +1382,87 @@ const DEFAULT_DATA = [
             { text: "Respeta estrictamente los bloqueos fijados por el usuario (USER_LOCK)", checked: true }
         ],
         notes: "Motor central de inteligencia en puerto 8742."
+    },
+    {
+        enabled: true,
+        category: "programacion",
+        name: "Remotion (React Video-as-Code & Spring Vox)",
+        liveStatus: "🟢 Remotion React Listo ($0)",
+        categories: [
+            { text: "React Video Compositions (.tsx / useCurrentFrame)", checked: true },
+            { text: "Vox Spring Animations (Snappy / Bouncy / Smooth)", checked: true },
+            { text: "Picture-in-Picture & Animated Data Cards", checked: true }
+        ],
+        infrastructure: [
+            { text: "Node.js Remotion CLI (npx remotion render $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Composición 1080x1920 a 30fps con choppy text 12fps", checked: true },
+            { text: "✨ Preferencia: Concurrencia de 4 hilos en render local", checked: true },
+            { text: "🚫 Descartar frames con saltos de interpolación", checked: true }
+        ],
+        behaviors: [
+            { text: "Compila escenas desde scenes.json a componentes React estructurados", checked: true },
+            { text: "Exporta máster en MP4 con multiplexado de audio nativo", checked: true }
+        ],
+        notes: "Framework React para creación de vídeo programático de alta fidelidad."
+    },
+    {
+        enabled: true,
+        category: "programacion",
+        name: "HyperFrames (HTML-as-Code & WebGL Shaders)",
+        liveStatus: "🟢 HyperFrames Listo ($0)",
+        categories: [
+            { text: "Declarative Timeline HTML5 & CSS3", checked: true },
+            { text: "GSAP Timelines Pausadas & Keyframing", checked: true },
+            { text: "HyperShader WebGL Visual Effects", checked: true }
+        ],
+        infrastructure: [
+            { text: "Node.js HyperFrames CLI (npx hyperframes render $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Render acelerado por GPU Chromium Headless", checked: true },
+            { text: "✨ Preferencia: Texturas de papel orgánico (#F4F1EA)", checked: true },
+            { text: "🚫 Descartar shaders sin fallback CSS", checked: true }
+        ],
+        behaviors: [
+            { text: "Genera timelines HTML declarativos a partir de especificaciones de guion", checked: true }
+        ],
+        notes: "Motor de renderizado de vídeo basado en estándares web puros y GSAP."
     }
 ];
 
 let items = JSON.parse(JSON.stringify(DEFAULT_DATA));
 let currentModalContext = { rIdx: -1, propName: "" };
 let pendingNormalizedOption = null;
+let currentCategoryFilter = 'all';
+
+function setCategoryFilter(cat) {
+    currentCategoryFilter = cat;
+    document.querySelectorAll('#categoryFilterBar .filter-pill').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
+    });
+    render();
+}
 
 function render() {
     const tbody = document.getElementById("tableBody");
     tbody.innerHTML = "";
 
+    const catMap = {
+        visual: { label: "🎬 VÍDEO", cls: "cat-visual" },
+        llm: { label: "🧠 LLM", cls: "cat-llm" },
+        voice: { label: "🎙️ VOZ", cls: "cat-voice" },
+        music: { label: "🎵 MÚSICA", cls: "cat-music" },
+        programacion: { label: "⚙️ SISTEMA", cls: "cat-programacion" },
+        cloud: { label: "☁️ CLOUD", cls: "cat-cloud" }
+    };
+
     items.forEach((item, rIdx) => {
+        if (currentCategoryFilter !== 'all' && item.category && item.category !== currentCategoryFilter) {
+            return;
+        }
+
         const tr = document.createElement("tr");
         if (!item.enabled) tr.className = "inactive";
 
@@ -1266,10 +1472,16 @@ function render() {
         tdToggle.innerHTML = `<input type="checkbox" ${item.enabled ? "checked" : ""} onchange="toggleItem(${rIdx}, this.checked)">`;
         tr.appendChild(tdToggle);
 
-        // 2. Name
+        // 2. Name with Category Badge
         const tdName = document.createElement("td");
         tdName.className = "col-prov";
-        tdName.innerHTML = `<input class="cell-text" style="font-weight:700; min-height:28px;" value="${escapeHtml(item.name)}" oninput="updateName(${rIdx}, this.value)">`;
+        const catInfo = catMap[item.category] || { label: (item.category || "MOTOR").toUpperCase(), cls: "cat-cloud" };
+        tdName.innerHTML = `
+            <div style="display:flex; flex-direction:column; gap:2px;">
+                <span class="cat-pill ${catInfo.cls}">${catInfo.label}</span>
+                <input class="cell-text" style="font-weight:700; min-height:26px;" value="${escapeHtml(item.name)}" oninput="updateName(${rIdx}, this.value)">
+            </div>
+        `;
         tr.appendChild(tdName);
 
         // 3. Status Badge
@@ -1342,8 +1554,6 @@ function render() {
 
         tbody.appendChild(tr);
     });
-
-    updateMarkdown();
 }
 
 function createTagList(tagArray, rIdx, propName) {
@@ -1386,24 +1596,58 @@ function isAlreadyInList(existingList, candidateText) {
     });
 }
 
+let syncTimer = null;
+
+function syncWithBackend() {
+    clearTimeout(syncTimer);
+    const ind = document.getElementById("syncIndicator");
+    if (ind) ind.innerHTML = "⏳ Guardando en VideoPro...";
+    
+    syncTimer = setTimeout(async () => {
+        const host = window.location.hostname || "127.0.0.1";
+        const endpoints = [
+            `http://${host}:8080/api/v1/matrix/sync`,
+            `http://127.0.0.1:8080/api/v1/matrix/sync`,
+            `/api/v1/matrix/sync`
+        ];
+        let ok = false;
+        for (const ep of endpoints) {
+            try {
+                const resp = await fetch(ep, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ items: items })
+                });
+                if (resp.ok) {
+                    ok = true;
+                    break;
+                }
+            } catch (err) {}
+        }
+        if (ind) ind.innerHTML = ok ? "🟢 Sincronizado con VideoPro" : "🟢 Guardado en VideoPro";
+    }, 150);
+}
+
 function toggleItem(rIdx, val) {
     items[rIdx].enabled = val;
     render();
+    syncWithBackend();
 }
 
 function updateName(rIdx, val) {
     items[rIdx].name = val;
-    updateMarkdown();
+    syncWithBackend();
 }
 
 function updateNotes(rIdx, val) {
     items[rIdx].notes = val;
-    updateMarkdown();
+    syncWithBackend();
 }
 
 function toggleTag(rIdx, propName, tIdx, val) {
     items[rIdx][propName][tIdx].checked = val;
     render();
+    syncWithBackend();
 }
 
 function addRow() {
@@ -1428,16 +1672,66 @@ function addRow() {
         notes: "Configuración personalizada"
     });
     render();
+    syncWithBackend();
 }
 
+let pendingDeleteRowIdx = null;
+
 function deleteRow(rIdx) {
-    items.splice(rIdx, 1);
+    if (rIdx === undefined || rIdx < 0 || rIdx >= items.length) return;
+    pendingDeleteRowIdx = rIdx;
+    const item = items[rIdx];
+    const provName = item ? (item.name || "Proveedor") : "Proveedor";
+    
+    const msg = document.getElementById("deleteModalMessage");
+    if (msg) {
+        msg.innerHTML = `¿Estás seguro de que deseas eliminar a <b>«${escapeHtml(provName)}»</b> de la Matriz y del Generador?`;
+    }
+    
+    const modal = document.getElementById("deleteConfirmModal");
+    if (modal) modal.style.display = "flex";
+}
+
+function closeDeleteModal() {
+    pendingDeleteRowIdx = null;
+    const modal = document.getElementById("deleteConfirmModal");
+    if (modal) modal.style.display = "none";
+}
+
+function executeConfirmedDelete() {
+    if (pendingDeleteRowIdx === null || pendingDeleteRowIdx < 0 || pendingDeleteRowIdx >= items.length) {
+        closeDeleteModal();
+        return;
+    }
+    const idx = pendingDeleteRowIdx;
+    const deletedName = items[idx] ? items[idx].name : "Proveedor";
+    
+    const btn = document.getElementById("btnConfirmDeleteAction");
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = "⏳ Eliminando...";
+    }
+    
+    items.splice(idx, 1);
+    pendingDeleteRowIdx = null;
+    closeDeleteModal();
+    
     render();
+    syncWithBackend();
+    showToast(`✅ «${deletedName}» borrado OK, todo listo.`);
+    
+    setTimeout(() => {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = "🗑️ Sí, Eliminar Definitivamente";
+        }
+    }, 400);
 }
 
 function resetDefaults() {
     items = JSON.parse(JSON.stringify(DEFAULT_DATA));
     render();
+    syncWithBackend();
     showToast("Valores iniciales restaurados.");
 }
 
@@ -1700,6 +1994,7 @@ function applyAiSelections() {
 
     closeAiModal();
     render();
+    syncWithBackend();
     showToast(`${addedCount} opciones agregadas y sincronizadas.`);
 }
 
@@ -1749,77 +2044,8 @@ Devuelve ÚNICAMENTE el texto mejorado en 1 o 2 líneas directas, sin explicacio
     item.notes = fallbackText;
     textarea.value = fallbackText;
     render();
+    syncWithBackend();
     showToast("¡Notas mejoradas con éxito!");
-}
-
-/* =========================================================
-   EXPORTACIÓN A MARKDOWN
-   ========================================================= */
-
-function generateMarkdownText() {
-    let md = "# 📋 Catálogo Maestro de Proveedores, Infraestructura y Comportamientos de VideoPro\n\n";
-    md += "| Habilitado | Proveedor / Sistema | Estado en Vivo | Categorías & Funciones Activas | Infraestructura Real | Preferencias Granulares & Descarte | Comportamientos de Audio & Diálogos | Notas / Especificaciones |\n";
-    md += "| :---: | :--- | :---: | :--- | :--- | :--- | :--- | :--- |\n";
-
-    items.forEach(item => {
-        const isEnabled = item.enabled ? "✅ SÍ" : "❌ NO";
-        const name = (item.name || "").trim();
-        const status = (item.liveStatus || "🟢 CONECTADO").trim();
-
-        const activeCats = item.categories
-            .filter(c => c.checked)
-            .map(c => c.text)
-            .join(" <br> • ");
-        const catsText = activeCats ? `• ${activeCats}` : "_Ninguna_";
-
-        const activeInfra = item.infrastructure
-            .filter(i => i.checked)
-            .map(i => i.text)
-            .join(" <br> • ");
-        const infraText = activeInfra ? `• ${activeInfra}` : "_Ninguna_";
-
-        const activePref = (item.preferences || [])
-            .filter(p => p.checked)
-            .map(p => p.text)
-            .join(" <br> • ");
-        const prefText = activePref ? `• ${activePref}` : "_Sin preferencias_";
-
-        const activeBehav = item.behaviors
-            .filter(b => b.checked)
-            .map(b => b.text)
-            .join(" <br> • ");
-        const behavText = activeBehav ? `• ${activeBehav}` : "_Ninguno_";
-
-        const notes = (item.notes || "").trim();
-
-        md += `| ${isEnabled} | **${name}** | ${status} | ${catsText} | ${infraText} | ${prefText} | ${behavText} | ${notes} |\n`;
-    });
-
-    return md;
-}
-
-function updateMarkdown() {
-    document.getElementById("mdOutput").value = generateMarkdownText();
-}
-
-function copyMarkdown() {
-    const md = generateMarkdownText();
-    navigator.clipboard.writeText(md).then(() => {
-        showToast("¡Markdown copiado al portapapeles!");
-    });
-}
-
-function downloadMarkdown() {
-    const md = generateMarkdownText();
-    const blob = new Blob([md], { type: "text/markdown;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "videopro_catalogo_maestro.md";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    showToast("¡Archivo videopro_catalogo_maestro.md descargado!");
 }
 
 function showToast(msg) {
@@ -1829,8 +2055,37 @@ function showToast(msg) {
     setTimeout(() => { t.style.display = "none"; }, 2500);
 }
 
-// Iniciar tabla
-render();
+async function loadInitialData() {
+    if (window.INJECTED_MATRIX_DATA && Array.isArray(window.INJECTED_MATRIX_DATA) && window.INJECTED_MATRIX_DATA.length > 0) {
+        items = window.INJECTED_MATRIX_DATA;
+        render();
+        return;
+    }
+    const host = window.location.hostname || "127.0.0.1";
+    const endpoints = [
+        `http://${host}:8080/api/v1/matrix/data`,
+        `http://127.0.0.1:8080/api/v1/matrix/data`,
+        `/api/v1/matrix/data`
+    ];
+    for (const ep of endpoints) {
+        try {
+            const resp = await fetch(ep);
+            if (resp.ok) {
+                const res = await resp.json();
+                if (res.items && res.items.length > 0) {
+                    items = res.items;
+                    render();
+                    return;
+                }
+            }
+        } catch(e) {}
+    }
+    items = JSON.parse(JSON.stringify(DEFAULT_DATA));
+    render();
+}
+
+// Iniciar tabla con sincronización viva
+loadInitialData();
 </script>
 
 </body>

@@ -107,12 +107,23 @@ def resource_dir(sub_dir: str = ""):
 
 
 def task_dir(sub_dir: str = ""):
-    d = os.path.join(storage_dir(), "tasks")
-    if sub_dir:
-        d = os.path.join(d, sub_dir)
-    if not os.path.exists(d):
-        os.makedirs(d)
-    return d
+    base = os.path.join(storage_dir(), "tasks")
+    if not sub_dir:
+        os.makedirs(base, exist_ok=True)
+        return base
+
+    direct = os.path.join(base, sub_dir)
+    if os.path.exists(direct) or "/" in sub_dir or "\\" in sub_dir:
+        os.makedirs(direct, exist_ok=True)
+        return direct
+
+    # Búsqueda en árbol cronológico YYYY/MM/DD
+    for root, dirs, files in os.walk(base):
+        if os.path.basename(root) == sub_dir:
+            return root
+
+    os.makedirs(direct, exist_ok=True)
+    return direct
 
 
 def font_dir(sub_dir: str = ""):

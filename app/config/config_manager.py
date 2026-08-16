@@ -5,7 +5,8 @@ import tempfile
 from pathlib import Path
 import tomlkit
 
-CONFIG_PATH = Path("/home/ubuntu/MoneyPrinterTurbo/config.toml")
+_ROOT_DIR = Path(__file__).resolve().parent.parent.parent
+CONFIG_PATH = _ROOT_DIR / "config.toml"
 MASK_PLACEHOLDER = "••••••••••••••••"
 SENSITIVE_KEYS = {"api_key", "api_token", "secret_access_key", "tokens", "access_key_id", "replicate_api_token"}
 

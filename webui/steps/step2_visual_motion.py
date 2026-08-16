@@ -1,4 +1,7 @@
 import streamlit as st
+from app.core.providers import health_checker
+from app.core.providers import registry
+
 
 def render_step_2_visuals(params):
     st.markdown("""
@@ -14,18 +17,42 @@ def render_step_2_visuals(params):
 
     col1, col2 = st.columns(2, gap="medium")
 
+    # Consultar estado en vivo de proveedores
+    matrix = health_checker.get_all_providers_matrix()
+    nb_badge = "🟢 Listo" if matrix.get("nanobanana", {}).get("status") == "ok" else "🔴 Inactivo"
+    rep_badge = "🟢 H100" if matrix.get("replicate", {}).get("status") == "ok" else "⚪ ZeroGPU $0"
+    pex_badge = "🟢 4K" if matrix.get("pexels", {}).get("status") == "ok" else "⚪ Sin clave"
+
+    # Motores disponibles filtrados estrictamente por la Matriz de Proveedores
+    candidate_engines = {
+        "nanobanana": ("nanobanana", f"🍌 NanoBanana Pro 2 (Gemini Imagen 3 — 2K/4K) [{nb_badge}]"),
+        "flux": ("flux", f"FLUX 3 Video / Keyframes [{rep_badge}]"),
+        "ltx25": ("ltx25", f"LTX-2.5 MMDiT 22B (Audio + Vídeo 24fps) [{rep_badge}]"),
+        "google_flow": ("google_flow", "Google Flow (Playwright Navegador Web 4K) [🟢 Headless]"),
+        "pexels": ("pexels", f"Pexels & Pixabay Video Stock HD ($0) [{pex_badge}]"),
+        "real_news": ("real_news", "DuckDuckGo & Wikimedia Real News Images ($0) [🟢 Libre]")
+    }
+
+    engine_options = {}
+    for eng_id, (prov_key, label) in candidate_engines.items():
+        if registry.is_provider_enabled(prov_key):
+            engine_options[eng_id] = label
+
+    # Fallback seguro si el usuario desactivara todo
+    if not engine_options:
+        engine_options["nanobanana"] = "🍌 NanoBanana Pro 2 (Gemini Imagen 3 — 2K/4K)"
+
     with col1:
         st.markdown("##### 🛸 Motor de Generación Visual")
-        engine_options = {
-            "flux": "FLUX 3 Video / Keyframes (Replicate H100 / ZeroGPU)",
-            "ltx25": "LTX-2.5 MMDiT 22B (Audio + Vídeo 24fps)",
-            "google_flow": "Google Flow (Playwright Navegador Web 4K)",
-            "pexels": "Pexels & Pixabay Video Stock HD ($0)",
-            "real_news": "DuckDuckGo & Wikimedia Real News Images ($0)"
-        }
+        cur_keys = list(engine_options.keys())
+        prev_idx = 0
+        if getattr(params, "video_source", None) in cur_keys:
+            prev_idx = cur_keys.index(params.video_source)
+
         cur_engine = st.selectbox(
             "Seleccionar Motor Principal:",
-            options=list(engine_options.keys()),
+            options=cur_keys,
+            index=prev_idx,
             format_func=lambda x: engine_options[x],
             key="w_step2_engine"
         )
