@@ -6,7 +6,8 @@ from webui.views import (
     view_ltx_flux,
     view_audio_studio,
     view_cinema_vault,
-    view_docs
+    view_docs,
+    view_comfy_pipeline
 )
 import hashlib
 import html
@@ -3061,19 +3062,31 @@ def _render_background_music_settings(params, elevenlabs_api_key_rendered=False)
     """渲染背景音乐来源与音量设置，并返回本次待保存的上传文件。"""
     uploaded_bgm_file = None
     st.divider()
+    from app.core.providers import registry as prov_reg
+    reg_music = prov_reg.load_registry()
+
     bgm_options = [
         (tr("No Background Music"), ""),
         (tr("Random Background Music"), "random"),
         (tr("Custom Background Music"), "custom"),
-        (tr("Sonilo Background Music"), "sonilo"),
-        (tr("ElevenLabs Background Music"), "elevenlabs"),
     ]
+    for p_id, p_info in reg_music.items():
+        if p_info.get("category") == "music" and p_info.get("enabled", True):
+            source_key = p_info.get("source_engine", p_id)
+            label = p_info.get("label", p_info.get("name", p_id))
+            if not any(v == source_key for _, v in bgm_options):
+                bgm_options.append((label, source_key))
+
+    saved_bgm_type = config.app.get("bgm_type", "random")
+    if saved_bgm_type not in [v for _, v in bgm_options]:
+        saved_bgm_type = "random"
+
     selected_bgm_type = stable_selectbox(
         tr("Background Music Source"),
         options=[value for _, value in bgm_options],
-        default_value="random",
+        default_value=saved_bgm_type,
         key="bgm_type_select",
-        format_func=lambda value: dict((v, label) for label, v in bgm_options)[value],
+        format_func=lambda value: dict((v, label) for label, v in bgm_options).get(value, value),
     )
     params.bgm_type = selected_bgm_type
     if params.bgm_type == "sonilo":
@@ -4493,6 +4506,9 @@ def _render_application():
         return
     elif active_view == "cinema_vault" or active_view == "cinema" or active_view == "boveda":
         view_cinema_vault.render_view()
+        return
+    elif active_view == "pipeline" or active_view == "comfy":
+        view_comfy_pipeline.render_comfy_pipeline_view()
         return
     elif active_view == "docs":
         view_docs.render_view()

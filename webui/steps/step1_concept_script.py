@@ -65,25 +65,17 @@ def render_step_1_concept(params):
 
     # Consultar estado en vivo y LLMs habilitados en la Matriz
     matrix = health_checker.get_all_providers_matrix()
+    reg = registry.load_registry()
 
-    llm_candidates = {
-        "antigravity": f"🍌 Antigravity Bridge (Gemini 3.7 — Local 8742) [{matrix.get('openai', {}).get('badge', '🟢 Local')}]",
-        "gemini": f"Google Gemini (AI Studio Cloud) [{matrix.get('gemini', {}).get('badge', '⚪ Sin configurar')}]",
-        "groq": f"Groq Cloud (Llama 3.3 70B Fast) [{matrix.get('groq', {}).get('badge', '⚪ Sin configurar')}]",
-        "cloudflare_ai": f"Cloudflare Workers AI (Serverless Edge) [{matrix.get('cloudflare_ai', {}).get('badge', '⚪ Sin configurar')}]",
-        "openai": f"OpenAI Oficial Cloud (GPT-4o) [{matrix.get('openai', {}).get('badge', '⚪ Sin configurar')}]",
-        "anthropic": f"Anthropic Claude (3.5 Sonnet) [{matrix.get('anthropic', {}).get('badge', '⚪ Sin configurar')}]",
-        "deepseek": f"DeepSeek Oficial (R1/V3) [{matrix.get('deepseek', {}).get('badge', '⚪ Sin configurar')}]"
-    }
-
-    # Filtrar estrictamente por los habilitados en la Matriz
     enabled_llms = {}
-    for llm_id, label in llm_candidates.items():
-        if registry.is_provider_enabled(llm_id):
-            enabled_llms[llm_id] = label
+    for p_id, p_info in reg.items():
+        if p_info.get("category") == "llm" and p_info.get("enabled", True):
+            badge = matrix.get(p_id, {}).get("badge", "🟢 Activo")
+            lbl = p_info.get("label", p_info.get("name", p_id))
+            enabled_llms[p_id] = f"{lbl} [{badge}]"
 
     if not enabled_llms:
-        enabled_llms["antigravity"] = "🍌 Antigravity Bridge (Gemini 3.7 / Puerto 8742)"
+        enabled_llms["antigravity"] = "🍌 Antigravity Bridge (Gemini 3.7 / Puerto 8742) [🟢 Local]"
 
     with col1:
         st.markdown("##### 🧠 Director de Guion & Modelo de Lenguaje")

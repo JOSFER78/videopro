@@ -259,250 +259,97 @@ def verify_firebase() -> Dict[str, Any]:
 
 
 def get_all_providers_matrix(force: bool = False) -> Dict[str, Dict[str, Any]]:
-    """Genera la matriz completa de estado en vivo de todos los servicios del sistema."""
+    """Genera la matriz completa de estado en vivo basada estrictamente en los proveedores ACTIVOS del registro y Firestore."""
     if force:
         _HEALTH_CACHE.clear()
 
-    ffmpeg_ok = shutil.which("ffmpeg") is not None
-    p_7892 = is_port_open("127.0.0.1", 7892)
+    from app.core.providers import registry as prov_reg
+    reg = prov_reg.load_registry()
+    tombstones = prov_reg.load_deleted_providers()
+
+    matrix = {}
     p_8742 = is_port_open("127.0.0.1", 8742)
+    ffmpeg_ok = shutil.which("ffmpeg") is not None
+    npx_ok = shutil.which("npx") is not None
 
-    return {
-        # 1. Directores LLM
-        "gemini": {
-            "name": "Google Gemini (AI Studio)",
-            "category": "llm",
-            **verify_gemini(config.app.get("gemini_api_key", ""))
-        },
-        "groq": {
-            "name": "Groq Cloud (Llama 3.3 70B)",
-            "category": "llm",
-            **verify_groq(config.app.get("groq_api_key", ""))
-        },
-        "antigravity": {
-            "name": "Antigravity Bridge & OpenAI (Gemini 3.7 / 8742)",
-            "category": "llm",
-            "status": "ok" if p_8742 else "empty",
-            "badge": "🟢 Bridge Online (8742)" if p_8742 else "⚪ Bridge 8742 Inactivo",
-            "message": "Director local sin consumo de tokens ($0)" if p_8742 else "Puerto 8742"
-        },
-        "openai": {
-            "name": "Antigravity Bridge & OpenAI (Gemini 3.7 / 8742)",
-            "category": "llm",
-            "status": "ok" if p_8742 else "empty",
-            "badge": "🟢 Bridge Online (8742)" if p_8742 else "⚪ Sin configurar",
-            "message": "Director principal local / OpenAI"
-        },
-        "anthropic": {
-            "name": "Anthropic Claude (3.5 Sonnet)",
-            "category": "llm",
-            "status": "ok" if config.app.get("anthropic_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("anthropic_api_key") else "⚪ Sin configurar",
-            "message": "Director Literario"
-        },
-        "deepseek": {
-            "name": "DeepSeek Oficial (R1/V3)",
-            "category": "llm",
-            "status": "ok" if config.app.get("deepseek_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("deepseek_api_key") else "⚪ Sin configurar",
-            "message": "Cadena de Razonamiento"
-        },
-        "cloudflare_ai": {
-            "name": "Cloudflare Workers AI (Llama/FLUX)",
-            "category": "llm",
-            **verify_cloudflare_ai()
-        },
-        "siliconflow": {
-            "name": "SiliconFlow & ModelScope",
-            "category": "llm",
-            "status": "ok" if config.app.get("siliconflow_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("siliconflow_api_key") else "⚪ Sin configurar",
-            "message": "Pasarela Serverless"
-        },
+    for p_id, p_info in reg.items():
+        if p_id in tombstones:
+            continue
+        
+        name = p_info.get("name", p_id)
+        cat = p_info.get("category", "")
+        infra = p_info.get("infra_type", "cloud")
+        is_enabled = bool(p_info.get("enabled", True))
+        api_field = p_info.get("api_key_field")
+        api_val = config.app.get(api_field, "") if api_field else ""
 
-        # 2. Visual, Keyframes & Vídeo
-        "nanobanana": {
-            "name": "NanoBanana Pro 2 (Gemini Imagen 3)",
-            "category": "visual",
-            **verify_antigravity_bridge(config.app.get("antigravity_endpoint", "http://127.0.0.1:8742/v1"))
-        },
-        "flux_zerogpu": {
-            "name": "FLUX 3 Video (Serverless ZeroGPU Cloud Pool)",
-            "category": "visual",
-            "status": "ok",
-            "badge": "🟢 ZeroGPU Pool Listo ($0)",
-            "message": "Pool serverless Hugging Face"
-        },
-        "flux_replicate": {
-            "name": "FLUX 3 Video (Replicate H100 Dedicated GPU)",
-            "category": "visual",
-            **verify_replicate(config.app.get("replicate_api_token", ""))
-        },
-        "replicate": {
-            "name": "Replicate FLUX / LTX (H100)",
-            "category": "visual",
-            **verify_replicate(config.app.get("replicate_api_token", ""))
-        },
-        "ltx25": {
-            "name": "LTX-2.5 MMDiT 22B (Audio + Vídeo 24fps)",
-            "category": "visual",
-            **verify_replicate(config.app.get("replicate_api_token", ""))
-        },
-        "fal_ai": {
-            "name": "Fal.ai Fast Diffusion",
-            "category": "visual",
-            **verify_fal(config.app.get("fal_api_key", ""))
-        },
-        "fal": {
-            "name": "Fal.ai Fast Diffusion",
-            "category": "visual",
-            **verify_fal(config.app.get("fal_api_key", ""))
-        },
-        "pexels": {
-            "name": "Pexels 4K Video Stock",
-            "category": "visual",
-            **verify_pexels(config.app.get("pexels_api_key", "") or (config.app.get("pexels_api_keys", [""])[0] if config.app.get("pexels_api_keys") else ""))
-        },
-        "pixabay": {
-            "name": "Pixabay Video Stock HD",
-            "category": "visual",
-            "status": "ok" if config.app.get("pixabay_api_key") else "empty",
-            "badge": "🟢 Configurado" if config.app.get("pixabay_api_key") else "⚪ Sin configurar",
-            "message": "Stock Libre $0"
-        },
-        "google_flow": {
-            "name": "Google Flow (Playwright Navegador Web 4K)",
-            "category": "visual",
-            "status": "ok",
-            "badge": "🟢 Playwright Web Listo ($0)",
-            "message": "Automatización Chrome CDP en flow.google.com ($0)"
-        },
-        "real_news": {
-            "name": "DuckDuckGo & Wikimedia Real News",
-            "category": "visual",
-            "status": "ok",
-            "badge": "🟢 Ingestión Web Lista ($0)",
-            "message": "Fotoperiodismo en tiempo real libre"
-        },
-        "hf_pool": {
-            "name": "Hugging Face ZeroGPU",
-            "category": "visual",
-            "status": "ok",
-            "badge": "🟢 ZeroGPU Pool Listo",
-            "message": "Tokens configurados"
-        },
+        if not is_enabled:
+            matrix[p_id] = {
+                "name": name,
+                "category": cat,
+                "status": "disabled",
+                "badge": "⚪ Inactivo (Desactivado)",
+                "message": "Deshabilitado por el usuario en la Matriz"
+            }
+            continue
 
-        # 3. Audio & Voz
-        "vibevoice_serverless": {
-            "name": "VibeVoice 1.5B (Serverless ZeroGPU Pool)",
-            "category": "voice",
-            "status": "ok",
-            "badge": "🟢 ZeroGPU Cloud $0",
-            "message": "Inferencia distribuida en Hugging Face ZeroGPU"
-        },
-        "vibevoice": {
-            "name": "VibeVoice 1.5B (Serverless ZeroGPU & Local)",
-            "category": "voice",
-            "status": "ok",
-            "badge": "🟢 ZeroGPU Cloud $0",
-            "message": "Inferencia distribuida"
-        },
-        "edge_tts": {
-            "name": "Edge-TTS Neural (Microsoft Cloud Serverless)",
-            "category": "voice",
-            "status": "ok",
-            "badge": "🟢 Neural Cloud $0",
-            "message": "Locución neural de alta fluidez"
-        },
-        "elevenlabs": {
-            "name": "ElevenLabs Cinema Voices",
-            "category": "voice",
-            **verify_elevenlabs(config.app.get("elevenlabs_api_key", ""))
-        },
-        "fish_audio": {
-            "name": "Fish Audio API",
-            "category": "voice",
-            "status": "ok" if config.app.get("fish_audio_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("fish_audio_api_key") else "⚪ Sin configurar",
-            "message": "Clonación neural de voz"
-        },
-        "minimax": {
-            "name": "MiniMax Speech 01",
-            "category": "voice",
-            "status": "ok" if config.app.get("minimax_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("minimax_api_key") else "⚪ Sin configurar",
-            "message": "Voz dramática multilingüe"
-        },
+        # Verificación dinámica en vivo
+        if p_id in ("antigravity", "nanobanana"):
+            status_info = verify_antigravity_bridge(config.app.get("antigravity_endpoint", "http://127.0.0.1:8742/v1"))
+        elif p_id == "cloudflare_ai":
+            status_info = verify_cloudflare_ai()
+        elif p_id == "elevenlabs":
+            status_info = verify_elevenlabs(api_val)
+        elif p_id == "pexels":
+            status_info = verify_pexels(api_val)
+        elif p_id in ("replicate", "flux_replicate", "ltx25"):
+            status_info = verify_replicate(api_val)
+        elif p_id == "r2_storage":
+            status_info = verify_cloud_storage()
+        elif p_id == "firebase_db":
+            status_info = verify_firebase()
+        elif p_id in ("ffmpeg_core", "ffmpeg"):
+            status_info = {
+                "status": "ok" if ffmpeg_ok else "error",
+                "badge": "🟢 FFmpeg 4K Nativo" if ffmpeg_ok else "🔴 FFmpeg No encontrado",
+                "message": "Ensamble, transiciones y ducking"
+            }
+        elif p_id in ("remotion_engine", "hyperframes_engine"):
+            status_info = {
+                "status": "ok" if npx_ok else "error",
+                "badge": "🟢 Motor Listo ($0)" if npx_ok else "🔴 Node/npx No encontrado",
+                "message": p_info.get("description", "Listo")
+            }
+        elif infra in ("local", "serverless", "local_headless"):
+            status_info = {
+                "status": "ok",
+                "badge": "🟢 ZeroGPU / Local ($0)",
+                "message": p_info.get("description", "Inferencia distribuida $0")
+            }
+        elif api_field:
+            if api_val:
+                status_info = {
+                    "status": "ok",
+                    "badge": "🟢 Configurado",
+                    "message": f"Clave activa para {name}"
+                }
+            else:
+                status_info = {
+                    "status": "empty",
+                    "badge": "⚪ Sin configurar",
+                    "message": f"Falta clave API en Ajustes"
+                }
+        else:
+            status_info = {
+                "status": "ok",
+                "badge": "🟢 Operativo",
+                "message": p_info.get("description", "Operativo")
+            }
 
-        # 4. Música & Audio
-        "flowmusic": {
-            "name": "Google Flow Music (Lyria 3)",
-            "category": "music",
-            "status": "ok",
-            "badge": "🟢 Biblioteca & Web $0",
-            "message": "Bandas sonoras cinemáticas y foley por escena"
-        },
-        "suno": {
-            "name": "Suno AI API (v3 / v4)",
-            "category": "music",
-            "status": "ok" if config.app.get("suno_api_key") else "empty",
-            "badge": "🟢 Clave Configurada" if config.app.get("suno_api_key") else "⚪ Sin configurar",
-            "message": "Composición musical completa"
-        },
-
-        # 5. Programación, Subtítulos, Remotion & Ensamblaje
-        "vox_subtitles": {
-            "name": "Subtítulos Dinámicos Vox Style",
-            "category": "programacion",
-            "status": "ok",
-            "badge": "🟢 Motor ASS Vox ($0)",
-            "message": "Animación dinámica palabra por palabra"
-        },
-        "whisper_stt": {
-            "name": "Whisper STT (Word Timestamps)",
-            "category": "programacion",
-            "status": "ok",
-            "badge": "🟢 Whisper Local ($0)",
-            "message": "Alineación fonética milimétrica"
-        },
-        "ffmpeg_core": {
-            "name": "Motor de Ensamblaje FFmpeg + MoviePy",
-            "category": "programacion",
-            "status": "ok" if ffmpeg_ok else "error",
-            "badge": "🟢 FFmpeg 4K Nativo" if ffmpeg_ok else "🔴 FFmpeg No encontrado",
-            "message": "Ensamble, transiciones y ducking a -22dB"
-        },
-        "ffmpeg": {
-            "name": "Motor de Render FFmpeg + MoviePy",
-            "category": "programacion",
-            "status": "ok" if ffmpeg_ok else "error",
-            "badge": "🟢 FFmpeg 4K Nativo" if ffmpeg_ok else "🔴 FFmpeg No encontrado",
-            "message": "Ensamble, transiciones y ducking"
-        },
-        "remotion_engine": {
-            "name": "Remotion (React Video-as-Code & Spring Vox)",
-            "category": "programacion",
-            "status": "ok" if shutil.which("npx") else "error",
-            "badge": "🟢 Remotion React Listo ($0)" if shutil.which("npx") else "🔴 Node/npx No encontrado",
-            "message": "Composiciones React (.tsx) y tarjetas cinéticas Vox"
-        },
-        "hyperframes_engine": {
-            "name": "HyperFrames (HTML-as-Code & WebGL Shaders)",
-            "category": "programacion",
-            "status": "ok" if shutil.which("npx") else "error",
-            "badge": "🟢 HyperFrames Listo ($0)" if shutil.which("npx") else "🔴 Node/npx No encontrado",
-            "message": "Timelines declarativos HTML5, GSAP y Shaders"
-        },
-
-        # 6. Cloud & DB
-        "r2_storage": {
-            "name": "Cloudflare R2 Object Storage",
-            "category": "cloud",
-            **verify_cloud_storage()
-        },
-        "firebase_db": {
-            "name": "Firebase Firestore & Hosting",
-            "category": "cloud",
-            **verify_firebase()
+        matrix[p_id] = {
+            "name": name,
+            "category": cat,
+            **status_info
         }
-    }
+
+    return matrix

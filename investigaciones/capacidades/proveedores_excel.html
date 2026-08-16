@@ -1218,30 +1218,7 @@ const DEFAULT_DATA = [
     },
     {
         enabled: true,
-        name: "Kokoro HD (Español)",
-        liveStatus: "🟢 Puerto 7892 (CPU $0)",
-        categories: [
-            { text: "Kokoro-82M ONNX High-Fidelity 24kHz Text-to-Speech", checked: true },
-            { text: "Locución en Off / Narrador", checked: true },
-            { text: "Voz Documental (Dora / Santiago)", checked: true },
-            { text: "Voz Dinámica (Alex)", checked: true }
-        ],
-        infrastructure: [
-            { text: "CPU Local Servidor ($0 Sin Coste en puerto 7892)", checked: true }
-        ],
-        preferences: [
-            { text: "✨ Preferencia: Voces en Español (Dora / Santiago / Alex)", checked: true },
-            { text: "✨ Preferencia: Síntesis en 24kHz High-Fidelity", checked: true },
-            { text: "🚫 Descartar voces sintéticas robotizadas (8kHz/16kHz)", checked: true }
-        ],
-        behaviors: [
-            { text: "Solo se sintetiza si el usuario elige expresamente un locutor", checked: true },
-            { text: "Atenúa la música de fondo automáticamente a -22 dB", checked: true }
-        ],
-        notes: "Totalmente gratuito sin consumo de API."
-    },
-    {
-        enabled: true,
+        category: "voice",
         name: "VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool)",
         liveStatus: "🟢 HF Spaces ZeroGPU Pool ($0)",
         categories: [
@@ -1265,29 +1242,6 @@ const DEFAULT_DATA = [
             { text: "Auto-ducking a -22 dB en banda musical durante la locución", checked: true }
         ],
         notes: "Inferencia serverless distribuida en la nube sin carga en el procesador del VPS."
-    },
-    {
-        enabled: true,
-        name: "VibeVoice 1.5B (Local VPS Engine)",
-        liveStatus: "🟢 VPS Local /home/ubuntu/vibevoice-venv",
-        categories: [
-            { text: "VibeVoice 1.5B Continuous-Prosody Neural TTS", checked: true },
-            { text: "Clonación de Voz Emocional Zero-Shot", checked: true },
-            { text: "Locución Documental Expresiva (es-emilio)", checked: true },
-            { text: "Ejecución Offline 100% Autónoma en Servidor", checked: true }
-        ],
-        infrastructure: [
-            { text: "VPS Local Python (/home/ubuntu/vibevoice-venv/bin/python)", checked: true }
-        ],
-        preferences: [
-            { text: "✨ Preferencia: Modelo local en disco /home/ubuntu/models/VibeVoice-1.5B", checked: true },
-            { text: "✨ Preferencia: Master Audio 24kHz / 48kHz WAV", checked: true }
-        ],
-        behaviors: [
-            { text: "Inferencia directa en CPU/GPU local sin depender de conexión externa", checked: true },
-            { text: "Atenúa la música de fondo automáticamente a -22 dB", checked: true }
-        ],
-        notes: "Inferencia 100% offline y soberana en el propio servidor VPS."
     },
     {
         enabled: true,
@@ -1728,11 +1682,21 @@ function executeConfirmedDelete() {
     }, 400);
 }
 
-function resetDefaults() {
-    items = JSON.parse(JSON.stringify(DEFAULT_DATA));
+async function resetDefaults() {
+    showToast("Recargando datos desde Firebase Firestore...");
+    try {
+        const resp = await fetch("http://127.0.0.1:8080/api/v1/matrix/data");
+        if (resp.ok) {
+            const data = await resp.json();
+            if (data.items && data.items.length > 0) {
+                items = data.items;
+                render();
+                showToast("Datos recargados desde Firestore.");
+                return;
+            }
+        }
+    } catch(e) {}
     render();
-    syncWithBackend();
-    showToast("Valores iniciales restaurados.");
 }
 
 async function checkAllApiStatus() {

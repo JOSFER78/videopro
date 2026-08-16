@@ -7,6 +7,7 @@ import streamlit as st
 
 NAV_VIEWS = [
     ("main", "🎬 Generador"),
+    ("pipeline", "🎛️ Pipeline ComfyUI"),
     ("projects", "📁 Proyectos"),
     ("settings", "⚙️ Ajustes"),
     ("ltx_flux", "⚡ LTX y FLUX"),
@@ -218,7 +219,8 @@ def render_top_navigation():
     """, unsafe_allow_html=True)
 
     # Barra superior de navegación moderna
-    cols = st.columns([1.1, 1.2, 1.2, 1.1, 1.3, 1.4, 1.4, 1.2], vertical_alignment="center")
+    col_widths = [1.0] + [1.25] * len(NAV_VIEWS)
+    cols = st.columns(col_widths, vertical_alignment="center")
     
     with cols[0]:
         st.markdown("<div style='font-size:13px; font-weight:800; background:linear-gradient(135deg,#38bdf8,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:28px;'>VideoPro</div>", unsafe_allow_html=True)

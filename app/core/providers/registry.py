@@ -147,31 +147,89 @@ DEFAULT_PROVIDERS = {
         ],
         "notes": "Modelo de 22B parámetros con audio integrado a 48kHz."
     },
-    "fal_ai": {
-        "id": "fal_ai",
-        "name": "Fal.ai (FLUX Schnell / FLUX Pro)",
+
+    "wan21": {
+        "id": "wan21",
+        "name": "Wan 2.1 Video (Alibaba DiT 14B / 1.3B)",
+        "category": "visual",
+        "infra_type": "serverless",
+        "enabled": True,
+        "label": "Wan 2.1 Video (Alibaba DiT 14B Serverless $0)",
+        "source_engine": "wan21",
+        "description": "Diffusion Transformer (DiT) SOTA de Alibaba Cloud para vídeo 1080p, texto legible y alta coherencia temporal.",
+        "api_key_field": "hf_token",
+        "doc_link": "https://huggingface.co/Wan-AI/Wan2.1-T2V-14B",
+        "doc_link_text": "Wan 2.1 en HuggingFace ↗",
+        "categories": [
+            {"text": "Wan 2.1 DiT 14B / 1.3B Video Diffusion", "checked": True},
+            {"text": "Renderizado de Texto Legible en Vídeo", "checked": True},
+            {"text": "Resolución 1080p Cinemática 24fps", "checked": True}
+        ],
+        "infrastructure": [
+            {"text": "Serverless ZeroGPU Pool / ComfyUI-WanVideoWrapper", "checked": True}
+        ],
+        "preferences": [
+            {"text": "✨ Preferencia: Wan2.1-T2V-14B Calidad Máster", "checked": True},
+            {"text": "✨ Preferencia: Tasa 24fps", "checked": True}
+        ],
+        "behaviors": [
+            {"text": "Procesamiento serverless en espacios HuggingFace ZeroGPU", "checked": True}
+        ],
+        "notes": "Modelo DiT de última generación de Alibaba Cloud."
+    },
+    "minimax_h3": {
+        "id": "minimax_h3",
+        "name": "MiniMax H3 / Hailuo-02 (Audio + Vídeo)",
         "category": "visual",
         "infra_type": "cloud",
         "enabled": True,
-        "label": "Fal.ai FLUX Schnell & Pro",
-        "source_engine": "fal",
-        "description": "Inferencia de baja latencia para generación de escenas fotográficas y vídeo.",
-        "api_key_field": "fal_api_key",
-        "doc_link": "https://fal.ai/dashboard/keys",
-        "doc_link_text": "Consola Fal.ai ↗",
+        "label": "MiniMax H3 / Hailuo-02 (Audio Estéreo + Vídeo)",
+        "source_engine": "minimax_h3",
+        "description": "Generación cinemática de vídeo con audio estéreo nativo y dinámicas de movimiento humano complejas.",
+        "api_key_field": "minimax_api_key",
+        "doc_link": "https://www.minimax.io/",
+        "doc_link_text": "Consola MiniMax ↗",
         "categories": [
-            {"text": "FLUX Schnell Generación Instantánea", "checked": True}
+            {"text": "MiniMax Hailuo-02 & H3 Open Weights", "checked": True},
+            {"text": "Audio Estéreo Nativo Integrado", "checked": True},
+            {"text": "Turbo LoRA 4 Steps Acelerado", "checked": True}
         ],
         "infrastructure": [
-            {"text": "Fal.ai Serverless Cloud GPU", "checked": True}
+            {"text": "MiniMax Cloud API / ComfyUI-MiniMaxH3-Easy", "checked": True}
         ],
         "preferences": [
-            {"text": "✨ Preferencia: Generación a 1080p", "checked": True}
+            {"text": "✨ Preferencia: Turbo LoRA 4 Steps para alta velocidad", "checked": True}
         ],
         "behaviors": [
-            {"text": "Procesamiento acelerado", "checked": True}
+            {"text": "Genera sonido ambiental envolvente junto a la imagen", "checked": True}
         ],
-        "notes": "Pasarela de inferencia ultra-rápida de modelos FLUX."
+        "notes": "Modelo con audio y vídeo unificado de MiniMax."
+    },
+    "seedance": {
+        "id": "seedance",
+        "name": "SeaDance 2.5 (Coreografía Cinemática)",
+        "category": "visual",
+        "infra_type": "serverless",
+        "enabled": True,
+        "label": "SeaDance 2.5 (Coreografía y Trayectoria)",
+        "source_engine": "seedance",
+        "description": "Coreografía espacial de planos secuencia y control de trayectoria de cámara.",
+        "doc_link": "https://github.com/Seedance",
+        "doc_link_text": "SeaDance 2.5 ↗",
+        "categories": [
+            {"text": "Control de Movimiento Cinemático 3D", "checked": True},
+            {"text": "Planos Secuencia Continuos", "checked": True}
+        ],
+        "infrastructure": [
+            {"text": "Inferencia Serverless Distribuida", "checked": True}
+        ],
+        "preferences": [
+            {"text": "✨ Preferencia: Trayectoria orbital suave", "checked": True}
+        ],
+        "behaviors": [
+            {"text": "Estabilización de cámara en giros dinámicos", "checked": True}
+        ],
+        "notes": "Especialista en movimiento y física de personajes."
     },
     "pexels": {
         "id": "pexels",
@@ -282,68 +340,7 @@ DEFAULT_PROVIDERS = {
         "behaviors": [
             {"text": "Efecto Ken Burns sutil (Paneo y Zoom 2.5D)", "checked": True}
         ],
-        "notes": "Imágenes fácticas reales para noticias e historia."
-    },
-
     # --- 2. DIRECTORES LLM ---
-    "gemini": {
-        "id": "gemini",
-        "name": "Google Gemini (AI Studio Cloud)",
-        "category": "llm",
-        "infra_type": "cloud",
-        "enabled": True,
-        "label": "Gemini 2.5 Flash / Gemini 3.7 Flash",
-        "description": "Director principal en la nube: guiones multimodales de alta coherencia a coste $0 en tier gratuito.",
-        "api_key_field": "gemini_api_key",
-        "model_field": "gemini_model_name",
-        "model_default": "gemini-2.5-flash",
-        "model_options": ["gemini-2.5-flash", "gemini-2.5-pro", "gemini-3.7-flash", "gemini-1.5-pro"],
-        "doc_link": "https://aistudio.google.com/app/apikey",
-        "doc_link_text": "Obtener clave Google AI Studio ↗",
-        "categories": [
-            {"text": "Gemini 2.5 / 3.7 Multimodal", "checked": True},
-            {"text": "Análisis Contextual Amplio (1M tokens)", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "Google AI Studio Cloud Direct", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Modo Flash para alta velocidad", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Estructuración de guiones de 3 a 5 párrafos", "checked": True}
-        ],
-        "notes": "Director en la nube oficial de Google AI Studio."
-    },
-    "groq": {
-        "id": "groq",
-        "name": "Groq Cloud (Llama 3.3 70B Fast)",
-        "category": "llm",
-        "infra_type": "cloud",
-        "enabled": True,
-        "label": "Groq Llama 3.3 70B Versatile",
-        "description": "Inferencia ultra-rápida a +300 tokens/s en chips LPU y transcripción Whisper sin latencia.",
-        "api_key_field": "groq_api_key",
-        "model_field": "groq_model_name",
-        "model_default": "llama-3.3-70b-versatile",
-        "model_options": ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768", "gemma2-9b-it"],
-        "doc_link": "https://console.groq.com/keys",
-        "doc_link_text": "Obtener clave Groq ↗",
-        "categories": [
-            {"text": "Inferencia LPU Ultra-Rápida (+300 tokens/s)", "checked": True},
-            {"text": "Llama 3.3 70B Versatile", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "Groq Cloud LPU", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Latencia mínima en streaming", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Generación de escaleta instantánea", "checked": True}
-        ],
-        "notes": "Inferencia acelerada para redacción en tiempo real."
-    },
     "antigravity": {
         "id": "antigravity",
         "name": "Antigravity Bridge & OpenAI (Gemini 3.7 / GPT-4o)",
@@ -375,57 +372,6 @@ DEFAULT_PROVIDERS = {
         ],
         "notes": "Director de IA principal predeterminado de VideoPro Studio."
     },
-    "anthropic": {
-        "id": "anthropic",
-        "name": "Anthropic Claude (Claude 3.5 Sonnet)",
-        "category": "llm",
-        "infra_type": "cloud",
-        "enabled": True,
-        "label": "Claude 3.5 Sonnet",
-        "description": "Dramaturgia de autor y narrativa cinematográfica con máxima calidad literaria.",
-        "api_key_field": "anthropic_api_key",
-        "doc_link": "https://console.anthropic.com/settings/keys",
-        "doc_link_text": "Obtener clave Anthropic ↗",
-        "categories": [
-            {"text": "Claude 3.5 Sonnet Dramaturgia", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "Anthropic Cloud API", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Estilo narrativo de autor", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Diálogos cinematográficos envolventes", "checked": True}
-        ],
-        "notes": "Modelo para guiones de alta factura narrativa."
-    },
-    "deepseek": {
-        "id": "deepseek",
-        "name": "DeepSeek Oficial (DeepSeek-V3 / R1)",
-        "category": "llm",
-        "infra_type": "cloud",
-        "enabled": True,
-        "label": "DeepSeek R1 / V3",
-        "description": "Análisis documental exhaustivo y razonamiento profundo con cadena de pensamiento.",
-        "api_key_field": "deepseek_api_key",
-        "doc_link": "https://platform.deepseek.com/api_keys",
-        "doc_link_text": "Consola DeepSeek ↗",
-        "categories": [
-            {"text": "DeepSeek R1 Cadena de Pensamiento", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "DeepSeek Cloud API", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Verificación factual profunda", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Validación lógica paso a paso", "checked": True}
-        ],
-        "notes": "Especialista en investigación documental y precisión."
-    },
-    "cloudflare_ai": {
         "id": "cloudflare_ai",
         "name": "Cloudflare Workers AI (Serverless Edge)",
         "category": "llm",
@@ -478,59 +424,6 @@ DEFAULT_PROVIDERS = {
     },
 
     # --- 3. VOCES & LOCUCIÓN ---
-    "kokoro_local": {
-        "id": "kokoro_local",
-        "name": "Kokoro TTS HD (Local CPU Puerto 7892)",
-        "category": "voice",
-        "infra_type": "local",
-        "enabled": True,
-        "label": "Kokoro TTS HD ($0 Local CPU Puerto 7892)",
-        "description": "Voz local en español de alta fidelidad 24kHz ejecutada 100% en el servidor local ($0).",
-        "categories": [
-            {"text": "Kokoro-82M ONNX High-Fidelity 24kHz Text-to-Speech", "checked": True},
-            {"text": "Locución en Off / Narrador", "checked": True},
-            {"text": "Voz Documental (Dora / Santiago / Alex)", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "CPU Local Servidor ($0 Sin Coste en puerto 7892)", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Voces en Español (Dora / Santiago / Alex)", "checked": True},
-            {"text": "✨ Preferencia: Síntesis en 24kHz High-Fidelity", "checked": True},
-            {"text": "🚫 Descartar voces sintéticas robotizadas (8kHz/16kHz)", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Solo se sintetiza si el usuario elige expresamente un locutor", "checked": True},
-            {"text": "Atenúa la música de fondo automáticamente a -22 dB", "checked": True}
-        ],
-        "notes": "Totalmente gratuito sin consumo de API ni conexión externa."
-    },
-    "vibevoice_local": {
-        "id": "vibevoice_local",
-        "name": "VibeVoice 1.5B (Local VPS Engine)",
-        "category": "voice",
-        "infra_type": "local",
-        "enabled": True,
-        "label": "VibeVoice 1.5B (Local VPS Python /home/ubuntu/vibevoice-venv)",
-        "description": "Inferencia local directa en la VPS sin dependencias externas ni consumo de red.",
-        "categories": [
-            {"text": "VibeVoice 1.5B Continuous-Prosody Neural TTS", "checked": True},
-            {"text": "Clonación de Voz Emocional Zero-Shot", "checked": True},
-            {"text": "Locución Documental Expresiva (es-emilio)", "checked": True}
-        ],
-        "infrastructure": [
-            {"text": "VPS Local Python (/home/ubuntu/vibevoice-venv)", "checked": True}
-        ],
-        "preferences": [
-            {"text": "✨ Preferencia: Modelo local en disco", "checked": True},
-            {"text": "✨ Preferencia: Master Audio 24kHz / 48kHz WAV", "checked": True}
-        ],
-        "behaviors": [
-            {"text": "Inferencia directa en CPU/GPU local", "checked": True},
-            {"text": "Atenúa la música de fondo automáticamente a -22 dB", "checked": True}
-        ],
-        "notes": "Inferencia 100% offline y soberana en el propio servidor VPS."
-    },
     "vibevoice_serverless": {
         "id": "vibevoice_serverless",
         "name": "VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool)",

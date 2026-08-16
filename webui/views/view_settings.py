@@ -450,6 +450,26 @@ def render_view():
             r2_cdn = st.text_input("Dominio Público / CDN Custom URL (Opcional):", value=config.app.get("s3_public_url", ""), key="s_r2_cdn", placeholder="https://media.videopro.studio")
             config.app["s3_public_url"] = r2_cdn
 
+        st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
+        col_test_r2, col_info_r2 = st.columns([1, 2])
+        with col_test_r2:
+            if st.button("🧪 Probar Subida Multipart a R2", key="btn_test_r2_upload", use_container_width=True):
+                from app.services import r2_storage
+                with st.spinner("Probando transferencia a Cloudflare R2..."):
+                    res = r2_storage.test_r2_upload_diagnostic()
+                    if res.get("success"):
+                        st.success(res.get("message"))
+                    else:
+                        st.error(res.get("message"))
+                        if res.get("hint"):
+                            st.info(f"💡 **Recomendación:** {res.get('hint')}")
+
+        with col_info_r2:
+            st.caption("""
+            ℹ️ **Credenciales S3 de Cloudflare R2:**
+            En *Cloudflare Dashboard > R2 > Manage R2 API Tokens*, crea un token con permisos de administración (Read & Write). Cloudflare generará un **Access Key ID** (32 caracteres) y un **Secret Access Key** (64 caracteres).
+            """)
+
     # =========================================================
     # TAB 4: FIREBASE FIRESTORE & HOSTING
     # =========================================================
