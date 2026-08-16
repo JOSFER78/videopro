@@ -317,24 +317,37 @@ class ProjectRepository:
         """Elimina un proyecto de disco local en <1ms y purga Firestore en segundo plano."""
         global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH
         
-        # 1. Eliminar de disco local inmediatamente
-        proj_dir = os.path.join(self.projects_dir, project_id)
-        if os.path.isdir(proj_dir):
+    def delete_project(self, project_id: str) -> bool:
+        global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH
+        
+        # 1. Eliminar de disco local (búsqueda tanto por manifest jerárquico como plano)
+        manifest = self.find_project_manifest(project_id)
+        if manifest and os.path.isfile(manifest):
             try:
                 import shutil
+                proj_dir = os.path.dirname(manifest)
                 shutil.rmtree(proj_dir, ignore_errors=True)
+                logger.info(f"Directorio de proyecto eliminado: {proj_dir}")
             except Exception as e:
-                logger.error(f"Error al borrar directorio local del proyecto {project_id}: {e}")
+                logger.error(f"Error al borrar directorio jerárquico del proyecto {project_id}: {e}")
+
+        # Comprobación de carpeta plana directa
+        flat_dir = os.path.join(self.projects_dir, project_id)
+        if os.path.isdir(flat_dir):
+            try:
+                import shutil
+                shutil.rmtree(flat_dir, ignore_errors=True)
+            except Exception as e:
+                logger.error(f"Error al borrar directorio plano del proyecto {project_id}: {e}")
 
         # 2. Purgar caché en RAM inmediatamente
-        _PROJECTS_SUMMARY_CACHE = [p for p in _PROJECTS_SUMMARY_CACHE if p.get("project_id") != project_id]
-        _PROJECTS_SUMMARY_LAST_FETCH = time.time()
+        _PROJECTS_SUMMARY_CACHE = []
+        _PROJECTS_SUMMARY_LAST_FETCH = 0.0
 
-        # 3. Eliminar de Firestore en segundo plano sin bloquear la UI
+        # 3. Eliminar de Firestore inmediatamente
         try:
-            import threading
             from app.services import firebase_sync
-            threading.Thread(target=firebase_sync.delete_project_from_firebase, args=(project_id,), daemon=True).start()
+            firebase_sync.delete_project_from_firebase(project_id)
         except Exception:
             pass
 

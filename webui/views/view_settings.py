@@ -494,7 +494,9 @@ def render_view():
                 key="matrix_view_mode_selector"
             )
 
-        matrix_file = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "proveedores_excel.html")
+        matrix_file = os.path.join(BASE_DIR, "docs", "dashboards_y_estudios_web", "proveedores_excel.html")
+        if not os.path.exists(matrix_file):
+            matrix_file = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "proveedores_excel.html")
         if not os.path.exists(matrix_file):
             matrix_file = os.path.join(BASE_DIR, "investigaciones", "capacidades", "proveedores_excel.html")
 

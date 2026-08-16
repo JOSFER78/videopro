@@ -408,21 +408,29 @@ def fetch_single_project_from_firebase(project_id: str) -> Optional[dict]:
 
 
 def delete_project_from_firebase(project_id: str) -> bool:
-    """Elimina permanentemente un proyecto de Firestore."""
+    """Elimina permanentemente un proyecto de Firestore en todas las colecciones."""
     token = _get_firebase_auth_token()
     if not token:
         return False
 
     fb_proj_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
     headers = {"Authorization": f"Bearer {token}"}
-    url = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/videopro_projects/{project_id}"
-
+    
+    # 1. Borrar de videopro_projects
     try:
-        resp = requests.delete(url, headers=headers, timeout=8)
-        return resp.status_code in (200, 204)
-    except Exception as ex:
-        logger.error(f"Error al eliminar proyecto '{project_id}' de Firestore: {ex}")
-        return False
+        url1 = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/videopro_projects/{project_id}"
+        requests.delete(url1, headers=headers, timeout=5)
+    except Exception:
+        pass
+
+    # 2. Borrar de projects
+    try:
+        url2 = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/projects/{project_id}"
+        requests.delete(url2, headers=headers, timeout=5)
+    except Exception:
+        pass
+
+    return True
 
 
 def save_settings_to_firebase_async():

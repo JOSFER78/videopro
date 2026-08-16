@@ -7,7 +7,8 @@ from webui.views import (
     view_cinema_vault,
     view_docs,
     view_comfy_pipeline,
-    view_studio_orchestrator
+    view_studio_orchestrator,
+    view_home_dashboard
 )
 
 __all__ = [
@@ -19,5 +20,6 @@ __all__ = [
     "view_cinema_vault",
     "view_docs",
     "view_comfy_pipeline",
-    "view_studio_orchestrator"
+    "view_studio_orchestrator",
+    "view_home_dashboard"
 ]

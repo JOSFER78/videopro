@@ -1,3 +1,10 @@
+import sys
+import os
+
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if _BASE_DIR not in sys.path:
+    sys.path.insert(0, _BASE_DIR)
+
 from webui.nav import render_top_navigation
 from webui.views import (
     view_projects,
@@ -8,7 +15,8 @@ from webui.views import (
     view_cinema_vault,
     view_docs,
     view_comfy_pipeline,
-    view_studio_orchestrator
+    view_studio_orchestrator,
+    view_home_dashboard
 )
 import hashlib
 import html
@@ -4524,9 +4532,12 @@ def _render_application():
         elif isinstance(msg_payload, str):
             st.toast(msg_payload, icon="🔔")
     
-    active_view = st.session_state.get("active_view", "studio")
+    active_view = st.session_state.get("active_view", "home")
     
-    if active_view in ("studio", "orchestrator", "main", "generator"):
+    if active_view in ("home", "dashboard", "overview"):
+        view_home_dashboard.render_home_dashboard_view()
+        return
+    elif active_view in ("studio", "orchestrator", "main", "generator"):
         view_studio_orchestrator.render_studio_orchestrator_view()
         return
     elif active_view in ("projects", "tasks"):

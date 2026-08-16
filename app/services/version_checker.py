@@ -36,64 +36,8 @@ def _parse_version(value: str) -> Version:
 
 
 def get_available_update(current_version: str) -> str | None:
-    """
-    返回高于当前版本的最新正式版本；没有更新或检查失败时返回 ``None``。
-
-    GitHub 的 ``releases/latest`` 接口会自动排除草稿和预发布版本，因此这里不再
-    重复实现发布状态筛选。WebUI 通过 ``AsyncUpdateChecker`` 在后台调用本函数；
-    网络、响应格式或版本标签异常时只记录日志并降级为“不显示通知”，不影响
-    视频生成等核心功能。
-    """
-    try:
-        installed_version = _parse_version(current_version)
-    except InvalidVersion:
-        logger.warning(
-            f"skip update check because current version is invalid: {current_version!r}"
-        )
-        return None
-
-    try:
-        response = requests.get(
-            LATEST_RELEASE_API_URL,
-            headers=RELEASE_CHECK_HEADERS,
-            timeout=RELEASE_CHECK_TIMEOUT,
-        )
-        response.raise_for_status()
-        payload = response.json()
-    except (requests.RequestException, ValueError) as exc:
-        # 更新检查失败属于可恢复的非核心异常。保留异常类型和信息便于定位代理、
-        # DNS、GitHub 限流或响应损坏问题，同时避免在 WebUI 中打扰普通用户。
-        logger.debug(
-            "GitHub release check failed: "
-            f"error_type={type(exc).__name__}, error={exc}"
-        )
-        return None
-
-    if not isinstance(payload, dict):
-        logger.debug(
-            "GitHub release check returned an invalid payload: "
-            f"payload_type={type(payload).__name__}"
-        )
-        return None
-
-    tag_name = payload.get("tag_name", "")
-    try:
-        latest_version = _parse_version(tag_name)
-    except InvalidVersion:
-        logger.warning(
-            f"skip update notification because release tag is invalid: {tag_name!r}"
-        )
-        return None
-
-    if latest_version <= installed_version:
-        return None
-
-    normalized_latest_version = str(latest_version)
-    logger.info(
-        "VideoPro Studio update available: "
-        f"current={installed_version}, latest={normalized_latest_version}"
-    )
-    return normalized_latest_version
+    """Modo local rápido: Cero llamadas de red en el arranque de la WebUI."""
+    return None
 
 
 @dataclass(frozen=True)

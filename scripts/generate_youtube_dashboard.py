@@ -631,13 +631,13 @@ DASHBOARD_HTML = """<!DOCTYPE html>
 """
 
 # Write to docs folder
-target_local = "/home/ubuntu/workspace/pro/hermes/10_videopro/docs/youtube/mis_canales/dashboard_canales_youtube.html"
+target_local = "/home/ubuntu/workspace/pro/hermes/10_videopro/docs/02_canales_youtube/mis_canales/dashboard_canales_youtube.html"
 with open(target_local, "w", encoding="utf-8") as f:
     f.write(DASHBOARD_HTML)
 
 # Write to public web hub
 
-target_local = "/home/ubuntu/workspace/pro/hermes/10_videopro/docs/youtube/mis_canales/dashboard_canales_youtube.html"
+target_local = "/home/ubuntu/workspace/pro/hermes/10_videopro/docs/02_canales_youtube/mis_canales/dashboard_canales_youtube.html"
 with open(target_local, "w", encoding="utf-8") as f:
     f.write(DASHBOARD_HTML)
 

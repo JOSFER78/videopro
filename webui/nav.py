@@ -7,6 +7,7 @@ import streamlit as st
 
 NAV_VIEWS = [
     ("studio", "🚀 Empezar (Workflows)"),
+    ("pipeline", "🏛️ Lienzo de Nodos (Canvas)"),
     ("projects", "📁 Proyectos (YYYY/MM/DD)"),
     ("cinema_vault", "🎞️ Bóveda Multimedia"),
     ("audio_studio", "🎙️ Audio, Foley & Voces"),
@@ -16,7 +17,7 @@ NAV_VIEWS = [
 
 def render_top_navigation():
     if "active_view" not in st.session_state or st.session_state["active_view"] in ("main", "generator"):
-        st.session_state["active_view"] = "studio"
+        st.session_state["active_view"] = "home"
 
     active = st.session_state["active_view"]
 
@@ -213,15 +214,38 @@ def render_top_navigation():
         margin-bottom: 8px;
         border-bottom: 1px solid #1e293b;
     }
+    /* Botón Logo Home */
+    div:has(> button[key="nav_btn_home_logo"]) button,
+    button[key="nav_btn_home_logo"] {
+        font-weight: 800 !important;
+        font-size: 12.5px !important;
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(124, 58, 237, 0.22)) !important;
+        border: 1px solid rgba(56, 189, 248, 0.45) !important;
+        color: #38bdf8 !important;
+        border-radius: 6px !important;
+        box-shadow: 0 0 10px rgba(56, 189, 248, 0.15) !important;
+    }
+    div:has(> button[key="nav_btn_home_logo"]) button:hover,
+    button[key="nav_btn_home_logo"]:hover {
+        background: linear-gradient(135deg, rgba(14, 165, 233, 0.4), rgba(124, 58, 237, 0.4)) !important;
+        border-color: #38bdf8 !important;
+        box-shadow: 0 0 14px rgba(56, 189, 248, 0.35) !important;
+        color: #ffffff !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
     # Barra superior de navegación moderna
-    col_widths = [1.0] + [1.25] * len(NAV_VIEWS)
+    col_widths = [1.1] + [1.25] * len(NAV_VIEWS)
     cols = st.columns(col_widths, vertical_alignment="center")
     
     with cols[0]:
-        st.markdown("<div style='font-size:13px; font-weight:800; background:linear-gradient(135deg,#38bdf8,#818cf8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:28px;'>VideoPro</div>", unsafe_allow_html=True)
+        is_home_active = (active == "home")
+        logo_type = "primary" if is_home_active else "secondary"
+        if st.button("🏠 Home", key="nav_btn_home_logo", help="🏠 Centro de Control & Resumen Global", type=logo_type, use_container_width=True):
+            if st.session_state.get("active_view") != "home":
+                st.session_state["active_view"] = "home"
+                st.rerun()
 
     for i, (view_key, view_label) in enumerate(NAV_VIEWS):
         is_active = (active == view_key)

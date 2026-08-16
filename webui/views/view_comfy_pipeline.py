@@ -14,13 +14,13 @@ from app.services import firebase_sync
 from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG, get_all_archetypes
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "workflow_designer_studio.html")
+STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "dashboards_y_estudios_web", "comfy_pipeline_studio.html")
+if not os.path.isfile(STUDIO_HTML_PATH):
+    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "dashboards_y_estudios_web", "workflow_designer_studio.html")
+if not os.path.isfile(STUDIO_HTML_PATH):
+    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "workflow_designer_studio.html")
 if not os.path.isfile(STUDIO_HTML_PATH):
     STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "comfy_pipeline_studio.html")
-if not os.path.isfile(STUDIO_HTML_PATH):
-    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "workflow_designer_studio.html")
-if not os.path.isfile(STUDIO_HTML_PATH):
-    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "comfy_pipeline_studio.html")
 
 
 @st.cache_data(show_spinner=False)
@@ -93,13 +93,13 @@ def render_comfy_pipeline_view():
         pipe_view_mode = st.segmented_control(
             "Modo de Visualización:",
             options=["studio", "native"],
-            default="native",
+            default="studio",
             format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
             key="pipeline_view_mode_selector"
         ) if hasattr(st, "segmented_control") else st.radio(
             "Modo de Visualización:",
             options=["studio", "native"],
-            index=1,
+            index=0,
             format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
             horizontal=True,
             key="pipeline_view_mode_selector"
@@ -150,7 +150,7 @@ def render_comfy_pipeline_view():
             else:
                 html_content = f"{injected_script}\n{html_content}"
 
-            components.html(html_content, height=860, scrolling=False)
+            components.html(html_content, height=940, scrolling=False)
             canvas_rendered = True
         except Exception as ex:
             st.warning(f"Aviso al cargar lienzo de nodos: {ex}. Conmutando a vista de árbol nativo.")

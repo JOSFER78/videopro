@@ -76,22 +76,8 @@ def _init_director_session(arch_id: str):
         "summary_reasoning": "Sesión iniciada. Esperando concepto del usuario."
     }
     
-    # Compilar plan inicial
-    plan = RequestPlanner.plan_request(
-        project_id=project_id,
-        user_prompt=f"Vídeo de {arch.name}",
-        workflow_id=arch_id,
-        visual_strategy=VisualStrategy.HYBRID,
-        preferences={
-            "aspect_ratio": arch.default_aspect_ratio,
-            "voice_engine": arch.default_voice_engine,
-            "voice_id": arch.default_voice_id
-        }
-    )
-    st.session_state["current_archetype_plan"] = plan
-    
-    # Auto-crear y persistir proyecto en la base de datos local y Firebase
-    _persist_current_project(project_id, initial_title, plan)
+    # Inicializar estado puramente en memoria (Cero escrituras a disco, cero llamadas de IA en el arranque)
+    st.session_state["current_archetype_plan"] = None
 
 
 def load_project_into_session(project_id: str) -> bool:
@@ -233,7 +219,6 @@ def _persist_current_project(project_id: str, title: str, plan):
             ),
             scenes=scenes_list
         )
-        repo.save_project(proj)
         
         # Guardar en la estructura estándar: storage/projects/YYYY/MM/DD/workflow_id/project_name/
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -349,13 +334,40 @@ def render_studio_orchestrator_view():
         col_chat, col_ficha = st.columns([6, 5], gap="medium")
 
         # -----------------------------------------------------
-        # COLUMNA IZQUIERDA: PULIDO CONVERSACIONAL & INVESTIGACIÓN
+        # COLUMNA IZQUIERDA: CONFIGURACIÓN & CO-CREACIÓN
         # -----------------------------------------------------
         with col_chat:
+            st.markdown("##### 📝 Nuevo Proyecto & Premisa")
+            
+            p_title_input = st.text_input(
+                "Nombre del Proyecto:",
+                value=st.session_state.get("current_project_title", f"{arch.name} — Proyecto"),
+                key="input_init_proj_title"
+            )
+            st.session_state["current_project_title"] = p_title_input
+
+            p_idea_input = st.text_area(
+                "Idea, Concepto o Guion Base:",
+                placeholder=f"Ej: Documental sobre los misterios ocultos de la ciudad con recreaciones visuales e investigación de archivo...",
+                key="input_init_proj_idea",
+                height=90
+            )
+
+            if st.button("🚀 Comenzar Co-Creación con el Director", type="primary", use_container_width=True, key="btn_start_cocreation"):
+                if p_idea_input.strip():
+                    _handle_user_director_message(p_idea_input, selected_arch_id)
+                    st.rerun()
+                elif p_title_input.strip():
+                    _handle_user_director_message(f"Crear una producción basada en el título: {p_title_input}", selected_arch_id)
+                    st.rerun()
+                else:
+                    st.warning("Introduce un título o idea para comenzar.")
+
+            st.markdown("<hr style='margin: 8px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
             st.markdown("##### 💬 Pulido Conversacional de la Historia")
             
             # Contenedor con scroll para el historial de mensajes
-            chat_container = st.container(height=320, border=True)
+            chat_container = st.container(height=260, border=True)
             with chat_container:
                 for msg in st.session_state.get("director_messages", []):
                     if msg["role"] == "user":
@@ -366,22 +378,22 @@ def render_studio_orchestrator_view():
             # Sugerencias interactivas de co-creación (Pills con las opciones del Director)
             suggestions = st.session_state.get("director_suggestions", [])
             if suggestions:
-                st.markdown("<div style='font-size:11.5px; font-weight:700; color:#38bdf8; margin: 4px 0 2px 0;'>💡 Opciones de Dirección Sugeridas por el Director:</div>", unsafe_allow_html=True)
+                st.markdown("<div style='font-size:11.5px; font-weight:700; color:#38bdf8; margin: 4px 0 2px 0;'>💡 Ángulos Sugeridos por el Director:</div>", unsafe_allow_html=True)
                 for i, sug_txt in enumerate(suggestions):
                     clean_lbl = sug_txt.replace("**", "").replace("###", "").strip()
-                    if st.button(f"👉 {clean_lbl}", key=f"sug_btn_{i}", use_container_width=True, help="Elegir esta opción e investigar a fondo el guion"):
+                    if st.button(f"👉 {clean_lbl}", key=f"sug_btn_{i}", use_container_width=True):
                         _handle_user_director_message(f"Elegir esta opción y desarrollar su guion a fondo: {sug_txt}", selected_arch_id)
                         st.rerun()
 
-            # Caja de texto para hablar libremente o personalizar la idea
-            with st.expander("✏️ Escribir Idea Libre o Personalizar Detalles", expanded=(len(suggestions) == 0)):
+            # Caja de texto para continuar el diálogo
+            with st.expander("✏️ Continuar Diálogo / Ajustar Detalles", expanded=False):
                 user_director_input = st.text_area(
-                    "Tu mensaje / idea / personalización:",
-                    placeholder=f"Ej: Quiero la Opción A pero que el cohete tenga luces de neón y que la abuela de Mateo les ayude en el tejado...",
+                    "Tu respuesta / ajuste:",
+                    placeholder="Escribe tu indicación o detalle que quieras modificar...",
                     key="input_user_director_text",
-                    height=70
+                    height=65
                 )
-                if st.button("Enviar / Investigar Idea 💬", type="primary", use_container_width=True, key="btn_send_director_msg"):
+                if st.button("Enviar Ajuste 💬", use_container_width=True, key="btn_send_director_msg"):
                     if user_director_input.strip():
                         _handle_user_director_message(user_director_input, selected_arch_id)
                         st.rerun()
@@ -651,8 +663,14 @@ def render_studio_orchestrator_view():
     # TAB 3: REGISTRO DE WORKFLOWS Y VERSIONES
     # =========================================================
     with tab_workflows:
-        st.markdown("#### 🎛️ Workflows Registrados en el Sistema")
-        st.caption("Definiciones canónicas y bucle de mejora continua de grafos de producción.")
+        c_wfh1, c_wfh2 = st.columns([7, 3], vertical_alignment="center")
+        with c_wfh1:
+            st.markdown("#### 🎛️ Workflows Registrados en el Sistema")
+            st.caption("Definiciones canónicas y bucle de mejora continua de grafos de producción.")
+        with c_wfh2:
+            if st.button("🎨 Abrir Lienzo Visual (Canvas)", type="primary", use_container_width=True, key="btn_wf_goto_canvas"):
+                st.session_state["active_view"] = "pipeline"
+                st.rerun()
         
         all_wfs = get_all_workflows()
         for wf in all_wfs:
@@ -800,14 +818,16 @@ def _handle_user_director_message(user_text: str, arch_id: str):
     spec = res.get("spec", {})
     st.session_state["director_spec"] = spec
     
-    # 4. Generar título contextual y ID del proyecto
+    # 4. Generar título contextual y mantener el mismo ID de proyecto en la sesión
     subject = spec.get("subject") or user_text
     st.session_state["current_project_title"] = subject
     
-    slug = _slugify(subject)
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    project_id = f"proj_{slug}_{timestamp}"
-    st.session_state["current_project_id"] = project_id
+    project_id = st.session_state.get("current_project_id")
+    if not project_id:
+        slug = _slugify(subject)
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        project_id = f"proj_{slug}_{timestamp}"
+        st.session_state["current_project_id"] = project_id
     
     aspect = spec.get("aspect_ratio") or arch.default_aspect_ratio
     
