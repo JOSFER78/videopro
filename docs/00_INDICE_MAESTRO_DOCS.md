@@ -1,122 +1,98 @@
-# 📚 Documentación Maestra y Arquitectura Canónica — VideoPro Studio
+# 📚 VideoPro Studio — Centro de Documentación, Guías de Uso y Laboratorio de Investigación
 
-> **Sincronización Total 1:1:** Web UI (Streamlit), Core de Orquestación & Firebase Firestore (`ayuda-emilio-83261`)
-
----
-
-## 🏛️ 1. [📺 youtube/](youtube/)
-- **Mis Canales Oficiales (`mis_canales/`):**
-  - [`01_CHRONODRIFT/`](youtube/mis_canales/01_CHRONODRIFT/): Tours FPV Tritemporales 4K (12 manifiestos de ciudades y 10 episodios).
-  - [`02_TERRAMORPH/`](youtube/mis_canales/02_TERRAMORPH/): Geología extrema, cataclismos y evolución planetaria.
-  - [`03_NANOVERSE/`](youtube/mis_canales/03_NANOVERSE/): Biología celular y medicina molecular Cryo-EM.
-  - [`04_LIVING_CANVAS/`](youtube/mis_canales/04_LIVING_CANVAS/): Historia del arte animada y pinturas clásicas vivas.
-  - [`05_ASTRODRIFT/`](youtube/mis_canales/05_ASTRODRIFT/): Astronomía cinemática y exploración espacial JWST.
-- **Áreas Temáticas de Investigación:**
-  - [`demanda_y_retencion/`](youtube/demanda_y_retencion/): Retención, hooks 0-5s, nichos de alto RPM y monetización.
-  - [`seo_y_titulos/`](youtube/seo_y_titulos/): SEO, matrices de títulos alto CTR (>14%) y escaletas de episodios.
-  - [`miniaturas_y_branding/`](youtube/miniaturas_y_branding/): Guía de miniaturas 3D, branding y plantillas JSON.
-  - [`benchmarking_y_competencia/`](youtube/benchmarking_y_competencia/): Auditoría forense de competidores y combate anti-slop.
-  - [`dashboards_y_metricas/`](youtube/dashboards_y_metricas/): Paneles interactivos de canales y telemetría.
+> **Propósito de esta Carpeta (`docs/`):**  
+> Este directorio es la fuente de verdad central y el cerebro técnico de **VideoPro Studio**. Está diseñado para cumplir una doble función fundamental tanto para desarrolladores como para creadores:
+> 1. **Manual Operativo de Módulos (Aprender a Usar):** Documentar con total profundidad cómo funciona y cómo se utiliza cada capacidad, motor, canal y workflow que **ya existe en la página web** (organizados y enumerados con números de serie `01_`, `02_`... reflejando la interfaz).
+> 2. **Laboratorio de Investigación & Banco de Ideas (Exploración Técnica):** Un espacio vivo de investigación avanzada donde se exploran tecnologías emergentes, físicas de movimiento, shaders GPU, psicología del sonido, ópticas de cine e ideas de proyecto que **aún no están en la página web**, para que cualquier desarrollador pueda leerlas, comprender su viabilidad e integrarlas en la plataforma si resulta de interés.
 
 ---
 
-## 🚀 2. [workflows/](workflows/)
-Especificaciones formales de los 8 arquetipos de producción de la Web:
-- [`01_CHRONODRIFT_TRITEMPORAL/`](workflows/01_CHRONODRIFT_TRITEMPORAL/): Urban Time Travel 4K (1626 ➔ 2026 ➔ 2226).
-- [`02_FPV_URBAN_REAL_FLOW/`](workflows/02_FPV_URBAN_REAL_FLOW/): Tours Urbanos Flow Real 4K & Beat-Sync.
-- [`03_PIXAR_3D_ANIMATION/`](workflows/03_PIXAR_3D_ANIMATION/): Cuentos & Animación 3D (Pixar Style).
-- [`04_HISTORICAL_SCRAPING/`](workflows/04_HISTORICAL_SCRAPING/): Documental Histórico & Archivo Real.
-- [`05_DEEP_EXPLAINER_ESSAY/`](workflows/05_DEEP_EXPLAINER_ESSAY/): Deep Explainer & Videoensayo Dialéctico Vox.
-- [`06_VIRAL_SHORTS_HOOK/`](workflows/06_VIRAL_SHORTS_HOOK/): Viral Shorts & Retención Extrema (TikTok/Reels).
-- [`07_CITY_ROUTES_BEATS/`](workflows/07_CITY_ROUTES_BEATS/): Rutas Urbanas & Vídeos Musicales (City Beats).
-- [`08_MADRID_CURIOSITIES_REAL_FLOW/`](workflows/08_MADRID_CURIOSITIES_REAL_FLOW/): Madrid Secreto 4K: Curiosidades Reales (3 min).
+## 🧭 ¿Cómo Navegar por esta Documentación?
+
+Para que quien trabaje en la web o en el backend sepa exactamente a dónde acudir, el contenido se divide en dos grandes bloques:
+
+```
+docs/
+├── 🟢 BLOQUE 1: MÓDULOS ACTIVOS EN LA PÁGINA WEB (Con Número de Serie 01_, 02_...)
+│   ├── capacidades/        --> Las 14 capacidades oficiales (QUÉ hace el sistema)
+│   ├── nodos_y_motores/    --> Los 26 motores clasificados por categoría Firebase (CÓMO se ejecuta)
+│   ├── youtube/mis_canales --> Los 5 canales y proyectos oficiales de la Bóveda
+│   ├── workflows/          --> Los 8 arquetipos de producción seleccionables en Workflow Studio
+│   └── firebase/           --> Arquitectura de base de datos Firestore, Storage R2 y Hosting
+│
+└── 🔬 BLOQUE 2: LABORATORIO DE INVESTIGACIÓN E IDEAS (Sin Número de Serie)
+    └── investigaciones/    --> Tratados de ingeniería, experimentos y tecnologías para futuras mejoras
+```
 
 ---
 
-## 🎛️ 3. [capacidades/](capacidades/)
-Las 14 Capacidades Oficiales del Sistema (QUÉ se hace) con subcarpetas individuales y schemas JSON:
-- [`01_llm_script_semantic_director/`](capacidades/01_llm_script_semantic_director/)
-- [`02_google_flow_playwright_web_4k/`](capacidades/02_google_flow_playwright_web_4k/)
-- [`03_flux3_serverless_zerogpu_replicate/`](capacidades/03_flux3_serverless_zerogpu_replicate/)
-- [`04_nanobanana_pro_2/`](capacidades/04_nanobanana_pro_2/)
-- [`05_ltx_2_5_mmdit_22b/`](capacidades/05_ltx_2_5_mmdit_22b/)
-- [`06_stock_scraping_real_pexels_pixabay/`](capacidades/06_stock_scraping_real_pexels_pixabay/)
-- [`07_flowmusic_lyria3_via_playwright/`](capacidades/07_flowmusic_lyria3_via_playwright/)
-- [`08_vibevoice_1_5b_serverless/`](capacidades/08_vibevoice_1_5b_serverless/)
-- [`09_kokoro_hd_tts_foley_ducking/`](capacidades/09_kokoro_hd_tts_foley_ducking/)
-- [`10_edge_tts_neural_microsoft/`](capacidades/10_edge_tts_neural_microsoft/)
-- [`11_ffmpeg_core_moviepy_assembler/`](capacidades/11_ffmpeg_core_moviepy_assembler/)
-- [`12_remotion_engine_react_hyperframes/`](capacidades/12_remotion_engine_react_hyperframes/)
-- [`13_vox_subtitles_karaoke_highlight/`](capacidades/13_vox_subtitles_karaoke_highlight/)
-- [`14_whisper_stt_word_timestamps/`](capacidades/14_whisper_stt_word_timestamps/)
-- [`schemas/`](capacidades/schemas/): Validadores JSON Schema.
+## 🟢 1. Módulos en la Página Web (Manuales de Uso Paso a Paso)
+
+Cada uno de estos apartados está directamente conectado con una pestaña, botón o selector de la interfaz web:
+
+### 🎛️ A. Capacidades Maestras (`docs/capacidades/`)
+Manuales de entrada/salida y contratos JSON de las 14 capacidades formales del pipeline:
+- [`01_llm_script_semantic_director`](file:///docs/capacidades/01_llm_script_semantic_director/): Guion, escaleta y dirección semántica.
+- [`02_google_flow_playwright_web_4k`](file:///docs/capacidades/02_google_flow_playwright_web_4k/): Generación de vídeo 4K en Google Flow vía Playwright.
+- [`03_flux3_serverless_zerogpu_replicate`](file:///docs/capacidades/03_flux3_serverless_zerogpu_replicate/): Fotogramas 4K y animación con FLUX 3 en Replicate H100 y ZeroGPU.
+- [`04_nanobanana_pro_2`](file:///docs/capacidades/04_nanobanana_pro_2/): Keyframing consistente con Gemini 3.1 Flash Image.
+- [`05_ltx_2_5_mmdit_22b`](file:///docs/capacidades/05_ltx_2_5_mmdit_22b/): Generación de vídeo nativo 22B MMDiT con audio espacial.
+- [`06_stock_scraping_real_pexels_pixabay`](file:///docs/capacidades/06_stock_scraping_real_pexels_pixabay/): Metraje real de archivo y curaduría B-roll.
+- [`07_flowmusic_lyria3_via_playwright`](file:///docs/capacidades/07_flowmusic_lyria3_via_playwright/): Música generativa adaptativa Google Lyria 3.
+- [`08_vibevoice_1_5b_serverless`](file:///docs/capacidades/08_vibevoice_1_5b_serverless/): Síntesis de voz neuronal ultrarrealista (`es-emilio`).
+- [`09_kokoro_hd_tts_foley_ducking`](file:///docs/capacidades/09_kokoro_hd_tts_foley_ducking/): Voz rápida, foley analógico y sidechain ducking.
+- [`10_edge_tts_neural_microsoft`](file:///docs/capacidades/10_edge_tts_neural_microsoft/): Locución Microsoft Edge-TTS.
+- [`11_ffmpeg_core_moviepy_assembler`](file:///docs/capacidades/11_ffmpeg_core_moviepy_assembler/): Motor de ensamblaje máster, filtros y normalización EBU R128 (-14 LUFS).
+- [`12_remotion_engine_react_hyperframes`](file:///docs/capacidades/12_remotion_engine_react_hyperframes/): Gráficos programáticos React Video-as-Code.
+- [`13_vox_subtitles_karaoke_highlight`](file:///docs/capacidades/13_vox_subtitles_karaoke_highlight/): Subtitulado cinemático estilo Vox con formato ASS.
+- [`14_whisper_stt_word_timestamps`](file:///docs/capacidades/14_whisper_stt_word_timestamps/): Transcripción fonética con timestamps palabra por palabra.
+- `schemas/`: Validadores JSON Schema para garantizar la integridad de los datos.
+
+### 🧩 B. Catálogo de Nodos y Motores (`docs/nodos_y_motores/`)
+Guías de configuración y credenciales de los 26 motores del registry, clasificados por categorías de Firebase:
+- `visual/`: Motores de vídeo e imagen (`01_flux3_...` a `10_scraping_real_ddg_wikimedia/`).
+- `music/`: Bandas sonoras y mastering (`01_google_flow_music_lyria_3/`, `02_suno_ai_api_v3_v4/`, `03_foley_director_ducking_master/`).
+- `voice/`: Locución y clonación de voz (`01_vibevoice_...` a `06_minimax_speech_01/`).
+- `programacion/`: Motores de render por código (`01_ffmpeg_...` a `04_whisper_stt_word_timestamps/`).
+- `llm/`: Modelos de lenguaje y dirección (`01_antigravity_bridge_8742/` a `06_siliconflow_hub/`).
+- `cloud/`: Infraestructura en la nube (`01_cloudflare_r2_...`, `02_firebase_...`).
+
+### 📺 C. Canales de YouTube (`docs/youtube/mis_canales/`)
+Configuración completa de los canales propios:
+- `01_CHRONODRIFT/`: Viajes temporales urbanos 4K.
+- `02_TERRAMORPH/`: Transformación geológica y megaestructuras.
+- `03_NANOVERSE/`: Exploración microscópica y biológica.
+- `04_LIVING_CANVAS/`: Arte viviente e historia cultural.
+- `05_ASTRODRIFT/`: Astrofísica y cosmología profunda.
+
+### 🎬 D. Arquetipos de Producción (`docs/workflows/`)
+Los 8 flujos de producción preconfigurados en la pestaña "Workflow Studio" (`01_CHRONODRIFT_TRITEMPORAL` a `08_AI_SLOP_PURGE_AND_REMASTER`).
 
 ---
 
-## 🧩 4. [nodos_y_motores/](nodos_y_motores/)
-Todos los Motores y Proveedores del Registro (Activos 🟢 y Disponibles 🟡):
-- **Visual:**
-  - `01_flux3_serverless_zerogpu_replicate/` 🟢 Activo
-  - `02_google_flow_playwright_web_4k/` 🟢 Activo
-  - `03_nanobanana_pro_2/` 🟢 Activo
-  - `04_ltx_2_5_mmdit_22b/` 🟢 Activo
-  - `05_wan_2_1_alibaba/` 🟡 Disponible
-  - `06_minimax_h3_hailuo/` 🟡 Disponible
-  - `07_seadance_2_5_bytedance/` 🟡 Disponible
-  - `08_stock_pexels_video/` 🟢 Activo
-  - `09_stock_pixabay_video/` 🟢 Activo
-  - `10_scraping_real_ddg_wikimedia/` 🟢 Activo
-- **Music:**
-  - `01_google_flow_music_lyria_3/` 🟢 Activo
-  - `02_suno_ai_api_v3_v4/` 🟡 Disponible
-  - `03_foley_director_ducking_master/` 🟢 Activo
-- **Voice:**
-  - `01_vibevoice_1_5b_serverless/` 🟢 Activo
-  - `02_kokoro_hd_tts_foley_ducking/` 🟢 Activo
-  - `03_edge_tts_neural/` 🟢 Activo
-  - `04_elevenlabs_cinema/` 🟡 Disponible
-  - `05_fish_audio_s2_1_pro/` 🟡 Disponible
-  - `06_minimax_speech_01/` 🟡 Disponible
-- **Programación:**
-  - `01_ffmpeg_core_moviepy_assembler/` 🟢 Activo
-  - `02_remotion_engine_react_hyperframes/` 🟢 Activo
-  - `03_vox_subtitles_karaoke_highlight/` 🟢 Activo
-  - `04_whisper_stt_word_timestamps/` 🟢 Activo
-- **LLM:**
-  - `01_antigravity_bridge_8742/` 🟢 Activo
-  - `02_google_gemini_ai_studio/` 🟢 Activo
-  - `03_openai_gpt_suite/` 🟢 Activo
-  - `04_deepseek_9router_hub/` 🟢 Activo
-  - `05_cloudflare_workers_ai/` 🟡 Disponible
-  - `06_siliconflow_hub/` 🟢 Activo
-- **Cloud:**
-  - `01_cloudflare_r2_object_storage/` 🟢 Activo
-  - `02_firebase_firestore_hosting_sync/` 🟢 Activo
+## 🔬 2. Laboratorio de Investigación e Ideas (Fuera de la Página Web)
+
+Ubicadas en `docs/investigaciones/`, estas carpetas **no tienen número de serie** porque son estudios avanzados, tratados de ingeniería y bancos de ideas de nuevas tecnologías que todavía no forman parte de los botones de la web:
+
+| Carpeta de Investigación | ¿Qué contiene y para qué sirve? |
+| :--- | :--- |
+| **`remotion_motion_graphics/`** | Tratados sobre cómo programar motion design profesional en React: físicas de resorte (`spring()`), curvas Bézier, prevención de layout shift con `tabular-nums`, y recetarios de lower-thirds. |
+| **`cartografia_tactil_vox/`** | Técnicas para animar mapas 4K al estilo Vox/Johnny Harris: eliminación de fondos con Linear Color Key, rutas punteadas con Dash 78 y solución a colisiones 3D (*Z-fighting*) en DaVinci Resolve Fusion y QGIS. |
+| **`texto_3d_tipografia_cinetica/`** | Guías para crear texto tridimensional procedural en Canvas2D, sincronización frame-accurate con `@remotion/three`, y proyección de clips de vídeo en mallas 3D en tiempo real. |
+| **`shaders_glsl_webgl_overlays/`** | Catálogo de efectos por GPU en GLSL: degradados orgánicos con Ruido Simplex, transiciones WebGL (`glitch`, `zoomBlur`, `lightLeak`, `whipPan`) y reglas GSAP seguras para render headless. |
+| **`ingenieria_acustica_foley_sfx/`** | Ingeniería de sonido analógico: jerarquía psicoacústica de 3 capas, catálogo de texturas grabadas con micrófonos Neumann KM184, sidechain ducking automatizado en FFmpeg a `-22 dB` y micro-crossfade de 30ms anti-chasquidos. |
+| **`cinematografia_dop_opticas/`** | Tratados de dirección de fotografía (DoP 7 capas), lentes anamórficas Panavision C-Series, espacio de color ACEScg y cinemática de cámara 6-DoF. |
+| **`consistencia_visual_actores/`** | Protocolo de 4 anclas (*Passport, Wardrobe, Rig, World*), matriz radial de 5 vistas y metodología Tail-Frame Flow para eliminar la inconsistencia de personajes con IA. |
+| **`arquitectura_fpv_tours_urbanos/`** | GeoScraping 6+1, dossier tritemporal de Shibuya 2326 y técnica Freeze 3D con separación de planos de profundidad. |
+| **`motores_generativos_benchmarks/`** | Comparativas empíricas de calidad, resolución, latencia y costes por segundo entre FLUX 3, Google Flow, LTX-Video 2.5, Wan 2.1 y Hailuo. |
+| **`automatizacion_web_y_playwright/`** | Técnicas de control desatendido con Playwright Stealth CDP, interacción con Shadow DOM y conexión con APIs backend. |
+| **`templates/`** | Plantillas estandarizadas para redactar nuevos dossiers de investigación (`RESEARCH_DOSSIER_TEMPLATE.md`, `VISUAL_BIBLE_TEMPLATE.md`). |
 
 ---
 
-## 🔬 5. [investigaciones/](investigaciones/)
-Investigaciones temáticas y tratados técnicos de ingeniería:
-- [`01_cinematografia_y_dop/`](investigaciones/01_cinematografia_y_dop/): DoP 7 Capas, Óptica Panavision, Colorimetría ACEScg y Cinemática 6-DoF.
-- [`02_consistencia_visual_y_actores/`](investigaciones/02_consistencia_visual_y_actores/): Protocolo 4 Anclas, Matriz Radial 5 Vistas y Tail-Frame Flow.
-- [`03_ingenieria_acustica_y_psicoacustica/`](investigaciones/03_ingenieria_acustica_y_psicoacustica/): Mastering EBU R128 (-14 LUFS), Sidechain Ducking (-22dB) y Lyria 3.
-- [`04_automatizacion_web_y_playwright/`](investigaciones/04_automatizacion_web_y_playwright/): Playwright CDP Stealth, Shadow DOM de Google Flow y bypass antibot.
-- [`05_arquitectura_fpv_y_tours_urbanos/`](investigaciones/05_arquitectura_fpv_y_tours_urbanos/): GeoScraping 6+1, Shibuya 2326 Tritemporal y Técnica Freeze 3D.
-- [`06_motores_generativos_y_benchmarks/`](investigaciones/06_motores_generativos_y_benchmarks/): Comparativas de rendimiento, latencia y costes por segundo generado.
+## 🛠️ Guía para el Desarrollador de la Web
 
----
-
-## 🔥 6. [firebase/](firebase/)
-- `01_arquitectura_firestore_y_r2.md`
-- `02_esquemas_colecciones_firebase.md` (Esquema de `videopro_settings`, `videopro_projects`, `providers_registry`)
-- `03_sync_bridge_y_hosting.md`
-
----
-
-## 🏛️ 7. [arquitectura_y_sistema/](arquitectura_y_sistema/)
-- Arquitectura general, puertos de servicios (8742, 8501, 7892, 20128), runtime y matriz de verdad.
-
----
-
-## 📊 8. [dashboards_y_estudios_web/](dashboards_y_estudios_web/)
-- Todos los Paneles Interactivos HTML (`organizador_docs_videopro.html`, `dashboard_canales_youtube.html`, `comfy_pipeline_studio.html`, etc.).
+Cuando vayas a crear o modificar una pantalla de la web:
+1. **Para implementar un botón o flujo existente:** Consulta el manual correspondiente en `docs/capacidades/` o `docs/nodos_y_motores/` (respetando los números de serie).
+2. **Para añadir una nueva funcionalidad o efecto visual/sonoro:** Explora el laboratorio en `docs/investigaciones/`. Allí encontrarás fórmulas matemáticas, código TypeScript/GLSL y comandos FFmpeg ya probados y listos para ser incorporados a la interfaz.
+3. **Para registrar una nueva investigación:** Añade tu archivo Markdown en la carpeta temática adecuada de `docs/investigaciones/` sin número de serie, utilizando la plantilla `docs/investigaciones/templates/RESEARCH_DOSSIER_TEMPLATE.md`.
