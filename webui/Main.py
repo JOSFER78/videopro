@@ -7,7 +7,8 @@ from webui.views import (
     view_audio_studio,
     view_cinema_vault,
     view_docs,
-    view_comfy_pipeline
+    view_comfy_pipeline,
+    view_studio_orchestrator
 )
 import hashlib
 import html
@@ -4492,7 +4493,10 @@ def _render_application():
     
     active_view = st.session_state.get("active_view", "main")
     
-    if active_view == "projects" or active_view == "tasks":
+    if active_view == "orchestrator" or active_view == "studio":
+        view_studio_orchestrator.render_studio_orchestrator_view()
+        return
+    elif active_view == "projects" or active_view == "tasks":
         view_projects.render_view()
         return
     elif active_view == "settings" or active_view == "settings_projects" or active_view == "matriz" or active_view == "api_hub":

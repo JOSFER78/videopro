@@ -7,6 +7,7 @@ import streamlit as st
 
 NAV_VIEWS = [
     ("main", "🎬 Generador"),
+    ("orchestrator", "🏛️ Studio Workflows"),
     ("pipeline", "🎛️ Pipeline ComfyUI"),
     ("projects", "📁 Proyectos"),
     ("settings", "⚙️ Ajustes"),
