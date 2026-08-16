@@ -45,7 +45,7 @@ class TestVideoproEmpiricalBattery(unittest.TestCase):
     def setUpClass(cls):
         cls.test_temp_root = Path(tempfile.mkdtemp(prefix="videopro_empirical_root_"))
         cls.cli_scripts = [
-            SKILL_ROOT / "video_storage_manager.py",
+            SCRIPTS_DIR / "video_storage_manager.py",
             SCRIPTS_DIR / "project_manager.py",
         ]
 

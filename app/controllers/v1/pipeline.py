@@ -295,12 +295,25 @@ def load_pipeline_graph() -> Dict[str, Any]:
     return canonical
 
 
+def _sanitize_json_obj(obj: Any) -> Any:
+    """Sanitiza recursivamente cualquier estructura para garantizar serialización JSON 100% válida."""
+    if isinstance(obj, dict):
+        return {str(k): _sanitize_json_obj(v) for k, v in obj.items() if not callable(k)}
+    elif isinstance(obj, (list, tuple, set)):
+        return [_sanitize_json_obj(item) for item in obj]
+    elif callable(obj):
+        return None
+    return obj
+
+
 def save_pipeline_graph(graph_data: Dict[str, Any]) -> bool:
     """Guarda la topología del grafo en disco y la sincroniza con Firebase Firestore."""
     try:
         os.makedirs(os.path.dirname(PIPELINE_FILE), exist_ok=True)
+        sanitized = _sanitize_json_obj(graph_data)
+        clean_json = json.dumps(sanitized, indent=2, ensure_ascii=False, default=str)
         with open(PIPELINE_FILE, "w", encoding="utf-8") as f:
-            json.dump(graph_data, f, indent=2, ensure_ascii=False)
+            f.write(clean_json)
         
         # Sincronización asíncrona con Firebase
         try:
@@ -608,7 +621,103 @@ def generate_heuristic_pipeline_plan(prompt: str, current_graph: Optional[Dict[s
         add_connections.append({"from_node": "node_fact_checker", "from_socket": "s_out", "to_node": "node_3_voice", "to_socket": "s_in"})
         applied_changes.append("🧠 Insertado nuevo nodo de Fact-Checking y verificación lógica entre el LLM Director y el Locutor")
 
-    # 4. Detección de Motor Visual y Enrutamiento Híbrido
+    # 4. Detección de Extracción de Fotos de Lugares & Street View 4K
+    if re.search(r'foto|lugar|street\s?view|sat[eé]lite|mapa|geo|ubicaci[oó]n|calle', p_lower):
+        geo_node = {
+            "id": "node_geo_scout",
+            "title": "📸 Extractor de Fotos de Lugares & Street View 4K",
+            "category": "programacion",
+            "color": "#38bdf8",
+            "x": 480, "y": 280, "width": 280,
+            "enabled": True, "is_loop": False,
+            "inputs": [{"id": "lugar_in", "name": "location_query", "label": "Lugar / Coordenadas"}],
+            "outputs": [
+                {"id": "geo_photos", "name": "geo_photos", "label": "Fotos Reales HD"},
+                {"id": "coords_out", "name": "coords", "label": "Geodatos & Metadata"}
+            ],
+            "parameters": [
+                {"key": "source", "label": "Fuente Geográfica", "type": "select", "options": ["Google Street View 4K & Earth 3D", "Flickr Creative Commons HD", "Mapillary Open Geodata"], "value": "Google Street View 4K & Earth 3D"},
+                {"key": "num_photos", "label": "Cantidad de Fotos", "type": "range", "min": 1, "max": 8, "step": 1, "value": 4}
+            ]
+        }
+        add_nodes.append(geo_node)
+        add_connections.append({"from_node": "node_1_intent", "from_socket": "p_out", "to_node": "node_geo_scout", "to_socket": "lugar_in"})
+        applied_changes.append("📸 Añadido módulo de Extracción de Fotos Reales de Lugares (Street View 4K y Satélite)")
+
+    # 5. Detección de NanoBanana Pro 2 (2K/4K y Multi-Ángulo)
+    if re.search(r'nanobanana|2k|4k|multi[\s\-]?angul|punto de vista|perspectiva|re[\s\-]?render', p_lower):
+        nano_node = {
+            "id": "node_nanobanana_pro2",
+            "title": "🍌 NanoBanana Pro 2 (2K/4K Multi-Ángulo Re-render)",
+            "category": "visual",
+            "color": "#facc15",
+            "x": 860, "y": 280, "width": 280,
+            "enabled": True, "is_loop": False,
+            "inputs": [
+                {"id": "img_ref_in", "name": "ref_image", "label": "Foto Referencia"},
+                {"id": "prompt_in", "name": "prompt", "label": "Prompt Director"}
+            ],
+            "outputs": [
+                {"id": "img_2k_out", "name": "rendered_image_2k", "label": "Render 2K/4K QHD"},
+                {"id": "multi_angle_out", "name": "multi_angle_frames", "label": "Vistas Multi-Ángulo"}
+            ],
+            "parameters": [
+                {"key": "resolution", "label": "Resolución", "type": "select", "options": ["2K QHD (2560x1440)", "4K UHD (3840x2160)", "1080p Full-HD"], "value": "2K QHD (2560x1440)"},
+                {"key": "camera_angle", "label": "Perspectiva de Cámara", "type": "select", "options": ["Orbital 360 Panorámica", "Vista Dron Aéreo Cenital", "Contrapicado Cinemático", "Plano Detalle Macro"], "value": "Orbital 360 Panorámica"},
+                {"key": "creativity", "label": "Fidelidad Geográfica", "type": "range", "min": 0.1, max: 0.9, "step": 0.05, "value": 0.45}
+            ]
+        }
+        add_nodes.append(nano_node)
+        add_connections.append({"from_node": "node_2_llm", "from_socket": "t_out", "to_node": "node_nanobanana_pro2", "to_socket": "prompt_in"})
+        add_connections.append({"from_node": "node_nanobanana_pro2", "from_socket": "img_2k_out", "to_node": "node_8_render", "to_socket": "v_in"})
+        applied_changes.append("🍌 Configurado NanoBanana Pro 2 para Re-renderizado 2K/4K y generación desde múltiples perspectivas angulares")
+
+    # 6. Detección de Foley Acústico y Efectos SFX
+    if re.search(r'foley|sfx|efecto de sonido|efectos de sonido|sonido ambiental|impacto|whoosh', p_lower):
+        sfx_node = {
+            "id": "node_foley_sfx",
+            "title": "🔊 Foley Acústico & Efectos SFX por Escena",
+            "category": "music",
+            "color": "#ec4899",
+            "x": 860, "y": 420, "width": 280,
+            "enabled": True, "is_loop": False,
+            "inputs": [
+                {"id": "s_in", "name": "script_in", "label": "Guion Escenas"},
+                {"id": "v_in", "name": "video_timing_in", "label": "Marcas Visuales"}
+            ],
+            "outputs": [{"id": "sfx_out", "name": "foley_track", "label": "Pistas SFX Foley"}],
+            "parameters": [
+                {"key": "density", "label": "Densidad de Efectos", "type": "select", "options": ["Dinámica (Whooshes + Pasos + Ambiente)", "Sutil (Solo Ambientes)", "Acción Intensa (Impactos)"], "value": "Dinámica (Whooshes + Pasos + Ambiente)"},
+                {"key": "sfx_engine", "label": "Motor Acústico", "type": "select", "options": ["AudioCraft SFX Local ($0)", "ElevenLabs Sound Effects Pro", "Freesound HD Curated"], "value": "AudioCraft SFX Local ($0)"}
+            ]
+        }
+        add_nodes.append(sfx_node)
+        add_connections.append({"from_node": "node_2_llm", "from_socket": "s_out", "to_node": "node_foley_sfx", "to_socket": "s_in"})
+        add_connections.append({"from_node": "node_foley_sfx", "from_socket": "sfx_out", "to_node": "node_8_render", "to_socket": "bgm_in"})
+        applied_changes.append("🔊 Insertado módulo de Foley Acústico y Generación de Efectos de Sonido (SFX) por escena")
+
+    # 7. Detección de Garabatos / Doodle / Whiteboard
+    if re.search(r'garabato|doodle|whiteboard|pizarra|dibuj|esquema|hyperframe', p_lower):
+        doodle_node = {
+            "id": "node_doodle_whiteboard",
+            "title": "✏️ Animador Doodle & Garabatos Whiteboard (HyperFrames)",
+            "category": "render",
+            "color": "#a855f7",
+            "x": 860, "y": 30, "width": 280,
+            "enabled": True, "is_loop": False,
+            "inputs": [{"id": "concepts_in", "name": "keywords_in", "label": "Conceptos Clave"}],
+            "outputs": [{"id": "doodle_out", "name": "doodle_mp4", "label": "Vídeo Garabato MP4"}],
+            "parameters": [
+                {"key": "style", "label": "Estilo Visual", "type": "select", "options": ["Pizarra Blanca con Mano Dibujando", "Tiza Animada sobre Pizarra Negra", "Esquema Técnico Vectorial Neón"], "value": "Pizarra Blanca con Mano Dibujando"},
+                {"key": "draw_speed", "label": "Velocidad de Trazo", "type": "select", "options": ["1x Tiempo Real", "2x Rápido Acelerado", "4x Dinámico"], "value": "2x Rápido Acelerado"}
+            ]
+        }
+        add_nodes.append(doodle_node)
+        add_connections.append({"from_node": "node_2_llm", "from_socket": "t_out", "to_node": "node_doodle_whiteboard", "to_socket": "concepts_in"})
+        add_connections.append({"from_node": "node_doodle_whiteboard", "from_socket": "doodle_out", "to_node": "node_8_render", "to_socket": "v_in"})
+        applied_changes.append("✏️ Añadido módulo de animación Doodle / Pizarra Dibujada a Mano en formato HyperFrames")
+
+    # 8. Detección de Motor Visual y Enrutamiento Híbrido
     if re.search(r'h[ií]brido|combinad|mixto|auto|inteligente', p_lower):
         overrides["node_6_visual"] = { "provider": "Enrutador Híbrido Inteligente (Google Flow 3D + FLUX 3 + MiniMax H3)", "ken_burns": "Activado (Dinámico)" }
         applied_changes.append("🎬 Motor visual configurado en Modo Híbrido Inteligente (Google Flow $0 para drones + FLUX 3 para keyframes + MiniMax H3 para movimiento)")
@@ -624,14 +733,11 @@ def generate_heuristic_pipeline_plan(prompt: str, current_graph: Optional[Dict[s
     elif "flux" in p_lower or "zerogpu" in p_lower:
         overrides["node_6_visual"] = { "provider": "FLUX 3 Video (Serverless ZeroGPU Pool $0)", "ken_burns": "Activado (Paneo Suave)" }
         applied_changes.append("🎬 Motor visual actualizado a FLUX 3 Video ($0 ZeroGPU Pool / RunPod)")
-    elif "nanobanana" in p_lower or "2k" in p_lower or "4k" in p_lower:
-        overrides["node_6_visual"] = { "provider": "🍌 NanoBanana Pro 2 (Local Bridge Puerto 8742 — 2K/4K)", "ken_burns": "Activado (Paneo Suave)" }
-        applied_changes.append("🎬 Motor visual actualizado a NanoBanana Pro 2 (2K/4K)")
     elif "pexels" in p_lower or "stock" in p_lower:
         overrides["node_6_visual"] = { "provider": "Pexels Video Stock HD ($0)", "ken_burns": "Activado (Paneo Suave)" }
         applied_changes.append("🎬 Motor visual configurado con metraje de Pexels Stock HD")
 
-    # 5. Detección de Voz y Locución
+    # 9. Detección de Voz y Locución
     if re.search(r'eleven|elevenlabs|cinema', p_lower):
         overrides["node_3_voice"] = { "voice": "ElevenLabs Cinema & Clonación", "rate": 1.0 }
         applied_changes.append("🎙️ Locutor configurado con ElevenLabs Cinema")
@@ -642,7 +748,7 @@ def generate_heuristic_pipeline_plan(prompt: str, current_graph: Optional[Dict[s
         overrides["node_3_voice"] = { "voice": "Edge-TTS Neural ($0 Cloud Serverless)", "rate": 1.0 }
         applied_changes.append("🎙️ Locutor configurado con Edge-TTS Neural ($0)")
 
-    # 6. Aspect Ratio y Formato
+    # 10. Aspect Ratio y Formato
     if re.search(r'tiktok|reel|short|vertical|9:16', p_lower):
         overrides["node_1_intent"] = { "aspect": "9:16", "subject": prompt }
         applied_changes.append("🎯 Formato de vídeo configurado a 9:16 Vertical para TikTok/Reels")

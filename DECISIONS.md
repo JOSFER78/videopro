@@ -13,9 +13,17 @@
   3. *Modo 3 (Google Flow vía Playwright con Gemini Omni Flash)*
 - **Resultado:** Flexibilidad total para directores y creadores sin depender de un solo generador.
 
-## Decisión 3: Despliegue en Nginx bajo HTTPS Canónico y Enrutamiento Unificado
-- **Contexto:** Se prohíbe el uso de `localhost` en respuestas y URLs de cara a producción.
-- **Decisión:** 
-  - Exponer VideoPro Studio v2.0 (FastAPI backend + Glassmorphism WebUI en puerto `7895`) bajo la ruta pública oficial `https://143-47-35-167.sslip.io/pro/videopro/` (con todos sus endpoints `/api/v1/` y descargas `/outputs/` servidos de forma unificada).
-  - Mantener la interfaz legacy Streamlit MPT en `https://143-47-35-167.sslip.io/pro/videopro-mpt/` (puerto `8501`).
-- **Resultado:** La web oficial en la red pública y la vista previa del IDE/Hermes son idénticas y 100% funcionales.
+## Decisión 4: Arquitectura Desacoplada FastAPI (8080) + Streamlit (7001) + ComfyUI Studio
+- **Contexto:** Se requiere un motor API REST de alto rendimiento para automatización externa y una interfaz visual completa con editor de nodos estilo ComfyUI y suite de edición tipo Word.
+- **Decisión:** El backend principal corre en FastAPI (`app.asgi:app`) en el puerto 8080 y la WebUI corre en Streamlit en el puerto 7001 con inyección dinámica del canvas ComfyUI.
+- **Resultado:** Desacoplamiento total entre capa de control, capa de render y capa de presentación.
+
+## Decisión 5: Persistencia Bidireccional en Firestore y Almacenamiento Cloudflare R2
+- **Contexto:** Las configuraciones, catálogos de proveedores y estados de pipeline deben persistir en la nube para acceso multi-dispositivo y exportación sin coste por ancho de banda.
+- **Decisión:** Usar Firestore en `ayuda-emilio-83261` (`videopro_settings`) como fuente de verdad en la nube con caché local en `storage/`, y Cloudflare R2 para másters MP4 con $0 egress.
+- **Resultado:** Configuración resiliente, tolerante a fallos y sin costes de descarga.
+
+## Decisión 6: Saneamiento Forense y Desactivación de Servicios en Bucle
+- **Contexto:** Existía un servicio `videopro-v2.service` compitiendo por el puerto 7001 con más de 800 reinicios fallidos y copias de seguridad `.bak` en el repositorio.
+- **Decisión:** Desactivar el unit file obsoleto, aislar los prototipos monolíticos en `legacy/` y purgar archivos `.bak` y `.log`.
+- **Resultado:** Estabilidad absoluta de recursos en el VPS y repositorio 100% limpio.

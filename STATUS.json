@@ -1,16 +1,21 @@
 {
   "project": "videopro",
   "title": "VideoPro Studio — Estudio Cinematográfico Híbrido Autónomo",
-  "version": "2.0.0",
-  "status": "production",
+  "version": "2.2.0",
+  "status": "production_stable",
+  "backend_port": 8080,
+  "frontend_port": 7001,
   "public_url": "https://143-47-35-167.sslip.io/pro/videopro/",
-  "api_url": "https://143-47-35-167.sslip.io/pro/videopro/api/",
+  "firebase_project": "ayuda-emilio-83261",
+  "firestore_sync": "active",
+  "r2_storage": "configured",
+  "active_providers_count": 22,
   "engines": {
-    "tts": "VibeVoice 1.5B (es-emilio, local VPS zero-cost)",
-    "generation_mode_1": "Stock DB (Local Asset DB & Pexels)",
-    "generation_mode_2": "FLUX.1 Keyframe 0 (35mm Kodak RAW & Ken Burns 2.5D)",
-    "generation_mode_3": "Google Flow Playwright Runner (Gemini Omni Flash CDP)",
-    "rendering": "FFmpeg 6.1.1 & MoviePy"
+    "llm_director": "Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)",
+    "tts_voice": "Edge-TTS Neural + VibeVoice 1.5B + ElevenLabs",
+    "visual_engines": "Google Flow (Playwright) + FLUX 3 + MiniMax H3 + NanoBanana Pro 2 + Wan 2.1",
+    "audio_foley": "AudioCraft SFX + FlowMusic (Lyria 3) + Auto-Ducking (-22dB)",
+    "rendering": "FFmpeg 6.1.1 + MoviePy + Remotion React"
   },
-  "updated_at": "2026-08-15T04:12:00Z"
+  "updated_at": "2026-08-16T04:52:00Z"
 }

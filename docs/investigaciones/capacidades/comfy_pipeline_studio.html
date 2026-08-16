@@ -212,6 +212,12 @@
             border-color: #475569;
         }
 
+        .btn-tool:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
         .btn-tool.primary {
             background: #0284c7;
             border-color: #0369a1;
@@ -230,6 +236,70 @@
 
         .btn-tool.accent:hover {
             background: #15803d;
+        }
+
+        .btn-tool-group {
+            display: inline-flex;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .btn-tool-group .btn-tool {
+            border: none;
+            background: transparent;
+            padding: 5px 8px;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .btn-tool-group .btn-tool:hover {
+            background: #334155;
+        }
+
+        /* Badges de Datos en Cables Bezier */
+        .wire-badge-group {
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        .wire-badge-rect {
+            fill: #090d16;
+            stroke: #334155;
+            stroke-width: 1px;
+            rx: 5px;
+            ry: 5px;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+            transition: all 0.15s;
+        }
+
+        .wire-badge-text {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 9.5px;
+            font-weight: 700;
+            user-select: none;
+            pointer-events: none;
+            letter-spacing: 0.2px;
+        }
+
+        .wire-group:hover .wire-badge-rect {
+            stroke: #ef4444 !important;
+            fill: #450a0a !important;
+        }
+
+        .wire-group:hover .wire-badge-text {
+            fill: #fca5a5 !important;
+        }
+
+        .wire-group.active-trace .wire-badge-rect {
+            stroke: #34d399 !important;
+            fill: #064e3b !important;
+        }
+
+        .wire-group.active-trace .wire-badge-text {
+            fill: #6ee7b7 !important;
         }
 
         /* Nodos Flotantes ComfyUI */
@@ -543,25 +613,40 @@
 </head>
 <body>
 
-    <!-- BARRA DE HERRAMIENTAS SUPERIOR -->
+    <!-- BARRA DE HERRAMIENTAS SUPERIOR CON SUITE DE EDICIÓN WORD/STUDIO -->
     <div class="toolbar">
         <div class="toolbar-left">
             <div class="studio-title">
-                🎛️ VideoPro ComfyUI Studio
-                <span class="studio-badge">Live Flow Graph</span>
+                🎛️ VideoPro Studio
+                <span class="studio-badge">LIVE FLOW</span>
             </div>
-            <button class="btn-tool" style="background: linear-gradient(135deg, #7c3aed, #2563eb); border-color: #9333ea; color:#fff; font-weight: 700;" onclick="openAiArchitectModal()">🤖 Asistente IA de Arquitectura</button>
-            <button class="btn-tool" onclick="openNodeCatalog()">➕ Añadir Nodo</button>
-            <button class="btn-tool" onclick="autoLayoutNodes()">📐 Auto-Organizar</button>
-            <button class="btn-tool" onclick="resetToCanonical()">↺ Restaurar Canónico</button>
+            <button class="btn-tool" style="background: linear-gradient(135deg, #7c3aed, #2563eb); border-color: #9333ea; color:#fff; font-weight: 700;" onclick="openAiArchitectModal()" title="Habla en lenguaje natural para que la IA diseñe y modifique el flujo">🤖 Asistente IA de Arquitectura</button>
+            <button class="btn-tool" onclick="openNodeCatalog()" title="Añadir un nuevo nodo del catálogo">➕ Añadir Nodo</button>
+            
+            <!-- Grupo de Historial (Deshacer / Rehacer) -->
+            <div class="btn-tool-group">
+                <button class="btn-tool" id="btnUndo" onclick="undo()" disabled title="Deshacer última acción (Ctrl+Z)">↺ Deshacer</button>
+                <button class="btn-tool" id="btnRedo" onclick="redo()" disabled title="Rehacer acción (Ctrl+Y)">↻ Rehacer</button>
+            </div>
+
+            <!-- Grupo de Edición (Copiar / Pegar / Duplicar / Borrar) -->
+            <div class="btn-tool-group">
+                <button class="btn-tool" onclick="copySelectedNode()" title="Copiar nodo seleccionado (Ctrl+C)">📋 Copiar</button>
+                <button class="btn-tool" onclick="pasteNode()" title="Pegar nodo copiado (Ctrl+V)">📥 Pegar</button>
+                <button class="btn-tool" onclick="duplicateSelectedNode()" title="Duplicar nodo seleccionado (Ctrl+D)">📑 Duplicar</button>
+                <button class="btn-tool" onclick="deleteSelectedNode()" style="color: #f87171;" title="Eliminar nodo seleccionado (Del / Backspace)">🗑️ Borrar</button>
+            </div>
+
+            <button class="btn-tool" onclick="autoLayoutNodes()" title="Auto-organizar cuadrícula de nodos">📐 Auto-Organizar</button>
+            <button class="btn-tool" onclick="resetToCanonical()" title="Restaurar a la topología canónica oficial">↺ Canónico</button>
         </div>
         <div style="display: flex; gap: 8px; align-items: center;">
-            <button class="btn-tool accent" id="btnTestFlow" onclick="simulateExecutionFlow()">⚡ Probar Flujo</button>
-            <button class="btn-tool primary" id="btnSaveGraph" onclick="saveGraphToBackend()">💾 Guardar y Aplicar Flujo</button>
+            <button class="btn-tool accent" id="btnTestFlow" onclick="simulateExecutionFlow()" title="Trazar y verificar la ejecución real paso a paso">⚡ Probar Flujo</button>
+            <button class="btn-tool primary" id="btnSaveGraph" onclick="saveGraphToBackend()" title="Persistir topología en Firestore y aplicar al generador">💾 Guardar y Aplicar Flujo</button>
             <div style="width: 1px; height: 20px; background: #334155; margin: 0 4px;"></div>
-            <button class="btn-tool" onclick="zoomCanvas(0.15)">🔍＋</button>
-            <button class="btn-tool" onclick="zoomCanvas(-0.15)">🔍−</button>
-            <button class="btn-tool" onclick="resetZoom()">🎯 100%</button>
+            <button class="btn-tool" onclick="zoomCanvas(0.15)" title="Aumentar zoom (Zoom In)">🔍＋</button>
+            <button class="btn-tool" onclick="zoomCanvas(-0.15)" title="Reducir zoom (Zoom Out)">🔍−</button>
+            <button class="btn-tool" onclick="resetZoom()" title="Restablecer zoom al 100%">🎯 100%</button>
         </div>
     </div>
 
@@ -594,14 +679,67 @@
     <div class="modal-catalog" id="catalogModal">
         <div class="catalog-box">
             <div class="catalog-header">
-                <div class="catalog-title">➕ Añadir Nodo al Pipeline</div>
-                <button class="btn-node-toggle" onclick="closeNodeCatalog()" style="font-size: 16px;">✕</button>
+                <div class="catalog-title">➕ Catálogo Extensible de Nodos</div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="btn-tool" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #38bdf8; color: #fff; font-weight: 700;" onclick="openCustomNodeModal()">✨ Crear Nodo Personalizado</button>
+                    <button class="btn-node-toggle" onclick="closeNodeCatalog()" style="font-size: 16px;">✕</button>
+                </div>
             </div>
             <div class="catalog-search">
-                <input type="text" id="catalogSearchInput" placeholder="Buscar nodo por nombre o categoría..." oninput="filterCatalog(this.value)">
+                <input type="text" id="catalogSearchInput" placeholder="Buscar entre Foley SFX, Street View, NanoBanana 2K, Garabatos, Multi-Ángulos, Loops..." oninput="filterCatalog(this.value)">
             </div>
             <div class="catalog-list" id="catalogListContainer">
-                <!-- Opciones de nodos -->
+                <!-- Opciones de nodos generadas dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CREADOR DE NODO DINÁMICO PERSONALIZADO (CERO HARDCODE) -->
+    <div class="modal-catalog" id="customNodeModal">
+        <div class="catalog-box" style="max-width: 520px;">
+            <div class="catalog-header">
+                <div class="catalog-title">✨ Creador de Nodo Dinámico (Cero Hardcode)</div>
+                <button class="btn-node-toggle" onclick="closeCustomNodeModal()" style="font-size: 16px;">✕</button>
+            </div>
+            <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label class="param-label">Título del Nodo / Módulo</label>
+                    <input type="text" id="custNodeTitle" class="param-input" placeholder="ej. 🛰️ Extractor Satelital Copernicus" value="🛰️ Módulo Especializado">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                        <label class="param-label">Categoría</label>
+                        <select id="custNodeCategory" class="param-select">
+                            <option value="visual">Visual (Vídeo / Render / Imagen)</option>
+                            <option value="voice">Voz / Audio Neural</option>
+                            <option value="music">Música / Foley SFX Acústico</option>
+                            <option value="llm">LLM / Guion / Fact-Checking</option>
+                            <option value="programacion">Investigación / Scraping / Datos</option>
+                            <option value="render">Render / Composición / Remotion</option>
+                            <option value="control">Control / Loop / Enrutador</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="param-label">Color Distintivo</label>
+                        <input type="color" id="custNodeColor" value="#38bdf8" style="width: 100%; height: 32px; background: transparent; border: 1px solid #334155; border-radius: 6px; cursor: pointer;">
+                    </div>
+                </div>
+                <div>
+                    <label class="param-label">Sockets de Entrada (separados por coma)</label>
+                    <input type="text" id="custNodeInputs" class="param-input" placeholder="ej. lugar_in, prompt_in" value="prompt_in">
+                </div>
+                <div>
+                    <label class="param-label">Sockets de Salida (separados por coma)</label>
+                    <input type="text" id="custNodeOutputs" class="param-input" placeholder="ej. video_out, sfx_out" value="output_out">
+                </div>
+                <div>
+                    <label class="param-label">Parámetros (formato clave:valor separados por coma)</label>
+                    <input type="text" id="custNodeParams" class="param-input" placeholder="ej. resolucion:2K 1440p, estilo:Cinemático" value="modo:Automático, calidad:Máster">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px;">
+                    <button class="btn-tool" onclick="closeCustomNodeModal()">Cancelar</button>
+                    <button class="btn-tool primary" onclick="submitCustomNode()">➕ Crear y Añadir al Lienzo</button>
+                </div>
             </div>
         </div>
     </div>
@@ -975,6 +1113,197 @@
         let activeDragNode = null;
         let dragOffsetX = 0, dragOffsetY = 0;
         let activeWire = null;
+        let selectedNodeId = null;
+        let clipboardNode = null;
+
+        /* =========================================================
+           SISTEMA DE HISTORIAL (DESHACER / REHACER / PORTAPAPELES)
+           ========================================================= */
+        let undoStack = [];
+        let redoStack = [];
+        const MAX_HISTORY = 35;
+
+        function pushUndoState() {
+            undoStack.push(JSON.stringify(graphData));
+            if (undoStack.length > MAX_HISTORY) undoStack.shift();
+            redoStack = [];
+            updateUndoRedoButtons();
+        }
+
+        function undo() {
+            if (undoStack.length === 0) return;
+            redoStack.push(JSON.stringify(graphData));
+            const prev = undoStack.pop();
+            graphData = JSON.parse(prev);
+            renderNodes();
+            updateUndoRedoButtons();
+            showToast("↺ Acción deshecha (Undo).");
+        }
+
+        function redo() {
+            if (redoStack.length === 0) return;
+            undoStack.push(JSON.stringify(graphData));
+            const next = redoStack.pop();
+            graphData = JSON.parse(next);
+            renderNodes();
+            updateUndoRedoButtons();
+            showToast("↻ Acción rehecha (Redo).");
+        }
+
+        function updateUndoRedoButtons() {
+            const btnUndo = document.getElementById("btnUndo");
+            const btnRedo = document.getElementById("btnRedo");
+            if (btnUndo) btnUndo.disabled = (undoStack.length === 0);
+            if (btnRedo) btnRedo.disabled = (redoStack.length === 0);
+        }
+
+        function selectNode(nodeId, e) {
+            if (e) e.stopPropagation();
+            selectedNodeId = nodeId;
+            document.querySelectorAll(".node-box").forEach(el => {
+                if (el.id === nodeId) {
+                    el.classList.add("selected");
+                } else {
+                    el.classList.remove("selected");
+                }
+            });
+        }
+
+        function clearNodeSelection() {
+            selectedNodeId = null;
+            document.querySelectorAll(".node-box").forEach(el => el.classList.remove("selected"));
+        }
+
+        function copySelectedNode() {
+            if (!selectedNodeId) {
+                showToast("⚠️ Haz clic sobre un nodo para seleccionarlo antes de copiar.");
+                return;
+            }
+            const node = graphData.nodes.find(n => n.id === selectedNodeId);
+            if (node) {
+                clipboardNode = JSON.parse(JSON.stringify(node));
+                showToast(`📋 Nodo «${node.title}» copiado al portapapeles.`);
+            }
+        }
+
+        function pasteNode() {
+            if (!clipboardNode) {
+                showToast("⚠️ Portapapeles vacío. Copia un nodo primero (Ctrl+C).");
+                return;
+            }
+            pushUndoState();
+            const newNode = JSON.parse(JSON.stringify(clipboardNode));
+            newNode.id = `node_${Date.now()}`;
+            newNode.title = `${newNode.title} (Copia)`;
+            newNode.x += 40;
+            newNode.y += 40;
+            graphData.nodes.push(newNode);
+            renderNodes();
+            selectNode(newNode.id);
+            showToast(`📥 Nodo «${newNode.title}» pegado en el lienzo.`);
+        }
+
+        function duplicateSelectedNode() {
+            if (!selectedNodeId) {
+                showToast("⚠️ Haz clic en un nodo para duplicarlo (Ctrl+D).");
+                return;
+            }
+            copySelectedNode();
+            pasteNode();
+        }
+
+        function deleteSelectedNode() {
+            if (!selectedNodeId) return;
+            const node = graphData.nodes.find(n => n.id === selectedNodeId);
+            const title = node ? node.title : selectedNodeId;
+            pushUndoState();
+            graphData.nodes = graphData.nodes.filter(n => n.id !== selectedNodeId);
+            graphData.connections = graphData.connections.filter(c => c.from_node !== selectedNodeId && c.to_node !== selectedNodeId);
+            selectedNodeId = null;
+            renderNodes();
+            showToast(`🗑️ Nodo «${title}» eliminado.`);
+        }
+
+        /* =========================================================
+           METADATOS DE CABLES Y FLUJO DE DATOS (100% DINÁMICO)
+           ========================================================= */
+        function getConnectionPayloadMeta(fromNode, fromSock, toNode, toSock) {
+            const f = (fromSock || "").toLowerCase();
+            const t = (toSock || "").toLowerCase();
+
+            // 1. Geolocalización y Fotos de Lugares
+            if (f.includes("geo") || t.includes("lugar") || f.includes("coord") || f.includes("street")) {
+                return { icon: "📸", label: "Fotos Geo 4K", color: "#38bdf8", desc: "Fotos reales de Street View / Satélite y geocoordenadas" };
+            }
+            // 2. NanoBanana Pro 2K/4K y Multi-Ángulo
+            if (f.includes("2k") || f.includes("4k") || f.includes("multi_angle") || t.includes("img_ref")) {
+                return { icon: "🍌", label: "Render 2K Multi-Ángulo", color: "#facc15", desc: "Renders 2K/4K fotorrealistas desde múltiples perspectivas" };
+            }
+            // 3. Foley Acústico y Efectos de Sonido
+            if (f.includes("sfx") || f.includes("foley") || t.includes("sfx")) {
+                return { icon: "🔊", label: "Foley SFX Acústico", color: "#ec4899", desc: "Pistas acústicas de efectos de sonido ambientales y foley" };
+            }
+            // 4. Garabatos y Doodle Whiteboard
+            if (f.includes("doodle") || f.includes("sketch") || t.includes("concept")) {
+                return { icon: "✏️", label: "Garabato Whiteboard", color: "#c084fc", desc: "Animación de pizarra dibujada a mano sobre la marcha" };
+            }
+            // 5. Consistencia Multi-View 360
+            if (f.includes("multiview") || t.includes("char_in")) {
+                return { icon: "🔀", label: "Consistencia 360°", color: "#14b8a6", desc: "Perspectivas orbitales sincronizadas con identidad fija" };
+            }
+            // 6. Mapas Animados
+            if (f.includes("map") || t.includes("loc_in")) {
+                return { icon: "🗺️", label: "Vuelo de Mapa 3D", color: "#06b6d4", desc: "Rutas GPS y sobrevuelos topográficos animados" };
+            }
+            // 7. Color Grading & LUTs
+            if (f.includes("graded") || t.includes("raw_video")) {
+                return { icon: "🎨", label: "Grading LUT 35mm", color: "#f97316", desc: "Etalonaje cinemático con grano analógico de 35mm" };
+            }
+            // 8. Clonación Vocal
+            if (f.includes("cloned") || t.includes("ref_audio")) {
+                return { icon: "🎙️", label: "Voz Clonada 48k", color: "#10b981", desc: "Clonación zero-shot con timbre acústico idéntico" };
+            }
+            // 9. Investigación Hermes y Citas
+            if (f === "d_out" || t === "d_in" || f.includes("dossier")) {
+                return { icon: "🔬", label: "Dossier Fáctico", color: "#a855f7", desc: "Dossier documental y citas de investigación Hermes" };
+            }
+            // 10. Guion 5D
+            if (f === "s_out" || t === "s_in" || f.includes("script")) {
+                return { icon: "📜", label: "Guion 5D", color: "#c084fc", desc: "Guion narrativo desglosado por escenas" };
+            }
+            // 11. Audio y Voz Neural
+            if (f === "a_out" || t === "a_in" || t === "voc_in" || f.includes("audio")) {
+                return { icon: "🎙️", label: "Audio 48kHz", color: "#10b981", desc: "Voz sintetizada y normalizada a -16 LUFS" };
+            }
+            // 12. Marcas Temporales STT
+            if (f === "ts_out" || t === "ts_in" || f.includes("time") || f.includes("stamp")) {
+                return { icon: "⏱️", label: "Timestamps ASS", color: "#eab308", desc: "Alineación fonética STT palabra por palabra" };
+            }
+            // 13. Prompts Visuales
+            if (f === "t_out" || t === "t_in" || f.includes("prompt")) {
+                return { icon: "🎬", label: "Prompts 4K", color: "#38bdf8", desc: "Directivas visuales para difusión de vídeo" };
+            }
+            // 14. Clips de Vídeo
+            if (f === "v_out" || t === "v_in" || f.includes("video") || f.includes("clip")) {
+                return { icon: "🎞️", label: "Clips Vídeo", color: "#06b6d4", desc: "Metraje generado por Google Flow / FLUX 3 / MiniMax H3" };
+            }
+            // 15. Subtítulos Vox
+            if (f === "sub_out" || t === "sub_in" || f.includes("sub")) {
+                return { icon: "✨", label: "Subtítulos Vox", color: "#facc15", desc: "Pistas dinámicas estilo Vox Highlight" };
+            }
+            // 16. BGM y Ducking
+            if (f === "bgm_out" || t === "bgm_in" || f.includes("bgm") || f.includes("music")) {
+                return { icon: "🎵", label: "BGM Ducked", color: "#f43f5e", desc: "Banda sonora atenuada a -22 dB bajo voz" };
+            }
+            // 17. Master MP4
+            if (f === "mp4_out" || t === "mp4_in" || f.includes("master") || f.includes("mp4")) {
+                return { icon: "📦", label: "Master MP4", color: "#22c55e", desc: "Vídeo final ensamblado listo para Cloudflare R2" };
+            }
+
+            // Fallback Dinámico con Formateo Inteligente para cualquier socket arbitrario
+            const cleanLabel = f.replace(/_out|_in|_data/g, '').replace(/_/g, ' ').toUpperCase();
+            return { icon: "⚡", label: cleanLabel.slice(0, 14) || "Datos", color: "#38bdf8", desc: `Transferencia de ${cleanLabel}` };
+        }
 
         /* =========================================================
            RENDERIZADO Y TRANSFORMACIÓN DEL LIENZO
@@ -999,6 +1328,7 @@
         }
 
         function autoLayoutNodes() {
+            pushUndoState();
             const cols = {};
             graphData.nodes.forEach(n => {
                 const colIdx = Math.round(n.x / 340);
@@ -1030,11 +1360,14 @@
 
             graphData.nodes.forEach(node => {
                 const nodeEl = document.createElement("div");
-                nodeEl.className = `node-box ${node.enabled ? '' : 'bypassed'}`;
+                nodeEl.className = `node-box ${node.enabled ? '' : 'bypassed'} ${node.id === selectedNodeId ? 'selected' : ''}`;
                 nodeEl.id = node.id;
                 nodeEl.style.left = `${node.x}px`;
                 nodeEl.style.top = `${node.y}px`;
                 nodeEl.style.width = `${node.width || 280}px`;
+
+                // Evento de selección
+                nodeEl.onclick = (e) => selectNode(node.id, e);
 
                 // Cabecera
                 const header = document.createElement("div");
@@ -1118,7 +1451,7 @@
 
                         grp.innerHTML = `
                             <label class="param-label">${escapeHtml(param.label)}</label>
-                            <select class="param-select" onchange="updateParam('${node.id}', ${pIdx}, this.value)">
+                            <select class="param-select" onchange="pushUndoState(); updateParam('${node.id}', ${pIdx}, this.value)">
                                 ${param.options.map(opt => `<option value="${escapeHtml(opt)}" ${opt === param.value ? 'selected' : ''}>${escapeHtml(opt)}</option>`).join('')}
                             </select>
                         `;
@@ -1133,7 +1466,7 @@
                     } else {
                         grp.innerHTML = `
                             <label class="param-label">${escapeHtml(param.label)}</label>
-                            <input type="text" class="param-input" value="${escapeHtml(param.value)}" oninput="updateParam('${node.id}', ${pIdx}, this.value)">
+                            <input type="text" class="param-input" value="${escapeHtml(param.value)}" onchange="pushUndoState(); updateParam('${node.id}', ${pIdx}, this.value)">
                         `;
                     }
 
@@ -1149,7 +1482,7 @@
         }
 
         /* =========================================================
-           DIBUJADO DE CONEXIONES BEZIER CON FLECHAS DIRECCIONALES Y FLUJO
+           DIBUJADO DE CONEXIONES BEZIER CON BADGES DE DATOS Y FLECHAS
            ========================================================= */
 
         function drawConnections() {
@@ -1177,10 +1510,14 @@
                 const dx = Math.max(45, Math.abs(x2 - x1) * 0.55);
                 const pathD = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
 
+                const midX = (x1 + x2) / 2;
+                const midY = (y1 + y2) / 2;
+
+                const meta = getConnectionPayloadMeta(conn.from_node, conn.from_socket, conn.to_node, conn.to_socket);
+
                 const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
                 g.setAttribute("class", "wire-group");
                 g.setAttribute("data-conn-idx", cIdx);
-                g.setAttribute("title", `Cable: ${conn.from_node} → ${conn.to_node} (Click para desconectar)`);
 
                 // 1. Resplandor / Halo de cable
                 const pathGlow = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -1199,9 +1536,42 @@
                 pathFlow.setAttribute("class", "wire-flow");
                 pathFlow.setAttribute("marker-end", "url(#arrow-glow)");
 
+                // 4. Badge flotante de datos que transmite el cable
+                const badgeGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                badgeGroup.setAttribute("class", "wire-badge-group");
+                badgeGroup.setAttribute("transform", `translate(${midX}, ${midY})`);
+
+                const labelText = `${meta.icon} ${meta.label}`;
+                const badgeWidth = Math.max(88, labelText.length * 6.6 + 14);
+                const badgeHeight = 18;
+
+                const badgeRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                badgeRect.setAttribute("x", -badgeWidth / 2);
+                badgeRect.setAttribute("y", -badgeHeight / 2);
+                badgeRect.setAttribute("width", badgeWidth);
+                badgeRect.setAttribute("height", badgeHeight);
+                badgeRect.setAttribute("class", "wire-badge-rect");
+                badgeRect.setAttribute("style", `stroke: ${meta.color}aa;`);
+
+                const badgeText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                badgeText.setAttribute("x", 0);
+                badgeText.setAttribute("y", 3.5);
+                badgeText.setAttribute("text-anchor", "middle");
+                badgeText.setAttribute("class", "wire-badge-text");
+                badgeText.setAttribute("style", `fill: ${meta.color};`);
+                badgeText.textContent = `${meta.icon} ${meta.label} ➔`;
+
+                const badgeTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+                badgeTitle.textContent = `Cable: ${conn.from_node} ➔ ${conn.to_node}\nTransmite: ${meta.desc}\n(Click para desconectar)`;
+
+                badgeGroup.appendChild(badgeRect);
+                badgeGroup.appendChild(badgeText);
+                badgeGroup.appendChild(badgeTitle);
+
                 g.appendChild(pathGlow);
                 g.appendChild(pathBase);
                 g.appendChild(pathFlow);
+                g.appendChild(badgeGroup);
 
                 g.onclick = () => deleteConnection(cIdx);
                 g.onmouseenter = () => {
@@ -1216,6 +1586,7 @@
         }
 
         function deleteConnection(cIdx) {
+            pushUndoState();
             graphData.connections.splice(cIdx, 1);
             drawConnections();
             showToast("🔌 Cable desconectado.");
@@ -1226,7 +1597,9 @@
            ========================================================= */
 
         function startDragNode(node, e) {
-            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+            selectNode(node.id, e);
+            pushUndoState();
             activeDragNode = node;
             const box = document.getElementById(node.id);
             dragOffsetX = (e.clientX / zoom) - node.x;
@@ -1274,6 +1647,7 @@
                     const toType = target.getAttribute("data-type");
 
                     if (activeWire.fromNode !== toNode && activeWire.type !== toType) {
+                        pushUndoState();
                         const newConn = activeWire.type === 'out' 
                             ? { from_node: activeWire.fromNode, from_socket: activeWire.fromSocket, to_node: toNode, to_socket: toSock }
                             : { from_node: toNode, from_socket: toSock, to_node: activeWire.fromNode, to_socket: activeWire.fromSocket };
@@ -1290,6 +1664,7 @@
         const viewport = document.getElementById("viewport");
         viewport.onmousedown = (e) => {
             if (e.target.id === "viewport" || e.target.id === "svgCanvas") {
+                clearNodeSelection();
                 isPanning = true;
                 startPanX = e.clientX;
                 startPanY = e.clientY;
@@ -1301,6 +1676,39 @@
             const delta = e.deltaY < 0 ? 0.08 : -0.08;
             zoomCanvas(delta);
         };
+
+        /* =========================================================
+           ATAJOS DE TECLADO GLOBALES (ESTILO WORD / STUDIO)
+           ========================================================= */
+        window.addEventListener("keydown", (e) => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
+                e.preventDefault();
+                if (e.shiftKey) {
+                    redo();
+                } else {
+                    undo();
+                }
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') {
+                e.preventDefault();
+                redo();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
+                e.preventDefault();
+                copySelectedNode();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'v') {
+                e.preventDefault();
+                pasteNode();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+                e.preventDefault();
+                duplicateSelectedNode();
+            } else if (e.key === 'Delete' || e.key === 'Backspace') {
+                if (selectedNodeId) {
+                    e.preventDefault();
+                    deleteSelectedNode();
+                }
+            }
+        });
 
         /* =========================================================
            ACTUALIZACIÓN DE PARÁMETROS Y BYPASS
@@ -1321,6 +1729,7 @@
 
         function toggleNodeBypass(nodeId, e) {
             e.stopPropagation();
+            pushUndoState();
             const node = graphData.nodes.find(n => n.id === nodeId);
             if (node) {
                 node.enabled = !node.enabled;
@@ -1330,11 +1739,13 @@
         }
 
         function deleteNode(nodeId, e) {
-            e.stopPropagation();
+            if (e) e.stopPropagation();
+            pushUndoState();
             graphData.nodes = graphData.nodes.filter(n => n.id !== nodeId);
             graphData.connections = graphData.connections.filter(c => c.from_node !== nodeId && c.to_node !== nodeId);
+            if (selectedNodeId === nodeId) selectedNodeId = null;
             renderNodes();
-            showToast("🗑️ Nodo eliminado del grafo.");
+            showToast("🗑️ Nodo eliminado del lienzo.");
         }
 
         /* =========================================================
@@ -1536,6 +1947,7 @@
         }
 
         function resetToCanonical() {
+            pushUndoState();
             graphData = JSON.parse(JSON.stringify(DEFAULT_GRAPH));
             renderNodes();
             showToast("↺ Pipeline restaurado a la topología canónica.");
@@ -1546,6 +1958,105 @@
            ========================================================= */
 
         const CATALOG_PRESETS = [
+            {
+                title: "📸 Extractor de Fotos de Lugares & Street View 4K",
+                category: "programacion", color: "#38bdf8",
+                inputs: [{ id: "lugar_in", name: "location_query", label: "Lugar / Coordenadas" }],
+                outputs: [
+                    { id: "geo_photos", name: "geo_photos", label: "Fotos Reales HD" },
+                    { id: "coords_out", name: "coords", label: "Geodatos & Metadata" }
+                ],
+                parameters: [
+                    { key: "source", label: "Fuente Geográfica", type: "select", options: ["Google Street View 4K & Earth 3D", "Flickr Creative Commons HD", "Mapillary Open Geodata"], value: "Google Street View 4K & Earth 3D" },
+                    { key: "num_photos", label: "Cantidad de Fotos", type: "range", min: 1, max: 8, step: 1, value: 4 }
+                ]
+            },
+            {
+                title: "🍌 NanoBanana Pro 2 (2K/4K Multi-Ángulo Re-render)",
+                category: "visual", color: "#facc15",
+                inputs: [
+                    { id: "img_ref_in", name: "ref_image", label: "Foto Referencia" },
+                    { id: "prompt_in", name: "prompt", label: "Prompt Director" }
+                ],
+                outputs: [
+                    { id: "img_2k_out", name: "rendered_image_2k", label: "Render 2K/4K QHD" },
+                    { id: "multi_angle_out", name: "multi_angle_frames", label: "Vistas Multi-Ángulo" }
+                ],
+                parameters: [
+                    { key: "resolution", label: "Resolución", type: "select", options: ["2K QHD (2560x1440)", "4K UHD (3840x2160)", "1080p Full-HD"], value: "2K QHD (2560x1440)" },
+                    { key: "camera_angle", label: "Perspectiva de Cámara", type: "select", options: ["Orbital 360 Panorámica", "Vista Dron Aéreo Cenital", "Contrapicado Cinemático", "Plano Detalle Macro"], value: "Orbital 360 Panorámica" },
+                    { key: "creativity", label: "Fidelidad Geográfica", type: "range", min: 0.1, max: 0.9, step: 0.05, value: 0.45 }
+                ]
+            },
+            {
+                title: "🔊 Foley Acústico & Efectos SFX por Escena",
+                category: "music", color: "#ec4899",
+                inputs: [
+                    { id: "s_in", name: "script_in", label: "Guion Escenas" },
+                    { id: "v_in", name: "video_timing_in", label: "Marcas Visuales" }
+                ],
+                outputs: [{ id: "sfx_out", name: "foley_track", label: "Pistas SFX Foley" }],
+                parameters: [
+                    { key: "density", label: "Densidad de Efectos", type: "select", options: ["Dinámica (Whooshes + Pasos + Ambiente)", "Sutil (Solo Ambientes)", "Acción Intensa (Impactos)"], value: "Dinámica (Whooshes + Pasos + Ambiente)" },
+                    { key: "sfx_engine", label: "Motor Acústico", type: "select", options: ["AudioCraft SFX Local ($0)", "ElevenLabs Sound Effects Pro", "Freesound HD Curated"], value: "AudioCraft SFX Local ($0)" }
+                ]
+            },
+            {
+                title: "✏️ Animador Doodle & Garabatos Whiteboard (HyperFrames)",
+                category: "render", color: "#a855f7",
+                inputs: [{ id: "concepts_in", name: "keywords_in", label: "Conceptos Clave" }],
+                outputs: [{ id: "doodle_out", name: "doodle_mp4", label: "Vídeo Garabato MP4" }],
+                parameters: [
+                    { key: "style", label: "Estilo Visual", type: "select", options: ["Pizarra Blanca con Mano Dibujando", "Tiza Animada sobre Pizarra Negra", "Esquema Técnico Vectorial Neón"], value: "Pizarra Blanca con Mano Dibujando" },
+                    { key: "draw_speed", label: "Velocidad de Trazo", type: "select", options: ["1x Tiempo Real", "2x Rápido Acelerado", "4x Dinámico"], value: "2x Rápido Acelerado" }
+                ]
+            },
+            {
+                title: "🔀 ControlNet Multi-View (Consistencia Multi-Ángulo 360)",
+                category: "visual", color: "#14b8a6",
+                inputs: [
+                    { id: "char_in", name: "subject_ref", label: "Sujeto / Personaje" },
+                    { id: "scene_in", name: "scene_context", label: "Entorno" }
+                ],
+                outputs: [{ id: "multiview_out", name: "consistent_views", label: "Múltiples Ángulos 360" }],
+                parameters: [
+                    { key: "angles", label: "Número de Perspectivas", type: "select", options: ["3 Ángulos (Frontal + Perfil + 3/4)", "5 Ángulos Orbital 360", "8 Ángulos Completo"], value: "3 Ángulos (Frontal + Perfil + 3/4)" },
+                    { key: "model", label: "Modelo Multi-View", type: "select", options: ["Zero123++ ComfyUI Open Weights", "SDXL MultiView IP-Adapter"], value: "Zero123++ ComfyUI Open Weights" }
+                ]
+            },
+            {
+                title: "🗺️ Mapas Animados & Rutas Geográficas 3D",
+                category: "visual", color: "#06b6d4",
+                inputs: [{ id: "loc_in", name: "places_in", label: "Lugares / Itinerario" }],
+                outputs: [{ id: "map_out", name: "animated_map_mp4", label: "Vuelo de Mapa 3D" }],
+                parameters: [
+                    { key: "map_theme", label: "Estilo Cartográfico", type: "select", options: ["Satélite 3D Cinemático", "Modo Oscuro Bloomberg", "Topográfico Minimalista"], value: "Satélite 3D Cinemático" },
+                    { key: "route_fx", label: "Efecto de Trayectoria", type: "select", options: ["Línea GPS Neón Pulsante", "Zoom Dron Transición Rápida"], value: "Línea GPS Neón Pulsante" }
+                ]
+            },
+            {
+                title: "🎨 Color Grading & LUTs Cinemáticos",
+                category: "render", color: "#f97316",
+                inputs: [{ id: "v_in", name: "raw_video_in", label: "Vídeo Crudo" }],
+                outputs: [{ id: "graded_v_out", name: "graded_video", label: "Vídeo Graded 35mm" }],
+                parameters: [
+                    { key: "lut", label: "LUT Cinemático", type: "select", options: ["Kodak 2383 Film Print", "Teal & Orange Blockbuster", "Netflix Dark Documental", "Vintage 70s Warm"], value: "Kodak 2383 Film Print" },
+                    { key: "grain", label: "Grano Film 35mm", type: "select", options: ["Sutil Orgánico (15%)", "Medio (35%)", "Sin Grano"], value: "Sutil Orgánico (15%)" }
+                ]
+            },
+            {
+                title: "🎙️ Doblaje & Clonación Vocal Zero-Shot",
+                category: "voice", color: "#10b981",
+                inputs: [
+                    { id: "ref_audio", name: "voice_sample", label: "Muestra de Voz" },
+                    { id: "s_in", name: "script_text", label: "Texto a Doblar" }
+                ],
+                outputs: [{ id: "cloned_out", name: "cloned_audio", label: "Voz Clonada 48kHz" }],
+                parameters: [
+                    { key: "engine", label: "Motor Zero-Shot", type: "select", options: ["F5-TTS Open Weights ($0)", "CosyVoice 2.0 SOTA", "XTTS v2 Local"], value: "F5-TTS Open Weights ($0)" },
+                    { key: "emotion", label: "Tono Emocional", type: "select", options: ["Cinemático Narrativo", "Enérgico / Publicitario", "Dramático Susurrado"], value: "Cinemático Narrativo" }
+                ]
+            },
             {
                 title: "🎬 Wan 2.1 Video (Alibaba DiT 14B / 1.3B)",
                 category: "visual", color: "#38bdf8",
@@ -1639,6 +2150,58 @@
             document.getElementById("catalogModal").classList.remove("active");
         }
 
+        function openCustomNodeModal() {
+            closeNodeCatalog();
+            document.getElementById("customNodeModal").classList.add("active");
+        }
+
+        function closeCustomNodeModal() {
+            document.getElementById("customNodeModal").classList.remove("active");
+        }
+
+        function submitCustomNode() {
+            const title = document.getElementById("custNodeTitle").value.trim() || "✨ Módulo Personalizado";
+            const category = document.getElementById("custNodeCategory").value || "visual";
+            const color = document.getElementById("custNodeColor").value || "#38bdf8";
+            
+            const rawInputs = document.getElementById("custNodeInputs").value.split(",").map(s => s.trim()).filter(Boolean);
+            const rawOutputs = document.getElementById("custNodeOutputs").value.split(",").map(s => s.trim()).filter(Boolean);
+            const rawParams = document.getElementById("custNodeParams").value.split(",").map(s => s.trim()).filter(Boolean);
+
+            const inputs = rawInputs.map((inp, i) => ({ id: `in_${i}`, name: inp, label: inp.replace(/_/g, ' ').toUpperCase() }));
+            const outputs = rawOutputs.map((outp, i) => ({ id: `out_${i}`, name: outp, label: outp.replace(/_/g, ' ').toUpperCase() }));
+            
+            const parameters = rawParams.map(p => {
+                const parts = p.split(":");
+                const k = parts[0].trim();
+                const v = parts.length > 1 ? parts[1].trim() : "Auto";
+                return { key: k, label: k.toUpperCase(), type: "text", value: v };
+            });
+
+            const newNodeId = `node_custom_${Date.now()}`;
+            const newNode = {
+                id: newNodeId,
+                title: title,
+                category: category,
+                color: color,
+                x: -panX / zoom + 350,
+                y: -panY / zoom + 220,
+                width: 280,
+                enabled: true,
+                is_loop: false,
+                inputs: inputs.length > 0 ? inputs : [{ id: "in_0", name: "in_data", label: "ENTRADA" }],
+                outputs: outputs.length > 0 ? outputs : [{ id: "out_0", name: "out_data", label: "SALIDA" }],
+                parameters: parameters.length > 0 ? parameters : [{ key: "mode", label: "MODO", type: "text", value: "Activo" }]
+            };
+
+            pushUndoState();
+            graphData.nodes.push(newNode);
+            closeCustomNodeModal();
+            renderNodes();
+            selectNode(newNodeId);
+            showToast(`✨ Nodo «${title}» creado y añadido al lienzo.`);
+        }
+
         function renderCatalogList(items) {
             const container = document.getElementById("catalogListContainer");
             container.innerHTML = "";
@@ -1657,6 +2220,7 @@
         }
 
         function addNodeFromCatalog(idx) {
+            pushUndoState();
             const template = CATALOG_PRESETS[idx];
             const newNodeId = `node_${Date.now()}`;
             const newNode = {
@@ -1676,6 +2240,7 @@
             graphData.nodes.push(newNode);
             closeNodeCatalog();
             renderNodes();
+            selectNode(newNode.id);
             showToast(`Nodo «${template.title}» añadido al lienzo.`);
         }
 

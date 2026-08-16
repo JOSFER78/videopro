@@ -13,7 +13,9 @@ from app.controllers.v1 import pipeline
 from app.services import firebase_sync
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "comfy_pipeline_studio.html")
+STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "comfy_pipeline_studio.html")
+if not os.path.isfile(STUDIO_HTML_PATH):
+    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "comfy_pipeline_studio.html")
 
 
 def render_comfy_pipeline_view():

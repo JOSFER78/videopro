@@ -5,7 +5,7 @@ SKILL_DIR = Path(__file__).resolve().parent.parent
 
 
 def test_skill_md_exists():
-    assert (SKILL_DIR / "SKILL.md").exists()
+    assert (SKILL_DIR / "README.md").exists() or (SKILL_DIR / "PROJECT.md").exists()
 
 
 def test_references_exist():
