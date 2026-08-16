@@ -1141,6 +1141,7 @@ def _dismiss_settings_dialog():
 
 
 def _render_brand(available_update: str | None = None):
+    return
     """渲染项目名称、当前版本和可选的更新入口。"""
     update_link = ""
     if available_update:
@@ -1348,6 +1349,7 @@ def tr_optional(key, fallback_language=""):
 
 
 def render_onboarding_tour():
+    return
     # 引导只覆盖三个稳定入口，不尝试控制 Dialog、Tabs 或业务表单。这样既能让
     # 新用户理解完整流程，也不会把引导状态与 Streamlit 的动态组件生命周期耦合。
     steps = [
@@ -4278,16 +4280,13 @@ def _process_director_input(user_text: str, params):
 
 
 def _render_semantic_director_studio(params):
-    """Renderiza el Estudio de Co-Creación y Chat Semántico Asistido por IA."""
+    """Renderiza el Estudio de Co-Creación y Chat Semántico Asistido por IA (Sobrio y Compacto)."""
     with st.container(border=True):
         st.markdown(
             """
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                <span style="font-size: 1.6em;">🎬</span>
-                <div>
-                    <h3 style="margin: 0; padding: 0; color: #38bdf8;">Director Creativo Semántico Asistido</h3>
-                    <p style="margin: 0; font-size: 0.88em; color: #94a3b8;">Co-crea cualquier historia o vídeo conversando libremente con el Director IA. El sistema seleccionará autónomamente fotos reales, animaciones 3D, drones o stock según lo que le pidas.</p>
-                </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
+                <div style="font-size: 0.88rem; font-weight: 700; color: #f1f5f9;">Director Creativo Semántico</div>
+                <div style="font-size: 0.72rem; color: #94a3b8;">Co-creación asistida por IA multicanal</div>
             </div>
             """,
             unsafe_allow_html=True
@@ -4297,12 +4296,12 @@ def _render_semantic_director_studio(params):
             st.session_state["director_messages"] = [
                 {
                     "role": "assistant",
-                    "content": "¡Hola! Soy tu **Director Creativo en VideoPro**. Cuéntame qué vídeo tienes en mente. Puedes pedirme una historia histórica con fotos reales de archivo, un documental periodístico con rótulos tipo Vox, un vuelo de dron 8K por rascacielos o una animación 3D estilo Pixar.",
+                    "content": "Describe la temática o estilo del vídeo para estructurar el guion y los parámetros ópticos.",
                     "suggestions": [
-                        "🏛️ Documental Histórico (Fotos Reales + 3D)",
-                        "🎥 Vuelo de Dron 8K por Rascacielos",
-                        "🧸 Animación 3D Estilo Pixar",
-                        "📈 FinTech & Geopolítica con Rótulos Telemetría"
+                        "Documental Histórico (Fotos + 3D)",
+                        "Vuelo de Dron 8K",
+                        "Animación 3D",
+                        "FinTech y Análisis"
                     ]
                 }
             ]
@@ -4320,70 +4319,62 @@ def _render_semantic_director_studio(params):
                 "summary_reasoning": "Listo para estructurar el proyecto según tus instrucciones."
             }
 
-        director_col, blueprint_col = st.columns([1.6, 1.0], gap="medium")
+        director_col, blueprint_col = st.columns([1.5, 1.1], gap="small")
 
         with director_col:
-            chat_container = st.container(height=360, border=True)
+            chat_container = st.container(height=180, border=True)
             with chat_container:
                 for idx, msg in enumerate(st.session_state["director_messages"]):
-                    with st.chat_message(msg["role"], avatar="🎬" if msg["role"] == "assistant" else "👤"):
+                    with st.chat_message(msg["role"]):
                         st.markdown(msg["content"])
                         if msg.get("suggestions") and idx == len(st.session_state["director_messages"]) - 1:
-                            st.markdown("<p style='font-size: 0.85em; color: #38bdf8; margin-top: 6px; margin-bottom: 4px;'>💡 <b>Opciones y sugerencias rápidas:</b></p>", unsafe_allow_html=True)
+                            st.caption("Sugerencias rápidas:")
                             cols = st.columns(min(len(msg["suggestions"]), 3))
                             for c_idx, sugg in enumerate(msg["suggestions"][:3]):
                                 if cols[c_idx].button(sugg, key=f"sugg_btn_{idx}_{c_idx}", use_container_width=True):
                                     _process_director_input(sugg, params)
                                     st.rerun()
 
-            user_chat_input = st.chat_input("Escribe lo que deseas para tu vídeo (o responde al Director)...", key="director_chat_input_field")
+            user_chat_input = st.chat_input("Escribe lo que deseas para tu vídeo...", key="director_chat_input_field")
             if user_chat_input:
                 _process_director_input(user_chat_input, params)
                 st.rerun()
 
         with blueprint_col:
             with st.container(border=True):
-                st.markdown("#### 📋 Ficha de Producción y Montaje")
+                st.markdown("**Ficha de Producción y Montaje**")
                 spec = st.session_state["director_spec"]
-                subject_display = spec.get("subject") or "*(Describe tu vídeo en el chat o ajusta abajo)*"
-                st.markdown(f"**📌 Concepto:** {subject_display}")
+                subject_display = spec.get("subject") or "(Describe tu vídeo en el chat o ajusta abajo)"
+                st.caption(f"Concepto: {subject_display}")
                 
-                # --- Pestañas o Selector de Ajuste Rápido Manual ---
-                mode_tab_auto, mode_tab_manual = st.tabs(["⚡ Resumen Auto", "✏️ Ajuste Manual"])
+                mode_tab_auto, mode_tab_manual = st.tabs(["Resumen Auto", "Ajuste Manual"])
                 
                 with mode_tab_auto:
-                    st.markdown(f"**🎨 Dirección de Arte:** `{spec.get('visual_style', 'Cinemático')}`")
-                    st.markdown(f"**🎞️ Motor / Fuente:** `{spec.get('recommended_source', 'hybrid')}`")
-                    st.markdown(f"**🎙️ Locutor:** `{spec.get('voice_preset', 'es_dora')}`")
-                    st.markdown(f"**📐 Relación:** `{spec.get('aspect_ratio', '9:16')}`")
-                    st.markdown(f"**📊 Gráficos:** `{spec.get('overlay_graphics', 'vox_cards')}`")
+                    st.caption(f"Estilo: {spec.get('visual_style', 'Cinemático')} | Motor: {spec.get('recommended_source', 'hybrid')}")
+                    st.caption(f"Voz: {spec.get('voice_preset', 'es_dora')} | Formato: {spec.get('aspect_ratio', '9:16')} | Gráficos: {spec.get('overlay_graphics', 'vox_cards')}")
                     
                     if spec.get("summary_reasoning"):
-                        st.info(f"💡 {spec.get('summary_reasoning')}")
+                        st.caption(f"{spec.get('summary_reasoning')}")
 
                 with mode_tab_manual:
-                    st.markdown("<div style='font-size:12px; color:#38bdf8; font-weight:600; margin-bottom:6px;'>🛠️ Modificación Manual en Tiempo Real</div>", unsafe_allow_html=True)
-                    
-                    # 1. Selector Manual de Voz SOTA
                     voice_options = {
-                        "none": "🚫 Sin Locutor en Off (Diálogos nativos del vídeo / Escena pura)",
-                        "es_dora": "🇪🇸 Dora (España Studio HD - Calidez)",
-                        "es_alex": "🇪🇸 Alex (España Dinámico HD - Reels/Shorts)",
-                        "es_santa": "🇪🇸 Santiago (España Solemne HD - Documental)",
-                        "vibevoice_carter": "🇺🇸 Carter (VibeVoice 0.5B Deep US)",
-                        "vibevoice_emma": "🇺🇸 Emma (VibeVoice 0.5B Podcast US)",
-                        "en_heart": "🇺🇸 Heart (Kokoro HD Grade-A Master)",
-                        "en_adam": "🇺🇸 Adam (Kokoro HD Barítono Épico)",
-                        "en_emma_uk": "🇬🇧 Emma (UK BBC Authority)",
-                        "es-ES-AlvaroNeural": "🌐 Álvaro (Edge TTS)",
-                        "es-ES-ElviraNeural": "🌐 Elvira (Edge TTS)"
+                        "none": "Sin Locutor (Audio ambiental / Diálogos)",
+                        "es_dora": "Dora (España Studio HD)",
+                        "es_alex": "Alex (España Dinámico HD)",
+                        "es_santa": "Santiago (España Solemne HD)",
+                        "vibevoice_carter": "Carter (VibeVoice 0.5B US)",
+                        "vibevoice_emma": "Emma (VibeVoice 0.5B US)",
+                        "en_heart": "Heart (Kokoro HD Master)",
+                        "en_adam": "Adam (Kokoro HD Barítono)",
+                        "en_emma_uk": "Emma (UK BBC)",
+                        "es-ES-AlvaroNeural": "Álvaro (Edge TTS)",
+                        "es-ES-ElviraNeural": "Elvira (Edge TTS)"
                     }
                     cur_v = spec.get("voice_preset", "es_dora")
-                    if cur_v not in voice_options:
-                        cur_v = "es_dora"
+                    if cur_v not in voice_options: cur_v = "es_dora"
                     
                     selected_voice_manual = st.selectbox(
-                        "🎙️ Cambiar Voz / Locutor:",
+                        "Voz / Locutor:",
                         options=list(voice_options.keys()),
                         index=list(voice_options.keys()).index(cur_v),
                         format_func=lambda x: voice_options[x],
@@ -4393,22 +4384,19 @@ def _render_semantic_director_studio(params):
                         spec["voice_preset"] = selected_voice_manual
                         st.session_state["director_spec"]["voice_preset"] = selected_voice_manual
                         _set_runtime_config("ui", "voice_name", selected_voice_manual)
-                        st.toast(f"Voz actualizada a: {voice_options[selected_voice_manual]}")
 
-                    # 2. Selector Manual de Motor de Vídeo
                     video_engine_options = {
-                        "ltx_video": "🛸 LTX-2.5 MMDiT 22B (Audio Nativo 48kHz)",
-                        "flux_video": "🎥 FLUX 3 Video (Flow Matching Photoreal)",
-                        "hybrid": "✨ Híbrido Inteligente (FLUX 3 + LTX-2.5)",
-                        "pexels": "🎞️ Pexels Video Stock HD",
-                        "pixabay": "🎞️ Pixabay Video Stock HD"
+                        "ltx_video": "LTX-2.5 MMDiT 22B (48kHz)",
+                        "flux_video": "FLUX 3 Video (Photoreal)",
+                        "hybrid": "Híbrido (FLUX 3 + LTX-2.5)",
+                        "pexels": "Pexels Video Stock",
+                        "pixabay": "Pixabay Video Stock"
                     }
                     cur_engine = spec.get("recommended_source", "hybrid")
-                    if cur_engine not in video_engine_options:
-                        cur_engine = "hybrid"
+                    if cur_engine not in video_engine_options: cur_engine = "hybrid"
                     
                     selected_engine_manual = st.selectbox(
-                        "🎬 Cambiar Motor de Vídeo:",
+                        "Motor de Vídeo:",
                         options=list(video_engine_options.keys()),
                         index=list(video_engine_options.keys()).index(cur_engine),
                         format_func=lambda x: video_engine_options[x],
@@ -4418,14 +4406,12 @@ def _render_semantic_director_studio(params):
                         spec["recommended_source"] = selected_engine_manual
                         st.session_state["director_spec"]["recommended_source"] = selected_engine_manual
                         _set_runtime_config("app", "video_source", selected_engine_manual)
-                        st.toast(f"Motor de vídeo actualizado a: {video_engine_options[selected_engine_manual]}")
 
-                    # 3. Selector Manual de Aspect Ratio
                     ar_options = ["9:16", "16:9", "1:1"]
                     cur_ar = spec.get("aspect_ratio", "9:16")
                     if cur_ar not in ar_options: cur_ar = "9:16"
                     selected_ar_manual = st.radio(
-                        "📐 Formato de Pantalla:",
+                        "Formato:",
                         ar_options,
                         index=ar_options.index(cur_ar),
                         horizontal=True,
@@ -4436,18 +4422,17 @@ def _render_semantic_director_studio(params):
                         st.session_state["director_spec"]["aspect_ratio"] = selected_ar_manual
                         _set_runtime_config("ui", "video_aspect", selected_ar_manual)
 
-                    # 4. Selector Manual de Estilo Visual
                     style_options = [
                         "Cinemático Hollywood (ARRI Alexa 65)",
-                        "Documental Histórico & Fotos Archivo",
-                        "Vuelo Dron 8K & Fotogrametría 3D",
-                        "Estilo Pixar 3D / Render Animado",
-                        "FinTech / Rótulos Vox & Telemetría"
+                        "Documental Histórico y Fotos Archivo",
+                        "Vuelo Dron 8K y Fotogrametría 3D",
+                        "Estilo Pixar 3D / Animado",
+                        "FinTech / Rótulos Vox y Telemetría"
                     ]
                     cur_style = spec.get("visual_style", style_options[0])
                     if cur_style not in style_options: cur_style = style_options[0]
                     selected_style_manual = st.selectbox(
-                        "🎨 Estilo Visual:",
+                        "Estilo Visual:",
                         style_options,
                         index=style_options.index(cur_style),
                         key="manual_style_selector"
@@ -4456,8 +4441,7 @@ def _render_semantic_director_studio(params):
                         spec["visual_style"] = selected_style_manual
                         st.session_state["director_spec"]["visual_style"] = selected_style_manual
 
-                st.markdown("---")
-                if st.button("✨ Auto-Completar y Generar Guion", type="secondary", use_container_width=True, icon=":material/auto_awesome:"):
+                if st.button("Auto-Completar y Generar Guion", use_container_width=True):
                     if not spec.get("subject"):
                         st.warning("Escribe primero una idea en el chat del Director o define el concepto.")
                     else:
@@ -4481,6 +4465,7 @@ def _render_semantic_director_studio(params):
 
 
 def _render_sidebar_navigation():
+    return
     with st.sidebar:
         st.markdown("#### VideoPro Studio")
         st.caption("Suite Multimodal Integrada v2.5")
@@ -4547,7 +4532,7 @@ def _render_application():
         view_docs.render_view()
         return
 
-    """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
+    
     _render_top_bar()
 
     if st.session_state.get("settings_dialog_open", False):
