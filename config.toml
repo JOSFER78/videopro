@@ -159,7 +159,7 @@ text_fore_color = "#000000"
 subtitle_position = "top"
 subtitle_background_enabled = false
 subtitle_background_color = "#000000"
-video_aspect = "16:9"
+video_aspect = "9:16"
 
 [replicate]
 api_token = "r8_GIIyfMCSdmiaFg4uq4YzVP4318az8EY0NRn4B"
