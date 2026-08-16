@@ -116,6 +116,7 @@ def _render_category_api_manager(reg: dict, matrix: dict, category_code: str, he
 
 # Mapeo Ontológico Oficial (4 Niveles Canónicos de VideoPro Studio & Firebase)
 ONTOLOGY_MAP = {
+    # --- VISUAL & VÍDEO ---
     "nanobanana": {
         "id": "nanobanana",
         "canonical_api_id": "local_antigravity_bridge_8742",
@@ -125,54 +126,89 @@ ONTOLOGY_MAP = {
             "cap_nanobanana_flow_browser"
         ],
         "nodes": ["node_03_ingesta_multimedia_4k", "node_01_investigacion_y_narrativa"],
-        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "HISTORICAL_SCRAPING"]
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
     },
     "flux_zerogpu": {
         "id": "flux_zerogpu",
         "canonical_api_id": "serverless_zerogpu_flux",
-        "capabilities": ["cap_flux3_serverless_free", "cap_text_to_video_cinematic"],
+        "capabilities": ["cap_flux3_serverless_free", "cap_image_quality_filter"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
-        "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY"]
+        "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL"]
     },
     "flux_replicate": {
         "id": "flux_replicate",
         "canonical_api_id": "serverless_replicate_flux",
-        "capabilities": ["cap_flux3_replicate_cloud", "cap_h100_fast_render"],
+        "capabilities": ["cap_flux3_replicate_cloud"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
-        "workflows": ["PIXAR_3D_ANIMATION", "CHRONODRIFT_TRITEMPORAL"]
+        "workflows": ["PIXAR_3D_ANIMATION", "CHRONODRIFT_TRITEMPORAL", "MADRID_CURIOSITIES_REAL_FLOW"]
     },
     "comfyui_runpod_flux": {
         "id": "comfyui_runpod_flux",
         "canonical_api_id": "comfyui_runpod_flux",
-        "capabilities": ["cap_flux3_comfyui_runpod", "cap_lora_stack_latent_upscale"],
+        "capabilities": ["cap_flux3_comfyui_runpod"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
         "workflows": ["CHRONODRIFT_TRITEMPORAL", "PIXAR_3D_ANIMATION"]
     },
     "comfyui_local_flux": {
         "id": "comfyui_local_flux",
         "canonical_api_id": "comfyui_local_flux",
-        "capabilities": ["cap_flux3_comfyui_local", "cap_offline_vps_render"],
+        "capabilities": ["cap_flux3_comfyui_local"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
         "workflows": ["TODOS_LOS_WORKFLOWS"]
     },
     "ltx25": {
         "id": "ltx25",
         "canonical_api_id": "api_ltx25_mmdit",
-        "capabilities": ["cap_video_audio_lip_sync_24fps", "cap_native_dialogues"],
+        "capabilities": ["cap_ltx25_lip_sync_24fps"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
         "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK"]
+    },
+    "wan21": {
+        "id": "wan21",
+        "canonical_api_id": "api_wan21_alibaba",
+        "capabilities": ["cap_wan21_t2v_cinematic"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW"]
+    },
+    "minimax_h3": {
+        "id": "minimax_h3",
+        "canonical_api_id": "api_minimax_h3",
+        "capabilities": ["cap_minimax_h3_motion"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK"]
+    },
+    "seedance": {
+        "id": "seedance",
+        "canonical_api_id": "api_seedance",
+        "capabilities": ["cap_seedance_choreography"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["CITY_ROUTES_BEATS", "FPV_URBAN_REAL_FLOW"]
+    },
+    "pexels": {
+        "id": "pexels",
+        "canonical_api_id": "api_pexels_stock",
+        "capabilities": ["cap_stock_scraping_pexels_4k"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["MADRID_CURIOSITIES_REAL_FLOW", "HISTORICAL_SCRAPING", "CITY_ROUTES_BEATS"]
     },
     "pexels_stock": {
         "id": "pexels_stock",
         "canonical_api_id": "api_pexels_stock",
-        "capabilities": ["cap_stock_scraping_pexels_4k", "cap_broll_4k_motion"],
+        "capabilities": ["cap_stock_scraping_pexels_4k"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
         "workflows": ["MADRID_CURIOSITIES_REAL_FLOW", "HISTORICAL_SCRAPING", "CITY_ROUTES_BEATS"]
+    },
+    "pixabay": {
+        "id": "pixabay",
+        "canonical_api_id": "api_pixabay_media",
+        "capabilities": ["cap_pixabay_stock_media"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
     },
     "pixabay_stock": {
         "id": "pixabay_stock",
         "canonical_api_id": "api_pixabay_media",
-        "capabilities": ["cap_stock_scraping_pexels_4k", "cap_free_commercial_stock"],
+        "capabilities": ["cap_pixabay_stock_media"],
         "nodes": ["node_03_ingesta_multimedia_4k"],
         "workflows": ["HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
     },
@@ -183,6 +219,13 @@ ONTOLOGY_MAP = {
         "nodes": ["node_03_ingesta_multimedia_4k", "node_01_investigacion_y_narrativa"],
         "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "CITY_ROUTES_BEATS"]
     },
+    "real_news": {
+        "id": "real_news",
+        "canonical_api_id": "api_wikimedia_commons",
+        "capabilities": ["cap_web_search_scrappers", "cap_wikimedia_historical_archive"],
+        "nodes": ["node_01_investigacion_y_narrativa", "node_03_ingesta_multimedia_4k"],
+        "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW", "DEEP_EXPLAINER_ESSAY"]
+    },
     "duckduckgo_media": {
         "id": "duckduckgo_media",
         "canonical_api_id": "api_wikimedia_commons",
@@ -190,40 +233,14 @@ ONTOLOGY_MAP = {
         "nodes": ["node_01_investigacion_y_narrativa", "node_03_ingesta_multimedia_4k"],
         "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
     },
-    "vibevoice": {
-        "id": "vibevoice",
-        "canonical_api_id": "serverless_vibevoice_tts",
-        "capabilities": ["cap_vibevoice_serverless_free", "cap_vibevoice_local_vps"],
-        "nodes": ["node_02_audio_first_y_ritmo"],
-        "workflows": ["PIXAR_3D_ANIMATION", "HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
-    },
-    "edge_tts": {
-        "id": "edge_tts",
-        "canonical_api_id": "api_edge_tts_free",
-        "capabilities": ["cap_edgetts_fast_narration", "cap_fast_preview_voice"],
-        "nodes": ["node_02_audio_first_y_ritmo"],
-        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "VIRAL_SHORTS_HOOK"]
-    },
-    "elevenlabs": {
-        "id": "elevenlabs",
-        "canonical_api_id": "api_elevenlabs_cloud",
-        "capabilities": ["cap_elevenlabs_voice_cloning", "cap_cinematic_voiceover"],
-        "nodes": ["node_02_audio_first_y_ritmo"],
-        "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
-    },
-    "whisper": {
-        "id": "whisper",
-        "canonical_api_id": "local_ffmpeg_engine",
-        "capabilities": ["cap_audio_beat_transient_detector", "cap_word_level_timestamps"],
-        "nodes": ["node_02_audio_first_y_ritmo", "node_04_composicion_motion_graphics"],
-        "workflows": ["VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL"]
-    },
-    "flow_music": {
-        "id": "flow_music",
-        "canonical_api_id": "browser_playwright_flowmusic",
-        "capabilities": ["cap_flowmusic_browser_gen", "cap_audio_beat_transient_detector"],
-        "nodes": ["node_02_audio_first_y_ritmo", "node_05_masterizacion_audio_foley"],
-        "workflows": ["FPV_URBAN_REAL_FLOW", "CHRONODRIFT_TRITEMPORAL", "CITY_ROUTES_BEATS"]
+
+    # --- DIRECTORES LLM & RAZONAMIENTO ---
+    "antigravity": {
+        "id": "antigravity",
+        "canonical_api_id": "local_antigravity_agent_orchestrator",
+        "capabilities": ["cap_llm_antigravity_agentic", "cap_llm_story_director"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
     },
     "gemini": {
         "id": "gemini",
@@ -234,9 +251,141 @@ ONTOLOGY_MAP = {
     },
     "openai": {
         "id": "openai",
-        "canonical_api_id": "api_google_gemini_llm",
-        "capabilities": ["cap_llm_story_director", "cap_cot_dramatic_structuring"],
+        "canonical_api_id": "api_openai_gpt",
+        "capabilities": ["cap_llm_story_director"],
         "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "deepseek": {
+        "id": "deepseek",
+        "canonical_api_id": "api_deepseek",
+        "capabilities": ["cap_deepseek_reasoning_cot"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["DEEP_EXPLAINER_ESSAY", "HISTORICAL_SCRAPING"]
+    },
+    "cloudflare_ai": {
+        "id": "cloudflare_ai",
+        "canonical_api_id": "api_cloudflare_workers_ai",
+        "capabilities": ["cap_llm_story_director"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "CITY_ROUTES_BEATS"]
+    },
+    "siliconflow": {
+        "id": "siliconflow",
+        "canonical_api_id": "api_siliconflow",
+        "capabilities": ["cap_llm_story_director"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+
+    # --- VOZ & AUDIO ---
+    "vibevoice": {
+        "id": "vibevoice",
+        "canonical_api_id": "serverless_vibevoice_tts",
+        "capabilities": ["cap_vibevoice_serverless_free", "cap_vibevoice_local_vps"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["PIXAR_3D_ANIMATION", "HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "vibevoice_serverless": {
+        "id": "vibevoice_serverless",
+        "canonical_api_id": "serverless_vibevoice_tts",
+        "capabilities": ["cap_vibevoice_serverless_free"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["PIXAR_3D_ANIMATION", "HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
+    },
+    "vibevoice_local": {
+        "id": "vibevoice_local",
+        "canonical_api_id": "local_vibevoice_onnx",
+        "capabilities": ["cap_vibevoice_local_vps"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "edge_tts": {
+        "id": "edge_tts",
+        "canonical_api_id": "api_edge_tts_free",
+        "capabilities": ["cap_edgetts_fast_narration"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "VIRAL_SHORTS_HOOK"]
+    },
+    "elevenlabs": {
+        "id": "elevenlabs",
+        "canonical_api_id": "api_elevenlabs_cloud",
+        "capabilities": ["cap_elevenlabs_voice_cloning"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "fish_audio": {
+        "id": "fish_audio",
+        "canonical_api_id": "api_fish_audio",
+        "capabilities": ["cap_fish_audio_voice_cloning"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "PIXAR_3D_ANIMATION"]
+    },
+    "minimax": {
+        "id": "minimax",
+        "canonical_api_id": "api_minimax_speech",
+        "capabilities": ["cap_minimax_speech_t2s"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["DEEP_EXPLAINER_ESSAY", "PIXAR_3D_ANIMATION"]
+    },
+
+    # --- MÚSICA & BANDAS SONORAS ---
+    "flowmusic": {
+        "id": "flowmusic",
+        "canonical_api_id": "browser_playwright_flowmusic",
+        "capabilities": ["cap_flowmusic_browser_gen", "cap_audio_beat_transient_detector"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_05_masterizacion_audio_foley"],
+        "workflows": ["FPV_URBAN_REAL_FLOW", "CHRONODRIFT_TRITEMPORAL", "CITY_ROUTES_BEATS", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "flow_music": {
+        "id": "flow_music",
+        "canonical_api_id": "browser_playwright_flowmusic",
+        "capabilities": ["cap_flowmusic_browser_gen", "cap_audio_beat_transient_detector"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_05_masterizacion_audio_foley"],
+        "workflows": ["FPV_URBAN_REAL_FLOW", "CHRONODRIFT_TRITEMPORAL", "CITY_ROUTES_BEATS"]
+    },
+    "suno": {
+        "id": "suno",
+        "canonical_api_id": "api_suno_ai",
+        "capabilities": ["cap_suno_song_generation"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["CITY_ROUTES_BEATS", "VIRAL_SHORTS_HOOK"]
+    },
+
+    # --- PROGRAMACIÓN, MOTION GRAPHICS & SUBTÍTULOS ---
+    "vox_subtitles": {
+        "id": "vox_subtitles",
+        "canonical_api_id": "local_whisper_stt",
+        "capabilities": ["cap_whisper_word_level_timestamps"],
+        "nodes": ["node_04_composicion_motion_graphics"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "whisper": {
+        "id": "whisper",
+        "canonical_api_id": "local_whisper_stt",
+        "capabilities": ["cap_audio_beat_transient_detector", "cap_whisper_word_level_timestamps"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_04_composicion_motion_graphics"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL"]
+    },
+    "whisper_stt": {
+        "id": "whisper_stt",
+        "canonical_api_id": "local_whisper_stt",
+        "capabilities": ["cap_whisper_word_level_timestamps", "cap_audio_beat_transient_detector"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_04_composicion_motion_graphics"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "ffmpeg": {
+        "id": "ffmpeg",
+        "canonical_api_id": "local_ffmpeg_engine",
+        "capabilities": ["cap_audio_mixing_foley_ducking", "cap_sfx_shutter_paper_typewriter", "cap_contact_sheet_builder"],
+        "nodes": ["node_05_masterizacion_audio_foley", "node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "ffmpeg_core": {
+        "id": "ffmpeg_core",
+        "canonical_api_id": "local_ffmpeg_engine",
+        "capabilities": ["cap_audio_mixing_foley_ducking", "cap_sfx_shutter_paper_typewriter", "cap_contact_sheet_builder"],
+        "nodes": ["node_05_masterizacion_audio_foley", "node_06_qa_evaluacion_y_sync"],
         "workflows": ["TODOS_LOS_WORKFLOWS"]
     },
     "remotion": {
@@ -246,22 +395,45 @@ ONTOLOGY_MAP = {
         "nodes": ["node_04_composicion_motion_graphics"],
         "workflows": ["DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL", "MADRID_CURIOSITIES_REAL_FLOW"]
     },
-    "ffmpeg": {
-        "id": "ffmpeg",
-        "canonical_api_id": "local_ffmpeg_engine",
-        "capabilities": ["cap_audio_mixing_foley_ducking", "cap_sfx_shutter_paper_typewriter", "cap_contact_sheet_builder"],
-        "nodes": ["node_05_masterizacion_audio_foley", "node_06_qa_evaluacion_y_sync"],
-        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    "remotion_engine": {
+        "id": "remotion_engine",
+        "canonical_api_id": "local_remotion_cli",
+        "capabilities": ["cap_motion_remotion_react_hud", "cap_motion_remotion_lambda_cloud", "cap_paper_texture_overlay"],
+        "nodes": ["node_04_composicion_motion_graphics"],
+        "workflows": ["DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL", "MADRID_CURIOSITIES_REAL_FLOW"]
     },
+    "hyperframes_engine": {
+        "id": "hyperframes_engine",
+        "canonical_api_id": "local_hyperframes_engine",
+        "capabilities": ["cap_hyperframes_webgl_shaders"],
+        "nodes": ["node_04_composicion_motion_graphics"],
+        "workflows": ["FPV_URBAN_REAL_FLOW", "CITY_ROUTES_BEATS"]
+    },
+
+    # --- CLOUD, ALMACENAMIENTO & BD ---
     "r2": {
         "id": "r2",
         "canonical_api_id": "api_cloudflare_r2",
-        "capabilities": ["cap_firebase_sync_engine", "cap_zero_egress_master_hosting"],
+        "capabilities": ["cap_firebase_sync_engine"],
+        "nodes": ["node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "r2_storage": {
+        "id": "r2_storage",
+        "canonical_api_id": "api_cloudflare_r2",
+        "capabilities": ["cap_firebase_sync_engine"],
         "nodes": ["node_06_qa_evaluacion_y_sync"],
         "workflows": ["TODOS_LOS_WORKFLOWS"]
     },
     "firestore": {
         "id": "firestore",
+        "canonical_api_id": "firebase_firestore",
+        "capabilities": ["cap_firebase_sync_engine"],
+        "nodes": ["node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "firebase_db": {
+        "id": "firebase_db",
         "canonical_api_id": "firebase_firestore",
         "capabilities": ["cap_firebase_sync_engine"],
         "nodes": ["node_06_qa_evaluacion_y_sync"],

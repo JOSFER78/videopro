@@ -20,25 +20,31 @@ class YouTubeSuggestHarvester:
     
     @staticmethod
     def get_suggestions(query: str, lang: str = "es", country: str = "es") -> List[str]:
-        params = {
-            "client": "firefox",
-            "ds": "yt",
-            "q": query,
-            "hl": lang,
-            "gl": country
-        }
-        url = f"{YouTubeSuggestHarvester.BASE_URL}?{urllib.parse.urlencode(params)}"
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
-        }
-        try:
-            req = urllib.request.Request(url, headers=headers)
-            with urllib.request.urlopen(req, timeout=4.0) as resp:
-                data = json.loads(resp.read().decode('utf-8'))
-                if isinstance(data, list) and len(data) > 1:
-                    return data[1]
-        except Exception:
-            pass
+        for client in ("firefox", "chrome"):
+            params = {
+                "client": client,
+                "ds": "yt",
+                "q": query,
+                "hl": lang,
+                "gl": country
+            }
+            url = f"{YouTubeSuggestHarvester.BASE_URL}?{urllib.parse.urlencode(params)}"
+            headers = {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"
+            }
+            try:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=4.0) as resp:
+                    data = json.loads(resp.read().decode('utf-8'))
+                    if isinstance(data, list) and len(data) > 1 and data[1]:
+                        return [item if isinstance(item, str) else item[0] for item in data[1]]
+            except Exception:
+                pass
+        
+        # Fallback a palabras clave semilla si la frase de cola larga no retorna sugerencias
+        words = query.strip().split()
+        if len(words) > 1:
+            return YouTubeSuggestHarvester.get_suggestions(" ".join(words[:2]), lang, country)
         return []
 
     @classmethod
@@ -100,7 +106,8 @@ class YouTubeSearchScraper:
         return int(digits) if digits else 0
 
     @classmethod
-    def search_videos(cls, query: str, limit: int = 20) -> List[Dict[str, Any]]:
+    def search_videos(cls, query: str, limit: int = 20, max_results: int = None) -> List[Dict[str, Any]]:
+        effective_limit = max_results if max_results is not None else limit
         params = {"search_query": query}
         url = f"{cls.SEARCH_URL}?{urllib.parse.urlencode(params)}"
         headers = {
@@ -185,9 +192,9 @@ class YouTubeSearchScraper:
                         "daily_views": daily_views,
                         "url": f"https://www.youtube.com/watch?v={video_id}"
                     })
-                    if len(videos) >= limit:
+                    if len(videos) >= effective_limit:
                         break
-                if len(videos) >= limit:
+                if len(videos) >= effective_limit:
                     break
         except Exception:
             pass
