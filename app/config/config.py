@@ -467,6 +467,7 @@ def save_config():
         config_to_save["elevenlabs"] = dict(elevenlabs)
         config_to_save["chatterbox"] = dict(chatterbox)
         config_to_save["ui"] = dict(ui)
+        config_to_save["serverless_pool"] = dict(serverless_pool)
         serialized_config = toml.dumps(config_to_save)
 
         # WebUI 完整 rerun 结束时会调用保存。内容没有变化时直接返回，避免每次
@@ -521,6 +522,7 @@ siliconflow = _SynchronizedConfig(_cfg.get("siliconflow", {}))
 minimax_tts = _SynchronizedConfig(_cfg.get("minimax_tts", {}))
 elevenlabs = _SynchronizedConfig(_cfg.get("elevenlabs", {}))
 chatterbox = _SynchronizedConfig(_cfg.get("chatterbox", {}))
+serverless_pool = _SynchronizedConfig(_cfg.get("serverless_pool", {}))
 ui = _SynchronizedConfig(
     _cfg.get(
         "ui",

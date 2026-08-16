@@ -1,6 +1,6 @@
 """
-Módulo de Navegación Superior Unificada — VideoPro
-Estilo 100% sobrio, limpio y sin emoticonos.
+Módulo de Navegación Superior Unificada y Sistema de Estilos Compactos — VideoPro
+Estilo 100% sobrio, limpio, compacto (Single-Screen) y sin emoticonos.
 Enrutador de vistas SPA (Single-Page Application).
 """
 
@@ -18,38 +18,73 @@ NAV_VIEWS = [
 
 def render_top_navigation():
     """
-    Renderiza la barra de navegación superior interactiva.
-    Permite cambiar de vista instantáneamente sin recargas de página ni menús laterales molestos.
+    Renderiza la barra de navegación superior compacta y los estilos globales de densidad óptima.
     """
     if "active_view" not in st.session_state:
         st.session_state["active_view"] = "main"
 
     active = st.session_state["active_view"]
 
-    # Inyección de estilos sobrios y neutrales para la navegación
+    # Inyección de estilos globales para diseño compacto (todo visible en una pantalla)
     st.markdown("""
     <style>
-    /* Ocultar barra lateral automática de Streamlit para mantener interfaz limpia */
-    section[data-testid="stSidebar"] {
-    }
-    .stAppDeployButton, [data-testid="stSidebarCollapsedControl"] {
+    /* Ocultar barra lateral y elementos innecesarios */
+    section[data-testid="stSidebar"], .stAppDeployButton, [data-testid="stSidebarCollapsedControl"] {
     }
     
-    /* Contenedor de barra superior */
-    div.nav-bar-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 6px 12px;
-        background-color: #0f172a;
-        border: 1px solid #334155;
-        border-radius: 8px;
-        margin-bottom: 12px;
+    /* Contenedor principal ultra compacto */
+    .block-container {
+    }
+
+    /* Reducir espaciado vertical entre bloques */
+    [data-testid="stVerticalBlock"] {
+    }
+
+    /* Títulos compactos y sobrios */
+    h1 {
+    }
+    h2 {
+    }
+    h3, h4 {
+    }
+    .stCaption, [data-testid="stCaptionContainer"] {
+    }
+
+    /* Pestañas compactas */
+    button[data-baseweb="tab"] {
+    }
+
+    /* Botones compactos y elegantes */
+    .stButton > button {
+    }
+
+    /* Inputs, Selectboxes y Textareas compactos */
+    div[data-baseweb="input"] input, div[data-baseweb="select"] {
+    }
+    label[data-testid="stWidgetLabel"] p {
+    }
+    .stTextArea textarea {
+    }
+
+    /* Contenedores con bordes limpios y sin padding excesivo */
+    div[data-testid="stVerticalBlockBorderWrapper"] {
+    }
+
+    /* Métricas compactas */
+    div[data-testid="stMetric"] {
+    }
+    div[data-testid="stMetricValue"] {
+    }
+    div[data-testid="stMetricLabel"] {
+    }
+
+    /* Separadores sutiles */
+    hr {
     }
     </style>
     """, unsafe_allow_html=True)
 
-    # Barra horizontal de navegación usando columnas
+    # Barra horizontal de navegación usando columnas compactas
     cols = st.columns(len(NAV_VIEWS))
     for i, (view_key, view_label) in enumerate(NAV_VIEWS):
         is_active = (active == view_key)
@@ -60,12 +95,11 @@ def render_top_navigation():
                     st.session_state["active_view"] = view_key
                     st.rerun()
 
-    # Si estamos en una vista secundaria, mostrar botón de retorno inmediato
+    # Si estamos en una vista secundaria, botón de retorno sutil
     if active != "main":
-        st.markdown("<div style='margin-top: 4px; margin-bottom: 8px;'></div>", unsafe_allow_html=True)
-        col_back, col_space = st.columns([2.5, 7.5], vertical_alignment="center")
-        with col_back:
+        col_b, col_empty = st.columns([2.2, 7.8], vertical_alignment="center")
+        with col_b:
             if st.button("← Volver al Generador Principal", key="btn_global_return_home", type="secondary", use_container_width=True):
                 st.session_state["active_view"] = "main"
                 st.rerun()
-        st.markdown("---")
+        st.markdown("<hr style='margin: 0.2rem 0 0.5rem 0;'>", unsafe_allow_html=True)
