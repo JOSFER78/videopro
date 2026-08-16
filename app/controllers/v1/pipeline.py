@@ -608,10 +608,22 @@ def generate_heuristic_pipeline_plan(prompt: str, current_graph: Optional[Dict[s
         add_connections.append({"from_node": "node_fact_checker", "from_socket": "s_out", "to_node": "node_3_voice", "to_socket": "s_in"})
         applied_changes.append("🧠 Insertado nuevo nodo de Fact-Checking y verificación lógica entre el LLM Director y el Locutor")
 
-    # 4. Detección de Motor Visual
-    if "flux" in p_lower:
+    # 4. Detección de Motor Visual y Enrutamiento Híbrido
+    if re.search(r'h[ií]brido|combinad|mixto|auto|inteligente', p_lower):
+        overrides["node_6_visual"] = { "provider": "Enrutador Híbrido Inteligente (Google Flow 3D + FLUX 3 + MiniMax H3)", "ken_burns": "Activado (Dinámico)" }
+        applied_changes.append("🎬 Motor visual configurado en Modo Híbrido Inteligente (Google Flow $0 para drones + FLUX 3 para keyframes + MiniMax H3 para movimiento)")
+    elif re.search(r'flow|google flow|dron|orbital|30000|cr[eé]ditos?', p_lower):
+        overrides["node_6_visual"] = { "provider": "Google Flow (Playwright Navegador Web 4K)", "ken_burns": "Activado (Paneo Orbital 3D)" }
+        applied_changes.append("🎬 Motor visual configurado con Google Flow Web (30.000 créditos mensuales $0)")
+    elif re.search(r'minimax|h3|hailuo|movimiento|personaje|di[aá]logo', p_lower):
+        overrides["node_6_visual"] = { "provider": "MiniMax H3 / Hailuo-02 (Audio Estéreo + Vídeo)", "ken_burns": "Activado (Dinámico)" }
+        applied_changes.append("🎬 Motor visual configurado con MiniMax H3 (Open Weights RunPod con audio nativo)")
+    elif re.search(r'wan|wan21|alibaba', p_lower):
+        overrides["node_6_visual"] = { "provider": "Wan 2.1 Video (Alibaba DiT 14B Serverless $0)", "ken_burns": "Activado (Paneo Suave)" }
+        applied_changes.append("🎬 Motor visual configurado con Wan 2.1 DiT 14B (SOTA 1080p)")
+    elif "flux" in p_lower or "zerogpu" in p_lower:
         overrides["node_6_visual"] = { "provider": "FLUX 3 Video (Serverless ZeroGPU Pool $0)", "ken_burns": "Activado (Paneo Suave)" }
-        applied_changes.append("🎬 Motor visual actualizado a FLUX 3 Video ($0 ZeroGPU Pool)")
+        applied_changes.append("🎬 Motor visual actualizado a FLUX 3 Video ($0 ZeroGPU Pool / RunPod)")
     elif "nanobanana" in p_lower or "2k" in p_lower or "4k" in p_lower:
         overrides["node_6_visual"] = { "provider": "🍌 NanoBanana Pro 2 (Local Bridge Puerto 8742 — 2K/4K)", "ken_burns": "Activado (Paneo Suave)" }
         applied_changes.append("🎬 Motor visual actualizado a NanoBanana Pro 2 (2K/4K)")

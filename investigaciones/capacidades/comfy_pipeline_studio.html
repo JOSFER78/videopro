@@ -964,7 +964,9 @@
             ]
         };
 
-        let graphData = JSON.parse(JSON.stringify(DEFAULT_GRAPH));
+        let graphData = (window.INJECTED_PIPELINE_DATA && window.INJECTED_PIPELINE_DATA.nodes && window.INJECTED_PIPELINE_DATA.nodes.length > 0)
+            ? JSON.parse(JSON.stringify(window.INJECTED_PIPELINE_DATA))
+            : JSON.parse(JSON.stringify(DEFAULT_GRAPH));
         let zoom = 0.85;
         let panX = 40;
         let panY = 70;
@@ -1051,8 +1053,13 @@
                         <button class="btn-node-toggle" title="Eliminar Nodo" onclick="deleteNode('${node.id}', event)">✕</button>
                     </div>
                 `;
+                header.onmousedown = (e) => startDragNode(node, e);
 
-                     // Sockets Entradas y Salidas
+                // Cuerpo
+                const body = document.createElement("div");
+                body.className = "node-body";
+
+                // Sockets Entradas y Salidas
                 const socketsWrap = document.createElement("div");
                 socketsWrap.className = "sockets-container";
 
