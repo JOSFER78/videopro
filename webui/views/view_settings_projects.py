@@ -73,7 +73,6 @@ def render_view():
 
         all_projects = get_all_projects()
         
-        # Fila superior de acciones
         c_top1, c_top2, c_top3 = st.columns([2.5, 3.5, 4.0])
         with c_top1:
             st.caption(f"Total: {len(all_projects)} proyectos ({sum(1 for p in all_projects if p['has_video'])} con vídeo)")
@@ -148,59 +147,168 @@ def render_view():
             st.error("Archivo de matriz no encontrado.")
 
     # ---------------------------------------------------------
-    # TAB 3: GESTOR DE APIS & TOKENS (3 COLUMNAS COMPACTAS)
+    # TAB 3: GESTOR DE APIS & TOKENS (ORGANIZADO POR TEMAS + LINKS + ASISTENTE)
     # ---------------------------------------------------------
     with tab_apis:
-        c_api1, c_api2, c_api3 = st.columns(3)
-        with c_api1:
-            st.markdown("**LLMs & Director**")
-            gemini_key = st.text_input("Gemini API Key:", value=config.app.get("gemini_api_key", ""), type="password", key="api_gemini_k")
-            config.app["gemini_api_key"] = gemini_key
+        subtab_llm, subtab_video, subtab_voice, subtab_music, subtab_storage, subtab_custom = st.tabs([
+            "1. LLMs y Director",
+            "2. Vídeo y Visual",
+            "3. Voz y Locución",
+            "4. Música y Foley",
+            "5. Storage y CDN",
+            "6. Añadir Proveedor (Asistente IA)"
+        ])
 
-            groq_key = st.text_input("Groq API Key:", value=config.app.get("groq_api_key", ""), type="password", key="api_groq_k")
-            config.app["groq_api_key"] = groq_key
+        # --- SUBTAB 1: LLMs ---
+        with subtab_llm:
+            col_l1, col_l2 = st.columns(2)
+            with col_l1:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Google Gemini</b> (AI Studio)</span><a href='https://aistudio.google.com/app/apikey' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["gemini_api_key"] = st.text_input("Gemini Key:", value=config.app.get("gemini_api_key", ""), type="password", key="api_gemini_k", label_visibility="collapsed")
 
-            openai_key = st.text_input("OpenAI Key:", value=config.app.get("openai_api_key", ""), type="password", key="api_openai_k")
-            config.app["openai_api_key"] = openai_key
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>Groq Cloud</b> (Llama 3.3 70B Fast)</span><a href='https://console.groq.com/keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["groq_api_key"] = st.text_input("Groq Key:", value=config.app.get("groq_api_key", ""), type="password", key="api_groq_k", label_visibility="collapsed")
 
-            anthropic_key = st.text_input("Claude Key:", value=config.app.get("anthropic_api_key", ""), type="password", key="api_anthropic_k")
-            config.app["anthropic_api_key"] = anthropic_key
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>OpenAI</b> (GPT-4o / Whisper)</span><a href='https://platform.openai.com/api-keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["openai_api_key"] = st.text_input("OpenAI Key:", value=config.app.get("openai_api_key", ""), type="password", key="api_openai_k", label_visibility="collapsed")
 
-        with c_api2:
-            st.markdown("**GPU & Vídeo (FLUX/LTX)**")
-            rep_token = st.text_input("Replicate Token (H100):", value=config.app.get("replicate_api_token", ""), type="password", key="api_rep_k")
-            config.app["replicate_api_token"] = rep_token
+            with col_l2:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Anthropic Claude</b> (Claude 3.5 Sonnet)</span><a href='https://console.anthropic.com/settings/keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["anthropic_api_key"] = st.text_input("Claude Key:", value=config.app.get("anthropic_api_key", ""), type="password", key="api_anthropic_k", label_visibility="collapsed")
 
-            hf_tokens = []
-            if hasattr(config, "serverless_pool") and isinstance(config.serverless_pool, dict):
-                hf_tokens = config.serverless_pool.get("hf_tokens", [])
-            if not hf_tokens:
-                hf_tokens = ["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", "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"]
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>SiliconFlow</b> (DeepSeek / Qwen Serverless)</span><a href='https://cloud.siliconflow.cn/account/ak' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["siliconflow_api_key"] = st.text_input("SiliconFlow Key:", value=config.app.get("siliconflow_api_key", ""), type="password", key="api_silicon_k", label_visibility="collapsed")
 
-            hf_text = st.text_area("HF ZeroGPU Tokens:", value="\n".join(hf_tokens), height=58, key="api_hf_k")
-            if hasattr(config, "serverless_pool"):
-                config.serverless_pool["hf_tokens"] = [t.strip() for t in hf_text.split("\n") if t.strip()]
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>DeepSeek Oficial</b> (DeepSeek-V3 / R1)</span><a href='https://platform.deepseek.com/api_keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["deepseek_api_key"] = st.text_input("DeepSeek Key:", value=config.app.get("deepseek_api_key", ""), type="password", key="api_deepseek_k", label_visibility="collapsed")
 
-        with c_api3:
-            st.markdown("**Audio & Cloud Storage**")
-            el_key = st.text_input("ElevenLabs Key:", value=config.app.get("elevenlabs_api_key", ""), type="password", key="api_el_k")
-            config.app["elevenlabs_api_key"] = el_key
+        # --- SUBTAB 2: VÍDEO & VISUAL ---
+        with subtab_video:
+            col_v1, col_v2 = st.columns(2)
+            with col_v1:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Replicate</b> (Clúster GPU H100 FLUX / LTX)</span><a href='https://replicate.com/account/api-tokens' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener token ↗</a></div>", unsafe_allow_html=True)
+                config.app["replicate_api_token"] = st.text_input("Replicate Token:", value=config.app.get("replicate_api_token", ""), type="password", key="api_rep_k", label_visibility="collapsed")
 
-            fish_key = st.text_input("Fish Audio Key:", value=config.app.get("fish_audio_api_key", ""), type="password", key="api_fish_k")
-            config.app["fish_audio_api_key"] = fish_key
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>Fal.ai</b> (FLUX 1.1 Pro / Fast Video)</span><a href='https://fal.ai/dashboard/keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["fal_api_key"] = st.text_input("Fal Key:", value=config.app.get("fal_api_key", ""), type="password", key="api_fal_k", label_visibility="collapsed")
 
-            flow_session = st.text_input("Flow Music Token:", value=config.app.get("flowmusic_session", ""), type="password", key="api_flow_k")
-            config.app["flowmusic_session"] = flow_session
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>Pexels Video API</b> (Stock 4K Gratuito)</span><a href='https://www.pexels.com/api/new/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["pexels_api_key"] = st.text_input("Pexels Key:", value=config.app.get("pexels_api_key", ""), type="password", key="api_pexels_k", label_visibility="collapsed")
 
-            s3_ep = st.text_input("S3/R2 Endpoint:", value=config.app.get("s3_endpoint", ""), key="api_s3_ep")
-            config.app["s3_endpoint"] = s3_ep
+            with col_v2:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Hugging Face ZeroGPU Pool</b> (1 token por línea)</span><a href='https://huggingface.co/settings/tokens' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener tokens ↗</a></div>", unsafe_allow_html=True)
+                hf_tokens = []
+                if hasattr(config, "serverless_pool") and isinstance(config.serverless_pool, dict):
+                    hf_tokens = config.serverless_pool.get("hf_tokens", [])
+                if not hf_tokens:
+                    hf_tokens = ["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", "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"]
+                hf_text = st.text_area("HF Tokens:", value="\n".join(hf_tokens), height=55, key="api_hf_k", label_visibility="collapsed")
+                if hasattr(config, "serverless_pool"):
+                    config.serverless_pool["hf_tokens"] = [t.strip() for t in hf_text.split("\n") if t.strip()]
 
-        c_save, _ = st.columns([2, 8])
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>Pixabay API</b> (Stock Video y Foley)</span><a href='https://pixabay.com/api/docs/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["pixabay_api_key"] = st.text_input("Pixabay Key:", value=config.app.get("pixabay_api_key", ""), type="password", key="api_pixabay_k", label_visibility="collapsed")
+
+        # --- SUBTAB 3: VOZ & LOCUCIÓN ---
+        with subtab_voice:
+            col_vo1, col_vo2 = st.columns(2)
+            with col_vo1:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>ElevenLabs</b> (Cinema Voices & Voice Cloning)</span><a href='https://elevenlabs.io/app/settings/api-keys' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["elevenlabs_api_key"] = st.text_input("ElevenLabs Key:", value=config.app.get("elevenlabs_api_key", ""), type="password", key="api_el_k", label_visibility="collapsed")
+
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center; margin-top:4px;'><span><b>Fish Audio</b> (Multilingual 48kHz SOTA)</span><a href='https://fish.audio/app/api-keys/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["fish_audio_api_key"] = st.text_input("Fish Audio Key:", value=config.app.get("fish_audio_api_key", ""), type="password", key="api_fish_k", label_visibility="collapsed")
+
+            with col_vo2:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>MiniMax TTS</b> (Voice Large Studio)</span><a href='https://api.minimax.chat/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Obtener clave ↗</a></div>", unsafe_allow_html=True)
+                config.app["minimax_api_key"] = st.text_input("MiniMax Key:", value=config.app.get("minimax_api_key", ""), type="password", key="api_minimax_k", label_visibility="collapsed")
+
+                st.caption("Motores Locales Activos sin coste: **Kokoro TTS HD** (Puerto 7892) y **Edge-TTS Neural** (Puerto 7893).")
+
+        # --- SUBTAB 4: MÚSICA & FOLEY ---
+        with subtab_music:
+            col_m1, col_m2 = st.columns(2)
+            with col_m1:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Google Flow Music</b> (Lyria 3 Pro Session Token)</span><a href='https://flowmusic.app/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Abrir Flow Music ↗</a></div>", unsafe_allow_html=True)
+                config.app["flowmusic_session"] = st.text_input("Flow Music Token / Cookie:", value=config.app.get("flowmusic_session", ""), type="password", key="api_flow_k", label_visibility="collapsed")
+
+            with col_m2:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Suno AI API</b> (Opcional v3 / v4)</span><a href='https://suno.com' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Web Oficial ↗</a></div>", unsafe_allow_html=True)
+                config.app["suno_api_key"] = st.text_input("Suno Key:", value=config.app.get("suno_api_key", ""), type="password", key="api_suno_k", label_visibility="collapsed")
+
+        # --- SUBTAB 5: STORAGE & CDN ---
+        with subtab_storage:
+            col_st1, col_st2 = st.columns(2)
+            with col_st1:
+                st.markdown("<div style='display:flex; justify-content:space-between; align-items:center;'><span><b>Cloudflare R2 / S3 Endpoint</b></span><a href='https://dash.cloudflare.com/' target='_blank' style='color:#60a5fa; font-size:10px; text-decoration:none;'>Consola R2 ↗</a></div>", unsafe_allow_html=True)
+                config.app["s3_endpoint"] = st.text_input("Endpoint:", value=config.app.get("s3_endpoint", ""), key="api_s3_ep", label_visibility="collapsed")
+
+                st.caption("Access Key:")
+                config.app["s3_access_key"] = st.text_input("Access Key:", value=config.app.get("s3_access_key", ""), type="password", key="api_s3_acc", label_visibility="collapsed")
+
+            with col_st2:
+                st.caption("Secret Key:")
+                config.app["s3_secret_key"] = st.text_input("Secret Key:", value=config.app.get("s3_secret_key", ""), type="password", key="api_s3_sec", label_visibility="collapsed")
+
+                st.caption("Bucket Name:")
+                config.app["s3_bucket"] = st.text_input("Bucket:", value=config.app.get("s3_bucket", "videopro-masters"), key="api_s3_bkt", label_visibility="collapsed")
+
+        # --- SUBTAB 6: ASISTENTE IA PARA AÑADIR PROVEEDOR ---
+        with subtab_custom:
+            st.markdown("**Asistente para Añadir Nuevos Proveedores & Endpoints Custom**")
+            st.caption("Registra cualquier motor compatible con OpenAI (vLLM, Ollama, Together AI, OpenRouter, Mistral, RunPod).")
+            
+            cp1, cp2, cp3 = st.columns(3)
+            with cp1:
+                new_p_name = st.text_input("Nombre Proveedor:", placeholder="Ej: Together AI / Local vLLM", key="cp_name")
+                new_p_type = st.selectbox("Tipo de Motor:", ["LLM (Lenguaje)", "Vídeo / Imagen", "TTS (Voz)", "Música / Foley", "Storage"], key="cp_type")
+            with cp2:
+                new_p_url = st.text_input("Base URL:", placeholder="https://api.together.xyz/v1", key="cp_url")
+                new_p_model = st.text_input("Modelo por Defecto:", placeholder="deepseek-ai/DeepSeek-V3", key="cp_model")
+            with cp3:
+                new_p_key = st.text_input("API Key / Token:", placeholder="sk-...", type="password", key="cp_key")
+                if st.button("Registrar Nuevo Proveedor", type="primary", use_container_width=True, key="cp_btn"):
+                    if new_p_name.strip() and new_p_url.strip():
+                        custom_list = config.app.get("custom_providers", [])
+                        if not isinstance(custom_list, list): custom_list = []
+                        custom_list.append({
+                            "name": new_p_name.strip(),
+                            "type": new_p_type,
+                            "base_url": new_p_url.strip(),
+                            "model": new_p_model.strip(),
+                            "key": new_p_key.strip(),
+                            "added_at": datetime.now().strftime("%Y-%m-%d %H:%M")
+                        })
+                        config.app["custom_providers"] = custom_list
+                        if hasattr(config, "save_config"): config.save_config()
+                        st.success(f"Proveedor {new_p_name} registrado correctamente.")
+                        st.rerun()
+                    else:
+                        st.error("Indica al menos el nombre y la Base URL.")
+
+            # Listado de custom registrados
+            registered = config.app.get("custom_providers", [])
+            if registered and isinstance(registered, list):
+                st.markdown("**Proveedores Personalizados Activos:**")
+                for idx, cp in enumerate(registered):
+                    with st.container(border=True):
+                        ci1, ci2 = st.columns([8, 2])
+                        with ci1:
+                            st.markdown(f"**{cp.get('name')}** ({cp.get('type')}) — `{cp.get('base_url')}` | Modelo: `{cp.get('model')}`")
+                        with ci2:
+                            if st.button("Eliminar", key=f"del_cp_{idx}", use_container_width=True):
+                                registered.pop(idx)
+                                config.app["custom_providers"] = registered
+                                if hasattr(config, "save_config"): config.save_config()
+                                st.rerun()
+
+        st.markdown("---")
+        c_save, _ = st.columns([2.5, 7.5])
         with c_save:
-            if st.button("Guardar Claves API", type="primary", use_container_width=True, key="save_apis_btn"):
+            if st.button("Guardar Todas las Claves API", type="primary", use_container_width=True, key="save_apis_btn"):
                 try:
                     if hasattr(config, "save_config"): config.save_config()
-                    st.toast("Claves guardadas.")
+                    st.toast("Todas las claves han sido guardadas y sincronizadas.")
                 except Exception as e:
                     st.error(f"Error: {e}")
 
@@ -228,7 +336,7 @@ def render_view():
             config.app["whisper_provider"] = st.selectbox("Whisper:", whisper_providers, index=0)
             config.app["subtitle_max_words"] = st.slider("Palabras por línea:", 1, 6, int(config.app.get("subtitle_max_words", 2)))
 
-        c_sys_save, _ = st.columns([2, 8])
+        c_sys_save, _ = st.columns([2.5, 7.5])
         with c_sys_save:
             if st.button("Guardar Ajustes Sistema", type="primary", use_container_width=True, key="save_sys_btn"):
                 try:
