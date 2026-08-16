@@ -6,13 +6,14 @@ Diseño profesional, moderno, oscuro (Dark IDE Theme) con alta legibilidad.
 import streamlit as st
 
 NAV_VIEWS = [
-    ("studio", "🚀 Empezar (Workflows)"),
-    ("pipeline", "🏛️ Lienzo de Nodos (Canvas)"),
-    ("projects", "📁 Proyectos (YYYY/MM/DD)"),
+    ("studio", "🚀 Empezar"),
+    ("pipeline", "🏛️ Workflows"),
+    ("projects", "📁 Proyectos"),
+    ("youtube_monetization", "💰 Monetización & Canales"),
     ("cinema_vault", "🎞️ Bóveda Multimedia"),
-    ("audio_studio", "🎙️ Audio, Foley & Voces"),
-    ("settings", "⚙️ Ajustes & APIs"),
-    ("docs", "📖 Documentación & Guías")
+    ("audio_studio", "🎙️ Audio & Voces"),
+    ("settings", "⚙️ Ajustes"),
+    ("docs", "📖 Documentación")
 ]
 
 def render_top_navigation():
@@ -52,7 +53,7 @@ def render_top_navigation():
         gap: 8px !important;
     }
     [data-testid="stHorizontalBlock"] {
-        gap: 10px !important;
+        gap: 8px !important;
     }
 
     /* Títulos sobrios y claros */
@@ -84,8 +85,8 @@ def render_top_navigation():
     div[data-baseweb="input"],
     div[data-baseweb="base-input"],
     div[data-baseweb="select"] > div {
-        min-height: 36px !important;
-        height: 36px !important;
+        min-height: 34px !important;
+        height: 34px !important;
         background-color: #0f172a !important;
         border-radius: 6px !important;
         border: 1px solid #334155 !important;
@@ -101,14 +102,14 @@ def render_top_navigation():
 
     div[data-baseweb="input"] input,
     div[data-baseweb="base-input"] input {
-        height: 34px !important;
-        font-size: 13px !important;
-        padding: 4px 10px !important;
+        height: 32px !important;
+        font-size: 12.5px !important;
+        padding: 4px 8px !important;
         color: #f8fafc !important;
     }
 
     div[data-baseweb="select"] span {
-        font-size: 12.5px !important;
+        font-size: 12px !important;
         color: #f8fafc !important;
     }
 
@@ -124,17 +125,18 @@ def render_top_navigation():
 
     /* Botones estándar con buena interacción */
     .stButton button, [data-testid="stBaseButton-secondary"] {
-        font-size: 12px !important;
+        font-size: 11.5px !important;
         font-weight: 500 !important;
-        height: 32px !important;
-        min-height: 32px !important;
-        padding: 0 12px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 0 10px !important;
         border-radius: 5px !important;
         border: 1px solid #334155 !important;
         background-color: #1e293b !important;
         color: #e2e8f0 !important;
         box-shadow: none !important;
         transition: all 0.15s ease !important;
+        white-space: nowrap !important;
     }
 
     .stButton button:hover, [data-testid="stBaseButton-secondary"]:hover {
@@ -144,15 +146,16 @@ def render_top_navigation():
     }
 
     [data-testid="stBaseButton-primary"] {
-        font-size: 12px !important;
+        font-size: 11.5px !important;
         font-weight: 600 !important;
-        height: 32px !important;
-        min-height: 32px !important;
-        padding: 0 14px !important;
+        height: 30px !important;
+        min-height: 30px !important;
+        padding: 0 12px !important;
         border-radius: 5px !important;
         background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%) !important;
         border: 1px solid #3b82f6 !important;
         color: #ffffff !important;
+        white-space: nowrap !important;
     }
 
     [data-testid="stBaseButton-primary"]:hover {
@@ -218,7 +221,7 @@ def render_top_navigation():
     div:has(> button[key="nav_btn_home_logo"]) button,
     button[key="nav_btn_home_logo"] {
         font-weight: 800 !important;
-        font-size: 12.5px !important;
+        font-size: 12px !important;
         background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(124, 58, 237, 0.22)) !important;
         border: 1px solid rgba(56, 189, 248, 0.45) !important;
         color: #38bdf8 !important;
@@ -235,8 +238,8 @@ def render_top_navigation():
     </style>
     """, unsafe_allow_html=True)
 
-    # Barra superior de navegación moderna
-    col_widths = [1.1] + [1.25] * len(NAV_VIEWS)
+    # Barra superior de navegación moderna con anchos proporcionados
+    col_widths = [1.0] + [1.2] * len(NAV_VIEWS)
     cols = st.columns(col_widths, vertical_alignment="center")
     
     with cols[0]:
