@@ -7,11 +7,11 @@ Integra un pipeline multimodal de 3 vías (Stock DB, FLUX 3 / LTX Video y Google
 ## 2. Arquitectura y Despliegue en VPS
 - **Acceso Público HTTPS:** [`https://143-47-35-167.sslip.io/pro/videopro/`](https://143-47-35-167.sslip.io/pro/videopro/)
 - **Directorio Principal de VideoPro:** `/home/ubuntu/workspace/pro/hermes/10_videopro`
-- **Frontend WebUI Streamlit:** Puerto `7001` (Hot-Reload activo)
+- **Frontend WebUI Streamlit:** Puerto `8501` (`http://localhost:8501`)
 - **Backend FastAPI & Orquestador:** Puerto `8080` (FastAPI REST)
 - **Servicios Systemd:**
-  - `moneyprinter-api.service` (FastAPI en puerto 8080)
-  - `moneyprinter-webui.service` (Streamlit en puerto 7001)
+  - `videopro-api.service` (FastAPI en puerto 8080)
+  - `videopro-webui.service` (Streamlit en puerto 8501)
 
 ## 3. Los 3 Modos de Generación por Escena
 1. **Modo 1 (Stock DB):** Ingesta y recorte de clips de alta calidad desde base de datos local y scrapers Pexels/Pixabay.

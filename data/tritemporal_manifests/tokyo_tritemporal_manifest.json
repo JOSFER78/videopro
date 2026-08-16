@@ -17,7 +17,7 @@
     "true_peak_dbtp": -1.0
   },
   "hook_strategy": {
-    "initial_hook_0_5s": "Picado vertical a 130 km/h desde la Torre de Tokio que atraviesa una nube temporal hacia el río Sumida en 1630.",
+    "initial_hook_0_5s": "Picado vertical a 140 km/h desde 850m atravesando nubes volumétricas hacia el río Sumida en 1630 frente al Castillo de Edo.",
     "target_first_minute_retention": ">90%",
     "target_avd": ">72%"
   },

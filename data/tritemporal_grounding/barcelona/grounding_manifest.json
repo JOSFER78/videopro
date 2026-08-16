@@ -1,0 +1,688 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "barcelona",
+  "city_name": "Barcelona",
+  "country": "España",
+  "generated_at": "2026-08-16T17:23:31Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Barcelona Foral y Barroca / Época de las Cortes de 1626",
+      "urban_morphology": "Murallas góticas de Ciutat Vella rodeando el Barrio Gótico y El Born, Basílica de Santa Maria del Mar, atarazanas reales (Drassanes) con galeras de madera en construcción, huertas y masías en el Pla de Barcelona.",
+      "social_life": "Consellers de Cent con togas ceremoniales, gremios de tejedores y orfebres, marineros y mercaderes en La Llotja de Mar.",
+      "cartography_source": "Grabado de Anton van den Wyngaerde (1563) / Plano de Barcelona de Alexandre de Laborde",
+      "lighting": "Luz mediterránea dorada de media tarde sobre el mar, sombras largas en callejones estrechos de piedra de Montjuïc."
+    },
+    "present_2026": {
+      "epoch": "Metrópolis Mediterránea & Finalización de la Sagrada Família (2026)",
+      "urban_morphology": "Basílica de la Sagrada Família con la Torre de Jesús culminada a 172.5 metros, cuadrícula del Eixample de Cerdà con chaflanes octogonales, eje Passeig de Gràcia, Torre Glòries y playas de la Barceloneta.",
+      "social_life": "Modelo de Superilles (Supermanzanas) peatonales, terrazas gastronómicas mediterráneas, polo tecnológico 22@ y turismo cultural global.",
+      "lighting": "Sol brillante sobre el mar Balear, reflejos dorados en las vidrieras de Gaudí y cromatismo LED nocturno en Torre Glòries."
+    },
+    "future_2226": {
+      "epoch": "Superilles 3D & Eco-Gòtic Regenerative Arcology 2226",
+      "urban_morphology": "Cuadrícula Cerdà evolucionada a Superilles tridimensionales conectadas por marquesinas solares vegetales suspendidas a 80m de altura, la Sagrada Família preservada dentro de una cúpula bioclimática de nanopolímeros auto-reparables, corredores verdes que unen la sierra de Collserola con el mar, movilidad en cápsulas de levitación magnética subterráneas y aéreas.",
+      "social_life": "Distritos de 3 minutos autosuficientes con captación solar térmica y huertos verticales en patios interiores de manzana.",
+      "science_citation": "UPC Barcelona School of Architecture (ETSAB) & IAAC (Institute for Advanced Architecture of Catalonia) 2200 Resilience Study",
+      "lighting": "Bioluminiscencia ámbar y azul cobalto en marquesinas vegetales, luz difusa reflejada por colectores solares helicoidales."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_SAGRADA_FAMILIA",
+      "name": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "lat": 41.4036,
+      "lon": 2.1744,
+      "alt_agl": 180.0
+    },
+    {
+      "id": "WP2_GOTHIC_QUARTER",
+      "name": "Santa Maria del Mar & Barrio Gótico",
+      "lat": 41.3833,
+      "lon": 2.1819,
+      "alt_agl": 50.0
+    },
+    {
+      "id": "WP3_PORT_VELL",
+      "name": "Port Vell, Drassanes & Montjuïc",
+      "lat": 41.375,
+      "lon": 2.18,
+      "alt_agl": 90.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_N",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_E",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_S",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_W",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_PITCH_DOWN",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_SAGRADA_FAMILIA_CAM_PITCH_UP",
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp1_sagrada_familia_cam_pitch_up.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_N",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_E",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_S",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_W",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_PITCH_DOWN",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_GOTHIC_QUARTER_CAM_PITCH_UP",
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "latitude": 41.3833,
+      "longitude": 2.1819,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp2_gothic_quarter_cam_pitch_up.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_N",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_E",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_S",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_W",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_PITCH_DOWN",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_PORT_VELL_CAM_PITCH_UP",
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "latitude": 41.375,
+      "longitude": 2.18,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/perspectives/wp3_port_vell_cam_pitch_up.png"
+      }
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_SAGRADA_FAMILIA",
+      "landmark": "Basílica de la Sagrada Família & Eixample Cerdà",
+      "coords": {
+        "lat": 41.4036,
+        "lon": 2.1744,
+        "alt_agl": 180.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp1_sagrada_familia_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_GOTHIC_QUARTER",
+      "landmark": "Santa Maria del Mar & Barrio Gótico",
+      "coords": {
+        "lat": 41.3833,
+        "lon": 2.1819,
+        "alt_agl": 50.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp2_gothic_quarter_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_PORT_VELL",
+      "landmark": "Port Vell, Drassanes & Montjuïc",
+      "coords": {
+        "lat": 41.375,
+        "lon": 2.18,
+        "alt_agl": 90.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/barcelona/cubemaps/wp3_port_vell_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_SAGRADA_FAMILIA",
+        "name": "Basílica de la Sagrada Família & Eixample Cerdà",
+        "lat": 41.4036,
+        "lon": 2.1744,
+        "alt_agl": 180.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Barcelona",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_GOTHIC_QUARTER",
+        "name": "Santa Maria del Mar & Barrio Gótico",
+        "lat": 41.3833,
+        "lon": 2.1819,
+        "alt_agl": 50.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Barcelona",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_PORT_VELL",
+        "name": "Port Vell, Drassanes & Montjuïc",
+        "lat": 41.375,
+        "lon": 2.18,
+        "alt_agl": 90.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Barcelona",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

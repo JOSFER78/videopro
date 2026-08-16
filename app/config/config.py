@@ -7,7 +7,61 @@ import tempfile
 import threading
 from contextlib import contextmanager
 
-import toml
+try:
+    import toml
+except ModuleNotFoundError:
+    import tomllib
+
+    class _TomlFallback:
+        @staticmethod
+        def load(fp_or_path):
+            if isinstance(fp_or_path, (str, bytes, os.PathLike)):
+                with open(fp_or_path, "rb") as f:
+                    return tomllib.load(f)
+            return tomllib.load(fp_or_path)
+
+        @staticmethod
+        def loads(s):
+            if isinstance(s, bytes):
+                s = s.decode("utf-8-sig")
+            return tomllib.loads(s)
+
+        @staticmethod
+        def dumps(d):
+            lines = []
+            def _format_val(v):
+                if isinstance(v, bool):
+                    return "true" if v else "false"
+                if isinstance(v, (int, float)):
+                    return str(v)
+                if isinstance(v, str):
+                    escaped = v.replace('\\', '\\\\').replace('"', '\\"').replace('\n', '\\n')
+                    return f'"{escaped}"'
+                if isinstance(v, list):
+                    return "[" + ", ".join(_format_val(x) for x in v) + "]"
+                if isinstance(v, dict):
+                    return "{" + ", ".join(f"{k} = {_format_val(val)}" for k, val in v.items()) + "}"
+                return f'"{str(v)}"'
+
+            tables = {}
+            for k, v in d.items():
+                if isinstance(v, dict):
+                    tables[k] = v
+                else:
+                    lines.append(f"{k} = {_format_val(v)}")
+            for tbl_name, tbl_data in tables.items():
+                lines.append(f"\n[{tbl_name}]")
+                for k, v in tbl_data.items():
+                    if isinstance(v, dict):
+                        lines.append(f"\n[{tbl_name}.{k}]")
+                        for sub_k, sub_v in v.items():
+                            lines.append(f"{sub_k} = {_format_val(sub_v)}")
+                    else:
+                        lines.append(f"{k} = {_format_val(v)}")
+            return "\n".join(lines) + "\n"
+
+    toml = _TomlFallback()
+
 from loguru import logger
 
 from app import __version__

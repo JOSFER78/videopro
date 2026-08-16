@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CHRONODRIFT — Suite de Miniaturas de Alto CTR (>15%)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,600;0,700;1,700&family=JetBrains+Mono:wght@500;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #06080D;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --border-cyan: #00F2FE;
+      --accent-amber: #FFA726;
+      --accent-magenta: #FF007A;
+      --text-white: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-white);
+      font-family: 'Chakra Petch', sans-serif;
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.5;
+    }
+
+    header {
+      max-width: 1320px;
+      margin: 0 auto 32px auto;
+      border-bottom: 1px solid rgba(0, 242, 254, 0.2);
+      padding-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-title span {
+      color: var(--border-cyan);
+      text-shadow: 0 0 12px rgba(0, 242, 254, 0.6);
+    }
+
+    .header-badge {
+      background: rgba(255, 167, 38, 0.15);
+      border: 1px solid var(--accent-amber);
+      color: var(--accent-amber);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .controls-bar {
+      max-width: 1320px;
+      margin: 0 auto 28px auto;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      backdrop-filter: blur(12px);
+    }
+
+    .toggle-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .toggle-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-white);
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.2s ease;
+    }
+
+    .toggle-btn.active {
+      background: rgba(0, 242, 254, 0.2);
+      border-color: var(--border-cyan);
+      color: var(--border-cyan);
+      box-shadow: 0 0 12px rgba(0, 242, 254, 0.3);
+    }
+
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .thumbnail-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.3s ease;
+    }
+
+    .thumbnail-card:hover {
+      border-color: rgba(0, 242, 254, 0.4);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .formula-tag {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .ctr-badge {
+      background: rgba(0, 242, 254, 0.15);
+      border: 1px solid var(--border-cyan);
+      color: var(--border-cyan);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .preview-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.8);
+      margin-bottom: 24px;
+    }
+
+    .preview-container img, .preview-container object {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Safe zone overlays */
+    .safe-zone-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      display: none;
+    }
+
+    .safe-zone-overlay.visible {
+      display: block;
+    }
+
+    .yt-duration-box {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      width: 14%;
+      height: 9%;
+      min-width: 80px;
+      min-height: 28px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 2px dashed #FF0055;
+      color: #FF0055;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+    }
+
+    .mobile-safe-box {
+      position: absolute;
+      top: 8%;
+      left: 6%;
+      width: 42%;
+      height: 38%;
+      border: 2px dashed #00F2FE;
+      color: #00F2FE;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px;
+      background: rgba(0, 242, 254, 0.08);
+      border-radius: 4px;
+    }
+
+    .card-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .spec-block {
+      background: rgba(6, 8, 13, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .spec-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .spec-value {
+      font-size: 14px;
+      color: #FFFFFF;
+    }
+
+    .prompt-box {
+      grid-column: 1 / -1;
+      background: rgba(0, 0, 0, 0.7);
+      border: 1px solid rgba(0, 242, 254, 0.2);
+      border-radius: 8px;
+      padding: 14px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #E2E8F0;
+      line-height: 1.6;
+    }
+
+    .prompt-label {
+      color: var(--border-cyan);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .mobile-sim-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 12px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 8px;
+    }
+
+    .mobile-thumbnail-preview {
+      width: 160px;
+      height: 90px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      flex-shrink: 0;
+    }
+
+    .mobile-thumbnail-preview img, .mobile-thumbnail-preview object {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .mobile-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <div class="brand-title">CHRONO<span>DRIFT</span> STUDIO</div>
+      <div style="color: var(--text-muted); font-size: 15px; margin-top: 4px;">Suite Maestra de Miniaturas Cinemáticas de Alto CTR (>15%)</div>
+    </div>
+    <div class="header-badge">5 PLANTILLAS SVG EDITABLES VALIDproxy</div>
+  </header>
+
+  <div class="controls-bar">
+    <div class="toggle-group">
+      <span style="font-size: 13px; font-weight: 700; color: var(--text-muted); font-family: 'JetBrains Mono';">GUÍAS DE SUPERPOSICIÓN:</span>
+      <button class="toggle-btn active" id="toggle-safe-zones">Safe Zones YouTube</button>
+      <button class="toggle-btn" id="toggle-mobile-sim">Vista Móvil 160x90px</button>
+    </div>
+    <div style="font-family: 'JetBrains Mono'; font-size: 13px; color: var(--border-cyan);">
+      RESOLUCIÓN MAESTRA: 1280x720 (16:9 4K READY)
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- FORMULA 1 -->
+    <div class="thumbnail-card">
+      <div class="card-header">
+        <div class="formula-tag">FÓRMULA 1: SPLIT-SCREEN TEMPORAL (PASADO / PRESENTE / FUTURO)</div>
+        <div class="ctr-badge">CTR ESTIMADO: 16.8% – 19.5%</div>
+      </div>
+      <div class="preview-container">
+        <object data="formula_1_split_screen.svg" type="image/svg+xml"></object>
+        <div class="safe-zone-overlay visible">
+          <div class="yt-duration-box">14:28 [BADGE]</div>
+          <div class="mobile-safe-box">ZONA A: HOOK TEXT PRIMARIO</div>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="spec-block">
+          <div class="spec-label">Disparador Psicológico</div>
+          <div class="spec-value">Curiosidad Comparativa & Time-Slice Disruption (3 épocas en 1 horizonte continuo).</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Paleta Cromática</div>
+          <div class="spec-value">Ámbar Antiguo (#FFA726) | Gris Neutro (#546E7A) | Cian Cuántico (#00F2FE)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Micro-Texto Validado</div>
+          <div class="spec-value" style="font-weight: 800; color: #FFEA00;">"3,000 AÑOS DESPUÉS" (2 palabras)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Elementos Diegéticos 3D</div>
+          <div class="spec-value">Fisura Láser de Realidad 6px, Timestamps flotantes y Telemetría GPS.</div>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-label">PROMPT MAESTRO FLUX / MIDJOURNEY:</div>
+          Cinematic wide 16:9 master split-screen composition of the Great Lighthouse of Alexandria in three connected eras on the exact same shoreline. Left third: 280 BC, pristine white marble, gleaming gold brazier with intense fire, warm golden hour Mediterranean lighting. Middle third: year 2026, modern weathered coastal ruins under overcast natural lighting. Right third: year 2450, colossal futuristic hyper-structure reaching into the clouds, glowing quantum blue conduits, vertical sky-docks. Perfectly aligned horizon line across all sections, 8k resolution, Kodak Vision3 500T 35mm film grain --ar 16:9 --v 6.1
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA 2 -->
+    <div class="thumbnail-card">
+      <div class="card-header">
+        <div class="formula-tag">FÓRMULA 2: VUELO RASANTE IMPOSIBLE FPV (VELOCIDAD & KINÉTICA)</div>
+        <div class="ctr-badge">CTR ESTIMADO: 15.2% – 18.1%</div>
+      </div>
+      <div class="preview-container">
+        <object data="formula_2_vuelo_rasante.svg" type="image/svg+xml"></object>
+        <div class="safe-zone-overlay visible">
+          <div class="yt-duration-box">11:05 [BADGE]</div>
+          <div class="mobile-safe-box">ZONA A: HOOK TEXT VELOCIDAD</div>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="spec-block">
+          <div class="spec-label">Disparador Psicológico</div>
+          <div class="spec-value">Adrenalina Kinética Pura, Vértigo Espacial y Alerta de Colisión Inminente.</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Paleta Cromática</div>
+          <div class="spec-value">Azul Abisal (#0B132B) | Cian Láser (#00F2FE) | Fucsia Neón (#FF007A)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Micro-Texto Validado</div>
+          <div class="spec-value" style="font-weight: 800; color: #FFE600;">"CAÍDA LIBRE 2150" (3 palabras)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Elementos Diegéticos 3D</div>
+          <div class="spec-value">Pitch Ladder militar, Tacómetro Mach 1.84, Retícula FPV y Radial Motion Blur.</div>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-label">PROMPT MAESTRO FLUX / MIDJOURNEY:</div>
+          First-person cockpit FPV view flying at extreme supersonic speed skimming between monolithic vertical megastructures in Neo-Tokyo year 2150. Aggressive 15-degree dutch angle, kinetic radial motion blur on peripheral skyscraper walls with hyper-detailed illuminated holographic advertisements in kanji and neon cyans. Wet reflective carbon-fiber architectural surfaces reflecting magenta and amber city lights. In the center, high-speed tunnel perspective diving into deep urban canyon, 8k octane render, IMAX 70mm camera --ar 16:9 --v 6.1
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA 3 -->
+    <div class="thumbnail-card">
+      <div class="card-header">
+        <div class="formula-tag">FÓRMULA 3: 'LOST CITY' HISTÓRICA CON MATCH-CUT & ESCANEO LIDAR</div>
+        <div class="ctr-badge">CTR ESTIMADO: 17.4% – 20.2%</div>
+      </div>
+      <div class="preview-container">
+        <object data="formula_3_lost_city_matchcut.svg" type="image/svg+xml"></object>
+        <div class="safe-zone-overlay visible">
+          <div class="yt-duration-box">18:42 [BADGE]</div>
+          <div class="mobile-safe-box">ZONA A: HOOK REVELACIÓN</div>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="spec-block">
+          <div class="spec-label">Disparador Psicológico</div>
+          <div class="spec-value">The Great Unveiling (Ruina árida cobra vida en oro y jardines con escaneo 3D).</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Paleta Cromática</div>
+          <div class="spec-value">Arena Ámbar (#E0A96D) | Esmeralda LiDAR (#00E676) | Oro Pulido (#FFD700)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Micro-Texto Validado</div>
+          <div class="spec-value" style="font-weight: 800; color: #FFD700;">"ASÍ ERA REALMENTE" (3 palabras)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Elementos Diegéticos 3D</div>
+          <div class="spec-value">Láser vertical LiDAR, Malla wireframe 3D, Silueta explorador 1:100 con linterna.</div>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-label">PROMPT MAESTRO FLUX / MIDJOURNEY:</div>
+          Cinematic eye-level majestic composition of the ancient Hanging Gardens of Babylon. Left side shows the actual eroded desert stone ruins buried in golden sand dunes. A glowing vertical neon cyan laser scanning beam perfectly bisects the frame. Right side shows the photorealistic magical reconstruction of the gardens in full historic glory with lush cascading emerald flora, sparkling marble waterfalls, gold-inlaid blue glazed brick arches. Tiny silhouette of modern explorer in foreground with flashlight. 8k, Hasselblad medium format --ar 16:9 --v 6.1
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA 4 -->
+    <div class="thumbnail-card">
+      <div class="card-header">
+        <div class="formula-tag">FÓRMULA 4: MACRO-VISIÓN FUTURISTA 2226 CON ARCOLOGÍAS</div>
+        <div class="ctr-badge">CTR ESTIMADO: 15.8% – 18.5%</div>
+      </div>
+      <div class="preview-container">
+        <object data="formula_4_macro_arcologia.svg" type="image/svg+xml"></object>
+        <div class="safe-zone-overlay visible">
+          <div class="yt-duration-box">22:10 [BADGE]</div>
+          <div class="mobile-safe-box">ZONA A: HOOK MEGALOPOLIS</div>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="spec-block">
+          <div class="spec-label">Disparador Psicológico</div>
+          <div class="spec-value">Megalofobia & Fascinación Arquitectónica (Torre 5.000m atravesando la estratosfera).</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Paleta Cromática</div>
+          <div class="spec-value">Azul Cobalto (#0D1B2A) | Niebla Crepúsculo (#FB8500) | Titanio Blanco (#EDF2F4)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Micro-Texto Validado</div>
+          <div class="spec-value" style="font-weight: 800; color: #00F2FE;">"CIUDAD DE 100M" (3 palabras)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Elementos Diegéticos 3D</div>
+          <div class="spec-value">Regla métrica de altitud lateral 0m - 5000m, Anillos de biodomos y estelas de naves.</div>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-label">PROMPT MAESTRO FLUX / MIDJOURNEY:</div>
+          Cinematic wide-angle atmospheric shot of a colossal self-sustaining vertical arcology city reaching 5,000 meters into the sky, piercing through dramatic storm clouds into the golden sunset stratosphere, year 2226. Integrated lush vertical biodomes, gleaming white nanotech ceramic surfaces, and transparent sky-bridges. Swarms of tiny autonomous flying passenger vehicles moving along glowing light trails around docking spires. Spectacular atmospheric volumetric god rays, Solarpunk meets Cyberpunk realism, shot on 70mm IMAX lens, 8k --ar 16:9 --v 6.1
+        </div>
+      </div>
+    </div>
+
+    <!-- FORMULA 5 -->
+    <div class="thumbnail-card">
+      <div class="card-header">
+        <div class="formula-tag">FÓRMULA 5: PARADOJA URBANA '¿QUÉ PASÓ AQUÍ?' (ANOMALÍA GRAVITACIONAL)</div>
+        <div class="ctr-badge">CTR ESTIMADO: 18.2% – 21.6%</div>
+      </div>
+      <div class="preview-container">
+        <object data="formula_5_paradoja_urbana.svg" type="image/svg+xml"></object>
+        <div class="safe-zone-overlay visible">
+          <div class="yt-duration-box">15:50 [BADGE]</div>
+          <div class="mobile-safe-box">ZONA A: HOOK MISTERIO TOTAL</div>
+        </div>
+      </div>
+      <div class="card-details">
+        <div class="spec-block">
+          <div class="spec-label">Disparador Psicológico</div>
+          <div class="spec-value">Disonancia Cognitiva Extrema (Gran metrópolis desierta + agujero gravitacional).</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Paleta Cromática</div>
+          <div class="spec-value">Grafito Mojado (#111827) | Violeta Gravitacional (#7C3AED) | Amarillo Peligro (#FFE500)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Micro-Texto Validado</div>
+          <div class="spec-value" style="font-weight: 800; color: #FFE500;">"¿QUÉ PASÓ AQUÍ?" (3 palabras)</div>
+        </div>
+        <div class="spec-block">
+          <div class="spec-label">Elementos Diegéticos 3D</div>
+          <div class="spec-value">Esfera de materia oscura distorsionando luz, taxis levitando y telemetría de taquiones.</div>
+        </div>
+        <div class="prompt-box">
+          <div class="prompt-label">PROMPT MAESTRO FLUX / MIDJOURNEY:</div>
+          Cinematic haunting street-level view of a completely abandoned Shibuya Crossing or Times Square in eerie silence, overgrown with wild creeping vines and moss. In the middle of the intersection, an impossible floating gravitational anomaly: a pitch-black sphere bending light around it, with yellow taxis, streetlamps, and concrete debris levitating in mid-air in a zero-gravity vortex. Dark moody overcast lighting with glowing purple tachyon lightning arcing from the sphere. Wet asphalt reflections, 8k, cinematic color grading --ar 16:9 --v 6.1
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-safe-zones');
+    const overlays = document.querySelectorAll('.safe-zone-overlay');
+    
+    toggleBtn.addEventListener('click', () => {
+      toggleBtn.classList.toggle('active');
+      const isVisible = toggleBtn.classList.contains('active');
+      overlays.forEach(overlay => {
+        if (isVisible) {
+          overlay.classList.add('visible');
+        } else {
+          overlay.classList.remove('visible');
+        }
+      });
+    });
+
+    const mobileBtn = document.getElementById('toggle-mobile-sim');
+    mobileBtn.addEventListener('click', () => {
+      mobileBtn.classList.toggle('active');
+      const previewContainers = document.querySelectorAll('.preview-container');
+      if (mobileBtn.classList.contains('active')) {
+        previewContainers.forEach(container => {
+          container.style.maxWidth = '320px';
+          container.style.margin = '0 auto 24px auto';
+        });
+      } else {
+        previewContainers.forEach(container => {
+          container.style.maxWidth = '100%';
+          container.style.margin = '0 0 24px 0';
+        });
+      }
+    });
+  </script>
+</body>
+</html>

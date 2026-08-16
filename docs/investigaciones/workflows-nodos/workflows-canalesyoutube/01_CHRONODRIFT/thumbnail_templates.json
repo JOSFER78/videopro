@@ -1,0 +1,257 @@
+{
+  "$schema": "./schemas/thumbnail_formulas.schema.json",
+  "schema_version": "1.0.0",
+  "channel_id": "01_CHRONODRIFT",
+  "target_ctr_threshold": "> 14.0% (Target Óptimo: 16.5% – 21.8%)",
+  "canvas_specs": {
+    "width": 1920,
+    "height": 1080,
+    "aspect_ratio": "16:9",
+    "color_space": "Rec.709",
+    "preattentive_processing_ms": 250
+  },
+  "dead_zone_restriction": {
+    "corner": "bottom-right",
+    "width_px": 340,
+    "height_px": 210,
+    "allowed_elements": [
+      "Void background",
+      "Non-critical environmental textures",
+      "Dark atmospheric vignette"
+    ]
+  },
+  "cognitive_triad_rule": {
+    "max_visual_anchors": 3,
+    "element_1_role": "Sujeto Principal Hipercontrastado (Monumento, Vórtice FPV o Megaestructura)",
+    "element_2_role": "Capa HUD 3D Holográfica / Telemetría Vectorial / Escáner LiDAR",
+    "element_3_role": "Microcopy Magnético de Impacto Inmediato (≤ 3-4 palabras, caja alta, stroke multicapa)"
+  },
+  "color_tokens": {
+    "quantum_cyan": {
+      "hex": "#00E5FF",
+      "rgb": "rgb(0, 229, 255)",
+      "role": "HUD 3D / Láser Divisor / Neón Primario",
+      "wcag_contrast_on_void": "14.8:1 (AAA)"
+    },
+    "chrono_amber": {
+      "hex": "#FFB300",
+      "rgb": "rgb(255, 179, 0)",
+      "role": "Microcopy Principal / Énfasis / Golden Hour",
+      "wcag_contrast_on_void": "12.9:1 (AAA)"
+    },
+    "cyber_magenta": {
+      "hex": "#FF007F",
+      "rgb": "rgb(255, 0, 127)",
+      "role": "Alerta FPV / Vórtice / Acento Futurista",
+      "wcag_contrast_on_void": "8.6:1 (AA)"
+    },
+    "matrix_green": {
+      "hex": "#00E676",
+      "rgb": "rgb(0, 230, 118)",
+      "role": "Escáner Arqueológico LiDAR 3D / Wireframe Subterráneo",
+      "wcag_contrast_on_void": "13.5:1 (AAA)"
+    },
+    "deep_void": {
+      "hex": "#07090E",
+      "rgb": "rgb(7, 9, 14)",
+      "role": "Fondo Base / Vacío Espacial / Alto Contraste",
+      "wcag_contrast_on_void": "1.0:1 (Baseline)"
+    },
+    "vintage_sepia": {
+      "hex": "#3E2723",
+      "rgb": "rgb(62, 39, 35)",
+      "role": "Era 1626 / Pintura Histórica / Madera",
+      "wcag_contrast_on_void": "3.8:1"
+    },
+    "neon_orange": {
+      "hex": "#FF5500",
+      "rgb": "rgb(255, 85, 0)",
+      "role": "Alerta Climática / Megaestructuras / Fuego",
+      "wcag_contrast_on_void": "9.4:1 (AA)"
+    },
+    "pure_photon_white": {
+      "hex": "#FFFFFF",
+      "rgb": "rgb(255, 255, 255)",
+      "role": "Texto Primario / Destellos Cuánticos",
+      "wcag_contrast_on_void": "21.0:1 (AAA)"
+    }
+  },
+  "typography_rules": {
+    "max_words_microcopy": 4,
+    "primary_display_font": "Montserrat Black 900 / Syne ExtraBold 800",
+    "hud_font": "JetBrains Mono ExtraBold 800 / Space Grotesk Bold 700",
+    "stroke_layers": [
+      { "layer": "Outer Stroke 1", "width_px": 18, "color_hex": "#07090E" },
+      { "layer": "Inner Accent Stroke 2", "width_px": 6, "color_hex": "#00E5FF" },
+      { "layer": "Drop Shadow Blur", "width_px": 24, "color_hex": "#07090E" }
+    ]
+  },
+  "master_formulas": [
+    {
+      "formula_id": "F1",
+      "code_name": "THE_TRI_TEMPORAL_REALITY_SLICE",
+      "display_name": "El Corte Tritemporal Split-Screen",
+      "projected_ctr_range": "16.8% – 19.2%",
+      "cognitive_concept": "Disrupción de la continuidad perceptual mediante la división sincronizada del mismo enclave en 3 eras históricas (1626 | 2026 | 2226).",
+      "geometric_composition": "Split-Screen de 3 paneles verticales con inclinación dinámica de 12 grados hacia la derecha, conectadas por un horizonte continuo.",
+      "layer_hierarchy": {
+        "L1_background": "Horizonte continuo unificado que alinea topografía y cielo a lo largo de las 3 eras.",
+        "L2_midground": "Arquitectura icónica de cada era alineada en el eje focal (Madera 1626 -> Asfalto 2026 -> Arcología 2226).",
+        "L3_foreground_hud": "Haces láser de neón cyan (#00E5FF) y magenta (#FF007F) en las líneas divisorias + Microcopy superior izquierdo."
+      },
+      "canonical_microcopy": [
+        "400 AÑOS",
+        "1626 ➔ 2226",
+        "ANTES / DESPUÉS",
+        "EVOLUCIÓN 4K"
+      ],
+      "chromatic_distribution": "60% Deep Void & Atmósfera Urbana | 30% Sepia 1626 y Cristal 2026 | 10% Láser Cyan Neón (#00E5FF) y Amber (#FFB300)",
+      "prompt_flux_3": "Ultra-wide 16:9 cinematic tripartite split-screen composition of [CITY], seamlessly transitioning across three eras divided by glowing neon laser lines at a 12-degree dynamic tilt. Left segment: 1626 feudal/historical era, traditional architecture, warm misty sepia lighting. Center segment: Modern 2026, hyper-realistic asphalt, glass skyscrapers, photorealistic daylight 8k. Right segment: 2226 sci-fi megacity, colossal arcology structures, floating maglev lanes, cyberpunk bioluminescent cyan (#00E5FF) and magenta (#FF007F) glow against deep void sky. Continuous horizon line connecting all three eras, dramatic volumetric lighting, cinematic 35mm film grain, 8k resolution, Unreal Engine 5 render style, no text, no blur, high contrast --ar 16:9 --style raw --v 6.1",
+      "compatible_title_formulas": [
+        "T-01: La Paradoja de los 400 Años",
+        "T-06: La Transformación Cuántica Acelerada",
+        "T-09: De Aldea Feudal a Arcología de 3.000m"
+      ]
+    },
+    {
+      "formula_id": "F2",
+      "code_name": "THE_HYPERSPEED_VORTEX_DIVE",
+      "display_name": "El Picado Vórtice FPV a 140 km/h",
+      "projected_ctr_range": "18.9% – 20.9%",
+      "cognitive_concept": "Activación del reflejo vestibular y vértigo inmersivo mediante perspectiva de picado vertical a 90 grados a alta velocidad con desenfoque de movimiento radial.",
+      "geometric_composition": "Perspectiva cónica central con 1 punto de fuga en el epicentro inferior, líneas de fuga radiales convergentes y crosshair HUD en el centro óptico.",
+      "layer_hierarchy": {
+        "L1_background": "Epicentro urbano inferior a 800m de profundidad iluminado por tráfico maglev y canales de neón.",
+        "L2_midground": "Fachadas verticales de rascacielos convergiendo con radial motion blur en los extremos del 15% del canvas.",
+        "L3_foreground_hud": "Retícula HUD de dron FPV con crosshair central en Cyan (#00E5FF), telemetría 'VEL: 140.4 KM/H' y Microcopy en Cyber Magenta (#FF007F)."
+      },
+      "canonical_microcopy": [
+        "140 KM/H",
+        "CAÍDA LIBRE",
+        "SIN FRENOS",
+        "VÓRTICE FPV"
+      ],
+      "chromatic_distribution": "60% Deep Void Navy (#07090E) | 30% Estelas de Velocidad Magenta/Naranja (#FF007F/#FF5500) | 10% Crosshair Cyan Glacial (#00E5FF)",
+      "prompt_flux_3": "Extreme downward 90-degree top-down cinematic FPV drone perspective diving at 140 km/h into the futuristic canyon of [CITY] in the year 2226. Towering supertall skyscrapers leaning inward creating intense radial vanishing point leading to the glowing flooded street level below. Hyper-speed radial motion blur along the outer edges of the frame, perfectly sharp center core. Vehicles and glowing maglev aerial trains zooming past on multi-level skybridges. Deep void twilight atmosphere with electric cyber magenta (#FF007F) and quantum cyan (#00E5FF) neon reflections on reflective glass and wet carbon fiber structures. Diegetic futuristic drone HUD interface elements, target reticle in center, telemetry speed readouts. Octane Render, photorealistic, Ray Tracing, 8k resolution, IMAX scale --ar 16:9 --style raw --v 6.1",
+      "compatible_title_formulas": [
+        "T-04: El Vuelo Extremo FPV en Primera Persona",
+        "T-07: El Glitch en la Simulación Temporal"
+      ]
+    },
+    {
+      "formula_id": "F3",
+      "code_name": "THE_FLOATING_HOLOGRAM_TELEMETRY",
+      "display_name": "HUD Flotante Holográfico y Telemetría Científica",
+      "projected_ctr_range": "16.2% – 18.2%",
+      "cognitive_concept": "Autoridad científica, rigor de simulación y revelación de secretos arquitectónicos mediante mallas holográficas 3D flotantes y paneles de telemetría.",
+      "geometric_composition": "Plano general monumental de 35mm con monumento histórico anclado en tercio derecho/central y canvas holográfico 3D en tercio izquierdo con datos flotantes.",
+      "layer_hierarchy": {
+        "L1_background": "Monumento histórico real capturado en iluminación Golden Hour (3200K) con profundidad de campo sutil.",
+        "L2_midground": "Malla wireframe tridimensional cian proyectada sobre el monumento proyectando su metamorfosis hacia 2226.",
+        "L3_foreground_hud": "Paneles de datos flotantes vectoriales en JetBrains Mono (Población, Nivel del Mar, Energía) + Microcopy ámbar (#FFB300)."
+      },
+      "canonical_microcopy": [
+        "REVELADO",
+        "DATOS 2226",
+        "SIMULACIÓN 3D",
+        "ESCÁNER HUD"
+      ],
+      "chromatic_distribution": "60% Atmósfera Golden Hour & Monumento de Piedra | 30% Malla Wireframe Cyan Neón (#00E5FF) | 10% Microcopy Dorado/Ámbar (#FFB300)",
+      "prompt_flux_3": "Cinematic wide shot of [MONUMENT/CITY] at golden hour, overlaid with a floating futuristic 3D holographic wireframe and science-grade HUD telemetry interface. The ancient stone structure is augmented by advanced transparent bio-domes and glowing quantum energy spires projected into the sky. Intricate floating glowing cyan (#00E5FF) digital wireframe vectors tracing the original architecture and augmenting it into a 2226 cyber-structure. Holographic data graphs, numerical elevation readouts, population analytics, and sci-fi vector crosshairs floating in sharp foreground focus. Warm atmospheric sunlight (3200K) contrasting with ice-cold neon cyan and electric gold holographic UI elements. Masterpiece photography, Sony A7R V 35mm lens look, hyper-detailed textures, volumetric god rays, 8k --ar 16:9 --style raw --v 6.1",
+      "compatible_title_formulas": [
+        "T-02: La Megaciudad Prohibida / Revelada",
+        "T-08: La Brecha de Conocimiento (Por Qué Nadie Habla de...)",
+        "T-10: La Conexión Oculta de 1626"
+      ]
+    },
+    {
+      "formula_id": "F4",
+      "code_name": "THE_DEEP_SCAN_LIDAR_X_RAY",
+      "display_name": "Escaneo Arqueológico LiDAR 3D Wireframe",
+      "projected_ctr_range": "19.8% – 21.2%",
+      "cognitive_concept": "Fascinación arqueológica y efecto Rayos X. La pulsión cognitiva irrefrenable de descubrir estructuras ocultas, criptas y secretos bajo el suelo de ciudades milenarias.",
+      "geometric_composition": "Corte transversal horizontal asimétrico (40% superficie en la parte superior / 60% subsuelo en nube de puntos LiDAR en la inferior), dividido por láser de escaneo.",
+      "layer_hierarchy": {
+        "L1_background": "Vacío subterráneo negro absoluto (#07090E) atravesado por partículas de escaneo de alta densidad.",
+        "L2_midground": "Criptas, catacumbas, cimientos y túneles de 1626 reconstruidos en nube de puntos Matrix Green (#00E676) y Cyan (#00E5FF).",
+        "L3_foreground_hud": "Haz láser horizontal de escaneo en emisión volumétrica + Microcopy en blanco fotónico con corchetes vectoriales."
+      },
+      "canonical_microcopy": [
+        "¿QUÉ HAY DEBAJO?",
+        "ESTÁ DEBAJO",
+        "ESCÁNER OCULTO",
+        "TÚNELES 1626"
+      ],
+      "chromatic_distribution": "60% Deep Void Subterráneo (#07090E) | 30% Nube de Puntos Matrix Green (#00E676) y Cyan (#00E5FF) | 10% Láser Escáner y Microcopy Blanco Puro (#FFFFFF)",
+      "prompt_flux_3": "Cross-section architectural X-ray cutaway view of [CITY], split between the modern surface and a deeply illuminated underground archaeological LiDAR 3D point cloud scan. Top section: Photorealistic modern city streets and historical landmarks under dark moody skies. Bottom section: Vast subterranean world rendered in glowing phosphorescent matrix green (#00E676) and quantum cyan (#00E5FF) LiDAR point cloud dots and wireframe mesh. Revealing forgotten medieval foundations, secret tunnels, ancient catacombs, and buried waterways beneath the modern asphalt. A bright horizontal laser scan line slicing across the ground plane separating surface from underground. Sci-fi forensic archaeology aesthetic, hyper-detailed point cloud density, deep black background (#07090E), 8k resolution --ar 16:9 --style raw --v 6.1",
+      "compatible_title_formulas": [
+        "T-03: El Escaneo Arqueológico Subterráneo",
+        "T-10: La Conexión Oculta de 1626",
+        "T-08: La Brecha de Conocimiento Secreto"
+      ]
+    },
+    {
+      "formula_id": "F5",
+      "code_name": "THE_CLIMATE_MEGACITY_SCALE_SHOCK",
+      "display_name": "Megalópolis de Escala Colosal & Shock Climático",
+      "projected_ctr_range": "18.4% – 21.5%",
+      "cognitive_concept": "Sobrecogimiento existencial (Sense of Wonder) y choque de escala extrema al contrastar monumentos históricos conocidos contra arcologías titánicas de 3.000 metros.",
+      "geometric_composition": "Contrapicado cinematográfico monumental o plano panorámico donde la arcología domina el 70% del encuadre vertical, con el monumento histórico en la base inferior.",
+      "layer_hierarchy": {
+        "L1_background": "Cielo de tormenta volumétrica con relámpagos dorados, nubes oscuras o cúpula geodésica atmosférica.",
+        "L2_midground": "Megaestructura colosal de 3.000 metros con jardines verticales colgantes, diques de contención y autopistas aéreas.",
+        "L3_foreground_hud": "Monumento icónico histórico en la base como escala métrica ('Banana for Scale') + Microcopy de alerta climática en Naranja Neón (#FF5500)."
+      },
+      "canonical_microcopy": [
+        "+15 METROS",
+        "3.000 METROS",
+        "AÑO 2226",
+        "ASÍ SOBREVIVE"
+      ],
+      "chromatic_distribution": "60% Atmósfera de Tormenta & Deep Void (#07090E) | 30% Megaestructura de Titanio y Vidrio con Luces Urbanas | 10% Microcopy Naranja Fuego (#FF5500) y Ámbar",
+      "prompt_flux_3": "Epic monumental scale sci-fi landscape of [CITY] in 2226, showing a colossal 2,000-to-3,000-meter-tall climate defense sea-wall arcology protecting the ancient historic city from rising oceans. The historic landmarks sit peacefully inside the massive engineered basin below, looking tiny compared to the gargantuan futuristic hyper-structure rising into the storm clouds. Cascading vertical hydroponic bio-gardens, solar glass panel skin, massive titanium floodgates, flying autonomous drone transit corridors. Dramatic cinematic lighting, stormy sunset sky with dramatic golden and amber god rays piercing through dark volumetric clouds, hyper-detailed water reflections. Anamorphic lens flare, photorealistic architectural rendering, 8k resolution, cinematic composition --ar 16:9 --style raw --v 6.1",
+      "compatible_title_formulas": [
+        "T-05: El Punto de Inflexión Climático",
+        "T-02: La Megaciudad Prohibida / Revelada",
+        "T-09: De Aldea / Fuerte a Arcología de 3.000m"
+      ]
+    }
+  ],
+  "quality_assurance_protocol": {
+    "squint_test_resolutions": [
+      "50x28 px (Mobile Feed Perception Test)",
+      "120x68 px (Sidebar Suggested Videos Test)",
+      "1920x1080 px (Smart TV 4K & Retina Detail Test)"
+    ],
+    "mandatory_checklist_items": [
+      "1. Exactamente 1 Sujeto + 1 HUD + 1 Microcopy (Cognitive Triad)",
+      "2. Esquina inferior derecha (340x210px) 100% libre de elementos críticos (Time-Badge Safe)",
+      "3. Microcopy de máximo 4 palabras (preferencia 1 a 3 palabras) legible a 50x28px",
+      "4. Ratio de contraste tipográfico sobre fondo > 12:1 (WCAG AAA)",
+      "5. Candado Cognitivo: Cero repetición de palabras entre miniatura y título",
+      "6. Resolución exacta 1920x1080 px en formato PNG sin artefactos de compresión",
+      "7. Punto focal principal identificable en menos de 250 milisegundos",
+      "8. Texturas fotorrealistas con grano 35mm sin artefactos plásticos de IA (Anti-Slop Certified)"
+    ],
+    "dynamic_rotation_phases": [
+      {
+        "phase": "Fase 1 (Horas 0–6)",
+        "timeframe": "Primeras 6 horas tras publicación",
+        "variant_role": "Variante A (Mainstream / Split-Screen F1) para tracción inicial en Browse",
+        "ctr_target": "> 14.5%"
+      },
+      {
+        "phase": "Fase 2 (Horas 6–24)",
+        "timeframe": "Horas 6 a 24",
+        "variant_role": "Variante B (Vórtice FPV F2 / Escala F5 / LiDAR F4) para empuje en Sugeridos",
+        "ctr_target": "> 17.5%"
+      },
+      {
+        "phase": "Fase 3 (Horas 24–72)",
+        "timeframe": "Horas 24 a 72 y consolidación",
+        "variant_role": "Variante Ganadora de la prueba A/B para indexación algorítmica definitiva",
+        "ctr_target": "> 15.0% sostenido"
+      }
+    ]
+  }
+}

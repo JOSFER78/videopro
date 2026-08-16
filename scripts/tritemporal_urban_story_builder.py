@@ -41,88 +41,55 @@ CITY_EPISODES_METADATA = {
         "past_focus": "Castillo de Edo, puente Nihonbashi y barrios de madera machiya a orillas del río Sumida",
         "present_focus": "Shibuya Scramble, Shinjuku neón y rascacielos sismorresistentes con pantallas 3D",
         "future_focus": "Mega-Arcología Neo-Tokyo X-Seed 1200m y Shimizu Mega-Pyramid con redes de levitación en vacío",
-        "hook": "Picado vertical a 130 km/h desde la Torre de Tokio que atraviesa una nube temporal hacia el río Sumida en 1630.",
+        "hook": "Picado vertical a 140 km/h desde 850m atravesando nubes volumétricas hacia el río Sumida en 1630 frente al Castillo de Edo.",
         "mit_ipcc_fact": "Estudio Shimizu & Tokyo Urban Resilience 2200: arcologías con capacidad para 1.5 millones de habitantes con balance neutro de carbono."
     },
-    "newyork": {
-        "num": 2,
-        "name": "Nueva York",
-        "historical_name": "Nueva Ámsterdam",
-        "past_year": 1626,
-        "past_focus": "Fuerte Ámsterdam en The Battery, empalizada en Wall Street y colinas vírgenes de Mannahatta",
-        "present_focus": "Manhattan Vertical, One WTC, Times Square y Central Park",
-        "future_focus": "Bioluminescent Manhattan con el sistema The Big U 2200, torres de grafeno y pasarelas eólicas",
-        "hook": "Vuelo rasante por Wall Street que disuelve los rascacielos de cristal en el bosque original de la tribu Lenape.",
-        "mit_ipcc_fact": "Columbia Climate School & BIG: parques costeros de amortiguación frente a elevación del nivel del mar de +1.8m."
-    },
-    "london": {
-        "num": 3,
-        "name": "Londres",
-        "historical_name": "Londres Tudor",
-        "past_year": 1610,
-        "past_focus": "Antiguo Puente de Londres con casas de madera colgantes, Globe Theatre y el Támesis con veleros",
-        "present_focus": "The City, The Shard, Tower Bridge y el South Bank moderno",
-        "future_focus": "Sky-Canopy London con cúpulas bioclimáticas sobre el Támesis y cápsulas de levitación magnética",
-        "hook": "Vuelo a ras de agua esquivando barcazas del siglo XVII antes de ascender a la cúspide del rascacielos The Shard.",
-        "mit_ipcc_fact": "UCL Bartlett School: cúpulas de microclima y filtración de aire que reducen en 92% la huella térmica urbana."
-    },
-    "paris": {
-        "num": 4,
-        "name": "París",
-        "historical_name": "París Medieval / Borbónico",
-        "past_year": 1620,
-        "past_focus": "Île de la Cité con Notre-Dame, Pont Neuf de piedra y casas de entramado de madera en Le Marais",
-        "present_focus": "Bulevares Haussmannianos, Torre Eiffel, Louvre y riberas del Sena",
-        "future_focus": "Vertical Garden Paris con torres espirales bioclimáticas integrando arquitectura clásica a 300m",
-        "hook": "Giro de 360 grados sobre el rosetón de Notre-Dame mientras la piedra envejece y rejuvenece 600 años en 3 segundos.",
-        "mit_ipcc_fact": "Vincent Callebaut & Paris 2200: torres biofílicas que absorben 40 toneladas de CO2 al año por fachada."
-    },
     "amsterdam": {
-        "num": 5,
+        "num": 2,
         "name": "Ámsterdam",
         "historical_name": "Siglo de Oro Neerlandés",
         "past_year": 1626,
         "past_focus": "Construcción de los canales Grachtengordel, almacenes VOC, puentes levadizos y barcos de 3 mástiles",
         "present_focus": "Canales modernos, casas flotantes de diseño, tranvías eléctricos y ciclovías",
         "future_focus": "Floating Ocean-Grid Amsterdam con compuertas cinéticas modulares y biosferas de nanopolímeros",
-        "hook": "Entrada rasante bajo un puente levadizo de madera donde los mercaderes se transforman en ciclistas modernos.",
+        "hook": "Entrada rasante bajo un puente levadizo de madera donde los mercaderes VOC se transforman en ciclistas modernos.",
         "mit_ipcc_fact": "Deltares & MIT Senseable City Lab: compuertas cinéticas modulares diseñadas para adaptación a +2.1m marea extrema."
     },
+    "newyork": {
+        "num": 3,
+        "name": "Nueva York",
+        "historical_name": "Nueva Ámsterdam",
+        "past_year": 1626,
+        "past_focus": "Fuerte Ámsterdam en The Battery, empalizada en Wall Street y colinas vírgenes de Mannahatta",
+        "present_focus": "Manhattan Vertical, One WTC, Times Square y Central Park",
+        "future_focus": "Bioluminescent Manhattan con el sistema The Big U 2200, torres de grafeno y pasarelas eólicas",
+        "hook": "Vuelo rasante a 1.5m rozando la empalizada de madera de Wall Street en 1626 donde las estacas se disuelven en los cañones de cristal.",
+        "mit_ipcc_fact": "Columbia Climate School & BIG: parques costeros de amortiguación frente a elevación del nivel del mar de +1.8m."
+    },
     "rome": {
-        "num": 6,
+        "num": 4,
         "name": "Roma",
         "historical_name": "Roma Barroca",
         "past_year": 1626,
         "past_focus": "Consagración de la Basílica de San Pedro, talleres de canteros de Bernini y ruinas del Foro Romano",
         "present_focus": "Coliseo restaurado, Vía del Corso, fuentes barrocas y vida en plazas históricas",
         "future_focus": "Cyber-Antiquity Roma con hologramas volumétricos que restauran templos clásicos y cúpulas geodésicas",
-        "hook": "Vuelo supersónico sobre la cúpula de San Pedro cruzando un vórtice hacia los talleres de mármol del siglo XVII.",
+        "hook": "Vuelo supersónico sobre la cúpula de San Pedro cruzando un vórtice hacia los talleres de mármol de Bernini en 1626.",
         "mit_ipcc_fact": "Sapienza Università & CNR: cúpulas de nanopolímeros auto-refrigerantes para proteger el mármol del estrés térmico."
     },
-    "dubai": {
-        "num": 7,
-        "name": "Dubái",
-        "historical_name": "Costa de Pescadores Al Fahidi",
-        "past_year": 1820,
-        "past_focus": "Asentamiento de perlas de Al Fahidi, torres de viento Barjeel de coral y barro, y dhows en Dubai Creek",
-        "present_focus": "Burj Khalifa alzándose a 828 metros, Dubai Marina, islas artificiales Palm y autopistas nocturnas",
-        "future_focus": "Solar Arcology Dubai con megatorres bioclimáticas de 3.000 metros y agricultura hidropónica desértica masiva",
-        "hook": "Una duna del desierto se contrae y en 2 segundos brota la estructura imponente de 828 metros del Burj Khalifa.",
-        "mit_ipcc_fact": "Dubai Future Foundation & MIT: sistemas de enfriamiento geotérmico pasivo que reducen consumo energético en un 78%."
-    },
-    "hongkong": {
-        "num": 8,
-        "name": "Hong Kong",
-        "historical_name": "Bahía de Pescadores Victoria",
-        "past_year": 1840,
-        "past_focus": "Aldeas costeras de pescadores Hakka, juncos chinos de velas rojas en Victoria Harbour y selva en The Peak",
-        "present_focus": "Densidad vertical extrema, más de 500 rascacielos iluminados, tranvías Ding Ding y Star Ferry",
-        "future_focus": "Stratospheric Hong Kong con puentes peatonales habitables a 800m de altura y plataformas marinas",
-        "hook": "Caída libre entre los callejones de Kowloon Walled City hacia los rascacielos iluminados por láser.",
-        "mit_ipcc_fact": "HKUST Aerodynamics: túneles de viento urbanos integrados que ventilan los cañones de rascacielos con brisa marina continua."
+    "london": {
+        "num": 5,
+        "name": "Londres",
+        "historical_name": "Londres Tudor",
+        "past_year": 1610,
+        "past_focus": "Antiguo Puente de Londres con casas de madera colgantes, Globe Theatre y el Támesis con veleros",
+        "present_focus": "The City, The Shard, Tower Bridge y el South Bank moderno",
+        "future_focus": "Sky-Canopy London con cúpulas bioclimáticas sobre el Támesis y cápsulas de levitación magnética",
+        "hook": "Vuelo a ras de agua esquivando barcazas del siglo XVII bajo el viejo Puente de Londres antes de elevarse verticalmente a The Shard.",
+        "mit_ipcc_fact": "UCL Bartlett School: cúpulas de microclima y filtración de aire que reducen en 92% la huella térmica urbana."
     },
     "cairo": {
-        "num": 9,
+        "num": 6,
         "name": "El Cairo",
         "historical_name": "El Cairo Mameluco / Otomano",
         "past_year": 1620,
@@ -132,8 +99,30 @@ CITY_EPISODES_METADATA = {
         "hook": "Paso rozando el ápice de la Gran Pirámide mientras la sombra proyecta 4.000 años de historia en un instante.",
         "mit_ipcc_fact": "Cairo University & Nile Resilience Consortium: micro-canales de agua desalinizada solar para crear microclimas agrícolas urbanos."
     },
+    "paris": {
+        "num": 7,
+        "name": "París",
+        "historical_name": "París Medieval / Borbónico",
+        "past_year": 1620,
+        "past_focus": "Île de la Cité con Notre-Dame, Pont Neuf de piedra y casas de entramado de madera en Le Marais",
+        "present_focus": "Bulevares Haussmannianos, Torre Eiffel, Louvre y riberas del Sena",
+        "future_focus": "Vertical Garden Paris con torres espirales bioclimáticas integrando arquitectura clásica a 300m",
+        "hook": "Giro orbital de 360° sobre el rosetón de Notre-Dame mientras la piedra pasa de 1620 a 2026 y a la biosfera vertical de 2226.",
+        "mit_ipcc_fact": "Vincent Callebaut & Paris 2200: torres biofílicas que absorben 40 toneladas de CO2 al año por fachada."
+    },
+    "dubai": {
+        "num": 8,
+        "name": "Dubái",
+        "historical_name": "Costa de Pescadores Al Fahidi",
+        "past_year": 1820,
+        "past_focus": "Asentamiento de perlas de Al Fahidi, torres de viento Barjeel de coral y barro, y dhows en Dubai Creek",
+        "present_focus": "Burj Khalifa alzándose a 828 metros, Dubai Marina, islas artificiales Palm y autopistas nocturnas",
+        "future_focus": "Solar Arcology Dubai con megatorres bioclimáticas de 3.000 metros y agricultura hidropónica desértica masiva",
+        "hook": "Una duna del desierto se contrae y en 2 segundos brota la estructura imponente de 828 metros del Burj Khalifa.",
+        "mit_ipcc_fact": "Dubai Future Foundation & MIT: sistemas de enfriamiento geotérmico pasivo que reducen consumo energético en un 78%."
+    },
     "venice": {
-        "num": 10,
+        "num": 9,
         "name": "Venecia",
         "historical_name": "Serenísima República",
         "past_year": 1626,
@@ -142,6 +131,39 @@ CITY_EPISODES_METADATA = {
         "future_focus": "Sub-Aquatic Biosphere Venice con arcología subacuática de grafeno y canales transparentes de filtración biológica",
         "hook": "Inmersión bajo el agua del Gran Canal que emerge en el taller de un soplador de vidrio de Murano de 1626.",
         "mit_ipcc_fact": "Venice Lagoon Preservation Institute: estabilización del lecho lagunar con bio-cemento autorreparable y barreras cinéticas inteligentes."
+    },
+    "hongkong": {
+        "num": 10,
+        "name": "Hong Kong",
+        "historical_name": "Bahía de Pescadores Victoria",
+        "past_year": 1840,
+        "past_focus": "Aldeas costeras de pescadores Hakka, juncos chinos de velas rojas en Victoria Harbour y selva en The Peak",
+        "present_focus": "Densidad vertical extrema, más de 500 rascacielos iluminados, tranvías Ding Ding y Star Ferry",
+        "future_focus": "Stratospheric Hong Kong con puentes peatonales habitables a 800m de altura y plataformas marinas",
+        "hook": "Caída libre entre los callejones de Kowloon Walled City hacia los rascacielos iluminados por láser.",
+        "mit_ipcc_fact": "HKUST Aerodynamics: túneles de viento urbanos integrados que ventilan los cañones de rascacielos con brisa marina continua."
+    },
+    "singapore": {
+        "num": 11,
+        "name": "Singapur",
+        "historical_name": "Temasek / Reino de Singapura",
+        "past_year": 1626,
+        "past_focus": "Pueblos pesqueros Orang Laut en manglares del río Singapur, barcas prahu malayas y puesto comercial del Estrecho de Malaca",
+        "present_focus": "Marina Bay Sands con SkyPark suspendido, Supertree Grove en Gardens by the Bay, rascacielos biofílicos y megapuerto de Tuas",
+        "future_focus": "Biophilic Floating Arcology & Supertree Vertical Biosphere con fotosíntesis artificial a 600m y domos marinos bioclimáticos",
+        "hook": "Picado vertical a 140 km/h desde el SkyPark de Marina Bay Sands atravesando una tormenta tropical que se disuelve en el manglar virgen de Temasek en 1626.",
+        "mit_ipcc_fact": "NUS Biophilic Megastructure Lab & Singapore 2200 Sea Adaptation: arcologías flotantes modulares y captura pasiva de humedad atmosférica."
+    },
+    "barcelona": {
+        "num": 12,
+        "name": "Barcelona",
+        "historical_name": "Barcino / Ciutat Vella Medieval",
+        "past_year": 1626,
+        "past_focus": "Murallas góticas de Ciutat Vella, Santa Maria del Mar, atarazanas reales (Drassanes) y galeras en el puerto",
+        "present_focus": "Eixample de Cerdà con chaflanes octogonales, culminación de la Sagrada Família (172.5m), Passeig de Gràcia y Torre Glòries",
+        "future_focus": "Superilles 3D & Eco-Gòtic Regenerative Arcology con marquesinas solares vegetales a 80m y cúpula bioclimática en la Sagrada Família",
+        "hook": "Vuelo en espiral descendente rozando la Torre de Jesús de la Sagrada Família que atraviesa un vórtice temporal hacia las galeras de madera del puerto gótico de 1626.",
+        "mit_ipcc_fact": "IAAC & UPC Urban Climatology 2200: modelo de Supermanzanas tridimensionales que reduce en un 88% la temperatura urbana superficial."
     }
 }
 

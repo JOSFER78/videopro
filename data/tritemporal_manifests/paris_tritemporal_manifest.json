@@ -1,6 +1,6 @@
 {
-  "story_id": "CHRONODRIFT_EP04_PARIS",
-  "episode_number": 4,
+  "story_id": "CHRONODRIFT_EP07_PARIS",
+  "episode_number": 7,
   "channel_brand": "CHRONODRIFT",
   "tagline": "Urban Time Travel & Future Cities (1626 ➔ 2026 ➔ 2226)",
   "city_key": "paris",
@@ -17,7 +17,7 @@
     "true_peak_dbtp": -1.0
   },
   "hook_strategy": {
-    "initial_hook_0_5s": "Giro de 360 grados sobre el rosetón de Notre-Dame mientras la piedra envejece y rejuvenece 600 años en 3 segundos.",
+    "initial_hook_0_5s": "Giro orbital de 360° sobre el rosetón de Notre-Dame mientras la piedra pasa de 1620 a 2026 y a la biosfera vertical de 2226.",
     "target_first_minute_retention": ">90%",
     "target_avd": ">72%"
   },
@@ -305,7 +305,7 @@
       "hook_0_3s": "Match-cut vertiginoso a 120 km/h: entras en un callejón de 1620 y sales en Shibuya/Wall Street 2026.",
       "retention_mechanic": "Bucle perfecto (Seamless Loop): el último fotograma en 2226 conecta exactamente con el picado inicial de 1626.",
       "target_vtr": "135%",
-      "pinned_comment": "🎬 Mira el vuelo completo en 4K 60fps de París en nuestro canal principal 👉 [Enlace al Episodio 4]"
+      "pinned_comment": "🎬 Mira el vuelo completo en 4K 60fps de París en nuestro canal principal 👉 [Enlace al Episodio 7]"
     },
     {
       "short_id": "SHORT_PARIS_02_SECRET_HISTORY",

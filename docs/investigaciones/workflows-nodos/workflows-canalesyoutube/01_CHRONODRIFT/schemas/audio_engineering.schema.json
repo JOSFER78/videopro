@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronoDriftAudioEngineeringSchema",
+  "description": "Schema de validación para la Ingeniería de Audio VO-First, Rejilla 118 BPM, Foley Doppler, Ducking Dinámico (-18dB) y Master EBU R128 (-14 LUFS / -1.0 dBTP)",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "bpm",
+    "time_signature",
+    "grid_metrics",
+    "vo_first_alignment",
+    "ducking_curve_parameters",
+    "foley_spatial_doppler_design",
+    "master_ebu_r128_compliance"
+  ],
+  "properties": {
+    "episode_id": { "type": "string" },
+    "bpm": { "type": "integer", "const": 118 },
+    "time_signature": { "type": "string", "const": "4/4" },
+    "grid_metrics": {
+      "type": "object",
+      "required": ["beat_duration_ms", "bar_duration_ms", "phrase_4bar_ms", "total_bars_episode"],
+      "properties": {
+        "beat_duration_ms": { "type": "number", "const": 508.47 },
+        "bar_duration_ms": { "type": "number", "const": 2033.90 },
+        "phrase_4bar_ms": { "type": "number", "const": 8135.59 },
+        "total_bars_episode": { "type": "number" }
+      }
+    },
+    "vo_first_alignment": {
+      "type": "object",
+      "required": ["tts_model", "whisper_tool", "word_timestamps_file", "total_voice_duration_sec"],
+      "properties": {
+        "tts_model": { "type": "string" },
+        "whisper_tool": { "type": "string", "enum": ["Whisper Stable-TS", "stable-ts"] },
+        "word_timestamps_file": { "type": "string" },
+        "total_voice_duration_sec": { "type": "number" }
+      }
+    },
+    "ducking_curve_parameters": {
+      "type": "object",
+      "required": [
+        "attenuation_under_voice_db",
+        "linear_amplitude_factor",
+        "instrumental_climax_db",
+        "attack_time_ms",
+        "release_time_ms",
+        "hold_time_ms",
+        "sidechain_filter_ffmpeg"
+      ],
+      "properties": {
+        "attenuation_under_voice_db": { "type": "number", "const": -18.0 },
+        "linear_amplitude_factor": { "type": "number", "const": 0.1258 },
+        "instrumental_climax_db": { "type": "number", "const": 0.0 },
+        "attack_time_ms": { "type": "number", "const": 30.0 },
+        "release_time_ms": { "type": "number", "const": 250.0 },
+        "hold_time_ms": { "type": "number", "const": 50.0 },
+        "sidechain_filter_ffmpeg": { "type": "string" }
+      }
+    },
+    "foley_spatial_doppler_design": {
+      "type": "object",
+      "required": [
+        "fpv_drone_propeller_frequency_hz",
+        "doppler_shift_formula",
+        "approach_shift_pct",
+        "retreat_shift_pct",
+        "temporal_match_cut_subbass_braam_hz",
+        "diegetic_layers_by_epoch"
+      ],
+      "properties": {
+        "fpv_drone_propeller_frequency_hz": { "type": "number" },
+        "doppler_shift_formula": { "type": "string", "const": "delta_f = f0 * (v_sound / (v_sound - v_drone))" },
+        "approach_shift_pct": { "type": "number", "const": 9.78 },
+        "retreat_shift_pct": { "type": "number", "const": -8.18 },
+        "temporal_match_cut_subbass_braam_hz": { "type": "number", "const": 35.0 },
+        "diegetic_layers_by_epoch": {
+          "type": "object",
+          "required": ["past_1626", "present_2026", "future_2226"],
+          "properties": {
+            "past_1626": { "type": "array", "items": { "type": "string" } },
+            "present_2026": { "type": "array", "items": { "type": "string" } },
+            "future_2226": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "master_ebu_r128_compliance": {
+      "type": "object",
+      "required": [
+        "integrated_loudness_target_lufs",
+        "loudness_tolerance_lu",
+        "true_peak_maximum_dbtp",
+        "loudness_range_lra_target_lu",
+        "sample_rate_hz",
+        "bit_depth",
+        "ffmpeg_loudnorm_command"
+      ],
+      "properties": {
+        "integrated_loudness_target_lufs": { "type": "number", "const": -14.0 },
+        "loudness_tolerance_lu": { "type": "number", "const": 0.5 },
+        "true_peak_maximum_dbtp": { "type": "number", "maximum": -1.0 },
+        "loudness_range_lra_target_lu": { "type": "number" },
+        "sample_rate_hz": { "type": "integer", "enum": [44100, 48000] },
+        "bit_depth": { "type": "integer", "enum": [24, 32] },
+        "ffmpeg_loudnorm_command": { "type": "string" }
+      }
+    }
+  }
+}

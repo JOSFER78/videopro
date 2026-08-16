@@ -36,6 +36,7 @@ import os
 import re
 import shutil
 import sys
+import time
 import unicodedata
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
@@ -525,19 +526,27 @@ class VideoProject:
 
     def load_manifest(self) -> Dict[str, Any]:
         """Load manifest.json or legacy project_manifest.json safely."""
-        if not self.manifest_path.exists():
-            if self.legacy_manifest_path.exists():
+        if self.manifest_path.exists():
+            try:
+                with open(self.manifest_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+
+        if self.legacy_manifest_path.exists():
+            try:
                 with open(self.legacy_manifest_path, "r", encoding="utf-8") as f:
                     return json.load(f)
-            return self._create_initial_manifest()
+            except Exception:
+                pass
 
-        with open(self.manifest_path, "r", encoding="utf-8") as f:
-            return json.load(f)
+        return self._create_initial_manifest()
 
     def save_manifest(self, data: Dict[str, Any]) -> Path:
         """Save manifest.json atomically and sync legacy project_manifest.json."""
         data["updated_at"] = get_utc_iso_now()
-        temp_file = self.manifest_path.with_suffix(".tmp")
+        self.manifest_path.parent.mkdir(parents=True, exist_ok=True)
+        temp_file = self.manifest_path.parent / f"manifest_{os.getpid()}_{time.time_ns()}.tmp"
         with open(temp_file, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
         temp_file.replace(self.manifest_path)

@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "description": "Lote de prompts optimizados para quema masiva de créditos en Flow Music con afinación 432Hz/528Hz y ASMR 3D",
+  "default_profile": "audiophile_luxury",
+  "prompts": [
+    {
+      "prefix": "city_walk_madrid_sunset",
+      "tuning_hz": 432,
+      "prompt": "Ultra-high fidelity ambient walking soundtrack for historic city center. Warm 432Hz analog sub drones, lush soothing Rhodes synthesizer pads, slow relaxing tempo. Immersive binaural spatial audio with subtle ASMR micro-textures: gentle cobblestone footsteps panning left to right, soft urban dusk breeze, ultra-wide stereo field. Purely instrumental, hypnotic, deep relaxation, zero drums or harsh beats."
+    },
+    {
+      "prefix": "tritemporal_rome_colosseum",
+      "tuning_hz": 528,
+      "prompt": "Cinematic tritemporal ambient background for historical documentary. Tuned to 528Hz, warm analog cellos blending into shimmering futuristic modular synthesizer swells. 3D spatial field with deep atmospheric room tone, gentle distant bell resonances, subtle wind through ancient marble corridors. Hypnotic, meditative, zero percussion, ultra-clean master."
+    },
+    {
+      "prefix": "tokyo_cyberpunk_theta_rain",
+      "tuning_hz": 432,
+      "prompt": "Cyberpunk midnight ambient soundscape for deep focus and study. Sub-bass 432Hz drone with embedded 6Hz theta binaural beats. Soft wet rain micro-textures, gentle neon synth pads slowly filtering in and out, binaural 3D panning of distant urban night ambiance. Peaceful, continuous flow, zero abrupt drops, no drums."
+    },
+    {
+      "prefix": "florence_renaissance_shimmer",
+      "tuning_hz": 432,
+      "prompt": "Ethereal Renaissance ambient soundscape for FPV urban tour. 432Hz warm chamber strings, soft glass marimba arpeggios, wide binaural air reverb. Micro-ASMR details: gentle fountain water trickling, soft breeze in cypress trees, wide spatial separation. Purely instrumental, serene, majestic, no percussion."
+    },
+    {
+      "prefix": "zen_garden_meditation_528",
+      "tuning_hz": 528,
+      "prompt": "Deep restorative meditation soundscape in 528Hz Solfeggio frequency. Organic bamboo flute undertones, warm sine sub-bass, crystal bowl harmonics. Binaural 3D spatial recording of gentle mountain stream and wind chimes in stereo. Hypnotic, restorative, no percussion, immaculate dynamic range."
+    }
+  ]
+}

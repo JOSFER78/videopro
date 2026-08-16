@@ -1,11 +1,5 @@
 
-/* PERMANENT EXPANDED SIDEBAR */
-section[data-testid="stSidebar"] {
-}
-
-div[data-testid="stSidebarNav"] {
-}
-
+/* STREAMLIT STYLING */
 header[data-testid="stHeader"],
 div[data-testid="stToolbar"],
 div[data-testid="stDecoration"],
@@ -259,11 +253,17 @@ div[class*="st-key-advanced_settings_"] div[data-testid="stExpanderDetails"] {
     ) !important;
 }
 
-/* 任务管理 popover 需要固定宽度，避免内容从空状态、列表状态切换时
-   反复改变宽度造成页面抖动。宽度仍保留视口约束，兼容窄屏。 */
+/* Popover universal - Tamaño compacto y natural para confirmaciones, modales y acciones */
 div[data-testid="stPopoverBody"] {
-    width: min(860px, calc(100vw - 48px)) !important;
-    max-width: min(860px, calc(100vw - 48px)) !important;
+    width: auto !important;
+    min-width: 260px !important;
+    max-width: min(450px, 90vw) !important;
+    border-radius: 10px !important;
+    border: 1px solid #334155 !important;
+    background: #0f172a !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+    padding: 12px 14px !important;
+    z-index: 999999 !important;
 }
 
 div[data-testid="stPopoverBody"] div[data-testid="stVerticalBlock"] {

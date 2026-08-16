@@ -31,15 +31,15 @@ VideoPro unifica el proceso completo de creación audiovisual:
 # 1. Iniciar el Backend API (Puerto 8080)
 /home/ubuntu/MoneyPrinterTurbo/.venv/bin/python main.py
 
-# 2. Iniciar el Frontend WebUI (Puerto 7001)
-/home/ubuntu/MoneyPrinterTurbo/.venv/bin/python -m streamlit run webui/Main.py --server.port 7001 --server.address 0.0.0.0
+# 2. Iniciar el Frontend WebUI (Puerto 8501)
+/home/ubuntu/MoneyPrinterTurbo/.venv/bin/python -m streamlit run webui/Main.py --server.port 8501 --server.address 0.0.0.0
 ```
 
 ### Gestión de Servicios (systemd):
 ```bash
-systemctl --user restart moneyprinter-api.service    # Reiniciar Backend
-systemctl --user restart moneyprinter-webui.service  # Reiniciar Frontend
-systemctl --user status moneyprinter-api.service     # Ver estado
+systemctl --user restart videopro-api.service    # Reiniciar Backend
+systemctl --user restart videopro-webui.service  # Reiniciar Frontend
+systemctl --user status videopro-webui.service   # Ver estado
 ```
 
 ---

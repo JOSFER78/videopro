@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700;1,800&amp;family=JetBrains+Mono:wght@700;800&amp;family=Montserrat:ital,wght@1,900&amp;display=swap');
+      .speed-title { font-family: 'Montserrat', sans-serif; font-style: italic; font-weight: 900; font-size: 78px; fill: #FFE600; stroke: #000000; stroke-width: 14px; stroke-linejoin: round; paint-order: stroke fill; letter-spacing: -1px; }
+      .speed-title-white { fill: #FFFFFF; }
+      .hud-title { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 20px; fill: #00F2FE; letter-spacing: 2px; }
+      .hud-alert { font-family: 'Chakra Petch', sans-serif; font-weight: 800; font-size: 22px; fill: #FF0055; letter-spacing: 2px; }
+      .hud-mono { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 15px; fill: #00F2FE; letter-spacing: 1px; }
+      .hud-mono-red { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 15px; fill: #FF0055; letter-spacing: 1px; }
+    </style>
+
+    <linearGradient id="sky-canyon" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="60%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#FF5400" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <!-- Hologram buildings gradients -->
+    <linearGradient id="neon-cyan-fade" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F2FE" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#00F2FE" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <linearGradient id="neon-pink-fade" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FF007A" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#FF007A" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <filter id="glow-laser" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="hud-glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00F2FE" flood-opacity="0.9"/>
+    </filter>
+
+    <filter id="alert-glow">
+      <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#FF0055" flood-opacity="1"/>
+    </filter>
+
+    <radialGradient id="radial-vignette" cx="50%" cy="60%" r="60%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.85"/>
+    </radialGradient>
+  </defs>
+
+  <!-- BACKGROUND: CYBERPUNK URBAN CANYON -->
+  <rect width="1280" height="720" fill="url(#sky-canyon)"/>
+
+  <!-- MEGASTRUCTURE SKYSCRAPERS (CONVERGING IN V-SHAPE PERSPECTIVE) -->
+  <!-- Left Buildings with Dutch Angle -->
+  <polygon points="-50,-50 380,720 0,720" fill="#070D18"/>
+  <polygon points="50,-50 440,720 300,720" fill="#0C1527"/>
+  <!-- Left Neon Holographic Windows -->
+  <line x1="80" y1="120" x2="360" y2="600" stroke="#00F2FE" stroke-width="2" opacity="0.6"/>
+  <line x1="140" y1="80" x2="400" y2="580" stroke="#00F2FE" stroke-width="1.5" opacity="0.4"/>
+  <rect x="180" y="220" width="120" height="40" fill="url(#neon-cyan-fade)" transform="rotate(15, 180, 220)"/>
+  <text x="190" y="248" font-family="'Chakra Petch'" font-size="20" font-weight="800" fill="#FFFFFF" transform="rotate(15, 180, 220)">新東京 2150</text>
+
+  <!-- Right Buildings with Dutch Angle -->
+  <polygon points="1330,-50 900,720 1280,720" fill="#070D18"/>
+  <polygon points="1230,-50 840,720 980,720" fill="#0C1527"/>
+  <!-- Right Neon Holographic Windows -->
+  <line x1="1200" y1="120" x2="920" y2="600" stroke="#FF007A" stroke-width="2" opacity="0.6"/>
+  <line x1="1140" y1="80" x2="880" y2="580" stroke="#FF007A" stroke-width="1.5" opacity="0.4"/>
+  <rect x="960" y="220" width="140" height="40" fill="url(#neon-pink-fade)" transform="rotate(-15, 960, 220)"/>
+  <text x="970" y="248" font-family="'Chakra Petch'" font-size="20" font-weight="800" fill="#FFFFFF" transform="rotate(-15, 960, 220)">CYBER DOCK 09</text>
+
+  <!-- MOTION SPEED LINES (RADIAL TUNNEL) -->
+  <g opacity="0.75" filter="url(#glow-laser)">
+    <line x1="640" y1="460" x2="100" y2="70" stroke="#00F2FE" stroke-width="2"/>
+    <line x1="640" y1="460" x2="1180" y2="70" stroke="#00F2FE" stroke-width="2"/>
+    <line x1="640" y1="460" x2="20" y2="350" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="640" y1="460" x2="1260" y2="350" stroke="#FFFFFF" stroke-width="1.5"/>
+    <line x1="640" y1="460" x2="250" y2="680" stroke="#FFA726" stroke-width="2"/>
+    <line x1="640" y1="460" x2="1030" y2="680" stroke="#FFA726" stroke-width="2"/>
+    <!-- Central Tunnel Core -->
+    <circle cx="640" cy="460" r="14" fill="#FFFFFF" filter="url(#glow-laser)"/>
+    <circle cx="640" cy="460" r="30" fill="none" stroke="#00F2FE" stroke-width="2" stroke-dasharray="8 4"/>
+  </g>
+
+  <!-- RADIAL VIGNETTE OVERLAY -->
+  <rect width="1280" height="720" fill="url(#radial-vignette)"/>
+
+  <!-- FPV HUD OVERLAYS -->
+  <!-- Top Left: Pitch ladder & Horizon -->
+  <g transform="translate(60, 50)" filter="url(#hud-glow)">
+    <rect width="280" height="42" rx="6" fill="rgba(6, 8, 13, 0.85)" stroke="#00F2FE" stroke-width="1.5"/>
+    <text x="15" y="27" class="hud-title">HORIZON VECTOR 12°</text>
+  </g>
+
+  <!-- Top Right: Mach Speed -->
+  <g transform="translate(940, 50)" filter="url(#hud-glow)">
+    <rect width="280" height="42" rx="6" fill="rgba(6, 8, 13, 0.85)" stroke="#00F2FE" stroke-width="1.5"/>
+    <text x="25" y="27" class="hud-title">VEL: <tspan fill="#FFE600">MACH 1.84</tspan></text>
+  </g>
+
+  <!-- Pitch Ladder Bars in Center (Cockpit Reticle) -->
+  <g transform="translate(640, 460)" stroke="#00F2FE" stroke-width="2" fill="none" filter="url(#hud-glow)">
+    <!-- Pitch bars -->
+    <line x1="-120" y1="-80" x2="-40" y2="-80"/>
+    <line x1="-40" y1="-80" x2="-40" y2="-65"/>
+    <line x1="40" y1="-80" x2="120" y2="-80"/>
+    <line x1="40" y1="-80" x2="40" y2="-65"/>
+    
+    <line x1="-80" y1="60" x2="-25" y2="60"/>
+    <line x1="25" y1="60" x2="80" y2="60"/>
+    <!-- Flight Vector Bracket -->
+    <path d="M -25 -10 L 0 0 L 25 -10"/>
+    <!-- Crosshairs -->
+    <circle cx="0" cy="0" r="4" fill="#00F2FE"/>
+  </g>
+
+  <!-- MASTER COPY / HOOK TEXT (< 4 WORDS, HIGH VELOCITY ITALIC) -->
+  <g transform="translate(70, 210)">
+    <text x="0" y="0" class="speed-title">
+      CAÍDA LIBRE <tspan class="speed-title-white">2150</tspan>
+    </text>
+  </g>
+
+  <!-- BOTTOM HUD TELEMETRY & COLLISION ALERT -->
+  <!-- Bottom Left: Altitude -->
+  <g transform="translate(60, 640)" filter="url(#hud-glow)">
+    <rect width="320" height="38" rx="4" fill="rgba(6, 8, 13, 0.9)" stroke="#00F2FE" stroke-width="1"/>
+    <text x="15" y="25" class="hud-mono">ALT: 18M ➔ TERRAIN LOCK</text>
+  </g>
+
+  <!-- Bottom Center-Right: Alert Box (Keeping clear of YouTube duration badge) -->
+  <g transform="translate(560, 640)" filter="url(#alert-glow)">
+    <rect width="360" height="38" rx="4" fill="rgba(20, 3, 8, 0.9)" stroke="#FF0055" stroke-width="2"/>
+    <text x="15" y="25" class="hud-alert">⚠️ WARNING: IMPACT 0.4S</text>
+  </g>
+</svg>

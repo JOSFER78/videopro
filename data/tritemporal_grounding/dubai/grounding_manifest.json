@@ -3,7 +3,7 @@
   "city_key": "dubai",
   "city_name": "Dubái",
   "country": "Emiratos Árabes Unidos",
-  "generated_at": "2026-08-16T15:29:02Z",
+  "generated_at": "2026-08-16T17:23:17Z",
   "epochs": {
     "past_1626": {
       "epoch": "Costa de los Pescadores de Perlas & Dhows (c. 1820 / Época Tradicional)",
@@ -51,7 +51,7 @@
   ],
   "perspectives_matrix": [
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_NORTH_APPROACH",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_N",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
@@ -60,24 +60,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_EAST_FLANK",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_E",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
       "longitude": 55.2744,
       "altitude_agl": 220.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_SOUTH_RETREAT",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_S",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
@@ -86,50 +98,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_WEST_FLANK",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_W",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
       "longitude": 55.2744,
       "altitude_agl": 220.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_DIVE_DOWN",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_PITCH_DOWN",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
       "longitude": 55.2744,
       "altitude_agl": 220.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP1_BURJ_KHALIFA_ASCENT_UP",
+      "perspective_id": "WP1_BURJ_KHALIFA_CAM_PITCH_UP",
       "waypoint_id": "WP1_BURJ_KHALIFA",
       "landmark": "Burj Khalifa & Lago de las Fuentes",
       "latitude": 25.1972,
       "longitude": 55.2744,
       "altitude_agl": 220.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp1_burj_khalifa_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_NORTH_APPROACH",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_N",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
@@ -138,24 +174,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_EAST_FLANK",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_E",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
       "longitude": 55.2972,
       "altitude_agl": 50.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_SOUTH_RETREAT",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_S",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
@@ -164,50 +212,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_WEST_FLANK",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_W",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
       "longitude": 55.2972,
       "altitude_agl": 50.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_DIVE_DOWN",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_PITCH_DOWN",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
       "longitude": 55.2972,
       "altitude_agl": 50.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP2_DUBAI_CREEK_ASCENT_UP",
+      "perspective_id": "WP2_DUBAI_CREEK_CAM_PITCH_UP",
       "waypoint_id": "WP2_DUBAI_CREEK",
       "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
       "latitude": 25.2631,
       "longitude": 55.2972,
       "altitude_agl": 50.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp2_dubai_creek_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_NORTH_APPROACH",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_N",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
@@ -216,24 +288,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_EAST_FLANK",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_E",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
       "longitude": 55.139,
       "altitude_agl": 170.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_SOUTH_RETREAT",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_S",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
@@ -242,47 +326,71 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_WEST_FLANK",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_W",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
       "longitude": 55.139,
       "altitude_agl": 170.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_DIVE_DOWN",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_PITCH_DOWN",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
       "longitude": 55.139,
       "altitude_agl": 170.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP3_PALM_JUMEIRAH_ASCENT_UP",
+      "perspective_id": "WP3_PALM_JUMEIRAH_CAM_PITCH_UP",
       "waypoint_id": "WP3_PALM_JUMEIRAH",
       "landmark": "Palm Jumeirah & Hotel Atlantis",
       "latitude": 25.1124,
       "longitude": 55.139,
       "altitude_agl": 170.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/perspectives/wp3_palm_jumeirah_cam_pitch_up.png"
+      }
     }
   ],
   "spherical_360_matrix": [
@@ -302,37 +410,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp1_burj_khalifa_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -357,37 +483,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp2_dubai_creek_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -412,37 +556,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/dubai/cubemaps/wp3_palm_jumeirah_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {

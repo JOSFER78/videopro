@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700;800&amp;family=JetBrains+Mono:wght@700;800&amp;family=Montserrat:wght@900&amp;display=swap');
+      .title-mystery { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 76px; fill: #FFE500; stroke: #000000; stroke-width: 14px; stroke-linejoin: round; paint-order: stroke fill; letter-spacing: -2px; }
+      .title-white { fill: #FFFFFF; }
+      .hud-title { font-family: 'Chakra Petch', sans-serif; font-weight: 800; font-size: 20px; fill: #FF0055; letter-spacing: 1.5px; }
+      .hud-mono { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 15px; fill: #C084FC; letter-spacing: 1px; }
+      .hud-red { fill: #FF0055; }
+      .hud-yellow { fill: #FFE500; }
+    </style>
+
+    <!-- Dark rainy city night gradient -->
+    <linearGradient id="rainy-city-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#05050A"/>
+      <stop offset="60%" stop-color="#0D111A"/>
+      <stop offset="100%" stop-color="#1E1B4B"/>
+    </linearGradient>
+
+    <!-- Anomaly Quantum Glow -->
+    <radialGradient id="anomaly-core" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#000000"/>
+      <stop offset="65%" stop-color="#000000"/>
+      <stop offset="75%" stop-color="#7C3AED"/>
+      <stop offset="90%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#00F2FE" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow-purple" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="glow-lightning" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="drop-heavy">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.95"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND: ABANDONED METROPOLIS (TIMES SQUARE / SHIBUYA) -->
+  <rect width="1280" height="720" fill="url(#rainy-city-sky)"/>
+
+  <!-- ABANDONED SKYSCRAPERS WITH EXTINCT SCREENS -->
+  <!-- Left Buildings -->
+  <polygon points="0,0 280,0 340,560 0,620" fill="#0A0C14"/>
+  <polygon points="120,0 380,0 420,540 180,580" fill="#0F1420"/>
+  <!-- Glitched / dead billboards -->
+  <rect x="40" y="140" width="160" height="240" fill="#05070D" stroke="#1E293B" stroke-width="2"/>
+  <text x="60" y="260" font-family="'JetBrains Mono'" font-size="14" fill="#334155">[NO SIGNAL // 404]</text>
+
+  <!-- Right Buildings -->
+  <polygon points="1280,0 980,0 920,560 1280,620" fill="#0A0C14"/>
+  <polygon points="1160,0 900,0 860,540 1100,580" fill="#0F1420"/>
+  <rect x="1060" y="120" width="180" height="260" fill="#05070D" stroke="#1E293B" stroke-width="2"/>
+  <text x="1080" y="250" font-family="'JetBrains Mono'" font-size="14" fill="#334155">[STATIC FEED]</text>
+
+  <!-- WET ASPHALT GROUND WITH REFLECTIONS -->
+  <polygon points="0,580 1280,580 1280,720 0,720" fill="#05070A"/>
+  <!-- Crosswalk zebra lines cracked -->
+  <polygon points="400,640 480,640 440,720 340,720" fill="#334155" opacity="0.5"/>
+  <polygon points="540,640 620,640 600,720 500,720" fill="#334155" opacity="0.5"/>
+  <polygon points="680,640 760,640 760,720 660,720" fill="#334155" opacity="0.5"/>
+
+  <!-- CENTRAL GRAVITATIONAL ANOMALY (PITCH BLACK SPHERE BENDING LIGHT) -->
+  <g transform="translate(640, 390)">
+    <!-- Outer Gravitational Distortion Ring -->
+    <ellipse cx="0" cy="0" rx="190" ry="190" fill="none" stroke="#7C3AED" stroke-width="3" opacity="0.6" filter="url(#glow-purple)"/>
+    <ellipse cx="0" cy="0" rx="220" ry="120" fill="none" stroke="#00F2FE" stroke-width="2" opacity="0.5" stroke-dasharray="12 8" transform="rotate(25)" filter="url(#glow-purple)"/>
+    
+    <!-- Dark Matter Core -->
+    <circle cx="0" cy="0" r="110" fill="url(#anomaly-core)"/>
+
+    <!-- Tachyon Lightning Arcs around Core -->
+    <path d="M -80 -60 L -40 -30 L -60 10 L -20 40 L -50 90" stroke="#FFE500" stroke-width="3" fill="none" filter="url(#glow-lightning)"/>
+    <path d="M 70 -50 L 30 -20 L 60 20 L 20 60 L 50 80" stroke="#C084FC" stroke-width="3.5" fill="none" filter="url(#glow-lightning)"/>
+    <path d="M -20 -100 L 0 -50 L -30 -10 L 10 30 L -10 100" stroke="#00F2FE" stroke-width="2" fill="none" filter="url(#glow-lightning)"/>
+  </g>
+
+  <!-- ZERO-GRAVITY FLOATING URBAN OBJECTS (YELLOW TAXIS, STREETLAMPS, DEBRIS) -->
+  <!-- Floating Yellow Taxi (Left) -->
+  <g transform="translate(340, 320) rotate(-18)">
+    <rect width="110" height="42" rx="6" fill="#EAB308"/>
+    <rect x="25" y="-20" width="60" height="24" rx="4" fill="#CA8A04"/>
+    <!-- Wheels -->
+    <circle cx="25" cy="42" r="14" fill="#18181B"/>
+    <circle cx="85" cy="42" r="14" fill="#18181B"/>
+    <!-- Headlights on -->
+    <circle cx="5" cy="20" r="6" fill="#FEF08A" filter="url(#glow-lightning)"/>
+    <!-- Levitation particle trail -->
+    <circle cx="55" cy="70" r="4" fill="#C084FC" filter="url(#glow-purple)"/>
+  </g>
+
+  <!-- Floating Streetlamp (Right) -->
+  <g transform="translate(900, 290) rotate(35)">
+    <line x1="0" y1="0" x2="0" y2="160" stroke="#475569" stroke-width="6"/>
+    <circle cx="0" cy="0" r="12" fill="#FFE500" filter="url(#glow-lightning)"/>
+  </g>
+
+  <!-- Levitating Concrete Rocks / Debris -->
+  <polygon points="460,480 490,460 510,495 475,510" fill="#475569" transform="rotate(40, 480, 480)"/>
+  <polygon points="780,480 810,450 830,485 795,505" fill="#475569" transform="rotate(-25, 800, 480)"/>
+  <polygon points="560,260 580,245 595,270 570,280" fill="#64748B" transform="rotate(15, 570, 260)"/>
+
+  <!-- TOP VIGNETTE FOR TEXT -->
+  <rect x="0" y="0" width="1280" height="240" fill="black" opacity="0.5"/>
+
+  <!-- HUD BADGES -->
+  <!-- Top Left: Location Info -->
+  <g transform="translate(50, 40)">
+    <rect width="260" height="38" rx="6" fill="rgba(6, 8, 13, 0.85)" stroke="#FFE500" stroke-width="1.5"/>
+    <text x="130" y="26" text-anchor="middle" class="hud-title hud-yellow">SHIBUYA // 00:00:00</text>
+  </g>
+
+  <!-- Top Right: Anomaly Breach Alert -->
+  <g transform="translate(950, 40)" filter="url(#glow-purple)">
+    <rect width="280" height="38" rx="6" fill="rgba(25, 4, 15, 0.9)" stroke="#FF0055" stroke-width="2"/>
+    <text x="140" y="26" text-anchor="middle" class="hud-title hud-red">⚡ ANOMALY: CODE 404-T</text>
+  </g>
+
+  <!-- MASTER COPY / HOOK TEXT (< 4 WORDS, MAXIMUM MYSTERY) -->
+  <g transform="translate(60, 180)" filter="url(#drop-heavy)">
+    <text x="0" y="0" class="title-mystery">
+      ¿QUÉ PASÓ <tspan class="title-white">AQUÍ?</tspan>
+    </text>
+  </g>
+
+  <!-- BOTTOM TELEMETRY -->
+  <g transform="translate(50, 650)">
+    <rect width="420" height="34" rx="4" fill="rgba(6, 8, 13, 0.9)" stroke="#7C3AED" stroke-width="1"/>
+    <text x="15" y="23" class="hud-mono">TACHYON EMISSION: CRITICAL // 942.8 TeV</text>
+  </g>
+</svg>

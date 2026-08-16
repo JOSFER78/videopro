@@ -3,7 +3,7 @@
   "city_key": "cairo",
   "city_name": "El Cairo",
   "country": "Egipto",
-  "generated_at": "2026-08-16T15:29:09Z",
+  "generated_at": "2026-08-16T17:23:22Z",
   "epochs": {
     "past_1626": {
       "epoch": "El Cairo Mameluco / Otomano (c. 1620)",
@@ -51,7 +51,7 @@
   ],
   "perspectives_matrix": [
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_NORTH_APPROACH",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_N",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
@@ -60,24 +60,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_EAST_FLANK",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_E",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
       "longitude": 31.1342,
       "altitude_agl": 130.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_SOUTH_RETREAT",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_S",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
@@ -86,50 +98,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_WEST_FLANK",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_W",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
       "longitude": 31.1342,
       "altitude_agl": 130.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_DIVE_DOWN",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_PITCH_DOWN",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
       "longitude": 31.1342,
       "altitude_agl": 130.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP1_GIZA_PYRAMIDS_ASCENT_UP",
+      "perspective_id": "WP1_GIZA_PYRAMIDS_CAM_PITCH_UP",
       "waypoint_id": "WP1_GIZA_PYRAMIDS",
       "landmark": "Pirámides de Guiza & Gran Esfinge",
       "latitude": 29.9792,
       "longitude": 31.1342,
       "altitude_agl": 130.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp1_giza_pyramids_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_NORTH_APPROACH",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_N",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
@@ -138,24 +174,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_EAST_FLANK",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_E",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
       "longitude": 31.2243,
       "altitude_agl": 90.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_SOUTH_RETREAT",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_S",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
@@ -164,50 +212,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_WEST_FLANK",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_W",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
       "longitude": 31.2243,
       "altitude_agl": 90.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_DIVE_DOWN",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_PITCH_DOWN",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
       "longitude": 31.2243,
       "altitude_agl": 90.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP2_NILE_CORNICHE_ASCENT_UP",
+      "perspective_id": "WP2_NILE_CORNICHE_CAM_PITCH_UP",
       "waypoint_id": "WP2_NILE_CORNICHE",
       "landmark": "Corniche del Nilo & Torre de El Cairo",
       "latitude": 30.0459,
       "longitude": 31.2243,
       "altitude_agl": 90.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp2_nile_corniche_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_NORTH_APPROACH",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_N",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
@@ -216,24 +288,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_EAST_FLANK",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_E",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
       "longitude": 31.2625,
       "altitude_agl": 45.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_SOUTH_RETREAT",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_S",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
@@ -242,47 +326,71 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_WEST_FLANK",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_W",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
       "longitude": 31.2625,
       "altitude_agl": 45.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_DIVE_DOWN",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_PITCH_DOWN",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
       "longitude": 31.2625,
       "altitude_agl": 45.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP3_KHAN_EL_KHALILI_ASCENT_UP",
+      "perspective_id": "WP3_KHAN_EL_KHALILI_CAM_PITCH_UP",
       "waypoint_id": "WP3_KHAN_EL_KHALILI",
       "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
       "latitude": 30.0475,
       "longitude": 31.2625,
       "altitude_agl": 45.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/perspectives/wp3_khan_el_khalili_cam_pitch_up.png"
+      }
     }
   ],
   "spherical_360_matrix": [
@@ -302,37 +410,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp1_giza_pyramids_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -357,37 +483,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp2_nile_corniche_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -412,37 +556,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/cairo/cubemaps/wp3_khan_el_khalili_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {

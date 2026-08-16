@@ -1,0 +1,20 @@
+{
+  "name": "chronodrift-remotion",
+  "version": "4.0.0",
+  "description": "ChronoDrift 4K 60fps 3D HUD Floating Composition for VideoPro",
+  "scripts": {
+    "build": "remotion render src/index.ts ChronoDriftMaster out/final.mp4",
+    "preview": "remotion preview src/index.ts"
+  },
+  "dependencies": {
+    "@remotion/bundler": "^4.0.0",
+    "@remotion/cli": "^4.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}

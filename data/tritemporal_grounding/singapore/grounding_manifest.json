@@ -1,0 +1,688 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "singapore",
+  "city_name": "Singapur",
+  "country": "Singapur",
+  "generated_at": "2026-08-16T17:23:26Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Reino de Singapura / Asentamiento de Temasek & Estrecho de Malaca (c. 1620-1630)",
+      "urban_morphology": "Pueblos de pescadores Orang Laut en manglares costeros con casas sobre pilotes de madera (kampongs), juncos malayos y chinos en la desembocadura del río Singapur, colina fortificada sagrada de Bukit Larangan (Fort Canning).",
+      "social_life": "Pescadores en barcas prahu, mercaderes de especias de la Ruta Marítima de la Seda (nuez moscada, clavo de olor, maderas aromáticas) y comercio con el Sultanato de Johor.",
+      "cartography_source": "Mapas de Godinho de Erédia (1604/1613) / Cartografía Holandesa VOC del Estrecho de Malaca",
+      "lighting": "Luz tropical ecuatorial dorada atravesando densa bruma marina matinal sobre el manglar."
+    },
+    "present_2026": {
+      "epoch": "Garden City & Megapuerto Hiper-Conectado (2026)",
+      "urban_morphology": "Marina Bay Sands con SkyPark suspendido a 200m de altura, Supertree Grove en Gardens by the Bay iluminados por LEDs, rascacielos biofílicos en Raffles Place, megapuerto automatizado de Tuas.",
+      "social_life": "Metrópolis multicultural vanguardista, flujos peatonales en pasarelas ajardinadas continuas, vehículos autónomos y ferris eléctricos.",
+      "lighting": "Espectáculo de luces láser sobre Marina Bay, neones arquitectónicos y reflejos en la bahía al anochecer."
+    },
+    "future_2226": {
+      "epoch": "Biophilic Floating Arcology & Supertree Vertical Biosphere 2226",
+      "urban_morphology": "Arcologías flotantes modulares hexagonales sobre el Estrecho de Singapur, Supertrees evolucionados a megatorres vivientes de 600m con fotosíntesis artificial y captación pasiva de humedad atmosférica, domos marinos bioclimáticos interconectados por cápsulas de levitación magnética subacuática y aérea.",
+      "social_life": "Sociedad descarbonizada integrada en biosferas cerradas con 100% de autosuficiencia alimentaria hidropónica y energía marina termocelular.",
+      "science_citation": "National University of Singapore (NUS) Biophilic Megastructure Lab & Singapore 2200 Sea Adaptation Blueprint",
+      "lighting": "Bioluminiscencia verde esmeralda y cian en las raíces aéreas de los Supertrees, luz solar difusa filtrada por membranas fotovoltaicas translúcidas."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_MARINA_BAY",
+      "name": "Marina Bay Sands & Supertree Grove",
+      "lat": 1.2838,
+      "lon": 103.8591,
+      "alt_agl": 110.0
+    },
+    {
+      "id": "WP2_SINGAPORE_RIVER",
+      "name": "Singapore River & Boat Quay Histórico",
+      "lat": 1.287,
+      "lon": 103.85,
+      "alt_agl": 40.0
+    },
+    {
+      "id": "WP3_FORT_CANNING",
+      "name": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "lat": 1.295,
+      "lon": 103.846,
+      "alt_agl": 70.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_N",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_E",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_S",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_W",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_PITCH_DOWN",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP1_MARINA_BAY_CAM_PITCH_UP",
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "latitude": 1.2838,
+      "longitude": 103.8591,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp1_marina_bay_cam_pitch_up.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_N",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_E",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_S",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_W",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_PITCH_DOWN",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP2_SINGAPORE_RIVER_CAM_PITCH_UP",
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "latitude": 1.287,
+      "longitude": 103.85,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp2_singapore_river_cam_pitch_up.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_N",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_n.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_E",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 90.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_e.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_S",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_s.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_W",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 270.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_w.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_PITCH_DOWN",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_pitch_down.png"
+      }
+    },
+    {
+      "perspective_id": "WP3_FORT_CANNING_CAM_PITCH_UP",
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "latitude": 1.295,
+      "longitude": 103.846,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/perspectives/wp3_fort_canning_cam_pitch_up.png"
+      }
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_MARINA_BAY",
+      "landmark": "Marina Bay Sands & Supertree Grove",
+      "coords": {
+        "lat": 1.2838,
+        "lon": 103.8591,
+        "alt_agl": 110.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp1_marina_bay_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_SINGAPORE_RIVER",
+      "landmark": "Singapore River & Boat Quay Histórico",
+      "coords": {
+        "lat": 1.287,
+        "lon": 103.85,
+        "alt_agl": 40.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp2_singapore_river_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_FORT_CANNING",
+      "landmark": "Fort Canning Hill (Antiguo Bukit Larangan)",
+      "coords": {
+        "lat": 1.295,
+        "lon": 103.846,
+        "alt_agl": 70.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/singapore/cubemaps/wp3_fort_canning_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_MARINA_BAY",
+        "name": "Marina Bay Sands & Supertree Grove",
+        "lat": 1.2838,
+        "lon": 103.8591,
+        "alt_agl": 110.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Singapur",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_SINGAPORE_RIVER",
+        "name": "Singapore River & Boat Quay Histórico",
+        "lat": 1.287,
+        "lon": 103.85,
+        "alt_agl": 40.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Singapur",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_FORT_CANNING",
+        "name": "Fort Canning Hill (Antiguo Bukit Larangan)",
+        "lat": 1.295,
+        "lon": 103.846,
+        "alt_agl": 70.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Singapur",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

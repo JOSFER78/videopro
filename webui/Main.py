@@ -4508,6 +4508,22 @@ def _render_sidebar_navigation():
 def _render_application():
     render_top_navigation()
     
+    # Sistema universal de feedback instantáneo (Toasts & Alerts Flash)
+    if "flash_message" in st.session_state and st.session_state["flash_message"]:
+        msg_payload = st.session_state.pop("flash_message")
+        if isinstance(msg_payload, (list, tuple)) and len(msg_payload) >= 2:
+            m_type, m_txt = msg_payload[0], msg_payload[1]
+            if m_type == "success":
+                st.toast(m_txt, icon="✅")
+            elif m_type == "info":
+                st.toast(m_txt, icon="ℹ️")
+            elif m_type == "warning":
+                st.toast(m_txt, icon="⚠️")
+            elif m_type == "error":
+                st.toast(m_txt, icon="❌")
+        elif isinstance(msg_payload, str):
+            st.toast(msg_payload, icon="🔔")
+    
     active_view = st.session_state.get("active_view", "studio")
     
     if active_view in ("studio", "orchestrator", "main", "generator"):

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronoDriftChannelConfigSchema",
+  "description": "Schema maestro de validación para la configuración de canal y producción de CHRONODRIFT en VideoPro v4.0",
+  "type": "object",
+  "required": [
+    "channel_id",
+    "brand_name",
+    "handle",
+    "tagline",
+    "niche",
+    "target_rpm_usd",
+    "target_retention",
+    "brand_colors",
+    "typography",
+    "scraping_6dof_config",
+    "video_generator",
+    "audio_engineering",
+    "remotion_hud_pipeline",
+    "quality_assurance_gates",
+    "episodes_planned",
+    "cli_automation_scripts"
+  ],
+  "properties": {
+    "channel_id": {
+      "type": "string",
+      "pattern": "^[0-9]{2}_[A-Z0-9_]+$"
+    },
+    "brand_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "handle": {
+      "type": "string",
+      "pattern": "^@[A-Za-z0-9_]+$"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "niche": {
+      "type": "string"
+    },
+    "target_rpm_usd": {
+      "type": "string"
+    },
+    "target_retention": {
+      "type": "string"
+    },
+    "brand_colors": {
+      "type": "object",
+      "required": ["primary_cyan", "secondary_orange", "accent_purple", "void_black", "carbon_titanium", "photonic_white"],
+      "properties": {
+        "primary_cyan": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "secondary_orange": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "accent_purple": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "void_black": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "carbon_titanium": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "photonic_white": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "amber_past": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" },
+        "hyper_future_violet": { "type": "string", "pattern": "^#[0-9a-fA-F]{6}$" }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "required": ["display_titles", "hud_telemetry", "body_captions"],
+      "properties": {
+        "display_titles": { "type": "string" },
+        "hud_telemetry": { "type": "string" },
+        "body_captions": { "type": "string" }
+      }
+    },
+    "scraping_6dof_config": {
+      "type": "object",
+      "required": ["provider", "canonical_perspectives", "equirectangular_spherical_360", "osm_overpass_query", "optical_quality_filters"],
+      "properties": {
+        "provider": { "type": "string" },
+        "canonical_perspectives": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "heading_deg", "pitch_deg", "roll_deg", "fov_deg", "description", "matrix_role"],
+            "properties": {
+              "id": { "type": "string" },
+              "name": { "type": "string" },
+              "heading_deg": { "oneOf": [{ "type": "number" }, { "type": "string" }] },
+              "pitch_deg": { "type": "number" },
+              "roll_deg": { "type": "number" },
+              "fov_deg": { "type": "number" },
+              "description": { "type": "string" },
+              "matrix_role": { "type": "string" }
+            }
+          }
+        },
+        "equirectangular_spherical_360": {
+          "type": "object",
+          "required": ["master_resolution", "aspect_ratio", "cubemap_decomposition"],
+          "properties": {
+            "master_resolution": { "type": "string" },
+            "aspect_ratio": { "type": "string" },
+            "cubemap_decomposition": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["face", "heading_deg", "pitch_deg"],
+                "properties": {
+                  "face": { "type": "string" },
+                  "heading_deg": { "type": "number" },
+                  "pitch_deg": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "osm_overpass_query": {
+          "type": "object",
+          "required": ["features", "radius_meters", "dem_elevation_source", "coordinate_precision"],
+          "properties": {
+            "features": { "type": "array", "items": { "type": "string" } },
+            "radius_meters": { "type": "number" },
+            "dem_elevation_source": { "type": "string" },
+            "coordinate_precision": { "type": "number" }
+          }
+        },
+        "optical_quality_filters": {
+          "type": "object",
+          "required": ["min_resolution", "min_filesize_kb", "laplacian_sharpness_min", "color_depth", "max_compression_artifacts"],
+          "properties": {
+            "min_resolution": { "type": "string" },
+            "min_filesize_kb": { "type": "number", "minimum": 5.0 },
+            "laplacian_sharpness_min": { "type": "number", "minimum": 100.0 },
+            "color_depth": { "type": "string" },
+            "max_compression_artifacts": { "type": "string" }
+          }
+        }
+      }
+    },
+    "video_generator": {
+      "type": "object",
+      "required": [
+        "engine",
+        "provider",
+        "zero_veo3_mandate",
+        "zero_veo3_rationale",
+        "fps",
+        "resolution",
+        "aspect_ratio_master",
+        "aspect_ratio_shorts",
+        "keyframes_per_shot",
+        "keyframe_generator_model",
+        "official_google_flow_syntax_template",
+        "shotlist_canon_7d",
+        "cinematography_specs"
+      ],
+      "properties": {
+        "engine": { "type": "string", "enum": ["gemini-omni-flash-preview"] },
+        "provider": { "type": "string" },
+        "zero_veo3_mandate": { "type": "boolean", "const": true },
+        "zero_veo3_rationale": { "type": "string" },
+        "fps": { "type": "integer", "enum": [60] },
+        "resolution": { "type": "string" },
+        "aspect_ratio_master": { "type": "string" },
+        "aspect_ratio_shorts": { "type": "string" },
+        "keyframes_per_shot": { "type": "integer", "enum": [7] },
+        "keyframe_generator_model": { "type": "string" },
+        "keyframe_consistency_rules": { "type": "object" },
+        "official_google_flow_syntax_template": { "type": "string" },
+        "prompt_structure_schema_7d": { "type": "object" },
+        "prompt_structure_schema": { "type": "object" },
+        "prompt_negative_constraints": { "type": "string" },
+        "shotlist_canon_7d": {
+          "type": "array",
+          "minItems": 7,
+          "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": ["index", "code", "timing_sec", "duration_sec", "bars_at_118bpm", "angle", "altitude_agl_m", "speed_kmh", "narrative_role"],
+            "properties": {
+              "index": { "type": "integer" },
+              "code": { "type": "string" },
+              "timing_sec": { "type": "string" },
+              "duration_sec": { "type": "number" },
+              "bars_at_118bpm": { "type": "number" },
+              "angle": { "type": "string" },
+              "altitude_agl_m": { "type": "string" },
+              "speed_kmh": { "type": "number" },
+              "narrative_role": { "type": "string" },
+              "keyframe_roles": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "cinematography_specs": { "type": "object" }
+      }
+    },
+    "audio_engineering": {
+      "type": "object",
+      "required": [
+        "bpm",
+        "time_signature",
+        "grid_timings",
+        "genre",
+        "master_standards",
+        "dynamic_ducking",
+        "synchronization",
+        "foley_sound_design"
+      ],
+      "properties": {
+        "bpm": { "type": "integer", "enum": [118] },
+        "time_signature": { "type": "string", "enum": ["4/4"] },
+        "grid_timings": {
+          "type": "object",
+          "required": ["beat_duration_ms", "bar_duration_ms", "phrase_4bar_ms"],
+          "properties": {
+            "beat_duration_ms": { "type": "number" },
+            "bar_duration_ms": { "type": "number" },
+            "phrase_4bar_ms": { "type": "number" }
+          }
+        },
+        "genre": { "type": "string" },
+        "master_standards": {
+          "type": "object",
+          "required": ["standard", "target_integrated_lufs", "lufs_tolerance", "true_peak_max_dbtp", "loudness_range_lra_target"],
+          "properties": {
+            "standard": { "type": "string" },
+            "target_integrated_lufs": { "type": "number", "enum": [-14.0] },
+            "lufs_tolerance": { "type": "number" },
+            "true_peak_max_dbtp": { "type": "number", "maximum": -1.0 },
+            "loudness_range_lra_target": { "type": "number" }
+          }
+        },
+        "dynamic_ducking": {
+          "type": "object",
+          "required": ["attenuation_under_vo_db", "linear_attenuation_factor", "climax_instrumental_db", "attack_time_ms", "release_time_ms", "hold_time_ms", "ffmpeg_sidechain_filter"],
+          "properties": {
+            "attenuation_under_vo_db": { "type": "number", "enum": [-18.0] },
+            "linear_attenuation_factor": { "type": "number" },
+            "climax_instrumental_db": { "type": "number" },
+            "attack_time_ms": { "type": "number" },
+            "release_time_ms": { "type": "number" },
+            "hold_time_ms": { "type": "number" },
+            "ffmpeg_sidechain_filter": { "type": "string" }
+          }
+        },
+        "synchronization": {
+          "type": "object",
+          "required": ["method", "tool", "telemetry_sync"]
+        },
+        "foley_sound_design": {
+          "type": "object",
+          "required": ["fpv_drone", "spatial_doppler", "era_diegic_foley", "transition_impact"]
+        }
+      }
+    },
+    "remotion_hud_pipeline": {
+      "type": "object",
+      "required": ["engine", "fps", "canvas_resolution", "layers", "components", "3d_billboard_perspective_px"]
+    },
+    "quality_assurance_gates": {
+      "type": "object",
+      "required": ["asset_integrity_min_size_kb", "video_master_resolution", "audio_integrated_lufs", "audio_true_peak_max", "music_ducking_attenuation", "laplacian_sharpness_min", "temporal_match_cut_tolerance_frames"]
+    },
+    "episodes_planned": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "city", "country", "eras", "coordinates", "duration_sec", "canon_shots_count", "scientific_anchors", "hook", "shorts_funnel"]
+      }
+    },
+    "cli_automation_scripts": {
+      "type": "object"
+    }
+  }
+}

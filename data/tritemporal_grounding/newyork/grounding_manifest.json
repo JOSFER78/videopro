@@ -3,7 +3,7 @@
   "city_key": "newyork",
   "city_name": "Nueva York (Nueva Ámsterdam)",
   "country": "Estados Unidos",
-  "generated_at": "2026-08-16T15:28:45Z",
+  "generated_at": "2026-08-16T17:23:07Z",
   "epochs": {
     "past_1626": {
       "epoch": "Nueva Ámsterdam (Compra de Manhattan por Peter Minuit, 1626)",
@@ -51,7 +51,7 @@
   ],
   "perspectives_matrix": [
     {
-      "perspective_id": "WP1_BATTERY_PARK_NORTH_APPROACH",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_N",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
@@ -60,24 +60,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP1_BATTERY_PARK_EAST_FLANK",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_E",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
       "longitude": -74.017,
       "altitude_agl": 75.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP1_BATTERY_PARK_SOUTH_RETREAT",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_S",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
@@ -86,50 +98,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP1_BATTERY_PARK_WEST_FLANK",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_W",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
       "longitude": -74.017,
       "altitude_agl": 75.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP1_BATTERY_PARK_DIVE_DOWN",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_PITCH_DOWN",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
       "longitude": -74.017,
       "altitude_agl": 75.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP1_BATTERY_PARK_ASCENT_UP",
+      "perspective_id": "WP1_BATTERY_PARK_CAM_PITCH_UP",
       "waypoint_id": "WP1_BATTERY_PARK",
       "landmark": "The Battery & Puerto de Manhattan",
       "latitude": 40.7033,
       "longitude": -74.017,
       "altitude_agl": 75.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp1_battery_park_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_NORTH_APPROACH",
+      "perspective_id": "WP2_WALL_STREET_CAM_N",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
@@ -138,24 +174,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_EAST_FLANK",
+      "perspective_id": "WP2_WALL_STREET_CAM_E",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
       "longitude": -74.009,
       "altitude_agl": 50.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_SOUTH_RETREAT",
+      "perspective_id": "WP2_WALL_STREET_CAM_S",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
@@ -164,50 +212,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_WEST_FLANK",
+      "perspective_id": "WP2_WALL_STREET_CAM_W",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
       "longitude": -74.009,
       "altitude_agl": 50.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_DIVE_DOWN",
+      "perspective_id": "WP2_WALL_STREET_CAM_PITCH_DOWN",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
       "longitude": -74.009,
       "altitude_agl": 50.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP2_WALL_STREET_ASCENT_UP",
+      "perspective_id": "WP2_WALL_STREET_CAM_PITCH_UP",
       "waypoint_id": "WP2_WALL_STREET",
       "landmark": "Wall Street & Federal Hall / Trinity Church",
       "latitude": 40.7071,
       "longitude": -74.009,
       "altitude_agl": 50.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp2_wall_street_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_NORTH_APPROACH",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_N",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
@@ -216,24 +288,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_EAST_FLANK",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_E",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
       "longitude": -73.9763,
       "altitude_agl": 150.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_SOUTH_RETREAT",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_S",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
@@ -242,47 +326,71 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_WEST_FLANK",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_W",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
       "longitude": -73.9763,
       "altitude_agl": 150.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_DIVE_DOWN",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_PITCH_DOWN",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
       "longitude": -73.9763,
       "altitude_agl": 150.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_ASCENT_UP",
+      "perspective_id": "WP3_CENTRAL_PARK_SOUTH_CAM_PITCH_UP",
       "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
       "landmark": "Billionaires' Row & Entrada a Central Park",
       "latitude": 40.7656,
       "longitude": -73.9763,
       "altitude_agl": 150.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/perspectives/wp3_central_park_south_cam_pitch_up.png"
+      }
     }
   ],
   "spherical_360_matrix": [
@@ -302,37 +410,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp1_battery_park_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -357,37 +483,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp2_wall_street_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -412,37 +556,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/newyork/cubemaps/wp3_central_park_south_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {

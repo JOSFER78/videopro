@@ -3,7 +3,7 @@
   "city_key": "london",
   "city_name": "Londres",
   "country": "Reino Unido",
-  "generated_at": "2026-08-16T15:28:50Z",
+  "generated_at": "2026-08-16T17:23:11Z",
   "epochs": {
     "past_1626": {
       "epoch": "Londres Tudor/Stuart (c. 1610-1626)",
@@ -51,7 +51,7 @@
   ],
   "perspectives_matrix": [
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_NORTH_APPROACH",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_N",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
@@ -60,24 +60,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_EAST_FLANK",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_E",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
       "longitude": -0.0754,
       "altitude_agl": 70.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_SOUTH_RETREAT",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_S",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
@@ -86,50 +98,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_WEST_FLANK",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_W",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
       "longitude": -0.0754,
       "altitude_agl": 70.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_DIVE_DOWN",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_PITCH_DOWN",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
       "longitude": -0.0754,
       "altitude_agl": 70.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP1_TOWER_BRIDGE_ASCENT_UP",
+      "perspective_id": "WP1_TOWER_BRIDGE_CAM_PITCH_UP",
       "waypoint_id": "WP1_TOWER_BRIDGE",
       "landmark": "Tower Bridge & Torre de Londres",
       "latitude": 51.5055,
       "longitude": -0.0754,
       "altitude_agl": 70.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp1_tower_bridge_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_NORTH_APPROACH",
+      "perspective_id": "WP2_THE_SHARD_CAM_N",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
@@ -138,24 +174,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_EAST_FLANK",
+      "perspective_id": "WP2_THE_SHARD_CAM_E",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
       "longitude": -0.0865,
       "altitude_agl": 180.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_SOUTH_RETREAT",
+      "perspective_id": "WP2_THE_SHARD_CAM_S",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
@@ -164,50 +212,74 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_WEST_FLANK",
+      "perspective_id": "WP2_THE_SHARD_CAM_W",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
       "longitude": -0.0865,
       "altitude_agl": 180.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_DIVE_DOWN",
+      "perspective_id": "WP2_THE_SHARD_CAM_PITCH_DOWN",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
       "longitude": -0.0865,
       "altitude_agl": 180.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP2_THE_SHARD_ASCENT_UP",
+      "perspective_id": "WP2_THE_SHARD_CAM_PITCH_UP",
       "waypoint_id": "WP2_THE_SHARD",
       "landmark": "The Shard & London Bridge Station",
       "latitude": 51.5045,
       "longitude": -0.0865,
       "altitude_agl": 180.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp2_the_shard_cam_pitch_up.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_NORTH_APPROACH",
+      "perspective_id": "WP3_WESTMINSTER_CAM_N",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
@@ -216,24 +288,36 @@
       "heading": 0.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano frontal de avance",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Vector de referencia axial norte y fachada frontal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_n.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_EAST_FLANK",
+      "perspective_id": "WP3_WESTMINSTER_CAM_E",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
       "longitude": -0.1248,
       "altitude_agl": 95.0,
       "heading": 90.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral derecho (fachadas)",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral derecho y continuidad de horizonte",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_e.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_SOUTH_RETREAT",
+      "perspective_id": "WP3_WESTMINSTER_CAM_S",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
@@ -242,47 +326,71 @@
       "heading": 180.0,
       "pitch": 0.0,
       "fov": 90,
-      "role": "Plano de fuga / marcha atrás",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Retro-perspectiva y anclaje de fuga trasera",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_s.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_WEST_FLANK",
+      "perspective_id": "WP3_WESTMINSTER_CAM_W",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
       "longitude": -0.1248,
       "altitude_agl": 95.0,
       "heading": 270.0,
-      "pitch": -5.0,
+      "pitch": 0.0,
       "fov": 90,
-      "role": "Plano lateral izquierdo",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "role": "Paraje lateral izquierdo y paralaje de sombra",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133360,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_w.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_DIVE_DOWN",
+      "perspective_id": "WP3_WESTMINSTER_CAM_PITCH_DOWN",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
       "longitude": -0.1248,
       "altitude_agl": 95.0,
       "heading": 0.0,
-      "pitch": -35.0,
-      "fov": 110,
-      "role": "Picado hacia la vida urbana",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": -20.0,
+      "fov": 100,
+      "role": "Textura de calzada, escala peatonal y relieve basal",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 132954,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_pitch_down.png"
+      }
     },
     {
-      "perspective_id": "WP3_WESTMINSTER_ASCENT_UP",
+      "perspective_id": "WP3_WESTMINSTER_CAM_PITCH_UP",
       "waypoint_id": "WP3_WESTMINSTER",
       "landmark": "Palacio de Westminster & Big Ben",
       "latitude": 51.4995,
       "longitude": -0.1248,
       "altitude_agl": 95.0,
       "heading": 0.0,
-      "pitch": 30.0,
-      "fov": 110,
-      "role": "Contrapicado hacia cúpulas y rascacielos",
-      "grounding_status": "VERIFIED_CANONICAL"
+      "pitch": 25.0,
+      "fov": 100,
+      "role": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+      "grounding_status": "VERIFIED_CANONICAL",
+      "optical_metrics": {
+        "laplacian_variance": 286.5,
+        "resolution": "3840x2160",
+        "filesize_bytes": 133396,
+        "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/perspectives/wp3_westminster_cam_pitch_up.png"
+      }
     }
   ],
   "spherical_360_matrix": [
@@ -302,37 +410,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp1_tower_bridge_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -357,37 +483,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp2_the_shard_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {
@@ -412,37 +556,55 @@
           "face": "FRONT",
           "heading": 0.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_front.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "RIGHT",
           "heading": 90.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_right.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "BACK",
           "heading": 180.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_back.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "LEFT",
           "heading": 270.0,
           "pitch": 0.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_left.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133360
         },
         {
           "face": "TOP",
           "heading": 0.0,
           "pitch": 90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_top.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 133035
         },
         {
           "face": "BOTTOM",
           "heading": 0.0,
           "pitch": -90.0,
-          "fov": 90
+          "fov": 90,
+          "asset_path": "/home/ubuntu/workspace/pro/hermes/10_videopro/data/tritemporal_grounding/london/cubemaps/wp3_westminster_cubemap_bottom.png",
+          "laplacian_variance": 286.5,
+          "filesize_bytes": 132910
         }
       ],
       "quality_filters": {

@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@700;800&amp;family=JetBrains+Mono:wght@700;800&amp;family=Montserrat:wght@900&amp;display=swap');
+      .title-mega { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 72px; fill: #FFFFFF; stroke: #000000; stroke-width: 14px; stroke-linejoin: round; paint-order: stroke fill; letter-spacing: -2px; }
+      .title-cyan { fill: #00F2FE; }
+      .hud-title { font-family: 'Chakra Petch', sans-serif; font-weight: 700; font-size: 20px; fill: #00F2FE; letter-spacing: 1.5px; }
+      .hud-mono { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 15px; fill: #00F2FE; letter-spacing: 1px; }
+      .hud-gold { fill: #FFA726; }
+      .hud-green { fill: #06D6A0; }
+    </style>
+
+    <!-- Stratosphere to golden dusk sky -->
+    <linearGradient id="stratosphere-sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#020617"/>
+      <stop offset="35%" stop-color="#0F172A"/>
+      <stop offset="70%" stop-color="#1E3A8A"/>
+      <stop offset="90%" stop-color="#EA580C"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+
+    <!-- Arcology Titanium Nanotech Gradients -->
+    <linearGradient id="titanium-body" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0B132B"/>
+      <stop offset="25%" stop-color="#3A506B"/>
+      <stop offset="50%" stop-color="#F8FAFC"/>
+      <stop offset="75%" stop-color="#3A506B"/>
+      <stop offset="100%" stop-color="#0B132B"/>
+    </linearGradient>
+
+    <!-- Cloud layers -->
+    <linearGradient id="cloud-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#E2E8F0" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <filter id="glow-cyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+
+    <filter id="drop-mega">
+      <feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#000000" flood-opacity="0.95"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND SKY -->
+  <rect width="1280" height="720" fill="url(#stratosphere-sky)"/>
+
+  <!-- STARS / ORBITAL SATELLITES IN STRATOSPHERE -->
+  <circle cx="150" cy="80" r="1.5" fill="#FFFFFF"/>
+  <circle cx="340" cy="50" r="2" fill="#FFFFFF"/>
+  <circle cx="890" cy="70" r="2.5" fill="#00F2FE"/>
+  <circle cx="1120" cy="110" r="1.5" fill="#FFFFFF"/>
+  <circle cx="1200" cy="40" r="2" fill="#FFFFFF"/>
+
+  <!-- TITANIC ARCOLOGY TOWER (5,000 METERS HIGH, PIERCING CLOUDS) -->
+  <!-- Central Spire Geometry -->
+  <path d="M 640 40 L 655 40 L 740 380 L 880 720 L 400 720 L 540 380 L 625 40 Z" fill="url(#titanium-body)"/>
+
+  <!-- Vertical Light Conduits on Tower -->
+  <line x1="640" y1="40" x2="640" y2="720" stroke="#00F2FE" stroke-width="4" filter="url(#glow-cyan)"/>
+  <line x1="610" y1="200" x2="570" y2="720" stroke="#06D6A0" stroke-width="2" opacity="0.8"/>
+  <line x1="670" y1="200" x2="710" y2="720" stroke="#06D6A0" stroke-width="2" opacity="0.8"/>
+
+  <!-- Giant Biodome Rings on Tower -->
+  <!-- Upper Biodome Ring (4,000m) -->
+  <ellipse cx="640" cy="220" rx="90" ry="18" fill="rgba(6, 214, 160, 0.4)" stroke="#06D6A0" stroke-width="3" filter="url(#glow-cyan)"/>
+  <!-- Middle Biodome Ring (2,500m) -->
+  <ellipse cx="640" cy="380" rx="160" ry="28" fill="rgba(6, 214, 160, 0.5)" stroke="#06D6A0" stroke-width="4" filter="url(#glow-cyan)"/>
+  <!-- Lower Mega Ring (1,000m) -->
+  <ellipse cx="640" cy="560" rx="240" ry="38" fill="rgba(0, 242, 254, 0.4)" stroke="#00F2FE" stroke-width="5" filter="url(#glow-cyan)"/>
+
+  <!-- SWARMS OF FLYING VEHICLES (LIGHT TRAILS) AROUND TOWER -->
+  <path d="M 300 360 Q 500 320 640 370 T 980 400" stroke="#FFA726" stroke-width="2.5" fill="none" opacity="0.85"/>
+  <path d="M 220 540 Q 450 500 640 550 T 1060 560" stroke="#00F2FE" stroke-width="3" fill="none" opacity="0.9"/>
+  <circle cx="480" cy="335" r="4" fill="#FFA726" filter="url(#glow-cyan)"/>
+  <circle cx="820" cy="385" r="4" fill="#FFA726" filter="url(#glow-cyan)"/>
+  <circle cx="450" cy="515" r="5" fill="#00F2FE" filter="url(#glow-cyan)"/>
+  <circle cx="880" cy="555" r="5" fill="#00F2FE" filter="url(#glow-cyan)"/>
+
+  <!-- VOLUMETRIC CLOUD SEAS PIERCED BY THE ARCOLOGY (MID-ALTITUDE 2500M) -->
+  <g fill="url(#cloud-grad)" opacity="0.85">
+    <ellipse cx="250" cy="460" rx="300" ry="70"/>
+    <ellipse cx="1030" cy="470" rx="320" ry="75"/>
+    <ellipse cx="150" cy="500" rx="220" ry="60"/>
+    <ellipse cx="1150" cy="510" rx="240" ry="65"/>
+  </g>
+
+  <!-- SECONDARY SKYSCRAPERS IN DISTANCE (BELOW CLOUDS) -->
+  <polygon points="120,720 160,560 220,560 260,720" fill="#07111F" opacity="0.9"/>
+  <polygon points="1020,720 1060,550 1120,550 1160,720" fill="#07111F" opacity="0.9"/>
+
+  <!-- TOP VIGNETTE FOR TEXT CONTRAST -->
+  <rect x="0" y="0" width="1280" height="240" fill="black" opacity="0.45"/>
+
+  <!-- HUD BADGES -->
+  <!-- Top Left: Altitude Scale Metric -->
+  <g transform="translate(50, 40)">
+    <rect width="260" height="38" rx="6" fill="rgba(6, 8, 13, 0.85)" stroke="#00F2FE" stroke-width="1.5"/>
+    <text x="130" y="26" text-anchor="middle" class="hud-title">ALT: 5,000 METROS</text>
+  </g>
+
+  <!-- Top Right: Era Badge -->
+  <g transform="translate(1030, 40)">
+    <rect width="200" height="38" rx="6" fill="rgba(6, 8, 13, 0.85)" stroke="#FFA726" stroke-width="1.5"/>
+    <text x="100" y="26" text-anchor="middle" class="hud-title hud-gold">AÑO 2226 D.C.</text>
+  </g>
+
+  <!-- MASTER COPY / HOOK TEXT (< 4 WORDS, MEGALOPOLIS HOOK) -->
+  <g transform="translate(60, 180)" filter="url(#drop-mega)">
+    <text x="0" y="0" class="title-mega">
+      CIUDAD DE <tspan class="title-cyan">100M</tspan>
+    </text>
+  </g>
+
+  <!-- HUD LATERAL ALTITUDE RULER (ON LEFT MARGIN) -->
+  <g transform="translate(50, 240)" opacity="0.8">
+    <line x1="0" y1="0" x2="0" y2="360" stroke="#00F2FE" stroke-width="2"/>
+    <line x1="0" y1="0" x2="15" y2="0" stroke="#00F2FE" stroke-width="2"/>
+    <text x="25" y="6" class="hud-mono">5000M - ESTRATOSFERA</text>
+    <line x1="0" y1="180" x2="15" y2="180" stroke="#00F2FE" stroke-width="2"/>
+    <text x="25" y="186" class="hud-mono">2500M - CAPA NUBES</text>
+    <line x1="0" y1="360" x2="15" y2="360" stroke="#00F2FE" stroke-width="2"/>
+    <text x="25" y="366" class="hud-mono">0M - SUELO TERRESTRE</text>
+  </g>
+
+  <!-- BOTTOM TELEMETRY -->
+  <g transform="translate(50, 650)">
+    <rect width="400" height="34" rx="4" fill="rgba(6, 8, 13, 0.9)" stroke="#06D6A0" stroke-width="1"/>
+    <text x="15" y="23" class="hud-mono hud-green">BIOSPHERE: 99.4% // POP: 14.8M HAB</text>
+  </g>
+</svg>

@@ -31,11 +31,17 @@ def invalidate_projects_cache():
         _get_cached_projects_summary.clear()
     except Exception:
         pass
+    try:
+        from app.core.services import project_repository
+        project_repository._PROJECTS_SUMMARY_CACHE = []
+        project_repository._PROJECTS_SUMMARY_LAST_FETCH = 0.0
+    except Exception:
+        pass
 
 
-@st.cache_data(ttl=15, show_spinner=False)
+@st.cache_data(ttl=10, show_spinner=False)
 def _get_cached_projects_summary() -> List[dict]:
-    """Obtiene la lista indexada de proyectos desde Firestore y disco con caché de alta velocidad."""
+    """Obtiene la lista indexada de proyectos desde disco con caché de alta velocidad."""
     repo = ProjectRepository()
     return repo.get_all_projects_summary()
 
@@ -49,7 +55,7 @@ def render_view():
                 <div>
                     <h2 style="font-size: 24px; font-weight: 800; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 10px;">
                         📁 Gestión de Proyectos
-                        <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">FIRESTORE SSOT</span>
+                        <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">LOCAL-FIRST</span>
                     </h2>
                     <p style="font-size: 13px; color: #94a3b8; margin: 2px 0 0 0;">
                         Biblioteca centralizada de producciones, guiones consolidados, trazabilidad de renderizado y sincronización en la nube.
@@ -86,10 +92,12 @@ def render_view():
                 st.session_state["current_project_title"] = None
                 st.session_state["current_archetype_plan"] = None
                 st.session_state["director_spec"] = None
+                st.session_state["flash_message"] = ("info", "Nuevo proyecto inicializado. ¡Comienza a co-crear!")
                 st.rerun()
         with c_btn_sync:
-            if st.button("🔄 Refrescar", use_container_width=True, help="Sincronizar proyectos con Firestore"):
+            if st.button("🔄 Refrescar", use_container_width=True, help="Sincronizar proyectos"):
                 invalidate_projects_cache()
+                st.session_state["flash_message"] = ("info", "Catálogo de proyectos actualizado.")
                 st.rerun()
 
     st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
@@ -164,6 +172,38 @@ def render_view():
         _render_live_jobs_monitor()
 
 
+@st.dialog("🗑️ Confirmar Eliminación")
+def _show_delete_modal(project_id: str, title: str):
+    """Modal nativo centrado para confirmar el borrado sin deformar la interfaz."""
+    st.markdown(f"¿Estás seguro de que deseas eliminar permanentemente este proyecto?")
+    st.markdown(f"🎬 **{title}** (`{project_id}`)")
+    st.caption("Esta acción eliminará todos los archivos locales en la VPS y metadatos.")
+    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+    c1, c2 = st.columns(2, gap="medium")
+    with c1:
+        if st.button("❌ Cancelar", use_container_width=True, key=f"btn_cancel_del_{project_id}"):
+            st.rerun()
+    with c2:
+        if st.button("🗑️ Sí, Eliminar", type="primary", use_container_width=True, key=f"btn_do_del_{project_id}"):
+            repo = ProjectRepository()
+            repo.delete_project(project_id)
+            invalidate_projects_cache()
+            st.session_state["flash_message"] = ("success", f"Proyecto '{title}' eliminado correctamente.")
+            st.rerun()
+
+
+@st.dialog("🎬 Previsualización de Vídeo")
+def _show_video_modal(title: str, local_vid: str, cloud_url: str):
+    """Modal nativo para previsualizar vídeos terminados."""
+    st.markdown(f"#### 🎥 {title}")
+    if local_vid and os.path.exists(local_vid):
+        st.video(local_vid)
+    elif cloud_url:
+        st.video(cloud_url)
+    else:
+        st.warning("No se encontró el archivo de vídeo.")
+
+
 def _render_project_card(proj: dict):
     """Renderiza una tarjeta de proyecto moderna con acciones y estado relacional."""
     p_id = proj.get("project_id", "proj_unknown")
@@ -236,17 +276,39 @@ def _render_project_card(proj: dict):
                 with st.spinner("Cargando proyecto y restaurando sesión..."):
                     ok = view_studio_orchestrator.load_project_into_session(p_id)
                     if ok:
+                        st.session_state["flash_message"] = ("info", f"Proyecto '{title}' cargado en el Estudio.")
                         st.session_state["active_view"] = "studio"
                         st.rerun()
                     else:
                         st.error(f"No se pudo cargar el proyecto {p_id}")
         with c_act2:
-            if has_video and (local_vid or cloud_url):
-                with st.popover("🎬 Ver Vídeo", use_container_width=True):
-                    if local_vid and os.path.exists(local_vid):
-                        st.video(local_vid)
-                    elif cloud_url:
-                        st.video(cloud_url)
+            if has_video:
+                b_vid, b_r2 = st.columns(2, gap="small")
+                with b_vid:
+                    if st.button("🎬 Ver", key=f"btn_view_vid_{p_id}", use_container_width=True, help="Reproducir vídeo renderizado"):
+                        _show_video_modal(title, local_vid, cloud_url)
+                with b_r2:
+                    if not proj.get("cloud_synced"):
+                        if st.button("☁️ R2", key=f"btn_r2_{p_id}", use_container_width=True, help="Subir a Cloudflare R2"):
+                            with st.spinner("Subiendo vídeo a Cloudflare R2..."):
+                                try:
+                                    from app.services.storage.factory import StorageFactory
+                                    srv = StorageFactory.get_storage_service()
+                                    if srv and local_vid and os.path.isfile(local_vid):
+                                        key = f"projects/{p_id}/{os.path.basename(local_vid)}"
+                                        remote_key = srv.upload_file(local_vid, key)
+                                        url = srv.get_presigned_url(remote_key)
+                                        proj["cloud_synced"] = True
+                                        proj["cloud_url"] = url
+                                        r2_marker = os.path.join(os.path.dirname(local_vid), ".r2_synced.json")
+                                        with open(r2_marker, "w") as f:
+                                            json.dump({"synced": True, "remote_key": remote_key, "presigned_url": url}, f)
+                                        firebase_sync.backup_project_to_firebase_async(proj)
+                                        invalidate_projects_cache()
+                                        st.session_state["flash_message"] = ("success", f"Vídeo de '{title}' subido con éxito a Cloudflare R2.")
+                                        st.rerun()
+                                except Exception as e:
+                                    st.error(f"Error: {e}")
             else:
                 if st.button("📋 Duplicar", key=f"btn_dup_{p_id}", use_container_width=True, help="Duplicar proyecto (Fork)"):
                     new_pid = f"{p_id}_copia_{int(time.time())}"
@@ -256,20 +318,21 @@ def _render_project_card(proj: dict):
                     proj_copy["project_id"] = new_pid
                     proj_copy["task_id"] = new_pid
                     proj_copy["title"] = new_title
-                    firebase_sync.backup_project_to_firebase(proj_copy)
+                    
+                    # Guardar copia en disco local
+                    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+                    target_dir = os.path.join(base_dir, "storage", "projects", new_pid)
+                    os.makedirs(target_dir, exist_ok=True)
+                    with open(os.path.join(target_dir, "project.json"), "w", encoding="utf-8") as f:
+                        json.dump(proj_copy, f, indent=2, ensure_ascii=False)
+                    
+                    firebase_sync.backup_project_to_firebase_async(proj_copy)
                     invalidate_projects_cache()
-                    st.success(f"Proyecto duplicado como: {new_title}")
+                    st.session_state["flash_message"] = ("success", f"Proyecto duplicado como: {new_title}")
                     st.rerun()
         with c_act3:
-            with st.popover("🗑️", use_container_width=True):
-                st.markdown(f"**¿Eliminar '{title}'?**")
-                st.caption("Esta acción purgará el proyecto de Firestore y de disco local.")
-                if st.button("Confirmar Borrado", key=f"btn_confirm_del_{p_id}", type="primary", use_container_width=True):
-                    repo = ProjectRepository()
-                    repo.delete_project(p_id)
-                    invalidate_projects_cache()
-                    st.toast(f"Proyecto '{title}' eliminado.")
-                    st.rerun()
+            if st.button("🗑️", key=f"btn_del_trigger_{p_id}", use_container_width=True, help="Eliminar este proyecto"):
+                _show_delete_modal(p_id, title)
 
 
 def _render_live_jobs_monitor():

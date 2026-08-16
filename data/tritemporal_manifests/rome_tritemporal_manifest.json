@@ -1,6 +1,6 @@
 {
-  "story_id": "CHRONODRIFT_EP06_ROME",
-  "episode_number": 6,
+  "story_id": "CHRONODRIFT_EP04_ROME",
+  "episode_number": 4,
   "channel_brand": "CHRONODRIFT",
   "tagline": "Urban Time Travel & Future Cities (1626 ➔ 2026 ➔ 2226)",
   "city_key": "rome",
@@ -17,7 +17,7 @@
     "true_peak_dbtp": -1.0
   },
   "hook_strategy": {
-    "initial_hook_0_5s": "Vuelo supersónico sobre la cúpula de San Pedro cruzando un vórtice hacia los talleres de mármol del siglo XVII.",
+    "initial_hook_0_5s": "Vuelo supersónico sobre la cúpula de San Pedro cruzando un vórtice hacia los talleres de mármol de Bernini en 1626.",
     "target_first_minute_retention": ">90%",
     "target_avd": ">72%"
   },
@@ -305,7 +305,7 @@
       "hook_0_3s": "Match-cut vertiginoso a 120 km/h: entras en un callejón de 1626 y sales en Shibuya/Wall Street 2026.",
       "retention_mechanic": "Bucle perfecto (Seamless Loop): el último fotograma en 2226 conecta exactamente con el picado inicial de 1626.",
       "target_vtr": "135%",
-      "pinned_comment": "🎬 Mira el vuelo completo en 4K 60fps de Roma en nuestro canal principal 👉 [Enlace al Episodio 6]"
+      "pinned_comment": "🎬 Mira el vuelo completo en 4K 60fps de Roma en nuestro canal principal 👉 [Enlace al Episodio 4]"
     },
     {
       "short_id": "SHORT_ROME_02_SECRET_HISTORY",

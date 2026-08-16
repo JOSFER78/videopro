@@ -589,6 +589,85 @@ FPV_URBAN_GRAPH = {
 
 
 # =====================================================================
+# 7. TOURS URBANOS FLOW REAL 4K & BEAT SYNC (METRAJE REAL + PANELES HUD)
+# =====================================================================
+FPV_REAL_FLOW_GRAPH = {
+    "version": "1.0.0",
+    "name": "Tours Urbanos Flow Real 4K & Beat-Sync Pipeline",
+    "nodes": [
+        {
+            "id": "node_music_beat_analyzer",
+            "title": "🎵 Flow Music Beat-Detector & Transientes",
+            "category": "music",
+            "color": "#8b5cf6",
+            "x": 50, "y": 140, "width": 300, "enabled": True,
+            "inputs": [],
+            "outputs": [
+                {"id": "beat_grid_out", "name": "beat_grid", "label": "Grid de Beats & Transientes (118-128 BPM)"},
+                {"id": "audio_track_out", "name": "master_audio", "label": "Pista de Audio Procesada"}
+            ],
+            "parameters": [
+                {"key": "audio_source", "label": "Fuente de Audio", "type": "text", "value": "Audio subido por el usuario o Flow Music generado"},
+                {"key": "bpm_target", "label": "Detección de BPM", "type": "number", "value": 118}
+            ]
+        },
+        {
+            "id": "node_real_footage_downloader",
+            "title": "🏙️ Ingesta de Vídeos & Fotos Reales 4K",
+            "category": "scraping",
+            "color": "#10b981",
+            "x": 400, "y": 80, "width": 320, "enabled": True,
+            "inputs": [{"id": "bg_in", "name": "beat_grid", "label": "Beat Grid"}],
+            "outputs": [{"id": "footage_out", "name": "real_4k_clips", "label": "Metraje Real 4K UHD Filtrado"}],
+            "parameters": [
+                {"key": "stock_source", "label": "Fuentes de Metraje", "type": "text", "value": "Pexels 4K UHD + Drones Urbanos + Street View 360 HD"},
+                {"key": "min_quality", "label": "Calidad Mínima", "type": "text", "value": "3840x2160 @ 60fps"}
+            ]
+        },
+        {
+            "id": "node_flow_speed_cutter",
+            "title": "⚡ Montaje Rítmico, Speed-Ramps & Transiciones",
+            "category": "visual",
+            "color": "#f59e0b",
+            "x": 760, "y": 80, "width": 340, "enabled": True,
+            "inputs": [
+                {"id": "clips_in", "name": "real_4k_clips", "label": "Clips Reales"},
+                {"id": "beats_in", "name": "beat_grid", "label": "Beats"}
+            ],
+            "outputs": [{"id": "synced_video_out", "name": "synced_cut", "label": "Línea de Tiempo Cortada al Beat"}],
+            "parameters": [
+                {"key": "cut_mode", "label": "Modo de Corte", "type": "text", "value": "Al golpe de Kick/Snare con Speed-Ramps dinámicos"},
+                {"key": "transitions", "label": "Efectos de Transición", "type": "text", "value": "Whip Pan, Zoom Glitch & Flash Cut"}
+            ]
+        },
+        {
+            "id": "node_explainer_panels_hud",
+            "title": "🏷️ Paneles Explicativos Gráficos & Subtítulos Flow",
+            "category": "render",
+            "color": "#06b6d4",
+            "x": 1140, "y": 140, "width": 340, "enabled": True,
+            "inputs": [
+                {"id": "v_cut_in", "name": "synced_cut", "label": "Corte Sincronizado"},
+                {"id": "a_proc_in", "name": "master_audio", "label": "Audio Master"}
+            ],
+            "outputs": [{"id": "final_video_out", "name": "final_video", "label": "Vídeo Musical Master 4K"}],
+            "parameters": [
+                {"key": "panel_style", "label": "Diseño de Paneles", "type": "text", "value": "Glassmorphism Moderno con Datos Urbanos y Callouts"},
+                {"key": "subtitle_sync", "label": "Alineación de Letras/Subtítulos", "type": "text", "value": "Word-by-word kinetic highlight"}
+            ]
+        }
+    ],
+    "connections": [
+        {"id": "rf_c1", "from_node": "node_music_beat_analyzer", "from_socket": "beat_grid_out", "to_node": "node_real_footage_downloader", "to_socket": "bg_in"},
+        {"id": "rf_c2", "from_node": "node_real_footage_downloader", "from_socket": "footage_out", "to_node": "node_flow_speed_cutter", "to_socket": "clips_in"},
+        {"id": "rf_c3", "from_node": "node_music_beat_analyzer", "from_socket": "beat_grid_out", "to_node": "node_flow_speed_cutter", "to_socket": "beats_in"},
+        {"id": "rf_c4", "from_node": "node_flow_speed_cutter", "from_socket": "synced_video_out", "to_node": "node_explainer_panels_hud", "to_socket": "v_cut_in"},
+        {"id": "rf_c5", "from_node": "node_music_beat_analyzer", "from_socket": "audio_track_out", "to_node": "node_explainer_panels_hud", "to_socket": "a_proc_in"}
+    ]
+}
+
+
+# =====================================================================
 # CATÁLOGO MAESTRO DE ARQUETIPOS DE PRODUCCIÓN
 # =====================================================================
 ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
@@ -698,6 +777,108 @@ ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
         pipeline_graph=DEEP_EXPLAINER_GRAPH
     ),
 
+    "FPV_URBAN_REAL_FLOW": WorkflowArchetype(
+        id="FPV_URBAN_REAL_FLOW",
+        name="Tours Urbanos Flow Real 4K & Beat-Sync",
+        icon="🏙️",
+        tag="FLOW MUSIC & VÍDEO REAL 4K",
+        description="Vídeos rítmicos y musicales sincronizados con Flow Music. Ingesta de vídeos y fotos reales 4K (stock/scraping), montaje al golpe de beat (118-128 BPM), paneles explicativos, speed-ramps, transiciones de impacto y telemetría visual.",
+        category="travel_fpv_action",
+        target_audience="Reels Musicales, Turismo Urbano 4K, Viral Shorts, Lifestyle & Beats",
+        default_aspect_ratio="9:16",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="flow_synthwave",
+        interview_schema=[
+            InterviewQuestion(
+                key="audio_source_and_bpm",
+                question="¿Qué pista de audio o ritmo musical liderará el montaje?",
+                description="Indica si usarás un audio propio (.mp3) o generarás Flow Music a 118-128 BPM",
+                question_type="select",
+                options=[
+                    "Audio Personal Subido (Sincronización automática de transientes y beats)",
+                    "Flow Chillhop 118 BPM (Relajado, rítmico con bajos profundos)",
+                    "Cyber Darksynth 128 BPM (Alta energía, sintes potentes y cortes rápidos)",
+                    "Trap / Hip-Hop Instrumental (Pegada de bombo/caja para cortes secos)"
+                ],
+                default_value="Audio Personal Subido (Sincronización automática de transientes y beats)"
+            ),
+            InterviewQuestion(
+                key="city_and_visual_spots",
+                question="¿Qué ciudad y localizaciones reales 4K protagonizan el vídeo?",
+                description="Ejemplo: 'Tokio: Shibuya Crossing, Shinjuku Neón, Torre de Tokio y Akihabara'",
+                question_type="text",
+                default_value="Tokio: Shibuya Crossing, Shinjuku Neón, Torre de Tokio y Akihabara"
+            ),
+            InterviewQuestion(
+                key="explainer_panels_style",
+                question="¿Qué estilo de paneles explicativos y efectos premium deseas?",
+                description="Define la apariencia de los datos, callouts y subtítulos cinemáticos",
+                question_type="select",
+                options=[
+                    "Glassmorphism Moderno (Tarjetas translúcidas con bordes de luz y datos clave)",
+                    "Cyberpunk HUD (Telemetría de coordenadas, velocidad y tipografía neón)",
+                    "Minimalista Editorial (Rótulos limpios, tipografía sans-serif y zoom suave)",
+                    "Dinámico Viral (Subtítulos palabra por palabra con emojis y resaltado de color)"
+                ],
+                default_value="Glassmorphism Moderno (Tarjetas translúcidas con bordes de luz y datos clave)"
+            )
+        ],
+        pipeline_graph=FPV_REAL_FLOW_GRAPH
+    ),
+
+    "CHRONODRIFT_TRITEMPORAL": WorkflowArchetype(
+        id="CHRONODRIFT_TRITEMPORAL",
+        name="CHRONODRIFT: Urban Time Travel 4K (1626 ➔ 2026 ➔ 2226)",
+        icon="🛰️",
+        tag="CHRONODRIFT TRITEMPORAL 4K",
+        description="Pipeline oficial de CHRONODRIFT: viajes temporales urbanos 4K 60fps con Gemini Omni Flash 6-DoF en Google Flow, 7 keyframes consistentes con Nano Banana Pro, anclaje Street View 360° + OSM, audio 118 BPM con Foley Doppler y HUD Remotion tritemporal.",
+        category="travel_fpv_action",
+        target_audience="Audiovisual Premium, Historia y Futuro, Viral YouTube 4K, Ciencia & Arquitectura",
+        default_aspect_ratio="9:16",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="flow_synthwave",
+        interview_schema=[
+            InterviewQuestion(
+                key="target_city_and_timeline",
+                question="¿Qué ciudad y qué puntos emblemáticos compondrán la transformación tritemporal?",
+                description="Ejemplo: 'Nueva York: Manhattan / Wall Street (1626 Nuevo Ámsterdam ➔ 2026 Rascacielos ➔ 2226 Mega-Estructuras Flotantes)'",
+                question_type="text",
+                default_value="Nueva York: Manhattan / Wall Street (1626 Nuevo Ámsterdam ➔ 2026 Rascacielos ➔ 2226 Mega-Estructuras Flotantes)"
+            ),
+            InterviewQuestion(
+                key="temporal_contrast_style",
+                question="¿Qué dinámica de transición y match-cut temporal deseas aplicar?",
+                description="Define cómo la cámara 6-DoF salta entre siglos manteniendo el mismo vector",
+                question_type="select",
+                options=[
+                    "Match-Cut Fotogramétrico Continuo (La cámara no frena y el mundo cambia a su alrededor)",
+                    "Warp Temporal con Glitch y Telemetría HUD (Efecto distorsión cuántica al cruzar años)",
+                    "Split-Screen Dinámico Tritemporal (3 épocas visibles en paralelo antes del dive)",
+                    "Aceleración FPV a 140 km/h con Foley Doppler Temporal"
+                ],
+                default_value="Match-Cut Fotogramétrico Continuo (La cámara no frena y el mundo cambia a su alrededor)"
+            ),
+            InterviewQuestion(
+                key="audio_groove_style",
+                question="¿Qué diseño de audio y tempo deseas para el viaje temporal?",
+                description="BGM rítmico, ducking -18dB y efectos Foley 3D sincronizados",
+                question_type="select",
+                options=[
+                    "Flow Darksynth 118 BPM (Bajo profundo 35Hz, síntesis analógica y foley de viento)",
+                    "Chillhop Tritemporal (Batería lo-fi 118 BPM combinada con instrumentos de época)",
+                    "Cinematic Hybrid Orchestra (Metales pesados, percusión híbrida y riser temporal)",
+                    "Audio Personal Subido (Masterización y ducking automático bajo voz)"
+                ],
+                default_value="Flow Darksynth 118 BPM (Bajo profundo 35Hz, síntesis analógica y foley de viento)"
+            )
+        ],
+        pipeline_graph=FPV_URBAN_GRAPH
+    ),
+
     "FPV_URBAN_STORYTELLING": WorkflowArchetype(
         id="FPV_URBAN_STORYTELLING",
         name="Tours FPV y Storytelling Urbano 4K",
@@ -747,6 +928,67 @@ ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
             )
         ],
         pipeline_graph=FPV_URBAN_GRAPH
+    ),
+
+    "MADRID_CURIOSITIES_REAL_FLOW": WorkflowArchetype(
+        id="MADRID_CURIOSITIES_REAL_FLOW",
+        name="Madrid Secreto 4K: Curiosidades Reales & Beat-Sync (3 min)",
+        icon="🇪🇸",
+        tag="SCRAPING REAL 4K + FLOW MUSIC + 3D HUD",
+        description="Vídeo documental y musical de 3 minutos sobre Madrid: investigación profunda de curiosidades ocultas con fuentes verificadas, scraping de metraje real 4K de alta exigencia, sincronización al beat de Flow Music y paneles dinámicos 3D / Glassmorphism en Remotion.",
+        category="documentary",
+        target_audience="Divulgación Urbana, Curiosidades Históricas, YouTube 4K, Turismo Alternativo",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.HYBRID,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="flow_chillhop",
+        interview_schema=[
+            InterviewQuestion(
+                key="madrid_spots_and_secrets",
+                question="¿Qué lugares curiosos y secretos de Madrid deseas incluir en el vídeo de 3 minutos?",
+                description="Ejemplo: 'Cámara Acorazada Cibeles (oro sumergible), Búnker del Capricho, Estación Fantasma Chamberí, Reloj de Gobernación y Pasadizo Real de la Encarnación'",
+                question_type="text",
+                default_value="Cámara de Oro Cibeles, Estación Fantasma Chamberí, Búnker Capricho, Ermita San Antonio de la Florida y Pasadizo Real Encarnación"
+            ),
+            InterviewQuestion(
+                key="media_scraping_quality",
+                question="¿Qué nivel de exigencia y filtros de scraping deseas aplicar a las imágenes y vídeos reales?",
+                description="Filtro laplaciano de nitidez, resolución mínima 4K UHD y descarte automático de marcas de agua / baja calidad",
+                question_type="select",
+                options=[
+                    "Exigencia Máxima 4K/8K (Filtro laplaciano >100, >5MB por foto, bitrate alto en vídeo)",
+                    "Híbrido Alta Calidad (Scraping real 4K + Recreación Nano Banana Pro en puntos sin metraje)",
+                    "Archivo Histórico & Actual (Contraste hemerotecas 1900 vs 4K 2026)"
+                ],
+                default_value="Exigencia Máxima 4K/8K (Filtro laplaciano >100, >5MB por foto, bitrate alto en vídeo)"
+            ),
+            InterviewQuestion(
+                key="flow_audio_plan",
+                question="¿Qué diseño y estructura musical deseas para el plan de audio de 3 minutos?",
+                description="Estructura por compases (Intro -> Beat Drop -> Desarrollo -> Clímax -> Outro) con ducking dinámico -18dB",
+                question_type="select",
+                options=[
+                    "Flow Chillhop 118 BPM (Bajo 35Hz envolvente, ritmo rítmico pausado para locución clara)",
+                    "Flow Darksynth 120 BPM (Sintetizadores dinámicos para misterio y ritmo enérgico)",
+                    "Audio Personal Subido (Detección de transientes y beat grid automática)"
+                ],
+                default_value="Flow Chillhop 118 BPM (Bajo 35Hz envolvente, ritmo rítmico pausado para locución clara)"
+            ),
+            InterviewQuestion(
+                key="explainer_panels_3d_style",
+                question="¿Qué estilo de paneles explicativos 3D y telemetría deseas para mostrar los datos y fuentes?",
+                description="Callouts con coordenadas GPS, datos curiosos, fecha de origen y enlace de fuente verificada",
+                question_type="select",
+                options=[
+                    "Glassmorphism 3D Moderno (Tarjetas translúcidas flotantes con datos técnicos y badges de fuentes)",
+                    "Cyberpunk Holographic HUD (Vectores 3D, líneas de tracking y coordenadas en pantalla)",
+                    "Minimalista Museo Contemporáneo (Tipografía limpia, acentos dorados y citas bibliográficas)"
+                ],
+                default_value="Glassmorphism 3D Moderno (Tarjetas translúcidas flotantes con datos técnicos y badges de fuentes)"
+            )
+        ],
+        pipeline_graph=FPV_REAL_FLOW_GRAPH
     )
 }
 

@@ -263,53 +263,45 @@ def render_view():
     force_check = st.session_state.get("force_health_refresh", False)
     if force_check:
         st.session_state["force_health_refresh"] = False
+        with st.spinner("⚡ Ejecutando diagnóstico en vivo de todos los proveedores en paralelo..."):
+            matrix = health_checker.get_all_providers_matrix(force=True)
+            st.toast("✅ Diagnóstico de salud completado y guardado en disco.")
+    else:
+        matrix = health_checker.get_all_providers_matrix(force=False)
 
-    matrix = health_checker.get_all_providers_matrix(force=force_check)
     reg = registry.load_registry()
+    meta = health_checker.get_health_meta()
 
     # Métricas de resumen rápido del estado
-    total_services = len(matrix)
-    active_services = sum(1 for v in matrix.values() if isinstance(v, dict) and "🟢" in v.get("badge", ""))
+    total_services = meta.get("total", len(matrix))
+    active_services = meta.get("active", sum(1 for v in matrix.values() if isinstance(v, dict) and "🟢" in v.get("badge", "")))
     error_items = [(k, v) for k, v in matrix.items() if isinstance(v, dict) and "🔴" in v.get("badge", "")]
 
-    c_m1, c_m2, c_m3, c_m4 = st.columns([1.2, 1.2, 1.3, 1.1])
+    c_m1, c_m2, c_m3, c_m4 = st.columns([1.3, 1.3, 1.4, 1.4], gap="small")
     with c_m1:
         st.markdown(f"""
         <div style='background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); border-radius:6px; padding:6px 12px;'>
             <div style='font-size:11px; color:#94a3b8; font-weight:600;'>Estado General</div>
-            <div style='font-size:14px; font-weight:800; color:#38bdf8;'>{active_services}/{total_services} APIs Conectadas</div>
+            <div style='font-size:14px; font-weight:800; color:#38bdf8;'>{active_services}/{total_services} APIs Listas</div>
         </div>
         """, unsafe_allow_html=True)
     with c_m2:
         st.markdown(f"""
         <div style='background:rgba(16,185,129,0.08); border:1px solid rgba(16,185,129,0.25); border-radius:6px; padding:6px 12px;'>
-            <div style='font-size:11px; color:#34d399; font-weight:600;'>🟢 Listos Producción</div>
-            <div style='font-size:14px; font-weight:800; color:#10b981;'>{active_services} Motores Activos</div>
+            <div style='font-size:11px; color:#34d399; font-weight:600;'>🟢 Motores Operativos</div>
+            <div style='font-size:14px; font-weight:800; color:#10b981;'>{active_services} Conectados ($0/Cloud)</div>
         </div>
         """, unsafe_allow_html=True)
     with c_m3:
-        if error_items:
-            with st.popover(f"🔴 {len(error_items)} Requieren Atención", use_container_width=True):
-                st.markdown(f"**⚠️ Diagnóstico de Servicios con Errores ({len(error_items)})**")
-                st.caption("Detalle de servicios:")
-                for e_k, e_v in error_items:
-                    st.markdown(f"• **{e_v.get('name', e_k)}**: `{e_v.get('message', 'Desconectado')}`")
-                    st.caption(f"Estado: {e_v.get('badge', '🔴 Error')}")
-                st.markdown("---")
-                if st.button("⚡ Reintentar Diagnóstico", key="pop_retry_diag", use_container_width=True):
-                    st.session_state["force_health_refresh"] = True
-                    st.rerun()
-        else:
-            st.markdown(f"""
-            <div style='background:rgba(148,163,184,0.06); border:1px solid rgba(148,163,184,0.2); border-radius:6px; padding:6px 12px;'>
-                <div style='font-size:11px; color:#94a3b8; font-weight:600;'>⚪ Diagnóstico</div>
-                <div style='font-size:14px; font-weight:800; color:#cbd5e1;'>100% Estable</div>
-            </div>
-            """, unsafe_allow_html=True)
+        st.markdown(f"""
+        <div style='background:rgba(148,163,184,0.06); border:1px solid rgba(148,163,184,0.2); border-radius:6px; padding:6px 12px;'>
+            <div style='font-size:11px; color:#94a3b8; font-weight:600;'>🕒 Último Diagnóstico</div>
+            <div style='font-size:13px; font-weight:700; color:#cbd5e1;'>{meta.get('last_checked_str', 'Guardado')} ({meta.get('time_ago', '')})</div>
+        </div>
+        """, unsafe_allow_html=True)
     with c_m4:
-        if st.button("⚡ Diagnosticar Todo", use_container_width=True, help="Comprobar en vivo el estado real de todas las conexiones"):
+        if st.button("⚡ Diagnóstico Manual", use_container_width=True, help="Ejecuta la comprobación manual de salud de todas las APIs y actualiza el estado guardado (Recomendado cada 12h/24h)"):
             st.session_state["force_health_refresh"] = True
-            st.toast("Comprobando conexiones de todos los proveedores...")
             st.rerun()
 
     st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
@@ -614,15 +606,21 @@ def render_view():
             st.markdown("**Acciones de Sincronización con Firestore:**")
             if st.button("📤 Guardar Configuración en Firestore Ahora", use_container_width=True, key="btn_fb_save_now"):
                 ok, msg = firebase_sync.save_settings_to_firebase()
-                if ok: st.success(msg)
-                else: st.error(msg)
+                if ok:
+                    st.session_state["flash_message"] = ("success", msg)
+                    st.rerun()
+                else:
+                    st.session_state["flash_message"] = ("error", msg)
+                    st.rerun()
 
             if st.button("📥 Restaurar Configuración desde Firestore", use_container_width=True, key="btn_fb_load_now"):
                 ok, msg = firebase_sync.load_settings_from_firebase()
                 if ok:
-                    st.success(msg)
+                    st.session_state["flash_message"] = ("success", msg)
                     st.rerun()
-                else: st.error(msg)
+                else:
+                    st.session_state["flash_message"] = ("error", msg)
+                    st.rerun()
 
     # =========================================================
     # TAB 5: AJUSTES DEL SISTEMA & RENDER FFMPEG

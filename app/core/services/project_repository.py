@@ -185,17 +185,15 @@ class ProjectRepository:
         return None
 
     def get_all_projects_summary(self, force_refresh: bool = False) -> List[dict]:
-        """Retorna la lista unificada de todos los proyectos desde RAM/disco instantáneamente."""
-        global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH, _PROJECTS_SUMMARY_LOCK
+        """Retorna la lista unificada de todos los proyectos desde disco local en ~1ms."""
+        global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH
         
         now = time.time()
-        # Retornar instantáneamente de RAM si la caché tiene menos de 20 segundos
-        if not force_refresh and _PROJECTS_SUMMARY_CACHE and (now - _PROJECTS_SUMMARY_LAST_FETCH < 20.0):
+        # Retornar instantáneamente de RAM si la caché tiene menos de 10 segundos
+        if not force_refresh and _PROJECTS_SUMMARY_CACHE and (now - _PROJECTS_SUMMARY_LAST_FETCH < 10.0):
             return _PROJECTS_SUMMARY_CACHE
 
-        projects_map = {}
-
-        # 1. Escaneo ultrarrápido de storage/projects/ (Disco Local - 0ms latencia)
+        projects_list = []
         import glob
         for p_dir in glob.glob(os.path.join(self.projects_dir, "*")):
             if not os.path.isdir(p_dir):
@@ -221,54 +219,54 @@ class ProjectRepository:
                     final_video_path = vids[0]
                     break
 
-            projects_map[pid] = {
+            # Buscar marcador de sincronización en la nube .r2_synced.json
+            r2_marker = os.path.join(p_dir, ".r2_synced.json")
+            cloud_synced = False
+            cloud_url = ""
+            if os.path.isfile(r2_marker):
+                try:
+                    with open(r2_marker, "r", encoding="utf-8") as f:
+                        r2_data = json.load(f)
+                        cloud_synced = bool(r2_data.get("synced"))
+                        cloud_url = r2_data.get("presigned_url", "")
+                except Exception:
+                    pass
+
+            projects_list.append({
                 "project_id": pid,
                 "task_id": pid,
-                "title": p_data.get("title", pid),
-                "subject": p_data.get("subject", p_data.get("title", pid)),
+                "title": p_data.get("title") or p_data.get("subject", pid),
+                "subject": p_data.get("subject") or p_data.get("title", pid),
                 "workflow_id": p_data.get("workflow_id", "PIXAR_3D_ANIMATION"),
                 "workflow_name": p_data.get("workflow_name", "Producción Cinemática"),
                 "workflow_icon": p_data.get("workflow_icon", "🎬"),
-                "status": p_data.get("status", "DRAFT"),
+                "status": "COMPLETED" if has_video else p_data.get("status", "DRAFT"),
                 "aspect_ratio": p_data.get("aspect_ratio", "16:9"),
                 "voice_id": p_data.get("voice_id", "vibevoice"),
                 "scenes_count": len(p_data.get("scenes", [])),
                 "has_video": has_video,
                 "local_video_path": final_video_path,
+                "cloud_synced": cloud_synced,
+                "cloud_url": cloud_url,
                 "director_spec": p_data.get("director_spec", {}),
                 "scenes": p_data.get("scenes", []),
                 "messages": p_data.get("messages", []),
-                "updated_at": p_data.get("updated_at", time.time()),
-                "created_at": p_data.get("created_at", time.time())
-            }
+                "updated_at": p_data.get("updated_at", os.path.getmtime(p_dir)),
+                "created_at": p_data.get("created_at", os.path.getctime(p_dir))
+            })
 
-        # 2. Sincronizar con Firestore
-        try:
-            from app.services import firebase_sync
-            fb_projs = firebase_sync.fetch_all_projects_from_firebase()
-            for p in fb_projs:
-                pid = p.get("project_id") or p.get("task_id")
-                if pid:
-                    if pid in projects_map:
-                        # Mantener ruta de vídeo local si existe
-                        if projects_map[pid].get("has_video"):
-                            p["has_video"] = True
-                            p["local_video_path"] = projects_map[pid].get("local_video_path")
-                    projects_map[pid] = p
-        except Exception as ex:
-            logger.warning(f"No se pudo consultar Firestore para listado de proyectos: {ex}")
-
-        # Ordenar por updated_at descendente
-        res = list(projects_map.values())
-        res.sort(key=lambda x: str(x.get("updated_at", "")), reverse=True)
+        # Ordenar por updated_at descendente (más recientes primero)
+        projects_list.sort(key=lambda x: float(x.get("updated_at", 0)) if isinstance(x.get("updated_at"), (int, float)) else str(x.get("updated_at", "")), reverse=True)
         
-        _PROJECTS_SUMMARY_CACHE = res
+        _PROJECTS_SUMMARY_CACHE = projects_list
         _PROJECTS_SUMMARY_LAST_FETCH = time.time()
-        return res
+        return projects_list
 
     def delete_project(self, project_id: str) -> bool:
-        """Elimina un proyecto de disco local y de Firebase Firestore."""
-        # 1. Eliminar de disco
+        """Elimina un proyecto de disco local en <1ms y purga Firestore en segundo plano."""
+        global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH
+        
+        # 1. Eliminar de disco local inmediatamente
         proj_dir = os.path.join(self.projects_dir, project_id)
         if os.path.isdir(proj_dir):
             try:
@@ -277,10 +275,15 @@ class ProjectRepository:
             except Exception as e:
                 logger.error(f"Error al borrar directorio local del proyecto {project_id}: {e}")
 
-        # 2. Eliminar de Firestore
+        # 2. Purgar caché en RAM inmediatamente
+        _PROJECTS_SUMMARY_CACHE = [p for p in _PROJECTS_SUMMARY_CACHE if p.get("project_id") != project_id]
+        _PROJECTS_SUMMARY_LAST_FETCH = time.time()
+
+        # 3. Eliminar de Firestore en segundo plano sin bloquear la UI
         try:
+            import threading
             from app.services import firebase_sync
-            firebase_sync.delete_project_from_firebase(project_id)
+            threading.Thread(target=firebase_sync.delete_project_from_firebase, args=(project_id,), daemon=True).start()
         except Exception:
             pass
 
