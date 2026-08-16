@@ -6,14 +6,12 @@ Diseño profesional, moderno, oscuro (Dark IDE Theme) con alta legibilidad.
 import streamlit as st
 
 NAV_VIEWS = [
-    ("studio", "🚀 Empezar"),
-    ("pipeline", "🏛️ Workflow Studio"),
-    ("projects", "📁 Proyectos"),
-    ("cinema_vault", "🎞️ Bóveda de Medios"),
-    ("audio_studio", "🎙️ Audio y Música"),
-    ("ltx_flux", "⚡ LTX y FLUX"),
-    ("settings", "⚙️ Ajustes"),
-    ("docs", "📖 Documentación")
+    ("studio", "🚀 Empezar (Workflows)"),
+    ("projects", "📁 Proyectos (YYYY/MM/DD)"),
+    ("cinema_vault", "🎞️ Bóveda Multimedia"),
+    ("audio_studio", "🎙️ Audio, Foley & Voces"),
+    ("settings", "⚙️ Ajustes & APIs"),
+    ("docs", "📖 Documentación & Guías")
 ]
 
 def render_top_navigation():

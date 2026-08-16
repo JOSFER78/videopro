@@ -2,8 +2,10 @@
 Project Repository for Persistent Storage with Legacy Task Migration Support
 """
 import os
+import re
 import json
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import List, Optional
 from loguru import logger
@@ -162,14 +164,58 @@ class ProjectRepository:
 
         return proj
 
+    def get_project_dir_structured(self, workflow_id: str, project_name: str, dt: Optional[datetime] = None) -> str:
+        """Genera la ruta estándar: storage/projects/YYYY/MM/DD/workflow_id/project_name/"""
+        from datetime import datetime
+        now = dt or datetime.now()
+        year_str = now.strftime("%Y")
+        month_str = now.strftime("%m")
+        day_str = now.strftime("%d")
+        
+        # Limpieza de nombre
+        clean_name = re.sub(r"[^\w\s-]", "", project_name.lower()).strip()
+        clean_name = re.sub(r"[-\s]+", "_", clean_name) or "proyecto"
+
+        target_dir = os.path.join(self.projects_dir, year_str, month_str, day_str, workflow_id, clean_name)
+        os.makedirs(target_dir, exist_ok=True)
+        return target_dir
+
+    def find_project_manifest(self, project_id: str) -> Optional[str]:
+        """Busca un project.json tanto en la estructura jerárquica como en la raíz de projects/."""
+        # 1. Búsqueda directa plana
+        flat_p = os.path.join(self.projects_dir, project_id, "project.json")
+        if os.path.isfile(flat_p):
+            return flat_p
+        
+        # 2. Búsqueda recursiva en la jerarquía YYYY/MM/DD/workflow/name/
+        import glob
+        matches = glob.glob(os.path.join(self.projects_dir, "**", project_id, "project.json"), recursive=True)
+        if matches:
+            return matches[0]
+        
+        # 3. Búsqueda por coincidencia de nombre de carpeta
+        for p_json in glob.glob(os.path.join(self.projects_dir, "**", "project.json"), recursive=True):
+            if os.path.basename(os.path.dirname(p_json)) == project_id:
+                return p_json
+            try:
+                with open(p_json, "r", encoding="utf-8") as f:
+                    p_data = json.load(f)
+                    if p_data.get("project_id") == project_id or p_data.get("id") == project_id:
+                        return p_json
+            except Exception:
+                pass
+        return None
+
     def load_project_dict(self, project_id: str) -> Optional[dict]:
         """Carga el diccionario completo del proyecto desde disco o Firestore."""
         # 1. Intentar cargar desde disco local
-        manifest_path = os.path.join(self.projects_dir, project_id, "project.json")
-        if os.path.isfile(manifest_path):
+        manifest_path = self.find_project_manifest(project_id)
+        if manifest_path and os.path.isfile(manifest_path):
             try:
                 with open(manifest_path, "r", encoding="utf-8") as f:
-                    return json.load(f)
+                    data = json.load(f)
+                    data["_local_dir"] = os.path.dirname(manifest_path)
+                    return data
             except Exception:
                 pass
 
@@ -189,25 +235,34 @@ class ProjectRepository:
         global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH
         
         now = time.time()
-        # Retornar instantáneamente de RAM si la caché tiene menos de 10 segundos
-        if not force_refresh and _PROJECTS_SUMMARY_CACHE and (now - _PROJECTS_SUMMARY_LAST_FETCH < 10.0):
+        if not force_refresh and _PROJECTS_SUMMARY_CACHE and (now - _PROJECTS_SUMMARY_LAST_FETCH < 5.0):
             return _PROJECTS_SUMMARY_CACHE
 
         projects_list = []
         import glob
-        for p_dir in glob.glob(os.path.join(self.projects_dir, "*")):
-            if not os.path.isdir(p_dir):
-                continue
-            pid = os.path.basename(p_dir)
-            p_json = os.path.join(p_dir, "project.json")
-            
+        # Búsqueda recursiva de todos los project.json en la jerarquía YYYY/MM/DD/workflow/name/
+        manifest_files = glob.glob(os.path.join(self.projects_dir, "**", "project.json"), recursive=True)
+        
+        for p_json in manifest_files:
+            p_dir = os.path.dirname(p_json)
+            rel_path = os.path.relpath(p_dir, self.projects_dir)
+            parts = rel_path.split(os.sep)
+
             p_data = {}
-            if os.path.isfile(p_json):
-                try:
-                    with open(p_json, "r", encoding="utf-8") as f:
-                        p_data = json.load(f)
-                except Exception:
-                    pass
+            try:
+                with open(p_json, "r", encoding="utf-8") as f:
+                    p_data = json.load(f)
+            except Exception:
+                continue
+
+            pid = p_data.get("project_id") or p_data.get("id") or os.path.basename(p_dir)
+            
+            # Extraer fecha y workflow del path si cumple la jerarquía
+            year = parts[0] if len(parts) >= 5 else ""
+            month = parts[1] if len(parts) >= 5 else ""
+            day = parts[2] if len(parts) >= 5 else ""
+            wf_id = parts[3] if len(parts) >= 5 else p_data.get("workflow_id", "workflow_vox_documentary_3min")
+            folder_name = parts[4] if len(parts) >= 5 else os.path.basename(p_dir)
 
             # Buscar vídeo final si existe
             has_video = False
@@ -219,25 +274,22 @@ class ProjectRepository:
                     final_video_path = vids[0]
                     break
 
-            # Buscar marcador de sincronización en la nube .r2_synced.json
-            r2_marker = os.path.join(p_dir, ".r2_synced.json")
-            cloud_synced = False
-            cloud_url = ""
-            if os.path.isfile(r2_marker):
-                try:
-                    with open(r2_marker, "r", encoding="utf-8") as f:
-                        r2_data = json.load(f)
-                        cloud_synced = bool(r2_data.get("synced"))
-                        cloud_url = r2_data.get("presigned_url", "")
-                except Exception:
-                    pass
-
             projects_list.append({
                 "project_id": pid,
                 "task_id": pid,
                 "title": p_data.get("title") or p_data.get("subject", pid),
                 "subject": p_data.get("subject") or p_data.get("title", pid),
-                "workflow_id": p_data.get("workflow_id", "PIXAR_3D_ANIMATION"),
+                "workflow_id": wf_id,
+                "year": year,
+                "month": month,
+                "day": day,
+                "folder_name": folder_name,
+                "rel_path": rel_path,
+                "storage_dir": p_dir,
+                "status": p_data.get("status", "draft"),
+                "has_video": has_video,
+                "video_path": final_video_path,
+                "created_at": p_data.get("created_at", os.path.getmtime(p_json)),
                 "workflow_name": p_data.get("workflow_name", "Producción Cinemática"),
                 "workflow_icon": p_data.get("workflow_icon", "🎬"),
                 "status": "COMPLETED" if has_video else p_data.get("status", "DRAFT"),
@@ -245,9 +297,8 @@ class ProjectRepository:
                 "voice_id": p_data.get("voice_id", "vibevoice"),
                 "scenes_count": len(p_data.get("scenes", [])),
                 "has_video": has_video,
-                "local_video_path": final_video_path,
-                "cloud_synced": cloud_synced,
-                "cloud_url": cloud_url,
+                "cloud_synced": bool(p_data.get("cloud_synced", False)),
+                "cloud_url": p_data.get("cloud_url", ""),
                 "director_spec": p_data.get("director_spec", {}),
                 "scenes": p_data.get("scenes", []),
                 "messages": p_data.get("messages", []),

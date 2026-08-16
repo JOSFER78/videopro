@@ -252,6 +252,9 @@ def _render_project_card(proj: dict):
             <div style="font-size:15px; font-weight:800; color:#f8fafc; margin-bottom:4px; line-height:1.3;">
                 {title}
             </div>
+            <div style="font-size:11px; font-family:monospace; color:#38bdf8; background:rgba(15,23,42,0.8); padding:2px 6px; border-radius:4px; margin-bottom:6px; display:inline-block; border:1px solid #1e293b;">
+                📁 {proj.get('rel_path', p_id)}
+            </div>
         """, unsafe_allow_html=True)
 
         if premise and premise != title:

@@ -291,12 +291,13 @@ def render_studio_orchestrator_view():
         </div>
     """, unsafe_allow_html=True)
 
-    tab_director, tab_planner, tab_workflows, tab_engines, tab_jobs = st.tabs([
+    tab_director, tab_planner, tab_workflows, tab_engines, tab_jobs, tab_ontology = st.tabs([
         "🚀 Empezar & Co-Creación",
         "🎯 Request Planner Libre",
         "🎛️ Registro de Workflows",
         "⚙️ Capacidades & Motores",
-        "📈 Trazabilidad de Jobs"
+        "📈 Trazabilidad de Jobs",
+        "🏛️ Ontología (4 Niveles & Firebase)"
     ])
 
     # =========================================================
@@ -693,6 +694,82 @@ def render_studio_orchestrator_view():
                     st.markdown(f"• **Proyecto:** `{j_proj}` | **Duración:** {j_metrics.get('total_duration_seconds', 0):.2f}s")
                     st.markdown(f"• **Pasos Ejecutados:** {len(j_steps)}")
                     st.json(job_rec)
+
+    # =========================================================
+    # TAB 6: ONTOLOGÍA DEL SISTEMA (4 NIVELES & FIREBASE)
+    # =========================================================
+    with tab_ontology:
+        from app.core.orchestration.videopro_system_registry import (
+            SYSTEM_APIS, SYSTEM_CAPABILITIES, SYSTEM_NODES, SYSTEM_WORKFLOWS, sync_entire_ontology_to_firebase
+        )
+
+        st.markdown("### 🏛️ Arquitectura de 4 Niveles — VideoPro & Hermes Engine")
+        st.caption("Jerarquía clara y unificada entre APIs/Proveedores, Capacidades Atómicas, Nodos de Producción y Workflows de Canales YouTube.")
+
+        c_sync1, c_sync2 = st.columns([8, 2], vertical_alignment="center")
+        with c_sync1:
+            st.info("🔥 **Sincronización en la Nube:** Los 4 niveles están respaldados en tiempo real en Firebase Firestore (`ayuda-emilio-83261`).")
+        with c_sync2:
+            if st.button("🔄 Sync Firebase", use_container_width=True):
+                ok = sync_entire_ontology_to_firebase()
+                if ok:
+                    st.success("¡Sincronizado en Firestore!")
+                else:
+                    st.error("Error al sincronizar.")
+
+        # Sub-tabs para los 4 Niveles
+        sub_ont1, sub_ont2, sub_ont3, sub_ont4 = st.tabs([
+            "📡 1. APIs & Recursos",
+            "⚡ 2. Capacidades Atómicas",
+            "🧱 3. Nodos de Producción",
+            "🎬 4. Workflows / Canales YouTube"
+        ])
+
+        with sub_ont1:
+            st.markdown("##### 📡 Nivel 1: APIs, Servidores y Servicios Base")
+            st.caption("Proveedores de infraestructura, serverless, bases de datos y motores de código.")
+            for api_id, api_obj in SYSTEM_APIS.items():
+                with st.expander(f"🔌 `{api_obj.id}` — {api_obj.name} ({api_obj.category.value})", expanded=False):
+                    st.markdown(f"• **Categoría:** `{api_obj.category.value}`")
+                    st.markdown(f"• **Base URL / Endpoint:** `{api_obj.base_url or 'N/A (Local / Cloud Native)'}`")
+                    st.markdown(f"• **Serverless Gratuito:** `{'Sí' if api_obj.is_serverless_free else 'No'}`")
+                    st.markdown(f"• **Estado:** `🟢 {api_obj.status}`")
+
+        with sub_ont2:
+            st.markdown("##### ⚡ Nivel 2: Capacidades Atómicas (Capabilities)")
+            st.caption("Unidades ejecutables que consumen una o más APIs para realizar una tarea específica.")
+            for cap_id, cap_obj in SYSTEM_CAPABILITIES.items():
+                with st.expander(f"⚙️ `{cap_obj.id}` — {cap_obj.name} [{cap_obj.output_type}]", expanded=False):
+                    st.markdown(f"• **Descripción:** {cap_obj.description}")
+                    st.markdown(f"• **Tipo de Salida:** `{cap_obj.output_type}`")
+                    st.markdown(f"• **APIs Requeridas:** `{', '.join(cap_obj.required_apis) if cap_obj.required_apis else 'Motor Interno'}`")
+
+        with sub_ont3:
+            st.markdown("##### 🧱 Nivel 3: Nodos de Producción (Nodes)")
+            st.caption("Agrupación funcional de capacidades coordinadas que resuelven una etapa completa.")
+            for node_id, node_obj in SYSTEM_NODES.items():
+                with st.expander(f"📦 Nodo {node_obj.number}: **{node_obj.name}** (`{node_obj.id}`)", expanded=True):
+                    st.markdown(f"• **Rol Funcional:** {node_obj.role_description}")
+                    st.markdown("• **Capacidades que Agrupa:**")
+                    for c_id in node_obj.capabilities:
+                        c_meta = SYSTEM_CAPABILITIES.get(c_id)
+                        c_label = c_meta.name if c_meta else c_id
+                        st.markdown(f"  - ⚡ `{c_id}`: *{c_label}*")
+
+        with sub_ont4:
+            st.markdown("##### 🎬 Nivel 4: Workflows / Pipelines por Canal de YouTube")
+            st.caption("La secuencia completa y optimizada de nodos diseñada específicamente para un canal de YouTube.")
+            for wf_id, wf_obj in SYSTEM_WORKFLOWS.items():
+                with st.expander(f"🎥 **{wf_obj.name}** (`{wf_obj.id}`)", expanded=True):
+                    st.markdown(f"• **Descripción:** {wf_obj.description}")
+                    st.markdown(f"• **Canal Objetivo:** `{wf_obj.channel_target.channel_name}` ({wf_obj.channel_target.niche})")
+                    st.markdown(f"• **Formato & Estilo Visual:** `{wf_obj.channel_target.format}` — *{wf_obj.channel_target.visual_style}*")
+                    st.markdown("• **Secuencia Ordenada de Nodos:**")
+                    for n_idx, n_id in enumerate(wf_obj.ordered_nodes, 1):
+                        n_meta = SYSTEM_NODES.get(n_id)
+                        n_label = n_meta.name if n_meta else n_id
+                        st.markdown(f"  {n_idx}. 🧱 **Nodo {n_meta.number if n_meta else n_idx}:** {n_label} (`{n_id}`)")
+
 
 
 def _handle_user_director_message(user_text: str, arch_id: str):
