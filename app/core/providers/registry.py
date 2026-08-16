@@ -904,17 +904,54 @@ DEFAULT_PROVIDERS = {
     }
 }
 
+DELETED_PROVIDERS_PATH = os.path.join(BASE_DIR, "storage", "deleted_providers.json")
+
+
+def load_deleted_providers() -> set:
+    """Retorna el conjunto de IDs de proveedores eliminados permanentemente (tombstones)."""
+    if os.path.isfile(DELETED_PROVIDERS_PATH):
+        try:
+            with open(DELETED_PROVIDERS_PATH, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                if isinstance(data, list):
+                    return set(data)
+        except Exception:
+            pass
+    return set()
+
+
+def save_deleted_provider(provider_id: str):
+    """Registra un ID de proveedor en el fichero de borrados permanentes (tombstones)."""
+    tombstones = load_deleted_providers()
+    tombstones.add(provider_id)
+    try:
+        os.makedirs(os.path.dirname(DELETED_PROVIDERS_PATH), exist_ok=True)
+        with open(DELETED_PROVIDERS_PATH, "w", encoding="utf-8") as f:
+            json.dump(sorted(list(tombstones)), f, indent=2)
+    except Exception as ex:
+        logger.error(f"Error al guardar tombstone de proveedor: {ex}")
+
 
 def load_registry() -> Dict[str, Any]:
-    """Carga el registro de proveedores desde disco. Respeta estrictamente los borrados y personalizaciones."""
+    """Carga el registro de proveedores desde disco. Respeta estrictamente los borrados y tombstones."""
+    tombstones = load_deleted_providers()
     os.makedirs(os.path.dirname(REGISTRY_PATH), exist_ok=True)
     if os.path.isfile(REGISTRY_PATH):
         try:
             with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
                 saved = json.load(f)
-                # Merge metadata fields and restore rich categories/preferences if empty
+            if isinstance(saved, dict):
                 import copy
-                for k, v in saved.items():
+                # Purga inmediata de cualquier proveedor borrado
+                for dead_id in list(tombstones):
+                    if dead_id in saved:
+                        del saved[dead_id]
+                
+                # Merge de metadatos SOLO para proveedores existentes no borrados
+                for k, v in list(saved.items()):
+                    if k in tombstones:
+                        del saved[k]
+                        continue
                     if k in DEFAULT_PROVIDERS:
                         def_info = DEFAULT_PROVIDERS[k]
                         for m_field in ("doc_link", "doc_link_text", "api_key_field", "endpoint_field", "model_field", "model_options", "source_engine", "label", "description"):
@@ -930,21 +967,23 @@ def load_registry() -> Dict[str, Any]:
         except Exception as ex:
             logger.error(f"Error al cargar registro de proveedores: {ex}")
     
-    # Inicializar con defaults si no existe archivo
-    initial = dict(DEFAULT_PROVIDERS)
+    # Inicializar con defaults excluyendo permanentemente los borrados
+    initial = {k: v for k, v in DEFAULT_PROVIDERS.items() if k not in tombstones}
     save_registry(initial)
     return initial
 
 
 def save_registry(registry_data: Dict[str, Any]):
-    """Guarda el estado activo del registro de proveedores en disco sin reiniciar Streamlit."""
+    """Guarda el estado activo del registro de proveedores en disco, purgando cualquier tombstone."""
+    tombstones = load_deleted_providers()
+    cleaned = {k: v for k, v in registry_data.items() if k not in tombstones}
     try:
         os.makedirs(os.path.dirname(REGISTRY_PATH), exist_ok=True)
         with open(REGISTRY_PATH, "w", encoding="utf-8") as f:
-            json.dump(registry_data, f, indent=2, ensure_ascii=False)
+            json.dump(cleaned, f, indent=2, ensure_ascii=False)
         
         # Sincronizar lista de proveedores activos en memoria
-        active_ids = [k for k, v in registry_data.items() if v.get("enabled", True)]
+        active_ids = [k for k, v in cleaned.items() if v.get("enabled", True)]
         config.app["enabled_providers"] = active_ids
     except Exception as ex:
         logger.error(f"Error al guardar registro de proveedores: {ex}")
@@ -966,19 +1005,27 @@ def is_provider_enabled(provider_id: str) -> bool:
 
 
 def delete_provider(provider_id: str) -> bool:
-    """Elimina permanentemente un proveedor del registro."""
-    reg = load_registry()
+    """Elimina permanentemente un proveedor del registro y lo bloquea con tombstone."""
+    save_deleted_provider(provider_id)
     aliases = {
         "kokoro": "kokoro_local",
         "vibevoice": "vibevoice_serverless",
         "flux": "flux_zerogpu"
     }
     target_id = aliases.get(provider_id, provider_id)
+    save_deleted_provider(target_id)
+    
+    reg = load_registry()
     if target_id in reg:
         del reg[target_id]
         save_registry(reg)
-        return True
-    return False
+    
+    try:
+        from app.services import firebase_sync
+        firebase_sync.save_settings_to_firebase_async()
+    except Exception:
+        pass
+    return True
 
 
 def set_provider_enabled(provider_id: str, enabled: bool):

@@ -126,6 +126,7 @@ def save_settings_to_firebase():
         elif isinstance(v, dict):
             app_data[k] = json.dumps(v)
 
+    # 1. Persistir global_config
     firestore_fields = {
         "updated_at": {"stringValue": datetime.now().isoformat()},
         "app_name": {"stringValue": "VideoPro Creative Studio"},
@@ -134,18 +135,39 @@ def save_settings_to_firebase():
     }
 
     try:
-        url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_settings/global_config"
-        resp = requests.patch(url, headers=headers, json={"fields": firestore_fields}, timeout=10)
-        if resp.status_code == 200:
-            return True, "Configuraciones guardadas y sincronizadas en Firebase Firestore."
-        else:
-            return False, f"Error al guardar en Firestore (HTTP {resp.status_code}): {resp.text}"
+        url_cfg = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_settings/global_config"
+        requests.patch(url_cfg, headers=headers, json={"fields": firestore_fields}, timeout=10)
+
+        # 2. Persistir registro unificado y tombstones de borrados
+        from app.core.providers import registry as prov_reg
+        reg_file = prov_reg.REGISTRY_PATH
+        del_file = prov_reg.DELETED_PROVIDERS_PATH
+
+        reg_data_str = "{}"
+        if os.path.isfile(reg_file):
+            with open(reg_file, "r", encoding="utf-8") as f:
+                reg_data_str = f.read()
+
+        del_data_str = "[]"
+        if os.path.isfile(del_file):
+            with open(del_file, "r", encoding="utf-8") as f:
+                del_data_str = f.read()
+
+        firestore_reg_fields = {
+            "updated_at": {"stringValue": datetime.now().isoformat()},
+            "registry_json": {"stringValue": reg_data_str},
+            "deleted_providers_json": {"stringValue": del_data_str}
+        }
+        url_reg = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_settings/providers_registry"
+        requests.patch(url_reg, headers=headers, json={"fields": firestore_reg_fields}, timeout=10)
+
+        return True, "Configuraciones, registro y lista de borrados sincronizados en Firebase Firestore."
     except Exception as ex:
         return False, f"Error al conectar con Firestore: {ex}"
 
 
 def load_settings_from_firebase():
-    """Descarga y aplica la configuración guardada en Firestore."""
+    """Descarga y aplica la configuración, registro y tombstones guardados en Firestore."""
     token = _get_firebase_auth_token()
     if not token:
         return False, "No autenticado en Firebase."
@@ -154,6 +176,36 @@ def load_settings_from_firebase():
     headers = {"Authorization": f"Bearer {token}"}
 
     try:
+        from app.core.providers import registry as prov_reg
+
+        # 1. Cargar tombstones y registro de proveedores desde Firestore
+        url_reg = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_settings/providers_registry"
+        resp_reg = requests.get(url_reg, headers=headers, timeout=10)
+        if resp_reg.status_code == 200:
+            doc_reg = resp_reg.json()
+            fields_reg = doc_reg.get("fields", {})
+            del_json_str = fields_reg.get("deleted_providers_json", {}).get("stringValue", "[]")
+            reg_json_str = fields_reg.get("registry_json", {}).get("stringValue", "{}")
+
+            try:
+                del_list = json.loads(del_json_str)
+                if isinstance(del_list, list):
+                    current_dels = prov_reg.load_deleted_providers()
+                    current_dels.update(del_list)
+                    os.makedirs(os.path.dirname(prov_reg.DELETED_PROVIDERS_PATH), exist_ok=True)
+                    with open(prov_reg.DELETED_PROVIDERS_PATH, "w", encoding="utf-8") as f:
+                        json.dump(sorted(list(current_dels)), f, indent=2)
+            except Exception:
+                pass
+
+            try:
+                parsed_reg = json.loads(reg_json_str)
+                if isinstance(parsed_reg, dict) and len(parsed_reg) > 0:
+                    prov_reg.save_registry(parsed_reg)
+            except Exception:
+                pass
+
+        # 2. Cargar global_config
         url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_settings/global_config"
         resp = requests.get(url, headers=headers, timeout=10)
         if resp.status_code != 200:
@@ -176,7 +228,7 @@ def load_settings_from_firebase():
         if hasattr(config, "save_config"):
             config.save_config()
 
-        return True, "Configuraciones restauradas desde Firebase Firestore."
+        return True, "Configuraciones y proveedores restaurados desde Firebase Firestore."
     except Exception as ex:
         return False, f"Error al descargar de Firestore: {ex}"
 
