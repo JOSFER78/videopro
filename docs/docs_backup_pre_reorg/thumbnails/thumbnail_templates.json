@@ -1,0 +1,92 @@
+{
+  "project": "CHRONODRIFT",
+  "version": "1.0.0",
+  "safe_zones": {
+    "youtube_16_9": {
+      "width": 1280,
+      "height": 720,
+      "zone_a_text": {"x": 40, "y": 40, "max_w": 480, "max_h": 220},
+      "zone_b_timestamp": {"x": 1000, "y": 40, "max_w": 240, "max_h": 80},
+      "zone_c_focal_point": {"x": 300, "y": 150, "max_w": 680, "max_h": 420},
+      "zone_d_telemetry": {"x": 40, "y": 620, "max_w": 400, "max_h": 60},
+      "forbidden_duration_badge": {"x": 1100, "y": 650, "w": 160, "h": 50}
+    },
+    "shorts_9_16": {
+      "width": 1080,
+      "height": 1920,
+      "top_margin_forbidden": 150,
+      "bottom_margin_forbidden": 300,
+      "safe_action_area": {"x": 60, "y": 200, "w": 960, "h": 1400}
+    }
+  },
+  "color_palette": {
+    "chrono_void": {"hex": "#06080D", "hsl": "hsl(223, 37%, 4%)", "rgb": [6, 8, 13], "role": "background_contrast"},
+    "quantum_cyan": {"hex": "#00F2FE", "hsl": "hsl(184, 100%, 50%)", "rgb": [0, 242, 254], "role": "future_hud_lidar"},
+    "telemetry_amber": {"hex": "#FFA726", "hsl": "hsl(36, 100%, 57%)", "rgb": [255, 167, 38], "role": "history_gold_sun"},
+    "ion_magenta": {"hex": "#FF007A", "hsl": "hsl(331, 100%, 50%)", "rgb": [255, 0, 122], "role": "alert_anomaly_glitch"},
+    "titanium_white": {"hex": "#F8FAFC", "hsl": "hsl(210, 40%, 98%)", "rgb": [248, 250, 252], "role": "display_typography"}
+  },
+  "typography": {
+    "display": ["Monument Extended Black", "Druk Wide Heavy", "Bebas Neue Pro", "Chakra Petch Bold"],
+    "hud": ["JetBrains Mono", "Share Tech Mono"],
+    "stroke_width_px": 10,
+    "drop_shadow": "0 15px 25px rgba(0,0,0,0.95)"
+  },
+  "formulas": [
+    {
+      "id": "formula_1_split_screen",
+      "name": "Split-Screen Temporal (Pasado / Presente / Futuro)",
+      "target_ctr": "16.8% - 19.5%",
+      "composition": "Tríptico vertical con horizonte continuo al 35% y línea de láser 3D",
+      "rule_of_3_elements": ["Lado Pasado (Oro/Mármol)", "Lado Futuro (Arcología Neón)", "Micro-texto central"],
+      "max_words": 3,
+      "micro_text_examples": ["3,000 AÑOS DESPUÉS", "EL MISMO LUGAR", "ERA VS ERA"],
+      "hud_elements": ["[-280 a.C.]", "[2026 d.C.]", "[+2450 d.C.]", "GEO_LOCK: 31.2001° N"],
+      "master_prompt": "Cinematic wide 16:9 master split-screen composition of ancient monument in three connected eras on the exact same shoreline. Left: ancient era with pristine marble and golden hour light. Middle: modern era ruins under overcast natural light. Right: colossal futuristic cyber-city with blue quantum conduits. Perfectly aligned horizon line, hyper-detailed 8k, Kodak Vision3 500T 35mm grain, ARRI Alexa LF --ar 16:9 --style raw"
+    },
+    {
+      "id": "formula_2_fpv_dive",
+      "name": "Vuelo Rasante Imposible FPV entre Rascacielos",
+      "target_ctr": "15.2% - 18.1%",
+      "composition": "Dutch angle 15° con perspectiva cónica acelerada y radial motion blur",
+      "rule_of_3_elements": ["Cabina / HUD militar", "Cañón de rascacielos verticales", "Alerta de velocidad"],
+      "max_words": 3,
+      "micro_text_examples": ["VELOCIDAD LÍMITE", "CAÍDA LIBRE 2150", "SIN RETORNO"],
+      "hud_elements": ["VEL: MACH 1.84", "ALT: 18 METROS", "COLLISION WARNING: 0.2S"],
+      "master_prompt": "First-person cockpit FPV view flying at supersonic speed between monolithic vertical megastructures in Neo-Tokyo year 2150. Aggressive 15-degree dutch angle, kinetic radial motion blur, wet carbon-fiber reflections, volumetric rain streaks, anamorphic blue lens flare, 8k octane render --ar 16:9 --style raw"
+    },
+    {
+      "id": "formula_3_lost_city_lidar",
+      "name": "Lost City con Match-Cut Arqueológico & LiDAR",
+      "target_ctr": "17.4% - 20.2%",
+      "composition": "Simetría axial con haz vertical LiDAR dividiendo ruina y reconstrucción dorada",
+      "rule_of_3_elements": ["Ruina erosionada real", "Holograma dorado intacto", "Silueta humana de escala 1:100"],
+      "max_words": 3,
+      "micro_text_examples": ["ASÍ ERA REALMENTE", "OCULTA POR SIGLOS", "EL TEMPLO PERDIDO"],
+      "hud_elements": ["LIDAR SCAN: ACTIVE", "EPOCH MATCH: 1250 BCE", "EXCAVATION MATCH 99.4%"],
+      "master_prompt": "Cinematic eye-level majestic composition of ancient wonder. Left side shows actual eroded desert ruins buried in sand under harsh sunlight. Glowing vertical neon cyan laser scanning beam bisects frame. Right side shows photorealistic reconstruction in full historic glory with marble, gold, lush flora. Tiny silhouette of modern explorer with flashlight. 8k, Hasselblad medium format --ar 16:9 --style raw"
+    },
+    {
+      "id": "formula_4_macro_arcology",
+      "name": "Macro-Visión Futurista 2226 con Arcologías",
+      "target_ctr": "15.8% - 18.5%",
+      "composition": "Perspectiva vertical monumental atravesando estratosfera y nubes volumétricas",
+      "rule_of_3_elements": ["Torre arcología de 5km", "Capa de nubes volumétricas", "Enjambre de naves minúsculas"],
+      "max_words": 4,
+      "micro_text_examples": ["AÑO 2226: VIVIR AQUÍ", "CIUDAD DE 100M", "EL FIN DEL SUELO"],
+      "hud_elements": ["ELEVACIÓN: 4,800M", "CAPACIDAD: 15M HAB", "O2 PURITY: 99.2%"],
+      "master_prompt": "Cinematic wide atmospheric shot of colossal vertical arcology city reaching 5,000 meters into sky piercing through dramatic storm clouds into golden sunset stratosphere, year 2226. Integrated vertical biodomes, gleaming white nanotech ceramic surfaces, transparent sky-bridges, tiny autonomous flying vehicles with light trails. 70mm IMAX lens, 8k --ar 16:9 --style raw"
+    },
+    {
+      "id": "formula_5_urban_paradox",
+      "name": "Paradoja Urbana '¿Qué Pasó Aquí?'",
+      "target_ctr": "18.2% - 21.6%",
+      "composition": "Avenida icónica desierta con anomalía gravitacional y distorsión espacial en punto áureo",
+      "rule_of_3_elements": ["Calle emblemática desierta", "Vórtice esférico levitante", "Micro-texto de disonancia"],
+      "max_words": 3,
+      "micro_text_examples": ["¿QUÉ PASÓ AQUÍ?", "NO DEBERÍA EXISTIR", "ERROR EN EL TIEMPO"],
+      "hud_elements": ["ANOMALY: LEVEL 5", "TACHYON SPIKE: +890%", "TIMELINE: FRACTURED"],
+      "master_prompt": "Cinematic haunting street-level view of completely abandoned Shibuya Crossing or Times Square in eerie silence, overgrown with wild vines. In middle of intersection, impossible floating gravitational anomaly bending light around it, with yellow taxis and streetlamps levitating in mid-air in zero-gravity vortex. Glowing purple tachyon lightning, moody wet asphalt reflections, 8k --ar 16:9 --style raw"
+    }
+  ]
+}
