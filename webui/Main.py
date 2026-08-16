@@ -4470,24 +4470,20 @@ def _render_semantic_director_studio(params):
 
 def _render_sidebar_navigation():
     with st.sidebar:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(168, 85, 247, 0.15)); border: 1px solid rgba(255, 255, 255, 0.12); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
-            <div style="font-weight: 800; font-size: 15px; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
-                <span>🎬</span> VideoPro Studio
-            </div>
-            <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">Suite Multimodal Integrada v2.5</div>
-        </div>
-        """, unsafe_allow_html=True)
+        st.markdown("#### VideoPro Studio")
+        st.caption("Suite Multimodal Integrada v2.5")
         
-        st.markdown("#### 🧭 Páginas del Estudio")
-        st.page_link("Main.py", label="🏠 Generador Principal", icon="🎬")
-        st.page_link("pages/1_🛸_LTX25_FLUX3_Studio.py", label="🛸 LTX-2.5 & FLUX 3 Studio", icon="🛸")
-        st.page_link("pages/2_🎙️_Voice_Studio_ElevenLabs.py", label="🎙️ Voice Studio SOTA", icon="🎙️")
-        st.page_link("pages/3_🔑_Serverless_API_Hub.py", label="🔑 Gestor de APIs & Tokens", icon="🔑")
-        st.page_link("pages/4_🎞️_Cinema_Master_Player.py", label="🎞️ Cinema Master Player", icon="🎞️")
-        st.page_link("pages/5_📚_Docs_Guia_Maestra.py", label="📚 Guía Maestra & Docs SOTA", icon="📚")
-        st.page_link("pages/6_🎵_Flow_Music_Studio.py", label="🎵 Flow Music Studio (Lyria 3)", icon="🎵")
-        st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
+        st.markdown("#### Páginas del Estudio")
+        st.page_link("Main.py", label="Generador Principal")
+        st.page_link("pages/1_LTX25_FLUX3_Studio.py", label="LTX-2.5 & FLUX 3 Studio")
+        st.page_link("pages/2_Voice_Studio.py", label="Voice Studio")
+        st.page_link("pages/3_Serverless_API_Hub.py", label="Gestor de APIs & Tokens")
+        st.page_link("pages/4_Cinema_Player.py", label="Cinema Master Player")
+        st.page_link("pages/5_Docs_Guia_Maestra.py", label="Guía Maestra")
+        st.page_link("pages/6_Flow_Music_Studio.py", label="Flow Music Studio")
+        st.page_link("pages/7_Matriz_Maestra_Live.py", label="Matriz Maestra Live")
+        st.page_link("pages/8_Ajustes_y_Gestion_de_Proyectos.py", label="Ajustes y Gestión de Proyectos")
+        st.page_link("pages/9_Boveda_Multimedia.py", label="Bóveda Multimedia")
         
         st.markdown("---")
         st.markdown("#### 🌐 Ecosistema de Webs & Portales")
