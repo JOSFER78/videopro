@@ -24,7 +24,7 @@ except ImportError:
     import jsonschema
 
 WORKSPACE_ROOT = Path("/home/ubuntu/workspace/pro/hermes/10_videopro")
-DOCS_DIR = WORKSPACE_ROOT / "docs/investigaciones/youtube/01_CHRONODRIFT"
+DOCS_DIR = WORKSPACE_ROOT / "docs/youtube/mis_canales/01_CHRONODRIFT"
 SCHEMAS_DIR = DOCS_DIR / "schemas"
 GROUNDING_DIR = WORKSPACE_ROOT / "data/tritemporal_grounding"
 MANIFESTS_DIR = WORKSPACE_ROOT / "data/tritemporal_manifests"
