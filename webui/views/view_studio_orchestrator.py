@@ -235,10 +235,12 @@ def _persist_current_project(project_id: str, title: str, plan):
         )
         repo.save_project(proj)
         
-        # Guardar también project.json enriquecido
+        # Guardar en la estructura estándar: storage/projects/YYYY/MM/DD/workflow_id/project_name/
         base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-        target_dir = os.path.join(base_dir, "storage", "projects", project_id)
+        target_dir = repo.get_project_dir_structured(arch_id, title or project_id)
         os.makedirs(target_dir, exist_ok=True)
+        rel_storage_path = os.path.relpath(target_dir, os.path.join(base_dir, "storage", "projects"))
+        parts = rel_storage_path.split(os.sep)
 
         full_project_data = {
             "project_id": project_id,
@@ -248,6 +250,11 @@ def _persist_current_project(project_id: str, title: str, plan):
             "workflow_id": arch_id,
             "workflow_name": arch.name,
             "workflow_icon": arch.icon,
+            "year": parts[0] if len(parts) >= 5 else datetime.now().strftime("%Y"),
+            "month": parts[1] if len(parts) >= 5 else datetime.now().strftime("%m"),
+            "day": parts[2] if len(parts) >= 5 else datetime.now().strftime("%d"),
+            "folder_name": parts[4] if len(parts) >= 5 else os.path.basename(target_dir),
+            "storage_path": os.path.relpath(target_dir, base_dir),
             "status": "DRAFT",
             "aspect_ratio": getattr(plan, "aspect_ratio", cur_spec.get("aspect_ratio", "16:9")),
             "voice_id": getattr(plan, "voice_id", cur_spec.get("voice_preset", "vibevoice")),
