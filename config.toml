@@ -114,7 +114,7 @@ llm_max_tokens = 4096
 voice_provider = "Kokoro TTS HD (Local 24kHz - $0 Puerto 7892)"
 voice_rate = 1.0
 ducking_level = -22
-default_resolution = "1080x1920 (Vertical 9:16 TikTok / Shorts)"
+default_resolution = "1080x1920 (9:16 Vertical)"
 default_fps = 24
 ffmpeg_threads = 4
 s3_endpoint = ""
@@ -123,9 +123,10 @@ s3_bucket = "videopro-masters"
 s3_secret_key = ""
 auto_upload_r2 = false
 anthropic_api_key = ""
-whisper_provider = "Groq Whisper Cloud (Ultra-Rápido)"
+whisper_provider = "Groq Whisper Cloud"
 subtitle_max_words = 2
 subtitle_style = "Vox Highlight (Amarillo Dinámico)"
+suno_api_key = ""
 
 [whisper]
 model_size = "base"
