@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronoDriftStoryboardGeminiOmniSchema",
+  "description": "Schema de validación para Storyboards, Prompts 7D de Gemini Omni Flash y 7 Keyframes Consistentes por Plano",
+  "type": "object",
+  "required": [
+    "story_id",
+    "episode_number",
+    "channel_brand",
+    "city_key",
+    "city_name",
+    "total_duration_sec",
+    "target_engine",
+    "keyframe_engine",
+    "zero_veo_policy",
+    "audio_spec",
+    "hook_strategy",
+    "canonical_shots",
+    "shorts_funnel"
+  ],
+  "properties": {
+    "story_id": { "type": "string" },
+    "episode_number": { "type": "integer", "minimum": 1, "maximum": 12 },
+    "channel_brand": { "type": "string", "const": "CHRONODRIFT" },
+    "tagline": { "type": "string" },
+    "city_key": { "type": "string" },
+    "city_name": { "type": "string" },
+    "total_duration_sec": { "type": "number", "minimum": 40.0, "maximum": 46.0 },
+    "target_engine": { "type": "string", "const": "gemini-omni-flash-preview" },
+    "keyframe_engine": { "type": "string", "const": "gemini-3.1-flash-image" },
+    "zero_veo_policy": { "type": "boolean", "const": true },
+    "audio_spec": {
+      "type": "object",
+      "required": ["tempo_bpm", "style", "loudness_target_lufs", "ducking_depth_db", "true_peak_dbtp"],
+      "properties": {
+        "tempo_bpm": { "type": "integer", "const": 118 },
+        "style": { "type": "string" },
+        "loudness_target_lufs": { "type": "number", "const": -14.0 },
+        "ducking_depth_db": { "type": "number", "const": -18.0 },
+        "true_peak_dbtp": { "type": "number", "maximum": -1.0 }
+      }
+    },
+    "hook_strategy": {
+      "type": "object",
+      "required": ["initial_hook_0_5s", "target_first_minute_retention", "target_avd"],
+      "properties": {
+        "initial_hook_0_5s": { "type": "string" },
+        "target_first_minute_retention": { "type": "string" },
+        "target_avd": { "type": "string" }
+      }
+    },
+    "canonical_shots": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": [
+          "shot_index",
+          "shot_id",
+          "epoch",
+          "duration_sec",
+          "time_window",
+          "camera_motion",
+          "prompt_brief",
+          "gemini_omni_flash_prompt",
+          "keyframe_prompts_7",
+          "hud_overlay",
+          "audio_cue"
+        ],
+        "properties": {
+          "shot_index": { "type": "integer", "minimum": 1, "maximum": 7 },
+          "shot_id": { "type": "string" },
+          "epoch": { "type": "string" },
+          "duration_sec": { "type": "number" },
+          "time_window": { "type": "string" },
+          "camera_motion": { "type": "string" },
+          "prompt_brief": { "type": "string" },
+          "gemini_omni_flash_prompt": {
+            "type": "object",
+            "required": [
+              "subject",
+              "visual_specifics",
+              "action",
+              "camera",
+              "lighting",
+              "environment",
+              "audio",
+              "style"
+            ],
+            "properties": {
+              "subject": { "type": "string" },
+              "visual_specifics": { "type": "string" },
+              "action": { "type": "string" },
+              "camera": { "type": "string" },
+              "lighting": { "type": "string" },
+              "environment": { "type": "string" },
+              "audio": { "type": "string" },
+              "style": { "type": "string" }
+            }
+          },
+          "keyframe_prompts_7": {
+            "type": "array",
+            "minItems": 7,
+            "maxItems": 7,
+            "items": { "type": "string" }
+          },
+          "hud_overlay": {
+            "type": "object",
+            "required": ["title", "telemetry", "fact_text", "citation"],
+            "properties": {
+              "title": { "type": "string" },
+              "telemetry": { "type": "string" },
+              "fact_text": { "type": "string" },
+              "citation": { "type": "string" }
+            }
+          },
+          "audio_cue": {
+            "type": "object",
+            "required": ["music_layer", "foley", "ducking_db"],
+            "properties": {
+              "music_layer": { "type": "string" },
+              "foley": { "type": "string" },
+              "ducking_db": { "type": "number", "enum": [-18.0, 0.0] }
+            }
+          }
+        }
+      }
+    },
+    "shorts_funnel": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["short_id", "title", "duration_sec", "aspect_ratio", "hook_0_3s", "retention_mechanic", "target_vtr", "pinned_comment"],
+        "properties": {
+          "short_id": { "type": "string" },
+          "title": { "type": "string" },
+          "duration_sec": { "type": "number" },
+          "aspect_ratio": { "type": "string" },
+          "hook_0_3s": { "type": "string" },
+          "retention_mechanic": { "type": "string" },
+          "target_vtr": { "type": "string" },
+          "pinned_comment": { "type": "string" }
+        }
+      }
+    }
+  }
+}

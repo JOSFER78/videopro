@@ -1,0 +1,55 @@
+{
+  "suite_name": "Wide Horizon (15-Minute Cinematic Orchestral Suite)",
+  "version": "1.0.0",
+  "tuning_hz": 432,
+  "target_duration_seconds": 900,
+  "crossfade_overlap_seconds": 6.0,
+  "crossfade_curve": "exp",
+  "phases": [
+    {
+      "phase_index": 1,
+      "name": "Phase 1: Base Track",
+      "timestamp_range": "0:00 - 3:00",
+      "function": "Introduction & Tonal Anchor",
+      "prompt_en": "Wide Horizon. Cinematic orchestral film score, warm 432Hz tuning. Sweeping atmospheric strings, gentle ambient synths, subtle ear-to-ear textures, slow walking pace. Soft melodic introduction, purely instrumental, zero drums, ultra-wide soundstage.",
+      "prompt_es": "Banda sonora orquestal cinematográfica, afinación cálida en 432Hz. Cuerdas atmosféricas envolventes, sintetizadores ambientales suaves, sutiles texturas binaurales de oído a oído, ritmo lento y pausado. Introducción melódica dulce, puramente instrumental, sin percusión, campo sonoro ultra amplio.",
+      "dynamic_energy_level": 1
+    },
+    {
+      "phase_index": 2,
+      "name": "Phase 2: First Extension",
+      "timestamp_range": "3:00 - 6:00",
+      "function": "Thematic Development & Pulse",
+      "prompt_en": "Extend maintaining exact key, tempo, and orchestration. Introduce steady low-end pulse and subtle timpani roll, gradual rhythmic build, evolving French horn theme, smooth seamless transition.",
+      "prompt_es": "Extender manteniendo la tonalidad, el tempo y la orquestación exactas. Introducir un pulso grave constante y redobles sutiles de timbal, desarrollo rítmico gradual, tema evolutivo de trompa francesa, transición suave y continua.",
+      "dynamic_energy_level": 2
+    },
+    {
+      "phase_index": 3,
+      "name": "Phase 3: Second Extension",
+      "timestamp_range": "6:00 - 9:00",
+      "function": "Harmonic Variation & Momentum",
+      "prompt_en": "Extend maintaining harmonic progression. Dynamic rhythmic shift, rich symphonic string layering, expanding brass harmonies, uplifting momentum, wide binaural panning.",
+      "prompt_es": "Extender manteniendo la progresión armónica. Cambio rítmico dinámico, capas ricas de cuerdas sinfónicas, expansión de armonías de metales, impulso ascendente emotivo, paneo binaural amplio.",
+      "dynamic_energy_level": 3
+    },
+    {
+      "phase_index": 4,
+      "name": "Phase 4: Third Extension (Climax)",
+      "timestamp_range": "9:00 - 12:00",
+      "function": "Triumphant Orchestral Climax",
+      "prompt_en": "Extend building to peak energy. Triumphant orchestral crescendo, powerful French horns and brass swells, epic emotional climax, majestic and expansive resolution.",
+      "prompt_es": "Extender construyendo hacia la energía máxima. Crescendo orquestal triunfante, trompas y oleadas de metales imponentes, clímax emocional épico, resolución majestuosa y expansiva.",
+      "dynamic_energy_level": 5
+    },
+    {
+      "phase_index": 5,
+      "name": "Phase 5: Fourth Extension (Outro)",
+      "timestamp_range": "12:00 - 15:00",
+      "function": "Decrescendo & Peaceful Outro",
+      "prompt_en": "Extend with smooth decrescendo. Percussion and rhythm fade out, soft lingering strings and warm ambient drones, gradual decay to silence, peaceful outro.",
+      "prompt_es": "Extender con un decrescendo suave y progresivo. Desvanecimiento de percusión y ritmo, cuerdas suaves persistentes y drones ambientales cálidos, decaimiento gradual hacia el silencio, outro pacífico.",
+      "dynamic_energy_level": 1
+    }
+  ]
+}

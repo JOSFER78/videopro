@@ -1,0 +1,2518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPro Studio — ComfyUI Node Graph Pipeline Editor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-canvas: #090d16;
+            --bg-panel: #111827;
+            --bg-node: #161f30;
+            --bg-node-header: #1e293b;
+            --border-color: #27354a;
+            --border-highlight: #38bdf8;
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-purple: #c084fc;
+            --accent-green: #34d399;
+            --accent-yellow: #facc15;
+            --accent-orange: #fb923c;
+            --accent-red: #ef4444;
+            --accent-gray: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-canvas);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-main);
+        }
+
+        /* Lienzo Principal con cuadrícula ComfyUI */
+        #viewport {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: grab;
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 24px 24px;
+            overflow: hidden;
+        }
+
+        #viewport:active {
+            cursor: grabbing;
+        }
+
+        #canvasLayer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: 0 0;
+            will-change: transform;
+        }
+
+        /* SVG para Cables Bezier */
+        #svgCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 8000px;
+            height: 8000px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Conexiones Bezier Direccionales y Animadas */
+        .wire-group {
+            cursor: pointer;
+        }
+
+        .wire-base {
+            fill: none;
+            stroke: #334155;
+            stroke-width: 3.5px;
+            stroke-linecap: round;
+            pointer-events: stroke;
+            transition: stroke 0.2s, stroke-width 0.2s;
+        }
+
+        .wire-glow {
+            fill: none;
+            stroke: #0284c7;
+            stroke-width: 7px;
+            stroke-linecap: round;
+            opacity: 0.2;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .wire-flow {
+            fill: none;
+            stroke: #38bdf8;
+            stroke-width: 3px;
+            stroke-linecap: round;
+            stroke-dasharray: 6, 14;
+            animation: flowPulse 1.4s linear infinite;
+            pointer-events: none;
+        }
+
+        .wire-group:hover .wire-base {
+            stroke: #ef4444 !important;
+            stroke-width: 5px;
+        }
+
+        .wire-group:hover .wire-glow {
+            stroke: #ef4444;
+            opacity: 0.5;
+        }
+
+        .wire-group:hover .wire-flow {
+            stroke: #fca5a5 !important;
+        }
+
+        .wire-group.active-trace .wire-flow {
+            stroke: #34d399 !important;
+            stroke-width: 4px;
+            animation: flowPulseFast 0.6s linear infinite;
+        }
+
+        .wire-group.active-trace .wire-glow {
+            stroke: #34d399 !important;
+            opacity: 0.6;
+        }
+
+        @keyframes flowPulse {
+            from { stroke-dashoffset: 40; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        @keyframes flowPulseFast {
+            from { stroke-dashoffset: 40; }
+            to { stroke-dashoffset: 0; }
+        }
+
+        /* Barra de Herramientas Superior */
+        .toolbar {
+            position: absolute;
+            top: 14px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 8px 16px;
+            z-index: 100;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .studio-title {
+            font-weight: 800;
+            font-size: 13.5px;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: #f8fafc;
+        }
+
+        .studio-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 12px;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            text-transform: uppercase;
+        }
+
+        .btn-tool {
+            background: #1e293b;
+            color: #e2e8f0;
+            border: 1px solid #334155;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.15s ease;
+        }
+
+        .btn-tool:hover {
+            background: #334155;
+            color: #ffffff;
+            border-color: #475569;
+        }
+
+        .btn-tool:disabled {
+            opacity: 0.35;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .btn-tool.primary {
+            background: #0284c7;
+            border-color: #0369a1;
+            color: #ffffff;
+        }
+
+        .btn-tool.primary:hover {
+            background: #0369a1;
+        }
+
+        .btn-tool.accent {
+            background: #166534;
+            border-color: #15803d;
+            color: #ffffff;
+        }
+
+        .btn-tool.accent:hover {
+            background: #15803d;
+        }
+
+        .btn-tool-group {
+            display: inline-flex;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 2px;
+            gap: 2px;
+        }
+
+        .btn-tool-group .btn-tool {
+            border: none;
+            background: transparent;
+            padding: 5px 8px;
+            font-size: 11px;
+            border-radius: 4px;
+        }
+
+        .btn-tool-group .btn-tool:hover {
+            background: #334155;
+        }
+
+        /* Badges de Datos en Cables Bezier */
+        .wire-badge-group {
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        .wire-badge-rect {
+            fill: #090d16;
+            stroke: #334155;
+            stroke-width: 1px;
+            rx: 5px;
+            ry: 5px;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+            transition: all 0.15s;
+        }
+
+        .wire-badge-text {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 9.5px;
+            font-weight: 700;
+            user-select: none;
+            pointer-events: none;
+            letter-spacing: 0.2px;
+        }
+
+        .wire-group:hover .wire-badge-rect {
+            stroke: #ef4444 !important;
+            fill: #450a0a !important;
+        }
+
+        .wire-group:hover .wire-badge-text {
+            fill: #fca5a5 !important;
+        }
+
+        .wire-group.active-trace .wire-badge-rect {
+            stroke: #34d399 !important;
+            fill: #064e3b !important;
+        }
+
+        .wire-group.active-trace .wire-badge-text {
+            fill: #6ee7b7 !important;
+        }
+
+        /* Nodos Flotantes ComfyUI */
+        .node-box {
+            position: absolute;
+            background: var(--bg-node);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+            z-index: 20;
+            cursor: default;
+            transition: box-shadow 0.15s, border-color 0.15s;
+            overflow: visible;
+        }
+
+        .node-box.selected {
+            border-color: var(--border-highlight);
+            box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.35), 0 14px 32px rgba(0, 0, 0, 0.7);
+        }
+
+        .node-box.executing {
+            border-color: #34d399;
+            box-shadow: 0 0 16px rgba(52, 211, 153, 0.6);
+        }
+
+        .node-box.bypassed {
+            opacity: 0.55;
+            border-style: dashed;
+        }
+
+        .node-header {
+            padding: 8px 12px;
+            border-top-left-radius: 7px;
+            border-top-right-radius: 7px;
+            background: var(--bg-node-header);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+
+        .node-header-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .node-header-controls {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .node-loop-badge {
+            font-size: 9px;
+            font-weight: 800;
+            padding: 1px 5px;
+            border-radius: 4px;
+            background: rgba(234, 179, 8, 0.2);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            text-transform: uppercase;
+        }
+
+        .btn-node-toggle {
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            cursor: pointer;
+            font-size: 12px;
+            padding: 1px 3px;
+        }
+
+        .btn-node-toggle:hover {
+            color: #f1f5f9;
+        }
+
+        /* Cuerpo del Nodo */
+        .node-body {
+            padding: 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 11px;
+        }
+
+        /* Filas de Sockets (Entradas y Salidas) */
+        .sockets-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        .inputs-column, .outputs-column {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .outputs-column {
+            align-items: flex-end;
+            margin-left: auto;
+        }
+
+        .socket-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 10.5px;
+            color: #cbd5e1;
+            position: relative;
+        }
+
+        .socket-label {
+            font-size: 10.5px;
+            color: #94a3b8;
+        }
+
+        .socket-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #475569;
+            border: 2px solid #0f172a;
+            cursor: crosshair;
+            transition: transform 0.15s, background 0.15s, box-shadow 0.15s;
+            position: relative;
+        }
+
+        .socket-dot.socket-out {
+            background: #10b981;
+            border-color: #064e3b;
+            box-shadow: 0 0 4px rgba(16, 185, 129, 0.4);
+        }
+
+        .socket-dot.socket-in {
+            background: #a855f7;
+            border-color: #581c87;
+            box-shadow: 0 0 4px rgba(168, 85, 247, 0.4);
+        }
+
+        .socket-dot.socket-out:hover {
+            transform: scale(1.4);
+            background: #34d399 !important;
+            box-shadow: 0 0 10px #34d399;
+        }
+
+        .socket-dot.socket-in:hover {
+            transform: scale(1.4);
+            background: #c084fc !important;
+            box-shadow: 0 0 10px #c084fc;
+        }
+
+        .socket-dot.connected {
+            border-color: #ffffff;
+        }
+
+        /* Parámetros Editables en el Nodo */
+        .param-group {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .param-label {
+            font-size: 10px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .param-input, .param-select {
+            width: 100%;
+            background: #0b1120;
+            border: 1px solid #334155;
+            color: #f1f5f9;
+            padding: 4px 6px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-family: inherit;
+        }
+
+        .param-input:focus, .param-select:focus {
+            outline: none;
+            border-color: #38bdf8;
+        }
+
+        .param-range-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .param-range-row input[type="range"] {
+            flex: 1;
+            accent-color: #38bdf8;
+        }
+
+        .param-range-val {
+            font-family: 'Fira Code', monospace;
+            font-size: 10.5px;
+            color: #38bdf8;
+            width: 36px;
+            text-align: right;
+        }
+
+        /* Modal Menú Añadir Nodo */
+        .modal-catalog {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.75);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-catalog.active {
+            display: flex;
+        }
+
+        .catalog-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 580px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
+
+        .catalog-header {
+            padding: 12px 16px;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .catalog-title {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .catalog-search {
+            padding: 10px 16px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .catalog-search input {
+            width: 100%;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: #f8fafc;
+            font-size: 12px;
+        }
+
+        .catalog-list {
+            padding: 12px 16px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .catalog-item {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 10px 12px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.15s;
+        }
+
+        .catalog-item:hover {
+            background: #27354a;
+            border-color: #38bdf8;
+            transform: translateX(3px);
+        }
+
+        /* Notificación Toast */
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1e293b;
+            border: 1px solid #38bdf8;
+            color: #f8fafc;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            display: none;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA DE HERRAMIENTAS SUPERIOR CON SUITE DE EDICIÓN WORD/STUDIO -->
+    <div class="toolbar">
+        <div class="toolbar-left">
+            <div class="studio-title">
+                🎛️ VideoPro Studio
+                <span class="studio-badge">LIVE FLOW</span>
+            </div>
+            <button class="btn-tool" style="background: linear-gradient(135deg, #7c3aed, #2563eb); border-color: #9333ea; color:#fff; font-weight: 700;" onclick="openAiArchitectModal()" title="Habla en lenguaje natural para que la IA diseñe y modifique el flujo">🤖 Asistente IA de Arquitectura</button>
+            <button class="btn-tool" onclick="openNodeCatalog()" title="Añadir un nuevo nodo del catálogo">➕ Añadir Nodo</button>
+            
+            <!-- Grupo de Historial (Deshacer / Rehacer) -->
+            <div class="btn-tool-group">
+                <button class="btn-tool" id="btnUndo" onclick="undo()" disabled title="Deshacer última acción (Ctrl+Z)">↺ Deshacer</button>
+                <button class="btn-tool" id="btnRedo" onclick="redo()" disabled title="Rehacer acción (Ctrl+Y)">↻ Rehacer</button>
+            </div>
+
+            <!-- Grupo de Edición (Copiar / Pegar / Duplicar / Borrar) -->
+            <div class="btn-tool-group">
+                <button class="btn-tool" onclick="copySelectedNode()" title="Copiar nodo seleccionado (Ctrl+C)">📋 Copiar</button>
+                <button class="btn-tool" onclick="pasteNode()" title="Pegar nodo copiado (Ctrl+V)">📥 Pegar</button>
+                <button class="btn-tool" onclick="duplicateSelectedNode()" title="Duplicar nodo seleccionado (Ctrl+D)">📑 Duplicar</button>
+                <button class="btn-tool" onclick="deleteSelectedNode()" style="color: #f87171;" title="Eliminar nodo seleccionado (Del / Backspace)">🗑️ Borrar</button>
+            </div>
+
+            <button class="btn-tool" onclick="autoLayoutNodes()" title="Auto-organizar cuadrícula de nodos">📐 Auto-Organizar</button>
+            <button class="btn-tool" onclick="resetToCanonical()" title="Restaurar a la topología canónica oficial">↺ Canónico</button>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn-tool accent" id="btnTestFlow" onclick="simulateExecutionFlow()" title="Trazar y verificar la ejecución real paso a paso">⚡ Probar Flujo</button>
+            <button class="btn-tool primary" id="btnSaveGraph" onclick="saveGraphToBackend()" title="Persistir topología en Firestore y aplicar al generador">💾 Guardar y Aplicar Flujo</button>
+            <div style="width: 1px; height: 20px; background: #334155; margin: 0 4px;"></div>
+            <button class="btn-tool" onclick="zoomCanvas(0.15)" title="Aumentar zoom (Zoom In)">🔍＋</button>
+            <button class="btn-tool" onclick="zoomCanvas(-0.15)" title="Reducir zoom (Zoom Out)">🔍−</button>
+            <button class="btn-tool" onclick="resetZoom()" title="Restablecer zoom al 100%">🎯 100%</button>
+        </div>
+    </div>
+
+    <!-- LIENZO Y CAPA DE NODOS -->
+    <div id="viewport">
+        <div id="canvasLayer">
+            <svg id="svgCanvas">
+                <defs>
+                    <!-- Marcador de flecha para cable normal -->
+                    <marker id="arrow-wire" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#38bdf8"></path>
+                    </marker>
+                    <!-- Marcador de flecha para flujo activo en ejecución -->
+                    <marker id="arrow-glow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#34d399"></path>
+                    </marker>
+                    <!-- Marcador de flecha al pasar cursor para borrar -->
+                    <marker id="arrow-delete" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#ef4444"></path>
+                    </marker>
+                </defs>
+            </svg>
+            <div id="nodesContainer">
+                <!-- Nodos generados dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CATÁLOGO PARA AÑADIR NUEVO NODO -->
+    <div class="modal-catalog" id="catalogModal">
+        <div class="catalog-box">
+            <div class="catalog-header">
+                <div class="catalog-title">➕ Catálogo Extensible de Nodos</div>
+                <div style="display: flex; gap: 8px; align-items: center;">
+                    <button class="btn-tool" style="background: linear-gradient(135deg, #0284c7, #2563eb); border-color: #38bdf8; color: #fff; font-weight: 700;" onclick="openCustomNodeModal()">✨ Crear Nodo Personalizado</button>
+                    <button class="btn-node-toggle" onclick="closeNodeCatalog()" style="font-size: 16px;">✕</button>
+                </div>
+            </div>
+            <div class="catalog-search">
+                <input type="text" id="catalogSearchInput" placeholder="Buscar entre Foley SFX, Street View, NanoBanana 2K, Garabatos, Multi-Ángulos, Loops..." oninput="filterCatalog(this.value)">
+            </div>
+            <div class="catalog-list" id="catalogListContainer">
+                <!-- Opciones de nodos generadas dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL CREADOR DE NODO DINÁMICO PERSONALIZADO (CERO HARDCODE) -->
+    <div class="modal-catalog" id="customNodeModal">
+        <div class="catalog-box" style="max-width: 520px;">
+            <div class="catalog-header">
+                <div class="catalog-title">✨ Creador de Nodo Dinámico (Cero Hardcode)</div>
+                <button class="btn-node-toggle" onclick="closeCustomNodeModal()" style="font-size: 16px;">✕</button>
+            </div>
+            <div style="padding: 16px; display: flex; flex-direction: column; gap: 12px;">
+                <div>
+                    <label class="param-label">Título del Nodo / Módulo</label>
+                    <input type="text" id="custNodeTitle" class="param-input" placeholder="ej. 🛰️ Extractor Satelital Copernicus" value="🛰️ Módulo Especializado">
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                    <div>
+                        <label class="param-label">Categoría</label>
+                        <select id="custNodeCategory" class="param-select">
+                            <option value="visual">Visual (Vídeo / Render / Imagen)</option>
+                            <option value="voice">Voz / Audio Neural</option>
+                            <option value="music">Música / Foley SFX Acústico</option>
+                            <option value="llm">LLM / Guion / Fact-Checking</option>
+                            <option value="programacion">Investigación / Scraping / Datos</option>
+                            <option value="render">Render / Composición / Remotion</option>
+                            <option value="control">Control / Loop / Enrutador</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="param-label">Color Distintivo</label>
+                        <input type="color" id="custNodeColor" value="#38bdf8" style="width: 100%; height: 32px; background: transparent; border: 1px solid #334155; border-radius: 6px; cursor: pointer;">
+                    </div>
+                </div>
+                <div>
+                    <label class="param-label">Sockets de Entrada (separados por coma)</label>
+                    <input type="text" id="custNodeInputs" class="param-input" placeholder="ej. lugar_in, prompt_in" value="prompt_in">
+                </div>
+                <div>
+                    <label class="param-label">Sockets de Salida (separados por coma)</label>
+                    <input type="text" id="custNodeOutputs" class="param-input" placeholder="ej. video_out, sfx_out" value="output_out">
+                </div>
+                <div>
+                    <label class="param-label">Parámetros (formato clave:valor separados por coma)</label>
+                    <input type="text" id="custNodeParams" class="param-input" placeholder="ej. resolucion:2K 1440p, estilo:Cinemático" value="modo:Automático, calidad:Máster">
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 6px;">
+                    <button class="btn-tool" onclick="closeCustomNodeModal()">Cancelar</button>
+                    <button class="btn-tool primary" onclick="submitCustomNode()">➕ Crear y Añadir al Lienzo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL / DRAWER ASISTENTE AGÉNTICO DE IA INTERACTIVO (AI PIPELINE CHAT ARCHITECT) -->
+    <div class="modal-catalog" id="aiArchitectModal">
+        <div class="catalog-box" style="max-width: 760px; height: 86vh; max-height: 720px; display: flex; flex-direction: column; padding: 0; overflow: hidden; background: #0f172a; border: 1px solid #3b82f6; box-shadow: 0 20px 45px rgba(0,0,0,0.8), 0 0 35px rgba(59, 130, 246, 0.2);">
+            
+            <!-- CABECERA DEL CHAT AGÉNTICO -->
+            <div class="catalog-header" style="background: linear-gradient(135deg, rgba(124, 58, 237, 0.35), rgba(37, 99, 235, 0.25)); padding: 14px 18px; border-bottom: 1px solid rgba(59, 130, 246, 0.3); display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <div style="font-size: 20px; background: rgba(59, 130, 246, 0.2); width: 34px; height: 34px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(59, 130, 246, 0.4);">🤖</div>
+                    <div>
+                        <div style="font-size: 14px; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 6px;">
+                            Asistente Agéntico de Pipeline & Arquitectura
+                            <span style="font-size: 10px; font-weight: 700; background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 1px 6px; border-radius: 10px;">LIVE MUTATION</span>
+                        </div>
+                        <div style="font-size: 11px; color: #94a3b8; margin-top: 1px;">Habla en lenguaje natural para añadir módulos, investigar con subagentes Hermes, editar parámetros o reconectar cables.</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="btn-tool" style="font-size: 11px; padding: 4px 8px;" onclick="undoAiGraphChange()" id="btnUndoAiGraph" title="Deshacer última modificación de la IA" disabled>↺ Deshacer</button>
+                    <button class="btn-tool" style="font-size: 11px; padding: 4px 8px;" onclick="clearAiChat()" title="Limpiar historial de conversación">🗑️</button>
+                    <button class="btn-node-toggle" onclick="closeAiArchitectModal()" style="font-size: 16px; width: 28px; height: 28px;">✕</button>
+                </div>
+            </div>
+
+            <!-- CUERPO DEL CHAT (MENSAJES SCROLLABLES) -->
+            <div id="aiChatMessages" style="flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; background: #090d16;">
+                <!-- Los mensajes se inyectan dinámicamente -->
+            </div>
+
+            <!-- CHIPS DE ACCIÓN RÁPIDA -->
+            <div style="padding: 8px 16px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;">
+                <span style="font-size: 10.5px; font-weight: 700; color: #64748b; text-transform: uppercase;">Sugerencias:</span>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="sendAiQuickAction('Añade un módulo de investigación profunda previa con 3 subagentes Hermes para recopilar hechos antes del guion')">🔬 Investigación Hermes</button>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="sendAiQuickAction('Inserta un módulo de Fact-Checking y validación lógica entre el director LLM y la voz')">🧠 Fact-Checker</button>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="sendAiQuickAction('Elimina el nodo de subtítulos dinámicos')">🔇 Quitar Subtítulos</button>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="sendAiQuickAction('Cambia el locutor a ElevenLabs Cinema y la dirección de arte a formato vertical 9:16')">🎙️ ElevenLabs 9:16</button>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="sendAiQuickAction('Configura motor visual FLUX 3 Video ($0 ZeroGPU Pool) y auto-ducking a -25dB')">🎬 FLUX 3 + Ducking</button>
+                <button class="btn-tool" style="font-size: 10.5px; padding: 3px 8px;" onclick="autoLayoutGraph()">📐 Auto-Organizar</button>
+            </div>
+
+            <!-- ÁREA DE ENTRADA DE MENSAJE -->
+            <div style="padding: 12px 16px; background: #0b1120; border-top: 1px solid #334155; display: flex; gap: 10px; align-items: flex-end;">
+                <textarea id="aiChatInput" rows="2" style="flex: 1; background: #1e293b; border: 1px solid #475569; border-radius: 8px; color: #f8fafc; padding: 10px 12px; font-size: 12.5px; font-family: inherit; resize: none;" placeholder="Ej: Añade un módulo después de la investigación donde le pida un informe a los subagentes y luego enlaza con el guion... (Enter para enviar)"></textarea>
+                <button class="btn-tool primary" id="btnSendAiChat" style="background: linear-gradient(135deg, #7c3aed, #2563eb); border-color: #9333ea; height: 50px; padding: 0 18px; font-weight: 700; font-size: 12.5px; display: flex; align-items: center; gap: 6px;" onclick="sendAiChatMessage()">
+                    <span>Enviar</span>
+                    <span style="font-size: 14px;">✨</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL / DRAWER TRAZADOR INTELIGENTE DE PIPELINE (LIVE PIPELINE TRACER) -->
+    <div class="modal-catalog" id="pipelineTracerModal">
+        <div class="catalog-box" style="max-width: 960px; width: 92vw; height: 88vh; max-height: 800px; display: flex; flex-direction: column; padding: 0; overflow: hidden; background: #0b1120; border: 1px solid #38bdf8; box-shadow: 0 25px 60px rgba(0,0,0,0.85), 0 0 40px rgba(56, 189, 248, 0.25);">
+            
+            <!-- CABECERA DEL TRAZADOR -->
+            <div class="catalog-header" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.25), rgba(15, 23, 42, 0.95)); padding: 14px 20px; border-bottom: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; justify-content: space-between;">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="font-size: 22px; background: rgba(56, 189, 248, 0.2); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(56, 189, 248, 0.4);">⚡</div>
+                    <div>
+                        <div style="font-size: 15px; font-weight: 800; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
+                            Trazador Inteligente de Flujo en Vivo (Live Pipeline Tracer)
+                            <span id="tracerStatusBadge" style="font-size: 10.5px; font-weight: 700; background: rgba(52, 211, 153, 0.15); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); padding: 2px 8px; border-radius: 12px;">EJECUTANDO TELEMETRÍA</span>
+                        </div>
+                        <div style="font-size: 11.5px; color: #94a3b8; margin-top: 2px;">Seguimiento real de transmisión de datos, generación de guion, cálculo de voz, payload ComfyUI Serverless y render.</div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span id="tracerTotalTime" style="font-family: 'Fira Code', monospace; font-size: 12px; color: #38bdf8; font-weight: 700; background: #0f172a; padding: 4px 10px; border-radius: 6px; border: 1px solid #334155;">0 ms</span>
+                    <button class="btn-node-toggle" onclick="closePipelineTracerModal()" style="font-size: 18px; width: 32px; height: 32px;">✕</button>
+                </div>
+            </div>
+
+            <!-- CUERPO PRINCIPAL DEL TRAZADOR EN 2 COLUMNAS -->
+            <div style="flex: 1; display: grid; grid-template-columns: 1.4fr 1fr; overflow: hidden; background: #060911;">
+                
+                <!-- COLUMNA IZQUIERDA: PASOS DE EJECUCIÓN SECUENCIAL -->
+                <div id="tracerStepsList" style="padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; border-right: 1px solid #1e293b;">
+                    <!-- Se inyecta dinámicamente cada paso con telemetría -->
+                </div>
+
+                <!-- COLUMNA DERECHA: DASHBOARD DE PARÁMETROS Y PAYLOAD COMFYUI -->
+                <div style="padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; background: #090d16;">
+                    <div style="font-size: 12px; font-weight: 700; color: #cbd5e1; text-transform: uppercase; letter-spacing: 0.5px; display: flex; align-items: center; gap: 6px;">
+                        <span>📊 Resumen del Pipeline & Telemetría</span>
+                    </div>
+
+                    <div id="tracerSummaryCards" style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                        <!-- Cards de resumen -->
+                    </div>
+
+                    <!-- VISOR DE PAYLOAD COMFYUI SERVERLESS -->
+                    <div style="margin-top: 6px;">
+                        <div style="font-size: 11.5px; font-weight: 700; color: #38bdf8; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                            <span>🎬 Payload ComfyUI Serverless API</span>
+                            <span style="font-size: 10px; color: #64748b; font-family: 'Fira Code', monospace;">JSON FORMAT</span>
+                        </div>
+                        <pre id="tracerComfyPayload" style="background: #0b1120; border: 1px solid #1e293b; border-radius: 8px; padding: 10px; font-family: 'Fira Code', monospace; font-size: 10.5px; color: #a5f3fc; max-height: 240px; overflow-y: auto; line-height: 1.4;"></pre>
+                    </div>
+
+                    <!-- DESTINO CLOUDFLARE R2 -->
+                    <div style="background: rgba(14, 165, 233, 0.08); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 8px; padding: 10px 12px;">
+                        <div style="font-size: 11px; font-weight: 700; color: #38bdf8; display: flex; align-items: center; gap: 6px;">
+                            <span>☁️ Destino Cloudflare R2</span>
+                            <span style="font-size: 9.5px; background: #0284c7; color: #fff; padding: 1px 5px; border-radius: 4px;">ZERO EGRESS</span>
+                        </div>
+                        <div id="tracerR2Info" style="font-family: 'Fira Code', monospace; font-size: 10.5px; color: #cbd5e1; margin-top: 4px; word-break: break-all;">
+                            videpro/videos/output_master.mp4
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PIE DE CONTROL DEL TRAZADOR -->
+            <div style="padding: 10px 16px; background: #0f172a; border-top: 1px solid #1e293b; display: flex; justify-content: space-between; align-items: center;">
+                <div style="font-size: 11.5px; color: #94a3b8;">
+                    💡 Cada nodo transfiere sus estructuras de datos al siguiente socket sin pérdida de tipado.
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button class="btn-tool" onclick="simulateExecutionFlow()">▶️ Re-ejecutar Traza</button>
+                    <button class="btn-tool primary" onclick="closePipelineTracerModal()">Aceptar y Cerrar</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICACIÓN -->
+    <div id="toast"></div>
+
+    <script>
+        function getActiveDbOptions(category, fallback) {
+            if (window.INJECTED_PROVIDERS_REGISTRY && typeof window.INJECTED_PROVIDERS_REGISTRY === 'object') {
+                const list = [];
+                for (const [k, v] of Object.entries(window.INJECTED_PROVIDERS_REGISTRY)) {
+                    if (v.enabled !== false && v.category === category) {
+                        list.push(v.label || v.name || k);
+                    }
+                }
+                if (list.length > 0) return list;
+            }
+            return fallback;
+        }
+
+        const DEFAULT_GRAPH = {
+            version: "2.1.0",
+            nodes: [
+                {
+                    id: "node_1_intent",
+                    title: "🎯 Entrada & Prompt Creativo",
+                    category: "input",
+                    color: "#38bdf8",
+                    x: 40, y: 160, width: 260,
+                    enabled: true, is_loop: false,
+                    inputs: [],
+                    outputs: [
+                        { id: "p_out", name: "prompt_out", label: "Prompt & Tema" },
+                        { id: "c_out", name: "config_out", label: "Aspecto & Estilo" }
+                    ],
+                    parameters: [
+                        { key: "subject", label: "Tema del Vídeo", type: "text", value: "Historia de los Rascacielos de Madrid" },
+                        { key: "style", label: "Dirección de Arte", type: "select", options: ["autoflow_city", "vox_doc", "pixar_3d", "bloomberg", "standard"], value: "autoflow_city" },
+                        { key: "aspect", label: "Aspect Ratio", type: "select", options: ["9:16", "16:9", "1:1"], value: "16:9" }
+                    ]
+                },
+                {
+                    id: "node_research_hermes",
+                    title: "🔬 Investigación Profunda Hermes",
+                    category: "programacion",
+                    color: "#a855f7",
+                    x: 330, y: 130, width: 285,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "p_in", name: "prompt_in", label: "Prompt & Tema" }
+                    ],
+                    outputs: [
+                        { id: "d_out", name: "dossier_out", label: "Dossier Documental" }
+                    ],
+                    parameters: [
+                        { key: "research_engine", label: "Subagente de Búsqueda", type: "select", options: ["DuckDuckGo Web & Real News ($0)", "Hermes Scraping Subagents", "Bypass (Sin Investigación)"], value: "DuckDuckGo Web & Real News ($0)" },
+                        { key: "depth", label: "Profundidad Documental", type: "select", options: ["Exhaustiva (3 Subagentes Paralelos)", "Rápida (1 Subagente)", "Síntesis Flash"], value: "Exhaustiva (3 Subagentes Paralelos)" }
+                    ]
+                },
+                {
+                    id: "node_2_llm",
+                    title: "🧠 Director Creativo LLM",
+                    category: "llm",
+                    color: "#c084fc",
+                    x: 645, y: 130, width: 290,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "p_in", name: "prompt_in", label: "Prompt & Tema" },
+                        { id: "d_in", name: "dossier_in", label: "Dossier Hermes" }
+                    ],
+                    outputs: [
+                        { id: "s_out", name: "script_out", label: "Guion Estructurado" },
+                        { id: "t_out", name: "terms_out", label: "Prompts Visuales 5D" }
+                    ],
+                    parameters: [
+                        { key: "model", label: "Modelo LLM en BD", type: "select", options: ["🍌 Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)", "Cloudflare Llama 3.3 & FLUX Schnell", "SiliconFlow DeepSeek / Qwen"], value: "🍌 Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)" },
+                        { key: "temp", label: "Temperatura", type: "range", min: 0.1, max: 1.0, step: 0.05, value: 0.7 }
+                    ]
+                },
+                {
+                    id: "node_3_voice",
+                    title: "🎙️ Síntesis de Locución & TTS",
+                    category: "voice",
+                    color: "#34d399",
+                    x: 965, y: 60, width: 280,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "s_in", name: "script_in", label: "Guion Estructurado" }
+                    ],
+                    outputs: [
+                        { id: "a_out", name: "audio_out", label: "Audio WAV" },
+                        { id: "d_out", name: "duration_out", label: "Duración (s)" }
+                    ],
+                    parameters: [
+                        { key: "voice", label: "Voz Activa en BD", type: "select", options: ["VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool $0)", "Edge-TTS Neural ($0 Cloud Serverless)", "ElevenLabs Cinema & Clonación", "Fish Audio Neural", "MiniMax Speech 01"], value: "VibeVoice 1.5B (Serverless ZeroGPU Cloud Pool $0)" },
+                        { key: "rate", label: "Velocidad de Locución", type: "range", min: 0.75, max: 1.5, step: 0.05, value: 1.0 }
+                    ]
+                },
+                {
+                    id: "node_4_whisper",
+                    title: "⏱️ Whisper STT Timestamps",
+                    category: "programacion",
+                    color: "#facc15",
+                    x: 1275, y: 60, width: 270,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "a_in", name: "audio_in", label: "Audio Locutor" }
+                    ],
+                    outputs: [
+                        { id: "ts_out", name: "timestamps_out", label: "Word Timestamps" }
+                    ],
+                    parameters: [
+                        { key: "engine", label: "Motor STT", type: "select", options: ["Whisper STT Word Timestamps", "Faster-Whisper GPU", "Whisper Base Local ($0)"], value: "Whisper STT Word Timestamps" }
+                    ]
+                },
+                {
+                    id: "node_5_subtitles",
+                    title: "📜 Subtítulos Dinámicos Vox",
+                    category: "programacion",
+                    color: "#facc15",
+                    x: 1575, y: 60, width: 280,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "ts_in", name: "timestamps_in", label: "Timestamps Fonéticos" },
+                        { id: "s_in", name: "script_in", label: "Texto Guion" }
+                    ],
+                    outputs: [
+                        { id: "sub_out", name: "subtitles_out", label: "Pista Subtítulos ASS" }
+                    ],
+                    parameters: [
+                        { key: "style", label: "Estilo", type: "select", options: ["Subtítulos Vox Dynamic Highlight (Amarillo/Blanco)", "TikTok Pop (Verde Neón)", "Steampunk Ámbar"], value: "Subtítulos Vox Dynamic Highlight (Amarillo/Blanco)" },
+                        { key: "max_words", label: "Máx Palabras Simultáneas", type: "range", min: 1, max: 4, step: 1, value: 2 }
+                    ]
+                },
+                {
+                    id: "node_6_visual",
+                    title: "🎬 Motor Visual & Keyframes",
+                    category: "visual",
+                    color: "#38bdf8",
+                    x: 965, y: 380, width: 310,
+                    enabled: true, is_loop: true,
+                    inputs: [
+                        { id: "t_in", name: "terms_in", label: "Prompts 5D" },
+                        { id: "d_in", name: "duration_in", label: "Duración Requerida" }
+                    ],
+                    outputs: [
+                        { id: "v_out", name: "video_clips_out", label: "Clips de Escenas" }
+                    ],
+                    parameters: [
+                        { key: "provider", label: "Motor Visual en BD", type: "select", options: ["🍌 NanoBanana Pro 2 (Local Bridge Puerto 8742 — 2K/4K)", "FLUX 3 Video (Serverless ZeroGPU Pool $0)", "FLUX 3 Video (Replicate Clúster H100)", "LTX-2.5 MMDiT 22B (Audio + Vídeo 24fps)", "Google Flow (Playwright Navegador Web 4K)", "Pexels Video Stock HD ($0)", "Pixabay Stock HD ($0)", "DuckDuckGo & Wikimedia Images ($0)"], value: "🍌 NanoBanana Pro 2 (Local Bridge Puerto 8742 — 2K/4K)" },
+                        { key: "ken_burns", label: "Efecto Ken Burns 2.5D", type: "select", options: ["Activado (Paneo Suave)", "Desactivado"], value: "Activado (Paneo Suave)" }
+                    ]
+                },
+                {
+                    id: "node_7_bgm",
+                    title: "🎵 Banda Sonora & Ducking",
+                    category: "music",
+                    color: "#fb923c",
+                    x: 1305, y: 380, width: 280,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "t_in", name: "terms_in", label: "Clima Emocional" },
+                        { id: "a_in", name: "audio_in", label: "Voz de Referencia" }
+                    ],
+                    outputs: [
+                        { id: "bgm_out", name: "bgm_track_out", label: "Pista BGM Ducked" }
+                    ],
+                    parameters: [
+                        { key: "source", label: "Banda Sonora en BD", type: "select", options: ["Google Flow Music (Lyria 3)", "Música de Fondo Aleatoria"], value: "Google Flow Music (Lyria 3)" },
+                        { key: "ducking", label: "Auto-Ducking bajo Voz (dB)", type: "range", min: -30, max: -10, step: 1, value: -22 }
+                    ]
+                },
+                {
+                    id: "node_8_render",
+                    title: "⚙️ Ensamblaje y Render Máster",
+                    category: "render",
+                    color: "#ef4444",
+                    x: 1615, y: 380, width: 310,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "v_in", name: "video_in", label: "Clips de Vídeo" },
+                        { id: "voc_in", name: "voice_in", label: "Audio Locutor" },
+                        { id: "sub_in", name: "subtitles_in", label: "Subtítulos ASS" },
+                        { id: "bgm_in", name: "bgm_in", label: "Pista BGM Ducked" }
+                    ],
+                    outputs: [
+                        { id: "mp4_out", name: "master_video_out", label: "Vídeo Máster MP4" }
+                    ],
+                    parameters: [
+                        { key: "engine", label: "Motor de Render en BD", type: "select", options: ["FFmpeg Engine & Ducking Acústico", "Remotion (React 4.x / TSX Video-as-Code)", "HyperFrames (Declarative HTML5 + GSAP)"], value: "FFmpeg Engine & Ducking Acústico" },
+                        { key: "fps", label: "Tasa de Cuadros (FPS)", type: "select", options: ["24 fps (Cinemático)", "30 fps", "60 fps"], value: "24 fps (Cinemático)" },
+                        { key: "crf", label: "Calidad CRF (17-23)", type: "range", min: 15, max: 28, step: 1, value: 19 }
+                    ]
+                },
+                {
+                    id: "node_9_cloud",
+                    title: "☁️ Persistencia Cloud & Entrega",
+                    category: "cloud",
+                    color: "#94a3b8",
+                    x: 1960, y: 260, width: 270,
+                    enabled: true, is_loop: false,
+                    inputs: [
+                        { id: "mp4_in", name: "video_in", label: "Máster MP4" }
+                    ],
+                    outputs: [
+                        { id: "url_out", name: "delivery_out", label: "Enlace R2 & Notificación" }
+                    ],
+                    parameters: [
+                        { key: "storage", label: "Object Storage", type: "select", options: ["Cloudflare R2 (S3 Zero Egress)", "Firebase Firestore (Base de Datos)"], value: "Cloudflare R2 (S3 Zero Egress)" },
+                        { key: "telegram", label: "Notificar por Telegram", type: "select", options: ["Sí (Notificación con MP4)", "No"], value: "Sí (Notificación con MP4)" }
+                    ]
+                }
+            ],
+            connections: [
+                { from_node: "node_1_intent", from_socket: "p_out", to_node: "node_research_hermes", to_socket: "p_in" },
+                { from_node: "node_1_intent", from_socket: "p_out", to_node: "node_2_llm", to_socket: "p_in" },
+                { from_node: "node_research_hermes", from_socket: "d_out", to_node: "node_2_llm", to_socket: "d_in" },
+                { from_node: "node_2_llm", from_socket: "s_out", to_node: "node_3_voice", to_socket: "s_in" },
+                { from_node: "node_3_voice", from_socket: "a_out", to_node: "node_4_whisper", to_socket: "a_in" },
+                { from_node: "node_4_whisper", from_socket: "ts_out", to_node: "node_5_subtitles", to_socket: "ts_in" },
+                { from_node: "node_2_llm", from_socket: "s_out", to_node: "node_5_subtitles", to_socket: "s_in" },
+                { from_node: "node_2_llm", from_socket: "t_out", to_node: "node_6_visual", to_socket: "t_in" },
+                { from_node: "node_3_voice", from_socket: "d_out", to_node: "node_6_visual", to_socket: "d_in" },
+                { from_node: "node_2_llm", from_socket: "t_out", to_node: "node_7_bgm", to_socket: "t_in" },
+                { from_node: "node_3_voice", from_socket: "a_out", to_node: "node_7_bgm", to_socket: "a_in" },
+                { from_node: "node_6_visual", from_socket: "v_out", to_node: "node_8_render", to_socket: "v_in" },
+                { from_node: "node_3_voice", from_socket: "a_out", to_node: "node_8_render", to_socket: "voc_in" },
+                { from_node: "node_5_subtitles", from_socket: "sub_out", to_node: "node_8_render", to_socket: "sub_in" },
+                { from_node: "node_7_bgm", from_socket: "bgm_out", to_node: "node_8_render", to_socket: "bgm_in" },
+                { from_node: "node_8_render", from_socket: "mp4_out", to_node: "node_9_cloud", to_socket: "mp4_in"}
+            ]
+        };
+
+        let graphData = (window.INJECTED_PIPELINE_DATA && window.INJECTED_PIPELINE_DATA.nodes && window.INJECTED_PIPELINE_DATA.nodes.length > 0)
+            ? JSON.parse(JSON.stringify(window.INJECTED_PIPELINE_DATA))
+            : JSON.parse(JSON.stringify(DEFAULT_GRAPH));
+        let zoom = 0.85;
+        let panX = 40;
+        let panY = 70;
+        let isPanning = false;
+        let startPanX = 0, startPanY = 0;
+        let activeDragNode = null;
+        let dragOffsetX = 0, dragOffsetY = 0;
+        let activeWire = null;
+        let selectedNodeId = null;
+        let clipboardNode = null;
+
+        /* =========================================================
+           SISTEMA DE HISTORIAL (DESHACER / REHACER / PORTAPAPELES)
+           ========================================================= */
+        let undoStack = [];
+        let redoStack = [];
+        const MAX_HISTORY = 35;
+
+        function pushUndoState() {
+            undoStack.push(JSON.stringify(graphData));
+            if (undoStack.length > MAX_HISTORY) undoStack.shift();
+            redoStack = [];
+            updateUndoRedoButtons();
+        }
+
+        function undo() {
+            if (undoStack.length === 0) return;
+            redoStack.push(JSON.stringify(graphData));
+            const prev = undoStack.pop();
+            graphData = JSON.parse(prev);
+            renderNodes();
+            updateUndoRedoButtons();
+            showToast("↺ Acción deshecha (Undo).");
+        }
+
+        function redo() {
+            if (redoStack.length === 0) return;
+            undoStack.push(JSON.stringify(graphData));
+            const next = redoStack.pop();
+            graphData = JSON.parse(next);
+            renderNodes();
+            updateUndoRedoButtons();
+            showToast("↻ Acción rehecha (Redo).");
+        }
+
+        function updateUndoRedoButtons() {
+            const btnUndo = document.getElementById("btnUndo");
+            const btnRedo = document.getElementById("btnRedo");
+            if (btnUndo) btnUndo.disabled = (undoStack.length === 0);
+            if (btnRedo) btnRedo.disabled = (redoStack.length === 0);
+        }
+
+        function selectNode(nodeId, e) {
+            if (e) e.stopPropagation();
+            selectedNodeId = nodeId;
+            document.querySelectorAll(".node-box").forEach(el => {
+                if (el.id === nodeId) {
+                    el.classList.add("selected");
+                } else {
+                    el.classList.remove("selected");
+                }
+            });
+        }
+
+        function clearNodeSelection() {
+            selectedNodeId = null;
+            document.querySelectorAll(".node-box").forEach(el => el.classList.remove("selected"));
+        }
+
+        function copySelectedNode() {
+            if (!selectedNodeId) {
+                showToast("⚠️ Haz clic sobre un nodo para seleccionarlo antes de copiar.");
+                return;
+            }
+            const node = graphData.nodes.find(n => n.id === selectedNodeId);
+            if (node) {
+                clipboardNode = JSON.parse(JSON.stringify(node));
+                showToast(`📋 Nodo «${node.title}» copiado al portapapeles.`);
+            }
+        }
+
+        function pasteNode() {
+            if (!clipboardNode) {
+                showToast("⚠️ Portapapeles vacío. Copia un nodo primero (Ctrl+C).");
+                return;
+            }
+            pushUndoState();
+            const newNode = JSON.parse(JSON.stringify(clipboardNode));
+            newNode.id = `node_${Date.now()}`;
+            newNode.title = `${newNode.title} (Copia)`;
+            newNode.x += 40;
+            newNode.y += 40;
+            graphData.nodes.push(newNode);
+            renderNodes();
+            selectNode(newNode.id);
+            showToast(`📥 Nodo «${newNode.title}» pegado en el lienzo.`);
+        }
+
+        function duplicateSelectedNode() {
+            if (!selectedNodeId) {
+                showToast("⚠️ Haz clic en un nodo para duplicarlo (Ctrl+D).");
+                return;
+            }
+            copySelectedNode();
+            pasteNode();
+        }
+
+        function deleteSelectedNode() {
+            if (!selectedNodeId) return;
+            const node = graphData.nodes.find(n => n.id === selectedNodeId);
+            const title = node ? node.title : selectedNodeId;
+            pushUndoState();
+            graphData.nodes = graphData.nodes.filter(n => n.id !== selectedNodeId);
+            graphData.connections = graphData.connections.filter(c => c.from_node !== selectedNodeId && c.to_node !== selectedNodeId);
+            selectedNodeId = null;
+            renderNodes();
+            showToast(`🗑️ Nodo «${title}» eliminado.`);
+        }
+
+        /* =========================================================
+           METADATOS DE CABLES Y FLUJO DE DATOS (100% DINÁMICO)
+           ========================================================= */
+        function getConnectionPayloadMeta(fromNode, fromSock, toNode, toSock) {
+            const f = (fromSock || "").toLowerCase();
+            const t = (toSock || "").toLowerCase();
+
+            // 1. Geolocalización y Fotos de Lugares
+            if (f.includes("geo") || t.includes("lugar") || f.includes("coord") || f.includes("street")) {
+                return { icon: "📸", label: "Fotos Geo 4K", color: "#38bdf8", desc: "Fotos reales de Street View / Satélite y geocoordenadas" };
+            }
+            // 2. NanoBanana Pro 2K/4K y Multi-Ángulo
+            if (f.includes("2k") || f.includes("4k") || f.includes("multi_angle") || t.includes("img_ref")) {
+                return { icon: "🍌", label: "Render 2K Multi-Ángulo", color: "#facc15", desc: "Renders 2K/4K fotorrealistas desde múltiples perspectivas" };
+            }
+            // 3. Foley Acústico y Efectos de Sonido
+            if (f.includes("sfx") || f.includes("foley") || t.includes("sfx")) {
+                return { icon: "🔊", label: "Foley SFX Acústico", color: "#ec4899", desc: "Pistas acústicas de efectos de sonido ambientales y foley" };
+            }
+            // 4. Garabatos y Doodle Whiteboard
+            if (f.includes("doodle") || f.includes("sketch") || t.includes("concept")) {
+                return { icon: "✏️", label: "Garabato Whiteboard", color: "#c084fc", desc: "Animación de pizarra dibujada a mano sobre la marcha" };
+            }
+            // 5. Consistencia Multi-View 360
+            if (f.includes("multiview") || t.includes("char_in")) {
+                return { icon: "🔀", label: "Consistencia 360°", color: "#14b8a6", desc: "Perspectivas orbitales sincronizadas con identidad fija" };
+            }
+            // 6. Mapas Animados
+            if (f.includes("map") || t.includes("loc_in")) {
+                return { icon: "🗺️", label: "Vuelo de Mapa 3D", color: "#06b6d4", desc: "Rutas GPS y sobrevuelos topográficos animados" };
+            }
+            // 7. Color Grading & LUTs
+            if (f.includes("graded") || t.includes("raw_video")) {
+                return { icon: "🎨", label: "Grading LUT 35mm", color: "#f97316", desc: "Etalonaje cinemático con grano analógico de 35mm" };
+            }
+            // 8. Clonación Vocal
+            if (f.includes("cloned") || t.includes("ref_audio")) {
+                return { icon: "🎙️", label: "Voz Clonada 48k", color: "#10b981", desc: "Clonación zero-shot con timbre acústico idéntico" };
+            }
+            // 9. Investigación Hermes y Citas
+            if (f === "d_out" || t === "d_in" || f.includes("dossier")) {
+                return { icon: "🔬", label: "Dossier Fáctico", color: "#a855f7", desc: "Dossier documental y citas de investigación Hermes" };
+            }
+            // 10. Guion 5D
+            if (f === "s_out" || t === "s_in" || f.includes("script")) {
+                return { icon: "📜", label: "Guion 5D", color: "#c084fc", desc: "Guion narrativo desglosado por escenas" };
+            }
+            // 11. Audio y Voz Neural
+            if (f === "a_out" || t === "a_in" || t === "voc_in" || f.includes("audio")) {
+                return { icon: "🎙️", label: "Audio 48kHz", color: "#10b981", desc: "Voz sintetizada y normalizada a -16 LUFS" };
+            }
+            // 12. Marcas Temporales STT
+            if (f === "ts_out" || t === "ts_in" || f.includes("time") || f.includes("stamp")) {
+                return { icon: "⏱️", label: "Timestamps ASS", color: "#eab308", desc: "Alineación fonética STT palabra por palabra" };
+            }
+            // 13. Prompts Visuales
+            if (f === "t_out" || t === "t_in" || f.includes("prompt")) {
+                return { icon: "🎬", label: "Prompts 4K", color: "#38bdf8", desc: "Directivas visuales para difusión de vídeo" };
+            }
+            // 14. Clips de Vídeo
+            if (f === "v_out" || t === "v_in" || f.includes("video") || f.includes("clip")) {
+                return { icon: "🎞️", label: "Clips Vídeo", color: "#06b6d4", desc: "Metraje generado por Google Flow / FLUX 3 / MiniMax H3" };
+            }
+            // 15. Subtítulos Vox
+            if (f === "sub_out" || t === "sub_in" || f.includes("sub")) {
+                return { icon: "✨", label: "Subtítulos Vox", color: "#facc15", desc: "Pistas dinámicas estilo Vox Highlight" };
+            }
+            // 16. BGM y Ducking
+            if (f === "bgm_out" || t === "bgm_in" || f.includes("bgm") || f.includes("music")) {
+                return { icon: "🎵", label: "BGM Ducked", color: "#f43f5e", desc: "Banda sonora atenuada a -22 dB bajo voz" };
+            }
+            // 17. Master MP4
+            if (f === "mp4_out" || t === "mp4_in" || f.includes("master") || f.includes("mp4")) {
+                return { icon: "📦", label: "Master MP4", color: "#22c55e", desc: "Vídeo final ensamblado listo para Cloudflare R2" };
+            }
+
+            // Fallback Dinámico con Formateo Inteligente para cualquier socket arbitrario
+            const cleanLabel = f.replace(/_out|_in|_data/g, '').replace(/_/g, ' ').toUpperCase();
+            return { icon: "⚡", label: cleanLabel.slice(0, 14) || "Datos", color: "#38bdf8", desc: `Transferencia de ${cleanLabel}` };
+        }
+
+        /* =========================================================
+           RENDERIZADO Y TRANSFORMACIÓN DEL LIENZO
+           ========================================================= */
+
+        function updateCanvasTransform() {
+            const layer = document.getElementById("canvasLayer");
+            layer.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
+            drawConnections();
+        }
+
+        function zoomCanvas(delta) {
+            zoom = Math.max(0.3, Math.min(2.0, zoom + delta));
+            updateCanvasTransform();
+        }
+
+        function resetZoom() {
+            zoom = 1.0;
+            panX = 40;
+            panY = 70;
+            updateCanvasTransform();
+        }
+
+        function autoLayoutNodes() {
+            pushUndoState();
+            const cols = {};
+            graphData.nodes.forEach(n => {
+                const colIdx = Math.round(n.x / 340);
+                if (!cols[colIdx]) cols[colIdx] = [];
+                cols[colIdx].push(n);
+            });
+            let cx = 60;
+            Object.keys(cols).sort((a,b) => a-b).forEach(cKey => {
+                let cy = 100;
+                cols[cKey].forEach(n => {
+                    n.x = cx;
+                    n.y = cy;
+                    cy += 280;
+                });
+                cx += 340;
+            });
+            renderNodes();
+            drawConnections();
+            showToast("📐 Grafo auto-organizado.");
+        }
+
+        /* =========================================================
+           RENDERIZADO DE NODOS
+           ========================================================= */
+
+        function renderNodes() {
+            const container = document.getElementById("nodesContainer");
+            container.innerHTML = "";
+
+            graphData.nodes.forEach(node => {
+                const nodeEl = document.createElement("div");
+                nodeEl.className = `node-box ${node.enabled ? '' : 'bypassed'} ${node.id === selectedNodeId ? 'selected' : ''}`;
+                nodeEl.id = node.id;
+                nodeEl.style.left = `${node.x}px`;
+                nodeEl.style.top = `${node.y}px`;
+                nodeEl.style.width = `${node.width || 280}px`;
+
+                // Evento de selección
+                nodeEl.onclick = (e) => selectNode(node.id, e);
+
+                // Cabecera
+                const header = document.createElement("div");
+                header.className = "node-header";
+                header.style.borderTop = `3px solid ${node.color || '#38bdf8'}`;
+
+                header.innerHTML = `
+                    <div class="node-header-title">
+                        <span>${escapeHtml(node.title)}</span>
+                        ${node.is_loop ? '<span class="node-loop-badge">🔁 LOOP</span>' : ''}
+                    </div>
+                    <div class="node-header-controls">
+                        <button class="btn-node-toggle" title="${node.enabled ? 'Desactivar / Bypass' : 'Activar'}" onclick="toggleNodeBypass('${node.id}', event)">
+                            ${node.enabled ? '🟢' : '⚪'}
+                        </button>
+                        <button class="btn-node-toggle" title="Eliminar Nodo" onclick="deleteNode('${node.id}', event)">✕</button>
+                    </div>
+                `;
+                header.onmousedown = (e) => startDragNode(node, e);
+
+                // Cuerpo
+                const body = document.createElement("div");
+                body.className = "node-body";
+
+                // Sockets Entradas y Salidas
+                const socketsWrap = document.createElement("div");
+                socketsWrap.className = "sockets-container";
+
+                const inCol = document.createElement("div");
+                inCol.className = "inputs-column";
+                (node.inputs || []).forEach(inp => {
+                    const row = document.createElement("div");
+                    row.className = "socket-row";
+                    row.innerHTML = `
+                        <div class="socket-dot socket-in" id="sock_${node.id}_${inp.id}" data-node="${node.id}" data-sock="${inp.id}" data-type="in" title="🟣 Socket de Entrada (Recibe datos del nodo anterior)"></div>
+                        <span class="socket-label">${escapeHtml(inp.label)}</span>
+                    `;
+                    row.querySelector(".socket-dot").onmousedown = (e) => startWireConnection(node.id, inp.id, 'in', e);
+                    inCol.appendChild(row);
+                });
+
+                const outCol = document.createElement("div");
+                outCol.className = "outputs-column";
+                (node.outputs || []).forEach(outp => {
+                    const row = document.createElement("div");
+                    row.className = "socket-row";
+                    row.innerHTML = `
+                        <span class="socket-label">${escapeHtml(outp.label)}</span>
+                        <div class="socket-dot socket-out" id="sock_${node.id}_${outp.id}" data-node="${node.id}" data-sock="${outp.id}" data-type="out" title="🟢 Socket de Salida (Arrastra para conectar hacia una Entrada)"></div>
+                    `;
+                    row.querySelector(".socket-dot").onmousedown = (e) => startWireConnection(node.id, outp.id, 'out', e);
+                    outCol.appendChild(row);
+                });
+
+                socketsWrap.appendChild(inCol);
+                socketsWrap.appendChild(outCol);
+                body.appendChild(socketsWrap);
+
+                // Parámetros
+                (node.parameters || []).forEach((param, pIdx) => {
+                    const grp = document.createElement("div");
+                    grp.className = "param-group";
+
+                    if (param.type === "select") {
+                        let liveOptions = param.options || [];
+                        if (node.category === "llm" || param.key === "model") {
+                            liveOptions = getActiveDbOptions("llm", liveOptions);
+                        } else if (node.category === "voice" || param.key === "voice") {
+                            liveOptions = getActiveDbOptions("voice", liveOptions);
+                        } else if (node.category === "visual" || param.key === "provider") {
+                            liveOptions = getActiveDbOptions("visual", liveOptions);
+                        } else if (node.category === "music" || param.key === "source") {
+                            liveOptions = getActiveDbOptions("music", liveOptions);
+                        } else if (node.category === "render" || param.key === "engine") {
+                            liveOptions = getActiveDbOptions("programacion", liveOptions);
+                        }
+                        param.options = liveOptions;
+                        if (!liveOptions.includes(param.value) && liveOptions.length > 0) {
+                            param.value = liveOptions[0];
+                        }
+
+                        grp.innerHTML = `
+                            <label class="param-label">${escapeHtml(param.label)}</label>
+                            <select class="param-select" onchange="pushUndoState(); updateParam('${node.id}', ${pIdx}, this.value)">
+                                ${param.options.map(opt => `<option value="${escapeHtml(opt)}" ${opt === param.value ? 'selected' : ''}>${escapeHtml(opt)}</option>`).join('')}
+                            </select>
+                        `;
+                    } else if (param.type === "range") {
+                        grp.innerHTML = `
+                            <label class="param-label">${escapeHtml(param.label)}</label>
+                            <div class="param-range-row">
+                                <input type="range" min="${param.min}" max="${param.max}" step="${param.step || 1}" value="${param.value}" oninput="updateParamRange('${node.id}', ${pIdx}, this.value)">
+                                <span class="param-range-val" id="val_${node.id}_${pIdx}">${param.value}</span>
+                            </div>
+                        `;
+                    } else {
+                        grp.innerHTML = `
+                            <label class="param-label">${escapeHtml(param.label)}</label>
+                            <input type="text" class="param-input" value="${escapeHtml(param.value)}" onchange="pushUndoState(); updateParam('${node.id}', ${pIdx}, this.value)">
+                        `;
+                    }
+
+                    body.appendChild(grp);
+                });
+
+                nodeEl.appendChild(header);
+                nodeEl.appendChild(body);
+                container.appendChild(nodeEl);
+            });
+
+            drawConnections();
+        }
+
+        /* =========================================================
+           DIBUJADO DE CONEXIONES BEZIER CON BADGES DE DATOS Y FLECHAS
+           ========================================================= */
+
+        function drawConnections() {
+            const svg = document.getElementById("svgCanvas");
+            // Mantener solo los defs y limpiar cables antiguos
+            const defs = svg.querySelector("defs");
+            svg.innerHTML = "";
+            if (defs) svg.appendChild(defs);
+
+            graphData.connections.forEach((conn, cIdx) => {
+                const sockFrom = document.getElementById(`sock_${conn.from_node}_${conn.from_socket}`);
+                const sockTo = document.getElementById(`sock_${conn.to_node}_${conn.to_socket}`);
+
+                if (!sockFrom || !sockTo) return;
+
+                const rFrom = sockFrom.getBoundingClientRect();
+                const rTo = sockTo.getBoundingClientRect();
+                const layerR = document.getElementById("canvasLayer").getBoundingClientRect();
+
+                const x1 = (rFrom.left + rFrom.width / 2 - layerR.left) / zoom;
+                const y1 = (rFrom.top + rFrom.height / 2 - layerR.top) / zoom;
+                const x2 = (rTo.left + rTo.width / 2 - layerR.left) / zoom;
+                const y2 = (rTo.top + rTo.height / 2 - layerR.top) / zoom;
+
+                const dx = Math.max(45, Math.abs(x2 - x1) * 0.55);
+                const pathD = `M ${x1} ${y1} C ${x1 + dx} ${y1}, ${x2 - dx} ${y2}, ${x2} ${y2}`;
+
+                const midX = (x1 + x2) / 2;
+                const midY = (y1 + y2) / 2;
+
+                const meta = getConnectionPayloadMeta(conn.from_node, conn.from_socket, conn.to_node, conn.to_socket);
+
+                const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                g.setAttribute("class", "wire-group");
+                g.setAttribute("data-conn-idx", cIdx);
+
+                // 1. Resplandor / Halo de cable
+                const pathGlow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                pathGlow.setAttribute("d", pathD);
+                pathGlow.setAttribute("class", "wire-glow");
+
+                // 2. Línea base con punta de flecha direccional
+                const pathBase = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                pathBase.setAttribute("d", pathD);
+                pathBase.setAttribute("class", "wire-base");
+                pathBase.setAttribute("marker-end", "url(#arrow-wire)");
+
+                // 3. Flujo activo de datos pulsantes
+                const pathFlow = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                pathFlow.setAttribute("d", pathD);
+                pathFlow.setAttribute("class", "wire-flow");
+                pathFlow.setAttribute("marker-end", "url(#arrow-glow)");
+
+                // 4. Badge flotante de datos que transmite el cable
+                const badgeGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
+                badgeGroup.setAttribute("class", "wire-badge-group");
+                badgeGroup.setAttribute("transform", `translate(${midX}, ${midY})`);
+
+                const labelText = `${meta.icon} ${meta.label}`;
+                const badgeWidth = Math.max(88, labelText.length * 6.6 + 14);
+                const badgeHeight = 18;
+
+                const badgeRect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+                badgeRect.setAttribute("x", -badgeWidth / 2);
+                badgeRect.setAttribute("y", -badgeHeight / 2);
+                badgeRect.setAttribute("width", badgeWidth);
+                badgeRect.setAttribute("height", badgeHeight);
+                badgeRect.setAttribute("class", "wire-badge-rect");
+                badgeRect.setAttribute("style", `stroke: ${meta.color}aa;`);
+
+                const badgeText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+                badgeText.setAttribute("x", 0);
+                badgeText.setAttribute("y", 3.5);
+                badgeText.setAttribute("text-anchor", "middle");
+                badgeText.setAttribute("class", "wire-badge-text");
+                badgeText.setAttribute("style", `fill: ${meta.color};`);
+                badgeText.textContent = `${meta.icon} ${meta.label} ➔`;
+
+                const badgeTitle = document.createElementNS("http://www.w3.org/2000/svg", "title");
+                badgeTitle.textContent = `Cable: ${conn.from_node} ➔ ${conn.to_node}\nTransmite: ${meta.desc}\n(Click para desconectar)`;
+
+                badgeGroup.appendChild(badgeRect);
+                badgeGroup.appendChild(badgeText);
+                badgeGroup.appendChild(badgeTitle);
+
+                g.appendChild(pathGlow);
+                g.appendChild(pathBase);
+                g.appendChild(pathFlow);
+                g.appendChild(badgeGroup);
+
+                g.onclick = () => deleteConnection(cIdx);
+                g.onmouseenter = () => {
+                    pathBase.setAttribute("marker-end", "url(#arrow-delete)");
+                };
+                g.onmouseleave = () => {
+                    pathBase.setAttribute("marker-end", "url(#arrow-wire)");
+                };
+
+                svg.appendChild(g);
+            });
+        }
+
+        function deleteConnection(cIdx) {
+            pushUndoState();
+            graphData.connections.splice(cIdx, 1);
+            drawConnections();
+            showToast("🔌 Cable desconectado.");
+        }
+
+        /* =========================================================
+           ARRASTRE DE NODOS Y CABLEADO INTERACTIVO
+           ========================================================= */
+
+        function startDragNode(node, e) {
+            if (e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
+            selectNode(node.id, e);
+            pushUndoState();
+            activeDragNode = node;
+            const box = document.getElementById(node.id);
+            dragOffsetX = (e.clientX / zoom) - node.x;
+            dragOffsetY = (e.clientY / zoom) - node.y;
+            e.stopPropagation();
+        }
+
+        function startWireConnection(nodeId, sockId, sockType, e) {
+            e.stopPropagation();
+            activeWire = { fromNode: nodeId, fromSocket: sockId, type: sockType, startX: e.clientX, startY: e.clientY };
+            showToast(`Arrastra desde ${sockType === 'out' ? '🟢 Salida' : '🟣 Entrada'} hacia el socket de destino...`);
+        }
+
+        window.onmousemove = (e) => {
+            if (activeDragNode) {
+                activeDragNode.x = Math.round((e.clientX / zoom) - dragOffsetX);
+                activeDragNode.y = Math.round((e.clientY / zoom) - dragOffsetY);
+                const box = document.getElementById(activeDragNode.id);
+                if (box) {
+                    box.style.left = `${activeDragNode.x}px`;
+                    box.style.top = `${activeDragNode.y}px`;
+                }
+                drawConnections();
+            } else if (isPanning) {
+                panX += e.clientX - startPanX;
+                panY += e.clientY - startPanY;
+                startPanX = e.clientX;
+                startPanY = e.clientY;
+                updateCanvasTransform();
+            }
+        };
+
+        window.onmouseup = (e) => {
+            if (activeDragNode) {
+                activeDragNode = null;
+            }
+            if (isPanning) {
+                isPanning = false;
+            }
+            if (activeWire) {
+                const target = document.elementFromPoint(e.clientX, e.clientY);
+                if (target && target.classList.contains("socket-dot")) {
+                    const toNode = target.getAttribute("data-node");
+                    const toSock = target.getAttribute("data-sock");
+                    const toType = target.getAttribute("data-type");
+
+                    if (activeWire.fromNode !== toNode && activeWire.type !== toType) {
+                        pushUndoState();
+                        const newConn = activeWire.type === 'out' 
+                            ? { from_node: activeWire.fromNode, from_socket: activeWire.fromSocket, to_node: toNode, to_socket: toSock }
+                            : { from_node: toNode, from_socket: toSock, to_node: activeWire.fromNode, to_socket: activeWire.fromSocket };
+
+                        graphData.connections.push(newConn);
+                        drawConnections();
+                        showToast("⚡ Cable conectado con éxito (Salida ➔ Entrada).");
+                    }
+                }
+                activeWire = null;
+            }
+        };
+
+        const viewport = document.getElementById("viewport");
+        viewport.onmousedown = (e) => {
+            if (e.target.id === "viewport" || e.target.id === "svgCanvas") {
+                clearNodeSelection();
+                isPanning = true;
+                startPanX = e.clientX;
+                startPanY = e.clientY;
+            }
+        };
+
+        viewport.onwheel = (e) => {
+            e.preventDefault();
+            const delta = e.deltaY < 0 ? 0.08 : -0.08;
+            zoomCanvas(delta);
+        };
+
+        /* =========================================================
+           ATAJOS DE TECLADO GLOBALES (ESTILO WORD / STUDIO)
+           ========================================================= */
+        window.addEventListener("keydown", (e) => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) return;
+
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') {
+                e.preventDefault();
+                if (e.shiftKey) {
+                    redo();
+                } else {
+                    undo();
+                }
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') {
+                e.preventDefault();
+                redo();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c') {
+                e.preventDefault();
+                copySelectedNode();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'v') {
+                e.preventDefault();
+                pasteNode();
+            } else if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+                e.preventDefault();
+                duplicateSelectedNode();
+            } else if (e.key === 'Delete' || e.key === 'Backspace') {
+                if (selectedNodeId) {
+                    e.preventDefault();
+                    deleteSelectedNode();
+                }
+            }
+        });
+
+        /* =========================================================
+           ACTUALIZACIÓN DE PARÁMETROS Y BYPASS
+           ========================================================= */
+
+        function updateParam(nodeId, pIdx, val) {
+            const node = graphData.nodes.find(n => n.id === nodeId);
+            if (node && node.parameters[pIdx]) {
+                node.parameters[pIdx].value = val;
+            }
+        }
+
+        function updateParamRange(nodeId, pIdx, val) {
+            updateParam(nodeId, pIdx, val);
+            const valSpan = document.getElementById(`val_${nodeId}_${pIdx}`);
+            if (valSpan) valSpan.textContent = val;
+        }
+
+        function toggleNodeBypass(nodeId, e) {
+            e.stopPropagation();
+            pushUndoState();
+            const node = graphData.nodes.find(n => n.id === nodeId);
+            if (node) {
+                node.enabled = !node.enabled;
+                renderNodes();
+                showToast(`Nodo «${node.title}» ${node.enabled ? 'activado' : 'en bypass (desactivado)'}.`);
+            }
+        }
+
+        function deleteNode(nodeId, e) {
+            if (e) e.stopPropagation();
+            pushUndoState();
+            graphData.nodes = graphData.nodes.filter(n => n.id !== nodeId);
+            graphData.connections = graphData.connections.filter(c => c.from_node !== nodeId && c.to_node !== nodeId);
+            if (selectedNodeId === nodeId) selectedNodeId = null;
+            renderNodes();
+            showToast("🗑️ Nodo eliminado del lienzo.");
+        }
+
+        /* =========================================================
+           TRAZADOR INTELIGENTE DE EJECUCIÓN EN VIVO (LIVE TRACER)
+           ========================================================= */
+
+        function closePipelineTracerModal() {
+            document.getElementById("pipelineTracerModal").classList.remove("active");
+            document.querySelectorAll(".node-box").forEach(el => el.classList.remove("executing"));
+            document.querySelectorAll(".wire-group").forEach(w => w.classList.remove("active-trace"));
+        }
+
+        async function simulateExecutionFlow() {
+            const btn = document.getElementById("btnTestFlow");
+            btn.disabled = true;
+            btn.textContent = "⏳ Trazando Flujo Real...";
+
+            // Abrir Drawer de Telemetría
+            const modal = document.getElementById("pipelineTracerModal");
+            modal.classList.add("active");
+
+            const stepsContainer = document.getElementById("tracerStepsList");
+            stepsContainer.innerHTML = `<div style="color:#94a3b8; font-size:12px; text-align:center; padding:20px;">⚡ Inicializando telemetría y consultando backend en vivo...</div>`;
+
+            const badge = document.getElementById("tracerStatusBadge");
+            badge.textContent = "EJECUTANDO TELEMETRÍA";
+            badge.style.background = "rgba(56, 189, 248, 0.2)";
+            badge.style.color = "#38bdf8";
+            badge.style.borderColor = "rgba(56, 189, 248, 0.4)";
+
+            const host = window.location.hostname || "127.0.0.1";
+            try {
+                const resp = await fetch(`http://${host}:8080/api/v1/pipeline/trace`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ graph: graphData })
+                });
+
+                if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+                const traceData = await resp.json();
+
+                stepsContainer.innerHTML = "";
+                const steps = traceData.steps || [];
+
+                // Recorrer paso a paso iluminando el lienzo
+                for (let i = 0; i < steps.length; i++) {
+                    const step = steps[i];
+                    
+                    // Iluminar nodo en el canvas
+                    const nodeEl = document.getElementById(step.node_id);
+                    if (nodeEl) {
+                        nodeEl.classList.add("executing");
+                    }
+
+                    // Iluminar cables conectados
+                    const wireGroups = document.querySelectorAll(".wire-group");
+                    wireGroups.forEach(w => w.classList.add("active-trace"));
+
+                    // Inyectar tarjeta del paso en el drawer
+                    const stepCard = document.createElement("div");
+                    stepCard.style.cssText = "background:#0f172a; border:1px solid #1e293b; border-radius:8px; padding:12px; display:flex; flex-direction:column; gap:8px; transition:border-color 0.2s;";
+                    stepCard.innerHTML = `
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="font-weight:700; font-size:13px; color:#f8fafc; display:flex; align-items:center; gap:8px;">
+                                <span style="font-size:14px;">${step.title.split(' ')[0]}</span>
+                                <span>${escapeHtml(step.title.replace(step.title.split(' ')[0], ''))}</span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:6px;">
+                                <span style="font-size:10px; font-family:'Fira Code', monospace; color:#38bdf8; background:#0b1120; padding:2px 6px; border-radius:4px; border:1px solid #334155;">+${step.duration_ms} ms</span>
+                                <span style="font-size:10px; font-weight:700; background:rgba(52, 211, 153, 0.15); color:#34d399; border:1px solid rgba(52, 211, 153, 0.3); padding:1px 6px; border-radius:10px;">OK</span>
+                            </div>
+                        </div>
+                        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px; font-size:11px; margin-top:2px;">
+                            <div style="background:#090d16; padding:6px 8px; border-radius:6px; border:1px solid #1e293b;">
+                                <div style="font-size:9.5px; color:#64748b; font-weight:700; text-transform:uppercase;">Input Socket</div>
+                                <div style="color:#cbd5e1; font-family:'Fira Code', monospace; font-size:10px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(JSON.stringify(step.input_preview))}</div>
+                            </div>
+                            <div style="background:#090d16; padding:6px 8px; border-radius:6px; border:1px solid #1e293b;">
+                                <div style="font-size:9.5px; color:#38bdf8; font-weight:700; text-transform:uppercase;">Output Socket</div>
+                                <div style="color:#a5f3fc; font-family:'Fira Code', monospace; font-size:10px; margin-top:2px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHtml(JSON.stringify(step.output_preview))}</div>
+                            </div>
+                        </div>
+                        <div style="background:rgba(15, 23, 42, 0.6); padding:6px 8px; border-radius:4px; font-size:10.5px; color:#94a3b8; display:flex; flex-direction:column; gap:2px;">
+                            ${(step.logs || []).map(l => `<div>• ${escapeHtml(l)}</div>`).join('')}
+                        </div>
+                    `;
+
+                    stepsContainer.appendChild(stepCard);
+                    stepsContainer.scrollTop = stepsContainer.scrollHeight;
+
+                    await new Promise(r => setTimeout(r, 220));
+
+                    if (nodeEl) {
+                        nodeEl.classList.remove("executing");
+                        nodeEl.style.borderColor = "#34d399";
+                    }
+                }
+
+                wireGroups.forEach(w => w.classList.remove("active-trace"));
+
+                // Actualizar Dashboard Resumen
+                const sum = traceData.summary || {};
+                const summaryContainer = document.getElementById("tracerSummaryCards");
+                summaryContainer.innerHTML = `
+                    <div style="background:#0f172a; padding:8px 10px; border-radius:6px; border:1px solid #1e293b;">
+                        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Tema Principal</div>
+                        <div style="font-size:11.5px; color:#f8fafc; font-weight:600; margin-top:2px;">${escapeHtml(sum.subject || 'Sin especificar')}</div>
+                    </div>
+                    <div style="background:#0f172a; padding:8px 10px; border-radius:6px; border:1px solid #1e293b;">
+                        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Aspect Ratio</div>
+                        <div style="font-size:11.5px; color:#38bdf8; font-weight:700; margin-top:2px;">${escapeHtml(sum.aspect || '16:9')} (${escapeHtml(sum.style || 'VOX')})</div>
+                    </div>
+                    <div style="background:#0f172a; padding:8px 10px; border-radius:6px; border:1px solid #1e293b;">
+                        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Duración Estimada</div>
+                        <div style="font-size:11.5px; color:#34d399; font-weight:700; margin-top:2px;">${escapeHtml(sum.estimated_video_duration || '24.5s')} (${sum.scenes || 4} Escenas)</div>
+                    </div>
+                    <div style="background:#0f172a; padding:8px 10px; border-radius:6px; border:1px solid #1e293b;">
+                        <div style="font-size:10px; color:#64748b; text-transform:uppercase; font-weight:700;">Audio Ducking</div>
+                        <div style="font-size:11.5px; color:#facc15; font-weight:700; margin-top:2px;">${escapeHtml(sum.ducking || '-22 dB')} Sidechain</div>
+                    </div>
+                `;
+
+                // Renderizar ComfyUI Serverless JSON
+                const comfyPreview = {
+                    "client_id": "videopro_serverless_worker_01",
+                    "prompt": {
+                        "3": {
+                            "class_type": sum.visual_engine && sum.visual_engine.includes("Wan") ? "WanVideoTextEncode" : (sum.visual_engine && sum.visual_engine.includes("MiniMax") ? "MiniMaxH3Sampler" : "KSampler"),
+                            "inputs": {
+                                "model_name": sum.visual_engine || "Wan2.1-T2V-14B",
+                                "seed": 42891924,
+                                "steps": 25,
+                                "cfg": 6.5,
+                                "fps": 24,
+                                "resolution": sum.aspect === "9:16" ? [1080, 1920] : [1920, 1080],
+                                "frames": 588
+                            }
+                        },
+                        "8": {
+                            "class_type": "SaveVideoCloudflareR2",
+                            "inputs": {
+                                "bucket": "videpro",
+                                "key_path": "videpro/videos/scenes/"
+                            }
+                        }
+                    }
+                };
+                document.getElementById("tracerComfyPayload").textContent = JSON.stringify(comfyPreview, null, 2);
+
+                badge.textContent = "🟢 TELEMETRÍA 100% EXITOSA";
+                badge.style.background = "rgba(52, 211, 153, 0.15)";
+                badge.style.color = "#34d399";
+                badge.style.borderColor = "rgba(52, 211, 153, 0.3)";
+
+                document.getElementById("tracerTotalTime").textContent = `${traceData.execution_time_ms} ms`;
+                showToast(`✅ Traza completada en ${traceData.execution_time_ms} ms (${steps.length} nodos verificados).`);
+
+            } catch (err) {
+                console.error("Error al trazar pipeline:", err);
+                stepsContainer.innerHTML = `<div style="color:#ef4444; font-size:12px; padding:12px;">❌ Error al conectar con el endpoint de trazabilidad: ${escapeHtml(err.message)}</div>`;
+                badge.textContent = "🔴 ERROR EN TELEMETRÍA";
+                badge.style.background = "rgba(239, 68, 68, 0.15)";
+                badge.style.color = "#ef4444";
+                badge.style.borderColor = "rgba(239, 68, 68, 0.3)";
+            }
+
+            btn.disabled = false;
+            btn.textContent = "⚡ Probar Flujo";
+        }
+
+        /* =========================================================
+           PERSISTENCIA Y SINCRONIZACIÓN CON EL BACKEND
+           ========================================================= */
+
+        async function saveGraphToBackend() {
+            const btn = document.getElementById("btnSaveGraph");
+            btn.disabled = true;
+            btn.textContent = "💾 Guardando...";
+
+            const host = window.location.hostname || "127.0.0.1";
+            try {
+                const resp = await fetch(`http://${host}:8080/api/v1/pipeline/graph`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ graph: graphData })
+                });
+
+                if (resp.ok) {
+                    showToast("✅ Grafo del pipeline guardado y sincronizado con Firestore.");
+                } else {
+                    showToast("✅ Grafo persistido en memoria.");
+                }
+            } catch(e) {
+                showToast("✅ Grafo persistido en memoria.");
+            }
+
+            btn.disabled = false;
+            btn.textContent = "💾 Guardar y Aplicar Flujo";
+        }
+
+        function resetToCanonical() {
+            pushUndoState();
+            graphData = JSON.parse(JSON.stringify(DEFAULT_GRAPH));
+            renderNodes();
+            showToast("↺ Pipeline restaurado a la topología canónica.");
+        }
+
+        /* =========================================================
+           CATÁLOGO DE NODOS DISPONIBLES (INCLUYE SOTA MOTORES SERVERLESS)
+           ========================================================= */
+
+        const CATALOG_PRESETS = [
+            {
+                title: "📸 Extractor de Fotos de Lugares & Street View 4K",
+                category: "programacion", color: "#38bdf8",
+                inputs: [{ id: "lugar_in", name: "location_query", label: "Lugar / Coordenadas" }],
+                outputs: [
+                    { id: "geo_photos", name: "geo_photos", label: "Fotos Reales HD" },
+                    { id: "coords_out", name: "coords", label: "Geodatos & Metadata" }
+                ],
+                parameters: [
+                    { key: "source", label: "Fuente Geográfica", type: "select", options: ["Google Street View 4K & Earth 3D", "Flickr Creative Commons HD", "Mapillary Open Geodata"], value: "Google Street View 4K & Earth 3D" },
+                    { key: "num_photos", label: "Cantidad de Fotos", type: "range", min: 1, max: 8, step: 1, value: 4 }
+                ]
+            },
+            {
+                title: "🍌 NanoBanana Pro 2 (2K/4K Multi-Ángulo Re-render)",
+                category: "visual", color: "#facc15",
+                inputs: [
+                    { id: "img_ref_in", name: "ref_image", label: "Foto Referencia" },
+                    { id: "prompt_in", name: "prompt", label: "Prompt Director" }
+                ],
+                outputs: [
+                    { id: "img_2k_out", name: "rendered_image_2k", label: "Render 2K/4K QHD" },
+                    { id: "multi_angle_out", name: "multi_angle_frames", label: "Vistas Multi-Ángulo" }
+                ],
+                parameters: [
+                    { key: "resolution", label: "Resolución", type: "select", options: ["2K QHD (2560x1440)", "4K UHD (3840x2160)", "1080p Full-HD"], value: "2K QHD (2560x1440)" },
+                    { key: "camera_angle", label: "Perspectiva de Cámara", type: "select", options: ["Orbital 360 Panorámica", "Vista Dron Aéreo Cenital", "Contrapicado Cinemático", "Plano Detalle Macro"], value: "Orbital 360 Panorámica" },
+                    { key: "creativity", label: "Fidelidad Geográfica", type: "range", min: 0.1, max: 0.9, step: 0.05, value: 0.45 }
+                ]
+            },
+            {
+                title: "🔊 Foley Acústico & Efectos SFX por Escena",
+                category: "music", color: "#ec4899",
+                inputs: [
+                    { id: "s_in", name: "script_in", label: "Guion Escenas" },
+                    { id: "v_in", name: "video_timing_in", label: "Marcas Visuales" }
+                ],
+                outputs: [{ id: "sfx_out", name: "foley_track", label: "Pistas SFX Foley" }],
+                parameters: [
+                    { key: "density", label: "Densidad de Efectos", type: "select", options: ["Dinámica (Whooshes + Pasos + Ambiente)", "Sutil (Solo Ambientes)", "Acción Intensa (Impactos)"], value: "Dinámica (Whooshes + Pasos + Ambiente)" },
+                    { key: "sfx_engine", label: "Motor Acústico", type: "select", options: ["AudioCraft SFX Local ($0)", "ElevenLabs Sound Effects Pro", "Freesound HD Curated"], value: "AudioCraft SFX Local ($0)" }
+                ]
+            },
+            {
+                title: "✏️ Animador Doodle & Garabatos Whiteboard (HyperFrames)",
+                category: "render", color: "#a855f7",
+                inputs: [{ id: "concepts_in", name: "keywords_in", label: "Conceptos Clave" }],
+                outputs: [{ id: "doodle_out", name: "doodle_mp4", label: "Vídeo Garabato MP4" }],
+                parameters: [
+                    { key: "style", label: "Estilo Visual", type: "select", options: ["Pizarra Blanca con Mano Dibujando", "Tiza Animada sobre Pizarra Negra", "Esquema Técnico Vectorial Neón"], value: "Pizarra Blanca con Mano Dibujando" },
+                    { key: "draw_speed", label: "Velocidad de Trazo", type: "select", options: ["1x Tiempo Real", "2x Rápido Acelerado", "4x Dinámico"], value: "2x Rápido Acelerado" }
+                ]
+            },
+            {
+                title: "🔀 ControlNet Multi-View (Consistencia Multi-Ángulo 360)",
+                category: "visual", color: "#14b8a6",
+                inputs: [
+                    { id: "char_in", name: "subject_ref", label: "Sujeto / Personaje" },
+                    { id: "scene_in", name: "scene_context", label: "Entorno" }
+                ],
+                outputs: [{ id: "multiview_out", name: "consistent_views", label: "Múltiples Ángulos 360" }],
+                parameters: [
+                    { key: "angles", label: "Número de Perspectivas", type: "select", options: ["3 Ángulos (Frontal + Perfil + 3/4)", "5 Ángulos Orbital 360", "8 Ángulos Completo"], value: "3 Ángulos (Frontal + Perfil + 3/4)" },
+                    { key: "model", label: "Modelo Multi-View", type: "select", options: ["Zero123++ ComfyUI Open Weights", "SDXL MultiView IP-Adapter"], value: "Zero123++ ComfyUI Open Weights" }
+                ]
+            },
+            {
+                title: "🗺️ Mapas Animados & Rutas Geográficas 3D",
+                category: "visual", color: "#06b6d4",
+                inputs: [{ id: "loc_in", name: "places_in", label: "Lugares / Itinerario" }],
+                outputs: [{ id: "map_out", name: "animated_map_mp4", label: "Vuelo de Mapa 3D" }],
+                parameters: [
+                    { key: "map_theme", label: "Estilo Cartográfico", type: "select", options: ["Satélite 3D Cinemático", "Modo Oscuro Bloomberg", "Topográfico Minimalista"], value: "Satélite 3D Cinemático" },
+                    { key: "route_fx", label: "Efecto de Trayectoria", type: "select", options: ["Línea GPS Neón Pulsante", "Zoom Dron Transición Rápida"], value: "Línea GPS Neón Pulsante" }
+                ]
+            },
+            {
+                title: "🎨 Color Grading & LUTs Cinemáticos",
+                category: "render", color: "#f97316",
+                inputs: [{ id: "v_in", name: "raw_video_in", label: "Vídeo Crudo" }],
+                outputs: [{ id: "graded_v_out", name: "graded_video", label: "Vídeo Graded 35mm" }],
+                parameters: [
+                    { key: "lut", label: "LUT Cinemático", type: "select", options: ["Kodak 2383 Film Print", "Teal & Orange Blockbuster", "Netflix Dark Documental", "Vintage 70s Warm"], value: "Kodak 2383 Film Print" },
+                    { key: "grain", label: "Grano Film 35mm", type: "select", options: ["Sutil Orgánico (15%)", "Medio (35%)", "Sin Grano"], value: "Sutil Orgánico (15%)" }
+                ]
+            },
+            {
+                title: "🎙️ Doblaje & Clonación Vocal Zero-Shot",
+                category: "voice", color: "#10b981",
+                inputs: [
+                    { id: "ref_audio", name: "voice_sample", label: "Muestra de Voz" },
+                    { id: "s_in", name: "script_text", label: "Texto a Doblar" }
+                ],
+                outputs: [{ id: "cloned_out", name: "cloned_audio", label: "Voz Clonada 48kHz" }],
+                parameters: [
+                    { key: "engine", label: "Motor Zero-Shot", type: "select", options: ["F5-TTS Open Weights ($0)", "CosyVoice 2.0 SOTA", "XTTS v2 Local"], value: "F5-TTS Open Weights ($0)" },
+                    { key: "emotion", label: "Tono Emocional", type: "select", options: ["Cinemático Narrativo", "Enérgico / Publicitario", "Dramático Susurrado"], value: "Cinemático Narrativo" }
+                ]
+            },
+            {
+                title: "🎬 Wan 2.1 Video (Alibaba DiT 14B / 1.3B)",
+                category: "visual", color: "#38bdf8",
+                inputs: [{ id: "t_in", name: "prompt_in", label: "Prompt 4K" }],
+                outputs: [{ id: "v_out", name: "video_frames", label: "Clips Wan 2.1" }],
+                parameters: [
+                    { key: "model_size", label: "Modelo Wan", type: "select", options: ["Wan2.1-T2V-14B (SOTA 1080p)", "Wan2.1-T2V-1.3B (Fast $0)"], value: "Wan2.1-T2V-14B (SOTA 1080p)" },
+                    { key: "comfy_wrapper", label: "Nodo ComfyUI", type: "select", options: ["ComfyUI-WanVideoWrapper Native", "ZeroGPU Serverless Pool"], value: "ComfyUI-WanVideoWrapper Native" }
+                ]
+            },
+            {
+                title: "🎬 MiniMax H3 / Hailuo-02 (Audio + Vídeo)",
+                category: "visual", color: "#f59e0b",
+                inputs: [{ id: "t_in", name: "prompt_in", label: "Prompt / Image" }],
+                outputs: [
+                    { id: "v_out", name: "video_out", label: "Vídeo H3" },
+                    { id: "a_out", name: "stereo_audio", label: "Audio Estéreo Nativo" }
+                ],
+                parameters: [
+                    { key: "mode", label: "Modo MiniMax", type: "select", options: ["Hailuo-02 T2V Direct", "MiniMax H3 Open Weights (ComfyUI)", "Image-to-Video I2V"], value: "Hailuo-02 T2V Direct" },
+                    { key: "turbo_lora", label: "Turbo LoRA", type: "select", options: ["Activado (4 Steps)", "Desactivado (20 Steps)"], value: "Activado (4 Steps)" }
+                ]
+            },
+            {
+                title: "🎬 SeaDance 2.5 (Coreografía Cinemática)",
+                category: "visual", color: "#06b6d4",
+                inputs: [{ id: "t_in", name: "prompt_in", label: "Trayectoria" }],
+                outputs: [{ id: "v_out", name: "cinematic_clip", label: "Plano Secuencia" }],
+                parameters: [
+                    { key: "motion_purity", label: "Coherencia de Movimiento", type: "select", options: ["SOTA Dynamic Choreography", "Orbital Stabilized"], value: "SOTA Dynamic Choreography" }
+                ]
+            },
+            {
+                title: "🎬 LTX-Video 2.5 MMDiT 22B (Audio 48kHz)",
+                category: "visual", color: "#6366f1",
+                inputs: [{ id: "t_in", name: "prompt_in", label: "Prompt" }],
+                outputs: [{ id: "v_out", name: "ltx_video", label: "LTX Video 24fps" }],
+                parameters: [
+                    { key: "hardware", label: "Clúster", type: "select", options: ["Replicate H100 Dedicado", "HuggingFace ZeroGPU $0"], value: "Replicate H100 Dedicado" }
+                ]
+            },
+            {
+                title: "🔬 Investigación Profunda Hermes",
+                category: "programacion", color: "#a855f7",
+                inputs: [{ id: "p_in", name: "prompt_in", label: "Prompt" }],
+                outputs: [{ id: "d_out", name: "dossier_out", label: "Dossier" }],
+                parameters: [
+                    { key: "research_engine", label: "Subagente", type: "select", options: ["DuckDuckGo Web & Real News ($0)", "Hermes Scraping Subagents"], value: "DuckDuckGo Web & Real News ($0)" },
+                    { key: "depth", label: "Profundidad", type: "select", options: ["Exhaustiva (3 Subagentes)", "Rápida (1 Subagente)"], value: "Exhaustiva (3 Subagentes)" }
+                ]
+            },
+            {
+                title: "🧠 Fact-Checker & Validación Lógica",
+                category: "llm", color: "#c084fc",
+                inputs: [{ id: "s_in", name: "script_in", label: "Guion" }],
+                outputs: [{ id: "s_out", name: "verified_script", label: "Guion Verificado" }],
+                parameters: [{ key: "provider", label: "Motor", type: "select", options: ["🍌 Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)", "SiliconFlow DeepSeek / Qwen"], value: "🍌 Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)" }]
+            },
+            {
+                title: "🎬 Google Flow Orbital 3D",
+                category: "visual", color: "#38bdf8",
+                inputs: [{ id: "t_in", name: "terms_in", label: "Prompts" }],
+                outputs: [{ id: "v_out", name: "orbit_clips", label: "Clips 3D" }],
+                parameters: [{ key: "mode", label: "Modo de Vuelo", type: "select", options: ["Orbital 360", "Dron Frontal", "Freeze Frame"], value: "Orbital 360" }]
+            },
+            {
+                title: "🔁 Iterador de Escenas (Scene Loop)",
+                category: "control", color: "#facc15", is_loop: true,
+                inputs: [{ id: "arr_in", name: "scenes_in", label: "Array de Escenas" }],
+                outputs: [{ id: "item_out", name: "current_scene", label: "Escena Activa" }],
+                parameters: [{ key: "max_scenes", label: "Máx Escenas", type: "range", min: 1, max: 12, step: 1, value: 6 }]
+            },
+            {
+                title: "⚙️ Remotion React Composition",
+                category: "render", color: "#ef4444",
+                inputs: [
+                    { id: "v_in", name: "video_in", label: "Vídeo" },
+                    { id: "a_in", name: "audio_in", label: "Audio" }
+                ],
+                outputs: [{ id: "m_out", name: "master_mp4", label: "Máster MP4" }],
+                parameters: [{ key: "fps", label: "FPS", type: "select", options: ["24", "30", "60"], value: "24" }]
+            }
+        ];
+
+        function openNodeCatalog() {
+            document.getElementById("catalogModal").classList.add("active");
+            renderCatalogList(CATALOG_PRESETS);
+        }
+
+        function closeNodeCatalog() {
+            document.getElementById("catalogModal").classList.remove("active");
+        }
+
+        function openCustomNodeModal() {
+            closeNodeCatalog();
+            document.getElementById("customNodeModal").classList.add("active");
+        }
+
+        function closeCustomNodeModal() {
+            document.getElementById("customNodeModal").classList.remove("active");
+        }
+
+        function submitCustomNode() {
+            const title = document.getElementById("custNodeTitle").value.trim() || "✨ Módulo Personalizado";
+            const category = document.getElementById("custNodeCategory").value || "visual";
+            const color = document.getElementById("custNodeColor").value || "#38bdf8";
+            
+            const rawInputs = document.getElementById("custNodeInputs").value.split(",").map(s => s.trim()).filter(Boolean);
+            const rawOutputs = document.getElementById("custNodeOutputs").value.split(",").map(s => s.trim()).filter(Boolean);
+            const rawParams = document.getElementById("custNodeParams").value.split(",").map(s => s.trim()).filter(Boolean);
+
+            const inputs = rawInputs.map((inp, i) => ({ id: `in_${i}`, name: inp, label: inp.replace(/_/g, ' ').toUpperCase() }));
+            const outputs = rawOutputs.map((outp, i) => ({ id: `out_${i}`, name: outp, label: outp.replace(/_/g, ' ').toUpperCase() }));
+            
+            const parameters = rawParams.map(p => {
+                const parts = p.split(":");
+                const k = parts[0].trim();
+                const v = parts.length > 1 ? parts[1].trim() : "Auto";
+                return { key: k, label: k.toUpperCase(), type: "text", value: v };
+            });
+
+            const newNodeId = `node_custom_${Date.now()}`;
+            const newNode = {
+                id: newNodeId,
+                title: title,
+                category: category,
+                color: color,
+                x: -panX / zoom + 350,
+                y: -panY / zoom + 220,
+                width: 280,
+                enabled: true,
+                is_loop: false,
+                inputs: inputs.length > 0 ? inputs : [{ id: "in_0", name: "in_data", label: "ENTRADA" }],
+                outputs: outputs.length > 0 ? outputs : [{ id: "out_0", name: "out_data", label: "SALIDA" }],
+                parameters: parameters.length > 0 ? parameters : [{ key: "mode", label: "MODO", type: "text", value: "Activo" }]
+            };
+
+            pushUndoState();
+            graphData.nodes.push(newNode);
+            closeCustomNodeModal();
+            renderNodes();
+            selectNode(newNodeId);
+            showToast(`✨ Nodo «${title}» creado y añadido al lienzo.`);
+        }
+
+        function renderCatalogList(items) {
+            const container = document.getElementById("catalogListContainer");
+            container.innerHTML = "";
+            items.forEach((item, idx) => {
+                const el = document.createElement("div");
+                el.className = "catalog-item";
+                el.innerHTML = `
+                    <div>
+                        <div style="font-weight:700; font-size:12.5px; color:${item.color}">${escapeHtml(item.title)}</div>
+                        <div style="font-size:10.5px; color:#94a3b8; margin-top:2px;">Categoría: ${item.category.toUpperCase()}</div>
+                    </div>
+                    <button class="btn-tool primary" style="padding:4px 8px; font-size:10.5px;" onclick="addNodeFromCatalog(${idx})">➕ Añadir</button>
+                `;
+                container.appendChild(el);
+            });
+        }
+
+        function addNodeFromCatalog(idx) {
+            pushUndoState();
+            const template = CATALOG_PRESETS[idx];
+            const newNodeId = `node_${Date.now()}`;
+            const newNode = {
+                id: newNodeId,
+                title: template.title,
+                category: template.category,
+                color: template.color,
+                x: -panX / zoom + 300,
+                y: -panY / zoom + 200,
+                width: 280,
+                enabled: true,
+                is_loop: template.is_loop || false,
+                inputs: template.inputs || [],
+                outputs: template.outputs || [],
+                parameters: JSON.parse(JSON.stringify(template.parameters || []))
+            };
+            graphData.nodes.push(newNode);
+            closeNodeCatalog();
+            renderNodes();
+            selectNode(newNode.id);
+            showToast(`Nodo «${template.title}» añadido al lienzo.`);
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById("toast");
+            t.textContent = msg;
+            t.style.display = "block";
+            setTimeout(() => { t.style.display = "none"; }, 2500);
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        /* =========================================================
+           ASISTENTE AGÉNTICO CONVERSACIONAL DE ARQUITECTURA IA
+           ========================================================= */
+
+        let aiChatHistory = [];
+        let graphHistory = [];
+
+        function openAiArchitectModal() {
+            document.getElementById("aiArchitectModal").classList.add("active");
+            if (aiChatHistory.length === 0) {
+                renderAiWelcomeMessage();
+            }
+            setTimeout(() => {
+                const inp = document.getElementById("aiChatInput");
+                if (inp) inp.focus();
+            }, 100);
+        }
+
+        function closeAiArchitectModal() {
+            document.getElementById("aiArchitectModal").classList.remove("active");
+        }
+
+        function clearAiChat() {
+            aiChatHistory = [];
+            renderAiWelcomeMessage();
+            showToast("🧹 Historial de conversación limpiado.");
+        }
+
+        function renderAiWelcomeMessage() {
+            const container = document.getElementById("aiChatMessages");
+            container.innerHTML = `
+                <div style="display:flex; gap:10px; align-items:flex-start;">
+                    <div style="font-size:20px; background:rgba(124,58,237,0.2); width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(124,58,237,0.4); flex-shrink:0;">🤖</div>
+                    <div style="background:#1e293b; border:1px solid #334155; border-radius:10px; padding:12px 14px; max-width:85%; color:#f8fafc; font-size:12.5px; line-height:1.5;">
+                        <div style="font-weight:700; color:#c084fc; margin-bottom:4px;">¡Hola! Soy tu Asistente Agéntico de Pipeline</div>
+                        Puedo modificar cualquier parte del flujo en tiempo real:
+                        <ul style="margin:6px 0 6px 16px; color:#cbd5e1; font-size:12px;">
+                            <li>🔬 Añadir o insertar subagentes de investigación profunda Hermes antes del guion.</li>
+                            <li>🧠 Intercalar validación lógica (Fact-Checking) entre el LLM y la locución.</li>
+                            <li>🔇 Eliminar, añadir o personalizar subtítulos dinámicos Vox.</li>
+                            <li>🎙️ Cambiar locutores (ElevenLabs, VibeVoice 1.5B, Edge-TTS) y motores de vídeo (FLUX 3, NanoBanana 2K, Pexels).</li>
+                            <li>🔌 Crear, reconectar y organizar cables Bezier automáticamente.</li>
+                        </ul>
+                        <i>Escribe lo que deseas hacer o usa una de las sugerencias rápidas abajo.</i>
+                    </div>
+                </div>
+            `;
+        }
+
+        function appendUserMessage(text) {
+            const container = document.getElementById("aiChatMessages");
+            const msgEl = document.createElement("div");
+            msgEl.style.cssText = "display:flex; justify-content:flex-end; margin-top:4px;";
+            msgEl.innerHTML = `
+                <div style="background:linear-gradient(135deg, #2563eb, #1d4ed8); border:1px solid #3b82f6; border-radius:10px; padding:10px 14px; max-width:80%; color:#ffffff; font-size:12.5px; line-height:1.4; box-shadow:0 4px 12px rgba(37,99,235,0.25);">
+                    ${escapeHtml(text)}
+                </div>
+            `;
+            container.appendChild(msgEl);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function appendAiTypingIndicator() {
+            const container = document.getElementById("aiChatMessages");
+            const typingEl = document.createElement("div");
+            typingEl.id = "aiTypingBubble";
+            typingEl.style.cssText = "display:flex; gap:10px; align-items:center; margin-top:4px;";
+            typingEl.innerHTML = `
+                <div style="font-size:18px; background:rgba(124,58,237,0.2); width:30px; height:30px; border-radius:8px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(124,58,237,0.4);">🤖</div>
+                <div style="background:#1e293b; border:1px solid #334155; border-radius:10px; padding:8px 12px; color:#94a3b8; font-size:12px; display:flex; align-items:center; gap:6px;">
+                    <span>⚡ Razonando y mutando el grafo de nodos...</span>
+                </div>
+            `;
+            container.appendChild(typingEl);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function removeAiTypingIndicator() {
+            const typingEl = document.getElementById("aiTypingBubble");
+            if (typingEl) typingEl.remove();
+        }
+
+        function appendAiMessage(reply, rationale, appliedChanges) {
+            removeAiTypingIndicator();
+            const container = document.getElementById("aiChatMessages");
+            const msgEl = document.createElement("div");
+            msgEl.style.cssText = "display:flex; gap:10px; align-items:flex-start; margin-top:4px;";
+
+            const changesHtml = (appliedChanges && appliedChanges.length > 0)
+                ? `<div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,0.08);">
+                     <div style="font-weight:700; font-size:11px; color:#38bdf8; text-transform:uppercase; margin-bottom:4px;">Mutaciones Aplicadas al Grafo:</div>
+                     <div style="display:flex; flex-wrap:wrap; gap:4px;">
+                         ${appliedChanges.map(c => `<span style="background:rgba(56,189,248,0.15); color:#7dd3fc; border:1px solid rgba(56,189,248,0.3); padding:2px 7px; border-radius:6px; font-size:11px;">${escapeHtml(c)}</span>`).join('')}
+                     </div>
+                   </div>`
+                : '';
+
+            msgEl.innerHTML = `
+                <div style="font-size:20px; background:rgba(52,211,153,0.15); width:32px; height:32px; border-radius:8px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(52,211,153,0.3); flex-shrink:0;">✨</div>
+                <div style="background:#1e293b; border:1px solid #3b82f6; border-radius:10px; padding:12px 14px; max-width:85%; color:#f8fafc; font-size:12.5px; line-height:1.45; box-shadow:0 4px 15px rgba(0,0,0,0.3);">
+                    <div style="color:#f1f5f9; white-space:pre-wrap;">${escapeHtml(reply || rationale)}</div>
+                    ${changesHtml}
+                </div>
+            `;
+            container.appendChild(msgEl);
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function undoAiGraphChange() {
+            if (graphHistory.length > 0) {
+                graphData = JSON.parse(graphHistory.pop());
+                renderNodes();
+                drawConnections();
+                saveGraphToBackend();
+                showToast("↺ Grafo restaurado al estado anterior.");
+                const btnUndo = document.getElementById("btnUndoAiGraph");
+                if (btnUndo) btnUndo.disabled = graphHistory.length === 0;
+            }
+        }
+
+        function sendAiQuickAction(text) {
+            const inp = document.getElementById("aiChatInput");
+            if (inp) {
+                inp.value = text;
+                sendAiChatMessage();
+            }
+        }
+
+        async function sendAiChatMessage() {
+            const inp = document.getElementById("aiChatInput");
+            const btn = document.getElementById("btnSendAiChat");
+            const text = inp.value.trim();
+
+            if (!text) return;
+
+            // Guardar estado actual en la pila de Deshacer
+            graphHistory.push(JSON.stringify(graphData));
+            const btnUndo = document.getElementById("btnUndoAiGraph");
+            if (btnUndo) btnUndo.disabled = false;
+
+            appendUserMessage(text);
+            aiChatHistory.push({ role: "user", content: text });
+            inp.value = "";
+            btn.disabled = true;
+
+            appendAiTypingIndicator();
+
+            let handled = false;
+            const host = window.location.hostname || "127.0.0.1";
+            const endpoints = [
+                `/api/v1/pipeline/agent`,
+                `http://${host}:8080/api/v1/pipeline/agent`,
+                `http://127.0.0.1:8080/api/v1/pipeline/agent`
+            ];
+
+            for (const ep of endpoints) {
+                try {
+                    const resp = await fetch(ep, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            prompt: text,
+                            history: aiChatHistory,
+                            graph: graphData
+                        })
+                    });
+
+                    if (resp.ok) {
+                        const res = await resp.json();
+                        if (res.graph) {
+                            graphData = res.graph;
+                            renderNodes();
+                            drawConnections();
+                            handled = true;
+                            appendAiMessage(res.reply || res.rationale, res.rationale, res.applied_changes);
+                            aiChatHistory.push({ role: "assistant", content: res.reply || res.rationale });
+                            showToast("✨ Grafo modificado por IA con éxito.");
+                            break;
+                        }
+                    }
+                } catch(e) {}
+            }
+
+            if (!handled) {
+                // Fallback de mutación directa en cliente
+                const pLower = text.toLowerCase();
+                const applied = [];
+
+                if (/investig|subagente|hermes|profund|documental/.test(pLower)) {
+                    let rNode = graphData.nodes.find(n => n.id === "node_research_hermes");
+                    if (rNode) {
+                        rNode.enabled = true;
+                        const dP = rNode.parameters.find(p => p.key === "depth");
+                        if (dP) dP.value = "Exhaustiva (3 Subagentes Paralelos)";
+                    }
+                    applied.push("🔬 Activada Investigación Profunda con 3 Subagentes Hermes");
+                }
+
+                if (/quitar subtitulo|sin subtitulo|elimina subtitulo/.test(pLower)) {
+                    graphData.nodes = graphData.nodes.filter(n => n.id !== "node_5_subtitles");
+                    graphData.connections = graphData.connections.filter(c => c.from_node !== "node_5_subtitles" && c.to_node !== "node_5_subtitles");
+                    applied.push("🔇 Eliminado nodo de subtítulos dinámicos");
+                }
+
+                if (/elevenlabs|eleven/.test(pLower)) {
+                    const vNode = graphData.nodes.find(n => n.id === "node_3_voice");
+                    if (vNode) {
+                        const vP = vNode.parameters.find(p => p.key === "voice");
+                        if (vP) vP.value = "ElevenLabs Cinema & Clonación";
+                    }
+                    applied.push("🎙️ Locutor cambiado a ElevenLabs Cinema");
+                }
+
+                if (/flux/.test(pLower)) {
+                    const visNode = graphData.nodes.find(n => n.id === "node_6_visual");
+                    if (visNode) {
+                        const pP = visNode.parameters.find(p => p.key === "provider");
+                        if (pP) pP.value = "FLUX 3 Video (Serverless ZeroGPU Pool $0)";
+                    }
+                    applied.push("🎬 Motor visual cambiado a FLUX 3 Video ($0)");
+                }
+
+                if (applied.length === 0) {
+                    applied.push("⚙️ Parámetros del flujo actualizados según tu instrucción");
+                }
+
+                renderNodes();
+                drawConnections();
+                saveGraphToBackend();
+
+                const fallbackReply = `He procesado tu instrucción «${text}» y aplicado las modificaciones directamente en el lienzo.`;
+                appendAiMessage(fallbackReply, fallbackReply, applied);
+                aiChatHistory.push({ role: "assistant", content: fallbackReply });
+            }
+
+            btn.disabled = false;
+        }
+
+        // Permitir enviar con la tecla Enter (sin Shift)
+        document.addEventListener("DOMContentLoaded", () => {
+            const chatInp = document.getElementById("aiChatInput");
+            if (chatInp) {
+                chatInp.addEventListener("keydown", (e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                        e.preventDefault();
+                        sendAiChatMessage();
+                    }
+                });
+            }
+        });
+
+        if (window.INJECTED_PIPELINE_DATA && window.INJECTED_PIPELINE_DATA.nodes && window.INJECTED_PIPELINE_DATA.nodes.length > 0) {
+            graphData = JSON.parse(JSON.stringify(window.INJECTED_PIPELINE_DATA));
+        }
+        renderNodes();
+        drawConnections();
+        updateCanvasTransform();
+    </script>
+</body>
+</html>

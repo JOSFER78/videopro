@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ChronoDrift6DoFGroundingSchema",
+  "description": "Schema de validación para los manifiestos de Ingesta 6-DoF, Street View 360° y OpenStreetMap en VideoPro",
+  "type": "object",
+  "required": [
+    "manifest_version",
+    "city_key",
+    "city_name",
+    "country",
+    "epochs",
+    "waypoints",
+    "perspectives_matrix",
+    "spherical_360_matrix",
+    "spatial_geometries",
+    "optical_quality_gate"
+  ],
+  "properties": {
+    "manifest_version": { "type": "string" },
+    "city_key": { "type": "string" },
+    "city_name": { "type": "string" },
+    "country": { "type": "string" },
+    "generated_at": { "type": "string" },
+    "epochs": {
+      "type": "object",
+      "required": ["past_1626", "present_2026", "future_2226"],
+      "properties": {
+        "past_1626": { "type": "object" },
+        "present_2026": { "type": "object" },
+        "future_2226": { "type": "object" }
+      }
+    },
+    "waypoints": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "lat", "lon", "alt_agl"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "lat": { "type": "number" },
+          "lon": { "type": "number" },
+          "alt_agl": { "type": "number" }
+        }
+      }
+    },
+    "perspectives_matrix": {
+      "type": "array",
+      "minItems": 18,
+      "items": {
+        "type": "object",
+        "required": ["perspective_id", "waypoint_id", "heading", "pitch", "fov", "role", "grounding_status"],
+        "properties": {
+          "perspective_id": { "type": "string" },
+          "waypoint_id": { "type": "string" },
+          "landmark": { "type": "string" },
+          "latitude": { "type": "number" },
+          "longitude": { "type": "number" },
+          "altitude_agl": { "type": "number" },
+          "heading": { "type": "number" },
+          "pitch": { "type": "number" },
+          "fov": { "type": "number" },
+          "role": { "type": "string" },
+          "grounding_status": { "type": "string" }
+        }
+      }
+    },
+    "spherical_360_matrix": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["waypoint_id", "aspect_ratio", "resolution_target", "cubemap_faces"],
+        "properties": {
+          "waypoint_id": { "type": "string" },
+          "landmark": { "type": "string" },
+          "coords": { "type": "object" },
+          "projection_type": { "type": "string" },
+          "aspect_ratio": { "type": "string" },
+          "resolution_target": { "type": "string" },
+          "cubemap_faces": { "type": "array", "items": { "type": "object" } },
+          "quality_filters": { "type": "object" }
+        }
+      }
+    },
+    "spatial_geometries": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "required": ["waypoint", "osm_geometry"],
+        "properties": {
+          "waypoint": { "type": "object" },
+          "osm_geometry": { "type": "object" }
+        }
+      }
+    },
+    "optical_quality_gate": {
+      "type": "object",
+      "required": ["min_resolution", "min_file_size_bytes", "min_laplacian_variance"],
+      "properties": {
+        "min_resolution": { "type": "string" },
+        "min_file_size_bytes": { "type": "number", "minimum": 5000 },
+        "min_laplacian_variance": { "type": "number", "minimum": 100.0 },
+        "color_depth": { "type": "string" },
+        "frame_rate_fps": { "type": "integer" }
+      }
+    },
+    "render_config": {
+      "type": "object"
+    }
+  }
+}

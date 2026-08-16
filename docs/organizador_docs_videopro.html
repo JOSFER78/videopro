@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organización Maestra de Docs — VideoPro Studio & Firebase</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main: #060911;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
+      --border-color: rgba(51, 65, 85, 0.6);
+      --border-accent: rgba(56, 189, 248, 0.35);
+      --primary: #38bdf8;
+      --primary-glow: rgba(56, 189, 248, 0.2);
+      --secondary: #818cf8;
+      --accent-purple: #c084fc;
+      --accent-emerald: #34d399;
+      --accent-amber: #fbbf24;
+      --accent-rose: #f43f5e;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 28px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .title-area h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+    }
+
+    .title-area p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--primary);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+
+    /* Grid layout */
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(12px);
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+      box-shadow: 0 8px 24px var(--primary-glow);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag {
+      font-size: 10.5px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-fb { background: rgba(251, 191, 36, 0.15); color: var(--accent-amber); border: 1px solid rgba(251, 191, 36, 0.3); }
+    .tag-ui { background: rgba(56, 189, 248, 0.15); color: var(--primary); border: 1px solid rgba(56, 189, 248, 0.3); }
+    .tag-core { background: rgba(192, 132, 252, 0.15); color: var(--accent-purple); border: 1px solid rgba(192, 132, 252, 0.3); }
+    .tag-docs { background: rgba(52, 211, 153, 0.15); color: var(--accent-emerald); border: 1px solid rgba(52, 211, 153, 0.3); }
+
+    .tree-view {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: #090d16;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 14px;
+      color: #e2e8f0;
+      max-height: 480px;
+      overflow-y: auto;
+    }
+
+    .tree-folder {
+      color: #38bdf8;
+      font-weight: 600;
+      margin-top: 6px;
+      display: block;
+    }
+
+    .tree-file {
+      color: #94a3b8;
+      padding-left: 18px;
+      display: block;
+      transition: color 0.15s;
+    }
+
+    .tree-file:hover {
+      color: #f8fafc;
+    }
+
+    .tree-desc {
+      color: #64748b;
+      font-size: 11px;
+      padding-left: 6px;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 24px;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-color);
+      background: rgba(15, 23, 42, 0.5);
+    }
+
+    td {
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      color: var(--text-main);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .code-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38bdf8;
+    }
+
+    .btn-action {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+
+    .btn-action:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="title-area">
+        <h1>📐 Matriz de Reorganización: Carpeta docs/ & Simetría con Firebase / UI</h1>
+        <p>Alineación canónica 1:1 entre Colecciones Firestore, Pestañas de la UI, Core de Orquestación y Documentación Técnica.</p>
+      </div>
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Firebase Firestore: ayuda-emilio-83261 (Conectado)</span>
+      </div>
+    </header>
+
+    <!-- 3 Column Pillar Overview -->
+    <div class="grid-3">
+      <!-- Pillar 1: Firebase Schema -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🔥 1. Colecciones Firebase</div>
+          <span class="tag tag-fb">Firestore DB</span>
+        </div>
+        <div class="tree-view">
+          <span class="tree-folder">📂 videopro_settings/</span>
+          <span class="tree-file">📄 global_config <span class="tree-desc">→ Ajustes globales</span></span>
+          <span class="tree-file">📄 providers_registry <span class="tree-desc">→ Registro de 20 motores</span></span>
+          
+          <span class="tree-folder" style="margin-top:10px;">📂 providers_registry.categories/</span>
+          <span class="tree-file">🏷️ visual <span class="tree-desc">(FLUX 3, Google Flow, NanoBanana, LTX)</span></span>
+          <span class="tree-file">🏷️ voice <span class="tree-desc">(VibeVoice 1.5B, Edge-TTS, Kokoro)</span></span>
+          <span class="tree-file">🏷️ music <span class="tree-desc">(FlowMusic Lyria 3)</span></span>
+          <span class="tree-file">🏷️ programacion <span class="tree-desc">(FFmpeg, Remotion, Whisper, Vox)</span></span>
+          <span class="tree-file">🏷️ llm <span class="tree-desc">(Antigravity Bridge 8742, OpenAI)</span></span>
+          <span class="tree-file">🏷️ cloud <span class="tree-desc">(Cloudflare R2, Firebase DB)</span></span>
+
+          <span class="tree-folder" style="margin-top:10px;">📂 videopro_projects/</span>
+          <span class="tree-file">📄 proj_* <span class="tree-desc">→ workflow_id, director_spec, scenes</span></span>
+
+          <span class="tree-folder" style="margin-top:10px;">📂 videopro_system/</span>
+          <span class="tree-file">📄 status <span class="tree-desc">→ Estado del backend y URLs</span></span>
+        </div>
+      </div>
+
+      <!-- Pillar 2: UI Views -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">🖥️ 2. Vistas de la UI (nav.py)</div>
+          <span class="tag tag-ui">Streamlit WebUI</span>
+        </div>
+        <div class="tree-view">
+          <span class="tree-folder">🚀 Empezar (studio)</span>
+          <span class="tree-file">└─ Co-Creación, Director Semántico, CoT</span>
+          
+          <span class="tree-folder">🏛️ Workflow Studio (pipeline)</span>
+          <span class="tree-file">└─ Diseñador de Grafos, Nodos & Sockets</span>
+
+          <span class="tree-folder">📁 Proyectos (projects)</span>
+          <span class="tree-file">└─ Sincronización Firestore & Historial</span>
+
+          <span class="tree-folder">🎞️ Bóveda de Medios (cinema_vault)</span>
+          <span class="tree-file">└─ Gestor de Renders, Clips e Ingesta</span>
+
+          <span class="tree-folder">🎙️ Audio y Música (audio_studio)</span>
+          <span class="tree-file">└─ VibeVoice, FlowMusic, Foley & Mastering</span>
+
+          <span class="tree-folder">⚡ LTX y FLUX (ltx_flux)</span>
+          <span class="tree-file">└─ Generador directo de tomas e I2V</span>
+
+          <span class="tree-folder">⚙️ Ajustes (settings)</span>
+          <span class="tree-file">└─ APIs, Matriz de Proveedores, R2, Firebase</span>
+
+          <span class="tree-folder">📖 Documentación (docs)</span>
+          <span class="tree-file">└─ Estándares Netflix, DoP 7 Capas, Actores</span>
+        </div>
+      </div>
+
+      <!-- Pillar 3: Proposed docs/ tree -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">📁 3. Nueva Estructura docs/</div>
+          <span class="tag tag-docs">Canon 1:1</span>
+        </div>
+        <div class="tree-view">
+          <span class="tree-folder">docs/</span>
+          <span class="tree-file">📄 00_INDICE_MAESTRO_DOCS.md</span>
+          <span class="tree-folder">├── 01_arquitectura_y_sistema/</span>
+          <span class="tree-folder">├── 02_firebase_y_persistencia/</span>
+          <span class="tree-folder">├── 03_capacidades_y_nodos/</span>
+          <span class="tree-folder">├── 04_motores_y_proveedores/</span>
+          <span class="tree-file">│   ├── 01_visual/ (flux3, google_flow, nanobanana)</span>
+          <span class="tree-file">│   ├── 02_voz_y_audio/ (vibevoice, kokoro, edge)</span>
+          <span class="tree-file">│   ├── 03_musica_y_psicoacustica/ (flowmusic)</span>
+          <span class="tree-file">│   ├── 04_programacion_y_ensamblaje/ (ffmpeg, remotion)</span>
+          <span class="tree-file">│   └── 05_llm_directores/ (antigravity_bridge)</span>
+          <span class="tree-folder">├── 05_workflows_y_arquetipos/</span>
+          <span class="tree-file">│   ├── 01_chronodrift_tritemporal_4k.md</span>
+          <span class="tree-file">│   ├── 02_fpv_urban_real_flow.md</span>
+          <span class="tree-file">│   ├── 03_pixar_3d_animation.md</span>
+          <span class="tree-file">│   └── 04_historical_scraping.md ...</span>
+          <span class="tree-folder">├── 06_canales_youtube_ecosistema/</span>
+          <span class="tree-file">│   ├── 01_CHRONODRIFT/</span>
+          <span class="tree-file">│   ├── 02_TERRAMORPH/ ... 05_ASTRODRIFT/</span>
+          <span class="tree-folder">├── 07_guias_produccion_y_estandares/</span>
+          <span class="tree-folder">└── 08_dashboards_y_estudios_web/</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapping Table -->
+    <div class="table-container">
+      <h2 style="font-family:'Outfit'; font-size:18px; margin-bottom:14px; color:#38bdf8;">🗺️ Mapeo Exacto: Estado Actual ➔ Nueva Estructura 1:1 Canónica</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Nueva Carpeta Canónica</th>
+            <th>Origen / Archivos Actuales</th>
+            <th>Equivalencia en Firebase / UI</th>
+            <th>Propósito & Contenido</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="code-pill">01_arquitectura_y_sistema/</span></td>
+            <td><code>docs/architecture/*</code>, <code>docs/deployment/*</code></td>
+            <td>UI: <code>⚙️ Ajustes</code> (Sistema)</td>
+            <td>Mapas de arquitectura, puertos (8080/8501/7001/8742), runtime y naming oficial.</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">02_firebase_y_persistencia/</span></td>
+            <td><code>docs/database/*</code>, <code>app/services/firebase_sync.py</code></td>
+            <td>Firebase: <code>videopro_settings</code>, <code>videopro_projects</code></td>
+            <td>Esquema de Firestore, almacenamiento R2 Zero Egress y persistencia en la nube.</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">03_capacidades_y_nodos/</span></td>
+            <td><code>investigaciones/schemas/</code>, <code>capabilities.py</code></td>
+            <td>UI: <code>🏛️ Workflow Studio</code></td>
+            <td>Contratos de Capacidades (QUÉ), Sockets In/Out, parámetros y diseño de Nodos.</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">04_motores_y_proveedores/</span></td>
+            <td><code>investigaciones/nodos_capacidades/*</code></td>
+            <td>Firebase: <code>providers_registry</code> (5 categorías)</td>
+            <td>Guías técnicas de FLUX 3, Google Flow, NanoBanana, VibeVoice, FlowMusic, FFmpeg, Remotion.</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">05_workflows_y_arquetipos/</span></td>
+            <td><code>workflow_archetypes.py</code>, <code>workflows.py</code></td>
+            <td>UI: <code>🚀 Empezar</code> (Arquetipos de Producción)</td>
+            <td>Especificaciones de los 8 arquetipos (CHRONODRIFT, Pixar 3D, Documental, Vox Explainer, etc.).</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">06_canales_youtube_ecosistema/</span></td>
+            <td><code>investigaciones/workflows-nodos/workflows-canalesyoutube/*</code></td>
+            <td>Firebase: <code>videopro_projects</code> (Ecosistema)</td>
+            <td>Dossiers de los 5 canales de YouTube (CHRONODRIFT, TERRAMORPH, NANOVERSE, LIVING CANVAS, ASTRODRIFT).</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">07_guias_produccion_y_estandares/</span></td>
+            <td><code>docs/investigaciones/01_*, 04_*, 05_*</code></td>
+            <td>UI: <code>📖 Documentación</code></td>
+            <td>Prompting DoP 7 Capas, Consistencia de Actores 4 Anclas, Mastering 48kHz (-14 LUFS).</td>
+          </tr>
+          <tr>
+            <td><span class="code-pill">08_dashboards_y_estudios_web/</span></td>
+            <td><code>docs/investigaciones/*.html</code></td>
+            <td>UI: Visores Web Interactivos</td>
+            <td>Paneles HTML interactivos (Time-slider tritemporal, comparador de canales, calculadoras).</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+</html>

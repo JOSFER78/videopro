@@ -1,0 +1,38 @@
+{
+  "channel_id": "03_NANOVERSE",
+  "brand_name": "NANOVERSE",
+  "handle": "@NanoVerseStudio",
+  "tagline": "Deep Scale Journeys & Molecular Worlds (1m ➔ 1Å)",
+  "niche": "Nanoscopía Inmersiva, Vuelos Moleculares y Estructuras Atómicas 3D",
+  "target_rpm_usd": "$11.00 – $21.50 USD",
+  "target_retention": "94% (1m) / 76% (AVD)",
+  "primary_color": "#ff007f",
+  "secondary_color": "#7928ca",
+  "accent_color": "#00f0ff",
+  "audio_settings": {
+    "bpm": "112 BPM",
+    "genre": "Micro-Beats Lo-Fi / Sub-Bass 38Hz & ASMR Foley",
+    "target_lufs": -14.0,
+    "ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  },
+  "video_generator": {
+    "model": "gemini-omni-flash-preview",
+    "provider": "google_flow",
+    "fps": 60,
+    "resolution": "3840x2160",
+    "keyframes_per_shot": 7
+  },
+  "episodes_planned": [
+    "La Gota de Café",
+    "El Microprocesador de 2nm",
+    "El Veneno de la Serpiente Mamba Negra",
+    "La Lágrima Humana de Tristeza vs Alegría",
+    "El Ala de Mariposa Morfo Azul",
+    "El Virus Bacteriófago T4",
+    "El Diamante vs El Grafito",
+    "El Ojo Compuesto de una Abeja",
+    "La Membrana de una Neurona Pensando",
+    "El Fotón Escapando del Núcleo Solar"
+  ]
+}
