@@ -106,6 +106,99 @@ def _render_category_api_manager(reg: dict, matrix: dict, category_code: str, he
             st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
 
+def _render_native_matrix_view(reg: dict, matrix: dict):
+    """Renderizador nativo 100% Python/Streamlit de la Matriz Maestra de Proveedores."""
+    category_map = [
+        ("visual", "🎬 Motores Visuales, Vídeo & Keyframes 4K"),
+        ("voice", "🎙️ Voces Neurales, Locución & Foley"),
+        ("music", "🎵 Bandas Sonoras & Audio Ducking"),
+        ("llm", "🧠 Directores Creativos & LLM"),
+        ("programacion", "🔬 Subagentes, Subtítulos Vox & STT"),
+        ("render", "⚙️ Motores de Ensamblaje (FFmpeg / Remotion)"),
+        ("cloud", "☁️ Almacenamiento Cloudflare R2 & Firebase")
+    ]
+
+    for cat_key, cat_title in category_map:
+        cat_providers = [(p_id, p_info) for p_id, p_info in reg.items() if p_info.get("category") == cat_key]
+        if not cat_providers:
+            continue
+
+        with st.expander(f"{cat_title} ({len(cat_providers)} Motores)", expanded=(cat_key in ("visual", "voice"))):
+            for p_id, p_info in cat_providers:
+                p_name = p_info.get("name", p_id)
+                p_enabled = bool(p_info.get("enabled", True))
+                p_infra = p_info.get("infra_type", "cloud")
+                p_desc = p_info.get("description", "")
+                p_label = p_info.get("label", p_name)
+                
+                # Badge de infraestructura
+                infra_badge = "🖥️ Local VPS ($0)" if p_infra in ("local", "local_headless") else ("☁️ Serverless ($0)" if p_infra == "serverless" else "🚀 Cloud Dedicada")
+                badge_str = matrix.get(p_id, {}).get("badge", "🟢 Configurado" if p_enabled else "⚪ Inactivo")
+                badge_html = _badge_html(badge_str)
+
+                c_top1, c_top2 = st.columns([7.5, 2.5], vertical_alignment="center")
+                with c_top1:
+                    st.markdown(f"<div style='font-size:14px; font-weight:800; color:#f8fafc;'>{p_name} <span style='font-size:11px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px; border:1px solid #334155;'>{infra_badge}</span> {badge_html}</div>", unsafe_allow_html=True)
+                    if p_desc:
+                        st.caption(p_desc)
+                with c_top2:
+                    new_state = st.toggle("HABILITADO", value=p_enabled, key=f"nat_tog_{p_id}")
+                    if new_state != p_enabled:
+                        registry.set_provider_enabled(p_id, new_state)
+                        firebase_sync.save_settings_to_firebase_async()
+                        st.toast(f"✅ {p_name} {'activado' if new_state else 'desactivado'}.")
+                        st.rerun()
+
+                # Cuadrícula de capacidades y preferencias
+                cols = st.columns(4)
+                
+                # Columna 1: Capacidades
+                with cols[0]:
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#38bdf8; margin-bottom:4px;'>✨ Capacidades Técnicas</div>", unsafe_allow_html=True)
+                    cats = p_info.get("categories", [])
+                    if isinstance(cats, list):
+                        for c_item in cats:
+                            txt = c_item.get("text", str(c_item)) if isinstance(c_item, dict) else str(c_item)
+                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
+                    else:
+                        st.markdown("<div style='font-size:11px; color:#64748b;'>Estándar</div>", unsafe_allow_html=True)
+
+                # Columna 2: Infraestructura
+                with cols[1]:
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#34d399; margin-bottom:4px;'>🖥️ Infraestructura</div>", unsafe_allow_html=True)
+                    infras = p_info.get("infrastructure", [])
+                    if isinstance(infras, list):
+                        for inf in infras:
+                            txt = inf.get("text", str(inf)) if isinstance(inf, dict) else str(inf)
+                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
+                    else:
+                        st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {infra_badge}</div>", unsafe_allow_html=True)
+
+                # Columna 3: Preferencias
+                with cols[2]:
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#facc15; margin-bottom:4px;'>⚙️ Preferencias</div>", unsafe_allow_html=True)
+                    prefs = p_info.get("preferences", [])
+                    if isinstance(prefs, list):
+                        for prf in prefs:
+                            txt = prf.get("text", str(prf)) if isinstance(prf, dict) else str(prf)
+                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
+                    else:
+                        st.markdown("<div style='font-size:11px; color:#64748b;'>Sin reglas</div>", unsafe_allow_html=True)
+
+                # Columna 4: Comportamientos
+                with cols[3]:
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#f43f5e; margin-bottom:4px;'>🎯 Comportamiento</div>", unsafe_allow_html=True)
+                    behavs = p_info.get("behaviors", [])
+                    if isinstance(behavs, list):
+                        for bh in behavs:
+                            txt = bh.get("text", str(bh)) if isinstance(bh, dict) else str(bh)
+                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
+                    else:
+                        st.markdown("<div style='font-size:11px; color:#64748b;'>Automático</div>", unsafe_allow_html=True)
+
+                st.markdown("<hr style='margin: 8px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
+
+
 def render_view():
     # Notificación de borrado previo si existe
     if "deleted_provider_toast" in st.session_state:
@@ -379,13 +472,34 @@ def render_view():
         st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
 
         # ---------------------------------------------------------
-        # TABLA MAESTRA VISUAL COMPLETA (EXCEL INTERACTIVO + IA)
+        # SELECTOR DE MODO DE VISUALIZACIÓN (MÁXIMA RESILIENCIA)
         # ---------------------------------------------------------
-        st.markdown("#### 📋 Matriz Visual Granular (Opciones Atómicas, Asistente IA, Preferencias & Comportamientos)")
-        st.caption("Controla capacidades técnicas, modelos de inferencia, reglas de descarte estricto y comportamientos acústicos en tiempo real.")
+        col_mat_hdr, col_mat_mode = st.columns([6, 4], vertical_alignment="center")
+        with col_mat_hdr:
+            st.markdown("#### 📋 Matriz Maestra de Proveedores & Capacidades Atómicas")
+            st.caption("Controla capacidades técnicas, modelos de inferencia, reglas de descarte estricto y comportamientos acústicos en tiempo real.")
+        with col_mat_mode:
+            matrix_view_mode = st.segmented_control(
+                "Modo de Visualización:",
+                options=["studio", "native"],
+                default="studio",
+                format_func=lambda x: "🖥️ Vista Studio (Grid 60 FPS)" if x == "studio" else "🐍 Vista Nativa (Tarjetas Python)",
+                key="matrix_view_mode_selector"
+            ) if hasattr(st, "segmented_control") else st.radio(
+                "Modo de Visualización:",
+                options=["studio", "native"],
+                index=0,
+                format_func=lambda x: "🖥️ Vista Studio (Grid 60 FPS)" if x == "studio" else "🐍 Vista Nativa (Tarjetas Python)",
+                horizontal=True,
+                key="matrix_view_mode_selector"
+            )
 
-        matrix_file = os.path.join(BASE_DIR, "investigaciones", "capacidades", "proveedores_excel.html")
-        if os.path.exists(matrix_file):
+        matrix_file = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "proveedores_excel.html")
+        if not os.path.exists(matrix_file):
+            matrix_file = os.path.join(BASE_DIR, "investigaciones", "capacidades", "proveedores_excel.html")
+
+        studio_rendered = False
+        if matrix_view_mode == "studio" and os.path.exists(matrix_file):
             try:
                 with open(matrix_file, "r", encoding="utf-8") as f:
                     matrix_html = f.read()
@@ -400,10 +514,13 @@ def render_view():
                     matrix_html = injection_tag + matrix_html
 
                 components.html(matrix_html, height=780, scrolling=True)
+                studio_rendered = True
             except Exception as e:
-                st.error(f"Error al cargar la matriz visual: {e}")
-        else:
-            st.error("Archivo de matriz visual no encontrado.")
+                st.warning(f"Aviso al cargar vista Studio: {e}. Conmutando automáticamente a vista nativa.")
+
+        # Fallback o vista nativa directa 100% Python
+        if not studio_rendered:
+            _render_native_matrix_view(reg, matrix)
 
         st.markdown("<div style='height:12px;'></div>", unsafe_allow_html=True)
         c_act1, c_act2 = st.columns(2)

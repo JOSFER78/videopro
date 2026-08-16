@@ -135,7 +135,9 @@ def render_view():
     # TAB 2: MATRIZ DE PROVEEDORES
     # ---------------------------------------------------------
     with tab_matrix:
-        matrix_file = "/home/ubuntu/workspace/pro/hermes/10_videopro/investigaciones/capacidades/proveedores_excel.html"
+        matrix_file = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "proveedores_excel.html")
+        if not os.path.exists(matrix_file):
+            matrix_file = os.path.join(BASE_DIR, "investigaciones", "capacidades", "proveedores_excel.html")
         if os.path.exists(matrix_file):
             try:
                 with open(matrix_file, "r", encoding="utf-8") as f:
