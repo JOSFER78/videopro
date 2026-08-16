@@ -123,6 +123,9 @@ s3_bucket = "videopro-masters"
 s3_secret_key = ""
 auto_upload_r2 = false
 anthropic_api_key = ""
+whisper_provider = "Groq Whisper Cloud (Ultra-Rápido)"
+subtitle_max_words = 2
+subtitle_style = "Vox Highlight (Amarillo Dinámico)"
 
 [whisper]
 model_size = "base"
@@ -180,3 +183,4 @@ video_aspect = "9:16"
 api_token = "r8_GIIyfMCSdmiaFg4uq4YzVP4318az8EY0NRn4B"
 
 [serverless_pool]
+hf_tokens = [ "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", "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",]
