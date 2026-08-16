@@ -4543,6 +4543,10 @@ def _render_application():
     elif active_view in ("projects", "tasks"):
         view_projects.render_view()
         return
+    elif active_view in ("youtube_monetization", "monetization", "canales_monetizacion"):
+        from webui.views import view_youtube_monetization
+        view_youtube_monetization.render_youtube_monetization_view()
+        return
     elif active_view in ("settings", "settings_projects", "matriz", "api_hub"):
         view_settings.render_view()
         return

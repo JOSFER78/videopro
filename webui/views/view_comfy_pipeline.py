@@ -31,6 +31,35 @@ def _load_cached_studio_html(path: str) -> str:
     return ""
 
 
+def render_comfy_canvas_component(graph_data: dict, height: int = 940) -> bool:
+    """Renderiza el lienzo interactivo estilo ComfyUI con inyección del grafo y proveedores en tiempo real."""
+    if not os.path.isfile(STUDIO_HTML_PATH):
+        return False
+    try:
+        html_content = _load_cached_studio_html(STUDIO_HTML_PATH)
+        from app.core.providers import registry as prov_reg
+        current_registry = prov_reg.load_registry()
+
+        injected_script = f"""<script>
+            window.INJECTED_PIPELINE_DATA = {json.dumps(graph_data)};
+            window.INJECTED_PROVIDERS_REGISTRY = {json.dumps(current_registry)};
+        </script>"""
+        
+        # Inject at the very top of <head> so it runs BEFORE any other script in the HTML
+        if "<head>" in html_content:
+            html_content = html_content.replace("<head>", f"<head>\n{injected_script}\n")
+        elif "<body>" in html_content:
+            html_content = html_content.replace("<body>", f"<body>\n{injected_script}\n")
+        else:
+            html_content = f"{injected_script}\n{html_content}"
+
+        components.html(html_content, height=height, scrolling=False)
+        return True
+    except Exception as ex:
+        st.warning(f"Aviso al cargar lienzo de nodos: {ex}. Conmutando a vista de árbol nativo.")
+        return False
+
+
 def render_comfy_pipeline_view():
     """Renderiza el Workflow Studio y el Administrador de Flujo de Nodos sincronizado."""
     
@@ -78,32 +107,22 @@ def render_comfy_pipeline_view():
                 for ch in last_res.get("applied_changes", []):
                     st.markdown(f"• {ch}")
 
-    # 2. Selector de Pipeline / Arquetipo & Modo de Visualización
-    c_sel1, c_sel2 = st.columns([6, 4], vertical_alignment="center")
+    # 2. Selector de Pipeline / Arquetipo de Vídeo
+    c_sel1, c_sel2 = st.columns([7, 3], vertical_alignment="center")
     with c_sel1:
         pipe_options = ["MASTER"] + list(ARCHETYPES_CATALOG.keys())
         selected_pipe = st.selectbox(
             "Seleccionar Pipeline a Visualizar / Modificar:",
             options=pipe_options,
             index=0,
-            format_func=lambda x: "🎬 Grafo Maestro Activo (Sincronizado)" if x == "MASTER" else f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name}"
+            format_func=lambda x: "🎬 Grafo Maestro Activo (Sincronizado con Producción)" if x == "MASTER" else f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name} ({ARCHETYPES_CATALOG[x].category.upper()})"
         )
 
     with c_sel2:
-        pipe_view_mode = st.segmented_control(
-            "Modo de Visualización:",
-            options=["studio", "native"],
-            default="studio",
-            format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
-            key="pipeline_view_mode_selector"
-        ) if hasattr(st, "segmented_control") else st.radio(
-            "Modo de Visualización:",
-            options=["studio", "native"],
-            index=0,
-            format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
-            horizontal=True,
-            key="pipeline_view_mode_selector"
-        )
+        if st.button("🔄 Restablecer Grafo a Valores Originales", use_container_width=True, help="Restaura la configuración canónica de los nodos"):
+            pipeline.reset_pipeline_graph_to_canonical()
+            st.success("Grafo restablecido.")
+            st.rerun()
 
     # 3. Cargar estado del grafo según la selección
     if selected_pipe == "MASTER":
@@ -112,50 +131,11 @@ def render_comfy_pipeline_view():
         arch_obj = ARCHETYPES_CATALOG.get(selected_pipe)
         graph_data = arch_obj.pipeline_graph if arch_obj else pipeline.load_pipeline_graph()
 
-    nodes = graph_data.get("nodes", [])
-    connections = graph_data.get("connections", [])
-    active_nodes = sum(1 for n in nodes if n.get("enabled", True))
-    loop_nodes = sum(1 for n in nodes if n.get("is_loop", False))
-
-    # 4. Métricas del Pipeline Activo
-    m1, m2, m3, m4 = st.columns(4)
-    with m1:
-        st.metric("Total Nodos", f"{active_nodes}/{len(nodes)} Activos")
-    with m2:
-        st.metric("Conexiones Bezier", f"{len(connections)} Cables")
-    with m3:
-        st.metric("Bucles de Escena", f"{loop_nodes} Loops")
-    with m4:
-        st.metric("Topología", selected_pipe)
-
-    # 5. Renderizado Dual-Mode (Studio Canvas / Árbol Modular Dinámico)
-    canvas_rendered = False
-    if pipe_view_mode == "studio" and os.path.isfile(STUDIO_HTML_PATH):
-        try:
-            html_content = _load_cached_studio_html(STUDIO_HTML_PATH)
-
-            from app.core.providers import registry as prov_reg
-            current_registry = prov_reg.load_registry()
-
-            injected_script = f"""<script>
-                window.INJECTED_PIPELINE_DATA = {json.dumps(graph_data)};
-                window.INJECTED_PROVIDERS_REGISTRY = {json.dumps(current_registry)};
-            </script>"""
-            
-            # Inject at the very top of <head> so it runs BEFORE any other script in the HTML
-            if "<head>" in html_content:
-                html_content = html_content.replace("<head>", f"<head>\n{injected_script}\n")
-            elif "<body>" in html_content:
-                html_content = html_content.replace("<body>", f"<body>\n{injected_script}\n")
-            else:
-                html_content = f"{injected_script}\n{html_content}"
-
-            components.html(html_content, height=940, scrolling=False)
-            canvas_rendered = True
-        except Exception as ex:
-            st.warning(f"Aviso al cargar lienzo de nodos: {ex}. Conmutando a vista de árbol nativo.")
-
-    if not canvas_rendered:
+    # 4. Renderizado Principal del Lienzo Visual ComfyUI (Full Hero Canvas)
+    canvas_ok = render_comfy_canvas_component(graph_data, height=960)
+    
+    if not canvas_ok:
+        st.warning("Aviso: cargando vista de respaldo...")
         _render_native_pipeline_tree(graph_data, selected_pipe)
 
 

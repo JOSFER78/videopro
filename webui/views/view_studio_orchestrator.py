@@ -26,6 +26,7 @@ from app.core.domain.entities import ProjectEntity, SceneEntity, DecisionRecord
 from app.core.domain.specs import VisualSpec, AudioSpec, SubtitleSpec, RenderSpec, ProvenanceInfo
 from app.core.domain.enums import ProjectStatus, SceneStatus, LockLevel
 from app.core.services.project_repository import ProjectRepository
+from webui.views.view_comfy_pipeline import render_comfy_canvas_component
 
 
 def _slugify(text: str, max_len: int = 30) -> str:
@@ -616,6 +617,15 @@ def render_studio_orchestrator_view():
                             st.session_state["active_view"] = "cinema_vault"
                             st.rerun()
 
+        # -------------------------------------------------
+        # LIENZO VISUAL COMFYUI SINCRONIZADO EN TIEMPO REAL
+        # -------------------------------------------------
+        st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
+        with st.expander(f"🎨 Lienzo Visual ComfyUI del Workflow: {arch.name} (Interactuar & Modificar)", expanded=False):
+            st.caption("Lienzo de nodos activo con cables Bezier y asistente agéntico. Los cambios se sincronizan en tiempo real con este proyecto y Firestore.")
+            current_graph = arch.pipeline_graph
+            render_comfy_canvas_component(current_graph, height=720)
+
     # =========================================================
     # TAB 2: REQUEST PLANNER & SIMULADOR LIBRE
     # =========================================================
@@ -660,24 +670,37 @@ def render_studio_orchestrator_view():
                     st.markdown(f"• **Toma:** <code>{sc.shot_type}</code> | **Duración:** {sc.duration_seconds}s")
 
     # =========================================================
-    # TAB 3: REGISTRO DE WORKFLOWS Y VERSIONES
+    # TAB 3: REGISTRO DE WORKFLOWS Y LIENZO VISUAL COMFYUI
     # =========================================================
     with tab_workflows:
-        c_wfh1, c_wfh2 = st.columns([7, 3], vertical_alignment="center")
-        with c_wfh1:
-            st.markdown("#### 🎛️ Workflows Registrados en el Sistema")
-            st.caption("Definiciones canónicas y bucle de mejora continua de grafos de producción.")
-        with c_wfh2:
-            if st.button("🎨 Abrir Lienzo Visual (Canvas)", type="primary", use_container_width=True, key="btn_wf_goto_canvas"):
-                st.session_state["active_view"] = "pipeline"
+        st.markdown("#### 🎛️ Registro Maestro de Workflows & Lienzo Visual ComfyUI")
+        st.caption("Visualiza, edita y sincroniza cualquier flujo de producción con el motor ComfyUI 60 FPS.")
+
+        c_wf_sel, c_wf_btn = st.columns([7, 3], vertical_alignment="center")
+        with c_wf_sel:
+            tab3_arch_opts = list(ARCHETYPES_CATALOG.keys())
+            tab3_sel_arch = st.selectbox(
+                "Selecciona el Workflow a Visualizar en el Lienzo:",
+                options=tab3_arch_opts,
+                index=0,
+                format_func=lambda x: f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name} ({ARCHETYPES_CATALOG[x].category.upper()})",
+                key="tab3_arch_selector"
+            )
+        with c_wf_btn:
+            if st.button("🚀 Usar este Workflow en Co-Creación", type="primary", use_container_width=True, key="btn_tab3_use_wf"):
+                st.session_state["director_arch_id"] = tab3_sel_arch
+                _init_director_session(tab3_sel_arch)
                 st.rerun()
-        
-        all_wfs = get_all_workflows()
-        for wf in all_wfs:
-            with st.expander(f"Workflow: {wf.name} (`{wf.id}` — v{wf.version})", expanded=False):
-                st.markdown(f"**Descripción:** {wf.description}")
-                st.markdown(f"**Nodos Configurados:** {len(wf.nodes)} | **Versión:** `{wf.version_label}`")
-                st.json(wf.model_dump())
+
+        arch_to_show = ARCHETYPES_CATALOG[tab3_sel_arch]
+        st.markdown(f"**Estrategia Óptica:** `{arch_to_show.visual_strategy.value.upper()}` | **Relación:** `{arch_to_show.default_aspect_ratio}` | **Locución:** `{arch_to_show.default_voice_engine}`")
+
+        # Renderizar el Lienzo ComfyUI
+        render_comfy_canvas_component(arch_to_show.pipeline_graph, height=800)
+
+        # Definición canónica JSON colapsable
+        with st.expander(f"📄 Manifiesto JSON Canónico ({arch_to_show.name})", expanded=False):
+            st.json(arch_to_show.pipeline_graph)
 
     # =========================================================
     # TAB 4: CAPACIDADES Y MOTORES
