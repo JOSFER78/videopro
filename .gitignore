@@ -47,6 +47,12 @@ tmp/
 *.ogg
 *.raw
 
+# Dependencias de Node.js y Remotion
+node_modules/
+**/node_modules/
+package-lock.json.bak
+.remotion/
+
 # Archivos temporales de Python y entornos virtuales
 __pycache__/
 *.py[cod]
