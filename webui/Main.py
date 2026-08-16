@@ -2,12 +2,8 @@ from webui.nav import render_top_navigation
 from webui.views import (
     view_settings_projects,
     view_ltx_flux,
-    view_voice,
-    view_api_hub,
-    view_cinema,
-    view_flow_music,
-    view_matriz,
-    view_boveda,
+    view_audio_studio,
+    view_cinema_vault,
     view_docs
 )
 
@@ -4535,29 +4531,17 @@ def _render_application():
     
     active_view = st.session_state.get("active_view", "main")
     
-    if active_view == "settings_projects":
+    if active_view == "settings_projects" or active_view == "matriz" or active_view == "api_hub":
         view_settings_projects.render_view()
         return
     elif active_view == "ltx_flux":
         view_ltx_flux.render_view()
         return
-    elif active_view == "voice":
-        view_voice.render_view()
+    elif active_view == "audio_studio" or active_view == "voice" or active_view == "flow_music":
+        view_audio_studio.render_view()
         return
-    elif active_view == "api_hub":
-        view_api_hub.render_view()
-        return
-    elif active_view == "cinema":
-        view_cinema.render_view()
-        return
-    elif active_view == "flow_music":
-        view_flow_music.render_view()
-        return
-    elif active_view == "matriz":
-        view_matriz.render_view()
-        return
-    elif active_view == "boveda":
-        view_boveda.render_view()
+    elif active_view == "cinema_vault" or active_view == "cinema" or active_view == "boveda":
+        view_cinema_vault.render_view()
         return
     elif active_view == "docs":
         view_docs.render_view()

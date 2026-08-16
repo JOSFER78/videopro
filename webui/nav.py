@@ -8,15 +8,11 @@ import streamlit as st
 
 NAV_VIEWS = [
     ("main", "Generador Principal"),
-    ("api_hub", "Gestor de APIs"),
-    ("settings_projects", "Ajustes y Proyectos"),
-    ("matriz", "Matriz de Proveedores"),
-    ("ltx_flux", "LTX & FLUX"),
-    ("voice", "Voice Studio"),
-    ("flow_music", "Flow Music"),
-    ("cinema", "Cinema Player"),
-    ("boveda", "Bóveda"),
-    ("docs", "Guía")
+    ("settings_projects", "Proyectos y Ajustes"),
+    ("ltx_flux", "Estudio LTX & FLUX"),
+    ("audio_studio", "Audio & Música"),
+    ("cinema_vault", "Galería & Cine"),
+    ("docs", "Guía Técnica")
 ]
 
 
@@ -35,10 +31,8 @@ def render_top_navigation():
     <style>
     /* Ocultar barra lateral automática de Streamlit para mantener interfaz limpia */
     section[data-testid="stSidebar"] {
-        display: none !important;
     }
     .stAppDeployButton, [data-testid="stSidebarCollapsedControl"] {
-        display: none !important;
     }
     
     /* Contenedor de barra superior */
