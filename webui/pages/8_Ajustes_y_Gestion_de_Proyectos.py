@@ -16,7 +16,7 @@ if BASE_DIR not in sys.path:
 from app.config import config
 from app.models import const
 from app.utils import utils
-from app.services import state as sm
+from webui.nav import render_top_navigation
 
 st.set_page_config(
     page_title="Ajustes y Gestión de Proyectos — VideoPro",
@@ -24,8 +24,17 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Header simple y limpio (sin colores estridentes ni emojis excesivos)
-st.title("Ajustes y Gestión de Proyectos")
+# Barra de navegacion superior unificada
+render_top_navigation()
+
+# Encabezado con boton directo de retorno al inicio
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+
+with col_title:
+    st.title("Ajustes y Gestión de Proyectos")
+
 st.caption("Administración de proyectos, historial de producción, motores de IA y configuración del sistema.")
 
 # Pestañas principales

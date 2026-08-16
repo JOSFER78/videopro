@@ -1,3 +1,9 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 import json
@@ -5,58 +11,24 @@ import requests
 import toml
 from pathlib import Path
 
-st.set_page_config(page_title="Gestor de APIs & Matriz de Infraestructura", page_icon="🔑", layout="wide")
+st.set_page_config(page_title="Gestor de APIs & Tokens — VideoPro", layout="wide")
+
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Gestor de APIs & Tokens")
+st.caption("Gestion y validacion de tokens para Hugging Face, Replicate y LLMs.")
+
 
 CONFIG_PATH = Path("/home/ubuntu/MoneyPrinterTurbo/config.toml")
 HUB_API = "http://127.0.0.1:7899"
 
 # CSS Glassmorphism
-st.markdown("""
-<style>
-    .hub-header {
-        background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.95));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 24px 28px;
-        border-radius: 20px;
-        margin-bottom: 24px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    }
-    .table-container {
-        background: rgba(18, 24, 38, 0.75);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
-        padding: 20px;
-        margin-bottom: 24px;
-    }
-    .pill-free {
-        background: rgba(16, 185, 129, 0.15);
-        color: #10b981;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-        padding: 2px 8px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 700;
-    }
-    .pill-browser {
-        background: rgba(56, 189, 248, 0.15);
-        color: #38bdf8;
-        border: 1px solid rgba(56, 189, 248, 0.3);
-        padding: 2px 8px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 700;
-    }
-    .pill-paid {
-        background: rgba(245, 158, 11, 0.15);
-        color: #f59e0b;
-        border: 1px solid rgba(245, 158, 11, 0.3);
-        padding: 2px 8px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 700;
-    }
-</style>
-""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <div class="hub-header">

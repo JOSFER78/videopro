@@ -1,49 +1,34 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 import tempfile
 from pathlib import Path
 from app.services.audio.flowmusic_service import FlowMusicAutomationService
 
-st.set_page_config(
-    page_title="Flow Music Studio (Google Lyria 3 Pro)",
+st.set_page_config(page_title="Flow Music Studio — VideoPro", layout="wide")
+
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Flow Music Studio")
+st.caption("Composicion y generacion de pistas musicales estructuradas.")
+",
     page_icon="🎵",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Estilos Glassmorphism Premium
-st.markdown("""
-<style>
-    .music-hero {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(49, 46, 129, 0.85));
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        border-radius: 12px;
-        padding: 24px 32px;
-        margin-bottom: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-    .flow-badge {
-        display: inline-block;
-        background: rgba(139, 92, 246, 0.2);
-        color: #a78bfa;
-        border: 1px solid rgba(139, 92, 246, 0.4);
-        padding: 4px 12px;
-        border-radius: 6px;
-        font-weight: 800;
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-    .scene-card {
-        background: rgba(15, 23, 42, 0.7);
-        border-left: 4px solid #8b5cf6;
-        border-radius: 0 8px 8px 0;
-        padding: 12px 16px;
-        margin-bottom: 12px;
-    }
-</style>
-""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <div class="music-hero">

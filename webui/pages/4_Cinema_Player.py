@@ -1,19 +1,27 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 from pathlib import Path
 
-st.set_page_config(page_title="Cinema Master Player", page_icon="🎞️", layout="wide")
+st.set_page_config(page_title="Cinema Master Player — VideoPro", layout="wide")
 
-st.markdown("""
-<div style="background: linear-gradient(135deg, rgba(236, 72, 153, 0.15), rgba(59, 130, 246, 0.15)); border: 1px solid rgba(255, 255, 255, 0.12); padding: 20px 24px; border-radius: 16px; margin-bottom: 24px;">
-    <h1 style="margin: 0; font-size: 26px; font-weight: 800; color: #f8fafc;">
-        🎞️ Cinema Master Player & Auditor de Cortes
-    </h1>
-    <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 14px;">
-        Inspección de Másters Generados, Sincronización Acústico-Visual y Análisis de Bitrate
-    </p>
-</div>
-""", unsafe_allow_html=True)
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Cinema Master Player")
+st.caption("Reproductor cinematografico y verificador de pistas maestras.")
+
+
+
 
 # Buscar vídeos en salidas
 outputs_dirs = [

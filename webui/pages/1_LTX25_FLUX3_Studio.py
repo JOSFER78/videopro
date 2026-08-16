@@ -1,3 +1,9 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 import json
@@ -5,54 +11,22 @@ import time
 import requests
 from pathlib import Path
 
-st.set_page_config(page_title="LTX-2.5 & FLUX 3 Studio", page_icon="🛸", layout="wide")
+st.set_page_config(page_title="LTX-2.5 & FLUX 3 Studio — VideoPro", layout="wide")
 
-st.markdown("""
-<style>
-    .studio-header {
-        background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(168, 85, 247, 0.15));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 20px 24px;
-        border-radius: 16px;
-        margin-bottom: 24px;
-    }
-    .badge-ltx {
-        background: linear-gradient(135deg, #00f2fe, #4facfe);
-        color: #050b14;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: 11px;
-    }
-    .badge-flux {
-        background: linear-gradient(135deg, #a855f7, #ec4899);
-        color: #ffffff;
-        padding: 3px 10px;
-        border-radius: 20px;
-        font-weight: 700;
-        font-size: 11px;
-    }
-</style>
-""", unsafe_allow_html=True)
+# Barra de navegacion superior
+render_top_navigation()
 
-st.markdown("""
-<div class="studio-header">
-    <div style="display: flex; align-items: center; justify-content: space-between;">
-        <div>
-            <h1 style="margin: 0; font-size: 26px; font-weight: 800; color: #f8fafc;">
-                🛸 LTX-2.5 & FLUX 3 Cinematic Studio
-            </h1>
-            <p style="margin: 4px 0 0 0; color: #94a3b8; font-size: 14px;">
-                Generación Exclusiva de Vídeo Multimodal con Audio Nativo 48kHz y Control Óptico Hollywood/Netflix
-            </p>
-        </div>
-        <div>
-            <span class="badge-ltx">LTX-2.5 MMDiT 22B</span>
-            <span class="badge-flux" style="margin-left: 6px;">FLUX 3 Video</span>
-        </div>
-    </div>
-</div>
-""", unsafe_allow_html=True)
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("LTX-2.5 & FLUX 3 Studio")
+st.caption("Generacion de video multimodal con audio nativo y control de camara.")
+
+
+
+
+
 
 HUB_API = "http://127.0.0.1:7899"
 

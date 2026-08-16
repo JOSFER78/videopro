@@ -1,26 +1,28 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import streamlit.components.v1 as components
 import os
 
-st.set_page_config(
-    page_title="Matriz Maestra de Proveedores & APIs — VideoPro",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="Matriz Maestra Live — VideoPro", layout="wide")
+
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Matriz Maestra Live")
+st.caption("Monitor de telemetria y estado de servicios en vivo.")
+
 
 # Custom CSS
-st.markdown("""
-<style>
-    .main .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        max-width: 98%;
-    }
-    header {visibility: hidden;}
-    footer {visibility: hidden;}
-</style>
-""", unsafe_allow_html=True)
+
 
 st.title("📊 Matriz Maestra de Proveedores, Infraestructura & Opciones en Vivo")
 st.caption("Configuración atómica asistida por IA con sincronización en tiempo real de APIs (Replicate josfer78, ZeroGPU, Cloudflare R2, Kokoro 7892, Bridge 8742).")

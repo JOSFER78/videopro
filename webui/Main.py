@@ -1,3 +1,4 @@
+from webui.nav import render_top_navigation
 import hashlib
 import html
 import json
@@ -4330,165 +4331,17 @@ def _render_semantic_director_studio(params):
 
         with blueprint_col:
             with st.container(border=True):
-                st.markdown("#### 📋 Ficha de Producción y Montaje")
-                spec = st.session_state["director_spec"]
-                subject_display = spec.get("subject") or "*(Describe tu vídeo en el chat o ajusta abajo)*"
-                st.markdown(f"**📌 Concepto:** {subject_display}")
-                
-                # --- Pestañas o Selector de Ajuste Rápido Manual ---
-                mode_tab_auto, mode_tab_manual = st.tabs(["⚡ Resumen Auto", "✏️ Ajuste Manual"])
-                
-                with mode_tab_auto:
-                    st.markdown(f"**🎨 Dirección de Arte:** `{spec.get('visual_style', 'Cinemático')}`")
-                    st.markdown(f"**🎞️ Motor / Fuente:** `{spec.get('recommended_source', 'hybrid')}`")
-                    st.markdown(f"**🎙️ Locutor:** `{spec.get('voice_preset', 'es_dora')}`")
-                    st.markdown(f"**📐 Relación:** `{spec.get('aspect_ratio', '9:16')}`")
-                    st.markdown(f"**📊 Gráficos:** `{spec.get('overlay_graphics', 'vox_cards')}`")
-                    
-                    if spec.get("summary_reasoning"):
-                        st.info(f"💡 {spec.get('summary_reasoning')}")
-
-                with mode_tab_manual:
-                    st.markdown("<div style='font-size:12px; color:#38bdf8; font-weight:600; margin-bottom:6px;'>🛠️ Modificación Manual en Tiempo Real</div>", unsafe_allow_html=True)
-                    
-                    # 1. Selector Manual de Voz SOTA
-                    voice_options = {
-                        "none": "🚫 Sin Locutor en Off (Diálogos nativos del vídeo / Escena pura)",
-                        "es_dora": "🇪🇸 Dora (España Studio HD - Calidez)",
-                        "es_alex": "🇪🇸 Alex (España Dinámico HD - Reels/Shorts)",
-                        "es_santa": "🇪🇸 Santiago (España Solemne HD - Documental)",
-                        "vibevoice_carter": "🇺🇸 Carter (VibeVoice 0.5B Deep US)",
-                        "vibevoice_emma": "🇺🇸 Emma (VibeVoice 0.5B Podcast US)",
-                        "en_heart": "🇺🇸 Heart (Kokoro HD Grade-A Master)",
-                        "en_adam": "🇺🇸 Adam (Kokoro HD Barítono Épico)",
-                        "en_emma_uk": "🇬🇧 Emma (UK BBC Authority)",
-                        "es-ES-AlvaroNeural": "🌐 Álvaro (Edge TTS)",
-                        "es-ES-ElviraNeural": "🌐 Elvira (Edge TTS)"
-                    }
-                    cur_v = spec.get("voice_preset", "es_dora")
-                    if cur_v not in voice_options:
-                        cur_v = "es_dora"
-                    
-                    selected_voice_manual = st.selectbox(
-                        "🎙️ Cambiar Voz / Locutor:",
-                        options=list(voice_options.keys()),
-                        index=list(voice_options.keys()).index(cur_v),
-                        format_func=lambda x: voice_options[x],
-                        key="manual_voice_selector"
-                    )
-                    if selected_voice_manual != spec.get("voice_preset"):
-                        spec["voice_preset"] = selected_voice_manual
-                        st.session_state["director_spec"]["voice_preset"] = selected_voice_manual
-                        _set_runtime_config("ui", "voice_name", selected_voice_manual)
-                        st.toast(f"Voz actualizada a: {voice_options[selected_voice_manual]}")
-
-                    # 2. Selector Manual de Motor de Vídeo
-                    video_engine_options = {
-                        "ltx_video": "🛸 LTX-2.5 MMDiT 22B (Audio Nativo 48kHz)",
-                        "flux_video": "🎥 FLUX 3 Video (Flow Matching Photoreal)",
-                        "hybrid": "✨ Híbrido Inteligente (FLUX 3 + LTX-2.5)",
-                        "pexels": "🎞️ Pexels Video Stock HD",
-                        "pixabay": "🎞️ Pixabay Video Stock HD"
-                    }
-                    cur_engine = spec.get("recommended_source", "hybrid")
-                    if cur_engine not in video_engine_options:
-                        cur_engine = "hybrid"
-                    
-                    selected_engine_manual = st.selectbox(
-                        "🎬 Cambiar Motor de Vídeo:",
-                        options=list(video_engine_options.keys()),
-                        index=list(video_engine_options.keys()).index(cur_engine),
-                        format_func=lambda x: video_engine_options[x],
-                        key="manual_engine_selector"
-                    )
-                    if selected_engine_manual != spec.get("recommended_source"):
-                        spec["recommended_source"] = selected_engine_manual
-                        st.session_state["director_spec"]["recommended_source"] = selected_engine_manual
-                        _set_runtime_config("app", "video_source", selected_engine_manual)
-                        st.toast(f"Motor de vídeo actualizado a: {video_engine_options[selected_engine_manual]}")
-
-                    # 3. Selector Manual de Aspect Ratio
-                    ar_options = ["9:16", "16:9", "1:1"]
-                    cur_ar = spec.get("aspect_ratio", "9:16")
-                    if cur_ar not in ar_options: cur_ar = "9:16"
-                    selected_ar_manual = st.radio(
-                        "📐 Formato de Pantalla:",
-                        ar_options,
-                        index=ar_options.index(cur_ar),
-                        horizontal=True,
-                        key="manual_ar_selector"
-                    )
-                    if selected_ar_manual != spec.get("aspect_ratio"):
-                        spec["aspect_ratio"] = selected_ar_manual
-                        st.session_state["director_spec"]["aspect_ratio"] = selected_ar_manual
-                        _set_runtime_config("ui", "video_aspect", selected_ar_manual)
-
-                    # 4. Selector Manual de Estilo Visual
-                    style_options = [
-                        "Cinemático Hollywood (ARRI Alexa 65)",
-                        "Documental Histórico & Fotos Archivo",
-                        "Vuelo Dron 8K & Fotogrametría 3D",
-                        "Estilo Pixar 3D / Render Animado",
-                        "FinTech / Rótulos Vox & Telemetría"
-                    ]
-                    cur_style = spec.get("visual_style", style_options[0])
-                    if cur_style not in style_options: cur_style = style_options[0]
-                    selected_style_manual = st.selectbox(
-                        "🎨 Estilo Visual:",
-                        style_options,
-                        index=style_options.index(cur_style),
-                        key="manual_style_selector"
-                    )
-                    if selected_style_manual != spec.get("visual_style"):
-                        spec["visual_style"] = selected_style_manual
-                        st.session_state["director_spec"]["visual_style"] = selected_style_manual
-
-                st.markdown("---")
-                if st.button("✨ Auto-Completar y Generar Guion", type="secondary", use_container_width=True, icon=":material/auto_awesome:"):
-                    if not spec.get("subject"):
-                        st.warning("Escribe primero una idea en el chat del Director o define el concepto.")
-                    else:
-                        with st.spinner("El Director está redactando el guion cinematográfico..."):
-                            def gen_script_closure(app_cfg):
-                                return llm.generate_script(
-                                    video_subject=spec.get("subject", ""),
-                                    language=params.video_language,
-                                    paragraph_number=spec.get("estimated_paragraphs", 2),
-                                    video_script_prompt=f"Estilo visual: {spec.get('visual_style')}. Tono: {spec.get('narrative_tone')}",
-                                    custom_system_prompt="",
-                                    app_config=app_cfg
-                                )
-                            script_res = config.execute_with_runtime_config_snapshot(gen_script_closure)
-                            if script_res:
-                                st.session_state["video_script"] = script_res
-                                params.video_script = script_res
-                                st.toast("¡Guion generado con éxito!")
-                                st.rerun()
-
-
-
-def _render_sidebar_navigation():
-    with st.sidebar:
-        st.markdown("""
-        <div style="background: linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(168, 85, 247, 0.15)); border: 1px solid rgba(255, 255, 255, 0.12); padding: 12px; border-radius: 12px; margin-bottom: 16px;">
-            <div style="font-weight: 800; font-size: 15px; color: #f8fafc; display: flex; align-items: center; gap: 8px;">
-                <span>🎬</span> VideoPro Studio
-            </div>
-            <div style="font-size: 11px; color: #94a3b8; margin-top: 2px;">Suite Multimodal Integrada v2.5</div>
-        </div>
-        """, unsafe_allow_html=True)
-        
-        st.markdown("#### 🧭 Páginas del Estudio")
-        st.page_link("Main.py", label="🏠 Generador Principal", icon="🎬")
-        st.page_link("pages/1_🛸_LTX25_FLUX3_Studio.py", label="🛸 LTX-2.5 & FLUX 3 Studio", icon="🛸")
-        st.page_link("pages/2_🎙️_Voice_Studio_ElevenLabs.py", label="🎙️ Voice Studio SOTA", icon="🎙️")
-        st.page_link("pages/3_🔑_Serverless_API_Hub.py", label="🔑 Gestor de APIs & Tokens", icon="🔑")
-        st.page_link("pages/4_🎞️_Cinema_Master_Player.py", label="🎞️ Cinema Master Player", icon="🎞️")
-        st.page_link("pages/5_📚_Docs_Guia_Maestra.py", label="📚 Guía Maestra & Docs SOTA", icon="📚")
-        st.page_link("pages/6_🎵_Flow_Music_Studio.py", label="🎵 Flow Music Studio (Lyria 3)", icon="🎵")
-        st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
+                        st.markdown("#### Páginas del Estudio")
+        st.page_link("Main.py", label="Generador Principal")
+        st.page_link("pages/1_LTX25_FLUX3_Studio.py", label="LTX-2.5 & FLUX 3 Studio")
+        st.page_link("pages/2_Voice_Studio.py", label="Voice Studio")
+        st.page_link("pages/3_Serverless_API_Hub.py", label="Gestor de APIs & Tokens")
+        st.page_link("pages/4_Cinema_Player.py", label="Cinema Master Player")
+        st.page_link("pages/5_Docs_Guia_Maestra.py", label="Guía Maestra")
+        st.page_link("pages/6_Flow_Music_Studio.py", label="Flow Music Studio")
+        st.page_link("pages/7_Matriz_Maestra_Live.py", label="Matriz Maestra Live")
         st.page_link("pages/8_Ajustes_y_Gestion_de_Proyectos.py", label="Ajustes y Gestión de Proyectos")
-        st.page_link("pages/9_📁_Boveda_Multimedia.py", label="Bóveda Multimedia")
+        st.page_link("pages/9_Boveda_Multimedia.py", label="Bóveda Multimedia")
         
         st.markdown("---")
         st.markdown("#### 🌐 Ecosistema de Webs & Portales")
@@ -4522,6 +4375,7 @@ def _render_sidebar_navigation():
 
 def _render_application():
     _render_sidebar_navigation()
+    render_top_navigation()
     """按固定顺序渲染顶部栏、弹窗、生成表单和任务结果。"""
     _render_top_bar()
 

@@ -1,15 +1,27 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 import glob
 
-st.set_page_config(page_title="Bóveda Multimedia — VideoPro", page_icon="📁", layout="wide")
+st.set_page_config(page_title="Boveda Multimedia — VideoPro", layout="wide")
 
-st.markdown("""
-<div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(56, 189, 248, 0.15)); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin-bottom: 24px;">
-    <h1 style="font-size: 26px; font-weight: 800; color: #fff; margin: 0 0 8px 0;">📁 Bóveda Multimedia & Historial de Producción</h1>
-    <p style="color: #94a3b8; margin: 0; font-size: 14px;">Explora, previsualiza y descarga los vídeos finales, pistas de audio, locuciones y escenas generadas.</p>
-</div>
-""", unsafe_allow_html=True)
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Boveda Multimedia")
+st.caption("Explorador y descarga de producciones renderizadas.")
+
+
+
 
 task_dir = "/home/ubuntu/workspace/pro/hermes/10_videopro/storage/tasks"
 os.makedirs(task_dir, exist_ok=True)

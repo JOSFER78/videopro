@@ -1,48 +1,27 @@
+import sys
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
+from webui.nav import render_top_navigation
 import streamlit as st
 import os
 
-st.set_page_config(
-    page_title="Guía Maestra de Producción Cinematográfica SOTA",
-    page_icon="📚",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+st.set_page_config(page_title="Guia Maestra & Documentacion — VideoPro", layout="wide")
+
+# Barra de navegacion superior
+render_top_navigation()
+
+col_back, col_title = st.columns([1.5, 8.5], vertical_alignment="center")
+with col_back:
+    st.page_link("Main.py", label="← Volver al Inicio")
+with col_title:
+    st.title("Guia Maestra & Documentacion")
+st.caption("Manual de operaciones y flujos tecnicos de produccion.")
+
 
 # Estilos Dark Glassmorphism Premium
-st.markdown("""
-<style>
-    .docs-header {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
-        border: 1px solid rgba(0, 242, 254, 0.25);
-        border-radius: 12px;
-        padding: 24px 32px;
-        margin-bottom: 24px;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-    }
-    .doc-badge {
-        display: inline-block;
-        background: rgba(0, 242, 254, 0.15);
-        color: #00f2fe;
-        border: 1px solid rgba(0, 242, 254, 0.4);
-        padding: 4px 12px;
-        border-radius: 6px;
-        font-weight: 800;
-        font-size: 11px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-    .stat-pill {
-        background: rgba(236, 72, 153, 0.15);
-        color: #ec4899;
-        border: 1px solid rgba(236, 72, 153, 0.3);
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-weight: 700;
-        font-size: 12px;
-    }
-</style>
-""", unsafe_allow_html=True)
+
 
 st.markdown("""
 <div class="docs-header">
