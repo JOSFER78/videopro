@@ -8,13 +8,13 @@ import streamlit as st
 
 NAV_VIEWS = [
     ("main", "Generador Principal"),
+    ("api_hub", "Gestor de APIs"),
+    ("settings_projects", "Ajustes y Proyectos"),
+    ("matriz", "Matriz de Proveedores"),
     ("ltx_flux", "LTX & FLUX"),
     ("voice", "Voice Studio"),
-    ("api_hub", "API Hub"),
-    ("cinema", "Cinema Player"),
     ("flow_music", "Flow Music"),
-    ("matriz", "Matriz Live"),
-    ("settings_projects", "Ajustes y Proyectos"),
+    ("cinema", "Cinema Player"),
     ("boveda", "Bóveda"),
     ("docs", "Guía")
 ]

@@ -111,7 +111,7 @@ deepgram_api_key = ""
 llm_model_name = "gemini-2.5-flash"
 llm_temperature = 0.7
 llm_max_tokens = 4096
-voice_provider = "Kokoro TTS HD (Local 24kHz - $0)"
+voice_provider = "Kokoro TTS HD (Local 24kHz - $0 Puerto 7892)"
 voice_rate = 1.0
 ducking_level = -22
 default_resolution = "1080x1920 (Vertical 9:16 TikTok / Shorts)"
@@ -122,6 +122,7 @@ s3_access_key = ""
 s3_bucket = "videopro-masters"
 s3_secret_key = ""
 auto_upload_r2 = false
+anthropic_api_key = ""
 
 [whisper]
 model_size = "base"

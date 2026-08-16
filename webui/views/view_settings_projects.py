@@ -19,10 +19,11 @@ from app.utils import utils
 
 def render_view():
     st.title("Ajustes, Control de Proveedores y Gestión de Proyectos")
-    st.caption("Administración integral de la infraestructura, matriz de proveedores, motores de IA y proyectos de producción.")
+    st.caption("Administración integral de la infraestructura, matriz de proveedores, gestor de APIs y proyectos de producción.")
 
-    tab_matrix, tab_projects, tab_llm, tab_voice, tab_video, tab_subs, tab_render, tab_storage = st.tabs([
+    tab_matrix, tab_apis, tab_projects, tab_llm, tab_voice, tab_video, tab_subs, tab_render, tab_storage = st.tabs([
         "Matriz de Proveedores",
+        "Gestor de APIs & Tokens",
         "Gestión de Proyectos",
         "Proveedores LLM",
         "Motores de Voz & Música",
@@ -56,7 +57,64 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 2: GESTIÓN DE PROYECTOS
+    # TAB 2: GESTOR DE APIS & TOKENS
+    # ---------------------------------------------------------
+    with tab_apis:
+        st.subheader("Gestión Centralizada de Claves API & Tokens")
+        st.caption("Configura y valida todas las claves de los 14 motores del ecosistema.")
+
+        c_api1, c_api2 = st.columns(2)
+        with c_api1:
+            st.markdown("#### Modelos de Lenguaje & Director")
+            gemini_key = st.text_input("Google Gemini API Key (AI Studio):", value=config.app.get("gemini_api_key", ""), type="password", key="api_gemini_k")
+            config.app["gemini_api_key"] = gemini_key
+
+            groq_key = st.text_input("Groq Cloud API Key:", value=config.app.get("groq_api_key", ""), type="password", key="api_groq_k")
+            config.app["groq_api_key"] = groq_key
+
+            openai_key = st.text_input("OpenAI API Key:", value=config.app.get("openai_api_key", ""), type="password", key="api_openai_k")
+            config.app["openai_api_key"] = openai_key
+
+            anthropic_key = st.text_input("Anthropic Claude API Key:", value=config.app.get("anthropic_api_key", ""), type="password", key="api_anthropic_k")
+            config.app["anthropic_api_key"] = anthropic_key
+
+            st.markdown("---")
+            st.markdown("#### Clúster de GPU & Vídeo")
+            rep_token = st.text_input("Replicate API Token (H100):", value=config.app.get("replicate_api_token", ""), type="password", placeholder="r8_xxxxxxxxxxxxxxxxxxxx", key="api_rep_k")
+            config.app["replicate_api_token"] = rep_token
+
+            hf_tokens = config.serverless_pool.get("hf_tokens", []) if hasattr(config, "serverless_pool") else []
+            hf_text = st.text_area("Hugging Face ZeroGPU Pool (uno por línea):", value="\n".join(hf_tokens), height=90, key="api_hf_k")
+            config.serverless_pool["hf_tokens"] = [t.strip() for t in hf_text.split("\n") if t.strip()]
+
+        with c_api2:
+            st.markdown("#### Locución Vocal & Composición Musical")
+            el_key = st.text_input("ElevenLabs API Key:", value=config.app.get("elevenlabs_api_key", ""), type="password", key="api_el_k")
+            config.app["elevenlabs_api_key"] = el_key
+
+            fish_key = st.text_input("Fish Audio API Key:", value=config.app.get("fish_audio_api_key", ""), type="password", key="api_fish_k")
+            config.app["fish_audio_api_key"] = fish_key
+
+            flow_session = st.text_input("Google Flow Music Token / Cookie de Sesión:", value=config.app.get("flowmusic_session", ""), type="password", key="api_flow_k")
+            config.app["flowmusic_session"] = flow_session
+
+            st.markdown("---")
+            st.markdown("#### Almacenamiento Cloudflare R2 / S3")
+            s3_ep = st.text_input("S3 / R2 Endpoint:", value=config.app.get("s3_endpoint", ""), key="api_s3_ep")
+            config.app["s3_endpoint"] = s3_ep
+
+            s3_acc = st.text_input("S3 Access Key:", value=config.app.get("s3_access_key", ""), type="password", key="api_s3_acc")
+            config.app["s3_access_key"] = s3_acc
+
+            s3_sec = st.text_input("S3 Secret Key:", value=config.app.get("s3_secret_key", ""), type="password", key="api_s3_sec")
+            config.app["s3_secret_key"] = s3_sec
+
+            s3_bkt = st.text_input("S3 Bucket:", value=config.app.get("s3_bucket", "videopro-masters"), key="api_s3_bkt")
+            config.app["s3_bucket"] = s3_bkt
+
+
+    # ---------------------------------------------------------
+    # TAB 3: GESTIÓN DE PROYECTOS
     # ---------------------------------------------------------
     with tab_projects:
         st.subheader("Proyectos y Tareas de Producción")
@@ -247,7 +305,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 3: PROVEEDORES LLM
+    # TAB 4: PROVEEDORES LLM
     # ---------------------------------------------------------
     with tab_llm:
         st.subheader("Modelos de Lenguaje & Director Creativo")
@@ -298,7 +356,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 4: MOTORES DE VOZ & MÚSICA
+    # TAB 5: MOTORES DE VOZ & MÚSICA
     # ---------------------------------------------------------
     with tab_voice:
         st.subheader("Síntesis Vocal, Clonación y Música")
@@ -336,7 +394,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 5: VÍDEO & GPU
+    # TAB 6: VÍDEO & GPU
     # ---------------------------------------------------------
     with tab_video:
         st.subheader("Motores de Vídeo & Aceleración GPU")
@@ -362,7 +420,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 6: SUBTÍTULOS & RÓTULOS
+    # TAB 7: SUBTÍTULOS & RÓTULOS
     # ---------------------------------------------------------
     with tab_subs:
         st.subheader("Subtítulos Dinámicos ASS & Whisper")
@@ -384,7 +442,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 7: RENDER Y FFMPEG
+    # TAB 8: RENDER Y FFMPEG
     # ---------------------------------------------------------
     with tab_render:
         st.subheader("Parámetros de Renderizado de Vídeo")
@@ -414,7 +472,7 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 8: ALMACENAMIENTO S3 / R2
+    # TAB 9: ALMACENAMIENTO S3 / R2
     # ---------------------------------------------------------
     with tab_storage:
         st.subheader("Rutas del Sistema & Almacenamiento S3 / R2")
