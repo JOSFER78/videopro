@@ -1,6 +1,6 @@
 """
-Vista de Administración del Pipeline de Nodos (ComfyUI Style) — VideoPro Studio
-Permite visualizar, editar y conmutar entre los Pipelines ComfyUI especializados por Arquetipo.
+Vista de Administración del Pipeline de Nodos — VideoPro Studio
+Visualización y Reconfiguración Dinámica del Grafo basada en Peticiones de Investigación de Hermes.
 """
 
 import os
@@ -14,54 +14,90 @@ from app.services import firebase_sync
 from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG, get_all_archetypes
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "comfy_pipeline_studio.html")
+STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "workflow_designer_studio.html")
+if not os.path.isfile(STUDIO_HTML_PATH):
+    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "docs", "investigaciones", "capacidades", "comfy_pipeline_studio.html")
+if not os.path.isfile(STUDIO_HTML_PATH):
+    STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "workflow_designer_studio.html")
 if not os.path.isfile(STUDIO_HTML_PATH):
     STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "comfy_pipeline_studio.html")
 
 
 def render_comfy_pipeline_view():
-    """Renderiza el Administrador de Flujo de Nodos estilo ComfyUI dentro de VideoPro."""
+    """Renderiza el Administrador de Flujo de Nodos del Pipeline dentro de VideoPro."""
     
     st.markdown("""
         <div style="margin-bottom: 12px;">
             <h2 style="font-size: 22px; font-weight: 800; color: #f8fafc; margin-bottom: 2px; display: flex; align-items: center; gap: 8px;">
-                🎛️ Pipeline ComfyUI & Arquitectura de Nodos
-                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">SPECIALIZED WORKFLOWS</span>
+                🎛️ Pipeline de Nodos & Arquitectura Dinámica
+                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">RESEARCH DRIVEN</span>
             </h2>
             <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                Conmuta y edita la topología de nodos ComfyUI específica para cada tipo de contenido: Animación 3D, Documental Histórico con Scraping, Rutas Urbanas o Shorts Virales.
+                El flujo de interacción y los nodos se reconfiguran dinámicamente según las peticiones de investigación y narrativa del usuario.
             </p>
         </div>
     """, unsafe_allow_html=True)
 
-    # 1. Selector de Pipeline / Arquetipo
+    # 1. Asistente Agéntico de Investigación & Reconfiguración Dinámica
+    with st.expander("🔬 Hermes Research Agent — Reconfiguración Dinámica del Pipeline", expanded=True):
+        st.caption("Introduce cualquier tema o requisito de investigación para que Hermes ajuste los nodos, motores y parámetros del flujo en tiempo real.")
+        c_p_in, c_p_btn = st.columns([8, 2], vertical_alignment="bottom")
+        with c_p_in:
+            agent_prompt = st.text_input(
+                "Petición de Investigación o Modificación del Flujo:",
+                placeholder="Ej: Documental histórico sobre la construcción del Golden Gate con fotos de hemerotecas y recreación 35mm...",
+                key="pipeline_agent_prompt_input"
+            )
+        with c_p_btn:
+            if st.button("⚡ Investigar & Reconfigurar", type="primary", use_container_width=True):
+                if not agent_prompt.strip():
+                    st.warning("Escribe primero una instrucción o tema de investigación.")
+                else:
+                    with st.spinner("Hermes está investigando y reconfigurando el pipeline de nodos..."):
+                        agent_res = pipeline.agent_build_pipeline({
+                            "prompt": agent_prompt,
+                            "history": []
+                        })
+                        st.session_state["last_pipeline_agent_res"] = agent_res
+                    st.success("✅ Pipeline reconfigurado dinámicamente y sincronizado con el Workflow real.")
+                    st.rerun()
+
+        if "last_pipeline_agent_res" in st.session_state:
+            last_res = st.session_state["last_pipeline_agent_res"]
+            st.markdown(f"**Respuesta del Agente:** {last_res.get('reply', '')}")
+            if last_res.get("applied_changes"):
+                st.markdown("**Cambios Aplicados:**")
+                for ch in last_res.get("applied_changes", []):
+                    st.markdown(f"• {ch}")
+
+    # 2. Selector de Pipeline / Arquetipo & Modo de Visualización
     c_sel1, c_sel2 = st.columns([6, 4], vertical_alignment="center")
     with c_sel1:
         pipe_options = ["MASTER"] + list(ARCHETYPES_CATALOG.keys())
         selected_pipe = st.selectbox(
-            "Seleccionar Pipeline ComfyUI a Visualizar / Editar:",
+            "Seleccionar Pipeline a Visualizar / Modificar:",
             options=pipe_options,
             index=0,
-            format_func=lambda x: "🎬 Grafo Maestro de Producción (10 Nodos)" if x == "MASTER" else f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name}"
+            format_func=lambda x: "🎬 Grafo Maestro Activo (Sincronizado)" if x == "MASTER" else f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name}"
         )
 
     with c_sel2:
         pipe_view_mode = st.segmented_control(
             "Modo de Visualización:",
             options=["studio", "native"],
-            default="studio",
-            format_func=lambda x: "🎛️ Lienzo ComfyUI (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular (Python)",
+            default="native",
+            format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
             key="pipeline_view_mode_selector"
         ) if hasattr(st, "segmented_control") else st.radio(
             "Modo de Visualización:",
             options=["studio", "native"],
-            index=0,
-            format_func=lambda x: "🎛️ Lienzo ComfyUI (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular (Python)",
+            index=1,
+            format_func=lambda x: "🎛️ Lienzo Visual de Nodos (Canvas 60 FPS)" if x == "studio" else "🌲 Árbol Modular Dinámico",
             horizontal=True,
             key="pipeline_view_mode_selector"
         )
 
-    # 2. Cargar estado del grafo según la selección
+    # 3. Cargar estado del grafo según la selección
     if selected_pipe == "MASTER":
         graph_data = pipeline.load_pipeline_graph()
     else:
@@ -73,7 +109,7 @@ def render_comfy_pipeline_view():
     active_nodes = sum(1 for n in nodes if n.get("enabled", True))
     loop_nodes = sum(1 for n in nodes if n.get("is_loop", False))
 
-    # 3. Métricas del Pipeline Activo
+    # 4. Métricas del Pipeline Activo
     m1, m2, m3, m4 = st.columns(4)
     with m1:
         st.metric("Total Nodos", f"{active_nodes}/{len(nodes)} Activos")
@@ -86,7 +122,7 @@ def render_comfy_pipeline_view():
 
     st.markdown("<div style='height: 4px;'></div>", unsafe_allow_html=True)
 
-    # 4. Renderizado Dual-Mode (Studio Canvas / Árbol Nativo)
+    # 5. Renderizado Dual-Mode (Studio Canvas / Árbol Modular Dinámico)
     canvas_rendered = False
     if pipe_view_mode == "studio" and os.path.isfile(STUDIO_HTML_PATH):
         try:
@@ -96,7 +132,6 @@ def render_comfy_pipeline_view():
             from app.core.providers import registry as prov_reg
             current_registry = prov_reg.load_registry()
 
-            # Inyectar el estado del grafo y la base de datos viva de proveedores en tiempo de renderizado
             injected_script = f"""<script>
                 window.INJECTED_PIPELINE_DATA = {json.dumps(graph_data)};
                 window.INJECTED_PROVIDERS_REGISTRY = {json.dumps(current_registry)};
@@ -111,13 +146,12 @@ def render_comfy_pipeline_view():
         except Exception as ex:
             st.warning(f"Aviso al cargar lienzo ComfyUI: {ex}. Conmutando a vista de árbol nativo.")
 
-    # Fallback o vista nativa directa 100% Python
     if not canvas_rendered:
         _render_native_pipeline_tree(graph_data)
 
 
 def _render_native_pipeline_tree(graph_data: dict):
-    """Renderiza una vista nativa en árbol 100% Python/Streamlit del pipeline."""
+    """Renderiza la vista en árbol modular dinámico 100% editable y sin textos hardcodeados."""
     nodes = graph_data.get("nodes", [])
     connections = graph_data.get("connections", [])
 
@@ -134,26 +168,43 @@ def _render_native_pipeline_tree(graph_data: dict):
             is_loop = node.get("is_loop", False)
             params = node.get("parameters", [])
 
-            badge_loop = " 🔁 <i>Loop Escena</i>" if is_loop else ""
-            badge_status = "🟢 <b>ACTIVO</b>" if enabled else "⚪ <i>DESACTIVADO</i>"
+            badge_loop = " 🔁 Loop Escena" if is_loop else ""
+            badge_status = "🟢 ACTIVO" if enabled else "⚪ DESACTIVADO"
 
-            with st.expander(f"{title} — {badge_status}", expanded=True):
-                st.markdown(f"<div style='border-left: 3px solid {color}; padding-left: 8px; margin-bottom: 6px; font-size: 11px; color: #94a3b8;'>ID: <code>{node_id}</code> | Categoría: <code>{node.get('category', 'general')}</code>{badge_loop}</div>", unsafe_allow_html=True)
+            # Título limpio sin etiquetas HTML crudas
+            with st.expander(f"{title} — {badge_status}{badge_loop}", expanded=True):
+                st.markdown(f"<div style='border-left: 3px solid {color}; padding-left: 8px; margin-bottom: 6px; font-size: 11px; color: #94a3b8;'>ID: <code>{node_id}</code> | Categoría: <code>{node.get('category', 'general')}</code></div>", unsafe_allow_html=True)
                 
+                # Checkbox para activar/desactivar nodo en tiempo real
+                is_node_active = st.checkbox("Nodo Habilitado en la Cadena", value=enabled, key=f"chk_act_{node_id}")
+                node["enabled"] = is_node_active
+
                 if params:
-                    st.markdown("**Parámetros Configurables:**")
+                    st.markdown("**Parámetros Dinámicos Configurables:**")
                     for p in params:
                         p_k = p.get("key", "param")
                         p_lbl = p.get("label", p_k)
                         p_val = p.get("value", "")
                         p_type = p.get("type", "text")
                         
-                        if p_type == "select":
-                            st.selectbox(p_lbl, options=p.get("options", [p_val]), index=0, key=f"native_{node_id}_{p_k}")
-                        elif p_type == "number":
-                            st.number_input(p_lbl, value=int(p_val if str(p_val).isdigit() else 0), key=f"native_{node_id}_{p_k}")
+                        if p_type == "select" and p.get("options") and len(p.get("options")) > 1:
+                            opts = p.get("options", [p_val])
+                            idx_opt = opts.index(p_val) if p_val in opts else 0
+                            new_val = st.selectbox(p_lbl, options=opts, index=idx_opt, key=f"native_{node_id}_{p_k}")
+                            p["value"] = new_val
+                        elif p_type == "range" or p_type == "number":
+                            new_val = st.number_input(p_lbl, value=int(p_val if str(p_val).lstrip('-').isdigit() else 0), key=f"native_{node_id}_{p_k}")
+                            p["value"] = new_val
                         else:
-                            st.text_input(p_lbl, value=str(p_val), key=f"native_{node_id}_{p_k}")
+                            new_val = st.text_input(p_lbl, value=str(p_val), key=f"native_{node_id}_{p_k}", help="Define libremente este parámetro según tu investigación o historia")
+                            p["value"] = new_val
+
+    st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
+    if st.button("💾 Guardar y Aplicar Cambios al Workflow Activo", type="primary", use_container_width=True):
+        ok = pipeline.save_pipeline_graph(graph_data)
+        if ok:
+            st.success("✅ Cambios en el pipeline guardados y sincronizados con el Workflow de producción.")
+            st.rerun()
 
     st.markdown("<hr style='margin: 12px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
     with st.expander("🔌 Ver Mapa de Conexiones Bezier de Datos (Sockets)", expanded=False):

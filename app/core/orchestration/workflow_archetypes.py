@@ -55,8 +55,8 @@ PIXAR_3D_GRAPH = {
             "inputs": [],
             "outputs": [{"id": "char_out", "name": "character_ref", "label": "Referencia de Personaje"}],
             "parameters": [
-                {"key": "protagonist_type", "label": "Tipo de Personaje", "type": "select", "options": ["Animal Antropomórfico", "Niño Aventurero", "Robot Emotivo", "Criatura Mágica"], "value": "Animal Antropomórfico"},
-                {"key": "art_style", "label": "Estilo de Render", "type": "select", "options": ["Pixar 3D Cinematic (Subsurface Scattering)", "Claymation 3D", "Stylized Chibi 4K"], "value": "Pixar 3D Cinematic (Subsurface Scattering)"}
+                {"key": "protagonist_type", "label": "Diseño del Personaje (Libre)", "type": "text", "value": "Protagonista carismático definido por investigación/historia"},
+                {"key": "art_style", "label": "Estilo de Render Óptico", "type": "text", "value": "Pixar 3D Cinematic (Subsurface Scattering, Anamorphic 35mm, Volumetric Glow)"}
             ]
         },
         {
@@ -68,8 +68,8 @@ PIXAR_3D_GRAPH = {
             "inputs": [{"id": "char_in", "name": "character_ref", "label": "Referencia de Personaje"}],
             "outputs": [{"id": "script_out", "name": "script", "label": "Guion 3 Actos"}],
             "parameters": [
-                {"key": "tone", "label": "Tono de la Historia", "type": "select", "options": ["Conmovedor / Emotivo", "Comedia Divertida", "Aventura Épica"], "value": "Conmovedor / Emotivo"},
-                {"key": "moral", "label": "Moraleja", "type": "text", "value": "La perseverancia y el valor de la amistad"}
+                {"key": "tone", "label": "Tono & Atmósfera Narrativa", "type": "text", "value": "Conmovedor, emotivo y con clímax cinematográfico"},
+                {"key": "moral", "label": "Mensaje / Núcleo Dramático", "type": "text", "value": "Evolución personal y resolución del conflicto"}
             ]
         },
         {
@@ -81,8 +81,8 @@ PIXAR_3D_GRAPH = {
             "inputs": [{"id": "script_in", "name": "script", "label": "Guion 3 Actos"}],
             "outputs": [{"id": "clips_out", "name": "video_clips", "label": "Clips 3D Render"}],
             "parameters": [
-                {"key": "lora_model", "label": "Modelo LoRA", "type": "select", "options": ["flux-pixar-story-v2", "nanobanana-3d-cinema"], "value": "flux-pixar-story-v2"},
-                {"key": "lighting", "label": "Iluminación", "type": "select", "options": ["Golden Hour Suave", "Nocturno Neón Mágico", "Estudio Cálido"], "value": "Golden Hour Suave"}
+                {"key": "lora_model", "label": "Motor Visual & Keyframes", "type": "text", "value": "flux-pixar-story-v2 / nanobanana-3d-cinema"},
+                {"key": "lighting", "label": "Esquema de Iluminación Óptica", "type": "text", "value": "Golden Hour suave, luz volumétrica de relleno y bokeh T1.8"}
             ]
         },
         {
@@ -94,7 +94,7 @@ PIXAR_3D_GRAPH = {
             "inputs": [{"id": "script_in", "name": "script", "label": "Guion 3 Actos"}],
             "outputs": [{"id": "audio_out", "name": "voice_audio", "label": "Voz Narrador"}],
             "parameters": [
-                {"key": "voice_style", "label": "Estilo de Narración", "type": "select", "options": ["Cuentacuentos Emotivo", "Voz Infantil Alegre", "Narrador Épico"], "value": "Cuentacuentos Emotivo"}
+                {"key": "voice_style", "label": "Cadencia Vocal & Actuación", "type": "text", "value": "Cuentacuentos cinematográfico con cadencia expresiva profunda"}
             ]
         },
         {
@@ -106,7 +106,7 @@ PIXAR_3D_GRAPH = {
             "inputs": [],
             "outputs": [{"id": "music_out", "name": "bgm_audio", "label": "Banda Sonora Orquestal"}],
             "parameters": [
-                {"key": "genre", "label": "Género Musical", "type": "select", "options": ["Pixar Orchestral Waltz", "Whimsical Piano & Strings", "Adventure Brass & Chimes"], "value": "Pixar Orchestral Waltz"}
+                {"key": "genre", "label": "Partitura Sonora & BGM", "type": "text", "value": "Orquestal cinematográfica con cuerdas, vientos de madera y clímax melódico"}
             ]
         },
         {
@@ -122,7 +122,7 @@ PIXAR_3D_GRAPH = {
             ],
             "outputs": [{"id": "final_out", "name": "final_video", "label": "Vídeo Final"}],
             "parameters": [
-                {"key": "color_grading", "label": "Grading de Color", "type": "select", "options": ["Vibrant Pixar Colors (+15% Sat)", "Pastel Dreamy", "Neutral Cinema"], "value": "Vibrant Pixar Colors (+15% Sat)"}
+                {"key": "color_grading", "label": "Grading de Color & Master", "type": "text", "value": "Vibrant Pixar Colors (+15% Sat, Master HDR 4K)"}
             ]
         }
     ],
@@ -156,7 +156,7 @@ HISTORICAL_SCRAPING_GRAPH = {
                 {"id": "photos_out", "name": "archival_photos", "label": "Fotos de Archivo Reales"}
             ],
             "parameters": [
-                {"key": "sources", "label": "Fuentes de Scraping", "type": "select", "options": ["Wikipedia + Wikimedia Commons + Web Archive", "Archivos de Noticias Históricas", "Exhaustiva Multi-Fuente"], "value": "Wikipedia + Wikimedia Commons + Web Archive"},
+                {"key": "sources", "label": "Fuentes de Scraping & Archivo", "type": "text", "value": "Wikipedia + Wikimedia Commons + Hemerotecas y Archivos Web"},
                 {"key": "min_facts", "label": "Datos Curiosos Mínimos", "type": "number", "value": 5}
             ]
         },
@@ -169,7 +169,7 @@ HISTORICAL_SCRAPING_GRAPH = {
             "inputs": [{"id": "p_in", "name": "archival_photos", "label": "Fotos Antiguas"}],
             "outputs": [{"id": "restored_out", "name": "restored_clips", "label": "Metraje 4K Restaurado (Ken Burns 2.5D)"}],
             "parameters": [
-                {"key": "grain_35mm", "label": "Emulación Grano 35mm", "type": "select", "options": ["Activado (Cinemático)", "Desactivado (Limpio)"], "value": "Activado (Cinemático)"}
+                {"key": "grain_35mm", "label": "Emulación Óptica & Grano", "type": "text", "value": "Grano 35mm cinematográfico suave con movimiento multi-capa 2.5D"}
             ]
         },
         {
@@ -181,7 +181,7 @@ HISTORICAL_SCRAPING_GRAPH = {
             "inputs": [{"id": "f_in", "name": "facts_dossier", "label": "Hechos sin Registro"}],
             "outputs": [{"id": "recreation_out", "name": "recreation_clips", "label": "Planos Recreados 4K"}],
             "parameters": [
-                {"key": "fidelity", "label": "Rigor Visual Histórico", "type": "select", "options": ["Estricto Época", "Cinematográfico Dramático"], "value": "Estricto Época"}
+                {"key": "fidelity", "label": "Rigor Visual Histórico", "type": "text", "value": "Estricto rigor de época con etalonaje 35mm ARRI Alexa"}
             ]
         },
         {
@@ -193,7 +193,7 @@ HISTORICAL_SCRAPING_GRAPH = {
             "inputs": [{"id": "f_in", "name": "facts_dossier", "label": "Dossier"}],
             "outputs": [{"id": "v_out", "name": "voice_audio", "label": "Voz Documental"}],
             "parameters": [
-                {"key": "cadence", "label": "Cadencia Narrativa", "type": "select", "options": ["Sobria e Imparcial (BBC / Canal Historia)", "Dramática Tensa"], "value": "Sobria e Imparcial (BBC / Canal Historia)"}
+                {"key": "cadence", "label": "Cadencia Narrativa", "type": "text", "value": "Sobria, solemne e imparcial (Estilo BBC / Grandes Documentales)"}
             ]
         },
         {
@@ -205,7 +205,7 @@ HISTORICAL_SCRAPING_GRAPH = {
             "inputs": [{"id": "v_in", "name": "voice_audio", "label": "Audio"}],
             "outputs": [{"id": "sub_out", "name": "subtitles_ass", "label": "Subtítulos Dinámicos ASS"}],
             "parameters": [
-                {"key": "quote_highlight", "label": "Resaltado de Citas Textuales", "type": "select", "options": ["Activado (Tipografía Serif Italic)", "Estándar"], "value": "Activado (Tipografía Serif Italic)"}
+                {"key": "quote_highlight", "label": "Resaltado de Citas Textuales", "type": "text", "value": "Tipografía Serif Italic con animaciones de entrada suaves"}
             ]
         },
         {
@@ -222,7 +222,7 @@ HISTORICAL_SCRAPING_GRAPH = {
             ],
             "outputs": [{"id": "master_out", "name": "final_video", "label": "Vídeo Final"}],
             "parameters": [
-                {"key": "ducking_db", "label": "Nivel de Ducking", "type": "number", "value": -22}
+                {"key": "ducking_db", "label": "Nivel de Ducking (dB)", "type": "number", "value": -22}
             ]
         }
     ],
@@ -258,8 +258,8 @@ CITY_ROUTES_GRAPH = {
                 {"id": "facts_out", "name": "city_facts", "label": "Datos Curiosos Urbanos"}
             ],
             "parameters": [
-                {"key": "city_name", "label": "Ciudad / Barrio", "type": "text", "value": "Madrid (Gran Vía, Malasaña, Retiro, Cuatro Torres)"},
-                {"key": "vibe", "label": "Atmósfera Urbana", "type": "select", "options": ["Moderna & Vanguardista", "Histórica Bohemia", "Nocturna Cyberpunk / Luces"], "value": "Moderna & Vanguardista"}
+                {"key": "city_name", "label": "Ruta / Puntos GPS (Libre)", "type": "text", "value": "Puntos de paso y arquitectura definidos por el usuario o investigación"},
+                {"key": "vibe", "label": "Atmósfera Urbana", "type": "text", "value": "Moderna, vanguardista y con iluminación cinemática"}
             ]
         },
         {
@@ -271,7 +271,7 @@ CITY_ROUTES_GRAPH = {
             "inputs": [{"id": "w_in", "name": "waypoints", "label": "Puntos GPS"}],
             "outputs": [{"id": "sweeps_out", "name": "orbital_clips", "label": "Tomas Aéreas 4K"}],
             "parameters": [
-                {"key": "camera_motion", "label": "Movimiento de Cámara", "type": "select", "options": ["Orbital 360° Continuo", "Vuelo Rasante Acelerado", "Dron FPV Cinemático"], "value": "Orbital 360° Continuo"}
+                {"key": "camera_motion", "label": "Movimiento de Cámara Óptico", "type": "text", "value": "Vuelo orbital suave 360° continuo a 60 fps"}
             ]
         },
         {
@@ -283,7 +283,7 @@ CITY_ROUTES_GRAPH = {
             "inputs": [],
             "outputs": [{"id": "music_out", "name": "beats_audio", "label": "Banda Sonora a Tempo Constante"}],
             "parameters": [
-                {"key": "genre", "label": "Estilo de Beat", "type": "select", "options": ["Chill Lo-Fi Hip-Hop (85 BPM)", "Electronic City Synthwave (118 BPM)", "Urban Trap / Drill Melódico (135 BPM)", "Nu-Jazz Street Beat (92 BPM)"], "value": "Electronic City Synthwave (118 BPM)"}
+                {"key": "genre", "label": "Estilo de Beat & Tempo", "type": "text", "value": "Electronic City Synthwave a tempo constante (BPM sincronizado)"}
             ]
         },
         {
@@ -295,7 +295,7 @@ CITY_ROUTES_GRAPH = {
             "inputs": [{"id": "f_in", "name": "city_facts", "label": "Datos Curiosos"}],
             "outputs": [{"id": "overlays_out", "name": "graphics_overlay", "label": "Capa Gráfica HTML5/Remotion"}],
             "parameters": [
-                {"key": "card_style", "label": "Estilo de Tarjeta", "type": "select", "options": ["Minimalista Glassmorphism", "Brutalista Neón", "Mapa Interactivo con Pin"], "value": "Minimalista Glassmorphism"}
+                {"key": "card_style", "label": "Diseño de Rótulos & Datos", "type": "text", "value": "Minimalista Glassmorphism con telemetría HUD"}
             ]
         },
         {
@@ -311,7 +311,7 @@ CITY_ROUTES_GRAPH = {
             ],
             "outputs": [{"id": "final_out", "name": "final_video", "label": "Vídeo Musical Final"}],
             "parameters": [
-                {"key": "cut_every_bars", "label": "Corte de Plano", "type": "select", "options": ["Cada 4 compases (Dinámico)", "Cada 8 compases (Relajado)", "En cada drop musical"], "value": "Cada 4 compases (Dinámico)"}
+                {"key": "cut_every_bars", "label": "Pauta de Montaje & Corte", "type": "text", "value": "Corte de plano sincronizado con compases musicales y transiciones suaves"}
             ]
         }
     ],
@@ -341,7 +341,7 @@ VIRAL_SHORTS_GRAPH = {
             "inputs": [],
             "outputs": [{"id": "hook_out", "name": "hook_script", "label": "Gancho A/B & Guion Rápido"}],
             "parameters": [
-                {"key": "hook_type", "label": "Fórmula del Gancho", "type": "select", "options": ["Pregunta Shock ('¿Sabías que...?')", "Desafío de Creencia ('Todo lo que te dijeron es mentira')", "Dato Prohibido / Revelación"], "value": "Pregunta Shock ('¿Sabías que...?')"}
+                {"key": "hook_type", "label": "Estrategia del Gancho", "type": "text", "value": "Gancho de impacto adaptado a la temática investigada"}
             ]
         },
         {
@@ -353,56 +353,56 @@ VIRAL_SHORTS_GRAPH = {
             "inputs": [{"id": "h_in", "name": "hook_script", "label": "Guion"}],
             "outputs": [{"id": "clips_out", "name": "fast_clips", "label": "Clips de 1.5s - 2.5s"}],
             "parameters": [
-                {"key": "cut_speed", "label": "Duración por Toma", "type": "select", "options": ["1.8 segundos (Ultra Dinámico)", "2.5 segundos (Equilibrado)"], "value": "1.8 segundos (Ultra Dinámico)"}
+                {"key": "cut_speed", "label": "Velocidad de Corte", "type": "text", "value": "Tomas rápidas de 1.8s con alto dinamismo visual"}
             ]
         },
         {
             "id": "node_karaoke_subtitles",
-            "title": "🔤 Subtítulos Karaoke Dinámicos (Amarillo Flúor)",
+            "title": "🔤 Subtítulos Karaoke Flúor (.ass)",
             "category": "subtitles",
             "color": "#f59e0b",
             "x": 370, "y": 380, "width": 310, "enabled": True,
             "inputs": [{"id": "h_in", "name": "hook_script", "label": "Guion"}],
-            "outputs": [{"id": "sub_out", "name": "karaoke_ass", "label": "Subtítulos con Resaltado"}],
+            "outputs": [{"id": "subs_out", "name": "karaoke_ass", "label": "Subtítulos Karaoke"}],
             "parameters": [
-                {"key": "style", "label": "Animación", "type": "select", "options": ["Palabra Activa Amarillo + Escala Pop", "Rebote Tipo MrBeast", "Caja Blanca con Texto Negro"], "value": "Palabra Activa Amarillo + Escala Pop"}
+                {"key": "font_color", "label": "Estilo de Subtítulos", "type": "text", "value": "Amarillo flúor palabra por palabra con rebote sutil"}
             ]
         },
         {
             "id": "node_sfx_impacts",
-            "title": "💥 Efectos de Impacto SFX (Cada 3s)",
+            "title": "💥 Generador de SFX & Impactos Acústicos",
             "category": "music",
             "color": "#eab308",
-            "x": 720, "y": 380, "width": 290, "enabled": True,
+            "x": 720, "y": 380, "width": 300, "enabled": True,
             "inputs": [],
-            "outputs": [{"id": "sfx_out", "name": "sfx_track", "label": "Pista de Efectos Whoosh & Pop"}],
+            "outputs": [{"id": "sfx_out", "name": "sfx_audio", "label": "Pista de Efectos Sonoros"}],
             "parameters": [
-                {"key": "density", "label": "Densidad de Efectos", "type": "select", "options": ["Alto (Cada 2-3 segundos)", "Moderado (Solo en transiciones clave)"], "value": "Alto (Cada 2-3 segundos)"}
+                {"key": "interval_sfx", "label": "Frecuencia de Impactos", "type": "text", "value": "Whooshes, swooshes e impactos de campana cada 3 segundos"}
             ]
         },
         {
-            "id": "node_viral_render",
-            "title": "📱 Render 9:16 Optimizado para Móviles",
+            "id": "node_shorts_render",
+            "title": "📱 Render 9:16 Vertical 60fps",
             "category": "render",
             "color": "#06b6d4",
-            "x": 1050, "y": 240, "width": 280, "enabled": True,
+            "x": 1050, "y": 240, "width": 300, "enabled": True,
             "inputs": [
-                {"id": "c_in", "name": "fast_clips", "label": "Clips"},
-                {"id": "s_in", "name": "karaoke_ass", "label": "Subtítulos"},
-                {"id": "x_in", "name": "sfx_track", "label": "SFX"}
+                {"id": "v_in", "name": "fast_clips", "label": "Clips"},
+                {"id": "s_in", "name": "karaoke_ass", "label": "Karaoke"},
+                {"id": "sfx_in", "name": "sfx_audio", "label": "SFX"}
             ],
-            "outputs": [{"id": "final_out", "name": "final_video", "label": "Short Final"}],
+            "outputs": [{"id": "final_out", "name": "final_video", "label": "Vídeo Final 9:16"}],
             "parameters": [
-                {"key": "fps", "label": "Cuadros por Segundo", "type": "select", "options": ["60 fps (Fluidez Máxima)", "30 fps"], "value": "60 fps (Fluidez Máxima)"}
+                {"key": "framerate", "label": "Tasa de Cuadros", "type": "text", "value": "60 fps ultra-fluido para plataformas móviles"}
             ]
         }
     ],
     "connections": [
         {"id": "c1", "from_node": "node_hook_generator", "from_socket": "hook_out", "to_node": "node_fast_visuals", "to_socket": "h_in"},
         {"id": "c2", "from_node": "node_hook_generator", "from_socket": "hook_out", "to_node": "node_karaoke_subtitles", "to_socket": "h_in"},
-        {"id": "c3", "from_node": "node_fast_visuals", "from_socket": "clips_out", "to_node": "node_viral_render", "to_socket": "c_in"},
-        {"id": "c4", "from_node": "node_karaoke_subtitles", "from_socket": "sub_out", "to_node": "node_viral_render", "to_socket": "s_in"},
-        {"id": "c5", "from_node": "node_sfx_impacts", "from_socket": "sfx_out", "to_node": "node_viral_render", "to_socket": "x_in"}
+        {"id": "c3", "from_node": "node_fast_visuals", "from_socket": "clips_out", "to_node": "node_shorts_render", "to_socket": "v_in"},
+        {"id": "c4", "from_node": "node_karaoke_subtitles", "from_socket": "subs_out", "to_node": "node_shorts_render", "to_socket": "s_in"},
+        {"id": "c5", "from_node": "node_sfx_impacts", "from_socket": "sfx_out", "to_node": "node_shorts_render", "to_socket": "sfx_in"}
     ]
 }
 
@@ -412,65 +412,65 @@ VIRAL_SHORTS_GRAPH = {
 # =====================================================================
 DEEP_EXPLAINER_GRAPH = {
     "version": "1.0.0",
-    "name": "Deep Explainer & Dialectic Essay Pipeline",
+    "name": "Deep Explainer & Video Essay Pipeline",
     "nodes": [
         {
-            "id": "node_dialectic_script",
-            "title": "🧠 Guion Dialéctico (Tesis, Antítesis, Síntesis)",
+            "id": "node_dialectical_script",
+            "title": "🧠 Guion Dialéctico en 3 Actos (Tesis-Antítesis-Síntesis)",
             "category": "llm",
             "color": "#c084fc",
-            "x": 50, "y": 140, "width": 300, "enabled": True,
+            "x": 50, "y": 140, "width": 310, "enabled": True,
             "inputs": [],
             "outputs": [{"id": "script_out", "name": "essay_script", "label": "Guion Estructurado"}],
             "parameters": [
-                {"key": "structure", "label": "Estructura Argumentativa", "type": "select", "options": ["Dialéctica 3 Actos (Tesis-Antítesis-Síntesis)", "Análisis Causal Profundo", "Estudio de Caso Bloomberg"], "value": "Dialéctica 3 Actos (Tesis-Antítesis-Síntesis)"}
+                {"key": "structure", "label": "Estructura Narrativa", "type": "text", "value": "Tesis profunda, análisis de contraargumentos y síntesis prospectiva"}
             ]
         },
         {
             "id": "node_remotion_charts",
-            "title": "📊 Infografías & Gráficos React (Remotion / HyperFrames)",
+            "title": "📊 Infografías Animadas Remotion React TSX",
             "category": "programacion",
-            "color": "#38bdf8",
+            "color": "#a855f7",
             "x": 400, "y": 100, "width": 320, "enabled": True, "is_loop": True,
-            "inputs": [{"id": "s_in", "name": "essay_script", "label": "Datos a Graficar"}],
-            "outputs": [{"id": "charts_out", "name": "infographic_clips", "label": "Clips de Gráficos Animados"}],
+            "inputs": [{"id": "s_in", "name": "essay_script", "label": "Datos"}],
+            "outputs": [{"id": "charts_out", "name": "motion_charts", "label": "Clips de Gráficos 4K"}],
             "parameters": [
-                {"key": "chart_type", "label": "Tipo de Gráfico", "type": "select", "options": ["Líneas Temporales & Datos Evolutivos", "Gráficos de Barras Comparativos", "Mapas de Redes / Diagramas"], "value": "Líneas Temporales & Datos Evolutivos"}
+                {"key": "chart_theme", "label": "Estilo de Infografía", "type": "text", "value": "Dark Glassmorphism con curvas spline animadas y tipografía Inter"}
             ]
         },
         {
-            "id": "node_voice_intellectual",
-            "title": "🎙️ VibeVoice 1.5B (Locución Pensativa)",
+            "id": "node_voice_contemplative",
+            "title": "🎙️ VibeVoice 1.5B (Locución Pensativa / Ensayo)",
             "category": "voice",
             "color": "#10b981",
             "x": 400, "y": 380, "width": 320, "enabled": True,
             "inputs": [{"id": "s_in", "name": "essay_script", "label": "Guion"}],
-            "outputs": [{"id": "voice_out", "name": "voice_audio", "label": "Voz Explicativa"}],
+            "outputs": [{"id": "v_out", "name": "essay_voice", "label": "Audio Reflexivo"}],
             "parameters": [
-                {"key": "tone", "label": "Tono", "type": "select", "options": ["Analítico Riguroso (Vox/Veritasium)", "Cálido Pedagógico", "Periodístico Formal"], "value": "Analítico Riguroso (Vox/Veritasium)"}
+                {"key": "pacing", "label": "Ritmo de Locución", "type": "text", "value": "Cadencia pausada, articulada y reflexiva"}
             ]
         },
         {
             "id": "node_essay_render",
-            "title": "🎞️ FFmpeg / Remotion Composite Master",
+            "title": "🎬 Ensamblaje Master Videoensayo 4K",
             "category": "render",
             "color": "#06b6d4",
-            "x": 780, "y": 240, "width": 300, "enabled": True,
+            "x": 760, "y": 240, "width": 300, "enabled": True,
             "inputs": [
-                {"id": "g_in", "name": "infographic_clips", "label": "Gráficos"},
-                {"id": "v_in", "name": "voice_audio", "label": "Voz"}
+                {"id": "ch_in", "name": "motion_charts", "label": "Infografías"},
+                {"id": "v_in", "name": "essay_voice", "label": "Voz"}
             ],
             "outputs": [{"id": "final_out", "name": "final_video", "label": "Vídeo Final"}],
             "parameters": [
-                {"key": "bgm_level", "label": "Volumen de Música Minimalista", "type": "select", "options": ["Muy Bajo / Sutil (-24 dB)", "Moderado (-18 dB)"], "value": "Muy Bajo / Sutil (-24 dB)"}
+                {"key": "aspect", "label": "Relación de Aspecto", "type": "text", "value": "16:9 Panorámico Master 4K"}
             ]
         }
     ],
     "connections": [
-        {"id": "c1", "from_node": "node_dialectic_script", "from_socket": "script_out", "to_node": "node_remotion_charts", "to_socket": "s_in"},
-        {"id": "c2", "from_node": "node_dialectic_script", "from_socket": "script_out", "to_node": "node_voice_intellectual", "to_socket": "s_in"},
-        {"id": "c3", "from_node": "node_remotion_charts", "from_socket": "charts_out", "to_node": "node_essay_render", "to_socket": "g_in"},
-        {"id": "c4", "from_node": "node_voice_intellectual", "from_socket": "voice_out", "to_node": "node_essay_render", "to_socket": "v_in"}
+        {"id": "c1", "from_node": "node_dialectical_script", "from_socket": "script_out", "to_node": "node_remotion_charts", "to_socket": "s_in"},
+        {"id": "c2", "from_node": "node_dialectical_script", "from_socket": "script_out", "to_node": "node_voice_contemplative", "to_socket": "s_in"},
+        {"id": "c3", "from_node": "node_remotion_charts", "from_socket": "charts_out", "to_node": "node_essay_render", "to_socket": "ch_in"},
+        {"id": "c4", "from_node": "node_voice_contemplative", "from_socket": "v_out", "to_node": "node_essay_render", "to_socket": "v_in"}
     ]
 }
 

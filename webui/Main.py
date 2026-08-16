@@ -2083,7 +2083,7 @@ def _render_settings_dialog():
             st.subheader("Almacenamiento & Proyectos")
             st.caption("Estructura de carpetas por fecha YYYY-MM-DD y gestión de caché.")
 
-            st.text_input("Directorio Base de Almacenamiento", value="/home/ubuntu/MoneyPrinterTurbo/storage", disabled=True)
+            st.text_input("Directorio Base de Almacenamiento", value=os.path.join(BASE_DIR, "storage"), disabled=True)
             
             if st.button("🧹 Limpiar Caché y Archivos Temporales", key="clean_btn_flush_cache"):
                 st.toast("Caché limpiada con éxito")

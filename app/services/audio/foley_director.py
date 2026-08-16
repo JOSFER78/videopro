@@ -53,8 +53,14 @@ def create_noise_burst(duration_s, sample_rate=48000, volume=0.6, cutoff_decay=T
         samples.extend(struct.pack('<h', sample_val))
     return bytes(samples)
 
-def ensure_sfx_library(assets_dir: str = "/home/ubuntu/MoneyPrinterTurbo/storage/assets/sfx"):
+def _get_default_sfx_dir() -> str:
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    return os.path.join(base_dir, "storage", "assets", "sfx")
+
+def ensure_sfx_library(assets_dir: Optional[str] = None):
     """Ensures all essential SOTA procedural and recorded SFX files exist."""
+    if not assets_dir:
+        assets_dir = _get_default_sfx_dir()
     os.makedirs(assets_dir, exist_ok=True)
     
     sfx_manifest = {
@@ -87,7 +93,7 @@ class FoleyDirector:
     KEYWORDS_WHOOSH = ["cambio", "viaje", "transformación", "movimiento", "transición", "rápido", "nuevo", "turn", "shift", "change", "transition", "whoosh"]
     KEYWORDS_STEAMPUNK = ["vapor", "engranaje", "máquina", "caldera", "onirópolis", "reloj", "alquimia", "bruma", "steam", "gear", "machine", "boiler", "clock", "alchemy"]
 
-    def __init__(self, assets_dir: str = "/home/ubuntu/MoneyPrinterTurbo/storage/assets/sfx"):
+    def __init__(self, assets_dir: Optional[str] = None):
         self.assets_dir = ensure_sfx_library(assets_dir)
 
     def analyze_transcription(self, subtitle_segments: list) -> list:

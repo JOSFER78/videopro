@@ -6,9 +6,9 @@ Diseño profesional, moderno, oscuro (Dark IDE Theme) con alta legibilidad.
 import streamlit as st
 
 NAV_VIEWS = [
-    ("main", "🎬 Generador"),
-    ("orchestrator", "🏛️ Studio Workflows"),
-    ("pipeline", "🎛️ Pipeline ComfyUI"),
+    ("generator", "🎬 Generador"),
+    ("studio", "🏛️ Studio Workflows"),
+    ("pipeline", "🎛️ Pipeline"),
     ("projects", "📁 Proyectos"),
     ("settings", "⚙️ Ajustes"),
     ("ltx_flux", "⚡ LTX y FLUX"),

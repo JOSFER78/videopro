@@ -39,7 +39,11 @@ class ReplicateVideoProvider:
 
     def __init__(self, api_token: Optional[str] = None, output_dir: Optional[Path] = None):
         self.api_token = api_token or os.getenv("REPLICATE_API_TOKEN", "")
-        self.output_dir = output_dir or Path("/home/ubuntu/MoneyPrinterTurbo/storage/cache_videos/replicate")
+        if output_dir is None:
+            base_dir = Path(__file__).resolve().parent.parent.parent.parent
+            self.output_dir = base_dir / "storage" / "cache_videos" / "replicate"
+        else:
+            self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
         
         self.headers = {

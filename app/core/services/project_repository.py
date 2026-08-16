@@ -12,7 +12,10 @@ from app.core.domain.specs import VisualSpec, AudioSpec, SubtitleSpec, RenderSpe
 from app.core.domain.enums import ProjectStatus, SceneStatus, LockLevel, VisualEngineType, VoiceEngineType, KaraokeStyle
 
 class ProjectRepository:
-    def __init__(self, base_storage_dir: str = "/home/ubuntu/MoneyPrinterTurbo/storage"):
+    def __init__(self, base_storage_dir: Optional[str] = None):
+        if not base_storage_dir:
+            base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+            base_storage_dir = os.path.join(base_dir, "storage")
         self.base_dir = base_storage_dir
         self.projects_dir = os.path.join(self.base_dir, "projects")
         self.legacy_tasks_dir = os.path.join(self.base_dir, "tasks")

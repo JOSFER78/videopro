@@ -28,7 +28,7 @@ def render_studio_orchestrator_view():
                 <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">SPECIALIZED PIPELINES</span>
             </h2>
             <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                Arquetipos especializados con Pipelines ComfyUI dedicados y Entrevista Adaptativa: <code>Pixar 3D</code>, <code>Histórico & Scraping</code>, <code>City Beats</code>, <code>Viral Shorts</code> y <code>Video Ensayos</code>.
+                Arquetipos especializados con Pipelines de Nodos dedicados y Entrevista Adaptativa: <code>Pixar 3D</code>, <code>Histórico & Scraping</code>, <code>City Beats</code>, <code>Viral Shorts</code> y <code>Video Ensayos</code>.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -46,7 +46,7 @@ def render_studio_orchestrator_view():
     # =========================================================
     with tab_archetypes:
         st.markdown("#### 🎬 Arquetipos de Producción Especializados")
-        st.caption("Cada tipo de vídeo tiene sus propios motores, su propio pipeline ComfyUI y su cuestionario de entrevista específico.")
+        st.caption("Cada tipo de vídeo tiene sus propios motores, su propio pipeline de nodos y su cuestionario de entrevista específico.")
 
         archetypes = get_all_archetypes()
         arch_opts = [a.id for a in archetypes]
@@ -117,8 +117,8 @@ def render_studio_orchestrator_view():
                     st.markdown(f"• **Tipo de Toma:** <code>{sc.shot_type}</code> | **Duración:** {sc.duration_seconds}s")
                     st.markdown(f"• **Fallbacks:** {', '.join(sc.fallback_engines) if sc.fallback_engines else 'Ninguno'}")
 
-            st.markdown("#### 🎛️ Pipeline ComfyUI Específico Asociado:")
-            with st.expander("Ver Topología de Nodos ComfyUI Dedicada", expanded=False):
+            st.markdown("#### 🎛️ Pipeline de Nodos Asociado:")
+            with st.expander("Ver Topología de Nodos del Pipeline", expanded=False):
                 st.json(arch_obj.pipeline_graph)
 
             st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)

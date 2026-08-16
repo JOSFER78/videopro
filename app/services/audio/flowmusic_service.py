@@ -28,7 +28,11 @@ class FlowMusicAutomationService:
 
     def __init__(self, session_cookie: Optional[str] = None, output_dir: Optional[Path] = None):
         self.session_cookie = session_cookie or os.getenv("FLOWMUSIC_SESSION", "")
-        self.output_dir = output_dir or Path("/home/ubuntu/MoneyPrinterTurbo/storage/music/flowmusic")
+        if output_dir is None:
+            base_dir = Path(__file__).resolve().parent.parent.parent.parent
+            self.output_dir = base_dir / "storage" / "music" / "flowmusic"
+        else:
+            self.output_dir = output_dir
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def is_authenticated(self) -> bool:
