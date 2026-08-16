@@ -476,6 +476,119 @@ DEEP_EXPLAINER_GRAPH = {
 
 
 # =====================================================================
+# 6. TOURS FPV Y STORYTELLING URBANO 4K PIPELINE & INTERVIEW
+# =====================================================================
+FPV_URBAN_GRAPH = {
+    "version": "1.0.0",
+    "name": "Tours FPV y Storytelling Urbano 4K/60fps Pipeline",
+    "nodes": [
+        {
+            "id": "node_flight_planner",
+            "title": "🚁 Plan de Vuelo 3D, Splines & Shotlist",
+            "category": "programacion",
+            "color": "#38bdf8",
+            "x": 50, "y": 140, "width": 300, "enabled": True,
+            "inputs": [],
+            "outputs": [
+                {"id": "waypoints_out", "name": "waypoints", "label": "Waypoints 3D GPS/Z"},
+                {"id": "shotlist_out", "name": "shotlist", "label": "Shotlist Canónico 7 Planos"}
+            ],
+            "parameters": [
+                {"key": "city_route", "label": "Ruta y Puntos Emblemáticos", "type": "text", "value": "Puntos de paso GPS definidos por el usuario e investigación"},
+                {"key": "flight_physics", "label": "Dinámica de Vuelo FPV", "type": "text", "value": "Acrobático & Extremo (Dives de 140 km/h y slaloms 6-ejes)"}
+            ]
+        },
+        {
+            "id": "node_real_scraper",
+            "title": "🌐 Scraper 4K/8K & Grounding Factual",
+            "category": "scraping",
+            "color": "#10b981",
+            "x": 380, "y": 80, "width": 320, "enabled": True,
+            "inputs": [{"id": "w_in", "name": "waypoints", "label": "Waypoints 3D"}],
+            "outputs": [{"id": "ground_out", "name": "ground_images", "label": "Fotos Reales Auditadas >5KB"}],
+            "parameters": [
+                {"key": "min_resolution", "label": "Resolución Mínima", "type": "text", "value": "3840x2160 (4K UHD)"},
+                {"key": "laplacian_threshold", "label": "Umbral de Nitidez", "type": "number", "value": 100.0}
+            ]
+        },
+        {
+            "id": "node_7kf_reimaginer",
+            "title": "🎨 Nano Banana Pro: 7 Keyframes Consistentes",
+            "category": "image",
+            "color": "#f59e0b",
+            "x": 730, "y": 80, "width": 320, "enabled": True,
+            "inputs": [
+                {"id": "g_in", "name": "ground_images", "label": "Fotos Reales"},
+                {"id": "s_in", "name": "shotlist", "label": "Shotlist"}
+            ],
+            "outputs": [{"id": "kf_out", "name": "kf_packs", "label": "Packs de 7 Keyframes por Plano"}],
+            "parameters": [
+                {"key": "color_science", "label": "Ciencia de Color y Grano", "type": "text", "value": "ARRI Alexa LF + Kodak Vision3 500T 35mm Grain"},
+                {"key": "optics", "label": "Simulación Óptica", "type": "text", "value": "Ultra-wide Anamorphic 14mm f/2.8"}
+            ]
+        },
+        {
+            "id": "node_google_flow_omni",
+            "title": "⚡ Google Flow Gemini Omni Flash (60fps & Foley)",
+            "category": "visual",
+            "color": "#ec4899",
+            "x": 1080, "y": 80, "width": 340, "enabled": True, "is_loop": True,
+            "inputs": [
+                {"id": "k_in", "name": "kf_packs", "label": "7 Keyframes"},
+                {"id": "sh_in", "name": "shotlist", "label": "Shotlist"}
+            ],
+            "outputs": [{"id": "clips_out", "name": "fpv_clips", "label": "Clips FPV 60fps con Foley"}],
+            "parameters": [
+                {"key": "engine", "label": "Motor de Vídeo", "type": "text", "value": "gemini-omni-flash-preview"},
+                {"key": "foley_doppler", "label": "Foley & Doppler Nativo", "type": "boolean", "value": True}
+            ]
+        },
+        {
+            "id": "node_audio_flow_narrator",
+            "title": "🎙️ Locución TTS & Flow Beat Sync (118 BPM)",
+            "category": "music",
+            "color": "#eab308",
+            "x": 730, "y": 380, "width": 320, "enabled": True,
+            "inputs": [{"id": "sh_audio_in", "name": "shotlist", "label": "Guion & Timings"}],
+            "outputs": [{"id": "audio_out", "name": "master_audio_track", "label": "Audio Master Ducking -18dB"}],
+            "parameters": [
+                {"key": "music_bpm", "label": "Tempo de la Música", "type": "number", "value": 118},
+                {"key": "master_lufs", "label": "Normalización EBU R128", "type": "number", "value": -14.0}
+            ]
+        },
+        {
+            "id": "node_remotion_3d_hud_master",
+            "title": "🏷️ Remotion Master: Overlays 3D & Telemetría HUD",
+            "category": "render",
+            "color": "#06b6d4",
+            "x": 1450, "y": 200, "width": 340, "enabled": True,
+            "inputs": [
+                {"id": "v_in", "name": "fpv_clips", "label": "Clips FPV 60fps"},
+                {"id": "a_in", "name": "master_audio_track", "label": "Audio Master"},
+                {"id": "s_in", "name": "shotlist", "label": "Plan de Vuelo"}
+            ],
+            "outputs": [{"id": "final_out", "name": "final_video", "label": "Vídeo Master 4K 60fps"}],
+            "parameters": [
+                {"key": "hud_theme", "label": "Estilo HUD Telemetría", "type": "text", "value": "Glassmorphism Cyberpunk con Altímetro/Velocímetro"},
+                {"key": "spatial_3d_titles", "label": "Rótulos Anclados en Espacio 3D", "type": "boolean", "value": True}
+            ]
+        }
+    ],
+    "connections": [
+        {"id": "c1", "from_node": "node_flight_planner", "from_socket": "waypoints_out", "to_node": "node_real_scraper", "to_socket": "w_in"},
+        {"id": "c2", "from_node": "node_flight_planner", "from_socket": "shotlist_out", "to_node": "node_7kf_reimaginer", "to_socket": "s_in"},
+        {"id": "c3", "from_node": "node_real_scraper", "from_socket": "ground_out", "to_node": "node_7kf_reimaginer", "to_socket": "g_in"},
+        {"id": "c4", "from_node": "node_7kf_reimaginer", "from_socket": "kf_out", "to_node": "node_google_flow_omni", "to_socket": "k_in"},
+        {"id": "c5", "from_node": "node_flight_planner", "from_socket": "shotlist_out", "to_node": "node_google_flow_omni", "to_socket": "sh_in"},
+        {"id": "c6", "from_node": "node_flight_planner", "from_socket": "shotlist_out", "to_node": "node_audio_flow_narrator", "to_socket": "sh_audio_in"},
+        {"id": "c7", "from_node": "node_google_flow_omni", "from_socket": "clips_out", "to_node": "node_remotion_3d_hud_master", "to_socket": "v_in"},
+        {"id": "c8", "from_node": "node_audio_flow_narrator", "from_socket": "audio_out", "to_node": "node_remotion_3d_hud_master", "to_socket": "a_in"},
+        {"id": "c9", "from_node": "node_flight_planner", "from_socket": "shotlist_out", "to_node": "node_remotion_3d_hud_master", "to_socket": "s_in"}
+    ]
+}
+
+
+# =====================================================================
 # CATÁLOGO MAESTRO DE ARQUETIPOS DE PRODUCCIÓN
 # =====================================================================
 ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
@@ -583,6 +696,57 @@ ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
             InterviewQuestion(key="visual_infographics_style", question="¿Qué estética prefieres para las infografías?", description="Estilo de diseño animado", question_type="select", options=["Estilo Vox Minimalista (Fondo Oscuro + Acentos Neón)", "Estilo Bloomberg Terminal / Cuantitativo", "Estilo Editorial New York Times"], default_value="Estilo Vox Minimalista (Fondo Oscuro + Acentos Neón)")
         ],
         pipeline_graph=DEEP_EXPLAINER_GRAPH
+    ),
+
+    "FPV_URBAN_STORYTELLING": WorkflowArchetype(
+        id="FPV_URBAN_STORYTELLING",
+        name="Tours FPV y Storytelling Urbano 4K",
+        icon="🚁",
+        tag="TOURS FPV & STORYTELLING",
+        description="Vuelos FPV cinemáticos de alta velocidad por metrópolis globales: plan de vuelo 3D, scraping real, 7 keyframes para Gemini Omni Flash, sincronización flow beat y telemetría HUD.",
+        category="travel_fpv_action",
+        target_audience="Audiovisual Premium, Turismo Urbano, Récords de Arquitectura, Viral Reels",
+        default_aspect_ratio="9:16",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="flow_synthwave",
+        interview_schema=[
+            InterviewQuestion(
+                key="target_city_and_landmarks",
+                question="¿Qué ciudad y qué puntos emblemáticos compondrán la ruta FPV?",
+                description="Ejemplo: 'Tokio: Azotea Scramble Square, Cruce Shibuya, Fachada 109, Callejón Yokocho y Parque Miyashita'",
+                question_type="text",
+                default_value="Tokio: Azotea Scramble Square, Cruce de Shibuya, Fachada 109, Callejón Yokocho y Parque Miyashita"
+            ),
+            InterviewQuestion(
+                key="fpv_flight_style",
+                question="¿Qué estilo y agresividad de vuelo FPV deseas imprimir?",
+                description="Define la física de movimiento, aceleraciones y acrobacias de la cámara",
+                question_type="select",
+                options=[
+                    "Acrobático & Extremo (Dives de 140 km/h, slaloms cerrados y giros de 360°)",
+                    "Cinemático & Fluido (Vuelos suaves, curvas amplias y paneos majestuosos)",
+                    "Cyberpunk Nocturno (Alta velocidad entre luces de neón y lluvia)",
+                    "Histórico & Arquitectónico (Aproximaciones de detalle y traspaso de monumentos)"
+                ],
+                default_value="Acrobático & Extremo (Dives de 140 km/h, slaloms cerrados y giros de 360°)"
+            ),
+            InterviewQuestion(
+                key="narrative_subtext_focus",
+                question="¿Cuál es el ángulo narrativo o misterio central de la historia urbana?",
+                description="El gancho documental que aportará subtexto a los planos aéreos",
+                question_type="select",
+                options=[
+                    "Secretos de Ingeniería & Rascacielos Invisibles",
+                    "Contraste Urbano: Tradición Oculta vs Hipermodernidad",
+                    "La Metrópolis que Nunca Duerme (Pulso Nocturno 24/7)",
+                    "Historia Olvidada bajo el Asfalto"
+                ],
+                default_value="Secretos de Ingeniería & Rascacielos Invisibles"
+            )
+        ],
+        pipeline_graph=FPV_URBAN_GRAPH
     )
 }
 

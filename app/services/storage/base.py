@@ -41,3 +41,7 @@ class BaseStorageService(ABC):
     @abstractmethod
     def delete_file(self, remote_key: str) -> bool:
         pass
+
+    @abstractmethod
+    def list_files(self, prefix: str = "") -> List[Dict[str, Any]]:
+        pass

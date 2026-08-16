@@ -6,20 +6,19 @@ Diseño profesional, moderno, oscuro (Dark IDE Theme) con alta legibilidad.
 import streamlit as st
 
 NAV_VIEWS = [
-    ("generator", "🎬 Generador"),
-    ("studio", "🏛️ Studio Workflows"),
-    ("pipeline", "🎛️ Pipeline"),
+    ("studio", "🚀 Empezar"),
+    ("pipeline", "🏛️ Workflow Studio"),
     ("projects", "📁 Proyectos"),
-    ("settings", "⚙️ Ajustes"),
-    ("ltx_flux", "⚡ LTX y FLUX"),
+    ("cinema_vault", "🎞️ Bóveda de Medios"),
     ("audio_studio", "🎙️ Audio y Música"),
-    ("cinema_vault", "🎞️ Galería y Vídeos"),
-    ("docs", "📖 Guía Técnica")
+    ("ltx_flux", "⚡ LTX y FLUX"),
+    ("settings", "⚙️ Ajustes"),
+    ("docs", "📖 Documentación")
 ]
 
 def render_top_navigation():
-    if "active_view" not in st.session_state:
-        st.session_state["active_view"] = "main"
+    if "active_view" not in st.session_state or st.session_state["active_view"] in ("main", "generator"):
+        st.session_state["active_view"] = "studio"
 
     active = st.session_state["active_view"]
 

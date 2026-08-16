@@ -24,16 +24,16 @@ if not os.path.isfile(STUDIO_HTML_PATH):
 
 
 def render_comfy_pipeline_view():
-    """Renderiza el Administrador de Flujo de Nodos del Pipeline dentro de VideoPro."""
+    """Renderiza el Workflow Studio y el Administrador de Flujo de Nodos sincronizado."""
     
     st.markdown("""
         <div style="margin-bottom: 12px;">
             <h2 style="font-size: 22px; font-weight: 800; color: #f8fafc; margin-bottom: 2px; display: flex; align-items: center; gap: 8px;">
-                🎛️ Pipeline de Nodos & Arquitectura Dinámica
-                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">RESEARCH DRIVEN</span>
+                🏛️ Workflow Studio
+                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">WORKFLOWS & PIPELINES SYNC</span>
             </h2>
             <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                El flujo de interacción y los nodos se reconfiguran dinámicamente según las peticiones de investigación y narrativa del usuario.
+                Visualización interactiva de nodos, módulos técnicos y sincronización 100% real de Pipelines por Arquetipo de Producción.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -136,21 +136,25 @@ def render_comfy_pipeline_view():
                 window.INJECTED_PIPELINE_DATA = {json.dumps(graph_data)};
                 window.INJECTED_PROVIDERS_REGISTRY = {json.dumps(current_registry)};
             </script>"""
-            if "</body>" in html_content:
-                html_content = html_content.replace("</body>", f"{injected_script}</body>")
+            
+            # Inject at the very top of <head> so it runs BEFORE any other script in the HTML
+            if "<head>" in html_content:
+                html_content = html_content.replace("<head>", f"<head>\n{injected_script}\n")
+            elif "<body>" in html_content:
+                html_content = html_content.replace("<body>", f"<body>\n{injected_script}\n")
             else:
-                html_content += injected_script
+                html_content = f"{injected_script}\n{html_content}"
 
             components.html(html_content, height=860, scrolling=False)
             canvas_rendered = True
         except Exception as ex:
-            st.warning(f"Aviso al cargar lienzo ComfyUI: {ex}. Conmutando a vista de árbol nativo.")
+            st.warning(f"Aviso al cargar lienzo de nodos: {ex}. Conmutando a vista de árbol nativo.")
 
     if not canvas_rendered:
-        _render_native_pipeline_tree(graph_data)
+        _render_native_pipeline_tree(graph_data, selected_pipe)
 
 
-def _render_native_pipeline_tree(graph_data: dict):
+def _render_native_pipeline_tree(graph_data: dict, selected_pipe: str = "MASTER"):
     """Renderiza la vista en árbol modular dinámico 100% editable y sin textos hardcodeados."""
     nodes = graph_data.get("nodes", [])
     connections = graph_data.get("connections", [])
@@ -201,9 +205,19 @@ def _render_native_pipeline_tree(graph_data: dict):
 
     st.markdown("<div style='height: 10px;'></div>", unsafe_allow_html=True)
     if st.button("💾 Guardar y Aplicar Cambios al Workflow Activo", type="primary", use_container_width=True):
+        if selected_pipe != "MASTER" and selected_pipe in ARCHETYPES_CATALOG:
+            ARCHETYPES_CATALOG[selected_pipe].pipeline_graph = graph_data
+            try:
+                from app.core.orchestration.repository import StudioRepository
+                wf_def = StudioRepository.load_workflow(selected_pipe)
+                if wf_def:
+                    wf_def.pipeline_graph = graph_data
+                    StudioRepository.save_workflow(wf_def)
+            except Exception:
+                pass
         ok = pipeline.save_pipeline_graph(graph_data)
         if ok:
-            st.success("✅ Cambios en el pipeline guardados y sincronizados con el Workflow de producción.")
+            st.success(f"✅ Cambios en el pipeline «{selected_pipe}» guardados y sincronizados con el Workflow de producción.")
             st.rerun()
 
     st.markdown("<hr style='margin: 12px 0; border-color: #1e293b;'>", unsafe_allow_html=True)

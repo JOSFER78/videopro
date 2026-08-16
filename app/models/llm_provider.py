@@ -276,7 +276,27 @@ if len(LLM_PROVIDERS) != len(LLM_PROVIDER_REGISTRY):
 
 
 def get_llm_provider(provider_id: str) -> LLMProviderSpec | None:
-    return LLM_PROVIDERS.get((provider_id or "").lower())
+    p_id = (provider_id or "").lower().strip()
+    if p_id in LLM_PROVIDERS:
+        return LLM_PROVIDERS[p_id]
+    
+    # Fuzzy matching para nombres de interfaz o configuraciones heredadas
+    if "antigravity" in p_id or "8742" in p_id or "bridge" in p_id:
+        return LLM_PROVIDERS.get("antigravity")
+    if "gemini" in p_id or "google" in p_id:
+        return LLM_PROVIDERS.get("antigravity") or LLM_PROVIDERS.get("gemini")
+    if "openai" in p_id or "chatgpt" in p_id:
+        return LLM_PROVIDERS.get("openai")
+    if "ollama" in p_id:
+        return LLM_PROVIDERS.get("ollama")
+    if "deepseek" in p_id:
+        return LLM_PROVIDERS.get("deepseek")
+    if "qwen" in p_id:
+        return LLM_PROVIDERS.get("qwen")
+    if "grok" in p_id:
+        return LLM_PROVIDERS.get("grok")
+        
+    return LLM_PROVIDERS.get(DEFAULT_LLM_PROVIDER_ID) or LLM_PROVIDERS.get("antigravity")
 
 
 def normalize_provider_override(value: str | None, default_value: str | None) -> str:

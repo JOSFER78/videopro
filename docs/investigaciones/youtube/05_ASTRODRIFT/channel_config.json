@@ -1,0 +1,38 @@
+{
+  "channel_id": "05_ASTRODRIFT",
+  "brand_name": "ASTRODRIFT",
+  "handle": "@AstroDriftOfficial",
+  "tagline": "Cinematic Expeditions Across Alien Worlds (1:1 NASA Altimetry & Exoplanets)",
+  "niche": "Vuelos Planetarios 1:1, Lunas del Sistema Solar y Exoplanetas del JWST",
+  "target_rpm_usd": "$15.00 – $29.00 USD",
+  "target_retention": "93% (1m) / 75% (AVD)",
+  "primary_color": "#7c4dff",
+  "secondary_color": "#00e5ff",
+  "accent_color": "#ff3d00",
+  "audio_settings": {
+    "bpm": "105 BPM",
+    "genre": "Space Chillstep / Cinematic Synthwave & Cosmic Frequencies",
+    "target_lufs": -14.0,
+    "ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  },
+  "video_generator": {
+    "model": "gemini-omni-flash-preview",
+    "provider": "google_flow",
+    "fps": 60,
+    "resolution": "3840x2160",
+    "keyframes_per_shot": 7
+  },
+  "episodes_planned": [
+    "Marte: Valles Marineris & Olympus Mons",
+    "Encélado: Los Géiseres de Hielo de Saturno",
+    "Titán: Los Lagos de Metano Líquido",
+    "TRAPPIST-1e: El Exoplaneta Habitable",
+    "Júpiter: La Gran Mancha Roja & Aurora Polar",
+    "Venus: El Infierno Volcánico Supercrítico",
+    "K2-18b: El Mundo Oceánico de Hidrógeno",
+    "La Luna: Cráter Shackleton & Hielo Polar",
+    "Ío: Los Volcanes de Azufre de Júpiter",
+    "El Centro Galáctico: Sagitario A*"
+  ]
+}

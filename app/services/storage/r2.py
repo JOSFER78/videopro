@@ -155,3 +155,22 @@ class CloudflareR2StorageService(BaseStorageService):
         except (ClientError, BotoCoreError) as err:
             logger.error(f"Error eliminando {key} de R2: {err}")
             return False
+
+    def list_files(self, prefix: str = "") -> List[Dict[str, Any]]:
+        clean_prefix = self._normalize_key(prefix)
+        try:
+            paginator = self._s3_client.get_paginator("list_objects_v2")
+            results = []
+            for page in paginator.paginate(Bucket=self.bucket_name, Prefix=clean_prefix):
+                for obj in page.get("Contents", []):
+                    results.append({
+                        "key": obj["Key"],
+                        "size": obj["Size"],
+                        "last_modified": obj["LastModified"].isoformat(),
+                        "etag": obj.get("ETag", "").strip('"')
+                    })
+            return results
+        except (ClientError, BotoCoreError) as err:
+            logger.error(f"Error listando archivos en R2 ({clean_prefix}): {err}")
+            return []
+

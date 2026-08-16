@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPro v5.0 — 3 Canales Automatizados de Alto Impacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #0a0e17;
+            --bg-surface: #111827;
+            --bg-surface-elevated: #1a2234;
+            --bg-surface-hover: #222d42;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-focus: rgba(255, 255, 255, 0.16);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-tertiary: #64748b;
+            
+            --accent-cyan: #06b6d4;
+            --accent-cyan-subtle: rgba(6, 182, 212, 0.12);
+            --accent-emerald: #10b981;
+            --accent-emerald-subtle: rgba(16, 185, 129, 0.12);
+            --accent-amber: #f59e0b;
+            --accent-amber-subtle: rgba(245, 158, 11, 0.12);
+            --accent-rose: #f43f5e;
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            padding: 32px 24px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        header {
+            margin-bottom: 36px;
+            border-bottom: 1px solid var(--border-subtle);
+            padding-bottom: 24px;
+        }
+
+        .badge-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        p.subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            max-width: 840px;
+        }
+
+        /* Navigation Tabs */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid var(--border-subtle);
+            margin-bottom: 32px;
+            overflow-x: auto;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 12px 18px;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .tab-btn.active {
+            color: var(--accent-cyan);
+            border-bottom-color: var(--accent-cyan);
+        }
+
+        /* Views */
+        .view-section {
+            display: none;
+        }
+
+        .view-section.active {
+            display: block;
+        }
+
+        /* Grid Cards */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--border-focus);
+            transform: translateY(-2px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        .card-tag {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-cyan { background: var(--accent-cyan-subtle); color: var(--accent-cyan); }
+        .tag-amber { background: var(--accent-amber-subtle); color: var(--accent-amber); }
+        .tag-emerald { background: var(--accent-emerald-subtle); color: var(--accent-emerald); }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Metric Grid */
+        .metric-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            background: var(--bg-surface-elevated);
+            padding: 14px;
+            border-radius: var(--radius-md);
+        }
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .metric-val {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .metric-val.high { color: var(--accent-emerald); }
+        .metric-val.rpm { color: var(--accent-amber); }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .feature-list li strong {
+            color: var(--text-primary);
+        }
+
+        /* Table Design */
+        .table-wrap {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin-bottom: 32px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13px;
+        }
+
+        th {
+            background: var(--bg-surface-elevated);
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.05em;
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            vertical-align: top;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: var(--bg-surface-hover);
+        }
+
+        td strong {
+            color: var(--text-primary);
+        }
+
+        /* Code & Prompts */
+        .prompt-box {
+            background: var(--bg-base);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 14px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .badge {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 4px;
+            background: var(--bg-surface-elevated);
+            color: var(--text-secondary);
+            margin-right: 4px;
+        }
+
+        /* Workflow Steps */
+        .workflow-step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .step-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 13px;
+            color: var(--accent-cyan);
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .step-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="badge-header">VideoPro v5.0 Ultra Architecture</div>
+        <h1>3 Conceptos de Canales Automatizados de Alto Impacto</h1>
+        <p class="subtitle">Estrategia técnica para erradicar el <em>AI Slop</em>, dominar la retención (>85%) y maximizar la monetización (RPM $6–$18 USD) mediante la orquestación cinematográfica de VideoPro.</p>
+    </header>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('tab-overview')">📊 Matriz Comparativa</button>
+        <button class="tab-btn" onclick="switchTab('tab-concept1')">🔬 1. Micro-Cosmos X</button>
+        <button class="tab-btn" onclick="switchTab('tab-concept2')">🏛️ 2. Chrono-Spatial 3D</button>
+        <button class="tab-btn" onclick="switchTab('tab-concept3')">🗺️ 3. Geo-Forensic X</button>
+        <button class="tab-btn" onclick="switchTab('tab-pipeline')">⚙️ Arquitectura de Automatización</button>
+    </div>
+
+    <!-- TAB OVERVIEW -->
+    <div id="tab-overview" class="view-section active">
+        <div class="grid-3">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🔬 Micro-Cosmos X</div>
+                    <span class="card-tag tag-cyan">Biomédico & Nano</span>
+                </div>
+                <p class="card-desc">Viajes macro y nanoscópicos hiperrealistas al interior de células, virus, toxinas y física cuántica con microscopía SEM coloreada.</p>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Potencial Viral</span>
+                        <span class="metric-val high">9.6 / 10</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">RPM Estimado</span>
+                        <span class="metric-val rpm">$8 – $16 USD</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Retención Shorts</span>
+                        <span class="metric-val">92%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Automatización</span>
+                        <span class="metric-val high">9.4 / 10</span>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>🔹 <strong>Gancho:</strong> "Qué hace el veneno en tu sangre segundo a segundo".</li>
+                    <li>🔹 <strong>Anti-Slop:</strong> Textura SEM 4K con subsurface scattering.</li>
+                    <li>🔹 <strong>Audio:</strong> Foley visceral y pulsaciones sub-bass 35Hz.</li>
+                </ul>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🏛️ Chrono-Spatial 3D</div>
+                    <span class="card-tag tag-amber">Arqueología Temporal</span>
+                </div>
+                <p class="card-desc">Reconstrucción 3D fidedigna de ciudades y maravillas perdidas (Tenochtitlan, Cartago, Alejandría) en el cenit previo a su caída.</p>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Potencial Viral</span>
+                        <span class="metric-val high">9.4 / 10</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">RPM Estimado</span>
+                        <span class="metric-val rpm">$6 – $12 USD</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Retención Shorts</span>
+                        <span class="metric-val">88%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Automatización</span>
+                        <span class="metric-val high">9.1 / 10</span>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>🔹 <strong>Gancho:</strong> Match-cut Google Earth 2026 ➔ Cartago 146 a.C.</li>
+                    <li>🔹 <strong>Anti-Slop:</strong> Planos arqueológicos reales, no fantasía.</li>
+                    <li>🔹 <strong>Audio:</strong> Foley de época + orquestal épico (Flow Music).</li>
+                </ul>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">🗺️ Geo-Forensic X</div>
+                    <span class="card-tag tag-emerald">OSINT & Satélite</span>
+                </div>
+                <p class="card-desc">Periodismo geoespacial de alta tensión analizando anomalías en satélites, bases secretas, búnkeres y proyectos clandestinos.</p>
+                <div class="metric-grid">
+                    <div class="metric-item">
+                        <span class="metric-label">Potencial Viral</span>
+                        <span class="metric-val high">9.8 / 10</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">RPM Estimado</span>
+                        <span class="metric-val rpm">$9 – $18 USD</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Retención Shorts</span>
+                        <span class="metric-val">94%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Automatización</span>
+                        <span class="metric-val high">9.5 / 10</span>
+                    </div>
+                </div>
+                <ul class="feature-list">
+                    <li>🔹 <strong>Gancho:</strong> "La anomalía de 40 km en el desierto de Gobi".</li>
+                    <li>🔹 <strong>Anti-Slop:</strong> Coordenadas GPS y capas multiespectrales reales.</li>
+                    <li>🔹 <strong>Audio:</strong> Foley táctico, radioestática y tensión synth.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th>Nicho & Audiencia</th>
+                        <th>Factor de Retención</th>
+                        <th>Estrategia de Monetización</th>
+                        <th>Motores VideoPro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>🔬 Micro-Cosmos X</strong></td>
+                        <td>Salud, Biotecnología, Estudiantes, Curiosidad Médica</td>
+                        <td>Zoom infinito macro continuo sin cortes bruscos ("Powers of Ten")</td>
+                        <td>AdSense Tier-1 (Pharma/Salud) + Sponsors de Nootrópicos/Suplementos</td>
+                        <td><span class="badge">NanoBanana Pro 2</span><span class="badge">FLUX 3</span><span class="badge">VibeVoice</span><span class="badge">Foley Director</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>🏛️ Chrono-Spatial 3D</strong></td>
+                        <td>Historia, Arqueología, Cultura, Turismo, Arquitectura</td>
+                        <td>Transición visual "Antes vs Después" y clímax de destrucción histórica</td>
+                        <td>AdSense + CuriosityStream, Nebula, Audible, Apps de Idiomas y Viajes</td>
+                        <td><span class="badge">NanoBanana LoRA</span><span class="badge">FLUX 3</span><span class="badge">Remotion Maps</span><span class="badge">Lyria 3</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>🗺️ Geo-Forensic X</strong></td>
+                        <td>Geopolítica, Tecnología, Ciberseguridad, OSINT, Data</td>
+                        <td>Estructura detectivesca de enigma no resuelto con coordenadas verificables</td>
+                        <td>RPM Premium ($9-$18) + Sponsors de VPNs, Ciberseguridad, Cloud & Finanzas</td>
+                        <td><span class="badge">Sentinel-2 API</span><span class="badge">Omni Flash</span><span class="badge">Remotion HUD</span><span class="badge">VibeVoice</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- TAB CONCEPT 1 -->
+    <div id="tab-concept1" class="view-section">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">🔬 Micro-Cosmos X: Viajes Biomédicos y Física Molecular</div>
+                    <p class="card-desc" style="margin-top: 6px;">Cinematografía macro óptica en 4K simulando microscopía electrónica de barrido (SEM) coloreada con iluminación ARRI Alexa LF.</p>
+                </div>
+                <span class="card-tag tag-cyan">RPM: $8 - $16 USD</span>
+            </div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">1. Prompt Canónico 7D (NanoBanana Pro 2 + FLUX 3)</h3>
+            <div class="prompt-box">[FIRST_FRAME]: Ultra-high-resolution scanning electron micrograph (SEM) of a human erythrocyte under venom lysis, 50,000x magnification, false-colored in deep crimson and luminescent cyan. Subsurface scattering, photorealistic fluid membranes, volumetric lighting through cellular liquid, 8k macro optics f/2.8, zero CGI sheen, authentic cellular texture.
+[ACTION]: The cell wall expands dynamically as venom peptides pierce the lipid bilayer, releasing hemoglobin micro-droplets into the surrounding plasma.
+[CAMERA]: Continuous microscopic zoom travelling forward through the molecular rupture.
+[AUDIO]: Visceral low-frequency pulse at 35Hz, bio-fluid suction foley, muffled aquatic ambience.</div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">2. Mecánicas de Retención Extrema (92% Shorts)</h3>
+            <ul class="feature-list">
+                <li>🧬 <strong>Zoom Infinito (Powers of Ten):</strong> La cámara nunca se detiene; cada corte es un match cut que entra a un nivel de magnificación 10x superior (Piel ➔ Poro ➔ Capilar ➔ Glóbulo ➔ Proteína).</li>
+                <li>🧬 <strong>Efecto Visceral Hipnótico:</strong> Respuestas biológicas en tiempo real (coagulación, fagocitosis, sinapsis neuronales) generan asombro y tensión continua.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TAB CONCEPT 2 -->
+    <div id="tab-concept2" class="view-section">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">🏛️ Chrono-Spatial 3D: Arqueología Temporal y Ciudades Perdidas</div>
+                    <p class="card-desc" style="margin-top: 6px;">Viajes temporales fidedignos que reconstruyen capitales históricas en 3D volumétrico a partir de planos y ortofotos arqueológicas.</p>
+                </div>
+                <span class="card-tag tag-amber">RPM: $6 - $12 USD</span>
+            </div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">1. Prompt Canónico 7D (NanoBanana Pro 2 + FLUX 3)</h3>
+            <div class="prompt-box">[FIRST_FRAME]: Drone photogrammetric view of Tenochtitlan in August 1519, showing the Great Pyramid of Templo Mayor in brilliant white limestone and vermilion paint, surrounded by crystal blue Lake Texcoco and chinampas. Aztec citizens in authentic tilmatli cloaks crossing the Iztapalapa causeway.
+[ACTION]: Morning sun reflects on the canals as hundreds of canoes glide across the water; smoke gently rises from temple braziers.
+[CAMERA]: Smooth 45-degree cinematic descending drone shot panning towards the ceremonial plaza.
+[AUDIO]: Distant conch shell horn, wooden paddles touching lake water, ancient marketplace murmur, epic low flutes.</div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">2. Diferenciación Radical Anti-Slop</h3>
+            <ul class="feature-list">
+                <li>🏛️ <strong>Trazabilidad Arqueológica [FACT]:</strong> Prohibida la invención de templos de fantasía. Las dimensiones y policromías se ajustan a excavaciones reales de INAH / UNESCO.</li>
+                <li>🏛️ <strong>Match Cut Temporal:</strong> Transición scanline de Google Earth 2026 al año exacto del esplendor histórico.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TAB CONCEPT 3 -->
+    <div id="tab-concept3" class="view-section">
+        <div class="card" style="margin-bottom: 24px;">
+            <div class="card-header">
+                <div>
+                    <div class="card-title">🗺️ Geo-Forensic X: Expedientes Satelitales & Anomalías OSINT</div>
+                    <p class="card-desc" style="margin-top: 6px;">Periodismo geoespacial investigativo con telemetría de satélites multiespectrales, radar SAR y coordenadas GPS verificables.</p>
+                </div>
+                <span class="card-tag tag-emerald">RPM: $9 - $18 USD</span>
+            </div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">1. Prompt Canónico 7D (Gemini Omni Flash + Remotion)</h3>
+            <div class="prompt-box">[FIRST_FRAME]: Satellite Synthetic Aperture Radar (SAR) false-color composite of coordinates 38.4521°N, 115.1245°W in the Nevada desert. High-contrast radar reflectance revealing an underground geometric bunker grid beneath sand dunes.
+[ACTION]: Remotion HUD draws animated vector bounding boxes, radar frequency telemetry (9.6 GHz X-Band), and timeline date stamps.
+[CAMERA]: Fast orbital zoom-in transitioning into a ground-level low-altitude cinematic flyby over the perimeter fence.
+[AUDIO]: Electronic radar ping, mechanical HUD click foley, sub-bass cyber drone, tactical investigative voiceover.</div>
+
+            <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin-top: 8px;">2. Factor Viral & Monetización Máxima</h3>
+            <ul class="feature-list">
+                <li>🛰️ <strong>Verificación por la Comunidad:</strong> Los usuarios copian las coordenadas mostradas y las abren en Google Earth, disparando la interacción y los comentarios orgánicos.</li>
+                <li>🛰️ <strong>RPM Récord ($9-$18):</strong> Audiencia afín a ciberseguridad, defensa, telecomunicaciones y finanzas.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- TAB PIPELINE -->
+    <div id="tab-pipeline" class="view-section">
+        <div class="card">
+            <div class="card-title">⚙️ Pipeline de Automatización End-to-End con VideoPro</div>
+            <p class="card-desc">Flujo técnico desatendido de 6 fases ejecutado por los servicios de orquestación en VPS Linux.</p>
+
+            <div style="margin-top: 20px;">
+                <div class="workflow-step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <div class="step-title">Ingestión Factual & Fact-Check Judicial</div>
+                        <div class="step-desc">Extracción de datos primarios (PubMed, Copernicus Hub, Archivos Arqueológicos) con marcado [FACT: ID_FUENTE].</div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <div class="step-title">Cinematic Interpreter & Desglose de 7 Planos</div>
+                        <div class="step-desc">Traducción del guion a 7 tomas cinemáticas (Establishing, POV, Macro, Reveal) evitando la ilustración literal.</div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <div class="step-title">Generación de Ingredientes 4K & Vídeo Físico</div>
+                        <div class="step-desc">NanoBanana Pro 2 genera texturas base y anclas (<FIRST_FRAME>); FLUX 3 / Gemini Omni Flash renderizan movimiento con física real.</div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-num">4</div>
+                    <div class="step-content">
+                        <div class="step-title">Composición Remotion / MoviePy & Subtítulos ASS</div>
+                        <div class="step-desc">Superposición de capas HUD vectoriales y subtítulos kinetic sincronizados palabra por palabra con Groq Whisper.</div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-num">5</div>
+                    <div class="step-content">
+                        <div class="step-title">Ingeniería Sonora con Foley Director & Flow Music</div>
+                        <div class="step-desc">Voces VibeVoice/Kokoro HD (48kHz), foley diegético ambiental y ducking automático a -22dB sobre la música.</div>
+                    </div>
+                </div>
+
+                <div class="workflow-step">
+                    <div class="step-num">6</div>
+                    <div class="step-content">
+                        <div class="step-title">Entrega Master & Almacenamiento Cloudflare R2</div>
+                        <div class="step-desc">Validación de activos (>5KB), render final 4K/60fps y subida a bucket R2 con URLs firmadas para distribución desatendida.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.view-section').forEach(view => view.classList.remove('active'));
+        
+        event.target.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    }
+</script>
+
+</body>
+</html>

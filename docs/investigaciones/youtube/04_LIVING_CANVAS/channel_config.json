@@ -1,0 +1,38 @@
+{
+  "channel_id": "04_LIVING_CANVAS",
+  "brand_name": "LIVING CANVAS",
+  "handle": "@LivingCanvas3D",
+  "tagline": "Masterpieces Brought to Life in 3D (History, Art & Cinematic Immersion)",
+  "niche": "Vuelos Volumétricos 3D dentro de Cuadros Clásicos y Museos Vivos",
+  "target_rpm_usd": "$10.00 – $19.50 USD",
+  "target_retention": "88% (1m) / 70% (AVD)",
+  "primary_color": "#ffd700",
+  "secondary_color": "#e65100",
+  "accent_color": "#4a148c",
+  "audio_settings": {
+    "bpm": "85 BPM",
+    "genre": "Neoclassical Ambient Piano & Acoustic Foley",
+    "target_lufs": -14.0,
+    "ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  },
+  "video_generator": {
+    "model": "gemini-omni-flash-preview",
+    "provider": "google_flow",
+    "fps": 60,
+    "resolution": "3840x2160",
+    "keyframes_per_shot": 7
+  },
+  "episodes_planned": [
+    "La Noche Estrellada (Vincent van Gogh, 1889)",
+    "La Gran Ola de Kanagawa (Katsushika Hokusai, 1831)",
+    "El Jardín de las Delicias (El Bosco, 1503)",
+    "La Mona Lisa & El Taller de Leonardo (Leonardo da Vinci, 1503)",
+    "El Caminante sobre el Mar de Nubes (Caspar David Friedrich, 1818)",
+    "La Escuela de Atenas (Rafael Sanzio, 1511)",
+    "Nighthawks / Halcones de la Noche (Edward Hopper, 1942)",
+    "El Nacimiento de Venus (Sandro Botticelli, 1485)",
+    "El Grito (Edvard Munch, 1893)",
+    "La Ronda de Noche (Rembrandt van Rijn, 1642)"
+  ]
+}

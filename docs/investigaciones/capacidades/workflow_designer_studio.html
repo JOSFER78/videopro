@@ -2507,7 +2507,11 @@
             }
         });
 
+        if (window.INJECTED_PIPELINE_DATA && window.INJECTED_PIPELINE_DATA.nodes && window.INJECTED_PIPELINE_DATA.nodes.length > 0) {
+            graphData = JSON.parse(JSON.stringify(window.INJECTED_PIPELINE_DATA));
+        }
         renderNodes();
+        drawConnections();
         updateCanvasTransform();
     </script>
 </body>

@@ -1,13 +1,18 @@
+import os
 import shutil
 import logging
+from datetime import datetime
 from pathlib import Path
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Any
 from app.services.storage.base import BaseStorageService
 
 logger = logging.getLogger("videopro.storage.local")
 
 class LocalStorageService(BaseStorageService):
-    def __init__(self, base_dir: Path | str = "/home/ubuntu/MoneyPrinterTurbo/storage"):
+    def __init__(self, base_dir: Optional[Path | str] = None):
+        if not base_dir:
+            from app.utils import utils
+            base_dir = utils.storage_dir() if hasattr(utils, "storage_dir") else os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))), "storage")
         self.base_dir = Path(base_dir).resolve()
         self.base_dir.mkdir(parents=True, exist_ok=True)
 
@@ -74,3 +79,20 @@ class LocalStorageService(BaseStorageService):
             path.unlink()
             return True
         return False
+
+    def list_files(self, prefix: str = "") -> List[Dict[str, Any]]:
+        target_dir = self._resolve_path(prefix)
+        if not target_dir.exists() or not target_dir.is_dir():
+            return []
+        
+        results = []
+        for f in target_dir.rglob("*"):
+            if f.is_file():
+                rel = f.relative_to(self.base_dir).as_posix()
+                results.append({
+                    "key": rel,
+                    "size": f.stat().st_size,
+                    "last_modified": datetime.fromtimestamp(f.stat().st_mtime).isoformat()
+                })
+        return results
+

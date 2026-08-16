@@ -29,7 +29,15 @@ from uuid import UUID, uuid4
 import requests
 import streamlit as st
 from loguru import logger
-from streamlit_tour import Tour
+
+try:
+    from streamlit_tour import Tour
+except Exception:
+    class Tour:
+        def __init__(self, *args, **kwargs):
+            pass
+        def run(self, *args, **kwargs):
+            pass
 
 # WebUI 作为独立入口运行时，需要让项目根目录优先于第三方依赖，
 # 避免依赖中的同名 app 包遮蔽 MoneyPrinterTurbo 自己的 app 包。
@@ -4496,27 +4504,27 @@ def _render_sidebar_navigation():
 def _render_application():
     render_top_navigation()
     
-    active_view = st.session_state.get("active_view", "main")
+    active_view = st.session_state.get("active_view", "studio")
     
-    if active_view == "orchestrator" or active_view == "studio":
+    if active_view in ("studio", "orchestrator", "main", "generator"):
         view_studio_orchestrator.render_studio_orchestrator_view()
         return
-    elif active_view == "projects" or active_view == "tasks":
+    elif active_view in ("projects", "tasks"):
         view_projects.render_view()
         return
-    elif active_view == "settings" or active_view == "settings_projects" or active_view == "matriz" or active_view == "api_hub":
+    elif active_view in ("settings", "settings_projects", "matriz", "api_hub"):
         view_settings.render_view()
         return
     elif active_view == "ltx_flux":
         view_ltx_flux.render_view()
         return
-    elif active_view == "audio_studio" or active_view == "voice" or active_view == "flow_music":
+    elif active_view in ("audio_studio", "voice", "flow_music"):
         view_audio_studio.render_view()
         return
-    elif active_view == "cinema_vault" or active_view == "cinema" or active_view == "boveda":
+    elif active_view in ("cinema_vault", "cinema", "boveda"):
         view_cinema_vault.render_view()
         return
-    elif active_view == "pipeline" or active_view == "comfy":
+    elif active_view in ("pipeline", "comfy"):
         view_comfy_pipeline.render_comfy_pipeline_view()
         return
     elif active_view == "docs":

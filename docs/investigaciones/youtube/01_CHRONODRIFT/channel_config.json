@@ -1,0 +1,38 @@
+{
+  "channel_id": "01_CHRONODRIFT",
+  "brand_name": "CHRONODRIFT",
+  "handle": "@ChronoDriftOfficial",
+  "tagline": "Urban Time Travel & Future Cities (1626 ➔ 2026 ➔ 2226)",
+  "niche": "Vuelos FPV Tritemporales por Ciudades con Música Flow y Datos Científicos",
+  "target_rpm_usd": "$12.50 – $24.00 USD",
+  "target_retention": "91% (1m) / 72% (AVD)",
+  "primary_color": "#00e5ff",
+  "secondary_color": "#ffb300",
+  "accent_color": "#b388ff",
+  "audio_settings": {
+    "bpm": "118 BPM",
+    "genre": "Flow Chillhop / Urban Lo-Fi & Darksynth",
+    "target_lufs": -14.0,
+    "ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  },
+  "video_generator": {
+    "model": "gemini-omni-flash-preview",
+    "provider": "google_flow",
+    "fps": 60,
+    "resolution": "3840x2160",
+    "keyframes_per_shot": 7
+  },
+  "episodes_planned": [
+    "Tokio",
+    "Nueva York",
+    "Londres",
+    "París",
+    "Ámsterdam",
+    "Roma",
+    "Dubái",
+    "Hong Kong",
+    "El Cairo",
+    "Venecia"
+  ]
+}

@@ -1,0 +1,511 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL",
+  "city_key": "amsterdam",
+  "city_name": "Ámsterdam",
+  "country": "Países Bajos",
+  "generated_at": "2026-08-16T13:37:16Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Siglo de Oro Neerlandés (c. 1626)",
+      "urban_morphology": "Canales de madera recién excavados (Grachtengordel inicial), almacenes de la VOC con poleas de madera, puentes levadizos estrechos.",
+      "social_life": "Mercaderes de especias, barcos veleros de tres mástiles amarrados en el río Amstel, ciudadanos con gorgueras y jubones de lana oscura.",
+      "cartography_source": "Plano de Balthasar Florisz van Berckenrode (1625)",
+      "lighting": "Luz tenue del Mar del Norte, niebla matinal sobre el agua, reflejos en ladrillo holandés rojizo húmedo."
+    },
+    "present_2026": {
+      "epoch": "Metrópolis Contemporánea (2026)",
+      "urban_morphology": "Casas flotantes de diseño, tranvías eléctricos silenciosos, ciclovías adoquinadas, iluminación LED cálida en puentes de hierro.",
+      "social_life": "Ciclistas cosmopolitas, cafeterías de diseño, ferris urbanos cruzando el IJ.",
+      "lighting": "Luz diáfana matinal, reflejos limpios en vidrio y agua de canales."
+    },
+    "future_2226": {
+      "epoch": "Arcología Flotante & Bioclimática (c. 2226)",
+      "urban_morphology": "Canales convertidos en biosferas purificadoras con compuertas cinéticas modulares anti-marea (estudio IPCC SSP5-8.5 +1.8m nivel mar), viviendas flotantes de nanopolímeros autorreparables, túneles subacuáticos transparentes para transporte de cápsulas magnéticas.",
+      "social_life": "Comunidades acuáticas autosuficientes con hidroponía vertical integrada en cada fachada, micro-drones de reparto a 100m AGL.",
+      "science_citation": "MIT Senseable City Lab / Deltares Netherlands 2200 Sea Level Adaptation Report",
+      "lighting": "Bioluminiscencia nocturna azul y verde esmeralda en el agua, paneles solares transparentes con destellos ámbar."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_DAM_SQUARE",
+      "name": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "lat": 52.3731,
+      "lon": 4.8932,
+      "alt_agl": 60.0
+    },
+    {
+      "id": "WP2_PRINSENGRACHT",
+      "name": "Canal Prinsengracht & Westerkerk",
+      "lat": 52.3745,
+      "lon": 4.8839,
+      "alt_agl": 35.0
+    },
+    {
+      "id": "WP3_OOSTERDOK",
+      "name": "Puerto Histórico Oosterdok & Dársena VOC",
+      "lat": 52.3758,
+      "lon": 4.9085,
+      "alt_agl": 85.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_DAM_SQUARE_NORTH_APPROACH",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_DAM_SQUARE_EAST_FLANK",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_DAM_SQUARE_SOUTH_RETREAT",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_DAM_SQUARE_WEST_FLANK",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_DAM_SQUARE_DIVE_DOWN",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_DAM_SQUARE_ASCENT_UP",
+      "waypoint_id": "WP1_DAM_SQUARE",
+      "landmark": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+      "latitude": 52.3731,
+      "longitude": 4.8932,
+      "altitude_agl": 60.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_NORTH_APPROACH",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_EAST_FLANK",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_SOUTH_RETREAT",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_WEST_FLANK",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_DIVE_DOWN",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_PRINSENGRACHT_ASCENT_UP",
+      "waypoint_id": "WP2_PRINSENGRACHT",
+      "landmark": "Canal Prinsengracht & Westerkerk",
+      "latitude": 52.3745,
+      "longitude": 4.8839,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_NORTH_APPROACH",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_EAST_FLANK",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_SOUTH_RETREAT",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_WEST_FLANK",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_DIVE_DOWN",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_OOSTERDOK_ASCENT_UP",
+      "waypoint_id": "WP3_OOSTERDOK",
+      "landmark": "Puerto Histórico Oosterdok & Dársena VOC",
+      "latitude": 52.3758,
+      "longitude": 4.9085,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_DAM_SQUARE",
+        "name": "Plaza Dam & Palacio Real / Antiguo Ayuntamiento",
+        "lat": 52.3731,
+        "lon": 4.8932,
+        "alt_agl": 60.0
+      },
+      "osm_geometry": {
+        "status": "LIVE_FETCHED",
+        "building_count": 2,
+        "historic_nodes": 15,
+        "sample_tags": [
+          {
+            "artist_name": "Hans Bayens",
+            "artwork_type": "sculpture",
+            "historic": "memorial",
+            "material": "bronze",
+            "memorial": "bust",
+            "name": "Multatuli",
+            "start_date": "1987",
+            "wikidata": "Q105071883",
+            "wikimedia_commons": "Category:Multatuli bust (Amsterdam)"
+          },
+          {
+            "addr:city": "Amsterdam",
+            "addr:country": "NL",
+            "addr:housenumber": "147",
+            "addr:postcode": "1012RJ",
+            "addr:street": "Nieuwezijds Voorburgwal",
+            "historic": "yes",
+            "source": "BAG",
+            "source:date": "2014-02-11"
+          },
+          {
+            "advertising": "wall_painting",
+            "brand": "Ferwerda & Tieman",
+            "historic": "advertising",
+            "inscription": "Het 13e Depot van Wijnen van Ferwerda & Tieman is alhier gevestigd",
+            "panoramax": "6addcd20-6064-4cee-ad7c-6f6999294ffb"
+          },
+          {
+            "artist_name": "Els Rijerse",
+            "artwork_type": "statue",
+            "historic": "memorial",
+            "image": "https://en.wikipedia.org/wiki/File:Sex_worker_statue_Oudekerksplein_Amsterdam.jpg",
+            "inscription": "Respect sex workers all over the world.",
+            "material": "bronze",
+            "memorial": "statue",
+            "name": "Belle",
+            "name:nl": "Belle",
+            "name:ru": "Красотка",
+            "start_date": "2007",
+            "tourism": "artwork",
+            "wheelchair": "yes"
+          },
+          {
+            "historic": "memorial",
+            "memorial": "plaque",
+            "name": "Miklós Tótfalusi Kis"
+          }
+        ]
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_PRINSENGRACHT",
+        "name": "Canal Prinsengracht & Westerkerk",
+        "lat": 52.3745,
+        "lon": 4.8839,
+        "alt_agl": 35.0
+      },
+      "osm_geometry": {
+        "status": "LIVE_FETCHED",
+        "building_count": 2,
+        "historic_nodes": 13,
+        "sample_tags": [
+          {
+            "artist_name": "Hans Bayens",
+            "artwork_type": "sculpture",
+            "historic": "memorial",
+            "material": "bronze",
+            "memorial": "bust",
+            "name": "Multatuli",
+            "start_date": "1987",
+            "wikidata": "Q105071883",
+            "wikimedia_commons": "Category:Multatuli bust (Amsterdam)"
+          },
+          {
+            "addr:city": "Amsterdam",
+            "addr:country": "NL",
+            "addr:housenumber": "147",
+            "addr:postcode": "1012RJ",
+            "addr:street": "Nieuwezijds Voorburgwal",
+            "historic": "yes",
+            "source": "BAG",
+            "source:date": "2014-02-11"
+          },
+          {
+            "artist_name": "Mari Andriessen",
+            "artwork_type": "statue",
+            "historic": "memorial",
+            "material": "bronze",
+            "memorial": "war_memorial",
+            "name": "Anne Frank",
+            "name:ru": "Мемориал Анны Франк",
+            "start_date": "1977",
+            "tourism": "artwork",
+            "wheelchair": "no",
+            "wikidata": "Q28873418",
+            "wikimedia_commons": "Category:Statue of Anne Frank in Amsterdam-Centrum",
+            "wikipedia": "nl:Beeld van Anne Frank (Westermarkt)"
+          },
+          {
+            "historic": "memorial",
+            "memorial": "plaque",
+            "name": "Miklós Tótfalusi Kis"
+          },
+          {
+            "historic": "memorial",
+            "leaf_cycle": "deciduous",
+            "leaf_type": "broadleaved",
+            "memorial": "war_memorial",
+            "name": "Bevrijdingslinde",
+            "natural": "tree",
+            "source": "survey",
+            "species": "Tilia × europaea",
+            "species:en": "linden",
+            "species:nl": "linde",
+            "start_date": "1946",
+            "wikidata": "Q30239162",
+            "wikipedia": "nl:Bevrijdingslinde van de Jordaankinderen"
+          }
+        ]
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_OOSTERDOK",
+        "name": "Puerto Histórico Oosterdok & Dársena VOC",
+        "lat": 52.3758,
+        "lon": 4.9085,
+        "alt_agl": 85.0
+      },
+      "osm_geometry": {
+        "status": "LIVE_FETCHED",
+        "building_count": 13,
+        "historic_nodes": 4,
+        "sample_tags": [
+          {
+            "artist_name": "Jean-Michel Othoniel",
+            "artwork_type": "sculpture",
+            "historic": "memorial",
+            "memorial": "sculpture",
+            "name": "Living by Numbers",
+            "start_date": "2016-12-01",
+            "tourism": "artwork",
+            "website": "https://www.aidsmonument.nl/",
+            "wikidata": "Q68103938",
+            "wikimedia_commons": "Category:HIV/AIDSmonument",
+            "wikipedia": "nl:HIV/AIDSmonument"
+          },
+          {
+            "direction": "25",
+            "historic": "memorial",
+            "inscription": "AMSTERDAM IS EEN HEERLIJKE STAD OM TE VERLATEN EN ÀÀN TE KOMEN S. CARMIGGELT",
+            "memorial": "plaque"
+          },
+          {
+            "building": "yes",
+            "ref:bag": "0363100012170819",
+            "source": "BAG",
+            "source:date": "2014-03-24",
+            "start_date": "2005"
+          },
+          {
+            "building": "yes",
+            "building:colour": "#43888B",
+            "height": "32.57",
+            "layer": "1",
+            "ref:bag": "0363100012164988",
+            "roof:direction": "180",
+            "roof:height": "18",
+            "roof:material": "grass",
+            "roof:shape": "skillion",
+            "source": "BAG",
+            "source:date": "2022-10-27",
+            "start_date": "1997"
+          },
+          {
+            "addr:city": "Amsterdam",
+            "addr:country": "NL",
+            "building": "train_station",
+            "building:levels": "1",
+            "historic": "railway_station",
+            "internet_access": "wlan",
+            "layer": "2",
+            "name": "Centraal Station",
+            "name:de": "Amsterdam Hauptbahnhof",
+            "name:en": "Central Station",
+            "name:es": "Estación Central de Ámsterdam",
+            "name:ko": "센트랄 역",
+            "name:nl": "Centraal Station",
+            "name:uk": "Центральний вокзал Амстердам",
+            "roof:shape": "many",
+            "wheelchair": "yes",
+            "wikidata": "Q50719",
+            "wikimedia_commons": "Category:Amsterdam Central station",
+            "wikipedia": "nl:Station Amsterdam Centraal"
+          }
+        ]
+      }
+    }
+  ],
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0
+  }
+}

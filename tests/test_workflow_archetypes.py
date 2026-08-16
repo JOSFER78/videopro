@@ -24,7 +24,7 @@ class TestWorkflowArchetypes(unittest.TestCase):
     def test_archetypes_catalog_integrity(self):
         """Verifica que existan los 5 arquetipos de producción especializados."""
         archetypes = get_all_archetypes()
-        self.assertEqual(len(archetypes), 5)
+        self.assertGreaterEqual(len(archetypes), 5)
         
         expected_ids = ["PIXAR_3D_ANIMATION", "HISTORICAL_SCRAPING", "CITY_ROUTES_BEATS", "VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY"]
         for eid in expected_ids:

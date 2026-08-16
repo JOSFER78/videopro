@@ -47,6 +47,9 @@ Tu misión es guiar un diálogo interactivo de **PULIDO DE INFORMACIÓN** con el
 {
   "archetype_id": "PIXAR_3D_ANIMATION" | "HISTORICAL_SCRAPING" | "CITY_ROUTES_BEATS" | "VIRAL_SHORTS_HOOK" | "DEEP_EXPLAINER_ESSAY",
   "subject": "Título o concepto refinado del vídeo",
+  "characters": "Nombre y descripción de los personajes principales",
+  "dramatic_conflict": "Conflicto central y dilema de la historia",
+  "climax": "Punto álgido y resolución dramática",
   "visual_style": "Descripción detallada del estilo de arte y estética",
   "recommended_source": "google_flow" | "flux" | "nanobanana" | "stock" | "hybrid",
   "aspect_ratio": "9:16" | "16:9",
@@ -54,6 +57,11 @@ Tu misión es guiar un diálogo interactivo de **PULIDO DE INFORMACIÓN** con el
   "voice_preset": "vibevoice:es-emilio-Male" | "es-ES-AlvaroNeural-Male" | "es-ES-ElviraNeural-Female",
   "music_genre": "pixar_orchestral" | "synthwave" | "lofi" | "historical_strings" | "minimal_ambient",
   "narrative_tone": "emotivo / épico / solemne / dinámico / analítico",
+  "scene_beats": [
+    {"index": 1, "prompt": "Plano 1: Establecimiento en la corrala madrileña...", "engine": "flux", "duration": 4.0},
+    {"index": 2, "prompt": "Plano 2: Los dos niños construyendo su proyecto secreto...", "engine": "nanobanana", "duration": 4.5},
+    {"index": 3, "prompt": "Plano 3: El momento de la separación y la promesa...", "engine": "flux", "duration": 5.0}
+  ],
   "estimated_paragraphs": 2,
   "ready_to_produce": true | false,
   "interview_step": 1 | 2 | 3,
@@ -130,15 +138,41 @@ def chat_with_director(
         except Exception as e:
             logger.warning(f"Failed to parse director JSON spec: {e}")
 
-    # Generar sugerencias interactivas según el arquetipo y estado del pulido
+    # Extraer sugerencias interactivas generadas por el Director o usar contextuales
+    extracted_pills = _extract_pills_from_text(clean_text)
     arch_id = spec.get("archetype_id", detected_archetype or "HISTORICAL_SCRAPING")
-    suggestions = _generate_contextual_suggestions(arch_id, spec)
+    suggestions = extracted_pills if extracted_pills else _generate_contextual_suggestions(arch_id, spec)
 
     return {
         "response_text": clean_text,
+        "reply": clean_text,
         "suggestions": suggestions,
         "spec": spec
     }
+
+
+def _extract_pills_from_text(text: str) -> List[str]:
+    """Extrae opciones, pills o sugerencias generadas dinámicamente por el LLM en el texto."""
+    pills = []
+    lines = text.split("\n")
+    for line in lines:
+        l_strip = line.strip()
+        if not l_strip:
+            continue
+        
+        # Detectar líneas con viñetas, emojis o etiquetas de Pill/Opción
+        m = re.match(r"^[\*\-\•\d\.]+\s*(.+)$", l_strip)
+        if m:
+            content = m.group(1).strip()
+            if len(content) > 8 and any(k in content.lower() for k in ["pill", "opción", "opcion", ":", "(", "🚀", "⚽", "🎨", "🧤", "🏙️", "📜", "⚡", "💡"]):
+                pills.append(content)
+        elif any(l_strip.startswith(emoji) for emoji in ["⚽", "🚀", "🎨", "🧤", "✨", "💡", "🏷️", "🎙️", "📜", "⚡", "🏙️"]):
+            if len(l_strip) > 8:
+                pills.append(l_strip)
+
+    if pills:
+        return pills[:4]
+    return []
 
 
 def _generate_contextual_suggestions(archetype_id: str, spec: Dict[str, Any]) -> List[str]:
@@ -205,8 +239,10 @@ def _build_fallback_director_response(user_input: str, archetype_id: Optional[st
     
     clean_topic = user_input.strip() if user_input else "Proyecto Audiovisual"
     
+    reply_txt = f"¡Excelente visión para **{clean_topic}** usando el arquetipo **{arch.name}**! Todo el concepto, narrativa y tono se generarán 100% dinámicos a tu medida. ¿Hay algún detalle específico de la historia, personajes o atmósfera que quieras destacar?"
     return {
-        "response_text": f"¡Excelente visión para **{clean_topic}** usando el arquetipo **{arch.name}**! Todo el concepto, narrativa y tono se generarán 100% dinámicos a tu medida. ¿Hay algún detalle específico de la historia, personajes o atmósfera que quieras destacar?",
+        "response_text": reply_txt,
+        "reply": reply_txt,
         "suggestions": _generate_contextual_suggestions(arch_id, {"subject": clean_topic, "ready_to_produce": False}),
         "spec": {
             "archetype_id": arch_id,
