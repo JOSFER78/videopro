@@ -178,3 +178,5 @@ video_aspect = "9:16"
 
 [replicate]
 api_token = "r8_GIIyfMCSdmiaFg4uq4YzVP4318az8EY0NRn4B"
+
+[serverless_pool]

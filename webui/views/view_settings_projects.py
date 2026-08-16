@@ -18,7 +18,7 @@ from app.models import const
 from app.utils import utils
 
 def render_view():
-    st.title("Proyectos, Proveedores y Ajustes")
+    st.markdown("**Proyectos, Proveedores y Ajustes**")
     st.caption("Centro neurálgico: Gestión de proyectos, matriz de capacidades, gestor de APIs y configuración técnica.")
 
     tab_projects, tab_matrix, tab_apis, tab_system = st.tabs([
