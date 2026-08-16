@@ -1204,14 +1204,11 @@ def _render_top_bar():
         ):
             _render_task_manager_entry()
 
-            if st.button(
-                tr("Settings"),
-                key="open_settings_dialog_button",
-                type="secondary",
-                icon=":material/settings:",
-                width="content",
-            ):
-                st.session_state["settings_dialog_open"] = True
+            st.page_link(
+                "pages/8_Ajustes_y_Gestion_de_Proyectos.py",
+                label=tr("Settings"),
+                icon=":material/settings:"
+            )
 
             language_codes = list(locales.keys())
             selected_index = 0
@@ -4490,6 +4487,8 @@ def _render_sidebar_navigation():
         st.page_link("pages/5_📚_Docs_Guia_Maestra.py", label="📚 Guía Maestra & Docs SOTA", icon="📚")
         st.page_link("pages/6_🎵_Flow_Music_Studio.py", label="🎵 Flow Music Studio (Lyria 3)", icon="🎵")
         st.page_link("pages/7_📊_Matriz_Maestra_Live.py", label="📊 Matriz Maestra Live", icon="📊")
+        st.page_link("pages/8_Ajustes_y_Gestion_de_Proyectos.py", label="Ajustes y Gestión de Proyectos")
+        st.page_link("pages/9_📁_Boveda_Multimedia.py", label="Bóveda Multimedia")
         
         st.markdown("---")
         st.markdown("#### 🌐 Ecosistema de Webs & Portales")
