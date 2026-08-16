@@ -130,47 +130,47 @@ class RequestPlanner:
             conflict = interview_answers.get("story_conflict", "Gran aventura")
             environment = interview_answers.get("visual_environment", "Mundo de cuento")
             scenes_data = [
-                {"id": "scene_1", "prompt": f"Introducción mágica: {char_name} en {environment}", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 4.0},
-                {"id": "scene_2", "prompt": f"Primer plano expresivo de {char_name} descubriendo el problema: {conflict}", "shot_type": "character_close_up", "engine": "flux_video", "duration": 5.0},
-                {"id": "scene_3", "prompt": f"Clímax de acción animada en 3D con {char_name} superando el desafío", "shot_type": "action_tracking", "engine": "flux_video", "duration": 4.5},
-                {"id": "scene_4", "prompt": f"Resolución emotiva de cuento: {char_name} victorioso en {environment}", "shot_type": "medium", "engine": "nanobanana", "duration": 4.0}
+                {"id": "scene_1", "prompt": f"Hollywood Pixar 3D Master: Plano general cinemático de {char_name} en {environment}, iluminación volumétrica cálida, texturas ricas y lentes anamórficas 35mm", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 4.0},
+                {"id": "scene_2", "prompt": f"Hollywood Pixar 3D: Primer plano de alta expresividad emocional de {char_name} afrontando el conflicto: {conflict}, profundidad de campo bokeh T1.8", "shot_type": "character_close_up", "engine": "flux_video", "duration": 5.0},
+                {"id": "scene_3", "prompt": f"Hollywood Pixar 3D: Secuencia de acción y superación dinámica con {char_name}, travelling de cámara fluido a 60 fps y efectos de partículas mágicas", "shot_type": "action_tracking", "engine": "flux_video", "duration": 4.5},
+                {"id": "scene_4", "prompt": f"Hollywood Pixar 3D: Gran plano final emotivo y triunfal de {char_name} en {environment}, luz dorada de atardecer, etalonaje cinematográfico Disney/Pixar", "shot_type": "medium", "engine": "nanobanana", "duration": 4.0}
             ]
 
         elif archetype.id == "HISTORICAL_SCRAPING":
             subject = interview_answers.get("historical_subject", "Hecho histórico")
             scenes_data = [
-                {"id": "scene_1", "prompt": f"Documentos de archivo y mapa histórico de {subject}", "shot_type": "macro_detail", "engine": "stock_db", "duration": 4.0},
-                {"id": "scene_2", "prompt": f"Fotografía real restaurada en 4K con movimiento 2.5D sobre {subject}", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 5.0},
-                {"id": "scene_3", "prompt": f"Recreación cinemática 4K del momento cumbre de {subject}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.5},
-                {"id": "scene_4", "prompt": f"Legado e impacto histórico contemporáneo de {subject}", "shot_type": "medium", "engine": "stock_db", "duration": 4.0}
+                {"id": "scene_1", "prompt": f"Investigación Documental Master: Primer plano macro de documentos de archivo, grabados antiguos y mapas táctiles 2.5D sobre {subject}, textura papel fotográfico vintage", "shot_type": "macro_detail", "engine": "stock_db", "duration": 4.0},
+                {"id": "scene_2", "prompt": f"Fotografía histórica auténtica restaurada en 4K Ultra-HD con efecto Ken Burns cinemático y profundidad multi-capa sobre {subject}", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 5.0},
+                {"id": "scene_3", "prompt": f"Recreación cinematográfica 4K estilo película de época 35mm Kodak 5219 del momento clave de {subject}, humo, atmósfera y luz lateral ARRI Alexa", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.5},
+                {"id": "scene_4", "prompt": f"Plano de síntesis histórica y legado monumental en 4K HDR, transición suave de archivo a época actual sobre {subject}", "shot_type": "medium", "engine": "stock_db", "duration": 4.0}
             ]
 
         elif archetype.id == "CITY_ROUTES_BEATS":
             spots = interview_answers.get("city_and_spots", "Ruta Urbana")
             beat_style = interview_answers.get("music_beat_style", "Electronic Synthwave")
             scenes_data = [
-                {"id": "scene_1", "prompt": f"Vista de dron orbital 4K sobre {spots} al amanecer", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0},
-                {"id": "scene_2", "prompt": f"Recorrido a ras de suelo y arquitectura moderna en {spots}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.0},
-                {"id": "scene_3", "prompt": f"Detalle de vida urbana y puntos secretos de {spots}", "shot_type": "medium", "engine": "stock_db", "duration": 3.5},
-                {"id": "scene_4", "prompt": f"Atardecer cinemático y luces de neón en {spots}", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0}
+                {"id": "scene_1", "prompt": f"Hollywood Drone 8K: Vuelo orbital suave y continuo sobre {spots} con luz de amanecer dorado, gradación de color cinematográfica y arquitectura imponente", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0},
+                {"id": "scene_2", "prompt": f"Travelling cinemático a ras de suelo con lente gran angular 24mm capturando el pulso urbano y vida moderna en {spots}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.0},
+                {"id": "scene_3", "prompt": f"Detalle arquitectónico de alta fidelidad 4K y texturas urbanas en {spots}, corte rítmico a tempo {beat_style}", "shot_type": "medium", "engine": "stock_db", "duration": 3.5},
+                {"id": "scene_4", "prompt": f"Plano secuencia aéreo nocturno de {spots} con estelas de luz, neones vibrantes y atmósfera cinematográfica Cyber-City", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0}
             ]
 
         elif archetype.id == "VIRAL_SHORTS_HOOK":
             hook = interview_answers.get("hook_theme", "Curiosidad Viral")
             scenes_data = [
-                {"id": "scene_1", "prompt": f"Gancho visual de choque de 2s sobre {hook}", "shot_type": "character_close_up", "engine": "flux_video", "duration": 2.0},
-                {"id": "scene_2", "prompt": f"Revelación del primer secreto impactante de {hook}", "shot_type": "medium", "engine": "stock_db", "duration": 2.2},
-                {"id": "scene_3", "prompt": f"Explicación visual acelerada con gráficos y datos", "shot_type": "action_tracking", "engine": "nanobanana", "duration": 2.5},
-                {"id": "scene_4", "prompt": f"Cierre con llamada a la acción y pregunta a comentarios", "shot_type": "medium", "engine": "flux_video", "duration": 2.0}
+                {"id": "scene_1", "prompt": f"Gancho visual hiper-cinemático de 2s sobre {hook}, primer plano de impacto con iluminación dramática y movimiento rápido de cámara", "shot_type": "character_close_up", "engine": "flux_video", "duration": 2.0},
+                {"id": "scene_2", "prompt": f"Montaje dinámico de alta retención revelando datos clave de {hook}, efectos de zoom óptico rápido y cortes rítmicos", "shot_type": "medium", "engine": "stock_db", "duration": 2.2},
+                {"id": "scene_3", "prompt": f"Infografía animada de impacto visual 4K con telemetría HUD y micro-animaciones aceleradas", "shot_type": "action_tracking", "engine": "nanobanana", "duration": 2.5},
+                {"id": "scene_4", "prompt": f"Plano de cierre con alta energía visual y llamada a la acción en pantalla", "shot_type": "medium", "engine": "flux_video", "duration": 2.0}
             ]
 
         else: # DEEP_EXPLAINER_ESSAY
             thesis = interview_answers.get("essay_thesis", "Tesis del ensayo")
             scenes_data = [
-                {"id": "scene_1", "prompt": f"Planteamiento del dilema central: {thesis}", "shot_type": "wide_establishing", "engine": "stock_db", "duration": 5.0},
-                {"id": "scene_2", "prompt": f"Infografía animada de datos y evolución cuantitativa", "shot_type": "macro_detail", "engine": "nanobanana", "duration": 6.0},
-                {"id": "scene_3", "prompt": f"Análisis de causas profundas y contraargumentos", "shot_type": "medium", "engine": "google_flow", "duration": 5.0},
-                {"id": "scene_4", "prompt": f"Síntesis final y perspectiva de futuro", "shot_type": "wide_establishing", "engine": "stock_db", "duration": 5.0}
+                {"id": "scene_1", "prompt": f"Hollywood Videoessay: Planteamiento visual cinemático del dilema central: {thesis}, plano general sobrio con iluminación claroscuro", "shot_type": "wide_establishing", "engine": "stock_db", "duration": 5.0},
+                {"id": "scene_2", "prompt": f"Infografía gráfica de datos en movimiento 4K estilo Vox/Bloomberg, diseño minimalista sobre fondo dark glassmorphism", "shot_type": "macro_detail", "engine": "nanobanana", "duration": 6.0},
+                {"id": "scene_3", "prompt": f"Análisis visual de relaciones de poder y factores estructurales, planos de archivo y recreación cinemática", "shot_type": "medium", "engine": "google_flow", "duration": 5.0},
+                {"id": "scene_4", "prompt": f"Síntesis visual reflexiva y prospectiva de futuro en 4K, composición equilibrada y planos abiertos", "shot_type": "wide_establishing", "engine": "stock_db", "duration": 5.0}
             ]
 
         scene_plans = SceneEngineRouter.route_scenes(scenes_data, strategy=archetype.visual_strategy)

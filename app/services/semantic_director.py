@@ -142,49 +142,52 @@ def chat_with_director(
 
 
 def _generate_contextual_suggestions(archetype_id: str, spec: Dict[str, Any]) -> List[str]:
-    """Genera sugerencias rápidas adaptativas para avanzar en el pulido del arquetipo."""
+    """Genera sugerencias dinámicas adaptadas al tema e historia libre del usuario."""
     if spec.get("ready_to_produce"):
         return [
             "🚀 Iniciar Producción con Pipeline Específico",
             "🎨 Cambiar Formato (16:9 / 9:16)",
-            "🎙️ Ajustar Tono de Voz",
-            "✏️ Modificar un Detalle"
+            "🎙️ Ajustar Tono de Voz y Locución",
+            "✏️ Modificar un Detalle Libre"
         ]
+
+    subject = spec.get("subject", "").strip()
+    topic_summary = subject if (subject and len(subject) < 30) else "esta historia"
 
     if archetype_id == "PIXAR_3D_ANIMATION":
         return [
-            "🧸 Protagonista: Lupo el lobezno curioso",
-            "🌟 Conflicto: Encender las estrellas apagadas",
-            "🌲 Mundo: Bosque Mágico de Cuento",
-            "✨ ¡Perfecto, lanzar producción 3D!"
+            f"🧸 Personaje: Diseñar protagonista para {topic_summary}",
+            "🌟 Tono Emotivo y Conflicto Narrativo",
+            "🌲 Atmósfera 3D Fantástica & Render Stylized",
+            "✨ ¡Listo, generar guion animado 3D!"
         ]
     elif archetype_id == "CITY_ROUTES_BEATS":
         return [
-            "🏙️ Ruta: Madrid (Gran Vía, Malasaña, Cuatro Torres)",
-            "🎧 Beat: Electronic City Synthwave (118 BPM)",
-            "🏷️ Curiosidades: Secretos Arquitectónicos & Récords",
-            "✨ ¡Todo listo, compilar vídeo musical!"
+            f"🏙️ Definir Paradas y Puntos Clave de {topic_summary}",
+            "🎧 Ritmo Dinámico & Beat Sincronizado",
+            "🏷️ Curiosidades, Datos y Rótulos Vox",
+            "✨ ¡Compilar vídeo musical y ruta!"
         ]
     elif archetype_id == "HISTORICAL_SCRAPING":
         return [
-            "📜 Tema: El Metro de Madrid en 1919",
-            "🔬 Scraping: Wikipedia + Commons + Hemerotecas",
-            "🎥 Lagunas: Recrear con Google Flow 4K e Imagen 3",
-            "✨ ¡Comenzar investigación y documental!"
+            f"📜 Fuentes de Archivo & Scraping para {topic_summary}",
+            "🔬 Recreación Fotográfica 4K de Momentos Clave",
+            "🎙️ Narrativa Solemne con Citas y Documentos",
+            "✨ ¡Comenzar producción documental!"
         ]
     elif archetype_id == "VIRAL_SHORTS_HOOK":
         return [
-            "⚡ Gancho: Pregunta Shock ('¿Sabías que...?')",
-            "🔥 Ritmo: Ultra Rápido (1.8s por toma)",
-            "💬 Cierre: Pregunta para debate en comentarios",
-            "✨ ¡Lanzar producción del Short!"
+            f"⚡ Gancho Impactante de 3s sobre {topic_summary}",
+            "🔥 Ritmo Rápido con Cortes a 1.8s",
+            "💬 Llamada a la Acción y Debate Final",
+            "✨ ¡Generar Short de Retención Extrema!"
         ]
     elif archetype_id == "DEEP_EXPLAINER_ESSAY":
         return [
-            "📊 Tesis: La geopolítica secreta de los semiconductores",
-            "📈 Infografías: Estilo Vox Minimalista Neón",
-            "🧠 Estructura: Dialéctica Tesis-Antítesis-Síntesis",
-            "✨ ¡Generar videoensayo completo!"
+            f"📊 Tesis Central y Antítesis de {topic_summary}",
+            "📈 Gráficos de Datos e Infografías Vox",
+            "🧠 Estructura Dialéctica en 3 Actos",
+            "✨ ¡Generar Videoensayo Completo!"
         ]
     else:
         return [
@@ -200,21 +203,23 @@ def _build_fallback_director_response(user_input: str, archetype_id: Optional[st
     arch_id = archetype_id or "HISTORICAL_SCRAPING"
     arch = get_archetype(arch_id) or ARCHETYPES_CATALOG["HISTORICAL_SCRAPING"]
     
+    clean_topic = user_input.strip() if user_input else "Proyecto Audiovisual"
+    
     return {
-        "response_text": f"¡Excelente propuesta para **{arch.name}**! Vamos a pulir los detalles para configurar el pipeline exacto. ¿Qué aspecto o enfoque narrativo prefieres priorizar?",
-        "suggestions": _generate_contextual_suggestions(arch_id, {"ready_to_produce": False}),
+        "response_text": f"¡Excelente visión para **{clean_topic}** usando el arquetipo **{arch.name}**! Todo el concepto, narrativa y tono se generarán 100% dinámicos a tu medida. ¿Hay algún detalle específico de la historia, personajes o atmósfera que quieras destacar?",
+        "suggestions": _generate_contextual_suggestions(arch_id, {"subject": clean_topic, "ready_to_produce": False}),
         "spec": {
             "archetype_id": arch_id,
-            "subject": user_input,
-            "visual_style": arch.name,
+            "subject": clean_topic,
+            "visual_style": f"Estilo Dinámico adaptado a {clean_topic}",
             "recommended_source": "google_flow" if arch_id == "CITY_ROUTES_BEATS" else "hybrid",
             "aspect_ratio": arch.default_aspect_ratio,
             "overlay_graphics": "vox_cards",
             "voice_preset": f"{arch.default_voice_engine}:{arch.default_voice_id}",
             "music_genre": arch.default_music_genre,
-            "narrative_tone": "cinematográfico",
+            "narrative_tone": "cinematográfico adaptativo",
             "estimated_paragraphs": 2,
             "ready_to_produce": True,
-            "summary_reasoning": f"Configurado pipeline especializado de {arch.name} con parámetros adaptativos."
+            "summary_reasoning": f"Estructurado libremente a partir de «{clean_topic}» sin limitaciones ni plantillas fijas."
         }
     }

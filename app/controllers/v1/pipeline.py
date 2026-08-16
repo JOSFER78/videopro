@@ -307,7 +307,7 @@ def _sanitize_json_obj(obj: Any) -> Any:
 
 
 def save_pipeline_graph(graph_data: Dict[str, Any]) -> bool:
-    """Guarda la topología del grafo en disco y la sincroniza con Firebase Firestore."""
+    """Guarda la topología del grafo en disco, la sincroniza con el Workflow real de Studio y con Firebase Firestore."""
     try:
         os.makedirs(os.path.dirname(PIPELINE_FILE), exist_ok=True)
         sanitized = _sanitize_json_obj(graph_data)
@@ -315,12 +315,74 @@ def save_pipeline_graph(graph_data: Dict[str, Any]) -> bool:
         with open(PIPELINE_FILE, "w", encoding="utf-8") as f:
             f.write(clean_json)
         
-        # Sincronización asíncrona con Firebase
+        # 1. Sincronización Bidireccional Real con la Arquitectura de Workflows de Studio
+        try:
+            from app.core.orchestration.workflows import WORKFLOW_TEMPLATES, WorkflowDefinition, WorkflowNode, WorkflowConnection
+            from app.core.orchestration.capabilities import Capability
+            from app.core.orchestration.repository import StudioRepository
+            
+            wf_nodes = []
+            for n in sanitized.get("nodes", []):
+                cat = n.get("category", "")
+                cap_val = Capability.VIDEO_GENERATION
+                if "voice" in cat: cap_val = Capability.VOICE_GENERATION
+                elif "llm" in cat: cap_val = Capability.SCRIPT
+                elif "subtitles" in cat: cap_val = Capability.SUBTITLE_GENERATION
+                elif "music" in cat: cap_val = Capability.MUSIC_GENERATION
+                elif "render" in cat: cap_val = Capability.RENDERING
+                elif "character" in cat: cap_val = Capability.IMAGE_GENERATION
+                elif "programacion" in cat or "research" in cat: cap_val = Capability.RESEARCH
+
+                engine_id = None
+                for p in n.get("parameters", []):
+                    if p.get("key") in ("provider", "engine", "source", "research_engine", "lora_model"):
+                        engine_id = str(p.get("value", ""))
+
+                wf_nodes.append(WorkflowNode(
+                    id=n.get("id", ""),
+                    title=n.get("title", ""),
+                    capability=cap_val,
+                    engine_id=engine_id,
+                    is_scene_loop=bool(n.get("is_loop", False)),
+                    enabled=bool(n.get("enabled", True)),
+                    parameters={p.get("key"): p.get("value") for p in n.get("parameters", []) if "key" in p}
+                ))
+
+            wf_connections = [
+                WorkflowConnection(
+                    id=f"c_{idx}",
+                    from_node=c.get("from_node", ""),
+                    from_socket=c.get("from_socket", ""),
+                    to_node=c.get("to_node", ""),
+                    to_socket=c.get("to_socket", ""),
+                    payload_type=c.get("payload_type", "any")
+                )
+                for idx, c in enumerate(sanitized.get("connections", []))
+            ]
+
+            active_wf = WorkflowDefinition(
+                id="DOCUMENTARY_MASTER",
+                name=sanitized.get("name", "VideoPro Production Master Pipeline"),
+                description=sanitized.get("description", "Pipeline activo sincronizado en tiempo real"),
+                version=1,
+                version_label="v1.0-real-sync",
+                required_capabilities=[n.capability for n in wf_nodes if n.enabled],
+                nodes=wf_nodes,
+                connections=wf_connections,
+                pipeline_graph=sanitized
+            )
+            WORKFLOW_TEMPLATES["DOCUMENTARY_MASTER"] = active_wf
+            StudioRepository.save_workflow(active_wf)
+        except Exception as wf_sync_err:
+            logger.warning(f"Aviso al sincronizar grafo con Workflow real de Studio: {wf_sync_err}")
+
+        # 2. Sincronización asíncrona con Firebase
         try:
             from app.services import firebase_sync
             firebase_sync.save_settings_to_firebase_async()
         except Exception:
             pass
+
         return True
     except Exception as ex:
         logger.error(f"Error al guardar pipeline_graph.json: {ex}")
