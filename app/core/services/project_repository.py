@@ -11,6 +11,12 @@ from app.core.domain.entities import ProjectEntity, SceneEntity, DecisionRecord
 from app.core.domain.specs import VisualSpec, AudioSpec, SubtitleSpec, RenderSpec, ProvenanceInfo
 from app.core.domain.enums import ProjectStatus, SceneStatus, LockLevel, VisualEngineType, VoiceEngineType, KaraokeStyle
 
+# Cache en memoria a nivel de proceso para eliminar latencia de red
+_PROJECTS_SUMMARY_CACHE: List[dict] = []
+_PROJECTS_SUMMARY_LAST_FETCH: float = 0.0
+_PROJECTS_SUMMARY_LOCK = False
+
+
 class ProjectRepository:
     def __init__(self, base_storage_dir: Optional[str] = None):
         if not base_storage_dir:
