@@ -592,77 +592,108 @@ FPV_URBAN_GRAPH = {
 # 7. TOURS URBANOS FLOW REAL 4K & BEAT SYNC (METRAJE REAL + PANELES HUD)
 # =====================================================================
 FPV_REAL_FLOW_GRAPH = {
-    "version": "1.0.0",
-    "name": "Tours Urbanos Flow Real 4K & Beat-Sync Pipeline",
+    "version": "2.0.0",
+    "name": "Tours Urbanos Flow Real 4K & Hollywood Beat-Sync Pipeline (6 Nodos)",
     "nodes": [
         {
-            "id": "node_music_beat_analyzer",
-            "title": "🎵 Flow Music Beat-Detector & Transientes",
-            "category": "music",
-            "color": "#8b5cf6",
-            "x": 50, "y": 140, "width": 300, "enabled": True,
+            "id": "node_01_hermes_research",
+            "title": "🔬 Nodo 1: Hermes Research & Narrativa Unificada",
+            "category": "programacion",
+            "color": "#a855f7",
+            "x": 50, "y": 140, "width": 320, "enabled": True,
             "inputs": [],
             "outputs": [
-                {"id": "beat_grid_out", "name": "beat_grid", "label": "Grid de Beats & Transientes (118-128 BPM)"},
-                {"id": "audio_track_out", "name": "master_audio", "label": "Pista de Audio Procesada"}
+                {"id": "narrative_out", "name": "narrative_dossier", "label": "Guion por Cotas & Dossier"},
+                {"id": "yt_desc_out", "name": "youtube_description", "label": "Descripción YouTube & Fuentes"}
             ],
             "parameters": [
-                {"key": "audio_source", "label": "Fuente de Audio", "type": "text", "value": "Audio subido por el usuario o Flow Music generado"},
-                {"key": "bpm_target", "label": "Detección de BPM", "type": "number", "value": 118}
+                {"key": "narrative_arc", "label": "Hilo Conductor", "type": "text", "value": "Descenso Vertical Subterráneo (0m a -40m)"},
+                {"key": "sources_dossier", "label": "Fuentes Verificadas", "type": "text", "value": "Reddit r/madrid + Hemerotecas + Archivos Arqueológicos"}
             ]
         },
         {
-            "id": "node_real_footage_downloader",
-            "title": "🏙️ Ingesta de Vídeos & Fotos Reales 4K",
+            "id": "node_02_audio_first",
+            "title": "🎵 Nodo 2: Audio-First Beat Sync & Takes Packed",
+            "category": "music",
+            "color": "#8b5cf6",
+            "x": 410, "y": 80, "width": 320, "enabled": True,
+            "inputs": [{"id": "narr_in", "name": "narrative_dossier", "label": "Narrativa"}],
+            "outputs": [
+                {"id": "beat_grid_out", "name": "beat_grid", "label": "Marcas de Tiempo (Cortes 2.5s-3s)"},
+                {"id": "audio_master_out", "name": "audio_track", "label": "Pista de Audio Masterizada"}
+            ],
+            "parameters": [
+                {"key": "cut_duration_sec", "label": "Frecuencia de Corte (s)", "type": "number", "value": 3.0},
+                {"key": "audio_buffer_ms", "label": "Buffer Acústico (ms)", "type": "number", "value": 50}
+            ]
+        },
+        {
+            "id": "node_03_media_4k",
+            "title": "🏙️ Nodo 3: Ingesta 4K & Filtro Laplaciano de Nitidez",
             "category": "scraping",
             "color": "#10b981",
-            "x": 400, "y": 80, "width": 320, "enabled": True,
+            "x": 410, "y": 380, "width": 320, "enabled": True,
             "inputs": [{"id": "bg_in", "name": "beat_grid", "label": "Beat Grid"}],
-            "outputs": [{"id": "footage_out", "name": "real_4k_clips", "label": "Metraje Real 4K UHD Filtrado"}],
+            "outputs": [{"id": "footage_out", "name": "real_4k_clips", "label": "Metraje 4K UHD en Movimiento"}],
             "parameters": [
-                {"key": "stock_source", "label": "Fuentes de Metraje", "type": "text", "value": "Pexels 4K UHD + Drones Urbanos + Street View 360 HD"},
-                {"key": "min_quality", "label": "Calidad Mínima", "type": "text", "value": "3840x2160 @ 60fps"}
+                {"key": "min_quality", "label": "Resolución Mínima", "type": "text", "value": "3840x2160 @ 60fps"},
+                {"key": "laplacian_threshold", "label": "Filtro de Nitidez Laplaciano", "type": "number", "value": 120}
             ]
         },
         {
-            "id": "node_flow_speed_cutter",
-            "title": "⚡ Montaje Rítmico, Speed-Ramps & Transiciones",
+            "id": "node_04_remotion_titles",
+            "title": "💎 Nodo 4: Remotion 4.x Kinetic 3D Titling & Shaders",
             "category": "visual",
-            "color": "#f59e0b",
-            "x": 760, "y": 80, "width": 340, "enabled": True,
+            "color": "#06b6d4",
+            "x": 770, "y": 80, "width": 340, "enabled": True,
             "inputs": [
-                {"id": "clips_in", "name": "real_4k_clips", "label": "Clips Reales"},
+                {"id": "clips_in", "name": "real_4k_clips", "label": "Clips 4K"},
                 {"id": "beats_in", "name": "beat_grid", "label": "Beats"}
             ],
-            "outputs": [{"id": "synced_video_out", "name": "synced_cut", "label": "Línea de Tiempo Cortada al Beat"}],
+            "outputs": [{"id": "composited_video_out", "name": "rendered_comp", "label": "Composición Remotion 4K"}],
             "parameters": [
-                {"key": "cut_mode", "label": "Modo de Corte", "type": "text", "value": "Al golpe de Kick/Snare con Speed-Ramps dinámicos"},
-                {"key": "transitions", "label": "Efectos de Transición", "type": "text", "value": "Whip Pan, Zoom Glitch & Flash Cut"}
+                {"key": "titling_mode", "label": "Técnica de Titulación", "type": "text", "value": "World-Space 3D + Glassmorphism Frosted + Light Sweep"},
+                {"key": "kinetic_spring", "label": "Física Elástica Tipográfica", "type": "text", "value": "stiffness: 220, damping: 14"}
             ]
         },
         {
-            "id": "node_explainer_panels_hud",
-            "title": "🏷️ Paneles Explicativos Gráficos & Subtítulos Flow",
-            "category": "render",
-            "color": "#06b6d4",
-            "x": 1140, "y": 140, "width": 340, "enabled": True,
+            "id": "node_05_audio_mixing",
+            "title": "🎚️ Nodo 5: Mezcla 3 Capas & Foley Sincronizado",
+            "category": "voice",
+            "color": "#f59e0b",
+            "x": 770, "y": 380, "width": 340, "enabled": True,
             "inputs": [
-                {"id": "v_cut_in", "name": "synced_cut", "label": "Corte Sincronizado"},
-                {"id": "a_proc_in", "name": "master_audio", "label": "Audio Master"}
+                {"id": "v_comp_in", "name": "rendered_comp", "label": "Vídeo Remotion"},
+                {"id": "a_track_in", "name": "audio_track", "label": "Audio"}
             ],
-            "outputs": [{"id": "final_video_out", "name": "final_video", "label": "Vídeo Musical Master 4K"}],
+            "outputs": [{"id": "mixed_video_out", "name": "mixed_cut", "label": "Máster con Foley & Ducking"}],
             "parameters": [
-                {"key": "panel_style", "label": "Diseño de Paneles", "type": "text", "value": "Glassmorphism Moderno con Datos Urbanos y Callouts"},
-                {"key": "subtitle_sync", "label": "Alineación de Letras/Subtítulos", "type": "text", "value": "Word-by-word kinetic highlight"}
+                {"key": "foley_sfx", "label": "Efectos Foley Sincronizados", "type": "text", "value": "Whooshes, Shutters, Clics mecánicos y Papel"},
+                {"key": "crossfade_ms", "label": "Crossfade Anti-Fase (ms)", "type": "number", "value": 30}
+            ]
+        },
+        {
+            "id": "node_06_qa_loop",
+            "title": "🔍 Nodo 6: Self-Eval QA Loop (timeline_view)",
+            "category": "render",
+            "color": "#ec4899",
+            "x": 1150, "y": 230, "width": 330, "enabled": True,
+            "inputs": [{"id": "mix_in", "name": "mixed_cut", "label": "Corte Mezclado"}],
+            "outputs": [{"id": "final_video_out", "name": "final_video", "label": "Master MP4 Verificado"}],
+            "parameters": [
+                {"key": "contact_sheet_validation", "label": "Inspección de Fotogramas", "type": "boolean", "value": True},
+                {"key": "max_auto_retries", "label": "Reintentos de Auto-corrección", "type": "number", "value": 3}
             ]
         }
     ],
     "connections": [
-        {"id": "rf_c1", "from_node": "node_music_beat_analyzer", "from_socket": "beat_grid_out", "to_node": "node_real_footage_downloader", "to_socket": "bg_in"},
-        {"id": "rf_c2", "from_node": "node_real_footage_downloader", "from_socket": "footage_out", "to_node": "node_flow_speed_cutter", "to_socket": "clips_in"},
-        {"id": "rf_c3", "from_node": "node_music_beat_analyzer", "from_socket": "beat_grid_out", "to_node": "node_flow_speed_cutter", "to_socket": "beats_in"},
-        {"id": "rf_c4", "from_node": "node_flow_speed_cutter", "from_socket": "synced_video_out", "to_node": "node_explainer_panels_hud", "to_socket": "v_cut_in"},
-        {"id": "rf_c5", "from_node": "node_music_beat_analyzer", "from_socket": "audio_track_out", "to_node": "node_explainer_panels_hud", "to_socket": "a_proc_in"}
+        {"id": "rf_c1", "from_node": "node_01_hermes_research", "from_socket": "narrative_out", "to_node": "node_02_audio_first", "to_socket": "narr_in"},
+        {"id": "rf_c2", "from_node": "node_02_audio_first", "from_socket": "beat_grid_out", "to_node": "node_03_media_4k", "to_socket": "bg_in"},
+        {"id": "rf_c3", "from_node": "node_03_media_4k", "from_socket": "footage_out", "to_node": "node_04_remotion_titles", "to_socket": "clips_in"},
+        {"id": "rf_c4", "from_node": "node_02_audio_first", "from_socket": "beat_grid_out", "to_node": "node_04_remotion_titles", "to_socket": "beats_in"},
+        {"id": "rf_c5", "from_node": "node_04_remotion_titles", "from_socket": "composited_video_out", "to_node": "node_05_audio_mixing", "to_socket": "v_comp_in"},
+        {"id": "rf_c6", "from_node": "node_02_audio_first", "from_socket": "audio_master_out", "to_node": "node_05_audio_mixing", "to_socket": "a_track_in"},
+        {"id": "rf_c7", "from_node": "node_05_audio_mixing", "from_socket": "mixed_video_out", "to_node": "node_06_qa_loop", "to_socket": "mix_in"}
     ]
 }
 

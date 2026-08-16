@@ -33,6 +33,7 @@ export const ChronoDriftHUD: React.FC<ChronoDriftHUDProps> = ({
   totalShots = 7,
   scientificCitation,
   factText,
+  isDuckingActive = false,
   primaryCyan = '#00e5ff',
   secondaryOrange = '#ffb300',
   accentPurple = '#b388ff',
