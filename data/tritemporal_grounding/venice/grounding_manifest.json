@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "venice",
+  "city_name": "Venecia",
+  "country": "Italia",
+  "generated_at": "2026-08-16T15:27:08Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Serenísima República de Venecia (c. 1626)",
+      "urban_morphology": "Palacio Ducal y Basílica de San Marcos en pleno apogeo naval, galeazas y galeras en el Arsenal de Venecia, góndolas tradicionales sin capota, talleres de soplado de vidrio en Murano.",
+      "social_life": "Dux de Venecia, patricios con togas de seda, comerciantes levantinos de especias y cristales finos.",
+      "cartography_source": "Perspectiva de Venecia de Jacopo de' Barbari (1500) / Cartografía Naval de la Serenísima",
+      "lighting": "Luz acuática reflejada en fachadas de mármol y estuco veneziano, bruma marina matinal sobre la laguna."
+    },
+    "present_2026": {
+      "epoch": "Patrimonio Mundial de la Humanidad (2026)",
+      "urban_morphology": "Gran Canal atravesado por el Puente de Rialto, vaporettos eléctricos, barreras móviles MOSE protegiendo la laguna de la marea alta (Acqua Alta), palacios renacentistas restaurados.",
+      "social_life": "Turismo cultural y artístico (Biennale), artesanos de máscaras y cristal, silencio libre de automóviles.",
+      "lighting": "Reflejos turquesas del agua en las piedras blancas de Istria, farolas de hierro forjado al atardecer."
+    },
+    "future_2226": {
+      "epoch": "Sub-Aquatic Biosphere Venice 2226",
+      "urban_morphology": "Arcología subacuática con cúpulas de grafeno y vidrio autorreparable que estabilizan la base lagunar, canales transparentes protegidos con filtración biológica, transporte acústico silencioso.",
+      "social_life": "Comunidad de conservación biológica marina y cultural, centros de investigación oceanográfica de vanguardia.",
+      "science_citation": "Venice Lagoon Ecological Preservation Consortium & CNR Oceanographic Institute Report 2200",
+      "lighting": "Bioluminiscencia marina azul zafiro en los canales subacuáticos, luz solar difusa filtrada por la laguna."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_PIAZZA_SAN_MARCO",
+      "name": "Plaza de San Marcos & Palacio Ducal",
+      "lat": 45.4342,
+      "lon": 12.3389,
+      "alt_agl": 70.0
+    },
+    {
+      "id": "WP2_RIALTO_BRIDGE",
+      "name": "Puente de Rialto & Gran Canal",
+      "lat": 45.438,
+      "lon": 12.3359,
+      "alt_agl": 35.0
+    },
+    {
+      "id": "WP3_ARSENALE",
+      "name": "Arsenal de Venecia & Dársena Histórica",
+      "lat": 45.435,
+      "lon": 12.3528,
+      "alt_agl": 85.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_NORTH_APPROACH",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_EAST_FLANK",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_SOUTH_RETREAT",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_WEST_FLANK",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_DIVE_DOWN",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_PIAZZA_SAN_MARCO_ASCENT_UP",
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "latitude": 45.4342,
+      "longitude": 12.3389,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_NORTH_APPROACH",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_EAST_FLANK",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_SOUTH_RETREAT",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_WEST_FLANK",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_DIVE_DOWN",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_RIALTO_BRIDGE_ASCENT_UP",
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "latitude": 45.438,
+      "longitude": 12.3359,
+      "altitude_agl": 35.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_NORTH_APPROACH",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_EAST_FLANK",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_SOUTH_RETREAT",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_WEST_FLANK",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_DIVE_DOWN",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_ARSENALE_ASCENT_UP",
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "latitude": 45.435,
+      "longitude": 12.3528,
+      "altitude_agl": 85.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_PIAZZA_SAN_MARCO",
+      "landmark": "Plaza de San Marcos & Palacio Ducal",
+      "coords": {
+        "lat": 45.4342,
+        "lon": 12.3389,
+        "alt_agl": 70.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_RIALTO_BRIDGE",
+      "landmark": "Puente de Rialto & Gran Canal",
+      "coords": {
+        "lat": 45.438,
+        "lon": 12.3359,
+        "alt_agl": 35.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_ARSENALE",
+      "landmark": "Arsenal de Venecia & Dársena Histórica",
+      "coords": {
+        "lat": 45.435,
+        "lon": 12.3528,
+        "alt_agl": 85.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_PIAZZA_SAN_MARCO",
+        "name": "Plaza de San Marcos & Palacio Ducal",
+        "lat": 45.4342,
+        "lon": 12.3389,
+        "alt_agl": 70.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Venecia",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_RIALTO_BRIDGE",
+        "name": "Puente de Rialto & Gran Canal",
+        "lat": 45.438,
+        "lon": 12.3359,
+        "alt_agl": 35.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Venecia",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_ARSENALE",
+        "name": "Arsenal de Venecia & Dársena Histórica",
+        "lat": 45.435,
+        "lon": 12.3528,
+        "alt_agl": 85.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Venecia",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

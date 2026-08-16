@@ -156,6 +156,130 @@ class ProjectRepository:
 
         return proj
 
+    def load_project_dict(self, project_id: str) -> Optional[dict]:
+        """Carga el diccionario completo del proyecto desde disco o Firestore."""
+        # 1. Intentar cargar desde disco local
+        manifest_path = os.path.join(self.projects_dir, project_id, "project.json")
+        if os.path.isfile(manifest_path):
+            try:
+                with open(manifest_path, "r", encoding="utf-8") as f:
+                    return json.load(f)
+            except Exception:
+                pass
+
+        # 2. Intentar cargar desde Firestore
+        try:
+            from app.services import firebase_sync
+            fb_proj = firebase_sync.fetch_single_project_from_firebase(project_id)
+            if fb_proj:
+                return fb_proj
+        except Exception:
+            pass
+
+        return None
+
+    def get_all_projects_summary(self, force_refresh: bool = False) -> List[dict]:
+        """Retorna la lista unificada de todos los proyectos desde RAM/disco instantáneamente."""
+        global _PROJECTS_SUMMARY_CACHE, _PROJECTS_SUMMARY_LAST_FETCH, _PROJECTS_SUMMARY_LOCK
+        
+        now = time.time()
+        # Retornar instantáneamente de RAM si la caché tiene menos de 20 segundos
+        if not force_refresh and _PROJECTS_SUMMARY_CACHE and (now - _PROJECTS_SUMMARY_LAST_FETCH < 20.0):
+            return _PROJECTS_SUMMARY_CACHE
+
+        projects_map = {}
+
+        # 1. Escaneo ultrarrápido de storage/projects/ (Disco Local - 0ms latencia)
+        import glob
+        for p_dir in glob.glob(os.path.join(self.projects_dir, "*")):
+            if not os.path.isdir(p_dir):
+                continue
+            pid = os.path.basename(p_dir)
+            p_json = os.path.join(p_dir, "project.json")
+            
+            p_data = {}
+            if os.path.isfile(p_json):
+                try:
+                    with open(p_json, "r", encoding="utf-8") as f:
+                        p_data = json.load(f)
+                except Exception:
+                    pass
+
+            # Buscar vídeo final si existe
+            has_video = False
+            final_video_path = ""
+            for ext in ("*.mp4", "*.mkv", "*.mov", "*.webm"):
+                vids = glob.glob(os.path.join(p_dir, ext)) + glob.glob(os.path.join(p_dir, "renders", ext))
+                if vids:
+                    has_video = True
+                    final_video_path = vids[0]
+                    break
+
+            projects_map[pid] = {
+                "project_id": pid,
+                "task_id": pid,
+                "title": p_data.get("title", pid),
+                "subject": p_data.get("subject", p_data.get("title", pid)),
+                "workflow_id": p_data.get("workflow_id", "PIXAR_3D_ANIMATION"),
+                "workflow_name": p_data.get("workflow_name", "Producción Cinemática"),
+                "workflow_icon": p_data.get("workflow_icon", "🎬"),
+                "status": p_data.get("status", "DRAFT"),
+                "aspect_ratio": p_data.get("aspect_ratio", "16:9"),
+                "voice_id": p_data.get("voice_id", "vibevoice"),
+                "scenes_count": len(p_data.get("scenes", [])),
+                "has_video": has_video,
+                "local_video_path": final_video_path,
+                "director_spec": p_data.get("director_spec", {}),
+                "scenes": p_data.get("scenes", []),
+                "messages": p_data.get("messages", []),
+                "updated_at": p_data.get("updated_at", time.time()),
+                "created_at": p_data.get("created_at", time.time())
+            }
+
+        # 2. Sincronizar con Firestore
+        try:
+            from app.services import firebase_sync
+            fb_projs = firebase_sync.fetch_all_projects_from_firebase()
+            for p in fb_projs:
+                pid = p.get("project_id") or p.get("task_id")
+                if pid:
+                    if pid in projects_map:
+                        # Mantener ruta de vídeo local si existe
+                        if projects_map[pid].get("has_video"):
+                            p["has_video"] = True
+                            p["local_video_path"] = projects_map[pid].get("local_video_path")
+                    projects_map[pid] = p
+        except Exception as ex:
+            logger.warning(f"No se pudo consultar Firestore para listado de proyectos: {ex}")
+
+        # Ordenar por updated_at descendente
+        res = list(projects_map.values())
+        res.sort(key=lambda x: str(x.get("updated_at", "")), reverse=True)
+        
+        _PROJECTS_SUMMARY_CACHE = res
+        _PROJECTS_SUMMARY_LAST_FETCH = time.time()
+        return res
+
+    def delete_project(self, project_id: str) -> bool:
+        """Elimina un proyecto de disco local y de Firebase Firestore."""
+        # 1. Eliminar de disco
+        proj_dir = os.path.join(self.projects_dir, project_id)
+        if os.path.isdir(proj_dir):
+            try:
+                import shutil
+                shutil.rmtree(proj_dir, ignore_errors=True)
+            except Exception as e:
+                logger.error(f"Error al borrar directorio local del proyecto {project_id}: {e}")
+
+        # 2. Eliminar de Firestore
+        try:
+            from app.services import firebase_sync
+            firebase_sync.delete_project_from_firebase(project_id)
+        except Exception:
+            pass
+
+        return True
+
     def _migrate_legacy_task(self, task_id: str, legacy_path: str) -> ProjectEntity:
         logger.info(f"Migrating legacy task {task_id} into ProjectEntity...")
         with open(legacy_path, "r", encoding="utf-8") as f:

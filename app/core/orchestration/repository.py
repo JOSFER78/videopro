@@ -96,3 +96,9 @@ class StudioRepository:
             except Exception:
                 pass
         return jobs_list
+
+    def list_active_jobs(self, limit: int = 10) -> List[Dict[str, Any]]:
+        """Lista los jobs activos o en proceso de renderizado."""
+        all_j = self.list_jobs(limit=limit)
+        active_statuses = {"pending", "running", "in_progress", "rendering"}
+        return [j for j in all_j if j.get("status", "").lower() in active_statuses]

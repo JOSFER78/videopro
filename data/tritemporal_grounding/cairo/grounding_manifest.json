@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "cairo",
+  "city_name": "El Cairo",
+  "country": "Egipto",
+  "generated_at": "2026-08-16T15:27:03Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "El Cairo Mameluco / Otomano (c. 1620)",
+      "urban_morphology": "Ciudad amurallada con cientos de minaretes, Mezquita del Sultán Hassan, zoco bullicioso de Khan el-Khalili, campos agrícolas fértiles inundados por el Nilo junto a las Pirámides de Guiza.",
+      "social_life": "Mercaderes de alfombras y especias de la Ruta de la Seda, caravanas de dromedarios, eruditos en la Universidad de Al-Azhar.",
+      "cartography_source": "Plano de El Cairo de Matheo Pagano (1549) / Mapas de Description de l'Égypte",
+      "lighting": "Luz ocre dorada del atardecer sobre el Nilo, polvo del desierto suspendido iluminado por sol radiante."
+    },
+    "present_2026": {
+      "epoch": "Megaciudad del Nilo (2026)",
+      "urban_morphology": "Gran Museo Egipcio (GEM) de arquitectura vanguardista, puentes modernos sobre el Nilo, expansión urbana que bordea la meseta de Guiza, bullicioso tráfico.",
+      "social_life": "Vida vibrante en riberas del Nilo, falucas turísticas, mezcla de tradición y modernidad.",
+      "lighting": "Contraste de piedra caliza milenaria con iluminación contemporánea y reflejos en el río Nilo."
+    },
+    "future_2226": {
+      "epoch": "Terraformed Oasis Cairo 2226",
+      "urban_morphology": "Corredores ecológicos refrigerados por micro-canales freáticos que transforman la meseta desértica en oasis bioclimático, cúpulas geodésicas de nanovidrio que protegen las pirámides de la erosión sin tocarlas, torres solares térmicas integradas.",
+      "social_life": "Sociedad sustentable con desalinización solar masiva del Mediterráneo canalizada al delta, movilidad eléctrica subterránea.",
+      "science_citation": "Cairo University Faculty of Engineering & Nile Basin Climate Resilience Protocol 2200",
+      "lighting": "Iluminación de fósforo blanco y ámbar sobre las pirámides, techos verdes resplandecientes."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_GIZA_PYRAMIDS",
+      "name": "Pirámides de Guiza & Gran Esfinge",
+      "lat": 29.9792,
+      "lon": 31.1342,
+      "alt_agl": 130.0
+    },
+    {
+      "id": "WP2_NILE_CORNICHE",
+      "name": "Corniche del Nilo & Torre de El Cairo",
+      "lat": 30.0459,
+      "lon": 31.2243,
+      "alt_agl": 90.0
+    },
+    {
+      "id": "WP3_KHAN_EL_KHALILI",
+      "name": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "lat": 30.0475,
+      "lon": 31.2625,
+      "alt_agl": 45.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_NORTH_APPROACH",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_EAST_FLANK",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_SOUTH_RETREAT",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_WEST_FLANK",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_DIVE_DOWN",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_GIZA_PYRAMIDS_ASCENT_UP",
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "latitude": 29.9792,
+      "longitude": 31.1342,
+      "altitude_agl": 130.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_NORTH_APPROACH",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_EAST_FLANK",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_SOUTH_RETREAT",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_WEST_FLANK",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_DIVE_DOWN",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_NILE_CORNICHE_ASCENT_UP",
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "latitude": 30.0459,
+      "longitude": 31.2243,
+      "altitude_agl": 90.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_NORTH_APPROACH",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_EAST_FLANK",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_SOUTH_RETREAT",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_WEST_FLANK",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_DIVE_DOWN",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_KHAN_EL_KHALILI_ASCENT_UP",
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "latitude": 30.0475,
+      "longitude": 31.2625,
+      "altitude_agl": 45.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_GIZA_PYRAMIDS",
+      "landmark": "Pirámides de Guiza & Gran Esfinge",
+      "coords": {
+        "lat": 29.9792,
+        "lon": 31.1342,
+        "alt_agl": 130.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_NILE_CORNICHE",
+      "landmark": "Corniche del Nilo & Torre de El Cairo",
+      "coords": {
+        "lat": 30.0459,
+        "lon": 31.2243,
+        "alt_agl": 90.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_KHAN_EL_KHALILI",
+      "landmark": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+      "coords": {
+        "lat": 30.0475,
+        "lon": 31.2625,
+        "alt_agl": 45.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_GIZA_PYRAMIDS",
+        "name": "Pirámides de Guiza & Gran Esfinge",
+        "lat": 29.9792,
+        "lon": 31.1342,
+        "alt_agl": 130.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "El Cairo",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_NILE_CORNICHE",
+        "name": "Corniche del Nilo & Torre de El Cairo",
+        "lat": 30.0459,
+        "lon": 31.2243,
+        "alt_agl": 90.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "El Cairo",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_KHAN_EL_KHALILI",
+        "name": "Mezquita de Al-Azhar & Bazar Khan el-Khalili",
+        "lat": 30.0475,
+        "lon": 31.2625,
+        "alt_agl": 45.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "El Cairo",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

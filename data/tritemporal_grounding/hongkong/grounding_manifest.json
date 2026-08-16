@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "hongkong",
+  "city_name": "Hong Kong",
+  "country": "China (RAE)",
+  "generated_at": "2026-08-16T15:27:00Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Bahía de Pescadores & Selva Tropical (c. 1840 / Época Dinastía Qing)",
+      "urban_morphology": "Pueblos pesqueros de la etnia Hakka y Tanka con casas sobre pilotes de madera en Aberdeen y Tai O, juncos chinos de velas rojas en Victoria Harbour, densa selva tropical en Victoria Peak.",
+      "social_life": "Pescadores locales, comerciantes de sal y té, piratas en calas protegidas.",
+      "cartography_source": "Mapas Navales de la Dinastía Qing / Admiralty Charts of Victoria Harbour 1841",
+      "lighting": "Bruma tropical húmeda matinal, aguas verde esmeralda y vegetación selvática exuberante."
+    },
+    "present_2026": {
+      "epoch": "Metrópolis Vertical Hiperdensa (2026)",
+      "urban_morphology": "Más de 500 rascacielos encajonados entre el mar y las montañas, tranvías de dos pisos 'Ding Ding', escaleras mecánicas al aire libre en Mid-Levels, Symphony of Lights.",
+      "social_life": "Tráfico peatonal vertiginoso, mercados nocturnos iluminados por neón, ferris Star Ferry.",
+      "lighting": "Contraste extremo de neones rojos, cianes y dorados con el fondo oscuro de las montañas tropicales."
+    },
+    "future_2226": {
+      "epoch": "Stratospheric Hong Kong 2226",
+      "urban_morphology": "Puentes peatonales habitables suspendidos a 800 metros conectando los rascacielos con el Pico Victoria, plataformas flotantes residenciales mar adentro, sistemas de ascensores atmosféricos suborbitales.",
+      "social_life": "Densidad tridimensional con parques aéreos a diferentes altitudes, drones y cápsulas guiadas por IA cuántica.",
+      "science_citation": "HKUST Urban Aerodynamics & High-Density Habitat Blueprint 2200",
+      "lighting": "Láseres de navegación holográfica púrpura y cian, luminiscencia natural en jardines suspendidos."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_VICTORIA_HARBOUR",
+      "name": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "lat": 22.2934,
+      "lon": 114.171,
+      "alt_agl": 80.0
+    },
+    {
+      "id": "WP2_VICTORIA_PEAK",
+      "name": "Victoria Peak & Mirador Sky Terrace",
+      "lat": 22.2759,
+      "lon": 114.1455,
+      "alt_agl": 250.0
+    },
+    {
+      "id": "WP3_CENTRAL_MIDLEVELS",
+      "name": "Central Financial District & Escaleras Mid-Levels",
+      "lat": 22.282,
+      "lon": 114.155,
+      "alt_agl": 110.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_NORTH_APPROACH",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_EAST_FLANK",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_SOUTH_RETREAT",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_WEST_FLANK",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_DIVE_DOWN",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_VICTORIA_HARBOUR_ASCENT_UP",
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "latitude": 22.2934,
+      "longitude": 114.171,
+      "altitude_agl": 80.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_NORTH_APPROACH",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_EAST_FLANK",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_SOUTH_RETREAT",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_WEST_FLANK",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_DIVE_DOWN",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_VICTORIA_PEAK_ASCENT_UP",
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "latitude": 22.2759,
+      "longitude": 114.1455,
+      "altitude_agl": 250.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_NORTH_APPROACH",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_EAST_FLANK",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_SOUTH_RETREAT",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_WEST_FLANK",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_DIVE_DOWN",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_CENTRAL_MIDLEVELS_ASCENT_UP",
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "latitude": 22.282,
+      "longitude": 114.155,
+      "altitude_agl": 110.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_VICTORIA_HARBOUR",
+      "landmark": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+      "coords": {
+        "lat": 22.2934,
+        "lon": 114.171,
+        "alt_agl": 80.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_VICTORIA_PEAK",
+      "landmark": "Victoria Peak & Mirador Sky Terrace",
+      "coords": {
+        "lat": 22.2759,
+        "lon": 114.1455,
+        "alt_agl": 250.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_CENTRAL_MIDLEVELS",
+      "landmark": "Central Financial District & Escaleras Mid-Levels",
+      "coords": {
+        "lat": 22.282,
+        "lon": 114.155,
+        "alt_agl": 110.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_VICTORIA_HARBOUR",
+        "name": "Victoria Harbour & Paseo de Tsim Sha Tsui",
+        "lat": 22.2934,
+        "lon": 114.171,
+        "alt_agl": 80.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Hong Kong",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_VICTORIA_PEAK",
+        "name": "Victoria Peak & Mirador Sky Terrace",
+        "lat": 22.2759,
+        "lon": 114.1455,
+        "alt_agl": 250.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Hong Kong",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_CENTRAL_MIDLEVELS",
+        "name": "Central Financial District & Escaleras Mid-Levels",
+        "lat": 22.282,
+        "lon": 114.155,
+        "alt_agl": 110.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Hong Kong",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

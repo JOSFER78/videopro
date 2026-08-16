@@ -1,3 +1,3 @@
-"""MoneyPrinterTurbo 应用包元数据。"""
+"""VideoPro Studio — Arquitectura Cinemática y Orquestación Multimotor."""
 
 __version__ = "1.3.4"

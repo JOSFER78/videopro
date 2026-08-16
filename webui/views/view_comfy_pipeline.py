@@ -23,6 +23,14 @@ if not os.path.isfile(STUDIO_HTML_PATH):
     STUDIO_HTML_PATH = os.path.join(BASE_DIR, "investigaciones", "capacidades", "comfy_pipeline_studio.html")
 
 
+@st.cache_data(show_spinner=False)
+def _load_cached_studio_html(path: str) -> str:
+    if os.path.isfile(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    return ""
+
+
 def render_comfy_pipeline_view():
     """Renderiza el Workflow Studio y el Administrador de Flujo de Nodos sincronizado."""
     
@@ -120,14 +128,11 @@ def render_comfy_pipeline_view():
     with m4:
         st.metric("Topología", selected_pipe)
 
-    st.markdown("<div style='height: 4px;'></div>", unsafe_allow_html=True)
-
     # 5. Renderizado Dual-Mode (Studio Canvas / Árbol Modular Dinámico)
     canvas_rendered = False
     if pipe_view_mode == "studio" and os.path.isfile(STUDIO_HTML_PATH):
         try:
-            with open(STUDIO_HTML_PATH, "r", encoding="utf-8") as f:
-                html_content = f.read()
+            html_content = _load_cached_studio_html(STUDIO_HTML_PATH)
 
             from app.core.providers import registry as prov_reg
             current_registry = prov_reg.load_registry()

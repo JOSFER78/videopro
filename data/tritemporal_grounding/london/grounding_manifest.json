@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "london",
+  "city_name": "Londres",
+  "country": "Reino Unido",
+  "generated_at": "2026-08-16T15:26:18Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Londres Tudor/Stuart (c. 1610-1626)",
+      "urban_morphology": "Antiguo Puente de Londres con casas de madera suspendidas sobre el Támesis, Torre de Londres, catedral gótica de Old St Paul's antes del Gran Incendio, callejones adoquinados.",
+      "social_life": "Barqueros del Támesis, actores y público en el Globe Theatre, mercaderes de lana en Cheapside.",
+      "cartography_source": "Panorama de Claes Van Visscher (1616) / Hollar Map of London",
+      "lighting": "Niebla húmeda del Támesis, chimeneas de leña humeantes, luz mortecina de antorchas y faroles de sebo."
+    },
+    "present_2026": {
+      "epoch": "Metrópolis Financiera e Histórica (2026)",
+      "urban_morphology": "Rascacielos The Shard, The Gherkin, Tower Bridge iluminado, autobuses rojos de dos pisos, el Támesis canalizado.",
+      "social_life": "Ejecutivos de la City, estudiantes cosmopolitas, turistas bordeando el South Bank.",
+      "lighting": "Cielos plateados con claros brillantes, reflejos de luces LED sobre el agua oscura del Támesis."
+    },
+    "future_2226": {
+      "epoch": "Sky-Canopy London 2226",
+      "urban_morphology": "Cúpulas climáticas bioclimáticas transparentes sobre el corredor del Támesis, corredores aéreos peatonales de nanotubos entre torres históricas preservadas, barcazas solares de transporte autónomo.",
+      "social_life": "Comunidades aéreas con micro-parques de biodiversidad, redes de transporte de levitación magnética silenciosa.",
+      "science_citation": "University College London (UCL) Bartlett School of Architecture Future Urban Canopy Study",
+      "lighting": "Iluminación indirecta verde esmeralda y ámbar, cielo filtrado con atmósfera 100% limpia."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_TOWER_BRIDGE",
+      "name": "Tower Bridge & Torre de Londres",
+      "lat": 51.5055,
+      "lon": -0.0754,
+      "alt_agl": 70.0
+    },
+    {
+      "id": "WP2_THE_SHARD",
+      "name": "The Shard & London Bridge Station",
+      "lat": 51.5045,
+      "lon": -0.0865,
+      "alt_agl": 180.0
+    },
+    {
+      "id": "WP3_WESTMINSTER",
+      "name": "Palacio de Westminster & Big Ben",
+      "lat": 51.4995,
+      "lon": -0.1248,
+      "alt_agl": 95.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_NORTH_APPROACH",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_EAST_FLANK",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_SOUTH_RETREAT",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_WEST_FLANK",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_DIVE_DOWN",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_TOWER_BRIDGE_ASCENT_UP",
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "latitude": 51.5055,
+      "longitude": -0.0754,
+      "altitude_agl": 70.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_NORTH_APPROACH",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_EAST_FLANK",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_SOUTH_RETREAT",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_WEST_FLANK",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_DIVE_DOWN",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_THE_SHARD_ASCENT_UP",
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "latitude": 51.5045,
+      "longitude": -0.0865,
+      "altitude_agl": 180.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_NORTH_APPROACH",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_EAST_FLANK",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_SOUTH_RETREAT",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_WEST_FLANK",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_DIVE_DOWN",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_WESTMINSTER_ASCENT_UP",
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "latitude": 51.4995,
+      "longitude": -0.1248,
+      "altitude_agl": 95.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_TOWER_BRIDGE",
+      "landmark": "Tower Bridge & Torre de Londres",
+      "coords": {
+        "lat": 51.5055,
+        "lon": -0.0754,
+        "alt_agl": 70.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_THE_SHARD",
+      "landmark": "The Shard & London Bridge Station",
+      "coords": {
+        "lat": 51.5045,
+        "lon": -0.0865,
+        "alt_agl": 180.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_WESTMINSTER",
+      "landmark": "Palacio de Westminster & Big Ben",
+      "coords": {
+        "lat": 51.4995,
+        "lon": -0.1248,
+        "alt_agl": 95.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_TOWER_BRIDGE",
+        "name": "Tower Bridge & Torre de Londres",
+        "lat": 51.5055,
+        "lon": -0.0754,
+        "alt_agl": 70.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Londres",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_THE_SHARD",
+        "name": "The Shard & London Bridge Station",
+        "lat": 51.5045,
+        "lon": -0.0865,
+        "alt_agl": 180.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Londres",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_WESTMINSTER",
+        "name": "Palacio de Westminster & Big Ben",
+        "lat": 51.4995,
+        "lon": -0.1248,
+        "alt_agl": 95.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Londres",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

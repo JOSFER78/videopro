@@ -340,22 +340,25 @@ DEFAULT_PROVIDERS = {
         "behaviors": [
             {"text": "Efecto Ken Burns sutil (Paneo y Zoom 2.5D)", "checked": True}
         ],
+        "notes": "Ingesta de fotoperiodismo libre de derechos."
+    },
+
     # --- 2. DIRECTORES LLM ---
     "antigravity": {
         "id": "antigravity",
-        "name": "Antigravity Bridge & OpenAI (Gemini 3.7 / GPT-4o)",
+        "name": "Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)",
         "category": "llm",
         "infra_type": "local",
         "enabled": True,
         "label": "🍌 Antigravity Bridge (Gemini 3.7 Flash High / Puerto 8742)",
-        "description": "Director principal local en puerto 8742 sin consumo de tokens ($0) o puente OpenAI GPT-4o.",
+        "description": "Director principal local en puerto 8742 sin consumo de tokens ($0) con razonamiento avanzado.",
         "api_key_field": "openai_api_key",
         "endpoint_field": "openai_base_url",
         "endpoint_default": "http://127.0.0.1:8742/v1",
         "model_field": "openai_model_name",
         "model_default": "gemini-3.7-flash-high",
-        "doc_link": "https://platform.openai.com/api-keys",
-        "doc_link_text": "Consola OpenAI ↗",
+        "doc_link": "http://127.0.0.1:8742",
+        "doc_link_text": "Bridge Local 8742 ↗",
         "categories": [
             {"text": "Director Cinematográfico 5D", "checked": True},
             {"text": "Razonamiento y Guiones con Streaming Nativo", "checked": True},
@@ -372,6 +375,96 @@ DEFAULT_PROVIDERS = {
         ],
         "notes": "Director de IA principal predeterminado de VideoPro Studio."
     },
+    "gemini": {
+        "id": "gemini",
+        "name": "Google Gemini (AI Studio Oficial)",
+        "category": "llm",
+        "infra_type": "cloud",
+        "enabled": True,
+        "label": "Google Gemini 3.1 Pro & Flash",
+        "description": "API oficial de Google AI Studio con contexto largo y multimodalidad nativa.",
+        "api_key_field": "gemini_api_key",
+        "model_field": "gemini_model_name",
+        "model_default": "gemini-3.1-pro-preview",
+        "model_options": ["gemini-3.1-pro-preview", "gemini-3.1-flash-preview", "gemini-2.5-pro", "gemini-2.5-flash"],
+        "doc_link": "https://aistudio.google.com/app/apikey",
+        "doc_link_text": "Google AI Studio ↗",
+        "categories": [
+            {"text": "Razonamiento Profundo Multimodal", "checked": True},
+            {"text": "Contexto Largo (1M+ Tokens)", "checked": True}
+        ],
+        "infrastructure": [
+            {"text": "Google Cloud / AI Studio API", "checked": True}
+        ],
+        "preferences": [
+            {"text": "✨ Preferencia: gemini-3.1-pro-preview", "checked": True}
+        ],
+        "behaviors": [
+            {"text": "Estructuración de guiones de alta complejidad", "checked": True}
+        ],
+        "notes": "Conexión directa a la API de Google Gemini."
+    },
+    "openai": {
+        "id": "openai",
+        "name": "OpenAI Oficial (GPT-5.5 / GPT-4o)",
+        "category": "llm",
+        "infra_type": "cloud",
+        "enabled": True,
+        "label": "OpenAI GPT-5.5 / GPT-4o",
+        "description": "API oficial de OpenAI para dirección cinematográfica y análisis de coherencia.",
+        "api_key_field": "openai_api_key",
+        "endpoint_field": "openai_base_url",
+        "endpoint_default": "https://api.openai.com/v1",
+        "model_field": "openai_model_name",
+        "model_default": "gpt-5.5",
+        "model_options": ["gpt-5.5", "gpt-4o", "gpt-4o-mini", "o3-mini"],
+        "doc_link": "https://platform.openai.com/api-keys",
+        "doc_link_text": "Consola OpenAI ↗",
+        "categories": [
+            {"text": "Generación de Guiones Estructurados", "checked": True}
+        ],
+        "infrastructure": [
+            {"text": "OpenAI Cloud API", "checked": True}
+        ],
+        "preferences": [
+            {"text": "✨ Preferencia: GPT-5.5", "checked": True}
+        ],
+        "behaviors": [
+            {"text": "Salida JSON estructurada estricta", "checked": True}
+        ],
+        "notes": "Proveedor comercial oficial de OpenAI."
+    },
+    "deepseek": {
+        "id": "deepseek",
+        "name": "DeepSeek AI (V3 / R1 Oficial)",
+        "category": "llm",
+        "infra_type": "cloud",
+        "enabled": True,
+        "label": "DeepSeek V3 & R1 Reasoning",
+        "description": "API oficial de DeepSeek con razonamiento matemático y narrativo de ultra-bajo coste.",
+        "api_key_field": "deepseek_api_key",
+        "endpoint_field": "deepseek_base_url",
+        "endpoint_default": "https://api.deepseek.com",
+        "model_field": "deepseek_model_name",
+        "model_default": "deepseek-chat",
+        "model_options": ["deepseek-chat", "deepseek-reasoner"],
+        "doc_link": "https://platform.deepseek.com/api_keys",
+        "doc_link_text": "Consola DeepSeek ↗",
+        "categories": [
+            {"text": "Razonamiento y Lógica Estricta", "checked": True}
+        ],
+        "infrastructure": [
+            {"text": "DeepSeek Cloud API", "checked": True}
+        ],
+        "preferences": [
+            {"text": "✨ Preferencia: deepseek-chat", "checked": True}
+        ],
+        "behaviors": [
+            {"text": "Generación rápida de diálogos", "checked": True}
+        ],
+        "notes": "Proveedor de alto rendimiento y bajo coste."
+    },
+    "cloudflare_ai": {
         "id": "cloudflare_ai",
         "name": "Cloudflare Workers AI (Serverless Edge)",
         "category": "llm",
@@ -840,14 +933,14 @@ def load_registry() -> Dict[str, Any]:
                     if dead_id in saved:
                         del saved[dead_id]
                 
-                # Merge de metadatos SOLO para proveedores existentes no borrados
+                # Merge de metadatos para proveedores existentes
                 for k, v in list(saved.items()):
                     if k in tombstones:
                         del saved[k]
                         continue
                     if k in DEFAULT_PROVIDERS:
                         def_info = DEFAULT_PROVIDERS[k]
-                        for m_field in ("doc_link", "doc_link_text", "api_key_field", "endpoint_field", "model_field", "model_options", "source_engine", "label", "description"):
+                        for m_field in ("category", "doc_link", "doc_link_text", "api_key_field", "endpoint_field", "model_field", "model_options", "source_engine", "label", "description"):
                             if m_field in def_info and (m_field not in v or not v[m_field]):
                                 v[m_field] = def_info[m_field]
                         for list_field in ("categories", "infrastructure", "preferences", "behaviors"):
@@ -855,6 +948,12 @@ def load_registry() -> Dict[str, Any]:
                                 v[list_field] = copy.deepcopy(def_info[list_field])
                         if not v.get("notes") and def_info.get("notes"):
                             v["notes"] = def_info["notes"]
+
+                # Incorporar proveedores predeterminados que falten en el fichero guardado
+                for def_k, def_v in DEFAULT_PROVIDERS.items():
+                    if def_k not in saved and def_k not in tombstones:
+                        saved[def_k] = copy.deepcopy(def_v)
+
                 save_registry(saved)
                 return saved
         except Exception as ex:

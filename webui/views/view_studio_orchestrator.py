@@ -1,7 +1,7 @@
 """
 Vista de Orquestación y Director Creativo Semántico — VideoPro Studio
-Entrada Principal: '🚀 Empezar' — Co-Creación Conversacional, Auto-Generación de Proyecto,
-Ficha de Producción Consolidada, Trazabilidad en Tiempo Real y Lanzamiento de Producción.
+Entrada Principal: '🚀 Empezar' — Co-Creación Conversacional, Cadena de Pensamiento Narrativa (CoT),
+Investigación Profunda de Ideas, Biblia de Personajes, Ficha de Producción Consolidada y Renderizado.
 """
 
 import os
@@ -66,6 +66,7 @@ def _init_director_session(arch_id: str):
         "characters": "",
         "dramatic_conflict": "",
         "climax": "",
+        "chain_of_thought": "Sesión iniciada. Esperando concepto o idea libre del usuario.",
         "visual_style": arch.visual_strategy.value,
         "aspect_ratio": arch.default_aspect_ratio,
         "voice_preset": arch.default_voice_id,
@@ -93,14 +94,135 @@ def _init_director_session(arch_id: str):
     _persist_current_project(project_id, initial_title, plan)
 
 
+def load_project_into_session(project_id: str) -> bool:
+    """Carga de forma íntegra un proyecto existente desde Firestore o disco en session_state."""
+    repo = ProjectRepository()
+    proj_dict = repo.load_project_dict(project_id)
+    if not proj_dict:
+        return False
+
+    arch_id = proj_dict.get("workflow_id", "PIXAR_3D_ANIMATION")
+    arch = ARCHETYPES_CATALOG.get(arch_id, list(ARCHETYPES_CATALOG.values())[0])
+
+    st.session_state["director_arch_id"] = arch_id
+    st.session_state["current_project_id"] = project_id
+    st.session_state["current_project_title"] = proj_dict.get("title") or proj_dict.get("subject", project_id)
+
+    # 1. Cargar historial de chat si existe
+    messages = proj_dict.get("messages", [])
+    if messages:
+        st.session_state["director_messages"] = messages
+    else:
+        st.session_state["director_messages"] = [
+            {
+                "role": "assistant",
+                "content": f"¡Hola! Has cargado el proyecto **{st.session_state['current_project_title']}** ({arch.icon} {arch.name}).\n\nTodos los parámetros, tomas y ficha de producción han sido restaurados. ¿Deseas modificar algo o iniciar producción?"
+            }
+        ]
+
+    # 2. Cargar director_spec
+    spec = proj_dict.get("director_spec", {})
+    if not spec:
+        spec = {
+            "archetype_id": arch_id,
+            "subject": st.session_state["current_project_title"],
+            "characters": "",
+            "dramatic_conflict": "",
+            "climax": "",
+            "chain_of_thought": "Proyecto cargado desde la biblioteca.",
+            "visual_style": arch.visual_strategy.value,
+            "aspect_ratio": proj_dict.get("aspect_ratio", arch.default_aspect_ratio),
+            "voice_preset": proj_dict.get("voice_id", arch.default_voice_id),
+            "music_genre": arch.default_music_genre,
+            "ready_to_produce": True,
+            "interview_step": 3,
+            "summary_reasoning": "Proyecto cargado desde Firestore / disco."
+        }
+    st.session_state["director_spec"] = spec
+
+    # 3. Cargar escenas en el Plan
+    scenes_data = proj_dict.get("scenes", [])
+    if scenes_data:
+        plan_scenes = []
+        for s in scenes_data:
+            v_spec = s.get("visual_spec", {}) if isinstance(s.get("visual_spec"), dict) else {}
+            plan_scenes.append(
+                ScenePlan(
+                    scene_id=s.get("scene_id", f"{project_id}_sc_{s.get('index', 0)}"),
+                    scene_index=int(s.get("index", 0)),
+                    prompt=s.get("prompt") or v_spec.get("subject", "Toma cinemática"),
+                    recommended_engine=s.get("engine") or s.get("recommended_engine") or v_spec.get("engine", "nanobanana"),
+                    assigned_provider=s.get("assigned_provider", "local"),
+                    shot_type=s.get("shot_type", "Cinematic Medium Shot"),
+                    duration_seconds=float(s.get("duration") or s.get("duration_seconds") or v_spec.get("duration_s", 4.5)),
+                    aspect_ratio=proj_dict.get("aspect_ratio", arch.default_aspect_ratio)
+                )
+            )
+        from app.core.orchestration.planner import ExecutionPlan
+        plan = ExecutionPlan(
+            project_id=project_id,
+            workflow_id=arch_id,
+            workflow_version=1,
+            visual_strategy=VisualStrategy.HYBRID,
+            steps=[],
+            scenes=plan_scenes,
+            estimated_total_duration_seconds=sum(sc.duration_seconds for sc in plan_scenes)
+        )
+        st.session_state["current_archetype_plan"] = plan
+    else:
+        plan = RequestPlanner.plan_request(
+            project_id=project_id,
+            user_prompt=st.session_state["current_project_title"],
+            workflow_id=arch_id,
+            visual_strategy=VisualStrategy.HYBRID,
+            preferences={
+                "aspect_ratio": proj_dict.get("aspect_ratio", arch.default_aspect_ratio),
+                "voice_engine": arch.default_voice_engine,
+                "voice_id": proj_dict.get("voice_id", arch.default_voice_id)
+            }
+        )
+        st.session_state["current_archetype_plan"] = plan
+
+    return True
+
+
 def _persist_current_project(project_id: str, title: str, plan):
     """Crea y persiste un ProjectEntity en storage/projects/ y respalda en Firebase Firestore."""
     try:
         repo = ProjectRepository()
+        scenes_list = []
+        scenes_export = []
+        for sc in getattr(plan, "scenes", []):
+            scenes_list.append(
+                SceneEntity(
+                    scene_id=f"{project_id}_sc_{sc.scene_index}",
+                    index=sc.scene_index,
+                    title=f"Toma {sc.scene_index + 1}: {sc.prompt[:30]}",
+                    status=SceneStatus.PENDING,
+                    visual_spec=VisualSpec(
+                        subject=sc.prompt,
+                        duration_s=float(getattr(sc, "duration_seconds", 4.0))
+                    )
+                )
+            )
+            scenes_export.append({
+                "scene_id": f"{project_id}_sc_{sc.scene_index}",
+                "index": sc.scene_index,
+                "prompt": sc.prompt,
+                "engine": getattr(sc, "recommended_engine", "nanobanana"),
+                "shot_type": getattr(sc, "shot_type", "Cinematic Medium Shot"),
+                "duration": float(getattr(sc, "duration_seconds", 4.0))
+            })
+
+        arch_id = st.session_state.get("director_arch_id", "PIXAR_3D_ANIMATION")
+        arch = ARCHETYPES_CATALOG.get(arch_id, list(ARCHETYPES_CATALOG.values())[0])
+        cur_spec = st.session_state.get("director_spec", {})
+        cur_messages = st.session_state.get("director_messages", [])
+
         proj = ProjectEntity(
             project_id=project_id,
             title=title,
-            status=ProjectStatus.CREATED,
+            status=ProjectStatus.DRAFT,
             version=1,
             created_at=time.time(),
             render_spec=RenderSpec(
@@ -109,34 +231,49 @@ def _persist_current_project(project_id: str, title: str, plan):
                 codec="h264",
                 burned_subtitles=True
             ),
-            scenes=[
-                SceneEntity(
-                    scene_id=f"{project_id}_sc_{sc.scene_index}",
-                    index=sc.scene_index,
-                    title=f"Toma {sc.scene_index + 1}: {sc.prompt[:30]}",
-                    status=SceneStatus.DRAFT,
-                    visual_spec=VisualSpec(
-                        prompt=sc.prompt,
-                        duration_seconds=sc.duration_seconds,
-                        engine_override=sc.recommended_engine
-                    )
-                ) for sc in getattr(plan, "scenes", [])
-            ]
+            scenes=scenes_list
         )
         repo.save_project(proj)
         
-        # Respaldo en Firestore
+        # Guardar también project.json enriquecido
+        base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+        target_dir = os.path.join(base_dir, "storage", "projects", project_id)
+        os.makedirs(target_dir, exist_ok=True)
+
+        full_project_data = {
+            "project_id": project_id,
+            "task_id": project_id,
+            "title": title,
+            "subject": cur_spec.get("subject", title),
+            "workflow_id": arch_id,
+            "workflow_name": arch.name,
+            "workflow_icon": arch.icon,
+            "status": "DRAFT",
+            "aspect_ratio": getattr(plan, "aspect_ratio", cur_spec.get("aspect_ratio", "16:9")),
+            "voice_id": getattr(plan, "voice_id", cur_spec.get("voice_preset", "vibevoice")),
+            "director_spec": cur_spec,
+            "scenes": scenes_export,
+            "messages": cur_messages,
+            "updated_at": time.time()
+        }
+        with open(os.path.join(target_dir, "project.json"), "w", encoding="utf-8") as f:
+            json.dump(full_project_data, f, indent=2, ensure_ascii=False)
+
+        # Respaldo relacional en Firestore en segundo plano (Zero UI Latency)
         try:
-            firebase_sync.backup_project_to_firebase({
-                "task_id": project_id,
-                "subject": title,
-                "script": str([s.prompt for s in getattr(plan, "scenes", [])]),
-                "has_video": False
-            })
+            firebase_sync.backup_project_to_firebase_async(full_project_data)
         except Exception:
             pass
-    except Exception:
-        pass
+
+        # Invalidar caché de escaneo de proyectos
+        try:
+            from webui.views.view_projects import invalidate_projects_cache
+            invalidate_projects_cache()
+        except Exception:
+            pass
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
 
 
 def render_studio_orchestrator_view():
@@ -146,10 +283,10 @@ def render_studio_orchestrator_view():
         <div style="margin-bottom: 12px;">
             <h2 style="font-size: 22px; font-weight: 800; color: #f8fafc; margin-bottom: 2px; display: flex; align-items: center; gap: 8px;">
                 🚀 Empezar — Director Creativo & Co-Creación
-                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">PRODUCCIÓN INTELIGENTE</span>
+                <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">INVESTIGACIÓN & GUION PROFUNDO</span>
             </h2>
             <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                Co-crea tu historia conversacionalmente, auto-completa el plan de producción y consolida todos los parámetros narrativos y técnicos.
+                Diálogo interactivo, investigación profunda con Cadena de Pensamiento (CoT), selección de opciones y consolidación automática.
             </p>
         </div>
     """, unsafe_allow_html=True)
@@ -204,13 +341,13 @@ def render_studio_orchestrator_view():
         col_chat, col_ficha = st.columns([6, 5], gap="medium")
 
         # -----------------------------------------------------
-        # COLUMNA IZQUIERDA: PULIDO CONVERSACIONAL
+        # COLUMNA IZQUIERDA: PULIDO CONVERSACIONAL & INVESTIGACIÓN
         # -----------------------------------------------------
         with col_chat:
             st.markdown("##### 💬 Pulido Conversacional de la Historia")
             
             # Contenedor con scroll para el historial de mensajes
-            chat_container = st.container(height=340, border=True)
+            chat_container = st.container(height=320, border=True)
             with chat_container:
                 for msg in st.session_state.get("director_messages", []):
                     if msg["role"] == "user":
@@ -218,46 +355,46 @@ def render_studio_orchestrator_view():
                     else:
                         st.chat_message("assistant", avatar="🎬").markdown(msg["content"])
 
-            # Sugerencias interactivas de co-creación (Pills en cuadrícula 2x2)
+            # Sugerencias interactivas de co-creación (Pills con las opciones del Director)
             suggestions = st.session_state.get("director_suggestions", [])
             if suggestions:
-                st.markdown("<div style='font-size:11.5px; font-weight:700; color:#38bdf8; margin: 4px 0 2px 0;'>💡 Opciones de Dirección Sugeridas (Haz clic para consolidar):</div>", unsafe_allow_html=True)
-                for i in range(0, len(suggestions), 2):
-                    c_sug1, c_sug2 = st.columns(2)
-                    with c_sug1:
-                        sug_txt1 = suggestions[i]
-                        clean_lbl1 = sug_txt1.replace("**", "").replace("###", "").strip()
-                        if st.button(f"👉 {clean_lbl1}", key=f"sug_btn_{i}", use_container_width=True, help="Incorporar esta dirección creativa al proyecto"):
-                            _handle_user_director_message(f"Elegir esta opción: {sug_txt1}", selected_arch_id)
-                            st.rerun()
-                    if i + 1 < len(suggestions):
-                        with c_sug2:
-                            sug_txt2 = suggestions[i + 1]
-                            clean_lbl2 = sug_txt2.replace("**", "").replace("###", "").strip()
-                            if st.button(f"👉 {clean_lbl2}", key=f"sug_btn_{i+1}", use_container_width=True, help="Incorporar esta dirección creativa al proyecto"):
-                                _handle_user_director_message(f"Elegir esta opción: {sug_txt2}", selected_arch_id)
-                                st.rerun()
+                st.markdown("<div style='font-size:11.5px; font-weight:700; color:#38bdf8; margin: 4px 0 2px 0;'>💡 Opciones de Dirección Sugeridas por el Director:</div>", unsafe_allow_html=True)
+                for i, sug_txt in enumerate(suggestions):
+                    clean_lbl = sug_txt.replace("**", "").replace("###", "").strip()
+                    if st.button(f"👉 {clean_lbl}", key=f"sug_btn_{i}", use_container_width=True, help="Elegir esta opción e investigar a fondo el guion"):
+                        _handle_user_director_message(f"Elegir esta opción y desarrollar su guion a fondo: {sug_txt}", selected_arch_id)
+                        st.rerun()
 
-            # Caja de texto para hablar con el director
-            c_in1, c_in2 = st.columns([8, 2], vertical_alignment="bottom")
-            with c_in1:
-                user_director_input = st.text_input(
-                    "Tu mensaje / idea para el Director:",
-                    placeholder=f"Ej: Quiero contar la historia de {arch.name} con un tono muy cinemático...",
+            # Caja de texto para hablar libremente o personalizar la idea
+            with st.expander("✏️ Escribir Idea Libre o Personalizar Detalles", expanded=(len(suggestions) == 0)):
+                user_director_input = st.text_area(
+                    "Tu mensaje / idea / personalización:",
+                    placeholder=f"Ej: Quiero la Opción A pero que el cohete tenga luces de neón y que la abuela de Mateo les ayude en el tejado...",
                     key="input_user_director_text",
-                    label_visibility="collapsed"
+                    height=70
                 )
-            with c_in2:
-                if st.button("Enviar 💬", type="primary", use_container_width=True, key="btn_send_director_msg"):
+                if st.button("Enviar / Investigar Idea 💬", type="primary", use_container_width=True, key="btn_send_director_msg"):
                     if user_director_input.strip():
                         _handle_user_director_message(user_director_input, selected_arch_id)
                         st.rerun()
+
+            # -------------------------------------------------
+            # CADENA DE PENSAMIENTO & RAZONAMIENTO NARRATIVO (CoT)
+            # -------------------------------------------------
+            spec = st.session_state.get("director_spec", {})
+            cot_text = spec.get("chain_of_thought", "")
+            if cot_text and len(cot_text) > 10 and cot_text != "Análisis narrativo inicial.":
+                with st.expander("🧠 Cadena de Pensamiento & Razonamiento Narrativo del Director", expanded=False):
+                    st.markdown(f"""
+                        <div style="padding: 8px 12px; background: rgba(15, 23, 42, 0.85); border-left: 3px solid #818cf8; border-radius: 4px; font-size: 11.5px; color: #cbd5e1; line-height: 1.5;">
+                            <b>Análisis Simbólico & Estético:</b><br>{cot_text}
+                        </div>
+                    """, unsafe_allow_html=True)
 
         # -----------------------------------------------------
         # COLUMNA DERECHA: FICHA DE PRODUCCIÓN EN VIVO
         # -----------------------------------------------------
         with col_ficha:
-            spec = st.session_state.get("director_spec", {})
             is_ready = spec.get("ready_to_produce", False)
             step_num = spec.get("interview_step", 1)
             project_id = st.session_state.get("current_project_id", "proj_videopro_draft")
@@ -268,7 +405,7 @@ def render_studio_orchestrator_view():
             st.markdown("##### 📋 Ficha de Producción & Consolidación")
             
             badge_color = "#10b981" if is_ready else "#f59e0b"
-            badge_text = "🟢 LISTO PARA PRODUCCIÓN" if is_ready else f"🟡 EN PULIDO NARRATIVO (Paso {step_num}/3)"
+            badge_text = "🟢 LISTO PARA PRODUCCIÓN" if is_ready else f"🟡 EN INVESTIGACIÓN (Paso {step_num}/3)"
             
             st.markdown(f"""
                 <div style="display: flex; justify-content: space-between; align-items: center; padding: 6px 12px; background: rgba(30, 41, 59, 0.6); border-radius: 6px; border: 1px solid #334155; margin-bottom: 8px;">
@@ -374,14 +511,14 @@ def render_studio_orchestrator_view():
                 with m_c3:
                     st.metric("Coste Estimado", "$0.00 (ZeroGPU)")
 
-                # Desglose de Escenas con Ópticas y Motores (Editable)
-                st.markdown("**🎬 Desglose de Escenas & Ruteo Óptico:**")
-                with st.container(height=160, border=True):
+                # Desglose de Escenas con Guion Literario y Ruteo Óptico (Editable)
+                st.markdown("**🎬 Desglose de Escenas & Guion Profundo:**")
+                with st.container(height=170, border=True):
                     for sc in plan.scenes:
                         with st.expander(f"Toma {sc.scene_index + 1}: {sc.prompt[:40]}... ({sc.recommended_engine})", expanded=False):
                             c_sc_p, c_sc_eng = st.columns([7, 3])
                             with c_sc_p:
-                                edited_prompt = st.text_area(f"Prompt Toma {sc.scene_index + 1}:", value=sc.prompt, height=65, key=f"p_sc_{sc.scene_index}")
+                                edited_prompt = st.text_area(f"Prompt Visual Toma {sc.scene_index + 1}:", value=sc.prompt, height=65, key=f"p_sc_{sc.scene_index}")
                                 if edited_prompt != sc.prompt:
                                     sc.prompt = edited_prompt
                             with c_sc_eng:
@@ -413,7 +550,7 @@ def render_studio_orchestrator_view():
                         progress_slot = st.empty()
                         with progress_slot.container():
                             st.info(f"⏳ **Iniciando Producción Cinemática** para `{project_title}`...")
-                            prog_bar = st.progress(0.1, text="[1/5] Compilando Escenas y Guion...")
+                            prog_bar = st.progress(0.1, text="[1/5] Compilando Escenas y Guion Literario...")
                             time.sleep(0.3)
                             
                             job = RequestPlanner.create_job_from_plan(plan)
@@ -567,7 +704,7 @@ def _handle_user_director_message(user_text: str, arch_id: str):
     messages.append({"role": "user", "content": user_text})
     
     # 2. Obtener respuesta del Director Semántico
-    with st.spinner("El Director Creativo está analizando tu historia y adaptando el plan..."):
+    with st.spinner("El Director Creativo está investigando y estructurando la historia con Cadena de Pensamiento..."):
         res = semantic_director.chat_with_director(messages, user_text)
     
     # 3. Guardar respuesta y sugerencias
@@ -603,7 +740,7 @@ def _handle_user_director_message(user_text: str, arch_id: str):
         }
     )
     
-    # 6. Integrar tomas generadas por el Director si existen
+    # 6. Integrar tomas profundas generadas por el Director si existen
     scene_beats = spec.get("scene_beats")
     if scene_beats and isinstance(scene_beats, list):
         custom_scenes = []

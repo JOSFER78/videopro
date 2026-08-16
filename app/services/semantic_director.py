@@ -50,6 +50,7 @@ Tu misión es guiar un diálogo interactivo de **PULIDO DE INFORMACIÓN** con el
   "characters": "Nombre y descripción de los personajes principales",
   "dramatic_conflict": "Conflicto central y dilema de la historia",
   "climax": "Punto álgido y resolución dramática",
+  "chain_of_thought": "Análisis profundo de la historia, simbolismo del objeto, psicología de personajes, contraste social y paleta de iluminación",
   "visual_style": "Descripción detallada del estilo de arte y estética",
   "recommended_source": "google_flow" | "flux" | "nanobanana" | "stock" | "hybrid",
   "aspect_ratio": "9:16" | "16:9",
@@ -58,9 +59,26 @@ Tu misión es guiar un diálogo interactivo de **PULIDO DE INFORMACIÓN** con el
   "music_genre": "pixar_orchestral" | "synthwave" | "lofi" | "historical_strings" | "minimal_ambient",
   "narrative_tone": "emotivo / épico / solemne / dinámico / analítico",
   "scene_beats": [
-    {"index": 1, "prompt": "Plano 1: Establecimiento en la corrala madrileña...", "engine": "flux", "duration": 4.0},
-    {"index": 2, "prompt": "Plano 2: Los dos niños construyendo su proyecto secreto...", "engine": "nanobanana", "duration": 4.5},
-    {"index": 3, "prompt": "Plano 3: El momento de la separación y la promesa...", "engine": "flux", "duration": 5.0}
+    {
+      "index": 1,
+      "title": "Amanecer en la Corrala",
+      "narration": "En las mañanas doradas de Lavapiés, la ciudad despierta con olor a café y ecos de tranvía...",
+      "prompt": "Animación 3D estilo Pixar, plano general de una corrala madrileña al amanecer con ropa tendida, luz dorada volumétrica, texturas cálidas de terracota, 8k render",
+      "engine": "flux_video",
+      "shot_type": "wide_establishing",
+      "duration": 4.5,
+      "sfx_notes": "Sonido de gorriones y campanas lejanas"
+    },
+    {
+      "index": 2,
+      "title": "El Pacto Secreto",
+      "narration": "Mateo y Gonzalo unieron sus mundos con un cohete hecho de cajas de fruta y sueños de astronauta...",
+      "prompt": "Animación 3D estilo Pixar, dos niños de 9 años sonriendo cómplices en una azotea de tejas rojas mientras arman una nave de cartón con botes de témpera, iluminación cinematográfica cálida",
+      "engine": "nanobanana",
+      "shot_type": "medium_character",
+      "duration": 5.0,
+      "sfx_notes": "Risas infantiles y cinta adhesiva"
+    }
   ],
   "estimated_paragraphs": 2,
   "ready_to_produce": true | false,
@@ -112,6 +130,10 @@ def chat_with_director(
     spec = {
         "archetype_id": detected_archetype or "HISTORICAL_SCRAPING",
         "subject": user_input,
+        "characters": "",
+        "dramatic_conflict": "",
+        "climax": "",
+        "chain_of_thought": "Análisis narrativo inicial.",
         "visual_style": "Documental Cinemático",
         "recommended_source": "hybrid",
         "aspect_ratio": "9:16",
@@ -139,7 +161,7 @@ def chat_with_director(
             logger.warning(f"Failed to parse director JSON spec: {e}")
 
     # Extraer sugerencias interactivas generadas por el Director o usar contextuales
-    extracted_pills = _extract_pills_from_text(clean_text)
+    extracted_pills = _extract_pills_from_text(raw_response)
     arch_id = spec.get("archetype_id", detected_archetype or "HISTORICAL_SCRAPING")
     suggestions = extracted_pills if extracted_pills else _generate_contextual_suggestions(arch_id, spec)
 
@@ -153,26 +175,25 @@ def chat_with_director(
 
 def _extract_pills_from_text(text: str) -> List[str]:
     """Extrae opciones, pills o sugerencias generadas dinámicamente por el LLM en el texto."""
-    pills = []
-    lines = text.split("\n")
-    for line in lines:
-        l_strip = line.strip()
-        if not l_strip:
+    items = []
+    # Dividir texto por asteriscos, viñetas o saltos de línea
+    parts = re.split(r'[\*\•\n]+', text)
+    for p in parts:
+        p = p.strip(' -:#\n\t')
+        if not p:
             continue
-        
-        # Detectar líneas con viñetas, emojis o etiquetas de Pill/Opción
-        m = re.match(r"^[\*\-\•\d\.]+\s*(.+)$", l_strip)
-        if m:
-            content = m.group(1).strip()
-            if len(content) > 8 and any(k in content.lower() for k in ["pill", "opción", "opcion", ":", "(", "🚀", "⚽", "🎨", "🧤", "🏙️", "📜", "⚡", "💡"]):
-                pills.append(content)
-        elif any(l_strip.startswith(emoji) for emoji in ["⚽", "🚀", "🎨", "🧤", "✨", "💡", "🏷️", "🎙️", "📜", "⚡", "🏙️"]):
-            if len(l_strip) > 8:
-                pills.append(l_strip)
-
-    if pills:
-        return pills[:4]
+        if any(w in p.lower() for w in ['sugerencias rápidas', 'pulido:', 'sugerencia rápida']):
+            continue
+        if any(w in p.lower() for w in ['opción', 'opcion', 'pill', 'opción a', 'opción b', 'opción c', 'opción d']) or any(e in p for e in ['🚀', '📻', '🏎️', '⚽', '🎨', '🧤', '🌲', '✨', '🏷️', '📜', '🏙️', '⚡', '🧸']):
+            clean = re.sub(r'---.*$', '', p).strip()
+            # Limpiar etiquetas markdown bold redundantes
+            clean = clean.replace('**', '').strip()
+            if len(clean) > 8:
+                items.append(clean)
+    if items:
+        return items[:4]
     return []
+
 
 
 def _generate_contextual_suggestions(archetype_id: str, spec: Dict[str, Any]) -> List[str]:

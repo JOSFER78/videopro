@@ -25,6 +25,14 @@ logger = logging.getLogger("videopro.settings")
 dialog_fn = getattr(st, "dialog", getattr(st, "experimental_dialog", None))
 
 
+@st.cache_data(show_spinner=False)
+def _load_cached_matrix_html(path: str) -> str:
+    if os.path.isfile(path):
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+    return ""
+
+
 def _badge_html(badge_str: str) -> str:
     """Convierte el string de badge de health_checker en una etiqueta HTML con estilo."""
     if "ONLINE" in badge_str or "🟢" in badge_str:
@@ -501,8 +509,7 @@ def render_view():
         studio_rendered = False
         if matrix_view_mode == "studio" and os.path.exists(matrix_file):
             try:
-                with open(matrix_file, "r", encoding="utf-8") as f:
-                    matrix_html = f.read()
+                matrix_html = _load_cached_matrix_html(matrix_file)
 
                 # Inyectar datos vivos de Python para sincronización inmediata y exacta
                 table_items = registry.get_matrix_table_data()

@@ -45,13 +45,24 @@ class RequestPlanner:
     def plan_request(
         project_id: str,
         user_prompt: str,
-        target_duration: int = 60,
+        target_duration: Any = 60,
         workflow_id: str = "DOCUMENTARY_MASTER",
         visual_strategy: VisualStrategy = VisualStrategy.HYBRID,
         preferences: Optional[Dict[str, Any]] = None
     ) -> ExecutionPlan:
         """Genera un plan de ejecución completo resolviendo capabilities, engines y providers."""
         preferences = preferences or {}
+        
+        # Flexibilidad posicional: si el 3er argumento fue el workflow_id como string:
+        if isinstance(target_duration, str) and not target_duration.isdigit():
+            workflow_id = target_duration
+            target_duration = 60
+        else:
+            try:
+                target_duration = int(target_duration)
+            except (ValueError, TypeError):
+                target_duration = 60
+
         workflow = get_workflow(workflow_id) or WORKFLOW_TEMPLATES.get("DOCUMENTARY_MASTER")
 
         planned_steps: List[PlannedStep] = []

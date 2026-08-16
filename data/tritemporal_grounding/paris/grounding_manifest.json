@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "paris",
+  "city_name": "París",
+  "country": "Francia",
+  "generated_at": "2026-08-16T15:26:24Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "París Medieval / Borbónico (Reinado de Luis XIII, 1626)",
+      "urban_morphology": "Île de la Cité con Notre-Dame, Pont Neuf recién terminado de piedra sin casas, muralla de Felipe Augusto y casas con entramado de madera en Le Marais.",
+      "social_life": "Mosqueteros, barqueros del Sena, comerciantes en el mercado de Les Halles.",
+      "cartography_source": "Plano de Mérian (1615) / Cartografía Histórica de París de Vassalieu",
+      "lighting": "Luz tenue matinal filtrada por bruma del Sena, chimeneas de piedra caliza de Lutecia."
+    },
+    "present_2026": {
+      "epoch": "Ciudad de la Luz (2026)",
+      "urban_morphology": "Bulevares Haussmannianos con techos de zinc, Torre Eiffel iluminada por centelleos dorados, Notre-Dame restaurada, pasarelas peatonales verdes.",
+      "social_life": "Cafés de bulevar, artistas en Montmartre, cruceros fluviales turísticos en el Sena.",
+      "lighting": "Luz dorada cálida en fachadas de piedra caliza, destellos de cristal y farolas históricas."
+    },
+    "future_2226": {
+      "epoch": "Vertical Garden Paris 2226",
+      "urban_morphology": "Torres bioclimáticas espirales de madera contralaminada y grafeno que integran el estilo Haussmann a 300m de altura, el Sena convertido en biosfera fluvial cristalina.",
+      "social_life": "Población en distritos de 5 minutos, agricultura urbana en azoteas, cápsulas de transporte neumático subterráneo.",
+      "science_citation": "Paris Smart City 2050-2200 / Vincent Callebaut Biophilic Architecture Report",
+      "lighting": "Bioluminiscencia vegetal suave en fachadas, iluminación solar pasiva en bulevares."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_NOTRE_DAME",
+      "name": "Catedral de Notre-Dame & Île de la Cité",
+      "lat": 48.853,
+      "lon": 2.3499,
+      "alt_agl": 65.0
+    },
+    {
+      "id": "WP2_EIFFEL_TOWER",
+      "name": "Torre Eiffel & Campo de Marte",
+      "lat": 48.8584,
+      "lon": 2.2945,
+      "alt_agl": 160.0
+    },
+    {
+      "id": "WP3_LOUVRE",
+      "name": "Palacio del Louvre & Pirámide de Cristal",
+      "lat": 48.8606,
+      "lon": 2.3376,
+      "alt_agl": 50.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_NOTRE_DAME_NORTH_APPROACH",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_NOTRE_DAME_EAST_FLANK",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_NOTRE_DAME_SOUTH_RETREAT",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_NOTRE_DAME_WEST_FLANK",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_NOTRE_DAME_DIVE_DOWN",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_NOTRE_DAME_ASCENT_UP",
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "latitude": 48.853,
+      "longitude": 2.3499,
+      "altitude_agl": 65.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_NORTH_APPROACH",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_EAST_FLANK",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_SOUTH_RETREAT",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_WEST_FLANK",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_DIVE_DOWN",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_EIFFEL_TOWER_ASCENT_UP",
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "latitude": 48.8584,
+      "longitude": 2.2945,
+      "altitude_agl": 160.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_NORTH_APPROACH",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_EAST_FLANK",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_SOUTH_RETREAT",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_WEST_FLANK",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_DIVE_DOWN",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_LOUVRE_ASCENT_UP",
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "latitude": 48.8606,
+      "longitude": 2.3376,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_NOTRE_DAME",
+      "landmark": "Catedral de Notre-Dame & Île de la Cité",
+      "coords": {
+        "lat": 48.853,
+        "lon": 2.3499,
+        "alt_agl": 65.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_EIFFEL_TOWER",
+      "landmark": "Torre Eiffel & Campo de Marte",
+      "coords": {
+        "lat": 48.8584,
+        "lon": 2.2945,
+        "alt_agl": 160.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_LOUVRE",
+      "landmark": "Palacio del Louvre & Pirámide de Cristal",
+      "coords": {
+        "lat": 48.8606,
+        "lon": 2.3376,
+        "alt_agl": 50.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_NOTRE_DAME",
+        "name": "Catedral de Notre-Dame & Île de la Cité",
+        "lat": 48.853,
+        "lon": 2.3499,
+        "alt_agl": 65.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "París",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_EIFFEL_TOWER",
+        "name": "Torre Eiffel & Campo de Marte",
+        "lat": 48.8584,
+        "lon": 2.2945,
+        "alt_agl": 160.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "París",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_LOUVRE",
+        "name": "Palacio del Louvre & Pirámide de Cristal",
+        "lat": 48.8606,
+        "lon": 2.3376,
+        "alt_agl": 50.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "París",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

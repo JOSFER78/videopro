@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "dubai",
+  "city_name": "Dubái",
+  "country": "Emiratos Árabes Unidos",
+  "generated_at": "2026-08-16T15:26:58Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Costa de los Pescadores de Perlas & Dhows (c. 1820 / Época Tradicional)",
+      "urban_morphology": "Asentamiento de pescadores de perlas de Al Fahidi, cabañas de hojas de palma (Barasti), torres de viento tradicionales (Barjeel) de barro y coral, dhows de madera en Dubai Creek.",
+      "social_life": "Buceadores de perlas beduinos, mercaderes de incienso y telas, camellos junto a la costa desértica.",
+      "cartography_source": "Cartografía Británica del Golfo Pérsico & Archivos Históricos de Al Fahidi",
+      "lighting": "Sol abrasador del desierto, arena dorada resplandeciente, bruma marina al atardecer."
+    },
+    "present_2026": {
+      "epoch": "Capital del Hiper-Lujo y Rascacielos (2026)",
+      "urban_morphology": "Burj Khalifa alzándose a 828 metros, Dubai Marina con yates de lujo, islas artificiales Palm Jumeirah, autopistas de 14 carriles.",
+      "social_life": "Multitudes cosmopolitas globales, coches superdeportivos, fuentes danzantes con espectáculos láser.",
+      "lighting": "Reflejos de sol en fachadas espejadas y espectáculo de luces LED de rascacielos por la noche."
+    },
+    "future_2226": {
+      "epoch": "Solar Arcology Dubai 2226",
+      "urban_morphology": "Megatorres bioclimáticas autosuficientes de 3.000 metros de altura con sistemas de enfriamiento geotérmico pasivo, corredores hidropónicos agrícolas gigantescos que transforman el desierto en selva bioclimática, tubos Hyperloop intercontinentales.",
+      "social_life": "Civilización post-hidrocarburos propulsada por fusión solar pura y desalinización masiva sustentable.",
+      "science_citation": "Dubai Future Foundation & MIT Center for Sustainable Desert Arcologies 2200",
+      "lighting": "Luminiscencia dorada solar reflejada en paneles fotovoltaicos transparentes de perovskita."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_BURJ_KHALIFA",
+      "name": "Burj Khalifa & Lago de las Fuentes",
+      "lat": 25.1972,
+      "lon": 55.2744,
+      "alt_agl": 220.0
+    },
+    {
+      "id": "WP2_DUBAI_CREEK",
+      "name": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "lat": 25.2631,
+      "lon": 55.2972,
+      "alt_agl": 50.0
+    },
+    {
+      "id": "WP3_PALM_JUMEIRAH",
+      "name": "Palm Jumeirah & Hotel Atlantis",
+      "lat": 25.1124,
+      "lon": 55.139,
+      "alt_agl": 170.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_NORTH_APPROACH",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_EAST_FLANK",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_SOUTH_RETREAT",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_WEST_FLANK",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_DIVE_DOWN",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_BURJ_KHALIFA_ASCENT_UP",
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "latitude": 25.1972,
+      "longitude": 55.2744,
+      "altitude_agl": 220.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_NORTH_APPROACH",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_EAST_FLANK",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_SOUTH_RETREAT",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_WEST_FLANK",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_DIVE_DOWN",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_DUBAI_CREEK_ASCENT_UP",
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "latitude": 25.2631,
+      "longitude": 55.2972,
+      "altitude_agl": 50.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_NORTH_APPROACH",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_EAST_FLANK",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_SOUTH_RETREAT",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_WEST_FLANK",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_DIVE_DOWN",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_PALM_JUMEIRAH_ASCENT_UP",
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "latitude": 25.1124,
+      "longitude": 55.139,
+      "altitude_agl": 170.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_BURJ_KHALIFA",
+      "landmark": "Burj Khalifa & Lago de las Fuentes",
+      "coords": {
+        "lat": 25.1972,
+        "lon": 55.2744,
+        "alt_agl": 220.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_DUBAI_CREEK",
+      "landmark": "Dubai Creek & Barrio Histórico Al Fahidi",
+      "coords": {
+        "lat": 25.2631,
+        "lon": 55.2972,
+        "alt_agl": 50.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_PALM_JUMEIRAH",
+      "landmark": "Palm Jumeirah & Hotel Atlantis",
+      "coords": {
+        "lat": 25.1124,
+        "lon": 55.139,
+        "alt_agl": 170.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_BURJ_KHALIFA",
+        "name": "Burj Khalifa & Lago de las Fuentes",
+        "lat": 25.1972,
+        "lon": 55.2744,
+        "alt_agl": 220.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Dubái",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_DUBAI_CREEK",
+        "name": "Dubai Creek & Barrio Histórico Al Fahidi",
+        "lat": 25.2631,
+        "lon": 55.2972,
+        "alt_agl": 50.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Dubái",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_PALM_JUMEIRAH",
+        "name": "Palm Jumeirah & Hotel Atlantis",
+        "lat": 25.1124,
+        "lon": 55.139,
+        "alt_agl": 170.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Dubái",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

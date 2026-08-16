@@ -39,8 +39,8 @@ except Exception:
         def run(self, *args, **kwargs):
             pass
 
-# WebUI 作为独立入口运行时，需要让项目根目录优先于第三方依赖，
-# 避免依赖中的同名 app 包遮蔽 MoneyPrinterTurbo 自己的 app 包。
+# WebUI como entrada principal: priorizar la raíz del proyecto para
+# asegurar que el paquete app de VideoPro Studio se cargue correctamente.
 root_dir = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 if root_dir in sys.path:
     sys.path.remove(root_dir)
@@ -72,32 +72,36 @@ from app.utils.logging_utils import configure_terminal_logger
 from app.utils import utils
 
 st.set_page_config(
-    page_title="VideoPro Creative Studio",
+    page_title="VideoPro Studio",
     page_icon="🎬",
     layout="wide",
     initial_sidebar_state="expanded",
     menu_items={
-        "Report a bug": "https://github.com/harry0703/MoneyPrinterTurbo/issues",
-        "About": "# VideoPro Creative Studio\nAI Autonomous Video Director & Multi-Layer Creative Studio.\n\nhttps://143-47-35-167.sslip.io/pro/videopro/",
+        "About": "# VideoPro Studio\nAI Autonomous Video Director & Multi-Layer Creative Studio.\n\nhttps://143-47-35-167.sslip.io/pro/videopro/",
     },
 )
 
 
-# Streamlit 1.59 会在页面右上角默认展示 Deploy、skills nudge 等平台入口。
-# MoneyPrinterTurbo 是面向终端用户的本地工具，这些入口会造成顶部大块空白，
-# 也会让新用户误以为需要安装额外组件。这里统一隐藏 Streamlit 平台工具栏，
-# 并压缩主容器顶部留白，只保留项目自己的标题、语言选择和业务设置区域。
-style_file = Path(__file__).with_name("styles.css")
-streamlit_style = f"<style>{style_file.read_text(encoding='utf-8')}</style>"
-st.markdown(streamlit_style, unsafe_allow_html=True)
-# 定义资源目录
+@st.cache_data(show_spinner=False)
+def _load_cached_style():
+    style_path = Path(__file__).with_name("styles.css")
+    if style_path.is_file():
+        return f"<style>{style_path.read_text(encoding='utf-8')}</style>"
+    return ""
+
+st.markdown(_load_cached_style(), unsafe_allow_html=True)
+
+# Directorios de recursos
 font_dir = os.path.join(root_dir, "resource", "fonts")
 song_dir = os.path.join(root_dir, "resource", "songs")
 i18n_dir = os.path.join(root_dir, "webui", "i18n")
 config_file = os.path.join(root_dir, "webui", ".streamlit", "webui.toml")
-# 语言列表必须在会话状态初始化前可用，首次访问时才能把浏览器 locale 映射到
-# 项目真正支持的语言；自动识别结果只进入当前会话，不修改全局配置。
-locales = utils.load_locales(i18n_dir)
+
+@st.cache_data(show_spinner=False)
+def _load_cached_locales(path_dir: str):
+    return utils.load_locales(path_dir)
+
+locales = _load_cached_locales(i18n_dir)
 DEFAULT_CHATTERBOX_BASE_URL = "http://127.0.0.1:4123/v1"
 DEFAULT_CHATTERBOX_MODEL = "chatterbox"
 DEFAULT_CHATTERBOX_VOICES = ["default-Female"]

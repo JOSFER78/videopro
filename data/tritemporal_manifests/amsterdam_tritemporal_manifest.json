@@ -1,15 +1,25 @@
 {
-  "story_id": "CHRONOFLIGHT_AMSTERDAM_1786887487",
-  "channel_brand": "ChronoFlight: Vuelos Temporales & Flow Music",
+  "story_id": "CHRONODRIFT_EP05_AMSTERDAM",
+  "episode_number": 5,
+  "channel_brand": "CHRONODRIFT",
+  "tagline": "Urban Time Travel & Future Cities (1626 ➔ 2026 ➔ 2226)",
+  "city_key": "amsterdam",
   "city_name": "Ámsterdam",
   "total_duration_sec": 42.0,
   "target_engine": "gemini-omni-flash-preview",
   "keyframe_engine": "gemini-3.1-flash-image",
+  "zero_veo_policy": true,
   "audio_spec": {
     "tempo_bpm": 118,
-    "style": "Flow Chillhop / Neoclassical Ambient",
+    "style": "Flow Chillhop / Urban Lo-Fi & Darksynth",
     "loudness_target_lufs": -14.0,
-    "ducking_depth_db": -18.0
+    "ducking_depth_db": -18.0,
+    "true_peak_dbtp": -1.0
+  },
+  "hook_strategy": {
+    "initial_hook_0_5s": "Entrada rasante bajo un puente levadizo de madera donde los mercaderes se transforman en ciclistas modernos.",
+    "target_first_minute_retention": ">90%",
+    "target_avd": ">72%"
   },
   "canonical_shots": [
     {
@@ -18,17 +28,36 @@
       "epoch": "TRANSITION_1626",
       "duration_sec": 4.5,
       "time_window": "0:00 - 0:04.5",
-      "camera_motion": "Picado vertical a 140 km/h desde 800m AGL atravesando un banco de nubes; al disiparse, el paisaje revela el trazado de 1626.",
-      "prompt_brief": "High-speed vertical FPV dive through atmospheric volumetric clouds down into historic Ámsterdam in the year 1626. 17th-century wooden docks, historic windmills, brick rooftops, sailing ships in the river. Cinematic 35mm Kodak 500T, f/2.8, hyper-detailed textures.",
+      "camera_motion": "Picado vertical a 140 km/h desde 850m AGL atravesando nubes volumétricas; al disiparse, el paisaje revela el trazado de Ámsterdam en 1626.",
+      "prompt_brief": "Epic high-speed vertical FPV dive through atmospheric volumetric clouds down into historic Ámsterdam (Siglo de Oro Neerlandés) in the year 1626. Authentic period wooden structures, historic waterways, period ships, brick rooftops. Cinematic 35mm Kodak 500T, f/2.8, hyper-detailed photorealism.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Historic cityscape of Ámsterdam (Siglo de Oro Neerlandés) in the year 1626",
+        "visual_specifics": "Authentic 1626 architecture, historical docks, timber and stone materials, volumetric mist",
+        "action": "Vertical camera dive from stratosphere entering urban canopy at high speed and stabilizing at 35m AGL",
+        "camera": "Continuous 6-DoF FPV dive, focal length 18mm, pitch -80deg to -15deg smooth transition",
+        "lighting": "Golden morning sunlight breaking through parting volumetric cloud layers",
+        "environment": "Historic topography of Ámsterdam with authentic water bodies and natural vegetation",
+        "audio": "Wind rushing Doppler dive effect transitioning into subtle distant period bells and water lap",
+        "style": "Cinematic documentary, 60fps, 4K UHD, hyperrealistic photorealism, zero AI distortion"
+      },
+      "keyframe_prompts_7": [
+        "KF1: High altitude 850m above Ámsterdam looking straight down into cloud deck, sunlight edge",
+        "KF2: Piercing through dense volumetric white clouds, motion blur on lens periphery",
+        "KF3: Breaking out below clouds at 450m, initial outline of Siglo de Oro Neerlandés 1626 visible",
+        "KF4: Mid-dive at 250m, distinguishing wooden rooftops, historic river courses and sailing vessels",
+        "KF5: Low approach at 120m, architectural details of historic landmark buildings emerging",
+        "KF6: Leveling out at 60m, detailed wooden beams, street cobblestones and period citizens visible",
+        "KF7: Stable forward flight at 35m, banking right into the main historic thoroughfare"
+      ],
       "hud_overlay": {
         "title": "SALTO TEMPORAL: ÁMSTERDAM 1626",
-        "telemetry": "ALT: 850m ➔ 45m | VEL: 140 km/h | COORD: CANÓNICA",
-        "fact_text": "En 1626 la ciudad concentraba el 40% del comercio marítimo global.",
-        "citation": "Archivos Históricos & Cartografía Siglo XVII"
+        "telemetry": "ALT: 850m ➔ 35m | VEL: 140 km/h | FOV: 110° | EBU -14 LUFS",
+        "fact_text": "En 1626 la urbe era el núcleo neurálgico de comercio y cultura de la región.",
+        "citation": "Archivos Cartográficos Históricos & Overpass 3D Grounding"
       },
       "audio_cue": {
-        "music_layer": "Synthwave/Chillhop intro beat (118 BPM)",
-        "foley": "Viento Doppler de hélice en picado + campanas de bronce lejanas",
+        "music_layer": "Intro beat Flow Chillhop / Darksynth (118 BPM) con filtrado suave",
+        "foley": "Silbido de viento Doppler + campanas de bronce históricas",
         "ducking_db": -18.0
       }
     },
@@ -38,17 +67,36 @@
       "epoch": "PAST_1626",
       "duration_sec": 6.0,
       "time_window": "0:04.5 - 0:10.5",
-      "camera_motion": "Vuelo rasante a 1.8m del suelo deslizándose entre carruajes de madera, mercados de especias y ciudadanos de época.",
-      "prompt_brief": "Low-altitude FPV drift at 1.8m above 17th-century muddy cobblestones in historic Ámsterdam. Merchants in authentic period woolen clothing, wooden market stalls with barrels and textiles, timber-framed brick facades with drying laundry. Warm amber morning sunlight, volumetric dust.",
+      "camera_motion": "Vuelo rasante a 1.8m del suelo deslizándose entre carruajes, mercados y arquitectura original de 1626.",
+      "prompt_brief": "Low-altitude FPV drift at 1.8m above ground level in historic Ámsterdam 1626. Construcción de los canales Grachtengordel, almacenes VOC, puentes levadizos y barcos de 3 mástiles. Citizens in authentic period clothing, wooden stalls, warm amber morning sunlight, volumetric dust.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Street-level daily life and architecture of Ámsterdam in 1626",
+        "visual_specifics": "Construcción de los canales Grachtengordel, almacenes VOC, puentes levadizos y barcos de 3 mástiles, period textiles, wooden barrels, horse carriages, authentic materials",
+        "action": "Smooth low-altitude FPV slalom between buildings, market stalls and historic facades",
+        "camera": "Wide-angle 16mm lens, altitude 1.8m AGL, smooth roll +8deg / -8deg dynamic banking",
+        "lighting": "Warm morning side-light casting long shadows on cobblestones and wooden planks",
+        "environment": "Historic streetscape of Ámsterdam with authentic 17th-century textures and atmospheric smoke",
+        "audio": "Cobblestone clatter, distant merchant calls, creaking timber, flowing water",
+        "style": "Authentic historical cinematic realism, 60fps, rich micro-contrast"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Entry into narrow historic lane of Ámsterdam 1626, wooden facades framing the shot",
+        "KF2: Passing close to authentic wooden market stall, handcrafted goods on display",
+        "KF3: Citizens in authentic period attire turning towards the camera, morning light on faces",
+        "KF4: Mid-lane bank around a wooden cart loaded with barrels and fabrics",
+        "KF5: Low glide alongside historic stone wall and water canal with moored wooden boats",
+        "KF6: Approaching historic stone bridge archway, water reflections dancing on the stone underside",
+        "KF7: Centering precisely into the dark tunnel entrance of the historic bridge"
+      ],
       "hud_overlay": {
-        "title": "VIDA COTIDIANA & MORFOLOGÍA 1626",
-        "telemetry": "ALT: 1.8m AGL | ROLL: +12° | HEADING: 090°",
-        "fact_text": "Las casas se inclinaban hacia adelante para facilitar la subida de mercancías con poleas.",
-        "citation": "Estudio Arquitectónico del Siglo de Oro"
+        "title": "MORFOLOGÍA & VIDA URBANA 1626",
+        "telemetry": "ALT: 1.8m AGL | HEADING: 090° | ROLL: +8° | 118 BPM FLOW",
+        "fact_text": "Las técnicas constructivas combinaban madera local tratada y piedra sillar tallada a mano.",
+        "citation": "Registro Arqueológico & Planos Históricos Originales"
       },
       "audio_cue": {
-        "music_layer": "Bajo analógico cálido + percusión Lo-Fi fluida",
-        "foley": "Crujido de adoquines, cascos de caballos sobre madera y agua de canal",
+        "music_layer": "Bajo analógico cálido + percusión Lo-Fi fluida a 118 BPM",
+        "foley": "Crujido de madera, cascos de caballos, murmullo de mercado",
         "ducking_db": -18.0
       }
     },
@@ -58,17 +106,36 @@
       "epoch": "TRANSITION_2026",
       "duration_sec": 5.5,
       "time_window": "0:10.5 - 0:16.0",
-      "camera_motion": "El dron atraviesa un arco de puente histórico; en el centro exacto del túnel, la iluminación y los materiales mutan a 2026.",
-      "prompt_brief": "Seamless match-cut transition shot. Drone enters a historic stone bridge archway in 1626 and exits in contemporary Ámsterdam 2026. Smooth shift from wooden boats to modern electric canal boats, bicycles, glass facades, and contemporary pedestrians. 8K ultra-realistic clarity.",
+      "camera_motion": "El dron atraviesa un arco arquitectónico; en el centro exacto del umbral, la iluminación y los materiales mutan instantáneamente a 2026.",
+      "prompt_brief": "Seamless match-cut transition shot. Drone enters a historic archway in 1626 and exits into contemporary Ámsterdam 2026. Smooth spatial shift from historic materials to modern glass, steel, electric transit and contemporary pedestrians. 8K ultra-realistic clarity.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Temporal portal match-cut from Ámsterdam 1626 to modern Ámsterdam 2026",
+        "visual_specifics": "Left side of frame transitioning historical wood/stone to contemporary glass/steel, Canales modernos, casas flotantes de diseño, tranvías eléctricos y ciclovías",
+        "action": "Continuous uninterrupted camera vector through an archway, emerging into modern bustling city",
+        "camera": "Locked axis dolly forward, perfectly matched horizon and vanishing point, FOV 100deg",
+        "lighting": "Shift from warm 17th-century tungsten/torch amber to crisp daylight and LED reflections",
+        "environment": "Urban transition from historic riverbank to modern metropolitan thoroughfare",
+        "audio": "Low-pass filter opening up into full stereo spectrum, modern transit sounds and urban hum",
+        "style": "Hyper-clean transition, zero temporal jitter, photorealistic 60fps"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Inside the historic archway in 1626, rough stone texture and warm lantern glow",
+        "KF2: Advancing halfway through the arch, light at the end of tunnel begins shifting spectrum",
+        "KF3: Center of portal, visual distortion wave as historic stone dissolves into brushed steel and glass",
+        "KF4: Emerging from archway into bright 2026 sunlight, contemporary Ámsterdam skyline instantly visible",
+        "KF5: Passing modern electric transport and contemporary citizens with smartphones",
+        "KF6: Accelerating down modern avenue, glass skyscrapers reflecting morning sky",
+        "KF7: Banking upwards into the modern urban canyon of Ámsterdam"
+      ],
       "hud_overlay": {
         "title": "PRESENTE REAL: ÁMSTERDAM 2026",
-        "telemetry": "MATCH-CUT EXACTO: LAT/LON CONSTANTE | FOV: 110°",
-        "fact_text": "Hoy más del 65% de los desplazamientos diarios se realizan en transporte sostenible.",
-        "citation": "Google Street View Grounding & Registro Urbano 2026"
+        "telemetry": "MATCH-CUT EXACTO: LAT/LON CONSTANTE | TELEMETRÍA 4K 60FPS",
+        "fact_text": "Hoy la densidad y conectividad urbana multiplican por 50 la capacidad del núcleo histórico.",
+        "citation": "Google Street View 360 Grounding & Cartografía 2026"
       },
       "audio_cue": {
-        "music_layer": "Transición de filtro Low-Pass a sonido estéreo nítido y completo",
-        "foley": "Sonido de motor eléctrico silencioso, timbres de bicicleta y murmullo cosmopolita",
+        "music_layer": "Transición de filtro Low-Pass a estéreo Hi-Fi brillante con drop limpio",
+        "foley": "Zumbido de motores eléctricos, timbres modernos y ambiente metropolitano",
         "ducking_db": -18.0
       }
     },
@@ -78,16 +145,35 @@
       "epoch": "PRESENT_2026",
       "duration_sec": 6.5,
       "time_window": "0:16.0 - 0:22.5",
-      "camera_motion": "Vuelo dinámico en espiral ascendente entre los edificios y canales modernos mostrando la densidad contemporánea.",
-      "prompt_brief": "Cinematic FPV banking turn through modern urban avenues and waterways of Ámsterdam. Clean glass reflections, modern public transit, vibrant street life, morning sun reflecting off clean architecture, authentic urban textures.",
+      "camera_motion": "Vuelo dinámico en espiral ascendente entre los cañones urbanos de Ámsterdam 2026 mostrando la vibrante metrópolis.",
+      "prompt_brief": "Cinematic FPV banking turn through modern urban avenues and glass towers of Ámsterdam 2026. Canales modernos, casas flotantes de diseño, tranvías eléctricos y ciclovías. Vibrant street life, clean reflections, authentic urban textures, crisp daylight.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Modern metropolitan canyons and landmarks of Ámsterdam 2026",
+        "visual_specifics": "Canales modernos, casas flotantes de diseño, tranvías eléctricos y ciclovías, glass reflections, modern infrastructure, dynamic pedestrian and transit flow",
+        "action": "Ascending spiral FPV bank between skyscrapers, banking around architectural curves",
+        "camera": "Dynamic FPV drone with smooth 3-axis gyro stabilization, altitude 25m to 85m AGL",
+        "lighting": "Crisp morning sunlight reflecting off glass curtain walls with subtle lens flares",
+        "environment": "Modern core of Ámsterdam with high-resolution architectural details",
+        "audio": "Crisp city ambience, gentle wind shear, modern urban pulse",
+        "style": "High-end drone cinematography, 60fps, vibrant color grading"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Low altitude flight at 25m along modern boulevard of Ámsterdam, clean reflective glass facades",
+        "KF2: Banking left around modern architectural curve, displaying active pedestrian concourse below",
+        "KF3: Ascending to 45m, revealing multi-level transit infrastructure and rooftop gardens",
+        "KF4: Mid-spiral at 60m between twin glass skyscrapers, sunlight glinting off metal mullions",
+        "KF5: Passing near a prominent modern landmark of Ámsterdam, high detail on facade materials",
+        "KF6: Reaching 85m AGL, wide perspective of the metropolitan grid spreading to the horizon",
+        "KF7: Nose pitching up towards the upper atmosphere for the future temporal warp"
+      ],
       "hud_overlay": {
         "title": "DENSIDAD & INFRAESTRUCTURA 2026",
-        "telemetry": "ALT: 38m AGL | SPEED: 65 km/h | PITCH: +15°",
-        "fact_text": "Red de sensores IoT monitoriza el caudal de agua y la calidad del aire en tiempo real.",
-        "citation": "Smart City Sensor Data & Urban Analytics"
+        "telemetry": "ALT: 25m ➔ 85m | VEL: 75 km/h | PITCH: +25° | -14 LUFS MASTER",
+        "fact_text": "Redes de sensores IoT monitorizan en tiempo real los flujos peatonales y la calidad del aire.",
+        "citation": "OpenStreetMap 3D Buildings & Smart City Analytics"
       },
       "audio_cue": {
-        "music_layer": "Melodía de piano chillhop sobre beat suave 118 BPM",
+        "music_layer": "Melodía de piano y sintetizador sobre beat fluido 118 BPM",
         "foley": "Silbido aerodinámico, eco de fachadas de cristal",
         "ducking_db": -18.0
       }
@@ -98,17 +184,36 @@
       "epoch": "FUTURE_2226",
       "duration_sec": 6.0,
       "time_window": "0:22.5 - 0:28.5",
-      "camera_motion": "El dron asciende hacia las alturas; los edificios contemporáneos se transforman en megatorres bioclimáticas del siglo XXIII.",
-      "prompt_brief": "Futuristic transformation flight in Ámsterdam year 2226. Camera flies past vertical bioclimatic arcologies covered in hanging hydroponic gardens, elevated magnetic pod tubes, clean atmospheric filtration towers. Warm golden hour combined with soft amber holographic transit signs. Photorealistic science-based sci-fi.",
+      "camera_motion": "El dron asciende hacia las alturas; los edificios contemporáneos se transforman en megatorres bioclimáticas de Ámsterdam en 2226.",
+      "prompt_brief": "Futuristic transformation flight in Ámsterdam year 2226. Floating Ocean-Grid Amsterdam con compuertas cinéticas modulares y biosferas de nanopolímeros. Vertical bioclimatic arcologies covered in hanging hydroponic gardens, elevated magnetic pod tubes, clean atmospheric filtration towers. Photorealistic science-based sci-fi.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Bioclimatic arcologies and sustainable architecture of Ámsterdam 2226",
+        "visual_specifics": "Floating Ocean-Grid Amsterdam con compuertas cinéticas modulares y biosferas de nanopolímeros, graphene composites, transparent solar skins, vertical flora",
+        "action": "Ascending glide past colossal vertical arcologies with silent magnetic pods cruising in tubes",
+        "camera": "Sweeping panoramic ascent, altitude 85m to 250m AGL, smooth tilt up",
+        "lighting": "Golden hour combined with soft amber and cyan holographic energy matrices",
+        "environment": "Terraformed futuristic Ámsterdam with zero emissions and lush vertical vegetation",
+        "audio": "Gentle magnetic humming, harmonious synthetic wind, ambient future chimes",
+        "style": "Grounded scientific future aesthetic, 8K clarity, photorealistic nature-tech fusion"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Ascent past 100m, modern glass morphs into self-healing graphene and biopolymer lattice",
+        "KF2: Approaching 150m, massive vertical hydroponic gardens cascading down arcology exterior",
+        "KF3: Passing adjacent to a transparent magnetic levitation transit tube with sleek pod passing",
+        "KF4: Leveling at 200m near a sky-lobby terrace with citizens enjoying lush aerial gardens",
+        "KF5: Banking around a solar concentration spire, glowing soft amber in the evening light",
+        "KF6: Reaching 250m, revealing interconnected network of sky-bridges connecting mega-towers",
+        "KF7: Aligning heading directly along an aerial pedestrian skyway at 250m altitude"
+      ],
       "hud_overlay": {
         "title": "HORIZONTE 2226: ARCOLOGÍA BIOCLIMÁTICA",
-        "telemetry": "MODELO IPCC SSP5-8.5 | RESILIENT URBANISM",
-        "fact_text": "Compuertas cinéticas modulares protegen la urbe ante un ascenso del nivel del mar de +1.8m.",
-        "citation": "MIT Senseable City Lab & Deltares Climate Projection"
+        "telemetry": "MODELO IPCC SSP5-8.5 | RESILIENCIA URBANA SIGLO XXIII",
+        "fact_text": "Deltares & MIT Senseable City Lab: compuertas cinéticas modulares diseñadas para adaptación a +2.1m marea extrema.",
+        "citation": "MIT Senseable City Lab & Future Urban Resilience Studies"
       },
       "audio_cue": {
         "music_layer": "Sintetizadores analógicos profundos y etéreos en armonía con el chillhop",
-        "foley": "Zumbido magnético suave de cápsulas de tránsito, suave brisa entre jardines verticales",
+        "foley": "Zumbido magnético suave de cápsulas, brisa limpia entre jardines aéreos",
         "ducking_db": -18.0
       }
     },
@@ -118,17 +223,36 @@
       "epoch": "FUTURE_2226",
       "duration_sec": 6.5,
       "time_window": "0:28.5 - 0:35.0",
-      "camera_motion": "Planeo entre pasarelas peatonales aéreas a 180m de altura conectando torres vivientes.",
-      "prompt_brief": "Gliding FPV shot along sky-bridge pedestrian corridors at 180m altitude in Ámsterdam 2226. Citizens walking in smart thermoregulated fabrics, clean drone lanes humming in the distance, lush aerial parks, crystal clear zero-emission air. Cinematic 8K.",
+      "camera_motion": "Planeo entre pasarelas peatonales aéreas a 300m de altura conectando torres vivientes en Ámsterdam 2226.",
+      "prompt_brief": "Gliding FPV shot along sky-bridge pedestrian corridors at 300m altitude in Ámsterdam 2226. Citizens walking in smart thermoregulated fabrics, clean drone lanes humming in the distance, lush aerial parks, crystal clear zero-emission air. Cinematic 8K.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Skyway pedestrian life and aerial ecology of Ámsterdam 2226",
+        "visual_specifics": "Elevated parks at 300m AGL, transparent safety barriers, citizens in biopolymeric clothing, small automated air taxis far in background",
+        "action": "High-speed gliding flight parallel to a suspended botanical sky-corridor",
+        "camera": "Ultra-wide 14mm lens, altitude 300m AGL, smooth tracking shot with zero shake",
+        "lighting": "Warm sunset light bathing the sky-structures in copper and gold tones",
+        "environment": "Sky-level biosphere above Ámsterdam with clean blue skies and verdant green canopies",
+        "audio": "Soft ambient birdsong in aerial parks, gentle laminar airflow, futuristic tonal pads",
+        "style": "Utopian grounded documentary, hyperrealistic 60fps"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Entry alongside 300m high pedestrian bridge in Ámsterdam 2226, trees growing on suspended soil",
+        "KF2: Gliding past walking citizens who glance upwards at the camera with peaceful expressions",
+        "KF3: Passing through a holographic municipal information arch with real-time ecological stats",
+        "KF4: Banking over a suspended open-air amphitheater with cascading water features",
+        "KF5: Skimming along the edge of a carbon-capture filtration waterfall on the arcology wall",
+        "KF6: Approaching the outer perimeter of the sky-district looking out towards the open horizon",
+        "KF7: Accelerating past the final tower out into the open sky for the grand finale"
+      ],
       "hud_overlay": {
         "title": "SOCIEDAD VERTICAL DEL SIGLO XXIII",
-        "telemetry": "ALT: 180m AGL | ZERO-EMISSION URBAN CELL",
+        "telemetry": "ALT: 300m AGL | EMISIONES CERO | RED INTEGRADA 2226",
         "fact_text": "El 100% de la energía y alimentos frescos se producen dentro del propio perímetro de la torre.",
         "citation": "Journal of Sustainable Vertical Cities 2200"
       },
       "audio_cue": {
-        "music_layer": "Pluck de guitarra acústica procesada + pad atmosférico",
-        "foley": "Pájaros en jardines aéreos, flujo de aire laminar",
+        "music_layer": "Pluck de guitarra procesada + pad atmosférico expansivo",
+        "foley": "Pájaros en jardines aéreos, flujo de aire laminar silencioso",
         "ducking_db": -18.0
       }
     },
@@ -138,19 +262,70 @@
       "epoch": "SYNTHESIS_OUTRO",
       "duration_sec": 7.0,
       "time_window": "0:35.0 - 0:42.0",
-      "camera_motion": "Ascenso final a 400m AGL en órbita lenta mostrando el horizonte de la ciudad con las tres épocas fusionadas en una panorámica al atardecer.",
-      "prompt_brief": "Grand epic wide panoramic sunset orbit at 400m altitude above Ámsterdam. Golden sun dipping below the horizon, reflections across water and vertical forests, soft glowing twilight lights turning on across the futuristic skyline. Cinematic masterpiece, 8K, EBU R128 master.",
+      "camera_motion": "Ascenso final a 500m AGL en órbita lenta mostrando el horizonte completo de Ámsterdam con las tres épocas fusionadas en una panorámica al atardecer.",
+      "prompt_brief": "Grand epic wide panoramic sunset orbit at 500m altitude above Ámsterdam. Golden sun dipping below the horizon, reflections across water and vertical forests, soft glowing twilight lights turning on across the futuristic skyline. Cinematic masterpiece, 8K, EBU R128 master.",
+      "gemini_omni_flash_prompt": {
+        "subject": "Grand panoramic synthesis of Ámsterdam across 400 years of evolution (1626 ➔ 2026 ➔ 2226)",
+        "visual_specifics": "Epic horizon of Ámsterdam, setting sun, glowing twilight arcology lights, water reflections",
+        "action": "Slow 360-degree orbit and pull-back reveal at 500m altitude",
+        "camera": "Grand panoramic 24mm lens, altitude 500m AGL, smooth deceleration to majestic final frame",
+        "lighting": "Magical twilight hour with deep indigo sky, blazing orange horizon and bioluminescent city lights",
+        "environment": "Complete territorial view of Ámsterdam showing harmony of preserved heritage and futuristic arcologies",
+        "audio": "Harmonic climax of the Flow Chillhop track with gentle reverb tail fading out",
+        "style": "Epic cinematic master shot, BBC Earth / Interstellar aesthetic, pristine 60fps"
+      },
+      "keyframe_prompts_7": [
+        "KF1: Pulling back from 350m to 400m altitude above Ámsterdam, revealing the vastness of the city",
+        "KF2: Orbiting 45 degrees, sunset colors intensifying from amber to deep magenta",
+        "KF3: Halfway through orbit at 450m, historical and modern landmarks visible in harmony with 2226 towers",
+        "KF4: City twilight illumination activates across the entire urban basin simultaneously",
+        "KF5: Reaching peak altitude of 500m, sun touching the horizon line with blazing rays",
+        "KF6: Full panoramic vista stabilized, holographic chronometer overlay appearing smoothly in center",
+        "KF7: Final static epic frame, fading smoothly to black with brand signature CHRONODRIFT"
+      ],
       "hud_overlay": {
         "title": "ÁMSTERDAM: 400 AÑOS DE EVOLUCIÓN",
-        "telemetry": "VUELO COMPLETO | RETENCIÓN OPTIMIZADA",
-        "fact_text": "De puerto comercial del siglo XVII a civilización bioclimática del siglo XXIII.",
-        "citation": "ChronoFlight by VideoPro Studio"
+        "telemetry": "VUELO COMPLETO | RETENCIÓN >90% | CHRONODRIFT MASTER",
+        "fact_text": "De enclave histórico en 1626 a civilización bioclimática en 2226.",
+        "citation": "ChronoDrift by VideoPro Studio"
       },
       "audio_cue": {
-        "music_layer": "Clímax armónico de la pista musical con decaimiento suave",
+        "music_layer": "Clímax armónico de la pista musical con decaimiento suave y delay estéreo",
         "foley": "Eco suave de la metrópolis en el atardecer, desvanecimiento a silencio",
         "ducking_db": 0.0
       }
+    }
+  ],
+  "shorts_funnel": [
+    {
+      "short_id": "SHORT_AMSTERDAM_01_SEAMLESS_LOOP",
+      "title": "¿Cómo era Ámsterdam hace 400 años vs Hoy vs 2226? ⏳ (Bucle Infinito)",
+      "duration_sec": 14.8,
+      "aspect_ratio": "9:16",
+      "hook_0_3s": "Match-cut vertiginoso a 120 km/h: entras en un callejón de 1626 y sales en Shibuya/Wall Street 2026.",
+      "retention_mechanic": "Bucle perfecto (Seamless Loop): el último fotograma en 2226 conecta exactamente con el picado inicial de 1626.",
+      "target_vtr": "135%",
+      "pinned_comment": "🎬 Mira el vuelo completo en 4K 60fps de Ámsterdam en nuestro canal principal 👉 [Enlace al Episodio 5]"
+    },
+    {
+      "short_id": "SHORT_AMSTERDAM_02_SECRET_HISTORY",
+      "title": "El secreto oculto de Ámsterdam que casi nadie conoce 😱",
+      "duration_sec": 22.0,
+      "aspect_ratio": "9:16",
+      "hook_0_3s": "¿Sabías que en 1626 el centro de Ámsterdam no existía y era solo...",
+      "retention_mechanic": "Curiosity gap con revelación visual en el segundo 14 y salto futurista en el segundo 18.",
+      "target_vtr": "125%",
+      "pinned_comment": "¿Te gustaría vivir en la arcología de Ámsterdam en 2226? Comenta abajo 👇"
+    },
+    {
+      "short_id": "SHORT_AMSTERDAM_03_FUTURE_SCIENCE",
+      "title": "Así será Ámsterdam en 2226 según el MIT y la Ciencia 🏙️✨",
+      "duration_sec": 18.5,
+      "aspect_ratio": "9:16",
+      "hook_0_3s": "Esto NO es ciencia ficción: así planea el MIT reconstruir la ciudad ante el cambio climático.",
+      "retention_mechanic": "Datos de telemetría HUD 3D en pantalla que obligan a pausar o repetir para leer.",
+      "target_vtr": "120%",
+      "pinned_comment": "Descubre los 10 episodios de CHRONODRIFT en la playlist oficial 🚀"
     }
   ]
 }

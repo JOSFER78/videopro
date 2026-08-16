@@ -9,6 +9,7 @@ import json
 import time
 import logging
 from datetime import datetime
+from typing import List, Optional, Dict, Any
 import requests
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -233,8 +234,8 @@ def load_settings_from_firebase():
         return False, f"Error al descargar de Firestore: {ex}"
 
 
-def backup_project_to_firebase(project):
-    """Respalda metadata de un proyecto en Firestore."""
+def backup_project_to_firebase(project: dict):
+    """Respalda el documento relacional completo de un proyecto en Firestore."""
     token = _get_firebase_auth_token()
     if not token:
         return False, "No autenticado en Firebase."
@@ -242,16 +243,31 @@ def backup_project_to_firebase(project):
     project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
 
-    task_id = project["task_id"]
+    task_id = project.get("task_id") or project.get("project_id", "project_default")
+    
     firestore_fields = {
+        "project_id": {"stringValue": task_id},
         "task_id": {"stringValue": task_id},
-        "subject": {"stringValue": str(project.get("subject", ""))},
-        "script": {"stringValue": str(project.get("script", ""))[:1000]},
+        "title": {"stringValue": str(project.get("title") or project.get("subject", "Proyecto VideoPro"))},
+        "subject": {"stringValue": str(project.get("subject") or project.get("title", ""))},
+        "workflow_id": {"stringValue": str(project.get("workflow_id", "PIXAR_3D_ANIMATION"))},
+        "workflow_name": {"stringValue": str(project.get("workflow_name", "Producción Cinemática"))},
+        "workflow_icon": {"stringValue": str(project.get("workflow_icon", "🎬"))},
+        "status": {"stringValue": str(project.get("status", "DRAFT"))},
+        "aspect_ratio": {"stringValue": str(project.get("aspect_ratio", "16:9"))},
+        "voice_id": {"stringValue": str(project.get("voice_id", "vibevoice"))},
+        "scenes_count": {"integerValue": str(len(project.get("scenes", [])))},
         "has_video": {"booleanValue": bool(project.get("has_video", False))},
         "cloud_synced": {"booleanValue": bool(project.get("cloud_synced", False))},
         "cloud_url": {"stringValue": str(project.get("cloud_url", ""))},
+        "director_spec_json": {"stringValue": json.dumps(project.get("director_spec", {}), ensure_ascii=False)},
+        "scenes_json": {"stringValue": json.dumps(project.get("scenes", []), ensure_ascii=False)},
+        "messages_json": {"stringValue": json.dumps(project.get("messages", []), ensure_ascii=False)},
         "updated_at": {"stringValue": datetime.now().isoformat()}
     }
+
+    if "created_at" in project:
+        firestore_fields["created_at"] = {"stringValue": str(project["created_at"])}
 
     try:
         url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_projects/{task_id}"
@@ -262,6 +278,151 @@ def backup_project_to_firebase(project):
             return False, f"Fallo al respaldar proyecto en Firestore (HTTP {resp.status_code})"
     except Exception as ex:
         return False, f"Error: {ex}"
+
+
+def backup_project_to_firebase_async(project: dict):
+    """Ejecuta el respaldo de proyecto en segundo plano para no demorar la UI de Streamlit."""
+    import threading
+    t = threading.Thread(target=backup_project_to_firebase, args=(project,), daemon=True)
+    t.start()
+    return t
+
+
+def fetch_all_projects_from_firebase() -> List[dict]:
+    """Obtiene la colección completa de proyectos almacenados en Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return []
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_projects"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        if resp.status_code != 200:
+            return []
+        
+        docs = resp.json().get("documents", [])
+        projects = []
+        for d in docs:
+            fields = d.get("fields", {})
+            p_id = fields.get("project_id", {}).get("stringValue") or fields.get("task_id", {}).get("stringValue") or d.get("name", "").split("/")[-1]
+            
+            # Deserializar campos JSON enriquecidos
+            spec_str = fields.get("director_spec_json", {}).get("stringValue", "{}")
+            scenes_str = fields.get("scenes_json", {}).get("stringValue", "[]")
+            messages_str = fields.get("messages_json", {}).get("stringValue", "[]")
+
+            director_spec = {}
+            scenes = []
+            messages = []
+            try: director_spec = json.loads(spec_str)
+            except Exception: pass
+            try: scenes = json.loads(scenes_str)
+            except Exception: pass
+            try: messages = json.loads(messages_str)
+            except Exception: pass
+
+            projects.append({
+                "project_id": p_id,
+                "task_id": p_id,
+                "title": fields.get("title", {}).get("stringValue") or fields.get("subject", {}).get("stringValue", p_id),
+                "subject": fields.get("subject", {}).get("stringValue") or fields.get("title", {}).get("stringValue", p_id),
+                "workflow_id": fields.get("workflow_id", {}).get("stringValue", "PIXAR_3D_ANIMATION"),
+                "workflow_name": fields.get("workflow_name", {}).get("stringValue", "Producción"),
+                "workflow_icon": fields.get("workflow_icon", {}).get("stringValue", "🎬"),
+                "status": fields.get("status", {}).get("stringValue", "DRAFT"),
+                "aspect_ratio": fields.get("aspect_ratio", {}).get("stringValue", "16:9"),
+                "voice_id": fields.get("voice_id", {}).get("stringValue", "vibevoice"),
+                "scenes_count": int(fields.get("scenes_count", {}).get("integerValue", len(scenes))),
+                "has_video": fields.get("has_video", {}).get("booleanValue", False),
+                "cloud_synced": fields.get("cloud_synced", {}).get("booleanValue", False),
+                "cloud_url": fields.get("cloud_url", {}).get("stringValue", ""),
+                "director_spec": director_spec,
+                "scenes": scenes,
+                "messages": messages,
+                "updated_at": fields.get("updated_at", {}).get("stringValue", datetime.now().isoformat()),
+                "created_at": fields.get("created_at", {}).get("stringValue", datetime.now().isoformat())
+            })
+        return projects
+    except Exception as ex:
+        logger.error(f"Error al obtener proyectos de Firestore: {ex}")
+        return []
+
+
+def fetch_single_project_from_firebase(project_id: str) -> Optional[dict]:
+    """Obtiene un único proyecto desde Firestore por su ID."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return None
+
+    fb_proj_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/videopro_projects/{project_id}"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        if resp.status_code != 200:
+            return None
+        
+        fields = resp.json().get("fields", {})
+        spec_str = fields.get("director_spec_json", {}).get("stringValue", "{}")
+        scenes_str = fields.get("scenes_json", {}).get("stringValue", "[]")
+        messages_str = fields.get("messages_json", {}).get("stringValue", "[]")
+
+        director_spec = {}
+        scenes = []
+        messages = []
+        try: director_spec = json.loads(spec_str)
+        except Exception: pass
+        try: scenes = json.loads(scenes_str)
+        except Exception: pass
+        try: messages = json.loads(messages_str)
+        except Exception: pass
+
+        return {
+            "project_id": project_id,
+            "task_id": project_id,
+            "title": fields.get("title", {}).get("stringValue") or fields.get("subject", {}).get("stringValue", project_id),
+            "subject": fields.get("subject", {}).get("stringValue") or fields.get("title", {}).get("stringValue", project_id),
+            "workflow_id": fields.get("workflow_id", {}).get("stringValue", "PIXAR_3D_ANIMATION"),
+            "workflow_name": fields.get("workflow_name", {}).get("stringValue", "Producción"),
+            "workflow_icon": fields.get("workflow_icon", {}).get("stringValue", "🎬"),
+            "status": fields.get("status", {}).get("stringValue", "DRAFT"),
+            "aspect_ratio": fields.get("aspect_ratio", {}).get("stringValue", "16:9"),
+            "voice_id": fields.get("voice_id", {}).get("stringValue", "vibevoice"),
+            "scenes_count": int(fields.get("scenes_count", {}).get("integerValue", len(scenes))),
+            "has_video": fields.get("has_video", {}).get("booleanValue", False),
+            "cloud_synced": fields.get("cloud_synced", {}).get("booleanValue", False),
+            "cloud_url": fields.get("cloud_url", {}).get("stringValue", ""),
+            "director_spec": director_spec,
+            "scenes": scenes,
+            "messages": messages,
+            "updated_at": fields.get("updated_at", {}).get("stringValue", datetime.now().isoformat()),
+            "created_at": fields.get("created_at", {}).get("stringValue", datetime.now().isoformat())
+        }
+    except Exception as ex:
+        logger.error(f"Error al descargar proyecto '{project_id}' de Firestore: {ex}")
+        return None
+
+
+def delete_project_from_firebase(project_id: str) -> bool:
+    """Elimina permanentemente un proyecto de Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return False
+
+    fb_proj_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/videopro_projects/{project_id}"
+
+    try:
+        resp = requests.delete(url, headers=headers, timeout=8)
+        return resp.status_code in (200, 204)
+    except Exception as ex:
+        logger.error(f"Error al eliminar proyecto '{project_id}' de Firestore: {ex}")
+        return False
 
 
 def save_settings_to_firebase_async():

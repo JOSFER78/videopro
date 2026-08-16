@@ -1,7 +1,7 @@
 """
-Módulo de Gestión de Proyectos y Sincronización con Cloudflare R2 & Firestore — VideoPro Studio
-Unifica Proyectos de Studio (storage/projects/), Tareas Jerárquicas (storage/tasks/)
-y Sincronización Automática Bidireccional con Cloudflare R2 Object Storage.
+Módulo de Gestión de Proyectos — VideoPro Studio (Modern DEV Architecture)
+Single Source of Truth: Firebase Firestore & ProjectRepository.
+Apertura instantánea en el Estudio, filtros dinámicos, trazabilidad y sincronización en la nube.
 """
 
 import os
@@ -9,9 +9,8 @@ import sys
 import json
 import time
 import shutil
-import glob
 from datetime import datetime
-from pathlib import Path
+from typing import List, Optional
 import streamlit as st
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -19,525 +18,286 @@ if BASE_DIR not in sys.path:
     sys.path.insert(0, BASE_DIR)
 
 from app.config import config
-from app.config.config_manager import config_manager
-from app.utils import utils
-from app.services.storage.factory import StorageFactory
-from app.services.storage.r2 import CloudflareR2StorageService
-from app.models import const
-from app.services import state as sm
 from app.services import firebase_sync
 from app.core.services.project_repository import ProjectRepository
+from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG
 from app.core.orchestration.repository import StudioRepository
+from webui.views import view_studio_orchestrator
 
 
-MONTH_NAMES = {
-    "01": "Enero", "02": "Febrero", "03": "Marzo", "04": "Abril",
-    "05": "Mayo", "06": "Junio", "07": "Julio", "08": "Agosto",
-    "09": "Septiembre", "10": "Octubre", "11": "Noviembre", "12": "Diciembre"
-}
-
-
-def _get_storage_root():
-    if hasattr(utils, "storage_dir"):
-        return os.path.abspath(utils.storage_dir())
-    return os.path.abspath(os.path.join(BASE_DIR, "storage"))
-
-
-def _get_tasks_dir():
-    return os.path.join(_get_storage_root(), "tasks")
-
-
-def _get_projects_dir():
-    return os.path.join(_get_storage_root(), "projects")
-
-
-def _is_cloud_storage_configured():
-    s3_ep = config_manager.get("storage.s3.endpoint_url") or config_manager.get("r2.endpoint_url") or config.app.get("s3_endpoint", "")
-    s3_acc = config_manager.get("storage.s3.access_key_id") or config_manager.get("r2.access_key_id") or config.app.get("s3_access_key", "")
-    s3_sec = config_manager.get("storage.s3.secret_access_key") or config_manager.get("r2.secret_access_key") or config.app.get("s3_secret_key", "")
-    s3_bkt = config_manager.get("storage.s3.bucket_name") or config_manager.get("r2.bucket_name") or config.app.get("s3_bucket", "")
-    return bool(s3_ep and s3_acc and (s3_sec or "cloudflarestorage" in s3_ep) and s3_bkt)
-
-
-def _upload_single_project_to_r2(project_dict):
-    """Sube un proyecto local a Cloudflare R2 y actualiza el marcador y Firestore."""
+def invalidate_projects_cache():
+    """Invalida la caché de proyectos en memoria para forzar un re-escaneo inmediato."""
     try:
-        storage_service = StorageFactory.get_storage_service(force_reload=True)
-        if not isinstance(storage_service, CloudflareR2StorageService):
-            return False, "Cloud Storage no está configurado como Cloudflare R2 en Ajustes."
-
-        proj_path = project_dict["task_path"]
-        task_id = project_dict["task_id"]
-        y, m, d = project_dict["year"], project_dict["month"], project_dict["day"]
-        
-        remote_prefix = f"projects/{y}/{m}/{d}/{task_id}"
-
-        # 1. Subir vídeo final si existe
-        remote_video_key = ""
-        presigned_url = ""
-        if project_dict["has_video"] and os.path.isfile(project_dict["final_video"]):
-            v_name = os.path.basename(project_dict["final_video"])
-            target_key = f"{remote_prefix}/{v_name}"
-            remote_video_key = storage_service.upload_file(project_dict["final_video"], target_key)
-            presigned_url = storage_service.get_presigned_url(remote_video_key, expiration_seconds=86400 * 7)
-
-        # 2. Subir manifiestos (project.json y script.json)
-        p_json = os.path.join(proj_path, "project.json")
-        if os.path.isfile(p_json):
-            storage_service.upload_file(p_json, f"{remote_prefix}/project.json")
-            
-        s_json = os.path.join(proj_path, "script.json")
-        if os.path.isfile(s_json):
-            storage_service.upload_file(s_json, f"{remote_prefix}/script.json")
-
-        # 3. Guardar marcador local .r2_synced.json
-        marker_data = {
-            "synced": True,
-            "synced_at": datetime.now().isoformat(),
-            "remote_key": remote_video_key,
-            "presigned_url": presigned_url,
-            "cloud_path": remote_prefix,
-            "bucket": storage_service.bucket_name
-        }
-        with open(os.path.join(proj_path, ".r2_synced.json"), "w", encoding="utf-8") as f:
-            json.dump(marker_data, f, indent=2)
-
-        # 4. Respaldo en Firebase Firestore
-        try:
-            p_copy = dict(project_dict)
-            p_copy["cloud_synced"] = True
-            p_copy["cloud_url"] = presigned_url
-            p_copy["cloud_path"] = remote_prefix
-            firebase_sync.backup_project_to_firebase(p_copy)
-        except Exception:
-            pass
-
-        return True, "Sincronizado con éxito en Cloudflare R2 y Firestore."
-    except Exception as ex:
-        return False, f"Error al subir a Cloudflare R2: {ex}"
+        _get_cached_projects_summary.clear()
+    except Exception:
+        pass
 
 
-def _collect_all_unified_projects():
-    """Recolecta tanto proyectos modernos de Studio como tareas jerárquicas locales y remotas."""
-    projects_root = _get_projects_dir()
-    tasks_root = _get_tasks_dir()
-    os.makedirs(projects_root, exist_ok=True)
-    os.makedirs(tasks_root, exist_ok=True)
-
-    all_projs = []
-    seen_ids = set()
-
-    # 1. Escaneo de storage/projects/ (Studio Projects)
-    for p_dir in glob.glob(os.path.join(projects_root, "*")):
-        if not os.path.isdir(p_dir):
-            continue
-        p_id = os.path.basename(p_dir)
-        p_json_file = os.path.join(p_dir, "project.json")
-        mtime = os.path.getmtime(p_dir)
-        
-        p_data = {}
-        if os.path.isfile(p_json_file):
-            try:
-                with open(p_json_file, "r", encoding="utf-8") as f:
-                    p_data = json.load(f)
-                mtime = max(mtime, os.path.getmtime(p_json_file))
-            except Exception:
-                pass
-
-        # Buscar vídeos
-        video_files = []
-        for ext in ("*.mp4", "*.mkv", "*.mov", "*.webm"):
-            video_files.extend(glob.glob(os.path.join(p_dir, ext)))
-            video_files.extend(glob.glob(os.path.join(p_dir, "renders", ext)))
-        
-        final_video = ""
-        if video_files:
-            video_files.sort(key=lambda x: os.path.getsize(x) if os.path.isfile(x) else 0, reverse=True)
-            final_video = video_files[0]
-            mtime = max(mtime, os.path.getmtime(final_video))
-
-        has_video = bool(final_video and os.path.isfile(final_video) and os.path.getsize(final_video) > 1024)
-
-        # Chequear marcador de R2
-        r2_file = os.path.join(p_dir, ".r2_synced.json")
-        r2_info = {}
-        if os.path.isfile(r2_file):
-            try:
-                with open(r2_file, "r", encoding="utf-8") as f:
-                    r2_info = json.load(f)
-            except Exception:
-                pass
-
-        dt = datetime.fromtimestamp(mtime)
-        year, month, day = dt.strftime("%Y"), dt.strftime("%m"), dt.strftime("%d")
-
-        all_projs.append({
-            "task_id": p_id,
-            "project_id": p_id,
-            "rel_path": f"projects/{p_id}",
-            "task_path": p_dir,
-            "subject": p_data.get("title") or p_id,
-            "script": str(p_data.get("scenes", ""))[:500],
-            "params": p_data.get("render_spec", {}),
-            "final_video": final_video,
-            "has_video": has_video,
-            "mtime": mtime,
-            "datetime": dt,
-            "year": year,
-            "month": month,
-            "month_label": MONTH_NAMES.get(month, month),
-            "day": day,
-            "date_formatted": f"{day}/{month}/{year}",
-            "state": const.TASK_STATE_COMPLETE if has_video else const.TASK_STATE_DRAFT,
-            "progress": 100 if has_video else 0,
-            "cloud_synced": bool(r2_info.get("synced")),
-            "cloud_key": r2_info.get("remote_key", ""),
-            "cloud_url": r2_info.get("presigned_url", ""),
-            "is_studio": True
-        })
-        seen_ids.add(p_id)
-
-    # 2. Escaneo de storage/tasks/ (Jerárquico Año/Mes/Día)
-    for root, dirs, files in os.walk(tasks_root):
-        if os.path.basename(root).startswith("."):
-            continue
-        is_project_dir = "script.json" in files or any(f.endswith((".mp4", ".mov", ".mkv")) for f in files)
-        is_leaf_task = bool(dirs == [] and root != tasks_root)
-
-        if (is_project_dir or is_leaf_task) and root != tasks_root:
-            p_id = os.path.basename(root)
-            if p_id in seen_ids:
-                continue
-
-            rel_path = os.path.relpath(root, tasks_root)
-            mtime = os.path.getmtime(root)
-
-            script_file = os.path.join(root, "script.json")
-            script_data = {}
-            if os.path.isfile(script_file):
-                try:
-                    with open(script_file, "r", encoding="utf-8") as f:
-                        script_data = json.load(f)
-                    mtime = max(mtime, os.path.getmtime(script_file))
-                except Exception:
-                    pass
-
-            video_files = []
-            for ext in ("*.mp4", "*.mkv", "*.mov", "*.webm"):
-                video_files.extend(glob.glob(os.path.join(root, ext)))
-                video_files.extend(glob.glob(os.path.join(root, "final-*", ext)))
-            
-            final_video = ""
-            if video_files:
-                video_files.sort(key=lambda x: os.path.getsize(x) if os.path.isfile(x) else 0, reverse=True)
-                final_video = video_files[0]
-                mtime = max(mtime, os.path.getmtime(final_video))
-
-            has_video = bool(final_video and os.path.isfile(final_video) and os.path.getsize(final_video) > 1024)
-
-            r2_file = os.path.join(root, ".r2_synced.json")
-            r2_info = {}
-            if os.path.isfile(r2_file):
-                try:
-                    with open(r2_file, "r", encoding="utf-8") as f:
-                        r2_info = json.load(f)
-                except Exception:
-                    pass
-
-            dt = datetime.fromtimestamp(mtime)
-            parts = rel_path.replace("\\", "/").split("/")
-            if len(parts) >= 4 and len(parts[0]) == 4 and len(parts[1]) == 2 and len(parts[2]) == 2:
-                year, month, day = parts[0], parts[1], parts[2]
-            else:
-                year, month, day = dt.strftime("%Y"), dt.strftime("%m"), dt.strftime("%d")
-
-            params = script_data.get("params", {})
-            subject = params.get("video_subject") or script_data.get("script", "")[:45] or p_id
-
-            all_projs.append({
-                "task_id": p_id,
-                "project_id": p_id,
-                "rel_path": rel_path,
-                "task_path": root,
-                "subject": subject,
-                "script": script_data.get("script", ""),
-                "params": params,
-                "final_video": final_video,
-                "has_video": has_video,
-                "mtime": mtime,
-                "datetime": dt,
-                "year": year,
-                "month": month,
-                "month_label": MONTH_NAMES.get(month, month),
-                "day": day,
-                "date_formatted": f"{day}/{month}/{year}",
-                "state": const.TASK_STATE_COMPLETE if has_video else const.TASK_STATE_DRAFT,
-                "progress": 100 if has_video else 0,
-                "cloud_synced": bool(r2_info.get("synced")),
-                "cloud_key": r2_info.get("remote_key", ""),
-                "cloud_url": r2_info.get("presigned_url", ""),
-                "is_studio": False
-            })
-            seen_ids.add(p_id)
-
-    all_projs.sort(key=lambda p: p["mtime"], reverse=True)
-    return all_projs
+@st.cache_data(ttl=15, show_spinner=False)
+def _get_cached_projects_summary() -> List[dict]:
+    """Obtiene la lista indexada de proyectos desde Firestore y disco con caché de alta velocidad."""
+    repo = ProjectRepository()
+    return repo.get_all_projects_summary()
 
 
 def render_view():
+    """Renderiza la galería y gestor de proyectos con estándar moderno DEV."""
+    
     st.markdown("""
-        <div style="margin-bottom: 12px;">
-            <h2 style="font-size: 22px; font-weight: 800; color: #f8fafc; margin-bottom: 2px; display: flex; align-items: center; gap: 8px;">
-                📁 Bóveda de Proyectos & Sincronización Cloudflare R2
-                <span style="font-size: 11px; font-weight: 700; background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 8px; border-radius: 12px;">R2 & FIRESTORE SYNC</span>
-            </h2>
-            <p style="font-size: 12.5px; color: #94a3b8; margin: 0;">
-                Persistencia híbrida local y respaldo automático en Cloudflare R2 (Zero Egress) con metadatos en Firebase Firestore.
-            </p>
+        <div style="margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h2 style="font-size: 24px; font-weight: 800; color: #f8fafc; margin: 0; display: flex; align-items: center; gap: 10px;">
+                        📁 Gestión de Proyectos
+                        <span style="font-size: 11px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 12px;">FIRESTORE SSOT</span>
+                    </h2>
+                    <p style="font-size: 13px; color: #94a3b8; margin: 2px 0 0 0;">
+                        Biblioteca centralizada de producciones, guiones consolidados, trazabilidad de renderizado y sincronización en la nube.
+                    </p>
+                </div>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
-    is_cloud_on = _is_cloud_storage_configured()
-    all_projects = _collect_all_unified_projects()
-    synced_count = sum(1 for p in all_projects if p["cloud_synced"])
-    complete_count = sum(1 for p in all_projects if p["has_video"])
+    # 1. Obtener proyectos
+    projects = _get_cached_projects_summary()
+    total_count = len(projects)
+    completed_count = sum(1 for p in projects if p.get("has_video"))
+    draft_count = total_count - completed_count
+    cloud_synced_count = sum(1 for p in projects if p.get("cloud_synced") or p.get("cloud_url"))
 
-    # Tarjetas de Métricas Superiores con Botón de Sincronización Masiva
-    c1, c2, c3, c4 = st.columns([2.2, 2.2, 2.4, 4.2], gap="medium")
-    with c1:
-        st.metric("Total Proyectos", len(all_projects))
-    with c2:
-        st.metric("Vídeos Renderizados", complete_count)
-    with c3:
-        st.metric("Sincronizados en R2", f"{synced_count} / {len(all_projects)}")
-    with c4:
-        c_sync_btn, c_sync_status = st.columns([6, 4], vertical_alignment="center")
-        with c_sync_btn:
-            if st.button("☁️ Sincronizar Todo con R2", type="primary", use_container_width=True, key="btn_sync_all_r2"):
-                with st.spinner("Sincronizando todos los proyectos con Cloudflare R2 y Firestore..."):
-                    uploaded_ok = 0
-                    errors = 0
-                    for p in all_projects:
-                        if not p["cloud_synced"]:
-                            ok, _ = _upload_single_project_to_r2(p)
-                            if ok:
-                                uploaded_ok += 1
-                            else:
-                                errors += 1
-                    st.success(f"✅ Sincronización completada: {uploaded_ok} subidos, {errors} errores.")
-                    st.rerun()
-        with c_sync_status:
-            if is_cloud_on:
-                st.markdown("<span style='font-size:11px; font-weight:700; color:#34d399;'>🟢 Cloudflare R2 ACTIVO</span>", unsafe_allow_html=True)
-            else:
-                st.markdown("<span style='font-size:11px; font-weight:700; color:#facc15;'>🟡 Solo Disco Local</span>", unsafe_allow_html=True)
+    # 2. Barra de Métricas y Acciones Superiores
+    m1, m2, m3, m4, m5 = st.columns([1.5, 1.5, 1.5, 1.5, 2.5], gap="small")
+    with m1:
+        st.metric("Total Proyectos", total_count)
+    with m2:
+        st.metric("Finalizados", f"🎬 {completed_count}")
+    with m3:
+        st.metric("En Guion / Borrador", f"📝 {draft_count}")
+    with m4:
+        st.metric("En Firestore / R2", f"☁️ {cloud_synced_count}")
+    with m5:
+        c_btn_new, c_btn_sync = st.columns([6, 4])
+        with c_btn_new:
+            if st.button("➕ Nuevo Proyecto", type="primary", use_container_width=True, help="Iniciar un nuevo proyecto con el Director Creativo"):
+                st.session_state["active_view"] = "studio"
+                st.session_state["director_messages"] = []
+                st.session_state["current_project_id"] = None
+                st.session_state["current_project_title"] = None
+                st.session_state["current_archetype_plan"] = None
+                st.session_state["director_spec"] = None
+                st.rerun()
+        with c_btn_sync:
+            if st.button("🔄 Refrescar", use_container_width=True, help="Sincronizar proyectos con Firestore"):
+                invalidate_projects_cache()
+                st.rerun()
 
-    st.markdown("<div style='height: 4px;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='height: 6px;'></div>", unsafe_allow_html=True)
 
-    # Buscador y Filtro
-    c_srch, c_sort, c_goto_dir = st.columns([5.5, 2.5, 2.0], gap="medium")
-    with c_srch:
+    # 3. Buscador y Filtros
+    c_search, c_filter_wf, c_filter_stat = st.columns([5, 3, 2], gap="medium")
+    with c_search:
         search_query = st.text_input(
-            "Buscar Proyecto:",
-            placeholder="Filtrar por título, ID, fecha (ej: 2026/08/16)...",
+            "Buscar:",
+            placeholder="🔍 Buscar por título, personajes, temática o ID...",
             label_visibility="collapsed",
-            key="proj_search_input"
+            key="input_proj_search"
         )
-    with c_sort:
-        sort_order = st.selectbox(
-            "Orden:",
-            ["Más recientes primero", "Más antiguos primero", "Por nombre (A-Z)"],
+    with c_filter_wf:
+        wf_options = ["ALL"] + list(ARCHETYPES_CATALOG.keys())
+        selected_wf_filter = st.selectbox(
+            "Filtrar por Workflow:",
+            options=wf_options,
+            format_func=lambda x: "🌐 Todos los Workflows" if x == "ALL" else f"{ARCHETYPES_CATALOG[x].icon} {ARCHETYPES_CATALOG[x].name}",
             label_visibility="collapsed",
-            key="proj_sort_select"
+            key="sel_proj_wf_filter"
         )
-    with c_goto_dir:
-        if st.button("🎬 Director Creativo", use_container_width=True, help="Ir al Director Creativo para crear un nuevo proyecto"):
-            st.session_state["active_view"] = "studio"
-            st.rerun()
+    with c_filter_stat:
+        status_options = ["ALL", "COMPLETED", "DRAFT"]
+        status_labels = {"ALL": "📊 Todos los Estados", "COMPLETED": "🎬 Finalizados", "DRAFT": "📝 En Edición"}
+        selected_status_filter = st.selectbox(
+            "Filtrar por Estado:",
+            options=status_options,
+            format_func=lambda x: status_labels.get(x, x),
+            label_visibility="collapsed",
+            key="sel_proj_status_filter"
+        )
 
-    # Pestañas de Filtrado y Monitor en Vivo
-    tab_live, tab_all, tab_synced, tab_pending, tab_videos = st.tabs([
-        "⚡ En Proceso & Monitor en Vivo",
-        f"Todos ({len(all_projects)})",
-        f"☁️ Sincronizados en R2 ({synced_count})",
-        f"⏳ Pendientes de Nube ({len(all_projects) - synced_count})",
-        f"🎞️ Con Vídeo ({complete_count})"
+    # 4. Filtrar Proyectos
+    filtered = list(projects)
+    if search_query.strip():
+        q = search_query.strip().lower()
+        filtered = [
+            p for p in filtered
+            if q in p.get("title", "").lower()
+            or q in p.get("subject", "").lower()
+            or q in p.get("project_id", "").lower()
+            or q in json.dumps(p.get("director_spec", {})).lower()
+        ]
+    if selected_wf_filter != "ALL":
+        filtered = [p for p in filtered if p.get("workflow_id") == selected_wf_filter]
+    if selected_status_filter == "COMPLETED":
+        filtered = [p for p in filtered if p.get("has_video")]
+    elif selected_status_filter == "DRAFT":
+        filtered = [p for p in filtered if not p.get("has_video")]
+
+    # 5. Monitor de Jobs en Vivo y Lista de Proyectos
+    tab_projects, tab_live_monitor = st.tabs([
+        f"📋 Catálogo de Proyectos ({len(filtered)})",
+        "⚡ Monitor de Render en Vivo"
     ])
 
-    with tab_live:
-        st.markdown("##### ⚡ Monitor de Producción Cinemática en Tiempo Real")
-        st.caption("Seguimiento de jobs de renderizado multimotor, pipelines de inferencia y estado de entrega.")
-        from app.core.orchestration.repository import StudioRepository
-        recent_jobs = StudioRepository.list_jobs(limit=15)
-        if not recent_jobs:
-            st.info("No hay producciones activas o recientes en este momento. Inicia una desde la pestaña '🚀 Empezar'.")
-        else:
-            for j in recent_jobs:
-                j_id = j.get("job_id", "job")
-                j_proj = j.get("project_id", "proj")
-                j_wf = j.get("workflow_id", "Workflow")
-                j_status = str(j.get("status", "unknown")).upper()
-                j_metrics = j.get("metrics", {})
-                j_dur = j_metrics.get("total_duration_seconds", 0)
-                j_steps = j.get("steps", [])
-                
-                badge_bg = "rgba(16, 185, 129, 0.2)" if j_status == "COMPLETED" else "rgba(245, 158, 11, 0.2)"
-                badge_color = "#34d399" if j_status == "COMPLETED" else "#facc15"
-                
-                with st.expander(f"🎬 Job `{j_id}` — {j_status} ({j_wf})", expanded=(j_status != "COMPLETED")):
-                    c_j1, c_j2 = st.columns([7, 3])
-                    with c_j1:
-                        st.markdown(f"• **Proyecto:** `{j_proj}` | **Workflow:** `{j_wf}`")
-                        st.markdown(f"• **Tiempo de Render:** `{j_dur:.2f}s` | **Pasos:** {len(j_steps)}")
-                        
-                        st.markdown("<div style='font-size:11.5px; font-weight:700; color:#38bdf8; margin-top:4px;'>Trazabilidad de Pasos:</div>", unsafe_allow_html=True)
-                        for s_idx, stp in enumerate(j_steps):
-                            s_name = stp.get("step_id", f"Paso {s_idx+1}")
-                            s_stat = stp.get("status", "ok")
-                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>✅ `{s_name}` — {s_stat.upper()}</div>", unsafe_allow_html=True)
-                    with c_j2:
-                        st.markdown(f"<div style='padding:6px; background:{badge_bg}; border:1px solid {badge_color}; border-radius:6px; text-align:center; font-weight:700; color:{badge_color}; font-size:12px;'>{j_status}</div>", unsafe_allow_html=True)
-                        if st.button("🎬 Abrir en Empezar", key=f"btn_open_dir_{j_id}", use_container_width=True):
-                            st.session_state["active_view"] = "studio"
-                            st.rerun()
-
-    def _render_projects_grid(proj_list, tab_prefix):
-        filtered = list(proj_list)
-        if search_query.strip():
-            q = search_query.strip().lower()
-            filtered = [p for p in filtered if q in p["subject"].lower() or q in p["project_id"].lower() or q in p["date_formatted"]]
-
+    with tab_projects:
         if not filtered:
-            st.info("No hay proyectos en esta sección.")
+            st.info("💡 No se encontraron proyectos que coincidan con los filtros seleccionados.")
             return
 
-        if sort_order == "Más antiguos primero":
-            filtered.sort(key=lambda p: p["mtime"], reverse=False)
-        elif sort_order == "Por nombre (A-Z)":
-            filtered.sort(key=lambda p: p["subject"].lower())
-        else:
-            filtered.sort(key=lambda p: p["mtime"], reverse=True)
+        # Renderizado en Grid de 2 Columnas (Estilo DEV Moderno)
+        col_left, col_right = st.columns(2, gap="medium")
+        
+        for idx, proj in enumerate(filtered):
+            target_col = col_left if idx % 2 == 0 else col_right
+            with target_col:
+                _render_project_card(proj)
 
-        # Agrupación por Año ➔ Mes ➔ Día
-        tree = {}
-        for p in filtered:
-            y = p["year"]
-            m = f"{p['month']} ({p['month_label']})"
-            d = p["day"]
-            tree.setdefault(y, {}).setdefault(m, {}).setdefault(d, []).append(p)
+    with tab_live_monitor:
+        _render_live_jobs_monitor()
 
-        for y_key, m_dict in tree.items():
-            for m_key, d_dict in m_dict.items():
-                for d_key, projs in d_dict.items():
-                    st.markdown(f"""
-                        <div style="background: rgba(15, 23, 42, 0.85); border-left: 3px solid #38bdf8; padding: 4px 10px; margin: 10px 0 4px 0; border-radius: 0 4px 4px 0; font-size: 12px; font-weight: 700; color: #38bdf8;">
-                            📅 {y_key} ➔ {m_key} ➔ Día {d_key} <span style="font-size: 11px; font-weight: 400; color: #64748b; margin-left: 8px;">({len(projs)} proyecto{'s' if len(projs) > 1 else ''})</span>
-                        </div>
-                    """, unsafe_allow_html=True)
 
-                    for p in projs:
-                        with st.container(border=True):
-                            c_info, c_acts = st.columns([6, 4], vertical_alignment="center")
-                            
-                            with c_info:
-                                time_str = p["datetime"].strftime("%H:%M")
-                                
-                                # Badges
-                                vid_badge = "<span style='background:#064e3b; color:#6ee7b7; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:600;'>✅ VÍDEO MASTER</span>" if p["has_video"] else "<span style='background:#334155; color:#94a3b8; padding:2px 6px; border-radius:4px; font-size:10px; font-weight:600;'>📝 PROYECTO</span>"
-                                
-                                r2_badge = "<span style='background:rgba(16,185,129,0.2); color:#34d399; border:1px solid rgba(16,185,129,0.4); padding:1px 6px; border-radius:4px; font-size:10px; font-weight:600; margin-left:4px;'>☁️ R2 SYNC</span>" if p["cloud_synced"] else "<span style='background:rgba(234,179,8,0.15); color:#facc15; border:1px solid rgba(234,179,8,0.3); padding:1px 6px; border-radius:4px; font-size:10px; font-weight:600; margin-left:4px;'>💾 LOCAL</span>"
-                                
-                                studio_badge = "<span style='background:rgba(56,189,248,0.15); color:#38bdf8; border:1px solid rgba(56,189,248,0.3); padding:1px 6px; border-radius:4px; font-size:10px; font-weight:600; margin-left:4px;'>🏛️ STUDIO</span>" if p.get("is_studio") else ""
+def _render_project_card(proj: dict):
+    """Renderiza una tarjeta de proyecto moderna con acciones y estado relacional."""
+    p_id = proj.get("project_id", "proj_unknown")
+    title = proj.get("title") or proj.get("subject", p_id)
+    wf_id = proj.get("workflow_id", "PIXAR_3D_ANIMATION")
+    arch = ARCHETYPES_CATALOG.get(wf_id)
+    wf_name = arch.name if arch else proj.get("workflow_name", "Producción Cinemática")
+    wf_icon = arch.icon if arch else proj.get("workflow_icon", "🎬")
+    
+    has_video = proj.get("has_video", False)
+    local_vid = proj.get("local_video_path", "")
+    cloud_url = proj.get("cloud_url", "")
+    scenes_cnt = proj.get("scenes_count", len(proj.get("scenes", [])))
+    aspect = proj.get("aspect_ratio", "16:9")
+    voice_id = proj.get("voice_id", "vibevoice")
+    
+    # Formatear fecha
+    upd_raw = proj.get("updated_at")
+    upd_str = "Reciente"
+    if isinstance(upd_raw, (int, float)):
+        upd_str = datetime.fromtimestamp(upd_raw).strftime("%d/%m/%Y %H:%M")
+    elif isinstance(upd_raw, str) and len(upd_raw) >= 10:
+        try:
+            upd_str = datetime.fromisoformat(upd_raw.replace("Z", "+00:00")).strftime("%d/%m/%Y %H:%M")
+        except Exception:
+            upd_str = upd_raw[:16]
 
-                                st.markdown(f"""
-                                    <div style="font-size: 13.5px; font-weight: 700; color: #f8fafc; margin-bottom: 2px;">
-                                        {p['subject']} {vid_badge}{r2_badge}{studio_badge}
-                                    </div>
-                                    <div style="font-size: 11px; color: #64748b;">
-                                        📁 <code>{p['project_id']}</code> · ⏰ {time_str}
-                                    </div>
-                                """, unsafe_allow_html=True)
+    spec = proj.get("director_spec", {})
+    premise = spec.get("subject", proj.get("subject", ""))
+    chars = spec.get("characters", "")
 
-                            with c_acts:
-                                b_play, b_cloud, b_edit, b_del = st.columns(4, gap="small")
-                                
-                                with b_play:
-                                    if p["has_video"]:
-                                        is_open = st.session_state.get(f"show_vid_{p['project_id']}", False)
-                                        btn_lbl = "Cerrar" if is_open else "Ver"
-                                        if st.button(btn_lbl, key=f"btn_v_{tab_prefix}_{p['project_id']}", use_container_width=True):
-                                            st.session_state[f"show_vid_{p['project_id']}"] = not is_open
-                                            st.rerun()
-                                    else:
-                                        st.button("-", key=f"btn_nv_{tab_prefix}_{p['project_id']}", disabled=True, use_container_width=True)
+    status_badge = "🟢 FINALIZADO" if has_video else ("🟡 LISTO PARA RODAR" if scenes_cnt > 0 else "⚪ EN DEFINICIÓN")
+    status_color = "#34d399" if has_video else ("#38bdf8" if scenes_cnt > 0 else "#94a3b8")
 
-                                with b_cloud:
-                                    if p["cloud_synced"]:
-                                        is_c_open = st.session_state.get(f"show_c_{p['project_id']}", False)
-                                        btn_c_lbl = "Cerrar" if is_c_open else "☁️ R2"
-                                        if st.button(btn_c_lbl, key=f"btn_c_{tab_prefix}_{p['project_id']}", use_container_width=True):
-                                            st.session_state[f"show_c_{p['project_id']}"] = not is_c_open
-                                            st.rerun()
-                                    else:
-                                        if st.button("☁️ Subir", key=f"btn_c_{tab_prefix}_{p['project_id']}", use_container_width=True):
-                                            with st.spinner("Subiendo a Cloudflare R2..."):
-                                                ok, msg = _upload_single_project_to_r2(p)
-                                                if ok:
-                                                    st.toast("Proyecto sincronizado en Cloudflare R2.")
-                                                    st.rerun()
-                                                else:
-                                                    st.error(msg)
+    with st.container(border=True):
+        # Cabecera de la Tarjeta
+        st.markdown(f"""
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <div style="font-size:11px; font-weight:700; color:#38bdf8; background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.25); padding:2px 8px; border-radius:12px;">
+                    {wf_icon} {wf_name}
+                </div>
+                <div style="font-size:11px; font-weight:700; color:{status_color};">
+                    {status_badge}
+                </div>
+            </div>
+            <div style="font-size:15px; font-weight:800; color:#f8fafc; margin-bottom:4px; line-height:1.3;">
+                {title}
+            </div>
+        """, unsafe_allow_html=True)
 
-                                with b_edit:
-                                    if st.button("🎬 Abrir", key=f"btn_edit_{tab_prefix}_{p['project_id']}", use_container_width=True, help="Abrir en el Director Semántico"):
-                                        st.session_state["current_project_id"] = p["project_id"]
-                                        st.session_state["active_view"] = "studio"
-                                        st.rerun()
+        if premise and premise != title:
+            st.caption(f"📌 **Premisa:** {premise[:75]}...")
+        if chars:
+            st.caption(f"🧸 **Personajes:** {chars[:65]}...")
 
-                                with b_del:
-                                    if st.button("🗑️", key=f"btn_d_{tab_prefix}_{p['project_id']}", use_container_width=True, help="Eliminar proyecto"):
-                                        try:
-                                            if os.path.exists(p["task_path"]):
-                                                shutil.rmtree(p["task_path"])
-                                            st.toast("Proyecto eliminado.")
-                                            st.rerun()
-                                        except Exception as ex:
-                                            st.error(f"Error al eliminar: {ex}")
+        # Metadatos Técnicos
+        st.markdown(f"""
+            <div style="display:flex; gap:12px; font-size:11.5px; color:#94a3b8; background:rgba(15,23,42,0.6); padding:6px 10px; border-radius:6px; border:1px solid #334155; margin:6px 0 10px 0;">
+                <div>🎬 <b>{scenes_cnt}</b> tomas</div>
+                <div>📐 <b>{aspect}</b></div>
+                <div>🎙️ <b>{voice_id}</b></div>
+                <div>🕒 <b>{upd_str}</b></div>
+            </div>
+        """, unsafe_allow_html=True)
 
-                            # Visor de Vídeo
-                            if st.session_state.get(f"show_vid_{p['project_id']}", False) and p["has_video"]:
-                                st.markdown("<hr style='margin: 8px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
-                                vc1, vc2 = st.columns([7, 3])
-                                with vc1:
-                                    st.video(p["final_video"])
-                                with vc2:
-                                    sz_mb = os.path.getsize(p["final_video"]) / (1024 * 1024)
-                                    st.caption(f"**Archivo:** `{os.path.basename(p['final_video'])}`")
-                                    st.caption(f"**Tamaño:** {sz_mb:.2f} MB")
-                                    with open(p["final_video"], "rb") as fv:
-                                        st.download_button(
-                                            "📥 Descargar MP4",
-                                            data=fv.read(),
-                                            file_name=os.path.basename(p["final_video"]),
-                                            mime="video/mp4",
-                                            use_container_width=True,
-                                            key=f"dl_{tab_prefix}_{p['project_id']}"
-                                        )
+        # Botones de Acción
+        c_act1, c_act2, c_act3 = st.columns([5, 3, 2], gap="small")
+        with c_act1:
+            if st.button("📂 Abrir en Estudio", key=f"btn_open_studio_{p_id}", type="primary", use_container_width=True, help="Abrir proyecto en el Director Creativo"):
+                with st.spinner("Cargando proyecto y restaurando sesión..."):
+                    ok = view_studio_orchestrator.load_project_into_session(p_id)
+                    if ok:
+                        st.session_state["active_view"] = "studio"
+                        st.rerun()
+                    else:
+                        st.error(f"No se pudo cargar el proyecto {p_id}")
+        with c_act2:
+            if has_video and (local_vid or cloud_url):
+                with st.popover("🎬 Ver Vídeo", use_container_width=True):
+                    if local_vid and os.path.exists(local_vid):
+                        st.video(local_vid)
+                    elif cloud_url:
+                        st.video(cloud_url)
+            else:
+                if st.button("📋 Duplicar", key=f"btn_dup_{p_id}", use_container_width=True, help="Duplicar proyecto (Fork)"):
+                    new_pid = f"{p_id}_copia_{int(time.time())}"
+                    new_title = f"{title} (Copia)"
+                    repo = ProjectRepository()
+                    proj_copy = dict(proj)
+                    proj_copy["project_id"] = new_pid
+                    proj_copy["task_id"] = new_pid
+                    proj_copy["title"] = new_title
+                    firebase_sync.backup_project_to_firebase(proj_copy)
+                    invalidate_projects_cache()
+                    st.success(f"Proyecto duplicado como: {new_title}")
+                    st.rerun()
+        with c_act3:
+            with st.popover("🗑️", use_container_width=True):
+                st.markdown(f"**¿Eliminar '{title}'?**")
+                st.caption("Esta acción purgará el proyecto de Firestore y de disco local.")
+                if st.button("Confirmar Borrado", key=f"btn_confirm_del_{p_id}", type="primary", use_container_width=True):
+                    repo = ProjectRepository()
+                    repo.delete_project(p_id)
+                    invalidate_projects_cache()
+                    st.toast(f"Proyecto '{title}' eliminado.")
+                    st.rerun()
 
-                            # Enlace de R2
-                            if st.session_state.get(f"show_c_{p['project_id']}", False) and p["cloud_synced"]:
-                                st.markdown("<hr style='margin: 8px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
-                                st.success(f"🔗 **URL Cloudflare R2:** `{p.get('cloud_url', '')}`")
-                                st.caption("Streaming y descarga directa con ancho de banda gratuito (Zero Egress).")
 
-    with tab_all:
-        _render_projects_grid(all_projects, "all")
+def _render_live_jobs_monitor():
+    """Renderiza el monitor de trazabilidad de jobs de renderizado en vivo."""
+    st.markdown("##### ⚡ Monitor de Producción Cinemática en Tiempo Real")
+    st.caption("Seguimiento detallado de jobs de renderizado, fase semántica actual, trazabilidad y carpetas del proyecto.")
+    
+    studio_repo = StudioRepository()
+    try:
+        active_jobs = studio_repo.list_active_jobs()
+    except Exception:
+        try:
+            active_jobs = studio_repo.list_jobs(limit=10)
+        except Exception:
+            active_jobs = []
+    
+    if not active_jobs:
+        st.info("💡 No hay ningún job de renderizado ejecutándose en este momento.")
+        return
 
-    with tab_synced:
-        _render_projects_grid([p for p in all_projects if p["cloud_synced"]], "synced")
+    for j in active_jobs:
+        j_id = j.get("job_id", "job_unknown")
+        j_proj = j.get("project_id", "")
+        j_status = j.get("status", "pending")
+        j_dur = j.get("duration_seconds", 0.0)
+        j_steps = j.get("steps", [])
 
-    with tab_pending:
-        _render_projects_grid([p for p in all_projects if not p["cloud_synced"]], "pend")
-
-    with tab_videos:
-        _render_projects_grid([p for p in all_projects if p["has_video"]], "vids")
+        with st.container(border=True):
+            st.markdown(f"**Job ID:** `{j_id}` | **Proyecto:** `{j_proj}` | **Estado:** `{j_status}` | **Duración:** `{j_dur:.2f}s`")
+            for stp in j_steps:
+                st.markdown(f"• ✅ **{stp.get('step_id')}** — `{stp.get('status', 'ok')}` ({stp.get('duration_seconds', 0):.2f}s)")

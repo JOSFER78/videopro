@@ -1,4 +1,4 @@
-"""检查 MoneyPrinterTurbo 是否存在可用的新正式版本。"""
+"""Comprobación de versiones oficiales de VideoPro Studio."""
 
 import threading
 import time
@@ -12,18 +12,17 @@ from packaging.version import InvalidVersion, Version
 
 
 LATEST_RELEASE_API_URL: Final = (
-    "https://api.github.com/repos/harry0703/MoneyPrinterTurbo/releases/latest"
+    "https://api.github.com/repos/videopro/videopro/releases/latest"
 )
 LATEST_RELEASE_PAGE_URL: Final = (
-    "https://github.com/harry0703/MoneyPrinterTurbo/releases/latest"
+    "https://github.com/videopro/videopro/releases/latest"
 )
-# 更新检查只是辅助功能，网络异常不能明显拖慢本地 WebUI。连接与读取分别限制
-# 超时时间，既允许 GitHub 在普通网络下完成响应，也避免离线环境长时间等待。
+# Actualización auxiliar sin bloquear la WebUI local
 RELEASE_CHECK_TIMEOUT: Final = (1.0, 2.0)
 RELEASE_CHECK_HEADERS: Final = {
     "Accept": "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28",
-    "User-Agent": "MoneyPrinterTurbo-Version-Checker",
+    "User-Agent": "VideoPro-Studio-Version-Checker",
 }
 UPDATE_CHECK_CACHE_TTL_SECONDS: Final = 12 * 60 * 60
 
@@ -91,7 +90,7 @@ def get_available_update(current_version: str) -> str | None:
 
     normalized_latest_version = str(latest_version)
     logger.info(
-        "MoneyPrinterTurbo update available: "
+        "VideoPro Studio update available: "
         f"current={installed_version}, latest={normalized_latest_version}"
     )
     return normalized_latest_version
@@ -99,24 +98,14 @@ def get_available_update(current_version: str) -> str | None:
 
 @dataclass(frozen=True)
 class UpdateCheckSnapshot:
-    """后台版本检查的即时状态，供 WebUI 无阻塞地读取。"""
+    """Estado de comprobación de versión para WebUI."""
 
     complete: bool
     available_version: str | None = None
 
 
 class AsyncUpdateChecker:
-    """
-    在后台线程中执行版本检查，并缓存最近一次结果。
-
-    Streamlit 会在任意控件交互后从头执行页面脚本。如果直接在标题区域访问
-    GitHub，首次打开或缓存失效时会阻塞整个页面。这里将网络请求放入守护线程，
-    页面只读取当前快照；检查完成后由 WebUI 的短期 fragment 刷新一次结果。
-
-    结果无论是“发现更新”还是“没有更新/网络失败”都会缓存，避免 GitHub
-    不可访问时每次 rerun 都重新请求。锁只保护内存状态，不包裹网络请求，因而
-    不会阻塞其它会话读取检查状态。
-    """
+    """Comprobador asíncrono en background de versiones de VideoPro Studio."""
 
     def __init__(
         self,
@@ -134,7 +123,7 @@ class AsyncUpdateChecker:
         self._checking = False
 
     def poll(self, current_version: str) -> UpdateCheckSnapshot:
-        """立即返回检查快照；缓存过期时在后台启动一次新检查。"""
+        """Retorna el snapshot de versión sin bloquear la UI."""
         normalized_current_version = str(current_version or "").strip()
         now = self._clock()
 
@@ -156,8 +145,6 @@ class AsyncUpdateChecker:
             ):
                 return UpdateCheckSnapshot(complete=False)
 
-            # 版本发生变化或缓存过期时，旧结果不应继续展示。先清空状态再启动
-            # 新线程，使调用方在检查期间得到明确的 pending 快照。
             self._current_version = normalized_current_version
             self._available_version = None
             self._completed_at = None
@@ -166,7 +153,7 @@ class AsyncUpdateChecker:
             worker = threading.Thread(
                 target=self._run_check,
                 args=(normalized_current_version,),
-                name="mpt-version-check",
+                name="videopro-version-check",
                 daemon=True,
             )
             worker.start()
@@ -177,10 +164,8 @@ class AsyncUpdateChecker:
         try:
             available_version = self._check(current_version)
         except Exception:
-            # get_available_update 已处理预期的网络和数据异常。此处是后台线程的
-            # 最后保护边界，必须记录完整堆栈，避免意外异常静默终止后永久 pending。
             logger.exception(
-                "unexpected error while checking for a MoneyPrinterTurbo update"
+                "unexpected error while checking for a VideoPro Studio update"
             )
             available_version = None
 

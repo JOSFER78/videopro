@@ -20,11 +20,14 @@ from app.config import config
 
 # Caché de resultados de verificación: {cache_key: (timestamp, result_dict)}
 _HEALTH_CACHE: Dict[str, Tuple[float, Dict[str, Any]]] = {}
-CACHE_TTL_SECONDS = 60.0
+CACHE_TTL_SECONDS = 300.0
+
+_FFMPEG_PATH_CACHE: Tuple[float, bool] = (0.0, False)
+_NPX_PATH_CACHE: Tuple[float, bool] = (0.0, False)
 
 
-def is_port_open(host: str, port: int, timeout: float = 0.4) -> bool:
-    """Verifica si un puerto TCP local o remoto está escuchando."""
+def is_port_open(host: str, port: int, timeout: float = 0.15) -> bool:
+    """Verifica si un puerto TCP local o remoto está escuchando con timeout ultracorto."""
     try:
         with socket.create_connection((host, port), timeout=timeout):
             return True

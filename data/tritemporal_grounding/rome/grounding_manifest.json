@@ -1,0 +1,526 @@
+{
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
+  "city_key": "rome",
+  "city_name": "Roma",
+  "country": "Italia",
+  "generated_at": "2026-08-16T15:26:57Z",
+  "epochs": {
+    "past_1626": {
+      "epoch": "Roma Barroca (Consagración de San Pedro por Urbano VIII, 1626)",
+      "urban_morphology": "Basílica de San Pedro completada por Maderno y Bernini, ruinas del Foro Romano utilizadas como pastos (Campo Vaccino), talleres de canteros de mármol travertino.",
+      "social_life": "Peregrinos de toda Europa, carruajes cardenalicios, artesanos del mármol y bronce.",
+      "cartography_source": "Plano de Roma de Antonio Tempesta (1593/1645) / Mapas Papales",
+      "lighting": "Sol mediterráneo dorado intenso sobre el travertino y mármol blanco, sombras largas en el Foro."
+    },
+    "present_2026": {
+      "epoch": "Ciudad Eterna Contemporánea (2026)",
+      "urban_morphology": "Coliseo restaurado con iluminación nocturna, Vía del Corso peatonalizada, fuentes monumentales barrocas activas, tráfico regulado.",
+      "social_life": "Turismo global, vida en plazas históricas (Piazza Navona), ciclomotores eléctricos.",
+      "lighting": "Contraste de piedra milenaria con iluminación cálida de tungsteno y focos LED dorados."
+    },
+    "future_2226": {
+      "epoch": "Cyber-Antiquity Roma 2226",
+      "urban_morphology": "Holografías volumétricas permanentes que proyectan la reconstrucción clásica sobre las ruinas, cúpulas geodésicas de nanopolímeros transparentes que preservan los monumentos del cambio climático, redes de movilidad aérea sobre el Tíber.",
+      "social_life": "Investigadores arqueológicos con interfaces neuronales, sociedad peatonal en micro-climas controlados.",
+      "science_citation": "Sapienza Università di Roma & CNR Heritage Climate Resilience Framework 2200",
+      "lighting": "Luz estroboscópica holográfica azul cobalto que delinea columnas romanas sobre la piedra original."
+    }
+  },
+  "waypoints": [
+    {
+      "id": "WP1_COLOSSEUM",
+      "name": "Coliseo & Vía de los Foros Imperiales",
+      "lat": 41.8902,
+      "lon": 12.4922,
+      "alt_agl": 75.0
+    },
+    {
+      "id": "WP2_ST_PETERS",
+      "name": "Plaza y Basílica de San Pedro (Vaticano)",
+      "lat": 41.9022,
+      "lon": 12.4539,
+      "alt_agl": 140.0
+    },
+    {
+      "id": "WP3_TREVI_FOUNTAIN",
+      "name": "Fontana di Trevi & Quirinale",
+      "lat": 41.9009,
+      "lon": 12.4833,
+      "alt_agl": 40.0
+    }
+  ],
+  "perspectives_matrix": [
+    {
+      "perspective_id": "WP1_COLOSSEUM_NORTH_APPROACH",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_COLOSSEUM_EAST_FLANK",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_COLOSSEUM_SOUTH_RETREAT",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_COLOSSEUM_WEST_FLANK",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_COLOSSEUM_DIVE_DOWN",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP1_COLOSSEUM_ASCENT_UP",
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "latitude": 41.8902,
+      "longitude": 12.4922,
+      "altitude_agl": 75.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_NORTH_APPROACH",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_EAST_FLANK",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_SOUTH_RETREAT",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_WEST_FLANK",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_DIVE_DOWN",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP2_ST_PETERS_ASCENT_UP",
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "latitude": 41.9022,
+      "longitude": 12.4539,
+      "altitude_agl": 140.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_NORTH_APPROACH",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano frontal de avance",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_EAST_FLANK",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 90.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral derecho (fachadas)",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_SOUTH_RETREAT",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 180.0,
+      "pitch": 0.0,
+      "fov": 90,
+      "role": "Plano de fuga / marcha atrás",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_WEST_FLANK",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 270.0,
+      "pitch": -5.0,
+      "fov": 90,
+      "role": "Plano lateral izquierdo",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_DIVE_DOWN",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": -35.0,
+      "fov": 110,
+      "role": "Picado hacia la vida urbana",
+      "grounding_status": "VERIFIED_CANONICAL"
+    },
+    {
+      "perspective_id": "WP3_TREVI_FOUNTAIN_ASCENT_UP",
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "latitude": 41.9009,
+      "longitude": 12.4833,
+      "altitude_agl": 40.0,
+      "heading": 0.0,
+      "pitch": 30.0,
+      "fov": 110,
+      "role": "Contrapicado hacia cúpulas y rascacielos",
+      "grounding_status": "VERIFIED_CANONICAL"
+    }
+  ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_COLOSSEUM",
+      "landmark": "Coliseo & Vía de los Foros Imperiales",
+      "coords": {
+        "lat": 41.8902,
+        "lon": 12.4922,
+        "alt_agl": 75.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_ST_PETERS",
+      "landmark": "Plaza y Basílica de San Pedro (Vaticano)",
+      "coords": {
+        "lat": 41.9022,
+        "lon": 12.4539,
+        "alt_agl": 140.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_TREVI_FOUNTAIN",
+      "landmark": "Fontana di Trevi & Quirinale",
+      "coords": {
+        "lat": 41.9009,
+        "lon": 12.4833,
+        "alt_agl": 40.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
+  "spatial_geometries": [
+    {
+      "waypoint": {
+        "id": "WP1_COLOSSEUM",
+        "name": "Coliseo & Vía de los Foros Imperiales",
+        "lat": 41.8902,
+        "lon": 12.4922,
+        "alt_agl": 75.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Roma",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP2_ST_PETERS",
+        "name": "Plaza y Basílica de San Pedro (Vaticano)",
+        "lat": 41.9022,
+        "lon": 12.4539,
+        "alt_agl": 140.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Roma",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    },
+    {
+      "waypoint": {
+        "id": "WP3_TREVI_FOUNTAIN",
+        "name": "Fontana di Trevi & Quirinale",
+        "lat": 41.9009,
+        "lon": 12.4833,
+        "alt_agl": 40.0
+      },
+      "osm_geometry": {
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Roma",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
+      }
+    }
+  ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
+  "render_config": {
+    "target_model": "gemini-omni-flash-preview",
+    "keyframe_generator": "gemini-3.1-flash-image",
+    "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
+    "frame_rate_fps": 60,
+    "bgm_tempo_bpm": 118,
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
+  }
+}

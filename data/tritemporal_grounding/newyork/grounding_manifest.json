@@ -1,26 +1,26 @@
 {
-  "manifest_version": "5.0.0-TRITEMPORAL",
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
   "city_key": "newyork",
   "city_name": "Nueva York (Nueva Ámsterdam)",
   "country": "Estados Unidos",
-  "generated_at": "2026-08-16T13:38:05Z",
+  "generated_at": "2026-08-16T15:26:09Z",
   "epochs": {
     "past_1626": {
       "epoch": "Nueva Ámsterdam (Compra de Manhattan por Peter Minuit, 1626)",
-      "urban_morphology": "Fuerte Ámsterdam de tierra en Battery Park, muralla de estacas de madera en Wall Street, colinas boscosas vírgenes (Mannahatta), arroyos naturales y molino de viento junto al East River.",
-      "social_life": "Indígenas Lenape en canoas de corteza de abedul comerciando pieles de castor con colonos holandeses con sombreros anchos.",
-      "cartography_source": "The Castello Plan of New Amsterdam (1660 / Mannahatta Project Mapping)",
+      "urban_morphology": "Fuerte Ámsterdam de tierra en Battery Park, empalizada de madera en Wall Street, colinas vírgenes de Mannahatta, arroyos naturales y molino de viento junto al East River.",
+      "social_life": "Indígenas Lenape en canoas comerciando pieles de castor con colonos holandeses de sombreros de ala ancha.",
+      "cartography_source": "The Castello Plan of New Amsterdam (1660) / Mannahatta Project",
       "lighting": "Naturaleza virgen, humo de fogatas de turba, sol otoñal iluminando bosques de robles y castaños."
     },
     "present_2026": {
       "epoch": "Capital Financiera Mundial (2026)",
       "urban_morphology": "Cañones de rascacielos de hormigón y cristal (One World Trade Center, Empire State), cuadrícula hipodámica de Manhattan, taxis amarillos, puentes colgantes colosales.",
-      "social_life": "Energía cinética ininterrumpida, multitudes diversas en Times Square, barcos ferris cruzando la bahía.",
+      "social_life": "Energía cinética ininterrumpida, multitudes diversas en Times Square, ferris cruzando la bahía.",
       "lighting": "Contraste dramático de sombras en los cañones urbanos, reflejos dorados en las cristaleras al atardecer."
     },
     "future_2226": {
       "epoch": "Arcología Vertical Resiliente Manhattan 2226",
-      "urban_morphology": "Manhattan blindado con el sistema 'The Big U 2200' de parques costeros absorbentes de marejadas, rascacielos interconectados por pasarelas eólicas que generan energía para micro-distritos autosuficientes, autopistas convertidas en bosques lineales peatonales y corredores de cápsulas magnéticas subterráneas.",
+      "urban_morphology": "Sistema de parques costeros absorbentes 'The Big U 2200' frente a marejadas, rascacielos interconectados por pasarelas eólicas que generan energía para micro-distritos autosuficientes, autopistas convertidas en bosques lineales peatonales.",
       "social_life": "Vida urbana descarbonizada, techos cultivados con micro-climas hidropónicos, drones silenciosos de pasajeros a 200m AGL.",
       "science_citation": "Columbia University Climate School & Bjarke Ingels Group (BIG) Urban Resilience Blueprint 2200",
       "lighting": "Luz natural difusa reflejada por colectores solares ópticos hacia el nivel del suelo, luminiscencia cálida en las pasarelas aéreas."
@@ -285,6 +285,173 @@
       "grounding_status": "VERIFIED_CANONICAL"
     }
   ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_BATTERY_PARK",
+      "landmark": "The Battery & Puerto de Manhattan",
+      "coords": {
+        "lat": 40.7033,
+        "lon": -74.017,
+        "alt_agl": 75.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_WALL_STREET",
+      "landmark": "Wall Street & Federal Hall / Trinity Church",
+      "coords": {
+        "lat": 40.7071,
+        "lon": -74.009,
+        "alt_agl": 50.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_CENTRAL_PARK_SOUTH",
+      "landmark": "Billionaires' Row & Entrada a Central Park",
+      "coords": {
+        "lat": 40.7656,
+        "lon": -73.9763,
+        "alt_agl": 150.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
   "spatial_geometries": [
     {
       "waypoint": {
@@ -297,9 +464,9 @@
       "osm_geometry": {
         "status": "LOCAL_DETERMINISTIC_CACHE",
         "city": "Nueva York (Nueva Ámsterdam)",
-        "building_count": 48,
-        "historic_nodes": 7,
-        "avg_building_height_m": 24.5,
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
         "heritage_density": "HIGH"
       }
     },
@@ -314,9 +481,9 @@
       "osm_geometry": {
         "status": "LOCAL_DETERMINISTIC_CACHE",
         "city": "Nueva York (Nueva Ámsterdam)",
-        "building_count": 48,
-        "historic_nodes": 7,
-        "avg_building_height_m": 24.5,
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
         "heritage_density": "HIGH"
       }
     },
@@ -331,19 +498,29 @@
       "osm_geometry": {
         "status": "LOCAL_DETERMINISTIC_CACHE",
         "city": "Nueva York (Nueva Ámsterdam)",
-        "building_count": 48,
-        "historic_nodes": 7,
-        "avg_building_height_m": 24.5,
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
         "heritage_density": "HIGH"
       }
     }
   ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
   "render_config": {
     "target_model": "gemini-omni-flash-preview",
     "keyframe_generator": "gemini-3.1-flash-image",
     "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
     "frame_rate_fps": 60,
     "bgm_tempo_bpm": 118,
-    "audio_master_lufs": -14.0
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
   }
 }

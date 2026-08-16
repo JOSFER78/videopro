@@ -6,33 +6,457 @@
   "niche": "Vuelos FPV Tritemporales por Ciudades con Música Flow y Datos Científicos",
   "target_rpm_usd": "$12.50 – $24.00 USD",
   "target_retention": "91% (1m) / 72% (AVD)",
-  "primary_color": "#00e5ff",
-  "secondary_color": "#ffb300",
-  "accent_color": "#b388ff",
-  "audio_settings": {
-    "bpm": "118 BPM",
-    "genre": "Flow Chillhop / Urban Lo-Fi & Darksynth",
-    "target_lufs": -14.0,
-    "ducking_db": -18.0,
-    "true_peak_dbtp": -1.0
+  "brand_colors": {
+    "primary_cyan": "#00e5ff",
+    "secondary_orange": "#ffb300",
+    "accent_purple": "#b388ff",
+    "void_black": "#07090e",
+    "carbon_titanium": "#161b26",
+    "photonic_white": "#ffffff",
+    "amber_past": "#d4a373",
+    "hyper_future_violet": "#7c4dff"
+  },
+  "typography": {
+    "display_titles": "Syne (ExtraBold 800, tracking -0.03em)",
+    "hud_telemetry": "JetBrains Mono / Share Tech Mono (Tabular Numbers, tracking +0.05em)",
+    "body_captions": "Plus Jakarta Sans / Inter (Regular 400 / SemiBold 600)"
+  },
+  "scraping_6dof_config": {
+    "provider": "google_street_view_api + openstreetmap_overpass",
+    "canonical_perspectives": [
+      {
+        "id": "CAM_N",
+        "name": "North Axial Reference",
+        "heading_deg": 0.0,
+        "pitch_deg": 0.0,
+        "roll_deg": 0.0,
+        "fov_deg": 90,
+        "description": "Vector de referencia axial norte y fachada frontal",
+        "matrix_role": "Frontal Axis Reference"
+      },
+      {
+        "id": "CAM_E",
+        "name": "East Lateral Flank",
+        "heading_deg": 90.0,
+        "pitch_deg": 0.0,
+        "roll_deg": 0.0,
+        "fov_deg": 90,
+        "description": "Paraje lateral derecho y continuidad de horizonte",
+        "matrix_role": "Right Flank Parallax"
+      },
+      {
+        "id": "CAM_S",
+        "name": "South Retreat Axis",
+        "heading_deg": 180.0,
+        "pitch_deg": 0.0,
+        "roll_deg": 0.0,
+        "fov_deg": 90,
+        "description": "Retro-perspectiva y anclaje de fuga trasera",
+        "matrix_role": "Rear Escape Anchor"
+      },
+      {
+        "id": "CAM_W",
+        "name": "West Lateral Flank",
+        "heading_deg": 270.0,
+        "pitch_deg": 0.0,
+        "roll_deg": 0.0,
+        "fov_deg": 90,
+        "description": "Paraje lateral izquierdo y paralaje de sombra",
+        "matrix_role": "Left Flank Parallax"
+      },
+      {
+        "id": "CAM_PITCH_DOWN",
+        "name": "Vertical Dive (Picado)",
+        "heading_deg": "TARGET_VECTOR",
+        "pitch_deg": -20.0,
+        "roll_deg": 0.0,
+        "fov_deg": 100,
+        "description": "Textura de calzada, escala peatonal y relieve basal",
+        "matrix_role": "Ground Texture & Human Scale"
+      },
+      {
+        "id": "CAM_PITCH_UP",
+        "name": "Vertical Surge (Contrapicado)",
+        "heading_deg": "TARGET_VECTOR",
+        "pitch_deg": 25.0,
+        "roll_deg": 0.0,
+        "fov_deg": 100,
+        "description": "Cúspide de rascacielos, cañón urbano y cielo abierto",
+        "matrix_role": "Skyscraper Pinnacle & Skyline"
+      }
+    ],
+    "equirectangular_spherical_360": {
+      "master_resolution": "7680x3840",
+      "aspect_ratio": "2:1",
+      "cubemap_decomposition": [
+        {"face": "front", "heading_deg": 0.0, "pitch_deg": 0.0},
+        {"face": "right", "heading_deg": 90.0, "pitch_deg": 0.0},
+        {"face": "back", "heading_deg": 180.0, "pitch_deg": 0.0},
+        {"face": "left", "heading_deg": 270.0, "pitch_deg": 0.0},
+        {"face": "top", "heading_deg": 0.0, "pitch_deg": 90.0},
+        {"face": "bottom", "heading_deg": 0.0, "pitch_deg": -90.0}
+      ]
+    },
+    "osm_overpass_query": {
+      "features": ["building:levels", "height", "min_height", "roof:shape", "building:part", "amenity", "historic", "highway"],
+      "radius_meters": 500,
+      "dem_elevation_source": "Copernicus_DEM_30m",
+      "coordinate_precision": 6
+    },
+    "optical_quality_filters": {
+      "min_resolution": "3840x2160",
+      "min_filesize_kb": 5.0,
+      "laplacian_sharpness_min": 100.0,
+      "color_depth": "10-bit HDR / BT.709 sRGB",
+      "max_compression_artifacts": "strict_zero_tolerance"
+    }
   },
   "video_generator": {
-    "model": "gemini-omni-flash-preview",
+    "engine": "gemini-omni-flash-preview",
     "provider": "google_flow",
+    "zero_veo3_mandate": true,
+    "zero_veo3_rationale": "Eliminación de morphing temporal descontrolado, soporte nativo de multi-referencias 6-DoF, spline de trayectoria de cámara sin deformaciones y latencia de inferencia lineal.",
     "fps": 60,
     "resolution": "3840x2160",
-    "keyframes_per_shot": 7
+    "aspect_ratio_master": "16:9",
+    "aspect_ratio_shorts": "9:16",
+    "keyframes_per_shot": 7,
+    "keyframe_generator_model": "gemini-3.1-flash-image (Nano Banana Pro)",
+    "official_google_flow_syntax_template": "[# Sources <FIRST_FRAME>@Keyframe_Start] [# References <IMAGE_REF_0>@Cam_N <IMAGE_REF_1>@Cam_E <IMAGE_REF_2>@Cam_S <IMAGE_REF_3>@Cam_W <IMAGE_REF_4>@Cam_PitchDown <IMAGE_REF_5>@Cam_PitchUp]",
+    "prompt_structure_schema": {
+      "1_subject": "Núcleo arquitectónico y geográfico con anclaje de época exacta (1626, 2026, 2226)",
+      "2_visual_specifics": "Materiales físicos reales (madera de roble, adoquines, vidrio low-E, nanotubos de grafeno)",
+      "3_action_motion": "Vector de desplazamiento 6-DoF continuo (km/h, AGL, pitch, roll, yaw)",
+      "4_camera_optics": "35mm f/1.8 Anamorphic prime, obturación 180° (1/120s motion blur a 60fps)",
+      "5_lighting_atmosphere": "Iluminación volumétrica, niebla realista, reflejos especulares, god rays",
+      "6_audio_grounding": "Pistas auditivas diegéticas y de viento para inferencia multimodal",
+      "7_style_constraints": "Fotorrealismo documental BBC Earth / IMAX, cero AI slop, líneas arquitectónicas estables"
+    },
+    "shotlist_canon_7d": [
+      {
+        "index": 1,
+        "code": "01_TERMINAL_DIVE",
+        "timing_sec": "0-3s",
+        "duration_sec": 3.05,
+        "bars_at_118bpm": 1.5,
+        "angle": "Picado vertical 90°",
+        "altitude_agl_m": "850m ➔ 35m",
+        "speed_kmh": 140,
+        "narrative_role": "Visual Hook & Vortex Inception"
+      },
+      {
+        "index": 2,
+        "code": "02_CANYON_DRIFT",
+        "timing_sec": "3-10s",
+        "duration_sec": 7.12,
+        "bars_at_118bpm": 3.5,
+        "angle": "Vuelo rasante en cañón urbano",
+        "altitude_agl_m": "1.8m ➔ 15m",
+        "speed_kmh": 110,
+        "narrative_role": "Micro-Geography & Building Scale"
+      },
+      {
+        "index": 3,
+        "code": "03_TUNNEL_PIERCE",
+        "timing_sec": "10-18s",
+        "duration_sec": 8.14,
+        "bars_at_118bpm": 4.0,
+        "angle": "Penetración rasante en pasajes / arcadas",
+        "altitude_agl_m": "2.5m ➔ 4.0m",
+        "speed_kmh": 85,
+        "narrative_role": "Diegetic Foley & Enclosed Proximity (Match-Cut Temporal)"
+      },
+      {
+        "index": 4,
+        "code": "04_MONUMENT_ORBIT",
+        "timing_sec": "18-25s",
+        "duration_sec": 7.12,
+        "bars_at_118bpm": 3.5,
+        "angle": "Órbita 360° helicoidal",
+        "altitude_agl_m": "25m ➔ 85m",
+        "speed_kmh": 65,
+        "narrative_role": "Historical Landmark 3D Anchoring & Billboard HUD"
+      },
+      {
+        "index": 5,
+        "code": "05_PEDESTRIAN_SWOOP",
+        "timing_sec": "25-32s",
+        "duration_sec": 7.12,
+        "bars_at_118bpm": 3.5,
+        "angle": "Vuelo a ras de suelo (escala humana)",
+        "altitude_agl_m": "1.5m ➔ 12m",
+        "speed_kmh": 45,
+        "narrative_role": "Street Level Atmosphere & Bioclimatic Future Shift"
+      },
+      {
+        "index": 6,
+        "code": "06_VERTICAL_SURGE",
+        "timing_sec": "32-38s",
+        "duration_sec": 6.10,
+        "bars_at_118bpm": 3.0,
+        "angle": "Ascenso vertical trepando fachadas",
+        "altitude_agl_m": "12m ➔ 300m",
+        "speed_kmh": 125,
+        "narrative_role": "Vertical Momentum & Stratospheric Reveal"
+      },
+      {
+        "index": 7,
+        "code": "07_SKYLINE_SUNSET_ASCENSION",
+        "timing_sec": "38-45s",
+        "duration_sec": 7.12,
+        "bars_at_118bpm": 3.5,
+        "angle": "Gran angular panorámico",
+        "altitude_agl_m": "300m ➔ 500m",
+        "speed_kmh": 90,
+        "narrative_role": "Tritemporal Horizon Climax & Outro Resolution"
+      }
+    ],
+    "cinematography_specs": {
+      "lens_optics": "35mm f/1.8 Prime & 50mm f/1.2 Anamorphic (1.33x horizontal squeeze)",
+      "film_stock_grain": "Kodak Vision3 500T 5219 subtle physical grain",
+      "colorimetry": "ARRI Alexa LF LogC / Rec.709 D65 Master",
+      "lighting": "Volumetric aerial fog, raymarched God rays, physical caustics",
+      "shutter_angle": "180° (1/120s motion blur at 60fps)"
+    }
+  },
+  "audio_engineering": {
+    "bpm": 118,
+    "time_signature": "4/4",
+    "grid_timings": {
+      "beat_duration_ms": 508.47,
+      "bar_duration_ms": 2033.90,
+      "phrase_4bar_ms": 8135.59
+    },
+    "genre": "Flow Chillhop / Urban Lo-Fi & Darksynth (Custom Synthesized & Curated)",
+    "master_standards": {
+      "standard": "EBU R128 / ITU-R BS.1770-4",
+      "target_integrated_lufs": -14.0,
+      "lufs_tolerance": 0.5,
+      "true_peak_max_dbtp": -1.0,
+      "loudness_range_lra_target": 7.0
+    },
+    "dynamic_ducking": {
+      "attenuation_under_vo_db": -18.0,
+      "linear_attenuation_factor": 0.1258,
+      "climax_instrumental_db": 0.0,
+      "attack_time_ms": 30.0,
+      "release_time_ms": 250.0,
+      "hold_time_ms": 50.0,
+      "ffmpeg_sidechain_filter": "sidechaincompress=threshold=0.08:ratio=6:attack=30:release=250:level_in=1"
+    },
+    "synchronization": {
+      "method": "VO-First Anchor",
+      "tool": "Whisper Stable-TS (word-level timestamps)",
+      "telemetry_sync": "Frame-accurate React HUD synchronization"
+    },
+    "foley_sound_design": {
+      "fpv_drone": "Binaural 5-inch carbon prop-whine with wind-shear aerodynamic drag",
+      "spatial_doppler": "Real-time 3D frequency pitch-shift on architectural proximity (delta_f = f0 * v / (v - vs))",
+      "era_diegic_foley": {
+        "past_1626": "Wooden creaks, horse hooves, atmospheric wind, vintage iron bell toll",
+        "present_2026": "Subway rumble, traffic tire friction, distant urban siren hum",
+        "future_2226": "Ion thruster purr, magnetic levitation hiss, laser comm pulses"
+      },
+      "transition_impact": "35Hz sub-bass braam drop + white noise reverse sweep at temporal match-cuts"
+    }
+  },
+  "remotion_hud_pipeline": {
+    "engine": "Remotion 4.x (React + TypeScript + WebGL + Lucide SVG)",
+    "fps": 60,
+    "canvas_resolution": "3840x2160",
+    "layers": [
+      "Camera_Match_Movement_Layer",
+      "Tritemporal_Shader_Displacement",
+      "Spatial_Billboard_Labels_3D",
+      "Dynamic_Altimeter_Speedometer_HUD",
+      "Scientific_Data_Telemetry_Stream",
+      "Master_Color_Grade_Kodak500T"
+    ],
+    "components": [
+      "ChronoDriftHUD",
+      "AltitudeGauge",
+      "CompassRose3D",
+      "WGS84Coordinates",
+      "ScientificDataCard",
+      "AudioWaveformVisualizer"
+    ],
+    "3d_billboard_perspective_px": 1200
+  },
+  "quality_assurance_gates": {
+    "asset_integrity_min_size_kb": 5.0,
+    "video_master_resolution": "3840x2160 @ 60.0 fps",
+    "audio_integrated_lufs": "-14.0 LUFS ± 0.5 LUFS",
+    "audio_true_peak_max": "-1.0 dBTP",
+    "music_ducking_attenuation": "-18.0 dB",
+    "laplacian_sharpness_min": 100.0,
+    "temporal_match_cut_tolerance_frames": 0
   },
   "episodes_planned": [
-    "Tokio",
-    "Nueva York",
-    "Londres",
-    "París",
-    "Ámsterdam",
-    "Roma",
-    "Dubái",
-    "Hong Kong",
-    "El Cairo",
-    "Venecia"
-  ]
+    {
+      "id": "EP01",
+      "city": "Tokio",
+      "country": "Japón",
+      "eras": ["1630 (Edo)", "2026 (Shinjuku/Shibuya)", "2226 (Neo-Tokyo Arcology)"],
+      "coordinates": "35.6762° N, 139.6503° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "IPCC Mega-Delta Resilience + Tokyo Bay Seismic Grid + Shimizu Mega-Pyramid Study",
+      "hook": "Picado vertical a 140 km/h desde 850m atravesando nubes volumétricas hacia el río Sumida en 1630 frente al Castillo de Edo.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "¿Cómo era Tokio hace 400 años vs Hoy vs 2226? ⏳", "target_vtr": "135%"},
+        {"type": "mystery", "title": "El secreto bajo el asfalto de Shibuya que data de 1630", "target_vtr": "125%"},
+        {"type": "future", "title": "La pirámide Shimizu de 2.000m que Tokio planea para 2226", "target_vtr": "128%"}
+      ]
+    },
+    {
+      "id": "EP02",
+      "city": "Nueva York",
+      "country": "Estados Unidos",
+      "eras": ["1626 (Nieuw Amsterdam)", "2026 (Manhattan Vertical)", "2226 (Bioluminescent Manhattan)"],
+      "coordinates": "40.7128° N, 74.0060° W",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "MIT Sea-Wall Dikes + Carbon-Graphene Supertall Aerodynamics + Columbia Climate School BIG The Big U 2200",
+      "hook": "Vuelo rasante a 1.5m rozando la empalizada de madera de Wall Street en 1626 donde las estacas se disuelven en los cañones de cristal.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "Wall Street hace 400 años era solo una empalizada de madera contra cerdos", "target_vtr": "138%"},
+        {"type": "mystery", "title": "Los arroyos subterráneos de Manhattan que siguen corriendo bajo Times Square", "target_vtr": "126%"},
+        {"type": "future", "title": "The Big U 2200: Así blindará Nueva York sus rascacielos contra el océano", "target_vtr": "130%"}
+      ]
+    },
+    {
+      "id": "EP03",
+      "city": "Londres",
+      "country": "Reino Unido",
+      "eras": ["1610 (Tudor Bridge)", "2026 (The City & Shard)", "2226 (Sky-Canopy London)"],
+      "coordinates": "51.5074° N, 0.1278° W",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Thames Barrier Phase 4 + Atmospheric Geo-domes + UCL Bartlett School of Architecture",
+      "hook": "Vuelo a ras de agua esquivando barcazas del siglo XVII bajo el viejo Puente de Londres antes de elevarse verticalmente a The Shard.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "El viejo Puente de Londres tenía casas colgando sobre el río... así se vivía", "target_vtr": "130%"},
+        {"type": "mystery", "title": "Por qué el río Támesis quedó oculto bajo bóvedas de ladrillo victorianas", "target_vtr": "122%"},
+        {"type": "future", "title": "Sky-Canopy 2226: La megacúpula climática que cubrirá el centro de Londres", "target_vtr": "127%"}
+      ]
+    },
+    {
+      "id": "EP04",
+      "city": "París",
+      "country": "Francia",
+      "eras": ["1620 (Medieval Île de la Cité)", "2026 (Haussmann & Eiffel)", "2226 (Vertical Forest Paris)"],
+      "coordinates": "48.8566° N, 2.3522° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Bioclimatic Thermal Chimneys + Urban Hyperloop Core + Vincent Callebaut Biophilic Paris 2200",
+      "hook": "Giro orbital de 360° sobre el rosetón de Notre-Dame mientras la piedra pasa de 1620 a 2026 y a la biosfera vertical de 2226.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "París en 2226 según los arquitectos bioclimáticos del MIT", "target_vtr": "127%"},
+        {"type": "mystery", "title": "Las catacumbas bajo los bulevares de Haussmann vistas en 3D", "target_vtr": "124%"},
+        {"type": "future", "title": "Torres vivientes de madera y grafeno que absorberán el CO2 de París", "target_vtr": "129%"}
+      ]
+    },
+    {
+      "id": "EP05",
+      "city": "Ámsterdam",
+      "country": "Países Bajos",
+      "eras": ["1626 (Grachtengordel Canal Ring)", "2026 (Cycling & Canals)", "2226 (Kinetic Ocean Grid)"],
+      "coordinates": "52.3676° N, 4.9041° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "TU Delft Hydro-kinetic Floating Foundations + Deltares Sea Level Adaptation",
+      "hook": "Entrada rasante bajo un puente levadizo de madera donde los mercaderes VOC se transforman en ciclistas modernos.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "Ámsterdam excavó sus canales con palas de madera hace 400 años", "target_vtr": "132%"},
+        {"type": "mystery", "title": "Los 11 millones de postes de madera que sostienen los edificios de Ámsterdam", "target_vtr": "128%"},
+        {"type": "future", "title": "Compuertas cinéticas modulares que flotarán sobre el Mar del Norte en 2226", "target_vtr": "131%"}
+      ]
+    },
+    {
+      "id": "EP06",
+      "city": "Roma",
+      "country": "Italia",
+      "eras": ["1626 (Baroque San Pietro)", "2026 (Eternal City Colosseum)", "2226 (Subterranean Hyper-Museum)"],
+      "coordinates": "41.9028° N, 12.4964° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Geothermal Roman Concrete Regeneration + Sapienza CNR Heritage Climate Resilience",
+      "hook": "Vuelo supersónico sobre la cúpula de San Pedro cruzando un vórtice hacia los talleres de mármol de Bernini en 1626.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "San Pedro de Roma tardó 120 años en construirse... así se consagró en 1626", "target_vtr": "133%"},
+        {"type": "mystery", "title": "Por qué el hormigón romano antiguo se autorrepara con agua salada", "target_vtr": "136%"},
+        {"type": "future", "title": "Cúpulas de nanopolímeros auto-refrigerantes sobre los monumentos de Roma", "target_vtr": "125%"}
+      ]
+    },
+    {
+      "id": "EP07",
+      "city": "Dubái",
+      "country": "Emiratos Árabes Unidos",
+      "eras": ["1833 (Al Fahidi Pearl Village)", "2026 (Burj Khalifa Modern)", "2226 (Cloud-Seeded Geo-Tower)"],
+      "coordinates": "25.2048° N, 55.2708° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Solar Desalination Aeroponic Towers + Dubai Future Foundation Desert Arcologies",
+      "hook": "Una duna del desierto se contrae y en 2 segundos brota la estructura imponente de 828 metros del Burj Khalifa.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "De chozas de palmeras a la torre más alta del mundo en solo 190 años", "target_vtr": "142%"},
+        {"type": "mystery", "title": "Las torres de viento Barjeel que enfriaban casas a 45°C sin electricidad", "target_vtr": "129%"},
+        {"type": "future", "title": "Megatorres bioclimáticas de 3.000m que generarán lluvia sobre el desierto en 2226", "target_vtr": "137%"}
+      ]
+    },
+    {
+      "id": "EP08",
+      "city": "Hong Kong",
+      "country": "China (RAE)",
+      "eras": ["1841 (Fragrant Harbour Fishery)", "2026 (Victoria Peak Neon)", "2226 (Stratospheric Aerodome)"],
+      "coordinates": "22.3193° N, 114.1694° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Typhoon Kinetic Dissipation Rings + HKUST Urban Wind Aerodynamics",
+      "hook": "Caída libre entre los callejones de madera de pescadores hacia los rascacielos iluminados por láser de Victoria Harbour.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "Hong Kong pasó de jungla de piratas a la mayor densidad de rascacielos", "target_vtr": "134%"},
+        {"type": "mystery", "title": "Los andamios de bambú que se siguen usando a 300 metros de altura", "target_vtr": "131%"},
+        {"type": "future", "title": "Pasarelas peatonales habitables a 800m de altura conectando rascacielos", "target_vtr": "128%"}
+      ]
+    },
+    {
+      "id": "EP09",
+      "city": "El Cairo",
+      "country": "Egipto",
+      "eras": ["1626 (Mamluk / Ottoman Citadel)", "2026 (Giza & Nile Metropolis)", "2226 (Nile Solar Arcology)"],
+      "coordinates": "30.0444° N, 31.2357° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Desert Carbon Mineralization + Giza Preservation Domes + Nile Resilience Consortium",
+      "hook": "Paso rozando el ápice de la Gran Pirámide mientras la sombra proyecta 4.000 años de historia en un instante.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "Así se veía El Cairo en 1626 con las crecidas naturales del Nilo", "target_vtr": "136%"},
+        {"type": "mystery", "title": "El sistema de canales subterráneos bajo las mezquitas mamelucas", "target_vtr": "127%"},
+        {"type": "future", "title": "Cúpulas geodésicas de nanovidrio protegiendo las Pirámides en 2226", "target_vtr": "133%"}
+      ]
+    },
+    {
+      "id": "EP10",
+      "city": "Venecia",
+      "country": "Italia",
+      "eras": ["1626 (Serenissima Maritime Empire)", "2026 (Grand Canal & MOSE)", "2226 (Hydro-Dynamic Crystal Venice)"],
+      "coordinates": "45.4408° N, 12.3155° E",
+      "duration_sec": 42.0,
+      "canon_shots_count": 7,
+      "scientific_anchors": "Ionic Sea-Level Stabilizers + Biomimetic Coral Dikes + Venice Lagoon Preservation Institute",
+      "hook": "Inmersión bajo el agua del Gran Canal que emerge en el taller de un soplador de vidrio de Murano de 1626.",
+      "shorts_funnel": [
+        {"type": "loop", "title": "Venecia en 1626 fabricaba un galeón de guerra cada 24 horas en su Arsenal", "target_vtr": "139%"},
+        {"type": "mystery", "title": "Cómo funciona el sistema de barreras móviles MOSE contra el agua alta", "target_vtr": "128%"},
+        {"type": "future", "title": "Arcología submarina transparente de grafeno en la laguna de Venecia 2226", "target_vtr": "135%"}
+      ]
+    }
+  ],
+  "cli_automation_scripts": {
+    "step_1_scraping_grounding": "python3 scripts/streetview_multitemporal_scraper.py --export-all",
+    "step_2_storyboard_manifests": "python3 scripts/tritemporal_urban_story_builder.py --all",
+    "step_3_batch_video_generation": "python3 scripts/google_flow_batch_generator.py --manifest data/tritemporal_manifests/tokyo_tritemporal_manifest.json",
+    "step_4_remotion_composition_and_audio": "python3 scripts/render_remotion.py --city tokyo --target-lufs -14.0 --resolution 4k"
+  }
 }

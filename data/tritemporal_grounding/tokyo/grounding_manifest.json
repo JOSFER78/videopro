@@ -1,28 +1,28 @@
 {
-  "manifest_version": "5.0.0-TRITEMPORAL",
+  "manifest_version": "5.0.0-TRITEMPORAL-360",
   "city_key": "tokyo",
   "city_name": "Tokio (Edo)",
   "country": "Japón",
-  "generated_at": "2026-08-16T13:37:38Z",
+  "generated_at": "2026-08-16T15:26:03Z",
   "epochs": {
     "past_1626": {
-      "epoch": "Período Edo Temprano (Shogunato Tokugawa, c. 1626)",
-      "urban_morphology": "Castillo de Edo con murallas de piedra ciclópea (Tenshu original de 5 niveles), fosos de agua, barrios de madera y papel (Machiya) en Nihonbashi, puentes de madera curvados.",
-      "social_life": "Samuráis con katanas gemelas, comerciantes en kimonos de cáñamo, barcas de pesca fluvial en el río Sumida.",
-      "cartography_source": "Edo Zu Byobu (Biombo de Edo, c. 1630)",
-      "lighting": "Luz dorada de atardecer sobre el monte Fuji visible en el horizonte, farolillos de papel de arroz encendiéndose."
+      "epoch": "Período Edo Temprano (Shogunato Tokugawa, c. 1630)",
+      "urban_morphology": "Castillo de Edo con murallas ciclópeas y Tenshu de 5 niveles, fosos de agua, barrios machiya de madera en Nihonbashi, puentes curvos de madera sobre el río Sumida.",
+      "social_life": "Samuráis con katanas gemelas, comerciantes en kimonos tradicionales, barcas de pesca fluvial.",
+      "cartography_source": "Edo Zu Byobu (Biombo de Edo, c. 1630) / Mapas Shogunales",
+      "lighting": "Luz dorada de atardecer con silueta del Monte Fuji en el horizonte, faroles de papel de arroz."
     },
     "present_2026": {
       "epoch": "Megalópolis Hiper-Conectada (2026)",
-      "urban_morphology": "Shibuya Scramble y Shinjuku con rascacielos sismorresistentes de amortiguación pendular, trenes Shinkansen elevados, pantallas gigantes 3D.",
+      "urban_morphology": "Shibuya Scramble y cañones de rascacielos sismorresistentes con pantallas 3D gigantes, trenes Shinkansen elevados.",
       "social_life": "Flujos peatonales masivos coreografiados, estilo urbano vanguardista, pulso cyberpunk nocturno.",
-      "lighting": "Luces de neón ultravioleta, cian y magenta reflejadas en asfalto tras la lluvia."
+      "lighting": "Luces de neón ultravioleta, cian y magenta reflejadas en el asfalto mojado."
     },
     "future_2226": {
       "epoch": "Megaciudad Estratosférica & Simbiosis Ecológica (c. 2226)",
-      "urban_morphology": "Torres de titanio y nanotubos de carbono que superan los 1.200 metros (Sky City X-Seed), conectadas por puentes peatonales bioclimáticos a 400m de altura, bosques verticales que absorben carbono, redes de trenes de levitación en vacío hiperbárico.",
-      "social_life": "Sociedad vertical multinivel: estratos residenciales climáticamente regulados, jardines aéreos botánicos comunitarios.",
-      "science_citation": "Tokyo Metropolitian Institute for Urban Development 2200 / Shimizu Mega-City Pyramid Geodesic Study",
+      "urban_morphology": "Mega-arcologías de titanio y grafeno de más de 1.200m (Sky City X-Seed / Shimizu Pyramid), puentes peatonales bioclimáticos a 400m de altura, bosques verticales hiper-eficientes, trenes de levitación en tubos de vacío.",
+      "social_life": "Sociedad vertical multinivel: estratos residenciales autorregulados, jardines botánicos aéreos.",
+      "science_citation": "Tokyo Metropolitan Institute for Urban Development 2200 / Shimizu Mega-City Pyramid Geodesic Study",
       "lighting": "Holografías ambientales difusas, iluminación perimetral en nanotubos de grafeno con tonos ámbar y lavanda."
     }
   },
@@ -285,6 +285,173 @@
       "grounding_status": "VERIFIED_CANONICAL"
     }
   ],
+  "spherical_360_matrix": [
+    {
+      "waypoint_id": "WP1_SHIBUYA_CROSSING",
+      "landmark": "Cruce de Shibuya & Scramble Square",
+      "coords": {
+        "lat": 35.6595,
+        "lon": 139.7005,
+        "alt_agl": 90.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP2_NIHONBASHI",
+      "landmark": "Puente Nihonbashi (Punto Cero de las 5 Rutas)",
+      "coords": {
+        "lat": 35.6841,
+        "lon": 139.7744,
+        "alt_agl": 45.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    },
+    {
+      "waypoint_id": "WP3_EDO_CASTLE",
+      "landmark": "Jardines del Palacio Imperial (Antiguo Castillo Edo)",
+      "coords": {
+        "lat": 35.6852,
+        "lon": 139.7528,
+        "alt_agl": 120.0
+      },
+      "projection_type": "EQUIRECTANGULAR_360",
+      "aspect_ratio": "2:1",
+      "resolution_target": "7680x3840 (8K Master) / 3840x2160 (4K Delivery)",
+      "cubemap_faces": [
+        {
+          "face": "FRONT",
+          "heading": 0.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "RIGHT",
+          "heading": 90.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "BACK",
+          "heading": 180.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "LEFT",
+          "heading": 270.0,
+          "pitch": 0.0,
+          "fov": 90
+        },
+        {
+          "face": "TOP",
+          "heading": 0.0,
+          "pitch": 90.0,
+          "fov": 90
+        },
+        {
+          "face": "BOTTOM",
+          "heading": 0.0,
+          "pitch": -90.0,
+          "fov": 90
+        }
+      ],
+      "quality_filters": {
+        "min_size_bytes": 5000,
+        "min_resolution": "3840x2160",
+        "min_laplacian_variance": 100.0
+      }
+    }
+  ],
   "spatial_geometries": [
     {
       "waypoint": {
@@ -295,46 +462,12 @@
         "alt_agl": 90.0
       },
       "osm_geometry": {
-        "status": "LIVE_FETCHED",
-        "building_count": 2,
-        "historic_nodes": 13,
-        "sample_tags": [
-          {
-            "historic": "memorial",
-            "inscription": "新島のモヤイ像\n\n新島には古くから『モヤイ』と呼ぶ美しい習慣があった。それは島民が力を合わせら時にのみ使われた。\n\nいわば共同の意識から生まれた素朴な人々のやさしい心根を表すものであった。\n\n『モヤイ』は島の歴史とロマンを秘めた言葉なのである。\n\nここに集う人々よ、ものいわねモヤイ像は、あなた方に何を語りかけるであろうか。\n\n願わくば私たちと共に、そのかすかなら祖先の『モヤイ』合う連帯の心に胸を大きく開かれんことを。\n\n昭和五十五年九月二十五日\n\n東京都新島村",
-            "internet_access": "wlan",
-            "internet_access:fee": "no",
-            "internet_access:ssid": "-SHIBUYA-Wi-Wi-Fi-",
-            "material": "stone",
-            "name": "モヤイ像",
-            "name:en": "Moyai Statue",
-            "name:es": "Estatua Moyai",
-            "name:it": "Statua Moyai",
-            "name:ja": "モヤイ像",
-            "note": "The Moyai was relocated to this  location on 29 November 2024 due to construction at the former site.",
-            "source": "Bing",
-            "wheelchair": "yes",
-            "wikipedia": "en:Moyai statue"
-          },
-          {
-            "historic": "memorial",
-            "name": "道玄坂乃碑",
-            "source": "image,2013-02;Bing"
-          },
-          {
-            "historic": "memorial",
-            "name": "道玄坂道供養碑",
-            "source": "image,2013-02;Bing"
-          },
-          {
-            "historic": "memorial",
-            "name": "明治天皇 御嶽神社御小休所阯"
-          },
-          {
-            "historic": "memorial",
-            "name": "碑文"
-          }
-        ]
+        "status": "LOCAL_DETERMINISTIC_CACHE",
+        "city": "Tokio (Edo)",
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
+        "heritage_density": "HIGH"
       }
     },
     {
@@ -348,9 +481,9 @@
       "osm_geometry": {
         "status": "LOCAL_DETERMINISTIC_CACHE",
         "city": "Tokio (Edo)",
-        "building_count": 48,
-        "historic_nodes": 7,
-        "avg_building_height_m": 24.5,
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
         "heritage_density": "HIGH"
       }
     },
@@ -365,19 +498,29 @@
       "osm_geometry": {
         "status": "LOCAL_DETERMINISTIC_CACHE",
         "city": "Tokio (Edo)",
-        "building_count": 48,
-        "historic_nodes": 7,
-        "avg_building_height_m": 24.5,
+        "building_count": 52,
+        "historic_nodes": 9,
+        "avg_building_height_m": 28.5,
         "heritage_density": "HIGH"
       }
     }
   ],
+  "optical_quality_gate": {
+    "min_resolution": "3840x2160",
+    "min_file_size_bytes": 5000,
+    "min_laplacian_variance": 100.0,
+    "color_depth": "10-bit HDR / BT.709 sRGB",
+    "frame_rate_fps": 60
+  },
   "render_config": {
     "target_model": "gemini-omni-flash-preview",
     "keyframe_generator": "gemini-3.1-flash-image",
     "aspect_ratio": "16:9",
+    "vertical_aspect_ratio": "9:16",
     "frame_rate_fps": 60,
     "bgm_tempo_bpm": 118,
-    "audio_master_lufs": -14.0
+    "audio_master_lufs": -14.0,
+    "audio_ducking_db": -18.0,
+    "true_peak_dbtp": -1.0
   }
 }
