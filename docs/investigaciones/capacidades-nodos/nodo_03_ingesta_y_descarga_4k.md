@@ -1,20 +1,24 @@
-# 📘 NODO 03: Motor de Ingesta, Scraping y Descarga de Medios 4K
+# 🏙️ Nodo 03: Ingesta, Scraping y Descarga Multi-Activo 4K (Hermes Media Engine)
 
-> **Rol del Nodo:** Localizar, filtrar y descargar metraje de vídeo 4K en movimiento real y fotos de archivo de alta definición.
+## 🎯 Misión del Nodo
+Buscar, descargar y validar **múltiples vídeos 4K e imágenes de archivo histórico de alta resolución** para cada una de las paradas narrativas, descartando planos genéricos sin relación con el tema.
 
 ---
 
-## 🎯 Reglas Operativas Estrictas:
+## 🛠️ Criterios Profesionales de Selección (72 Activos por Proyecto)
 
-1. **Variedad Cinemática de Planos (3 a 5 planos por curiosidad):**
-   * Plano General Aéreo (Dron establishing shot).
-   * Aproximación Dinámica (FPV dive / Speed ramp).
-   * Plano Detalle / Macro (Mosaicos, engranajes, compuertas, ladrillo).
-   * Panorámica de seguimiento en rotación.
+```mermaid
+graph TD
+    A[🔍 Búsqueda Específica por Cota] --> B[📹 6 Vídeos 4K en Movimiento]
+    A --> C[📸 6 Fotos/Planos Históricos HD]
+    B --> D[📐 Filtro de Resolución: 4K UHD / 1080p Landscape]
+    C --> E[🔬 Filtro de Contraste & Nitidez]
+    D --> F[📂 Catálogo Clasificado por Profundidad]
+    E --> F
+    F --> G[🔥 Sync Firebase: videopro_knowledge/media_catalog]
+```
 
-2. **Control de Calidad y Filtro Laplaciano:**
-   * Descarte automático de archivos < 1080p, con marcas de agua o borrosos (varianza laplaciana > 120).
-   * Priorizar metraje en 60 FPS o 4K nativo.
-
-3. **Cero Fotogramas Congelados:**
-   * Si se utiliza una fotografía de archivo histórico, debe aplicarse **Ken Burns cinemático 3D continuo** (zoom progresivo del 1.0x al 1.25x o paneo diagonal).
+### 1. Requisitos de Calidad:
+* **Vídeos 4K:** Movimiento continuo de cámara (dron cinemático, FPV, travelling o panorámica). Prohibidas tomas estáticas de más de 3 segundos sin movimiento.
+* **Fotos de Archivo:** Mínimo 800x600px, contraste verificado con PIL (`ImageStat.var > 100`) y preparadas para animación 2.5D Parallax.
+* **Prohibiciones Estrictas:** Marcas de agua, bordes negros no deseados y clips de stock desconectados de la temática histórica.

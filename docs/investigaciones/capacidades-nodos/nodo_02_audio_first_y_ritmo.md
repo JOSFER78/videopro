@@ -1,18 +1,17 @@
-# 📘 NODO 02: Motor de Audio-First, Sincronismo y Ritmo de Montaje
+# 🎵 Nodo 02: Audio-First, Sincronismo y Ritmo de Montaje
 
-> **Rol del Nodo:** Controlar la línea de tiempo matemática basada en el audio del usuario (música instrumental o voz).
+## 🎯 Misión del Nodo
+Garantizar que **la pista de audio mande sobre el tiempo y los cortes**. El montaje no es aleatorio; se calibra a los milisegundos exactos del archivo maestro.
 
 ---
 
-## 🎯 Reglas Operativas Estrictas:
-
-1. **El Audio es la Ley:**
-   * La duración del archivo de audio del usuario rige el corte y final del vídeo de forma absoluta (ej. 177.64s).
-   * Se extrae el perfil de transitorios y energía RMS para alinear los cortes visuales con los golpes de bombo/caja o caídas de compás.
-
-2. **Frecuencia de Corte Rápido (Estilo Hollywood / Vox):**
-   * **Duración por toma:** Máximo de **2.0 a 3.5 segundos por plano**.
-   * **Prohibido:** Planos estáticos o escenas continuas de 10-20 segundos sin cambio de ángulo.
-
-3. **Ventanas de Amortiguación Acústica:**
-   * Margen de seguridad de **30 ms a 200 ms** en cada corte para absorber desviaciones de fase y evitar *jump cuts* estridentes.
+## 🛠️ Especificaciones Técnicas
+1. **Duración Absoluta:**
+   * La pista WAV master (177.64s @ 48 kHz estéreo) define la línea de tiempo total.
+2. **Ritmo de Corte:**
+   * Cambios de plano o elemento visual cada **1.5 a 3.0 segundos**.
+   * Cortes sincronizados con los transitorios de percusión y cambios de compás.
+3. **Audio Ducking Dinámico:**
+   * Atenuación de la música a **-22.0 dB** durante los momentos de voz/explicación clave y retorno suave (*fade-in* en 250ms) a nivel nominal.
+4. **Análisis de Espectro en Tiempo Real:**
+   * Generación de datos FFT para el ecualizador visual React/Remotion (`AudioSpectrumWaveform`).

@@ -1,18 +1,36 @@
-# 📘 NODO 01: Motor de Investigación y Narrativa Unificada (Hermes Research)
+# 🔬 Nodo 01: Investigación Profunda, Narrativa Unificada y Hermes Bridge
 
-> **Rol del Nodo:** Extraer conocimiento verificado, construir un arco narrativo con sentido temático e integrar fuentes completas para la descripción de YouTube.
+## 🎯 Misión del Nodo
+Garantizar que el vídeo no sea una lista inconexa de curiosidades aleatorias, sino un **documental narrativo de alto impacto** con un arco conceptual unificado (ej. *Descenso Vertical Subterráneo de 0m a -40m*), respaldado por fuentes verificadas y sincronizado en la nube.
 
 ---
 
-## 🎯 Reglas Operativas Estrictas:
+## 🛠️ Protocolo Operativo Autónomo de Hermes
 
-1. **Cero Historias Inconexas o Aleatorias:**
-   * La investigación debe gravitar siempre sobre un **tema central unificado** (ej. *El Laberinto Subterráneo*, *Arquitectura Maldita*, *Secretos Reales*).
-   * La historia debe seguir una progresión lógica estructurada (ej. Descenso vertical por cotas de profundidad: Cota 0 ➔ -5m ➔ -10m ➔ -20m ➔ -40m).
+```mermaid
+graph LR
+    A[🤖 Hermes Bridge] --> B[🌐 Scrappers 04 & Hemerotecas]
+    B --> C[📜 Guion con Arco de Descenso]
+    C --> D[📄 Generación de Ficha YouTube + URLs]
+    D --> E[🔥 Sync Firebase: videopro_knowledge]
+```
 
-2. **Doble Destino de la Información:**
-   * **En Pantalla de Vídeo:** Solo palabras clave, rótulos de impacto, años y cifras esenciales (máximo 5-7 palabras).
-   * **En la Descripción de YouTube (`descripcion_youtube_y_fuentes.md`):** Párrafos explicativos completos, contexto histórico, marcas de tiempo (capítulos) y enlaces URL directos a las fuentes verificadas (Hemerotecas, Museos, IGN, foros de historia).
+### 1. Reglas de Storytelling Obligatorias:
+* **Hilo Conductor Unificado:** Prohibido saltar de temas sin conexión. Cada parada debe responder a una progresión lógica (geográfica, cronológica o de profundidad).
+* **Estructura en 6 Cotas:** 
+  1. `0m`: Superficie visible (El Madrid que todos transitan).
+  2. `-5m`: Viajes de Agua Musulmanes del 854 (Qanats de Mayrit).
+  3. `-10m`: Pasadizo Secreto Real de 1611 (Felipe III).
+  4. `-15m`: Metro Chamberí 1919 y Cripta de Tirso de Molina.
+  5. `-20m`: Búnker Militar de la Posición Jaca (Guerra Civil 1937).
+  6. `-35m`: Cámara Acorazada del Oro (Foso inundable de Cibeles).
+* **Separación de Destinos:**
+  * **En Pantalla:** Rótulos minimalistas y telemetría de cota (máximo 1-2 datos clave por escena).
+  * **En YouTube (`descripcion_youtube_y_fuentes.md`):** Explicación documental completa, marcas de tiempo exactas y enlaces a archivos oficiales y hemerotecas.
 
-3. **Multi-Fuente Obligatoria:**
-   * Combinar archivos históricos oficiales con foros locales (`r/madrid`), periódicos de época y estudios arqueológicos.
+---
+
+## ☁️ Integración Firebase Firestore
+Hermes persiste el dossier en:
+* Documento: `videopro_knowledge/storytelling_rules`
+* Colección de Proyecto: `projects/{project_id}/dossier`

@@ -1,15 +1,28 @@
 # 📚 VideoPro Studio — Centro de Documentación, Guías de Uso y Laboratorio de Investigación
 
-> **Propósito de esta Carpeta (`docs/`):**  
-> Este directorio es la fuente de verdad central y el cerebro técnico de **VideoPro Studio**. Está diseñado para cumplir una doble función fundamental tanto para desarrolladores como para creadores:
-> 1. **Manual Operativo de Módulos (Aprender a Usar):** Documentar con total profundidad cómo funciona y cómo se utiliza cada capacidad, motor, canal y workflow que **ya existe en la página web** (organizados y enumerados con números de serie `01_`, `02_`... reflejando la interfaz).
-> 2. **Laboratorio de Investigación & Banco de Ideas (Exploración Técnica):** Un espacio vivo de investigación avanzada donde se exploran tecnologías emergentes, físicas de movimiento, shaders GPU, psicología del sonido, ópticas de cine e ideas de proyecto que **aún no están en la página web**, para que cualquier desarrollador pueda leerlas, comprender su viabilidad e integrarlas en la plataforma si resulta de interés.
+> [!NOTE]
+> ### ⚠️ AVISO IMPORTANTE: Naturaleza Orientativa y Flexible de esta Documentación
+> **Esta documentación NO es una biblia sagrada ni un conjunto de leyes dogmáticas que deban seguirse ciegamente al 100%.**  
+> 
+> Es un **marco de referencia técnico, orientativo e inspiracional** diseñado para aprender cómo funcionan los módulos, consultar cómo se resolvieron problemas complejos y disponer de un banco de ideas e investigaciones avanzadas.  
+> 
+> - **Libertad de Implementación:** No es la directriz única ni inalterable de cómo hacer las cosas. Si encuentras una forma más limpia, eficiente, moderna o sencilla de construir una funcionalidad, **tienes total libertad para adaptar, cambiar, simplificar o mejorar cualquier código o flujo**.
+> - **Evolución Continua:** Las herramientas de IA, frameworks de renderizado y APIs evolucionan semanalmente. Lo que aquí se documenta es el estado del arte investigado, pero debe evolucionar según las necesidades reales del producto y el sentido común del desarrollador.
+
+---
+
+## 🎯 Propósito Central de esta Carpeta (`docs/`)
+
+Este directorio cumple una **doble función práctica** tanto para desarrolladores como para creadores:
+
+1. **Manual Operativo de Módulos (Aprender a Usar lo Existente):** Documentar con detalle técnico cómo funciona y cómo se utiliza cada capacidad, motor, canal y workflow que **ya existe en la página web** (organizados y enumerados con números de serie `01_`, `02_`... reflejando el orden visual de la interfaz).
+2. **Laboratorio de Investigación & Banco de Ideas (Exploración Técnica):** Un espacio vivo de investigación avanzada donde se exploran tecnologías emergentes, físicas de movimiento, shaders GPU, psicología del sonido, ópticas de cine e ideas de proyecto que **aún no están en la página web**, para que cualquier desarrollador pueda leerlas, inspirarse y evaluar su integración si resulta de interés.
 
 ---
 
 ## 🧭 ¿Cómo Navegar por esta Documentación?
 
-Para que quien trabaje en la web o en el backend sepa exactamente a dónde acudir, el contenido se divide en dos grandes bloques:
+El contenido se divide en dos grandes bloques claramente diferenciados:
 
 ```
 docs/
@@ -58,7 +71,7 @@ Guías de configuración y credenciales de los 26 motores del registry, clasific
 - `cloud/`: Infraestructura en la nube (`01_cloudflare_r2_...`, `02_firebase_...`).
 
 ### 📺 C. Canales de YouTube (`docs/youtube/mis_canales/`)
-Configuración completa de los canales propios:
+Configuración de los canales propios:
 - `01_CHRONODRIFT/`: Viajes temporales urbanos 4K.
 - `02_TERRAMORPH/`: Transformación geológica y megaestructuras.
 - `03_NANOVERSE/`: Exploración microscópica y biológica.
@@ -76,13 +89,13 @@ Ubicadas en `docs/investigaciones/`, estas carpetas **no tienen número de serie
 
 | Carpeta de Investigación | ¿Qué contiene y para qué sirve? |
 | :--- | :--- |
-| **`remotion_motion_graphics/`** | Tratados sobre cómo programar motion design profesional en React: físicas de resorte (`spring()`), curvas Bézier, prevención de layout shift con `tabular-nums`, y recetarios de lower-thirds. |
+| **`remotion_motion_graphics/`** | Tratados sobre cómo programar motion design en React: físicas de resorte (`spring()`), curvas Bézier, prevención de layout shift con `tabular-nums`, y recetarios de lower-thirds. |
 | **`cartografia_tactil_vox/`** | Técnicas para animar mapas 4K al estilo Vox/Johnny Harris: eliminación de fondos con Linear Color Key, rutas punteadas con Dash 78 y solución a colisiones 3D (*Z-fighting*) en DaVinci Resolve Fusion y QGIS. |
 | **`texto_3d_tipografia_cinetica/`** | Guías para crear texto tridimensional procedural en Canvas2D, sincronización frame-accurate con `@remotion/three`, y proyección de clips de vídeo en mallas 3D en tiempo real. |
 | **`shaders_glsl_webgl_overlays/`** | Catálogo de efectos por GPU en GLSL: degradados orgánicos con Ruido Simplex, transiciones WebGL (`glitch`, `zoomBlur`, `lightLeak`, `whipPan`) y reglas GSAP seguras para render headless. |
 | **`ingenieria_acustica_foley_sfx/`** | Ingeniería de sonido analógico: jerarquía psicoacústica de 3 capas, catálogo de texturas grabadas con micrófonos Neumann KM184, sidechain ducking automatizado en FFmpeg a `-22 dB` y micro-crossfade de 30ms anti-chasquidos. |
 | **`cinematografia_dop_opticas/`** | Tratados de dirección de fotografía (DoP 7 capas), lentes anamórficas Panavision C-Series, espacio de color ACEScg y cinemática de cámara 6-DoF. |
-| **`consistencia_visual_actores/`** | Protocolo de 4 anclas (*Passport, Wardrobe, Rig, World*), matriz radial de 5 vistas y metodología Tail-Frame Flow para eliminar la inconsistencia de personajes con IA. |
+| **`consistencia_visual_actores/`** | Protocolo de 4 anclas (*Passport, Wardrobe, Rig, World*), matriz radial de 5 vistas y metodología Tail-Frame Flow para consistencia de personajes con IA. |
 | **`arquitectura_fpv_tours_urbanos/`** | GeoScraping 6+1, dossier tritemporal de Shibuya 2326 y técnica Freeze 3D con separación de planos de profundidad. |
 | **`motores_generativos_benchmarks/`** | Comparativas empíricas de calidad, resolución, latencia y costes por segundo entre FLUX 3, Google Flow, LTX-Video 2.5, Wan 2.1 y Hailuo. |
 | **`automatizacion_web_y_playwright/`** | Técnicas de control desatendido con Playwright Stealth CDP, interacción con Shadow DOM y conexión con APIs backend. |
@@ -94,5 +107,5 @@ Ubicadas en `docs/investigaciones/`, estas carpetas **no tienen número de serie
 
 Cuando vayas a crear o modificar una pantalla de la web:
 1. **Para implementar un botón o flujo existente:** Consulta el manual correspondiente en `docs/capacidades/` o `docs/nodos_y_motores/` (respetando los números de serie).
-2. **Para añadir una nueva funcionalidad o efecto visual/sonoro:** Explora el laboratorio en `docs/investigaciones/`. Allí encontrarás fórmulas matemáticas, código TypeScript/GLSL y comandos FFmpeg ya probados y listos para ser incorporados a la interfaz.
-3. **Para registrar una nueva investigación:** Añade tu archivo Markdown en la carpeta temática adecuada de `docs/investigaciones/` sin número de serie, utilizando la plantilla `docs/investigaciones/templates/RESEARCH_DOSSIER_TEMPLATE.md`.
+2. **Para añadir una nueva funcionalidad o efecto visual/sonoro:** Explora el laboratorio en `docs/investigaciones/`. Allí encontrarás fórmulas matemáticas, código TypeScript/GLSL y comandos FFmpeg ya probados y listos para ser adaptados a tu gusto.
+3. **Recuerda:** Úsalo como punto de partida y referencia, con total libertad para innovar.

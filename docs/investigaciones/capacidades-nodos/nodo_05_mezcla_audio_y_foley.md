@@ -1,23 +1,23 @@
-# 📘 NODO 05: Motor de Mezcla de Audio y Foley Físico (3 Capas)
+# 🎚️ Nodo 05: Mezcla Master de Audio, Foley Físico y Sound Design
 
-> **Rol del Nodo:** Orquestar la espacialidad acústica, ducking dinámico e inserción de efectos sonoros foley sincronizados.
+## 🎯 Misión del Nodo
+Generar el paisaje sonoro inmersivo mediante la combinación de 3 capas acústicas independientes y diseño de sonido diegético (anclaje de realidad).
 
 ---
 
-## 🎯 Arquitectura de las 3 Capas de Audio:
+## 🎧 Capas de Audio Obligatorias
+1. **Capa 1 (Música de Fondo Master):**
+   * Pista de audio sincronizada a 48 kHz / 320 kbps.
+2. **Capa 2 (Voz en Off / Locución):**
+   * Señal limpia con realce de presencia (+10 dB de ganancia perceptiva).
+3. **Capa 3 (Foley Físico Sincronizado Fotograma a Fotograma):**
+   * 📸 **Camera Shutter Click:** Disparo analógico + destello de 2 fotogramas al fijar retratos o fotos de archivo.
+   * 📄 **Paper Slide & Crumple:** Sonido seco de deslizamiento de papel al desplegar mapas o tercios inferiores.
+   * ⌨️ **Typewriter Key:** Tecleo mecánico rápido al revelar rótulos tipográficos.
+   * 🌊 **Ambiente Subterráneo:** Goteo sutil de agua y eco en los niveles de profundidad (-5m a -35m).
 
-1. **Capa 1 - Voz / Locución Principal:**
-   * Normalizada a **+10 dB** (True Peak -1.0 dBTP).
-   * Claridad en frecuencias medias (1 kHz - 4 kHz) y compresión multibanda suave.
+---
 
-2. **Capa 2 - BGM / Pista Musical:**
-   * **Ducking Automático a -22 dB** en presencia de voz.
-   * Recuperación rápida a -8 dB en las transiciones entre bloques para mantener la energía.
-
-3. **Capa 3 - Foley SFX Sincronizados:**
-   * Efectos mecánicos y orgánicos insertados en cada entrada de rótulo o cambio de escena:
-     * Obturador fotográfico mecánico (*Shutter click*).
-     * Transición de viento rápido (*Whoosh*).
-     * Despliegue de mapa de papel (*Paper rustle*).
-     * Clic de engranaje relojero (*Mechanical tick*).
-   * **Crossfade de 30 ms** en todos los empalmes para neutralizar chasquidos de fase.
+## 🎛️ Estándar de Masterización
+* **Norma:** EBU R128 (-14.0 LUFS integrado, pico máximo True Peak -1.0 dBTP).
+* **Ducking Dinámico:** Reducción automática de la música a **-22.0 dB** durante los acentos explicativos.

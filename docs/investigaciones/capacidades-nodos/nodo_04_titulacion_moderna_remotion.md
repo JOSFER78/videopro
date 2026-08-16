@@ -1,25 +1,25 @@
-# 📘 NODO 04: Motor de Titulación Moderna y Video-as-Code (Remotion 4.x)
+# 💎 Nodo 04: Motion Graphics & Titulación Remotion 4.x (Vox / Johnny Harris Style)
 
-> **Rol del Nodo:** Generar gráficos en movimiento, tipografía cinética y rótulos de última generación con estética documental contemporánea (Vox / Johnny Harris / Remotion).
+## 🎯 Misión del Nodo
+Renderizar capas gráficas, animaciones de mapas, documentos de archivo y tipografía cinética utilizando el motor **Remotion 4.x (React 18)** con Video-as-Code. Queda **terminantemente prohibido** el uso de cajas planas primitivas (`drawbox` de FFmpeg).
 
 ---
 
-## 🎯 Las 6 Técnicas Modernas de Titulación:
+## 🎨 Paleta Cromática y Tokens Oficiales del Cuaderno
+* 📜 **Fondo Crema de Papel:** `#F4F1EA` / `#FDF8F0` (nunca blanco puro).
+* 🖋️ **Texto Principal:** `#2D2D2D` (gris tinta de imprenta).
+* 🟡 **Resaltador Sweep (Highlighter):** Amarillo rotulador `#FFC924` con animación `width: 0% -> 100%` en 0.6s con física `power2.out`.
+* 🔴 **Rutas de Mapas y Alerta:** Rojo de tinta `#E7040C` con trazo segmentado (*dash: 78*) y efecto de absorción `blur(1px)`.
+* 🌲 **Acentos Topográficos:** Verde Tierra (`#0A5F46`) y Tono Archivo Latte (`#C49B76`).
 
-1. **🌐 World-Space 3D Tracking:**
-   * El texto se renderiza alineado con la perspectiva de la toma (Three.js / CSS 3D transforms), aparentando estar físicamente emplazado en la escena.
+---
 
-2. **🏛️ Oclusión por Profundidad (Depth Masks):**
-   * Los títulos emergen desde detrás de edificios, estatuas o elementos de primer plano.
-
-3. **💎 Paneles Glassmorphism Frosted con Barrido de Luz (Light Sweep):**
-   * Fondos translúcidos con `backdrop-filter: blur(20px)`, micro-bordes brillantes y destellos diagonales suaves en la entrada.
-
-4. **🎯 Punteros de Telemetría Dinámicos (Animated Callouts):**
-   * Líneas SVG animadas (`stroke-dasharray`) que conectan la tarjeta de datos con la zona exacta de interés en pantalla.
-
-5. **⚡ Kinetic Spring Typography:**
-   * Animación elástica de palabras clave basada en física (`stiffness: 220, damping: 14`), sincronizada con los transitorios de la música.
-
-6. **📜 Textura Analógica y Grano 35mm (Anti-Digital):**
-   * Capa sutil de grano cinematográfico y micro-textura de papel para romper la frialdad del render digital.
+## ⚙️ Reglas de Animación y Composición
+1. **Choppy Motion (12-18 fps):**
+   * Los gráficos, mapas y recortes se animan a 12 fps con físicas elásticas `spring({ stiffness: 120, damping: 14 })` para mantener la textura táctil analógica sobre el fondo de vídeo fluido.
+2. **Loop de Textura de Papel:**
+   * Textura de papel arrugado en ciclo de 2.5 cambios por segundo con modo de fusión `overlay` y opacidad al **27%**.
+3. **Bordes Rugosos (*Roughen Edges*):**
+   * Desgaste de fibra de 3.3px y nitidez 4.58 en recortes de prensa y documentos.
+4. **Subtítulos "Burned Karaoke":**
+   * Bloques `UPPERCASE bold` de máximo 2 palabras por línea, sincronizados con marcas de tiempo fonéticas.
