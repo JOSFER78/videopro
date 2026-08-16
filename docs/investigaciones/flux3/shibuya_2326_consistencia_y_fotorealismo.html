@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investigación: Fotorealismo Orgánico 35mm & Consistencia Temporal Facial</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #07090e;
+      --bg-card: rgba(15, 22, 38, 0.78);
+      --bg-card-hover: rgba(24, 34, 58, 0.90);
+      --border-glow: rgba(0, 242, 254, 0.25);
+      --accent-cyan: #00f2fe;
+      --accent-magenta: #f72585;
+      --accent-amber: #ffb703;
+      --accent-red: #ef4444;
+      --accent-green: #10b981;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --glass-blur: blur(16px);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(247, 37, 133, 0.08) 0%, transparent 45%),
+        linear-gradient(180deg, #05070a 0%, #0b0f19 100%);
+      min-height: 100vh;
+      padding: 24px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1280px; margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 242, 254, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+    }
+
+    .badge.green { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border-color: rgba(16, 185, 129, 0.4); }
+    .badge.red { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border-color: rgba(239, 68, 68, 0.4); }
+    .badge.amber { background: rgba(255, 183, 3, 0.15); color: var(--accent-amber); border-color: rgba(255, 183, 3, 0.4); }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      background: rgba(15, 21, 35, 0.8);
+      padding: 6px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 16px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(135deg, rgba(0, 242, 254, 0.2), rgba(79, 172, 254, 0.2));
+      color: #ffffff;
+      border: 1px solid rgba(0, 242, 254, 0.4);
+      box-shadow: 0 4px 15px rgba(0, 242, 254, 0.15);
+    }
+
+    .tab-panel { display: none; animation: fadeIn 0.3s ease; }
+    .tab-panel.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card {
+      background: var(--bg-card);
+      backdrop-filter: var(--glass-blur);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #fff;
+    }
+
+    /* Comparison Table */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    th {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-prohibited {
+      display: inline-block;
+      background: rgba(239, 68, 68, 0.15);
+      color: var(--accent-red);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      text-decoration: line-through;
+    }
+
+    .tag-recommended {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .box-quote {
+      background: rgba(0, 242, 254, 0.04);
+      border-left: 3px solid var(--accent-cyan);
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .box-quote code {
+      font-family: 'JetBrains Mono', monospace;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--accent-cyan);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+
+    .raw-md {
+      background: #05070c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      overflow-x: auto;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <div class="title-group">
+      <h1>INVESTIGACIÓN: FOTOREALISMO 35mm & CONSISTENCIA FACIAL</h1>
+      <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Erradicación del Look Plástico CGI y Solución Técnica al Face Morphing en Vídeo IA</p>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <span class="badge green">KODAK VISION3 500T</span>
+      <span class="badge red">ZERO CGI BUZZWORDS</span>
+      <span class="badge amber">ANTI-FACE-DRIFT</span>
+    </div>
+  </header>
+
+  <!-- Nav Tabs -->
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('anti-cgi')">
+      <span>🎨</span> Erradicación del Look Plástico / CGI
+    </button>
+    <button class="tab-btn" onclick="switchTab('face-morphing')">
+      <span>👤</span> Solución al Face Morphing & Movimiento
+    </button>
+    <button class="tab-btn" onclick="switchTab('markdown')">
+      <span>📄</span> Dossier Markdown Raw
+    </button>
+  </div>
+
+  <!-- TAB 1: ANTI-CGI PROMPTING -->
+  <div id="panel-anti-cgi" class="tab-panel active">
+    <div class="card">
+      <div class="card-title">
+        <span>Matriz de Sustitución Léxica: De Jerga Sintética a Óptica Real</span>
+        <span class="badge green">ESTÁNDAR CINE 35mm</span>
+      </div>
+      <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+        Los términos como <em>"Unreal Engine"</em> o <em>"8k photorealistic"</em> activan en los modelos de difusión los filtros de suavizado artificial (*airbrushed smoothness*). Para lograr grano y textura real, se deben simular cuerpos de cámara, emulsiones y lentes analógicas.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>❌ Término Prohibido (Produce CGI / Plástico)</th>
+            <th>✅ Término Cinematográfico Orgánico (Física Real)</th>
+            <th>Impacto Visual en el Modelo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag-prohibited">hyper-realistic, 8k, photorealistic</span></td>
+            <td><span class="tag-recommended">Shot on ARRI Alexa 65, Kodak Vision3 500T</span></td>
+            <td>Introduce ciencia de color cinematográfica y latitud analógica real.</td>
+          </tr>
+          <tr>
+            <td><span class="tag-prohibited">Unreal Engine 5, octane render</span></td>
+            <td><span class="tag-recommended">Panavision C-Series Anamorphic prime lenses, f/1.8</span></td>
+            <td>Erradica shaders 3D sintéticos y genera bokeh anamórfico natural.</td>
+          </tr>
+          <tr>
+            <td><span class="tag-prohibited">smooth glowing skin, perfect face</span></td>
+            <td><span class="tag-recommended">visible skin pores, fine skin texture, micro-sweat</span></td>
+            <td>Genera micro-relieve biológico y dispersión de luz subsuperficial.</td>
+          </tr>
+          <tr>
+            <td><span class="tag-prohibited">glowing neon everywhere</span></td>
+            <td><span class="tag-recommended">directional tungsten light, muted atmospheric teal</span></td>
+            <td>Evita el empaste de color y crea sombras con volumen y contraste natural.</td>
+          </tr>
+          <tr>
+            <td><span class="tag-prohibited">ultra clear digital look</span></td>
+            <td><span class="tag-recommended">authentic 35mm film grain, optical halation</span></td>
+            <td>El grano físico rompe la suavidad digital y aporta textura tangible.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="box-quote">
+        <strong>Fórmula de Prompting Anti-CGI Canónica:</strong><br>
+        <code>[Cámara & Emulsión: ARRI Alexa 65 / Kodak Vision3 500T] + [Lente: Panavision Anamorphic 50mm f/1.4] + [Sujeto con Poros y Micro-Imperfecciones] + [Iluminación Tungsteno Direccional & Sombras Profundas] + [Grano 35mm & Halación Óptica]</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: FACE MORPHING -->
+  <div id="panel-face-morphing" class="tab-panel">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">
+          <span>¿Por qué Cambian las Caras con la Cámara?</span>
+          <span class="badge red">LATENT RESOLUTION DRIFT</span>
+        </div>
+        <p style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+          <strong>1. Salto de Escala Extremo:</strong> Si en una sola toma continua la cámara viaja desde 150m (plano general donde un rostro mide 8×8 píxeles) hasta 1.5m, la red neuronal no tiene información de identidad previa y se ve forzada a <em>mutar e inventar</em> los rasgos en cada fotograma.<br><br>
+          <strong>2. Confusión de Flujo Óptico:</strong> Mover la cámara a alta velocidad atravesando multitudes crea vectores de movimiento caóticos que deforman las caras que miran de frente al lente.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-title">
+          <span>Las 4 Reglas de Consistencia Facial</span>
+          <span class="badge green">SOLUCIÓN ARQUITECTÓNICA</span>
+        </div>
+        <ul style="font-size: 13px; color: var(--text-muted); line-height: 1.7; padding-left: 18px;">
+          <li><strong>1. Back & Profile Staging:</strong> En vuelos rápidos de dron entre multitudes, encuadrar a los personajes <em>de espaldas</em> (caminando en la dirección del movimiento) o de perfil. Elimina el 100% de deformaciones frontales.</li>
+          <li><strong>2. Plano Detalle (Close-Up) Estático:</strong> Para ver rostros y ojos con HUD y poros, generar un <em>Plano Detalle aislado (85mm)</em> con movimiento de cámara mínimo (sutil respiración de foco).</li>
+          <li><strong>3. Un Solo Vector de Movimiento:</strong> Nunca mezclar giro + descenso + avance rápido en el mismo plano.</li>
+          <li><strong>4. Montaje por Cortes Rítmicos:</strong> Unir los planos con cortes secos en FFmpeg sobre la percusión, como en el cine real.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: RAW MARKDOWN -->
+  <div id="panel-markdown" class="tab-panel">
+    <div class="raw-md"># 🎬 Investigación Técnica: Erradicación del Look CGI & Consistencia Facial
+
+> **Dossier:** `09_metodologia_anti_cgi_y_consistencia_facial.md`
+> **Ecosistema:** VideoPro Studio v5.0 Ultra
+> **Soluciones:** Protocolo de Cine Orgánico 35mm (Arri / Kodak) + Arquitectura de Montaje Multi-Plano
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+
+    const btnIndex = ['anti-cgi', 'face-morphing', 'markdown'].indexOf(tabId);
+    if (btnIndex !== -1) {
+      document.querySelectorAll('.tab-btn')[btnIndex].classList.add('active');
+    }
+    const targetPanel = document.getElementById('panel-' + tabId);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,3 +1,9 @@
+"""
+Director Creativo Semántico — VideoPro Studio
+Motor de Conversación y Pulido Interactivo de Información por Arquetipo de Workflow.
+Guía al usuario en un diálogo de co-creación adaptativo antes de lanzar la producción.
+"""
+
 import json
 import re
 from typing import List, Dict, Any, Optional
@@ -5,55 +11,57 @@ from loguru import logger
 from app.services import llm
 from app.config import config
 from app.models.schema import VideoParams, VideoAspect, VideoConcatMode
+from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG, get_archetype, get_all_archetypes
 
 DIRECTOR_SYSTEM_PROMPT = """
 # ROL: Chief Creative Director & Executive Producer de VideoPro Studio
 Eres el Director Creativo de Cine, Documentales y Vídeos Virales de VideoPro Studio.
-Tu misión es co-crear interactivamente con el usuario el concepto, la narrativa, la dirección de arte y el plan de producción de su próximo vídeo.
+Tu misión es guiar un diálogo interactivo de **PULIDO DE INFORMACIÓN** con el usuario al comienzo de cada proyecto/workflow para extraer con precisión los parámetros artísticos, narrativos y técnicos antes de lanzar la producción.
 
-## CAPACIDADES AUDIOVISUALES REALES DISPONIBLES:
-1. **Fuentes de Vídeo y Metraje**:
-   - `real_news` / `real_photo`: Fotografía histórica auténtica y noticias reales de alta resolución (Wikimedia Commons / Google News RSS) con efecto Ken Burns (zoom y paneo cinemático). Ideal para historia antigua, sucesos, empresas, biografías y datos verificables.
-   - `google_flow` / `veo`: Generación de vídeo cinematográfico continuo ultra-fotorrealista (vuelos de dron 8K, ciudades, planos secuencia aéreos con Google Flow / Veo 3.1).
-   - `flux`: Keyframes conceptuales y escenas generadas con FLUX.1 (creatividad ilimitada, ciencia ficción, surrealismo, Pixar 3D, anime, etc.).
-   - `pexels` / `pixabay`: Metraje de vídeo de stock real en base de datos.
-   - `hybrid`: Mezcla inteligente automática de todas las anteriores por escena.
-2. **Estilos Visuales Infinitos** (NO hay límites fijos):
-   - Documental periodístico táctil (tipo Vox / Johnny Harris, mapas 2.5D, papel texturizado).
-   - Cinemático Dron 8K Golden Hour (tipo Autoflow, ARRI Alexa 65).
-   - Animación 3D estilizada (tipo Pixar / Octane Render / Disney).
-   - FinTech / Geopolítica (tipo Bloomberg / The Economist con telemetría HUD y dark glassmorphism).
-   - Cine Noir, Anime Shonen, Cyberpunk 2077, Vintage Super 8mm, etc.
-3. **Rótulos y Capas Gráficas**:
-   - Tarjetas de datos en pantalla (Glassmorphism HUD).
-   - Subtítulos dinámicos estilo Karaoke palabra por palabra (.ass).
-4. **Voz y Sonido**:
-   - VibeVoice 1.5B (`es-emilio`): Locución cinemática hiperrealista con cadencia emocional profunda (equivalente a ElevenLabs gratuito).
-   - Azure Neural TTS (voces globales).
-   - BGM Inteligente con ducking dinámico.
+## 🎬 ARQUETIPOS DE PRODUCCIÓN Y SUS PIPELINES COMFYUI DISPONIBLES:
+1. `PIXAR_3D_ANIMATION` (🧸 Cuentos & Animación 3D):
+   - Requiere pulir: Nombre/diseño del personaje, conflicto de la historia, tono emotivo (conmovedor vs cómico) y entorno 3D.
+   - Pipeline: Character Sheet LoRA 3D -> FLUX 3 / NanoBanana 3D -> VibeVoice animado -> Flow Music orquestal cuento -> Foley dibujos animados.
+2. `HISTORICAL_SCRAPING` (📜 Documental Histórico & Archivo Real):
+   - Requiere pulir: Personaje/hecho histórico, fuentes primarias para scraping (Wikipedia/Commons/Hemerotecas), rigor documental y política de recreación de lagunas sin fotos.
+   - Pipeline: Hermes Scraping Subagents -> NanoBanana 4K Restorer -> Google Flow 4K Recreaciones -> VibeVoice es-emilio -> Subtítulos y Mapas Vox.
+3. `CITY_ROUTES_BEATS` (🏙️ Rutas Urbanas & Vídeos Musicales):
+   - Requiere pulir: Ciudad y puntos GPS de parada, estilo de beat musical (Synthwave 118 BPM, Lo-Fi 85 BPM, Trap 135 BPM) y curiosidades a resaltar.
+   - Pipeline: Mapeador GPS -> Google Flow Vuelos Orbitales 4K -> Flow Music Lyria 3 a Tempo Constante -> Overlays Gráficos Vox -> Beat-Cutter.
+4. `VIRAL_SHORTS_HOOK` (⚡ Viral Shorts & Retención Extrema):
+   - Requiere pulir: Gancho de 3s (pregunta shock / creencia falsa / dato prohibido), llamada a la acción final y formato vertical 9:16.
+   - Pipeline: Gancho A/B -> Fast Visual Loops 1.8s (Stock + FLUX) -> Subtítulos Karaoke Amarillo Flúor -> SFX Impacto cada 3s.
+5. `DEEP_EXPLAINER_ESSAY` (📊 Deep Explainer & Videoensayo Dialéctico):
+   - Requiere pulir: Tesis central y antítesis, datos estadísticos cuantitativos y estilo de infografía (Vox Minimalista vs Bloomberg).
+   - Pipeline: Guion Dialéctico 3 Actos -> Infografías Remotion React TSX / HyperFrames -> Voz Pensativa -> BGM Minimalista.
 
-## INSTRUCCIONES DE INTERACCIÓN:
-1. Responde SIEMPRE en español de forma entusiasta, concisa, profesional y cinematográfica (máximo 2-3 párrafos).
-2. Si la idea del usuario es vaga, haz 1 o 2 preguntas creativas clave y ofrece ideas sorprendentes de dirección de arte.
-3. Sugiere siempre 3 o 4 opciones interactivas rápidas (pills) que el usuario pueda pulsar.
-4. Genera SIEMPRE al final de tu respuesta un bloque JSON delimitado por ```json ... ``` con la especificación técnica acumulada del proyecto.
+## 📋 REGLAS DEL PROCESO DE PULIDO CONVERSACIONAL:
+1. Responde SIEMPRE en español con tono entusiasta, profesional y cinematográfico (máximo 2 párrafos concisos).
+2. Si el usuario acaba de elegir un arquetipo o tema, haz **1 o 2 preguntas clave de pulido específicas de ese arquetipo**.
+3. Ofrece siempre **3 o 4 sugerencias rápidas (pills)** que respondan directamente a tus preguntas para que el usuario pueda avanzar con un solo clic.
+4. Si ya se han definido el personaje/tema, el conflicto/enfoque y el estilo, marca `"ready_to_produce": true`.
+5. Genera SIEMPRE al final de tu respuesta un bloque JSON delimitado por ```json ... ``` con la especificación técnica acumulada del proyecto.
 
 ### FORMATO DEL BLOQUE JSON OBLIGATORIO:
 ```json
 {
-  "subject": "Título/concepto refinado del vídeo",
+  "archetype_id": "PIXAR_3D_ANIMATION" | "HISTORICAL_SCRAPING" | "CITY_ROUTES_BEATS" | "VIRAL_SHORTS_HOOK" | "DEEP_EXPLAINER_ESSAY",
+  "subject": "Título o concepto refinado del vídeo",
   "visual_style": "Descripción detallada del estilo de arte y estética",
-  "recommended_source": "hybrid" | "real_news" | "google_flow" | "flux" | "pexels",
+  "recommended_source": "google_flow" | "flux" | "nanobanana" | "stock" | "hybrid",
   "aspect_ratio": "9:16" | "16:9",
-  "overlay_graphics": "none" | "vox_cards" | "bloomberg_telemetry" | "minimal_subtitles",
+  "overlay_graphics": "none" | "vox_cards" | "karaoke_yellow" | "bloomberg_charts",
   "voice_preset": "vibevoice:es-emilio-Male" | "es-ES-AlvaroNeural-Male" | "es-ES-ElviraNeural-Female",
-  "narrative_tone": "periodístico / dramático / inspirador / técnico",
+  "music_genre": "pixar_orchestral" | "synthwave" | "lofi" | "historical_strings" | "minimal_ambient",
+  "narrative_tone": "emotivo / épico / solemne / dinámico / analítico",
   "estimated_paragraphs": 2,
   "ready_to_produce": true | false,
-  "summary_reasoning": "Breve justificación de la dirección elegida"
+  "interview_step": 1 | 2 | 3,
+  "summary_reasoning": "Resumen de la dirección creativa y pipeline configurado"
 }
 ```
 """
+
 
 def chat_with_director(
     messages: List[Dict[str, str]],
@@ -62,8 +70,22 @@ def chat_with_director(
 ) -> Dict[str, Any]:
     """
     Gestiona la conversación con el Director Creativo Semántico.
-    Retorna la respuesta conversacional, las sugerencias interactivas y el estado del proyecto.
+    Ejecuta el pulido interactivo de información por arquetipo antes de la producción.
     """
+    # Detectar si el usuario seleccionó un arquetipo explícito
+    detected_archetype = None
+    u_lower = user_input.lower()
+    if "pixar" in u_lower or "3d" in u_lower or "animac" in u_lower or "cuento" in u_lower:
+        detected_archetype = "PIXAR_3D_ANIMATION"
+    elif "histór" in u_lower or "histor" in u_lower or "scrap" in u_lower or "archivo" in u_lower or "antigu" in u_lower:
+        detected_archetype = "HISTORICAL_SCRAPING"
+    elif "ruta" in u_lower or "ciuda" in u_lower or "urban" in u_lower or "músic" in u_lower or "music" in u_lower or "beat" in u_lower:
+        detected_archetype = "CITY_ROUTES_BEATS"
+    elif "viral" in u_lower or "short" in u_lower or "tiktok" in u_lower or "reel" in u_lower or "gancho" in u_lower:
+        detected_archetype = "VIRAL_SHORTS_HOOK"
+    elif "ensayo" in u_lower or "explainer" in u_lower or "vox" in u_lower or "bloomberg" in u_lower or "análisis" in u_lower:
+        detected_archetype = "DEEP_EXPLAINER_ESSAY"
+
     conversation_prompt = f"{DIRECTOR_SYSTEM_PROMPT}\n\n## HISTORIAL DE LA CONVERSACIÓN:\n"
     
     for msg in messages:
@@ -76,40 +98,23 @@ def chat_with_director(
         raw_response = llm._generate_response(conversation_prompt, app_config=app_config_snapshot)
     except Exception as exc:
         logger.error(f"Error calling LLM in semantic director: {exc}")
-        return {
-            "response_text": f"He recibido tu propuesta: *'{user_input}'*. ¿Prefieres un enfoque documental histórico con fotos reales o una recreación cinemática 3D?",
-            "suggestions": [
-                "🏛️ Documental Histórico (Fotos Reales)",
-                "🎥 Cinemático 3D Hiperrealista",
-                "📊 Rótulos y Gráficos Tipo Vox",
-                "✨ Iniciar Producción"
-            ],
-            "spec": {
-                "subject": user_input,
-                "visual_style": "Documental Cinemático",
-                "recommended_source": "hybrid",
-                "aspect_ratio": "9:16",
-                "overlay_graphics": "vox_cards",
-                "voice_preset": "vibevoice:es-emilio-Male",
-                "narrative_tone": "inspirador",
-                "estimated_paragraphs": 2,
-                "ready_to_produce": True,
-                "summary_reasoning": "Propuesta base generada automáticamente"
-            }
-        }
+        return _build_fallback_director_response(user_input, detected_archetype)
 
     # Extraer JSON de especificaciones
     spec = {
+        "archetype_id": detected_archetype or "HISTORICAL_SCRAPING",
         "subject": user_input,
-        "visual_style": "Cinemático / Personalizado",
+        "visual_style": "Documental Cinemático",
         "recommended_source": "hybrid",
         "aspect_ratio": "9:16",
-        "overlay_graphics": "minimal_subtitles",
+        "overlay_graphics": "vox_cards",
         "voice_preset": "vibevoice:es-emilio-Male",
+        "music_genre": "cinematic",
         "narrative_tone": "profesional",
         "estimated_paragraphs": 2,
         "ready_to_produce": False,
-        "summary_reasoning": ""
+        "interview_step": 1,
+        "summary_reasoning": "Diálogo de pulido en curso."
     }
     
     json_match = re.search(r"```json\s*(\{.*?\})\s*```", raw_response, re.DOTALL)
@@ -118,7 +123,6 @@ def chat_with_director(
         try:
             parsed = json.loads(json_match.group(1))
             spec.update(parsed)
-            # Quitar el bloque json del texto visible para que quede limpio
             clean_text = raw_response[:json_match.start()].strip()
             after_json = raw_response[json_match.end():].strip()
             if after_json:
@@ -126,26 +130,91 @@ def chat_with_director(
         except Exception as e:
             logger.warning(f"Failed to parse director JSON spec: {e}")
 
-    # Generar sugerencias interactivas según el estado
-    suggestions = []
-    if not spec.get("ready_to_produce"):
-        suggestions = [
-            "🏛️ Metraje Real + Fotos Históricas",
-            "🎥 Vuelo de Dron 8K Ultra-Real",
-            "🧸 Estilo Pixar 3D Animado",
-            "📊 Añadir Rótulos de Telemetría Vox/Bloomberg",
-            "✨ ¡Me gusta, comenzar producción!"
-        ]
-    else:
-        suggestions = [
-            "🚀 Iniciar Producción y Renderizado",
-            "🎨 Cambiar a formato Horizontal 16:9",
-            "🎙️ Probar otra voz de locutor",
-            "✏️ Ajustar detalles del guion"
-        ]
+    # Generar sugerencias interactivas según el arquetipo y estado del pulido
+    arch_id = spec.get("archetype_id", detected_archetype or "HISTORICAL_SCRAPING")
+    suggestions = _generate_contextual_suggestions(arch_id, spec)
 
     return {
         "response_text": clean_text,
         "suggestions": suggestions,
         "spec": spec
+    }
+
+
+def _generate_contextual_suggestions(archetype_id: str, spec: Dict[str, Any]) -> List[str]:
+    """Genera sugerencias rápidas adaptativas para avanzar en el pulido del arquetipo."""
+    if spec.get("ready_to_produce"):
+        return [
+            "🚀 Iniciar Producción con Pipeline Específico",
+            "🎨 Cambiar Formato (16:9 / 9:16)",
+            "🎙️ Ajustar Tono de Voz",
+            "✏️ Modificar un Detalle"
+        ]
+
+    if archetype_id == "PIXAR_3D_ANIMATION":
+        return [
+            "🧸 Protagonista: Lupo el lobezno curioso",
+            "🌟 Conflicto: Encender las estrellas apagadas",
+            "🌲 Mundo: Bosque Mágico de Cuento",
+            "✨ ¡Perfecto, lanzar producción 3D!"
+        ]
+    elif archetype_id == "CITY_ROUTES_BEATS":
+        return [
+            "🏙️ Ruta: Madrid (Gran Vía, Malasaña, Cuatro Torres)",
+            "🎧 Beat: Electronic City Synthwave (118 BPM)",
+            "🏷️ Curiosidades: Secretos Arquitectónicos & Récords",
+            "✨ ¡Todo listo, compilar vídeo musical!"
+        ]
+    elif archetype_id == "HISTORICAL_SCRAPING":
+        return [
+            "📜 Tema: El Metro de Madrid en 1919",
+            "🔬 Scraping: Wikipedia + Commons + Hemerotecas",
+            "🎥 Lagunas: Recrear con Google Flow 4K e Imagen 3",
+            "✨ ¡Comenzar investigación y documental!"
+        ]
+    elif archetype_id == "VIRAL_SHORTS_HOOK":
+        return [
+            "⚡ Gancho: Pregunta Shock ('¿Sabías que...?')",
+            "🔥 Ritmo: Ultra Rápido (1.8s por toma)",
+            "💬 Cierre: Pregunta para debate en comentarios",
+            "✨ ¡Lanzar producción del Short!"
+        ]
+    elif archetype_id == "DEEP_EXPLAINER_ESSAY":
+        return [
+            "📊 Tesis: La geopolítica secreta de los semiconductores",
+            "📈 Infografías: Estilo Vox Minimalista Neón",
+            "🧠 Estructura: Dialéctica Tesis-Antítesis-Síntesis",
+            "✨ ¡Generar videoensayo completo!"
+        ]
+    else:
+        return [
+            "🧸 Cuentos & Animación 3D",
+            "📜 Documental Histórico (Scraping + 4K)",
+            "🏙️ Rutas Urbanas & City Beats",
+            "⚡ Viral Shorts (TikTok / Reels)",
+            "📊 Deep Explainer (Gráficos Vox)"
+        ]
+
+
+def _build_fallback_director_response(user_input: str, archetype_id: Optional[str]) -> Dict[str, Any]:
+    arch_id = archetype_id or "HISTORICAL_SCRAPING"
+    arch = get_archetype(arch_id) or ARCHETYPES_CATALOG["HISTORICAL_SCRAPING"]
+    
+    return {
+        "response_text": f"¡Excelente propuesta para **{arch.name}**! Vamos a pulir los detalles para configurar el pipeline exacto. ¿Qué aspecto o enfoque narrativo prefieres priorizar?",
+        "suggestions": _generate_contextual_suggestions(arch_id, {"ready_to_produce": False}),
+        "spec": {
+            "archetype_id": arch_id,
+            "subject": user_input,
+            "visual_style": arch.name,
+            "recommended_source": "google_flow" if arch_id == "CITY_ROUTES_BEATS" else "hybrid",
+            "aspect_ratio": arch.default_aspect_ratio,
+            "overlay_graphics": "vox_cards",
+            "voice_preset": f"{arch.default_voice_engine}:{arch.default_voice_id}",
+            "music_genre": arch.default_music_genre,
+            "narrative_tone": "cinematográfico",
+            "estimated_paragraphs": 2,
+            "ready_to_produce": True,
+            "summary_reasoning": f"Configurado pipeline especializado de {arch.name} con parámetros adaptativos."
+        }
     }

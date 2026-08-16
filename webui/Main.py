@@ -4262,8 +4262,11 @@ def _render_semantic_director_studio(params):
         st.markdown(
             """
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2px;">
-                <div style="font-size: 0.88rem; font-weight: 700; color: #f1f5f9;">Director Creativo Semántico</div>
-                <div style="font-size: 0.72rem; color: #94a3b8;">Co-creación asistida por IA multicanal</div>
+                <div style="font-size: 0.88rem; font-weight: 700; color: #f1f5f9; display: flex; align-items: center; gap: 6px;">
+                    🎯 Director Creativo Semántico
+                    <span style="font-size: 0.68rem; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 1px 6px; border-radius: 10px;">PULIDO CONVERSACIONAL</span>
+                </div>
+                <div style="font-size: 0.72rem; color: #94a3b8;">Co-creación interactiva por Arquetipo de Workflow</div>
             </div>
             """,
             unsafe_allow_html=True
@@ -4273,82 +4276,100 @@ def _render_semantic_director_studio(params):
             st.session_state["director_messages"] = [
                 {
                     "role": "assistant",
-                    "content": "Describe la temática o estilo del vídeo para estructurar el guion y los parámetros ópticos.",
+                    "content": "¡Hola! Soy tu Director Creativo. Elige un **Arquetipo de Producción** o describe tu idea para iniciar el diálogo de pulido interactivo:",
                     "suggestions": [
-                        "Documental Histórico (Fotos + 3D)",
-                        "Vuelo de Dron 8K",
-                        "Animación 3D",
-                        "FinTech y Análisis"
+                        "🧸 Animación 3D (Pixar Style)",
+                        "📜 Documental Histórico (Scraping + 4K)",
+                        "🏙️ Rutas Urbanas & City Beats (Flow 4K)",
+                        "⚡ Viral Shorts (TikTok / Reels)",
+                        "📊 Deep Explainer (Gráficos Vox)"
                     ]
                 }
             ]
         if "director_spec" not in st.session_state:
             st.session_state["director_spec"] = {
+                "archetype_id": "HISTORICAL_SCRAPING",
                 "subject": "",
-                "visual_style": "Cinemático / Co-Creado",
+                "visual_style": "Documental Histórico & Archivo Real",
                 "recommended_source": "hybrid",
                 "aspect_ratio": "9:16",
                 "overlay_graphics": "vox_cards",
                 "voice_preset": "vibevoice:es-emilio-Male",
-                "narrative_tone": "periodístico / profesional",
+                "music_genre": "historical_strings",
+                "narrative_tone": "solemne e imparcial",
                 "estimated_paragraphs": 2,
                 "ready_to_produce": False,
-                "summary_reasoning": "Listo para estructurar el proyecto según tus instrucciones."
+                "interview_step": 1,
+                "summary_reasoning": "Listo para iniciar el pulido interactivo de tu idea."
             }
 
-        director_col, blueprint_col = st.columns([1.5, 1.1], gap="small")
+        director_col, blueprint_col = st.columns([1.4, 1.1], gap="small")
 
         with director_col:
-            chat_container = st.container(height=180, border=True)
+            chat_container = st.container(height=195, border=True)
             with chat_container:
                 for idx, msg in enumerate(st.session_state["director_messages"]):
                     with st.chat_message(msg["role"]):
                         st.markdown(msg["content"])
                         if msg.get("suggestions") and idx == len(st.session_state["director_messages"]) - 1:
-                            st.caption("Sugerencias rápidas:")
-                            cols = st.columns(min(len(msg["suggestions"]), 3))
-                            for c_idx, sugg in enumerate(msg["suggestions"][:3]):
-                                if cols[c_idx].button(sugg, key=f"sugg_btn_{idx}_{c_idx}", use_container_width=True):
+                            st.caption("Opciones rápidas de pulido:")
+                            suggs = msg["suggestions"][:4]
+                            cols = st.columns(min(len(suggs), 2))
+                            for c_idx, sugg in enumerate(suggs):
+                                col_target = cols[c_idx % len(cols)]
+                                if col_target.button(sugg, key=f"sugg_btn_{idx}_{c_idx}", use_container_width=True):
                                     _process_director_input(sugg, params)
                                     st.rerun()
 
-            user_chat_input = st.chat_input("Escribe lo que deseas para tu vídeo...", key="director_chat_input_field")
+            user_chat_input = st.chat_input("Escribe tu respuesta o idea para pulir el vídeo...", key="director_chat_input_field")
             if user_chat_input:
                 _process_director_input(user_chat_input, params)
                 st.rerun()
 
         with blueprint_col:
             with st.container(border=True):
-                st.markdown("**Ficha de Producción y Montaje**")
                 spec = st.session_state["director_spec"]
-                subject_display = spec.get("subject") or "(Describe tu vídeo en el chat o ajusta abajo)"
-                st.caption(f"Concepto: {subject_display}")
+                arch_id = spec.get("archetype_id", "HISTORICAL_SCRAPING")
+                is_ready = spec.get("ready_to_produce", False)
+
+                badge_color = "#10b981" if is_ready else "#f59e0b"
+                badge_text = "🟢 LISTO PARA PRODUCIR" if is_ready else "⏳ PULIENDO DETALLES..."
+
+                st.markdown(f"""
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                        <span style="font-size: 13px; font-weight: 700; color: #f8fafc;">📋 Ficha de Producción</span>
+                        <span style="font-size: 10px; font-weight: 700; color: {badge_color}; background: rgba(255,255,255,0.05); padding: 1px 6px; border-radius: 8px; border: 1px solid {badge_color}44;">{badge_text}</span>
+                    </div>
+                """, unsafe_allow_html=True)
                 
-                mode_tab_auto, mode_tab_manual = st.tabs(["Resumen Auto", "Ajuste Manual"])
+                subject_display = spec.get("subject") or "(En proceso de co-creación en el chat...)"
+                st.caption(f"**Concepto:** {subject_display}")
+                
+                mode_tab_auto, mode_tab_manual = st.tabs(["Resumen Pipeline", "Ajuste Manual"])
                 
                 with mode_tab_auto:
-                    st.caption(f"Estilo: {spec.get('visual_style', 'Cinemático')} | Motor: {spec.get('recommended_source', 'hybrid')}")
-                    st.caption(f"Voz: {spec.get('voice_preset', 'es_dora')} | Formato: {spec.get('aspect_ratio', '9:16')} | Gráficos: {spec.get('overlay_graphics', 'vox_cards')}")
+                    st.markdown(f"""
+                        <div style="font-size: 11.5px; color: #cbd5e1; line-height: 1.5;">
+                            • <b>Arquetipo:</b> <code>{arch_id}</code><br>
+                            • <b>Estilo Visual:</b> {spec.get('visual_style', 'Cinemático')}<br>
+                            • <b>Motor Visual:</b> <code>{spec.get('recommended_source', 'hybrid')}</code> | <b>Formato:</b> {spec.get('aspect_ratio', '9:16')}<br>
+                            • <b>Voz & Locutor:</b> <code>{spec.get('voice_preset', 'vibevoice')}</code><br>
+                            • <b>Banda Sonora:</b> <code>{spec.get('music_genre', 'cinematic')}</code>
+                        </div>
+                    """, unsafe_allow_html=True)
                     
                     if spec.get("summary_reasoning"):
-                        st.caption(f"{spec.get('summary_reasoning')}")
+                        st.markdown(f"<div style='font-size: 11px; color: #94a3b8; margin-top: 4px; font-style: italic;'>💡 {spec.get('summary_reasoning')}</div>", unsafe_allow_html=True)
 
                 with mode_tab_manual:
                     voice_options = {
-                        "none": "Sin Locutor (Audio ambiental / Diálogos)",
-                        "es_dora": "Dora (España Studio HD)",
-                        "es_alex": "Alex (España Dinámico HD)",
-                        "es_santa": "Santiago (España Solemne HD)",
-                        "vibevoice_carter": "Carter (VibeVoice 0.5B US)",
-                        "vibevoice_emma": "Emma (VibeVoice 0.5B US)",
-                        "en_heart": "Heart (Kokoro HD Master)",
-                        "en_adam": "Adam (Kokoro HD Barítono)",
-                        "en_emma_uk": "Emma (UK BBC)",
-                        "es-ES-AlvaroNeural": "Álvaro (Edge TTS)",
-                        "es-ES-ElviraNeural": "Elvira (Edge TTS)"
+                        "vibevoice:es-emilio-Male": "VibeVoice 1.5B (es-emilio Cinema $0)",
+                        "es-ES-AlvaroNeural-Male": "Álvaro Neural (Edge TTS $0)",
+                        "es-ES-ElviraNeural-Female": "Elvira Neural (Edge TTS $0)",
+                        "none": "Sin Locutor (Solo Música / Ambiente)"
                     }
-                    cur_v = spec.get("voice_preset", "es_dora")
-                    if cur_v not in voice_options: cur_v = "es_dora"
+                    cur_v = spec.get("voice_preset", "vibevoice:es-emilio-Male")
+                    if cur_v not in voice_options: cur_v = "vibevoice:es-emilio-Male"
                     
                     selected_voice_manual = st.selectbox(
                         "Voz / Locutor:",
@@ -4363,11 +4384,11 @@ def _render_semantic_director_studio(params):
                         _set_runtime_config("ui", "voice_name", selected_voice_manual)
 
                     video_engine_options = {
-                        "ltx_video": "LTX-2.5 MMDiT 22B (48kHz)",
-                        "flux_video": "FLUX 3 Video (Photoreal)",
-                        "hybrid": "Híbrido (FLUX 3 + LTX-2.5)",
-                        "pexels": "Pexels Video Stock",
-                        "pixabay": "Pixabay Video Stock"
+                        "hybrid": "Híbrido Multimotor (Stock + Flow + FLUX + Nano)",
+                        "google_flow": "Google Flow 4K (Navegador Playwright)",
+                        "flux_video": "FLUX 3 Video (Serverless ZeroGPU)",
+                        "nanobanana": "NanoBanana Pro 2K/4K (Local Bridge 8742)",
+                        "stock_db": "Stock 4K (Pexels / Pixabay)"
                     }
                     cur_engine = spec.get("recommended_source", "hybrid")
                     if cur_engine not in video_engine_options: cur_engine = "hybrid"
@@ -4399,36 +4420,20 @@ def _render_semantic_director_studio(params):
                         st.session_state["director_spec"]["aspect_ratio"] = selected_ar_manual
                         _set_runtime_config("ui", "video_aspect", selected_ar_manual)
 
-                    style_options = [
-                        "Cinemático Hollywood (ARRI Alexa 65)",
-                        "Documental Histórico y Fotos Archivo",
-                        "Vuelo Dron 8K y Fotogrametría 3D",
-                        "Estilo Pixar 3D / Animado",
-                        "FinTech / Rótulos Vox y Telemetría"
-                    ]
-                    cur_style = spec.get("visual_style", style_options[0])
-                    if cur_style not in style_options: cur_style = style_options[0]
-                    selected_style_manual = st.selectbox(
-                        "Estilo Visual:",
-                        style_options,
-                        index=style_options.index(cur_style),
-                        key="manual_style_selector"
-                    )
-                    if selected_style_manual != spec.get("visual_style"):
-                        spec["visual_style"] = selected_style_manual
-                        st.session_state["director_spec"]["visual_style"] = selected_style_manual
-
-                if st.button("Auto-Completar y Generar Guion", use_container_width=True):
+                btn_label = f"🚀 Iniciar Producción ({arch_id})" if is_ready else "✨ Auto-Completar y Generar Guion"
+                btn_type = "primary" if is_ready else "secondary"
+                
+                if st.button(btn_label, type=btn_type, use_container_width=True):
                     if not spec.get("subject"):
-                        st.warning("Escribe primero una idea en el chat del Director o define el concepto.")
+                        st.warning("Escribe primero una idea en el chat del Director o pulsa una opción rápida.")
                     else:
-                        with st.spinner("El Director está redactando el guion cinematográfico..."):
+                        with st.spinner(f"El Director está redactando el guion especializado para {arch_id}..."):
                             def gen_script_closure(app_cfg):
                                 return llm.generate_script(
                                     video_subject=spec.get("subject", ""),
                                     language=params.video_language,
                                     paragraph_number=spec.get("estimated_paragraphs", 2),
-                                    video_script_prompt=f"Estilo visual: {spec.get('visual_style')}. Tono: {spec.get('narrative_tone')}",
+                                    video_script_prompt=f"Arquetipo: {arch_id}. Estilo visual: {spec.get('visual_style')}. Tono: {spec.get('narrative_tone')}",
                                     custom_system_prompt="",
                                     app_config=app_cfg
                                 )
@@ -4436,7 +4441,7 @@ def _render_semantic_director_studio(params):
                             if script_res:
                                 st.session_state["video_script"] = script_res
                                 params.video_script = script_res
-                                st.toast("¡Guion generado con éxito!")
+                                st.toast(f"¡Guion para {arch_id} generado con éxito!")
                                 st.rerun()
 
 

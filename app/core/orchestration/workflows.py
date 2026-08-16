@@ -1,12 +1,13 @@
 """
 Registro Central de Workflows & Plantillas de Producción — VideoPro Studio
-Define las estructuras de grafos, dependencias de capacidades, políticas de ejecución y fallbacks.
+Define las estructuras de grafos, dependencias de capacidades, políticas de ejecución, fallbacks y vinculación con arquetipos.
 """
 
 from typing import Dict, List, Any, Optional
 from pydantic import BaseModel, Field
 
 from app.core.orchestration.capabilities import Capability
+from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG
 
 
 class WorkflowNode(BaseModel):
@@ -34,9 +35,12 @@ class WorkflowDefinition(BaseModel):
     name: str
     description: str
     version: int = 1
-    required_capabilities: List[Capability]
-    nodes: List[WorkflowNode]
-    connections: List[WorkflowConnection]
+    version_label: str = "v1.0"
+    archetype_id: Optional[str] = None
+    required_capabilities: List[Capability] = Field(default_factory=list)
+    nodes: List[WorkflowNode] = Field(default_factory=list)
+    connections: List[WorkflowConnection] = Field(default_factory=list)
+    pipeline_graph: Dict[str, Any] = Field(default_factory=dict)
     inputs: Dict[str, Any] = Field(default_factory=dict)
     outputs: Dict[str, Any] = Field(default_factory=dict)
     policies: Dict[str, Any] = Field(default_factory=lambda: {"retry_limit": 2, "auto_fallback": True})
@@ -50,6 +54,8 @@ WORKFLOW_TEMPLATES: Dict[str, WorkflowDefinition] = {
         name="Documental Maestro Híbrido (Vox Style)",
         description="Pipeline completo de producción: Investigación factual, Guion 5D, VibeVoice, STT Whisper, Selección Multimotor por escena (Stock + Flow + FLUX 3 + NanoBanana), Auto-Ducking acústico -22dB y Subtítulos Vox.",
         version=4,
+        version_label="v4.0",
+        archetype_id="HISTORICAL_SCRAPING",
         required_capabilities=[
             Capability.RESEARCH, Capability.SCRIPT, Capability.SCENE_PLANNING,
             Capability.VOICE_GENERATION, Capability.SPEECH_TO_TEXT, Capability.VIDEO_GENERATION,
@@ -80,13 +86,65 @@ WORKFLOW_TEMPLATES: Dict[str, WorkflowDefinition] = {
             WorkflowConnection(id="c10", from_node="node_music_foley", from_socket="music", to_node="node_render", to_socket="bgm_audio", payload_type="audio"),
             WorkflowConnection(id="c11", from_node="node_subtitles", from_socket="ass_file", to_node="node_render", to_socket="subtitles", payload_type="subtitles"),
             WorkflowConnection(id="c12", from_node="node_render", from_socket="final_video", to_node="node_storage", to_socket="file", payload_type="video")
-        ]
+        ],
+        pipeline_graph=ARCHETYPES_CATALOG["HISTORICAL_SCRAPING"].pipeline_graph
+    ),
+    "PIXAR_3D": WorkflowDefinition(
+        id="PIXAR_3D",
+        name="Cuentos & Animación 3D (Pixar Style)",
+        description="Pipeline especializado en consistencia de personajes 3D, animación fotorrealista LoRA, VibeVoice estilo animado y música orquestal de cuento.",
+        version=1,
+        version_label="v1.0",
+        archetype_id="PIXAR_3D_ANIMATION",
+        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.IMAGE_GENERATION, Capability.VIDEO_GENERATION, Capability.MUSIC_GENERATION, Capability.RENDERING],
+        pipeline_graph=ARCHETYPES_CATALOG["PIXAR_3D_ANIMATION"].pipeline_graph
+    ),
+    "HISTORICAL_SCRAPING": WorkflowDefinition(
+        id="HISTORICAL_SCRAPING",
+        name="Documental Histórico & Archivo Real",
+        description="Investigación profunda con scraping en archivos históricos, restauración 4K de fotos reales antiguas, recreación de momentos ciegos con IA y citas estilo Vox.",
+        version=1,
+        version_label="v1.0",
+        archetype_id="HISTORICAL_SCRAPING",
+        required_capabilities=[Capability.RESEARCH, Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.IMAGE_GENERATION, Capability.VIDEO_GENERATION, Capability.SUBTITLE_GENERATION, Capability.RENDERING],
+        pipeline_graph=ARCHETYPES_CATALOG["HISTORICAL_SCRAPING"].pipeline_graph
+    ),
+    "CITY_ROUTES_BEATS": WorkflowDefinition(
+        id="CITY_ROUTES_BEATS",
+        name="Rutas Urbanas & Vídeos Musicales (City Beats)",
+        description="Recorridos cinemáticos por ciudades con planos orbitales 4K (Google Flow), banda sonora generativa a tempo constante y superposición de datos curiosos.",
+        version=1,
+        version_label="v1.0",
+        archetype_id="CITY_ROUTES_BEATS",
+        required_capabilities=[Capability.SCRIPT, Capability.VIDEO_GENERATION, Capability.MUSIC_GENERATION, Capability.RENDERING],
+        pipeline_graph=ARCHETYPES_CATALOG["CITY_ROUTES_BEATS"].pipeline_graph
+    ),
+    "VIRAL_SHORTS_HOOK": WorkflowDefinition(
+        id="VIRAL_SHORTS_HOOK",
+        name="Viral Shorts & Retención Extrema (TikTok / Reels)",
+        description="Vídeos verticales de ritmo vertiginoso (1.8s por toma), gancho de choque en los primeros 3 segundos, subtítulos karaoke amarillo flúor y SFX de impacto.",
+        version=1,
+        version_label="v1.0",
+        archetype_id="VIRAL_SHORTS_HOOK",
+        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.VIDEO_GENERATION, Capability.SUBTITLE_GENERATION, Capability.MUSIC_GENERATION, Capability.RENDERING],
+        pipeline_graph=ARCHETYPES_CATALOG["VIRAL_SHORTS_HOOK"].pipeline_graph
+    ),
+    "DEEP_EXPLAINER_ESSAY": WorkflowDefinition(
+        id="DEEP_EXPLAINER_ESSAY",
+        name="Deep Explainer & Videoensayo Dialéctico",
+        description="Estructura argumentativa en tres actos (Tesis, Antítesis y Síntesis), gráficos animados generados con Remotion React y música minimalista de fondo.",
+        version=1,
+        version_label="v1.0",
+        archetype_id="DEEP_EXPLAINER_ESSAY",
+        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.POST_PROCESSING, Capability.RENDERING],
+        pipeline_graph=ARCHETYPES_CATALOG["DEEP_EXPLAINER_ESSAY"].pipeline_graph
     ),
     "FLOW_ONLY": WorkflowDefinition(
         id="FLOW_ONLY",
         name="Google Flow Cinemático 4K Puro",
         description="Generación completa de vídeo visual utilizando exclusivamente Google Flow Playwright 4K con congelado orbital 3D.",
         version=1,
+        version_label="v1.0",
         required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.VIDEO_GENERATION, Capability.RENDERING],
         nodes=[
             WorkflowNode(id="node_script", title="Guion Cinemático", capability=Capability.SCRIPT, engine_id="hermes"),
@@ -101,6 +159,7 @@ WORKFLOW_TEMPLATES: Dict[str, WorkflowDefinition] = {
         name="FLUX 3 Video Serverless Puro",
         description="Generación de vídeo y personajes exclusivamente con FLUX 3 DiT en clúster Serverless ZeroGPU ($0).",
         version=1,
+        version_label="v1.0",
         required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.VIDEO_GENERATION, Capability.RENDERING],
         nodes=[
             WorkflowNode(id="node_script", title="Guion Cinemático", capability=Capability.SCRIPT, engine_id="hermes"),
@@ -110,52 +169,12 @@ WORKFLOW_TEMPLATES: Dict[str, WorkflowDefinition] = {
         ],
         connections=[]
     ),
-    "STOCK_ONLY": WorkflowDefinition(
-        id="STOCK_ONLY",
-        name="Stock 4K Archivo Documental",
-        description="Producción rápida de vídeo con material de archivo 4K libre de derechos (Pexels / Pixabay).",
-        version=1,
-        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.VIDEO_GENERATION, Capability.RENDERING],
-        nodes=[
-            WorkflowNode(id="node_script", title="Guion Documental", capability=Capability.SCRIPT, engine_id="hermes"),
-            WorkflowNode(id="node_voice", title="Voz Neural", capability=Capability.VOICE_GENERATION, engine_id="edge_tts"),
-            WorkflowNode(id="node_stock", title="Buscador Stock 4K", capability=Capability.VIDEO_GENERATION, engine_id="stock_db", is_scene_loop=True),
-            WorkflowNode(id="node_render", title="FFmpeg Assembly", capability=Capability.RENDERING, engine_id="ffmpeg")
-        ],
-        connections=[]
-    ),
-    "FLOW_FLUX_HYBRID": WorkflowDefinition(
-        id="FLOW_FLUX_HYBRID",
-        name="Híbrido Google Flow + FLUX 3 Video",
-        description="Combina planos de cámara 3D de Google Flow con primeros planos de personajes de FLUX 3.",
-        version=1,
-        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.VIDEO_GENERATION, Capability.RENDERING],
-        nodes=[],
-        connections=[]
-    ),
-    "IMAGE_DOCUMENTARY": WorkflowDefinition(
-        id="IMAGE_DOCUMENTARY",
-        name="NanoBanana Pro 2K + Ken Burns 2.5D",
-        description="Generación de imágenes fotorrealistas en 2K/4K con movimiento de cámara 2.5D y grano 35mm.",
-        version=1,
-        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.IMAGE_GENERATION, Capability.POST_PROCESSING, Capability.RENDERING],
-        nodes=[],
-        connections=[]
-    ),
-    "VOICE_ONLY": WorkflowDefinition(
-        id="VOICE_ONLY",
-        name="Estudio de Locución & Podcast",
-        description="Generación de audiolibros, locuciones y podcasts con VibeVoice 1.5B y masterizado acústico.",
-        version=1,
-        required_capabilities=[Capability.SCRIPT, Capability.VOICE_GENERATION, Capability.SPEECH_TO_TEXT],
-        nodes=[],
-        connections=[]
-    ),
     "CUSTOM_COMFY": WorkflowDefinition(
         id="CUSTOM_COMFY",
         name="Lienzo ComfyUI Personalizado",
         description="Grafo modular de nodos diseñado a medida en el Workflow Designer.",
         version=1,
+        version_label="v1.0",
         required_capabilities=[],
         nodes=[],
         connections=[]
@@ -171,3 +190,11 @@ def get_all_workflows() -> List[WorkflowDefinition]:
 def get_workflow(wf_id: str) -> Optional[WorkflowDefinition]:
     """Obtiene una definición de workflow por su ID."""
     return WORKFLOW_TEMPLATES.get(wf_id)
+
+
+def get_workflow_by_archetype(archetype_id: str) -> Optional[WorkflowDefinition]:
+    """Obtiene el workflow asociado a un arquetipo específico."""
+    for wf in WORKFLOW_TEMPLATES.values():
+        if wf.archetype_id == archetype_id:
+            return wf
+    return None
