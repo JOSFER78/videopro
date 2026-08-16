@@ -7,6 +7,7 @@ import glob
 from datetime import datetime
 from pathlib import Path
 import streamlit as st
+import streamlit.components.v1 as components
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 if BASE_DIR not in sys.path:
@@ -17,23 +18,45 @@ from app.models import const
 from app.utils import utils
 
 def render_view():
-    st.title("Ajustes y Gestión de Proyectos")
-    st.caption("Administración integral de proyectos, historial de producción, motores de IA y configuración del sistema.")
+    st.title("Ajustes, Control de Proveedores y Gestión de Proyectos")
+    st.caption("Administración integral de la infraestructura, matriz de proveedores, motores de IA y proyectos de producción.")
 
-    tab_projects, tab_llm, tab_voice, tab_video, tab_render, tab_storage = st.tabs([
+    tab_matrix, tab_projects, tab_llm, tab_voice, tab_video, tab_subs, tab_render, tab_storage = st.tabs([
+        "Matriz de Proveedores",
         "Gestión de Proyectos",
         "Proveedores LLM",
-        "Motores de Voz",
-        "Vídeo y GPU",
-        "Render y FFmpeg",
-        "Almacenamiento y Rutas"
+        "Motores de Voz & Música",
+        "Vídeo & GPU",
+        "Subtítulos & Rótulos",
+        "Render & FFmpeg",
+        "Almacenamiento S3 / R2"
     ])
 
     tasks_dir = utils.task_dir() if hasattr(utils, "task_dir") else os.path.join(BASE_DIR, "storage", "tasks")
     os.makedirs(tasks_dir, exist_ok=True)
 
     # ---------------------------------------------------------
-    # TAB 1: GESTIÓN DE PROYECTOS
+    # TAB 1: MATRIZ DE PROVEEDORES (EXACTA DE INVESTIGACIONES/CAPACIDADES)
+    # ---------------------------------------------------------
+    with tab_matrix:
+        st.subheader("Matriz de Motores, Infraestructura y Comportamientos")
+        st.caption("Control interactivo de los 14 motores verificados, reglas de calidad, descarte y comprobador en vivo de puertos.")
+
+        matrix_file = "/home/ubuntu/workspace/pro/hermes/10_videopro/investigaciones/capacidades/proveedores_excel.html"
+        
+        if os.path.exists(matrix_file):
+            try:
+                with open(matrix_file, "r", encoding="utf-8") as f:
+                    matrix_html = f.read()
+                components.html(matrix_html, height=950, scrolling=True)
+            except Exception as e:
+                st.error(f"Error al cargar la tabla de proveedores: {e}")
+        else:
+            st.error(f"No se encontró el archivo de matriz en: {matrix_file}")
+
+
+    # ---------------------------------------------------------
+    # TAB 2: GESTIÓN DE PROYECTOS
     # ---------------------------------------------------------
     with tab_projects:
         st.subheader("Proyectos y Tareas de Producción")
@@ -224,11 +247,11 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 2: PROVEEDORES LLM
+    # TAB 3: PROVEEDORES LLM
     # ---------------------------------------------------------
     with tab_llm:
         st.subheader("Modelos de Lenguaje & Director Creativo")
-        st.caption("Configura los modelos de IA utilizados para estructurar guiones y escaletas cinematográficas.")
+        st.caption("Configura los modelos de IA para la co-creación de guiones, escaletas y prompting DoP.")
 
         llm_providers = [
             "Gemini (Google AI Studio)",
@@ -244,7 +267,7 @@ def render_view():
 
         col_llm1, col_llm2 = st.columns(2)
         with col_llm1:
-            gem_key = st.text_input("Google Gemini API Key:", value=config.app.get("gemini_api_key", ""), type="password")
+            gem_key = st.text_input("Google Gemini API Key (AI Studio):", value=config.app.get("gemini_api_key", ""), type="password")
             config.app["gemini_api_key"] = gem_key
 
             groq_key = st.text_input("Groq Cloud API Key:", value=config.app.get("groq_api_key", ""), type="password")
@@ -252,6 +275,9 @@ def render_view():
 
             openai_key = st.text_input("OpenAI API Key:", value=config.app.get("openai_api_key", ""), type="password")
             config.app["openai_api_key"] = openai_key
+
+            anthropic_key = st.text_input("Anthropic Claude API Key:", value=config.app.get("anthropic_api_key", ""), type="password")
+            config.app["anthropic_api_key"] = anthropic_key
 
         with col_llm2:
             model_name = st.text_input("Nombre del Modelo Específico:", value=config.app.get("llm_model_name", "gemini-2.5-flash"))
@@ -272,14 +298,14 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 3: MOTORES DE VOZ
+    # TAB 4: MOTORES DE VOZ & MÚSICA
     # ---------------------------------------------------------
     with tab_voice:
-        st.subheader("Síntesis y Clonación Vocal")
-        st.caption("Ajusta los motores de locución neural en español, clonación y composición musical.")
+        st.subheader("Síntesis Vocal, Clonación y Música")
+        st.caption("Ajusta los motores de locución neural en español/inglés y generación musical.")
 
         voice_options = [
-            "Kokoro TTS HD (Local 24kHz - $0)",
+            "Kokoro TTS HD (Local 24kHz - $0 Puerto 7892)",
             "VibeVoice 1.5B (Local ZeroGPU)",
             "Edge TTS (Microsoft Cloud Gratuito)",
             "ElevenLabs Turbo v2.5",
@@ -304,17 +330,17 @@ def render_view():
             config.app["ducking_level"] = ducking
 
         st.markdown("---")
-        st.subheader("Google Flow Music (Lyria 3)")
-        flow_cookie = st.text_input("Flow Music Token / Cookie de Sesión:", value=config.app.get("flowmusic_session", ""), type="password")
+        st.subheader("Google Flow Music (Lyria 3 Pro)")
+        flow_cookie = st.text_input("Flow Music Token / Cookie de Sesión (flowmusic.app):", value=config.app.get("flowmusic_session", ""), type="password")
         config.app["flowmusic_session"] = flow_cookie
 
 
     # ---------------------------------------------------------
-    # TAB 4: VÍDEO Y GPU
+    # TAB 5: VÍDEO & GPU
     # ---------------------------------------------------------
     with tab_video:
         st.subheader("Motores de Vídeo & Aceleración GPU")
-        st.caption("Configuración de clústeres Hugging Face ZeroGPU y Replicate H100.")
+        st.caption("Configuración de clústeres Hugging Face ZeroGPU y Replicate H100 para FLUX 3 y LTX-2.5.")
 
         st.markdown("**1. Pool de Tokens Hugging Face (ZeroGPU - FLUX 3 & LTX-2.5)**")
         hf_tokens = config.serverless_pool.get("hf_tokens", []) if hasattr(config, "serverless_pool") else []
@@ -323,15 +349,8 @@ def render_view():
 
         st.caption(f"Tokens activos en rotación: {len(hf_tokens)}")
         
-        col_hf1, col_hf2 = st.columns([3, 1])
-        with col_hf1:
-            new_hf_tok = st.text_input("Añadir nuevo token Hugging Face:", type="password", placeholder="hf_xxxxxxxxxxxxxxxxxxxx")
-        with col_hf2:
-            if st.button("Añadir Token HF"):
-                if new_hf_tok.strip() and new_hf_tok.strip() not in hf_tokens:
-                    hf_tokens.append(new_hf_tok.strip())
-                    st.toast("Token añadido al pool.")
-                    st.rerun()
+        hf_pool_text = st.text_area("Lista de Tokens Hugging Face (uno por línea):", value="\n".join(hf_tokens), height=100)
+        config.serverless_pool["hf_tokens"] = [t.strip() for t in hf_pool_text.split("\n") if t.strip()]
 
         st.markdown("---")
         st.markdown("**2. Replicate Cloud (Inferencia Instantánea en H100)**")
@@ -343,7 +362,29 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 5: RENDER Y FFMPEG
+    # TAB 6: SUBTÍTULOS & RÓTULOS
+    # ---------------------------------------------------------
+    with tab_subs:
+        st.subheader("Subtítulos Dinámicos ASS & Whisper")
+        st.caption("Configuración de transcripción por IA para karaoke dinámico estilo Vox / Bloomberg.")
+
+        col_sub1, col_sub2 = st.columns(2)
+        with col_sub1:
+            whisper_providers = ["Groq Whisper Cloud (Ultra-Rápido)", "Whisper Local CPU", "OpenAI Whisper API"]
+            sel_whisper = st.selectbox("Proveedor de Transcripción Whisper:", whisper_providers, index=0)
+            config.app["whisper_provider"] = sel_whisper
+
+            words_per_sub = st.slider("Palabras máximas por línea en subtítulos:", 1, 6, int(config.app.get("subtitle_max_words", 2)))
+            config.app["subtitle_max_words"] = words_per_sub
+
+        with col_sub2:
+            sub_styles = ["Vox Highlight (Amarillo Dinámico)", "TikTok Pop (Blanco con Borde)", "Minimalist Clean (Transparente)"]
+            sel_sub_style = st.selectbox("Estilo Visual de Subtítulos:", sub_styles, index=0)
+            config.app["subtitle_style"] = sel_sub_style
+
+
+    # ---------------------------------------------------------
+    # TAB 7: RENDER Y FFMPEG
     # ---------------------------------------------------------
     with tab_render:
         st.subheader("Parámetros de Renderizado de Vídeo")
@@ -373,11 +414,11 @@ def render_view():
 
 
     # ---------------------------------------------------------
-    # TAB 6: ALMACENAMIENTO Y RUTAS
+    # TAB 8: ALMACENAMIENTO S3 / R2
     # ---------------------------------------------------------
     with tab_storage:
         st.subheader("Rutas del Sistema & Almacenamiento S3 / R2")
-        st.caption("Configuración de directorios de trabajo y almacenamiento en la nube.")
+        st.caption("Configuración de directorios de trabajo y almacenamiento en Cloudflare R2.")
 
         st.text_input("Directorio de Tareas y Proyectos:", value=tasks_dir, disabled=True)
         st.text_input("Directorio de Música de Fondo:", value=os.path.join(BASE_DIR, "resource", "songs"), disabled=True)
