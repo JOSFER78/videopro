@@ -114,16 +114,204 @@ def _render_category_api_manager(reg: dict, matrix: dict, category_code: str, he
             st.markdown("<div style='height:8px;'></div>", unsafe_allow_html=True)
 
 
+# Mapeo Ontológico Oficial (4 Niveles Canónicos de VideoPro Studio & Firebase)
+ONTOLOGY_MAP = {
+    "nanobanana": {
+        "id": "nanobanana",
+        "canonical_api_id": "local_antigravity_bridge_8742",
+        "capabilities": [
+            "cap_nanobanana_antigravity_bridge",
+            "cap_nanobanana_google_api",
+            "cap_nanobanana_flow_browser"
+        ],
+        "nodes": ["node_03_ingesta_multimedia_4k", "node_01_investigacion_y_narrativa"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "HISTORICAL_SCRAPING"]
+    },
+    "flux_zerogpu": {
+        "id": "flux_zerogpu",
+        "canonical_api_id": "serverless_zerogpu_flux",
+        "capabilities": ["cap_flux3_serverless_free", "cap_text_to_video_cinematic"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY"]
+    },
+    "flux_replicate": {
+        "id": "flux_replicate",
+        "canonical_api_id": "serverless_replicate_flux",
+        "capabilities": ["cap_flux3_replicate_cloud", "cap_h100_fast_render"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["PIXAR_3D_ANIMATION", "CHRONODRIFT_TRITEMPORAL"]
+    },
+    "comfyui_runpod_flux": {
+        "id": "comfyui_runpod_flux",
+        "canonical_api_id": "comfyui_runpod_flux",
+        "capabilities": ["cap_flux3_comfyui_runpod", "cap_lora_stack_latent_upscale"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "PIXAR_3D_ANIMATION"]
+    },
+    "comfyui_local_flux": {
+        "id": "comfyui_local_flux",
+        "canonical_api_id": "comfyui_local_flux",
+        "capabilities": ["cap_flux3_comfyui_local", "cap_offline_vps_render"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "ltx25": {
+        "id": "ltx25",
+        "canonical_api_id": "api_ltx25_mmdit",
+        "capabilities": ["cap_video_audio_lip_sync_24fps", "cap_native_dialogues"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["PIXAR_3D_ANIMATION", "VIRAL_SHORTS_HOOK"]
+    },
+    "pexels_stock": {
+        "id": "pexels_stock",
+        "canonical_api_id": "api_pexels_stock",
+        "capabilities": ["cap_stock_scraping_pexels_4k", "cap_broll_4k_motion"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["MADRID_CURIOSITIES_REAL_FLOW", "HISTORICAL_SCRAPING", "CITY_ROUTES_BEATS"]
+    },
+    "pixabay_stock": {
+        "id": "pixabay_stock",
+        "canonical_api_id": "api_pixabay_media",
+        "capabilities": ["cap_stock_scraping_pexels_4k", "cap_free_commercial_stock"],
+        "nodes": ["node_03_ingesta_multimedia_4k"],
+        "workflows": ["HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
+    },
+    "google_flow": {
+        "id": "google_flow",
+        "canonical_api_id": "browser_playwright_flow",
+        "capabilities": ["cap_nanobanana_flow_browser", "cap_orbital_trajectories_4k"],
+        "nodes": ["node_03_ingesta_multimedia_4k", "node_01_investigacion_y_narrativa"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "CITY_ROUTES_BEATS"]
+    },
+    "duckduckgo_media": {
+        "id": "duckduckgo_media",
+        "canonical_api_id": "api_wikimedia_commons",
+        "capabilities": ["cap_web_search_scrappers", "cap_wikimedia_historical_archive"],
+        "nodes": ["node_01_investigacion_y_narrativa", "node_03_ingesta_multimedia_4k"],
+        "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "vibevoice": {
+        "id": "vibevoice",
+        "canonical_api_id": "serverless_vibevoice_tts",
+        "capabilities": ["cap_vibevoice_serverless_free", "cap_vibevoice_local_vps"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["PIXAR_3D_ANIMATION", "HISTORICAL_SCRAPING", "DEEP_EXPLAINER_ESSAY"]
+    },
+    "edge_tts": {
+        "id": "edge_tts",
+        "canonical_api_id": "api_edge_tts_free",
+        "capabilities": ["cap_edgetts_fast_narration", "cap_fast_preview_voice"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["CHRONODRIFT_TRITEMPORAL", "FPV_URBAN_REAL_FLOW", "VIRAL_SHORTS_HOOK"]
+    },
+    "elevenlabs": {
+        "id": "elevenlabs",
+        "canonical_api_id": "api_elevenlabs_cloud",
+        "capabilities": ["cap_elevenlabs_voice_cloning", "cap_cinematic_voiceover"],
+        "nodes": ["node_02_audio_first_y_ritmo"],
+        "workflows": ["HISTORICAL_SCRAPING", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "whisper": {
+        "id": "whisper",
+        "canonical_api_id": "local_ffmpeg_engine",
+        "capabilities": ["cap_audio_beat_transient_detector", "cap_word_level_timestamps"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_04_composicion_motion_graphics"],
+        "workflows": ["VIRAL_SHORTS_HOOK", "DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL"]
+    },
+    "flow_music": {
+        "id": "flow_music",
+        "canonical_api_id": "browser_playwright_flowmusic",
+        "capabilities": ["cap_flowmusic_browser_gen", "cap_audio_beat_transient_detector"],
+        "nodes": ["node_02_audio_first_y_ritmo", "node_05_masterizacion_audio_foley"],
+        "workflows": ["FPV_URBAN_REAL_FLOW", "CHRONODRIFT_TRITEMPORAL", "CITY_ROUTES_BEATS"]
+    },
+    "gemini": {
+        "id": "gemini",
+        "canonical_api_id": "api_google_gemini_llm",
+        "capabilities": ["cap_llm_story_director", "cap_llm_antigravity_agentic"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "openai": {
+        "id": "openai",
+        "canonical_api_id": "api_google_gemini_llm",
+        "capabilities": ["cap_llm_story_director", "cap_cot_dramatic_structuring"],
+        "nodes": ["node_01_investigacion_y_narrativa"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "remotion": {
+        "id": "remotion",
+        "canonical_api_id": "local_remotion_cli",
+        "capabilities": ["cap_motion_remotion_react_hud", "cap_motion_remotion_lambda_cloud", "cap_paper_texture_overlay"],
+        "nodes": ["node_04_composicion_motion_graphics"],
+        "workflows": ["DEEP_EXPLAINER_ESSAY", "CHRONODRIFT_TRITEMPORAL", "MADRID_CURIOSITIES_REAL_FLOW"]
+    },
+    "ffmpeg": {
+        "id": "ffmpeg",
+        "canonical_api_id": "local_ffmpeg_engine",
+        "capabilities": ["cap_audio_mixing_foley_ducking", "cap_sfx_shutter_paper_typewriter", "cap_contact_sheet_builder"],
+        "nodes": ["node_05_masterizacion_audio_foley", "node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "r2": {
+        "id": "r2",
+        "canonical_api_id": "api_cloudflare_r2",
+        "capabilities": ["cap_firebase_sync_engine", "cap_zero_egress_master_hosting"],
+        "nodes": ["node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    },
+    "firestore": {
+        "id": "firestore",
+        "canonical_api_id": "firebase_firestore",
+        "capabilities": ["cap_firebase_sync_engine"],
+        "nodes": ["node_06_qa_evaluacion_y_sync"],
+        "workflows": ["TODOS_LOS_WORKFLOWS"]
+    }
+}
+
+
 def _render_native_matrix_view(reg: dict, matrix: dict):
-    """Renderizador nativo 100% Python/Streamlit de la Matriz Maestra de Proveedores."""
+    """Renderizador nativo de la Matriz Maestra con estricta jerarquía ontológica de 4 niveles y sus IDs oficiales."""
+    
+    # Banner Explicativo de los 4 Niveles Oficiales
+    st.markdown("""
+        <div style="background: rgba(15, 23, 42, 0.9); border: 1px solid #334155; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px;">
+            <div style="font-size: 12.5px; font-weight: 700; color: #38bdf8; margin-bottom: 4px;">
+                🏛️ Estructura Ontológica Canónica (4 Niveles Unificados en UI & Firebase):
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 11px; color: #cbd5e1; margin-top: 6px;">
+                <div style="background: rgba(56, 189, 248, 0.08); border-left: 2px solid #38bdf8; padding: 4px 8px; border-radius: 4px;">
+                    <b style="color: #38bdf8;">1. APIs & Proveedores</b><br>
+                    <span style="color:#94a3b8;"><code>api_*</code> / <code>serverless_*</code></span><br>
+                    Servicios, endpoints y claves.
+                </div>
+                <div style="background: rgba(192, 132, 252, 0.08); border-left: 2px solid #c084fc; padding: 4px 8px; border-radius: 4px;">
+                    <b style="color: #c084fc;">2. Capacidades (Capabilities)</b><br>
+                    <span style="color:#94a3b8;"><code>cap_*</code></span><br>
+                    Unidades atómicas de ejecución.
+                </div>
+                <div style="background: rgba(52, 211, 153, 0.08); border-left: 2px solid #34d399; padding: 4px 8px; border-radius: 4px;">
+                    <b style="color: #34d399;">3. Nodos de Producción</b><br>
+                    <span style="color:#94a3b8;"><code>node_01</code> a <code>node_06</code></span><br>
+                    Módulos de la cadena de montaje.
+                </div>
+                <div style="background: rgba(251, 191, 36, 0.08); border-left: 2px solid #fbbf24; padding: 4px 8px; border-radius: 4px;">
+                    <b style="color: #fbbf24;">4. Workflows por Canal</b><br>
+                    <span style="color:#94a3b8;"><code>workflow_*</code> / Arquetipos</span><br>
+                    Pipelines completos optimizados.
+                </div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
     category_map = [
-        ("visual", "🎬 Motores Visuales, Vídeo & Keyframes 4K"),
-        ("voice", "🎙️ Voces Neurales, Locución & Foley"),
-        ("music", "🎵 Bandas Sonoras & Audio Ducking"),
-        ("llm", "🧠 Directores Creativos & LLM"),
-        ("programacion", "🔬 Subagentes, Subtítulos Vox & STT"),
-        ("render", "⚙️ Motores de Ensamblaje (FFmpeg / Remotion)"),
-        ("cloud", "☁️ Almacenamiento Cloudflare R2 & Firebase")
+        ("visual", "🎬 Nivel 1: APIs Visuales, Vídeo & Keyframes 4K"),
+        ("voice", "🎙️ Nivel 1: APIs de Voz Neural, Locución & Foley"),
+        ("music", "🎵 Nivel 1: APIs de Bandas Sonoras & Audio Ducking"),
+        ("llm", "🧠 Nivel 1: APIs de Directores Creativos & LLM"),
+        ("programacion", "🔬 Nivel 1: Subagentes, Subtítulos Vox & STT"),
+        ("render", "⚙️ Nivel 1: Motores de Ensamblaje (FFmpeg / Remotion)"),
+        ("cloud", "☁️ Nivel 1: Almacenamiento Cloudflare R2 & Firebase")
     ]
 
     for cat_key, cat_title in category_map:
@@ -131,14 +319,24 @@ def _render_native_matrix_view(reg: dict, matrix: dict):
         if not cat_providers:
             continue
 
-        with st.expander(f"{cat_title} ({len(cat_providers)} Motores)", expanded=(cat_key in ("visual", "voice"))):
+        with st.expander(f"{cat_title} ({len(cat_providers)} Proveedores)", expanded=(cat_key in ("visual", "voice"))):
             for p_id, p_info in cat_providers:
                 p_name = p_info.get("name", p_id)
                 p_enabled = bool(p_info.get("enabled", True))
                 p_infra = p_info.get("infra_type", "cloud")
                 p_desc = p_info.get("description", "")
-                p_label = p_info.get("label", p_name)
                 
+                onto_info = ONTOLOGY_MAP.get(p_id, {
+                    "id": p_id,
+                    "canonical_api_id": f"api_{p_id}",
+                    "capabilities": [f"cap_{p_id}"],
+                    "nodes": ["node_03_ingesta_multimedia_4k"],
+                    "workflows": ["TODOS"]
+                })
+                canonical_api_id = onto_info.get("canonical_api_id", f"api_{p_id}")
+                caps_list = onto_info.get("capabilities", [])
+                nodes_list = onto_info.get("nodes", [])
+
                 # Badge de infraestructura
                 infra_badge = "🖥️ Local VPS ($0)" if p_infra in ("local", "local_headless") else ("☁️ Serverless ($0)" if p_infra == "serverless" else "🚀 Cloud Dedicada")
                 badge_str = matrix.get(p_id, {}).get("badge", "🟢 Configurado" if p_enabled else "⚪ Inactivo")
@@ -146,7 +344,14 @@ def _render_native_matrix_view(reg: dict, matrix: dict):
 
                 c_top1, c_top2 = st.columns([7.5, 2.5], vertical_alignment="center")
                 with c_top1:
-                    st.markdown(f"<div style='font-size:14px; font-weight:800; color:#f8fafc;'>{p_name} <span style='font-size:11px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px; border:1px solid #334155;'>{infra_badge}</span> {badge_html}</div>", unsafe_allow_html=True)
+                    st.markdown(f"""
+                        <div style='font-size:14px; font-weight:800; color:#f8fafc; display:flex; align-items:center; gap:6px; flex-wrap:wrap;'>
+                            <span>{p_name}</span>
+                            <span style='font-size:11px; background:#0f172a; color:#38bdf8; padding:2px 6px; border-radius:4px; border:1px solid #1e293b;'>ID: <code>{p_id}</code></span>
+                            <span style='font-size:10.5px; background:#1e293b; color:#94a3b8; padding:2px 6px; border-radius:4px; border:1px solid #334155;'>{infra_badge}</span>
+                            {badge_html}
+                        </div>
+                    """, unsafe_allow_html=True)
                     if p_desc:
                         st.caption(p_desc)
                 with c_top2:
@@ -157,52 +362,44 @@ def _render_native_matrix_view(reg: dict, matrix: dict):
                         st.toast(f"✅ {p_name} {'activado' if new_state else 'desactivado'}.")
                         st.rerun()
 
-                # Cuadrícula de capacidades y preferencias
+                # Cuadrícula unificada de los 4 Niveles
                 cols = st.columns(4)
                 
-                # Columna 1: Capacidades
+                # Columna 1: Nivel 2 - Capacidades Atómicas
                 with cols[0]:
-                    st.markdown("<div style='font-size:11px; font-weight:700; color:#38bdf8; margin-bottom:4px;'>✨ Capacidades Técnicas</div>", unsafe_allow_html=True)
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#c084fc; margin-bottom:4px;'>⚡ Nivel 2: Capacidades (cap_*)</div>", unsafe_allow_html=True)
+                    for cap_id in caps_list:
+                        st.markdown(f"<div style='font-size:10.5px; color:#cbd5e1;'>• <code>{cap_id}</code></div>", unsafe_allow_html=True)
                     cats = p_info.get("categories", [])
-                    if isinstance(cats, list):
-                        for c_item in cats:
-                            txt = c_item.get("text", str(c_item)) if isinstance(c_item, dict) else str(c_item)
-                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
-                    else:
-                        st.markdown("<div style='font-size:11px; color:#64748b;'>Estándar</div>", unsafe_allow_html=True)
+                    if isinstance(cats, list) and len(cats) > len(caps_list):
+                        for extra_c in cats[len(caps_list):]:
+                            txt = extra_c.get("text", str(extra_c)) if isinstance(extra_c, dict) else str(extra_c)
+                            st.markdown(f"<div style='font-size:10.5px; color:#94a3b8;'>• {txt}</div>", unsafe_allow_html=True)
 
-                # Columna 2: Infraestructura
+                # Columna 2: Nivel 1 - Infraestructura & Endpoint
                 with cols[1]:
-                    st.markdown("<div style='font-size:11px; font-weight:700; color:#34d399; margin-bottom:4px;'>🖥️ Infraestructura</div>", unsafe_allow_html=True)
-                    infras = p_info.get("infrastructure", [])
-                    if isinstance(infras, list):
-                        for inf in infras:
-                            txt = inf.get("text", str(inf)) if isinstance(inf, dict) else str(inf)
-                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
-                    else:
-                        st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {infra_badge}</div>", unsafe_allow_html=True)
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#38bdf8; margin-bottom:4px;'>🖥️ Nivel 1: Infraestructura & API</div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='font-size:10.5px; color:#cbd5e1;'>• API ID: <code>{canonical_api_id}</code></div>", unsafe_allow_html=True)
+                    st.markdown(f"<div style='font-size:10.5px; color:#94a3b8;'>• Tipo: {infra_badge}</div>", unsafe_allow_html=True)
+                    if p_info.get("endpoint_field"):
+                        st.markdown(f"<div style='font-size:10.5px; color:#64748b;'>• Endpoint: <code>{p_info.get('endpoint_default', 'Local')}</code></div>", unsafe_allow_html=True)
 
-                # Columna 3: Preferencias
+                # Columna 3: Reglas y Preferencias
                 with cols[2]:
-                    st.markdown("<div style='font-size:11px; font-weight:700; color:#facc15; margin-bottom:4px;'>⚙️ Preferencias</div>", unsafe_allow_html=True)
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#facc15; margin-bottom:4px;'>⚙️ Reglas & Preferencias</div>", unsafe_allow_html=True)
                     prefs = p_info.get("preferences", [])
                     if isinstance(prefs, list):
                         for prf in prefs:
                             txt = prf.get("text", str(prf)) if isinstance(prf, dict) else str(prf)
-                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
+                            st.markdown(f"<div style='font-size:10.5px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
                     else:
-                        st.markdown("<div style='font-size:11px; color:#64748b;'>Sin reglas</div>", unsafe_allow_html=True)
+                        st.markdown("<div style='font-size:10.5px; color:#64748b;'>Sin restricciones</div>", unsafe_allow_html=True)
 
-                # Columna 4: Comportamientos
+                # Columna 4: Nivel 3 - Nodos de Producción
                 with cols[3]:
-                    st.markdown("<div style='font-size:11px; font-weight:700; color:#f43f5e; margin-bottom:4px;'>🎯 Comportamiento</div>", unsafe_allow_html=True)
-                    behavs = p_info.get("behaviors", [])
-                    if isinstance(behavs, list):
-                        for bh in behavs:
-                            txt = bh.get("text", str(bh)) if isinstance(bh, dict) else str(bh)
-                            st.markdown(f"<div style='font-size:11px; color:#cbd5e1;'>• {txt}</div>", unsafe_allow_html=True)
-                    else:
-                        st.markdown("<div style='font-size:11px; color:#64748b;'>Automático</div>", unsafe_allow_html=True)
+                    st.markdown("<div style='font-size:11px; font-weight:700; color:#34d399; margin-bottom:4px;'>🧱 Nivel 3: Nodos (node_*)</div>", unsafe_allow_html=True)
+                    for node_id in nodes_list:
+                        st.markdown(f"<div style='font-size:10.5px; color:#cbd5e1;'>• <code>{node_id}</code></div>", unsafe_allow_html=True)
 
                 st.markdown("<hr style='margin: 8px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
 
@@ -476,23 +673,10 @@ def render_view():
         # ---------------------------------------------------------
         col_mat_hdr, col_mat_mode = st.columns([6, 4], vertical_alignment="center")
         with col_mat_hdr:
-            st.markdown("#### 📋 Matriz Maestra de Proveedores & Capacidades Atómicas")
-            st.caption("Controla capacidades técnicas, modelos de inferencia, reglas de descarte estricto y comportamientos acústicos en tiempo real.")
+            st.markdown("#### 📋 Matriz Maestra — APIs, Capacidades & Nodos (4 Niveles)")
+            st.caption("Mapeo unificado de APIs / Proveedores (Nivel 1), Capacidades Atómicas (Nivel 2) y Nodos de Producción (Nivel 3) sincronizados con Firestore.")
         with col_mat_mode:
-            matrix_view_mode = st.segmented_control(
-                "Modo de Visualización:",
-                options=["studio", "native"],
-                default="studio",
-                format_func=lambda x: "🖥️ Vista Studio (Grid 60 FPS)" if x == "studio" else "🐍 Vista Nativa (Tarjetas Python)",
-                key="matrix_view_mode_selector"
-            ) if hasattr(st, "segmented_control") else st.radio(
-                "Modo de Visualización:",
-                options=["studio", "native"],
-                index=0,
-                format_func=lambda x: "🖥️ Vista Studio (Grid 60 FPS)" if x == "studio" else "🐍 Vista Nativa (Tarjetas Python)",
-                horizontal=True,
-                key="matrix_view_mode_selector"
-            )
+            matrix_view_mode = "native"
 
         matrix_file = os.path.join(BASE_DIR, "docs", "dashboards_y_estudios_web", "proveedores_excel.html")
         if not os.path.exists(matrix_file):

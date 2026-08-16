@@ -19,10 +19,13 @@ class ProviderCategory(str, Enum):
     AI_IMAGE = "AI_IMAGE"
     AI_VIDEO = "AI_VIDEO"
     AI_VOICE_TTS = "AI_VOICE_TTS"
+    AI_MUSIC = "AI_MUSIC"
+    AI_AUDIO = "AI_AUDIO"
     AI_LLM = "AI_LLM"
     STOCK_MEDIA = "STOCK_MEDIA"
     CODE_ENGINE = "CODE_ENGINE"
     CLOUD_DB = "CLOUD_DB"
+    CLOUD_STORAGE = "CLOUD_STORAGE"
 
 
 class ProviderAPI(BaseModel):
