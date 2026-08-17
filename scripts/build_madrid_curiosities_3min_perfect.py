@@ -44,7 +44,9 @@ CHAPTERS = [
         "end": 15.0,
         "voice_text": "Bajo el asfalto de Madrid no solo hay cables y alcantarillas. Hay una ciudad secreta con tesoros sumergidos, estaciones de metro congeladas en 1966 y fortalezas subterráneas. Hoy descubrimos los 6 misterios más impactantes del Madrid oculto.",
         "pexels_query": "Madrid Gran Via",
-        "wiki_query": "Plaza Mayor Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cd/Plaza_de_Cibeles_%28Madrid%29_01.jpg"
+        ]
     },
     {
         "id": "CAP_01_CIBELES",
@@ -55,7 +57,9 @@ CHAPTERS = [
         "end": 42.0,
         "voice_text": "A 35 metros de profundidad bajo la emblemática Fuente de Cibeles se custodia la reserva de oro del Banco de España. Su sistema de seguridad es una obra maestra de la ingeniería hidráulica de 1930: si un intruso entra sin autorización, el arroyo subterráneo de Las Pascualas inunda automáticamente el foso perimetral en cuestión de segundos, convirtiendo la cámara en una trampa acuática infranqueable.",
         "pexels_query": "Madrid Cibeles",
-        "wiki_query": "Plaza de Cibeles Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cd/Plaza_de_Cibeles_%28Madrid%29_01.jpg"
+        ]
     },
     {
         "id": "CAP_02_CHAMBERI",
@@ -66,7 +70,10 @@ CHAPTERS = [
         "end": 68.0,
         "voice_text": "En la Línea 1 del Metro de Madrid existe una estación detenida en el tiempo: Chamberí. Inaugurada en 1919 por Alfonso XIII, fue clausurada en 1966 al ampliar la longitud de los trenes modernos. Hoy, como museo de Andén Cero, conserva intactos los carteles publicitarios de azulejos sevillanos, anuncios de Philips y jabones de época que aún se vislumbran desde los vagones en marcha.",
         "pexels_query": None,
-        "wiki_query": "Chamberí metro station Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/3/39/Chamberi_Anden_0_DSCF0689.JPG",
+            "https://upload.wikimedia.org/wikipedia/commons/0/01/Estacion_de_Metro_de_Chamberi_-_Madrid_16.jpg"
+        ]
     },
     {
         "id": "CAP_03_POSICION_JACA",
@@ -77,7 +84,10 @@ CHAPTERS = [
         "end": 95.0,
         "voice_text": "Escondido bajo el idílico Parque de El Capricho en la Alameda de Osuna se halla la Posición Jaca: un búnker de la Guerra Civil de 2.000 metros cuadrados excavado a 15 metros bajo tierra. Construido en 1937 para el Cuartel General del Ejército Republicano del General Miaja, contaba con compuertas estancas de acero anti-gas y muros de hormigón capaces de resistir impactos directos de bombas de 100 kilos.",
         "pexels_query": None,
-        "wiki_query": "Búnker Capricho Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/4/44/El_Capricho%2C_entrada_b%C3%BAnker%2C_Madrid%2C_Espa%C3%B1a%2C_2015.JPG",
+            "https://upload.wikimedia.org/wikipedia/commons/7/7d/El_Capricho%2C_t%C3%BAnel_del_b%C3%BAnker%2C_Madrid%2C_Espa%C3%B1a%2C_2015.JPG"
+        ]
     },
     {
         "id": "CAP_04_RELOJ_SOL",
@@ -88,7 +98,9 @@ CHAPTERS = [
         "end": 122.0,
         "voice_text": "El reloj más famoso de España, en la Real Casa de Correos de la Puerta del Sol, no es un mecanismo común. Donado por el maestro relojero leonés José Rodríguez Losada e inaugurado en 1866, cuenta con una maquinaria monumental de tres cuerpos. Cada Nochevieja, su bola dorada desciende con precisión matemática en 28 segundos antes de dar paso a los 4 cuartos y las 12 campanadas espaciadas cada 3 segundos.",
         "pexels_query": "Madrid Puerta del Sol",
-        "wiki_query": "Reloj Puerta del Sol"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/4/44/El_reloj_de_la_Puerta_del_Sol_%28527386198%29.jpg"
+        ]
     },
     {
         "id": "CAP_05_ENCARNACION",
@@ -99,7 +111,9 @@ CHAPTERS = [
         "end": 148.0,
         "voice_text": "Bajo la Plaza de Oriente y la calle de la Bola subsisten los vestigios del Pasadizo de la Encarnación. Construido en el siglo XVII durante el reinado de Felipe III, permitía a los reyes de España cruzar en privado y sin ser vistos entre el Real Alcázar y el Real Monasterio de la Encarnación para asistir a misa y evitar cualquier revuelta popular en las calles.",
         "pexels_query": "Madrid Palacio Real",
-        "wiki_query": "Monasterio Encarnacion Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/6/64/Real_Monasterio_de_la_Encarnaci%C3%B3n_%28Madrid%29_01.jpg"
+        ]
     },
     {
         "id": "CAP_06_GOYA",
@@ -110,7 +124,10 @@ CHAPTERS = [
         "end": 168.0,
         "voice_text": "En la Ermita de San Antonio de la Florida descansan los restos de Francisco de Goya bajo sus propios frescos de 1798. Pero el féretro esconde un misterio macabro: cuando el cónsul español exhumó su cuerpo en Burdeos en 1888 para repatriarlo, descubrieron que alguien había decapitado el cadáver. A día de hoy, el paradero del cráneo del pintor universal sigue siendo uno de los mayores enigmas de la historia del arte.",
         "pexels_query": None,
-        "wiki_query": "San Antonio Florida Goya"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/9/9a/El_baile_de_San_Antonio_de_la_Florida%2C_Francisco_de_Goya.jpg",
+            "https://upload.wikimedia.org/wikipedia/commons/c/cf/Ermita_de_San_Antonio_de_la_Florida_%28Madrid%29_01.jpg"
+        ]
     },
     {
         "id": "CAP_07_OUTRO",
@@ -121,7 +138,9 @@ CHAPTERS = [
         "end": TOTAL_DURATION,
         "voice_text": "Todos estos secretos están rigurosamente documentados en los archivos oficiales. Tienes las fuentes y coordenadas exactas en la descripción. Suscríbete para descubrir más historia oculta en 4K.",
         "pexels_query": "Madrid Retiro",
-        "wiki_query": "Plaza de Cibeles Madrid"
+        "wiki_urls": [
+            "https://upload.wikimedia.org/wikipedia/commons/c/cd/Plaza_de_Cibeles_%28Madrid%29_01.jpg"
+        ]
     }
 ]
 
@@ -129,8 +148,8 @@ PEXELS_HEADERS = {
     'Authorization': 'AqquPZxnf4tPoDVBmJUqDBIkWKuI0HABYwGUAwFuHDwlcFANQWed1l0o',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
 }
-GENERIC_HEADERS = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+WIKI_HEADERS = {
+    'User-Agent': 'VideoProMadridBot/1.0 (https://videopro.app; contact@videopro.app)'
 }
 
 async def synthesize_all_voiceovers():
@@ -140,6 +159,10 @@ async def synthesize_all_voiceovers():
     voice_files = []
     for idx, ch in enumerate(CHAPTERS):
         out_f = AUDIO_DIR / f"voice_ch_{idx:02d}.mp3"
+        if out_f.exists() and out_f.stat().st_size > 1000:
+            voice_files.append(out_f)
+            print(f"  ⚡ Usando voz en caché: {ch['id']}")
+            continue
         tts = edge_tts.Communicate(ch["voice_text"], "es-ES-AlvaroNeural", rate="+4%", pitch="+0Hz")
         await tts.save(str(out_f))
         voice_files.append(out_f)
@@ -173,7 +196,7 @@ def build_master_audio_track(voice_files):
     v_delayed_tags = "".join([f"[v_delayed_{idx}]" for idx in range(len(CHAPTERS))])
     filter_parts.append(f"{v_delayed_tags}amix=inputs={len(CHAPTERS)}:dropout_transition=0:normalize=0[all_voices];")
     
-    filter_parts.append(f"[0:a]volume=0.20,atrim=0:{TOTAL_DURATION:.3f},asetpts=PTS-STARTPTS[bgm_trimmed];")
+    filter_parts.append(f"[0:a]volume=0.18,atrim=0:{TOTAL_DURATION:.3f},asetpts=PTS-STARTPTS[bgm_trimmed];")
     filter_parts.append(f"[bgm_trimmed][all_voices]amix=inputs=2:duration=first:dropout_transition=2[a_master]")
     
     cmd = [
@@ -205,7 +228,7 @@ def download_pexels_video(query, target_path):
                 best = hd_files[0] if hd_files else vfiles[0]
                 v_url = best.get('link')
                 print(f"  📥 Pexels Video [{query}] -> {target_path.name}")
-                with requests.get(v_url, headers=GENERIC_HEADERS, stream=True, timeout=30) as resp:
+                with requests.get(v_url, headers={'User-Agent': 'Mozilla/5.0'}, stream=True, timeout=30) as resp:
                     if resp.status_code == 200:
                         with open(target_path, 'wb') as f:
                             for chunk in resp.iter_content(chunk_size=1024*1024):
@@ -216,41 +239,20 @@ def download_pexels_video(query, target_path):
         print(f"  ⚠️ Error descargando Pexels {query}: {e}")
     return None
 
-def download_wikimedia_images(query, target_paths):
-    """Descarga imágenes auténticas de alta resolución desde Wikimedia Commons."""
-    downloaded = []
+def download_wikimedia_direct(url, target_path):
+    """Descarga imagen histórica auténtica de Wikimedia Commons con cabeceras autorizadas."""
     try:
-        url = 'https://commons.wikimedia.org/w/api.php'
-        params = {
-            'action': 'query',
-            'generator': 'search',
-            'gsrsearch': query,
-            'gsrnamespace': '6',
-            'gsrlimit': str(len(target_paths)),
-            'prop': 'imageinfo',
-            'iiprop': 'url|size|mime',
-            'format': 'json'
-        }
-        r = requests.get(url, params=params, headers={'User-Agent': 'VideoProApp/1.0 (contact@videopro.com)'}, timeout=15)
-        pages = r.json().get('query', {}).get('pages', {})
-        for idx, (pid, pdata) in enumerate(pages.items()):
-            if idx >= len(target_paths):
-                break
-            target_p = target_paths[idx]
-            ii = pdata.get('imageinfo', [{}])[0]
-            img_url = ii.get('url')
-            if img_url:
-                print(f"  🏛️ Wikimedia [{query}] -> {target_p.name}")
-                with requests.get(img_url, headers=GENERIC_HEADERS, stream=True, timeout=30) as resp:
-                    if resp.status_code == 200:
-                        with open(target_p, 'wb') as f:
-                            for chunk in resp.iter_content(chunk_size=512*1024):
-                                if chunk:
-                                    f.write(chunk)
-                        downloaded.append(target_p)
+        r = requests.get(url, headers=WIKI_HEADERS, timeout=20)
+        if r.status_code == 200 and len(r.content) > 10000:
+            with open(target_path, 'wb') as f:
+                f.write(r.content)
+            print(f"  🏛️ Wikimedia Direct [{url.split('/')[-1]}] -> {target_path.name} ({len(r.content)} bytes)")
+            return target_path
+        else:
+            print(f"  ⚠️ Wikimedia status {r.status_code} for {url}")
     except Exception as e:
-        print(f"  ⚠️ Error Wikimedia {query}: {e}")
-    return downloaded
+        print(f"  ⚠️ Error descargando Wikimedia {url}: {e}")
+    return None
 
 def fetch_all_verified_assets():
     """Descarga todos los activos 100% Madrid para los 8 capítulos."""
@@ -271,21 +273,15 @@ def fetch_all_verified_assets():
                 if v_res and v_res.exists() and v_res.stat().st_size > 500000:
                     resolved[ch_id].append({"type": "video", "path": v_res})
                     
-        # 2. Wikimedia Archival Photos
-        if ch.get("wiki_query"):
-            img_targets = [
-                IMAGES_DIR / f"{idx:02d}_img1_{ch_id.lower()}.jpg",
-                IMAGES_DIR / f"{idx:02d}_img2_{ch_id.lower()}.jpg"
-            ]
-            # Verificar si ya existen
-            existing = [p for p in img_targets if p.exists() and p.stat().st_size > 50000]
-            if len(existing) == len(img_targets):
-                for p in existing:
-                    resolved[ch_id].append({"type": "image", "path": p})
+        # 2. Wikimedia Archival Photos Direct
+        for u_idx, u in enumerate(ch.get("wiki_urls", [])):
+            img_target = IMAGES_DIR / f"{idx:02d}_img{u_idx+1}_{ch_id.lower()}.jpg"
+            if img_target.exists() and img_target.stat().st_size > 10000:
+                resolved[ch_id].append({"type": "image", "path": img_target})
             else:
-                w_imgs = download_wikimedia_images(ch["wiki_query"], img_targets)
-                for p in w_imgs:
-                    resolved[ch_id].append({"type": "image", "path": p})
+                w_res = download_wikimedia_direct(u, img_target)
+                if w_res and w_res.exists() and w_res.stat().st_size > 10000:
+                    resolved[ch_id].append({"type": "image", "path": w_res})
                     
         print(f"  ✅ {ch_id}: {len(resolved[ch_id])} activos auténticos listos.")
     return resolved
@@ -337,7 +333,6 @@ def assemble_master_video(resolved_media, master_audio):
         media_list = resolved_media.get(ch["id"], [])
         
         if not media_list:
-            # Fallback seguro con placa informativa sólida
             fb_file = RENDERS_DIR / f"ch_{idx:02d}_master.mp4"
             cmd_fb = [
                 "ffmpeg", "-y", "-f", "lavfi", "-i", f"color=c=#090d16:s=1920x1080:d={ch_dur:.2f}",
@@ -377,7 +372,6 @@ def assemble_master_video(resolved_media, master_audio):
         else:
             chapter_masters.append(shot_files[0])
             
-    # Concatenar todos los capítulos en una única pista de vídeo base
     all_concat_txt = RENDERS_DIR / "master_concat_all.txt"
     with open(all_concat_txt, "w") as f:
         for cm in chapter_masters:
@@ -399,8 +393,8 @@ def assemble_master_video(resolved_media, master_audio):
         enable_expr = f"between(t,{t_start:.2f},{t_end:.2f})"
         
         # Tarjeta HUD Glassmorphism inferior izquierda
-        b1 = f"drawbox=enable='{enable_expr}':x=45:y=770:w=900:h=240:color=black@0.78:t=fill"
-        b2 = f"drawbox=enable='{enable_expr}':x=45:y=770:w=900:h=240:color=gold@0.90:t=3"
+        b1 = f"drawbox=enable='{enable_expr}':x=45:y=770:w=920:h=240:color=black@0.80:t=fill"
+        b2 = f"drawbox=enable='{enable_expr}':x=45:y=770:w=920:h=240:color=gold@0.90:t=3"
         b3 = f"drawbox=enable='{enable_expr}':x=45:y=770:w=12:h=240:color=#38bdf8@1.0:t=fill"
         
         title_clean = ch['title'].replace("'", "").replace(":", " -")

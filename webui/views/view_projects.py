@@ -204,7 +204,63 @@ def _show_video_modal(title: str, local_vid: str, cloud_url: str):
         st.warning("No se encontró el archivo de vídeo.")
 
 
+@st.dialog("🧠 Evaluar Proyecto & Alimentar Memoria de Experiencia")
+def _show_critique_modal(proj: dict):
+    """Modal interactivo para registrar feedback post-producción y extraer lecciones."""
+    from app.services.learning_memory_engine import learning_engine
+    from app.models.learning_experience import LessonCategory, LessonSeverity, LearnedLesson
+
+    p_id = proj.get("project_id", "proj_unknown")
+    title = proj.get("title") or proj.get("subject", p_id)
+    wf_id = proj.get("workflow_id", "PIXAR_3D_ANIMATION")
+
+    st.markdown(f"#### 🎬 {title}")
+    st.caption(f"ID: `{p_id}` | Workflow: `{wf_id}`")
+
+    with st.form(f"form_critique_{p_id}"):
+        score = st.slider("Calificación Global (0 - 100):", min_value=0, max_value=100, value=75)
+        raw_feedback = st.text_area(
+            "Transcripción del Feedback / Crítica del Usuario o Director:",
+            value="",
+            placeholder="Ejemplo: 'El ritmo visual es lento en la escena 3, los subtítulos tienen fondo oscuro invasivo y falta un plano de detalle de la cámara acorazada...'"
+        )
+
+        st.markdown("**Desglose Dimensional:**")
+        c1, c2 = st.columns(2)
+        with c1:
+            sc_pacing = st.slider("Ritmo Visual (Cortes cada 3-5s):", 0, 100, 70)
+            sc_typo = st.slider("Tipografía & Subtítulos Broadcast:", 0, 100, 75)
+        with c2:
+            sc_semantic = st.slider("Correspondencia Semántica Imagen-Texto:", 0, 100, 80)
+            sc_audio = st.slider("Calidad de Audio & Música:", 0, 100, 85)
+
+        st.markdown("<div style='height: 8px;'></div>", unsafe_allow_html=True)
+        btn_submit = st.form_submit_button("🧠 Guardar Evaluación & Sincronizar en Firestore", type="primary", use_container_width=True)
+
+        if btn_submit:
+            if not raw_feedback.strip():
+                st.error("Por favor ingresa un comentario o crítica.")
+            else:
+                critique_obj = learning_engine.record_project_critique(
+                    project_id=p_id,
+                    workflow_id=wf_id,
+                    overall_score=score,
+                    user_feedback_raw=raw_feedback.strip(),
+                    critique_breakdown={
+                        "visual_pacing": sc_pacing,
+                        "typography_design": sc_typo,
+                        "semantic_matching": sc_semantic,
+                        "audio_quality": sc_audio
+                    }
+                )
+                learning_engine.sync_to_firebase_async()
+                st.success(f"✅ Evaluación registrada con éxito en la memoria del sistema (ID: `{critique_obj.critique_id}`).")
+                time.sleep(1.0)
+                st.rerun()
+
+
 def _render_project_card(proj: dict):
+
     """Renderiza una tarjeta de proyecto moderna con acciones y estado relacional."""
     p_id = proj.get("project_id", "proj_unknown")
     title = proj.get("title") or proj.get("subject", p_id)
@@ -273,9 +329,9 @@ def _render_project_card(proj: dict):
         """, unsafe_allow_html=True)
 
         # Botones de Acción
-        c_act1, c_act2, c_act3 = st.columns([5, 3, 2], gap="small")
+        c_act1, c_act2, c_act3, c_act4 = st.columns([4, 3, 2, 1], gap="small")
         with c_act1:
-            if st.button("📂 Abrir en Estudio", key=f"btn_open_studio_{p_id}", type="primary", use_container_width=True, help="Abrir proyecto en el Director Creativo"):
+            if st.button("📂 Abrir", key=f"btn_open_studio_{p_id}", type="primary", use_container_width=True, help="Abrir proyecto en el Director Creativo"):
                 with st.spinner("Cargando proyecto y restaurando sesión..."):
                     ok = view_studio_orchestrator.load_project_into_session(p_id)
                     if ok:
@@ -313,7 +369,7 @@ def _render_project_card(proj: dict):
                                 except Exception as e:
                                     st.error(f"Error: {e}")
             else:
-                if st.button("📋 Duplicar", key=f"btn_dup_{p_id}", use_container_width=True, help="Duplicar proyecto (Fork)"):
+                if st.button("📋 Copia", key=f"btn_dup_{p_id}", use_container_width=True, help="Duplicar proyecto (Fork)"):
                     new_pid = f"{p_id}_copia_{int(time.time())}"
                     new_title = f"{title} (Copia)"
                     repo = ProjectRepository()
@@ -334,8 +390,12 @@ def _render_project_card(proj: dict):
                     st.session_state["flash_message"] = ("success", f"Proyecto duplicado como: {new_title}")
                     st.rerun()
         with c_act3:
+            if st.button("🧠 Eval", key=f"btn_critique_{p_id}", use_container_width=True, help="Evaluar y alimentar la memoria de aprendizaje continuo"):
+                _show_critique_modal(proj)
+        with c_act4:
             if st.button("🗑️", key=f"btn_del_trigger_{p_id}", use_container_width=True, help="Eliminar este proyecto"):
                 _show_delete_modal(p_id, title)
+
 
 
 def _render_live_jobs_monitor():

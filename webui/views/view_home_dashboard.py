@@ -115,32 +115,32 @@ def render_home_dashboard_view():
     st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
 
     # 2. Grid de Accesos Rápidos a Módulos
-    st.markdown("### 🚀 Accesos Directos a Módulos de Producción")
+    st.markdown("### 🚀 Accesos Directos & Cabina de Mando")
     
     row1_c1, row1_c2, row1_c3 = st.columns(3)
     
     with row1_c1:
         with st.container(border=True):
-            st.markdown("#### 🎬 1. Director Creativo & Co-Creación")
-            st.caption("Investigación profunda con subagentes Hermes, Cadena de Pensamiento (CoT) y ficha técnica consolidada.")
-            if st.button("Abrir Director Creativo 🚀", type="primary", use_container_width=True, key="home_btn_studio"):
-                st.session_state["active_view"] = "studio"
+            st.markdown("#### 🤖 1. Hermes Mission Control")
+            st.caption("Supervisión de la mente de Hermes en vivo, razonamiento CoT, telemetría de 7 nodos y control de misiones.")
+            if st.button("Abrir Hermes Control 🤖", type="primary", use_container_width=True, key="home_btn_hermes"):
+                st.session_state["active_view"] = "hermes_control"
                 st.rerun()
 
     with row1_c2:
         with st.container(border=True):
-            st.markdown("#### 🏛️ 2. Lienzo de Nodos (ComfyUI Studio)")
-            st.caption("Diseño visual de flujos con cables Bezier interactivos y Asistente Agéntico de IA flotante.")
-            if st.button("Abrir Lienzo Visual 🎨", use_container_width=True, key="home_btn_canvas"):
-                st.session_state["active_view"] = "pipeline"
+            st.markdown("#### 🎬 2. Director Creativo & Co-Creación")
+            st.caption("Investigación profunda con subagentes Hermes, Cadena de Pensamiento (CoT) y ficha técnica consolidada.")
+            if st.button("Abrir Director Creativo 🚀", use_container_width=True, key="home_btn_studio"):
+                st.session_state["active_view"] = "studio"
                 st.rerun()
 
     with row1_c3:
         with st.container(border=True):
-            st.markdown("#### 📁 3. Gestor de Proyectos")
-            st.caption("Explorador de proyectos estructurados por fecha `YYYY/MM/DD`, estado de render y tomas generadas.")
-            if st.button("Explorar Proyectos 📁", use_container_width=True, key="home_btn_projects"):
-                st.session_state["active_view"] = "projects"
+            st.markdown("#### 🏛️ 3. Lienzo de Nodos (ComfyUI Studio)")
+            st.caption("Diseño visual de flujos con cables Bezier interactivos y Asistente Agéntico de IA flotante.")
+            if st.button("Abrir Lienzo Visual 🎨", use_container_width=True, key="home_btn_canvas"):
+                st.session_state["active_view"] = "pipeline"
                 st.rerun()
 
     row2_c1, row2_c2, row2_c3 = st.columns(3)

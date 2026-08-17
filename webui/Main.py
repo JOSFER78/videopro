@@ -4540,6 +4540,10 @@ def _render_application():
     elif active_view in ("studio", "orchestrator", "main", "generator"):
         view_studio_orchestrator.render_studio_orchestrator_view()
         return
+    elif active_view in ("hermes_control", "hermes", "mission_control"):
+        from webui.views import view_hermes_mission_control
+        view_hermes_mission_control.render_hermes_mission_control_view()
+        return
     elif active_view in ("projects", "tasks"):
         view_projects.render_view()
         return

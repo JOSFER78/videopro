@@ -9,6 +9,7 @@ Mapea y sincroniza en Firebase Firestore:
 """
 
 import json
+from datetime import datetime
 import requests
 from typing import Dict, Any
 from app.models.videopro_ontology import (
@@ -234,6 +235,12 @@ SYSTEM_APIS: Dict[str, ProviderAPI] = {
     "local_ffmpeg_engine": ProviderAPI(
         id="local_ffmpeg_engine",
         name="FFmpeg 6.x Hardware Accelerated Audio/Video DSP",
+        category=ProviderCategory.CODE_ENGINE,
+        status="ACTIVE"
+    ),
+    "qgis_cartography_engine": ProviderAPI(
+        id="qgis_cartography_engine",
+        name="QGIS 4K Vector Cartography & DEM Elevation Map Engine",
         category=ProviderCategory.CODE_ENGINE,
         status="ACTIVE"
     ),
@@ -541,6 +548,77 @@ SYSTEM_CAPABILITIES: Dict[str, Capability] = {
         required_apis=["local_ffmpeg_engine"],
         output_type="QA_REPORT"
     ),
+    # --- CAPACIDADES DE PRODUCCIÓN DOCUMENTAL ÉLITE & VOX MOTION GRAPHICS ---
+    "cap_storyboard_shot_planner": Capability(
+        id="cap_storyboard_shot_planner",
+        name="Storyboard Studio & Desglose de Tipos de Plano (Tool Drop)",
+        description="Clasifica cada segmento del guion en planos especializados: Cartografía QGIS, Prensa 3D Roughen, Blueprint DEM o Macro-Patente.",
+        required_apis=["api_google_gemini_llm", "api_openai_gpt"],
+        output_type="TEXT"
+    ),
+    "cap_qgis_vector_dash78": Capability(
+        id="cap_qgis_vector_dash78",
+        name="Cartografía Vectorial 4K QGIS con Dash=78 (Denys Zhylin)",
+        description="Genera mapas 4K transparentes con textura de papel prensa (Multiply), trazado de rutas Dash=78, Trim Paths continuo y cámara Bezier.",
+        required_apis=["qgis_cartography_engine", "local_ffmpeg_engine"],
+        output_type="VIDEO_CLIP"
+    ),
+    "cap_newspaper_roughen_parallax": Capability(
+        id="cap_newspaper_roughen_parallax",
+        name="Prensa Histórica 3D con Roughen Edges & Resaltador Flúor (createdaley)",
+        description="Periódicos de época en 3D con bordes rasgados procedimentales (Border 3.3px, Sharpness 4.58, Complexity 10), Tint de papel, rotulador flúor animado y sello oficial con rebote spring.",
+        required_apis=["local_remotion_cli", "local_ffmpeg_engine"],
+        output_type="VIDEO_CLIP"
+    ),
+    "cap_blueprint_dem_elevation": Capability(
+        id="cap_blueprint_dem_elevation",
+        name="Blueprint de Ingeniería & Relieve DEM -14M con Offset Z +0.001 (Wyspa Klatek)",
+        description="Planos estructurales en corte transversal con cotas de nivel, relieve DEM de elevación, separación Z +0.001 anti Z-fighting y líneas guía de telemetría.",
+        required_apis=["local_remotion_cli", "local_ffmpeg_engine"],
+        output_type="VIDEO_CLIP"
+    ),
+    "cap_macro_horology_patent": Capability(
+        id="cap_macro_horology_patent",
+        name="Macro-Detalle de Patentes Históricas & Horología 1866 (Johnny Harris)",
+        description="Esquemas de patentes con engranajes cinemáticos giratorios, péndulo de compensación oscilante y HUD de telemetría técnica monocromática.",
+        required_apis=["local_ffmpeg_engine"],
+        output_type="VIDEO_CLIP"
+    ),
+    "cap_foley_diegetic_soundscape": Capability(
+        id="cap_foley_diegetic_soundscape",
+        name="Paisaje Sonoro Foley Diegético Sincronizado",
+        description="Síntesis e inyección de efectos sonoros físicos en sincronía milimétrica: Whooshes de corte, roces de papel, chirrido de rotulador, golpe de sello y tic-tac.",
+        required_apis=["local_ffmpeg_engine"],
+        output_type="AUDIO_TRACK"
+    ),
+    "cap_vox_paper_parallax_3d": Capability(
+        id="cap_vox_paper_parallax_3d",
+        name="Paralaje 3D Multicapa de Documentos & Prensa (Estilo Vox)",
+        description="Textura de papel prensa analógica, desaturación con Tint, bordes irregulares con Roughen Edges, sombras suaves y movimiento de cámara en 3D.",
+        required_apis=["local_remotion_cli", "local_ffmpeg_engine"],
+        output_type="MOTION_OVERLAY"
+    ),
+    "cap_vox_cinematic_map_3d": Capability(
+        id="cap_vox_cinematic_map_3d",
+        name="Cartografía Vectorial 3D Vox (QGIS 4K & Dash=78)",
+        description="Mapas vectoriales 4K transparentes con rutas animadas de pluma (Dash=78 / Trim Paths), curvas Bezier y offset Z=+0.001 anti Z-fighting.",
+        required_apis=["qgis_cartography_engine", "local_remotion_cli", "local_ffmpeg_engine"],
+        output_type="VIDEO_CLIP"
+    ),
+    "cap_kinetic_word_subtitles": Capability(
+        id="cap_kinetic_word_subtitles",
+        name="Subtítulos Cinematográficos Dinámicos (Remotion / ASS)",
+        description="Subtítulos palabra por palabra con resaltado activo sin recuadros opacos, tipografía Inter/Montserrat y animación elástica spring().",
+        required_apis=["local_remotion_cli", "local_whisper_stt", "local_ffmpeg_engine"],
+        output_type="MOTION_OVERLAY"
+    ),
+    "cap_stagger_psicoacustico_motion": Capability(
+        id="cap_stagger_psicoacustico_motion",
+        name="Stagger Psicoacústico de Entrada (Desfase 3-5 Frames)",
+        description="Desfase milimétrico en los fotogramas de entrada de elementos visuales (documento ➔ resaltador ➔ subtítulo) para retención >70%.",
+        required_apis=["local_remotion_cli"],
+        output_type="MOTION_OVERLAY"
+    ),
     "cap_firebase_sync_engine": Capability(
         id="cap_firebase_sync_engine",
         name="Motor de Sincronización en la Nube (Firestore & R2)",
@@ -554,89 +632,92 @@ SYSTEM_CAPABILITIES: Dict[str, Capability] = {
 # 3. CATÁLOGO DE NODOS DE PRODUCCIÓN (NIVEL 3)
 # ============================================================================
 SYSTEM_NODES: Dict[str, Node] = {
-    "node_01_investigacion_y_narrativa": Node(
-        id="node_01_investigacion_y_narrativa",
+    "node_01_investigacion_y_storyboard": Node(
+        id="node_01_investigacion_y_storyboard",
         number=1,
-        name="Investigación Profunda & Storytelling",
-        role_description="Construcción del arco narrativo unificado, dossier de fuentes y metadatos oficiales de YouTube.",
+        name="Investigación, Guion & Storyboard Studio",
+        role_description="Construcción del arco narrativo unificado, dossier de fuentes y desglose escena a escena por tipo de plano documental.",
         capabilities=[
             "cap_llm_story_director",
-            "cap_llm_antigravity_agentic",
+            "cap_storyboard_shot_planner",
             "cap_deepseek_reasoning_cot",
             "cap_web_search_scrappers",
             "cap_firebase_sync_engine"
         ]
     ),
-    "node_02_audio_first_y_ritmo": Node(
-        id="node_02_audio_first_y_ritmo",
+    "node_02_audio_first_y_foley": Node(
+        id="node_02_audio_first_y_foley",
         number=2,
-        name="Audio-First & Sincronismo Temporal",
-        role_description="Calibración milimétrica de la línea de tiempo sobre la pista WAV master, locución y bandas sonoras.",
+        name="Audio-First, Locución & Foley Diegético",
+        role_description="Calibración milimétrica de la línea de tiempo sobre la pista WAV master, locución neural y efectos de foley físicos.",
         capabilities=[
-            "cap_audio_beat_transient_detector",
             "cap_vibevoice_serverless_free",
             "cap_vibevoice_local_vps",
             "cap_elevenlabs_voice_cloning",
             "cap_edgetts_fast_narration",
-            "cap_fish_audio_voice_cloning",
-            "cap_minimax_speech_t2s",
-            "cap_flowmusic_browser_gen",
-            "cap_suno_song_generation",
-            "cap_whisper_word_level_timestamps"
+            "cap_foley_diegetic_soundscape",
+            "cap_whisper_word_level_timestamps",
+            "cap_audio_beat_transient_detector"
         ]
     ),
-    "node_03_ingesta_multimedia_4k": Node(
-        id="node_03_ingesta_multimedia_4k",
+    "node_03_generacion_activos_vox": Node(
+        id="node_03_generacion_activos_vox",
         number=3,
-        name="Ingesta & Generación Multi-Activo 4K",
-        role_description="Keyframes NanoBanana Pro (Bridge/API/Browser), FLUX.3 (ZeroGPU/Replicate/ComfyUI), stock 4K y archivo histórico.",
+        name="Generación de Activos Auténticos VOX 4K",
+        role_description="Creación procedimental de mapas vectoriales QGIS (Dash=78), periódicos 1919 con Roughen Edges, blueprints DEM -14M y patentes macro.",
         capabilities=[
-            "cap_nanobanana_antigravity_bridge",
-            "cap_nanobanana_google_api",
-            "cap_nanobanana_flow_browser",
-            "cap_flux3_serverless_free",
-            "cap_flux3_replicate_cloud",
-            "cap_flux3_comfyui_runpod",
-            "cap_flux3_comfyui_local",
-            "cap_ltx25_lip_sync_24fps",
-            "cap_wan21_t2v_cinematic",
-            "cap_minimax_h3_motion",
-            "cap_seedance_choreography",
-            "cap_stock_scraping_pexels_4k",
-            "cap_pixabay_stock_media",
+            "cap_qgis_vector_dash78",
+            "cap_newspaper_roughen_parallax",
+            "cap_blueprint_dem_elevation",
+            "cap_macro_horology_patent",
             "cap_wikimedia_historical_archive",
-            "cap_orbital_trajectories_4k",
+            "cap_nanobanana_antigravity_bridge",
+            "cap_flux3_serverless_free",
+            "cap_flux3_comfyui_runpod",
             "cap_image_quality_filter"
         ]
     ),
-    "node_04_composicion_motion_graphics": Node(
-        id="node_04_composicion_motion_graphics",
+    "node_04_composicion_3d_parallax": Node(
+        id="node_04_composicion_3d_parallax",
         number=4,
-        name="Motion Graphics Remotion & HyperFrames",
-        role_description="Renderizado de rótulos táctiles, mapas 3D, subtítulos karaoke y shaders de textura en React 18 y GLSL.",
+        name="Composición 3D Parallax & Video-as-Code",
+        role_description="Montaje espacial en perspectiva 3D con físicas spring(), trazado continuo de rutas, offset Z +0.001 y stagger temporal de 3-5 frames.",
         capabilities=[
+            "cap_vox_paper_parallax_3d",
+            "cap_vox_cinematic_map_3d",
+            "cap_stagger_psicoacustico_motion",
             "cap_motion_remotion_react_hud",
-            "cap_motion_remotion_lambda_cloud",
             "cap_paper_texture_overlay",
-            "cap_whisper_word_level_timestamps",
             "cap_hyperframes_webgl_shaders"
         ]
     ),
-    "node_05_masterizacion_audio_foley": Node(
-        id="node_05_masterizacion_audio_foley",
+    "node_05_subtitulos_y_hud": Node(
+        id="node_05_subtitulos_y_hud",
         number=5,
-        name="Mezcla Master & Foley Diegético",
-        role_description="Integración de efectos físicos analógicos (obturador, papel) y masterización EBU R128 con sidechain ducking.",
+        name="Subtítulos Cinematográficos & Telemetría HUD",
+        role_description="Subtítulos en píldora translúcida con resaltado de palabras activo, etiquetas de expediente y mirillas de tracking sobre detalles.",
         capabilities=[
-            "cap_audio_mixing_foley_ducking",
-            "cap_sfx_shutter_paper_typewriter"
+            "cap_kinetic_word_subtitles",
+            "cap_whisper_word_level_timestamps",
+            "cap_motion_remotion_react_hud"
         ]
     ),
-    "node_06_qa_evaluacion_y_sync": Node(
-        id="node_06_qa_evaluacion_y_sync",
+    "node_06_masterizacion_ebu_r128": Node(
+        id="node_06_masterizacion_ebu_r128",
         number=6,
-        name="QA Loop de Autoevaluación & Cloud Sync",
-        role_description="Control anti-repetición de fotogramas, Contact Sheet y sincronización en Firebase Firestore y Cloudflare R2.",
+        name="Masterización Acústica EBU R128 & Compresión",
+        role_description="Compresión y ensamblado final multicapa en FFmpeg con sidechain ducking (-18 dB) y normalización a -14 LUFS.",
+        capabilities=[
+            "cap_audio_mixing_foley_ducking",
+            "cap_sfx_shutter_paper_typewriter",
+            "cap_foley_diegetic_soundscape"
+        ]
+    ),
+    "node_07_qa_contact_sheet_sync": Node(
+        id="node_07_qa_contact_sheet_sync",
+        number=7,
+        name="QA Loop, Mosaico de Contactos 4K & Cloud Sync",
+        role_description="Generación del mosaico QA fotograma a fotograma para control de calidad y sincronización en Firebase Firestore y Cloudflare R2.",
         capabilities=[
             "cap_contact_sheet_builder",
             "cap_firebase_sync_engine"
@@ -648,10 +729,56 @@ SYSTEM_NODES: Dict[str, Node] = {
 # 4. CATÁLOGO DE WORKFLOWS PARA CANALES DE YOUTUBE (NIVEL 4)
 # ============================================================================
 SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
+    "workflow_vox_investigative_doc": WorkflowPipeline(
+        id="workflow_vox_investigative_doc",
+        name="Documental de Investigación VOX (Johnny Harris & createdaley Style)",
+        description="Workflow insignia de periodismo visual documental: Storyboard Studio, mapas vectoriales QGIS con rutas Dash=78, recortes de prensa 3D con Roughen Edges (border=3.3px, sharpness=4.58), rotulador flúor animado, blueprints DEM con separación Z +0.001 y masterización EBU R128 con Foley diegético.",
+        channel_target=YouTubeChannelTarget(
+            channel_name="Hermes Investigative / Vox Visual Docs",
+            niche="Periodismo de Investigación, Geopolítica & Ensayos Visuales",
+            format="16:9 4K 60FPS",
+            visual_style="Vox Cinematic Parallax (Papel Prensa Texturizado, Mapas 3D QGIS Dash=78, Roughen Edges, Subtítulos Cinematográficos sin Cajas, Stagger Psicoacústico)",
+            target_audience="Audiencias de YouTube interesadas en documentales de alta retención, análisis geopolítico e historia visual profunda"
+        ),
+        ordered_nodes=[
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
+        ],
+        estimated_duration_sec=180.0,
+        output_specs={"resolution": "3840x2160", "fps": 60, "audio_lufs": -14.0}
+    ),
+    "workflow_geopolitical_historical_maps": WorkflowPipeline(
+        id="workflow_geopolitical_historical_maps",
+        name="Geopolítica & Cartografía Histórica 3D (Johnny Harris Style)",
+        description="Workflow especializado en geopolítica, evolución de fronteras e historia de conflictos con sobrevuelos de cámara en 3D (DEM QGIS), trazado de rutas bélicas/comerciales y documentos desclasificados.",
+        channel_target=YouTubeChannelTarget(
+            channel_name="Atlas de Geopolítica & Mapas 3D",
+            niche="Conflictos Geopolíticos, Rutas Comerciales e Historia de Fronteras",
+            format="16:9 4K 60FPS",
+            visual_style="Cartografía Satelital 3D en Relieve (DEM QGIS, Rutas Dash=78, Soft Glow, Viñeteado de Estudio)",
+            target_audience="Estudiantes de relaciones internacionales, historia bélica y geografía estratégica"
+        ),
+        ordered_nodes=[
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
+        ],
+        estimated_duration_sec=240.0,
+        output_specs={"resolution": "3840x2160", "fps": 60, "audio_lufs": -14.0}
+    ),
     "workflow_madrid_curiosities_3min": WorkflowPipeline(
         id="workflow_madrid_curiosities_3min",
         name="Madrid Secreto 4K: Curiosidades Reales & Beat-Sync (3 min)",
-        description="Workflow maestro conducido al 100% por la pista de audio (177.64s). 6 capítulos de misterios bajo el asfalto (Cibeles, Chamberí, Posición Jaca, Reloj Sol, Pasadizo Encarnación, Tumba Goya), paneles glassmorphism 3D, b-roll real 4K y fuentes verificadas.",
+        description="Workflow maestro conducido al 100% por la pista de audio (177.64s). 6 capítulos de misterios bajo el asfalto (Cibeles, Chamberí, Posición Jaca, Reloj Sol, Pasadizo Encarnación, Tumba Goya), paneles glassmorphism 3D, mapas vectoriales QGIS Dash=78 y patentes históricas.",
         channel_target=YouTubeChannelTarget(
             channel_name="Madrid Secreto & Rutas Históricas 4K",
             niche="Documentales Urbanos, Curiosidades y Misterios Ocultos",
@@ -660,12 +787,13 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Entusiastas de la historia urbana, arquitectura secreta y turismo cultural profundo"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=177.64,
         output_specs={"resolution": "3840x2160", "fps": 60, "audio_lufs": -14.0}
@@ -682,12 +810,13 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Amantes del urbanismo, historia comparada y ciencia ficción arquitectónica"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=180.0,
         output_specs={"resolution": "3840x2160", "fps": 60}
@@ -704,11 +833,13 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Familias y amantes del cine de animación de alta calidad"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=210.0
     ),
@@ -724,12 +855,13 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Audiencia interesada en historia rigurosa, enigmas y documentación oficial"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=240.0
     ),
@@ -745,12 +877,13 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Estudiantes, investigadores y profesionales del análisis profundo"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=300.0
     ),
@@ -766,11 +899,12 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Consumidores de contenido corto en móvil"
         ),
         ordered_nodes=[
-            "node_01_investigacion_y_narrativa",
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_06_qa_evaluacion_y_sync"
+            "node_01_investigacion_y_storyboard",
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_05_subtitulos_y_hud",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=60.0
     ),
@@ -786,11 +920,11 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
             target_audience="Amantes de la música electrónica y paseos urbanos nocturnos"
         ),
         ordered_nodes=[
-            "node_02_audio_first_y_ritmo",
-            "node_03_ingesta_multimedia_4k",
-            "node_04_composicion_motion_graphics",
-            "node_05_masterizacion_audio_foley",
-            "node_06_qa_evaluacion_y_sync"
+            "node_02_audio_first_y_foley",
+            "node_03_generacion_activos_vox",
+            "node_04_composicion_3d_parallax",
+            "node_06_masterizacion_ebu_r128",
+            "node_07_qa_contact_sheet_sync"
         ],
         estimated_duration_sec=180.0
     ),
@@ -839,7 +973,7 @@ SYSTEM_WORKFLOWS: Dict[str, WorkflowPipeline] = {
 
 
 def sync_entire_ontology_to_firebase() -> bool:
-    """Sincroniza la ontología completa de 4 niveles en Firebase Firestore."""
+    """Sincroniza la ontología completa de 4 niveles y la memoria de aprendizaje en Firebase Firestore."""
     token = firebase_sync._get_firebase_auth_token()
     project_id = config.app.get("firebase_project_id") or "ayuda-emilio-83261"
     headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
@@ -854,12 +988,16 @@ def sync_entire_ontology_to_firebase() -> bool:
     url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_system/architecture_ontology"
     fields = {
         "ontology_json": {"stringValue": json.dumps(ontology_payload, ensure_ascii=False)},
-        "updated_at": {"stringValue": "2026-08-16T22:00:00"}
+        "updated_at": {"stringValue": datetime.now().isoformat()}
     }
     
     try:
         resp = requests.patch(url, headers=headers, json={"fields": fields}, timeout=10)
-        return resp.status_code == 200
+        # Sincronizar también la memoria de aprendizaje
+        from app.services.learning_memory_engine import learning_engine
+        learning_engine.sync_to_firebase_async()
+        return resp.status_code in (200, 201)
     except Exception as ex:
         print(f"Error sincronizando ontología en Firestore: {ex}")
         return False
+

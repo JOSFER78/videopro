@@ -77,11 +77,12 @@ def render_comfy_pipeline_view():
     """, unsafe_allow_html=True)
 
     # Tabs de navegación interna de Workflows
-    tab_catalog, tab_canvas, tab_topology, tab_matrix = st.tabs([
+    tab_catalog, tab_canvas, tab_topology, tab_matrix, tab_learning = st.tabs([
         "🗂️ Catálogo & Organización de Workflows",
         "🏛️ Lienzo de Nodos Interactivo (Canvas)",
         "🌲 Topología Modular de Nodos",
-        "📊 Matriz Comparativa de Capacidades"
+        "📊 Matriz Comparativa de Capacidades",
+        "🧠 Motor de Aprendizaje & Memoria de Experiencia"
     ])
 
     # =========================================================================
@@ -107,6 +108,13 @@ def render_comfy_pipeline_view():
     # =========================================================================
     with tab_matrix:
         _render_matrix_tab()
+
+    # =========================================================================
+    # TAB 5: MOTOR DE APRENDIZAJE & MEMORIA DE EXPERIENCIA
+    # =========================================================================
+    with tab_learning:
+        _render_learning_memory_tab()
+
 
 
 def _render_workflows_catalog():
@@ -509,3 +517,260 @@ def _render_native_pipeline_tree(graph_data: dict, selected_pipe: str = "MASTER"
     with st.expander("🔌 Ver Mapa de Conexiones Bezier de Datos (Sockets)", expanded=False):
         for conn in connections:
             st.markdown(f"• `[{conn.get('from_node')}]` ➔ <b>{conn.get('from_socket')}</b> ───► `[{conn.get('to_node')}]` ➔ <b>{conn.get('to_socket')}</b> (Tipo: <code>{conn.get('payload_type', 'any')}</code>)", unsafe_allow_html=True)
+
+
+def _render_learning_memory_tab():
+    """Renderiza el Tab 5: Motor de Aprendizaje & Memoria de Experiencia Continua."""
+    from app.services.learning_memory_engine import learning_engine
+    from app.models.learning_experience import (
+        LearnedLesson, ProjectCritiqueFeedback,
+        LessonCategory, LessonSeverity, ProviderExecutionMetric, ProviderExecutionMode
+    )
+
+    all_lessons = learning_engine.get_all_lessons()
+    all_critiques = learning_engine.get_all_critiques()
+    all_metrics = learning_engine.get_provider_metrics()
+    critical_rules_count = sum(1 for l in all_lessons if l.severity == LessonSeverity.CRITICAL)
+
+    # Encabezado y Badges
+    st.markdown("""
+        <div style="background: radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0.8) 90%); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 18px 22px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <div>
+                    <h3 style="margin: 0; font-size: 18px; font-weight: 800; color: #f1f5f9; display: flex; align-items: center; gap: 8px;">
+                        🧠 Motor de Aprendizaje & Memoria de Experiencia
+                        <span style="font-size: 11px; background: rgba(139, 92, 246, 0.25); color: #c084fc; border: 1px solid rgba(139, 92, 246, 0.4); padding: 2px 8px; border-radius: 10px; font-weight: 700;">SELF-LEARNING LOOP</span>
+                    </h3>
+                    <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">
+                        Captura continua de experiencia de producción, auditoría de errores pasados (anti-patrones), estándares dorados inmutables y optimización multi-proveedor sincronizada en Firebase Firestore.
+                    </p>
+                </div>
+            </div>
+        </div>
+    """, unsafe_allow_html=True)
+
+    # Métricas Globales en 4 Columnas
+    m_col1, m_col2, m_col3, m_col4 = st.columns(4)
+    with m_col1:
+        st.metric("Lecciones & Reglas", f"{len(all_lessons)}", help="Reglas aprendidas activas aplicadas antes de cada rodaje")
+    with m_col2:
+        st.metric("Reglas Críticas", f"{critical_rules_count}", delta="Inmutables", help="Reglas estrictas no negociables (ej. ritmo visual 3s, tipografía limpia)")
+    with m_col3:
+        st.metric("Críticas Post-Rodaje", f"{len(all_critiques)}", help="Evaluaciones de calidad registradas para proyectos finalizados")
+    with m_col4:
+        st.metric("Rutas Multi-Proveedor", f"{len(all_metrics)}", help="Proveedores calibrados (Free ZeroGPU vs Replicate vs RunPod vs Local)")
+
+    # Barra de acciones de sincronización con Firestore
+    sync_c1, sync_c2 = st.columns([1, 1])
+    with sync_c1:
+        if st.button("☁️ Sincronizar Memoria Completa en Firebase Firestore", type="primary", use_container_width=True, key="btn_sync_learning_fb"):
+            with st.spinner("Sincronizando lecciones, críticas y métricas en Firestore..."):
+                ok, msg = learning_engine.sync_to_firebase()
+                if ok:
+                    st.success(f"✅ {msg}")
+                else:
+                    st.error(f"❌ Error al sincronizar: {msg}")
+    with sync_c2:
+        if st.button("📥 Descargar Memoria desde Firebase Firestore", use_container_width=True, key="btn_load_learning_fb"):
+            with st.spinner("Descargando memoria de aprendizaje de Firestore..."):
+                ok, msg = learning_engine.load_from_firebase()
+                if ok:
+                    st.success(f"✅ {msg}")
+                    st.rerun()
+                else:
+                    st.warning(f"⚠️ {msg}")
+
+    st.markdown("<hr style='margin: 16px 0; border-color: #1e293b;'>", unsafe_allow_html=True)
+
+    # Sub-tabs del Motor de Aprendizaje
+    subtab_lessons, subtab_critiques, subtab_providers, subtab_new_lesson = st.tabs([
+        "📜 Estándares Dorados & Anti-Patrones",
+        "📝 Historial de Críticas & Evaluaciones",
+        "⚡ Despacho Multi-Proveedor (FLUX.3 / APIs)",
+        "➕ Registrar Nueva Lección"
+    ])
+
+    # =========================================================================
+    # SUBTAB 1: ESTÁNDARES DORADOS & ANTI-PATRONES
+    # =========================================================================
+    with subtab_lessons:
+        st.markdown("##### 📚 Catálogo de Reglas y Directrices Extraídas de la Experiencia")
+        
+        # Filtros
+        f_col1, f_col2, f_col3 = st.columns([1, 1, 1])
+        with f_col1:
+            cat_options = ["TODAS"] + [c.value for c in LessonCategory]
+            sel_category = st.selectbox("Filtrar por Categoría:", cat_options, key="sel_lesson_cat")
+        with f_col2:
+            sev_options = ["TODAS"] + [s.value for s in LessonSeverity]
+            sel_severity = st.selectbox("Filtrar por Severidad:", sev_options, key="sel_lesson_sev")
+        with f_col3:
+            all_nodes_in_lessons = sorted(list(set(n for l in all_lessons for n in l.applicable_nodes)))
+            node_options = ["TODOS"] + all_nodes_in_lessons
+            sel_node = st.selectbox("Filtrar por Nodo:", node_options, key="sel_lesson_node")
+
+        filtered_lessons = all_lessons
+        if sel_category != "TODAS":
+            filtered_lessons = [l for l in filtered_lessons if l.category.value == sel_category]
+        if sel_severity != "TODAS":
+            filtered_lessons = [l for l in filtered_lessons if l.severity.value == sel_severity]
+        if sel_node != "TODOS":
+            filtered_lessons = [l for l in filtered_lessons if sel_node in l.applicable_nodes]
+
+        st.caption(f"Mostrando **{len(filtered_lessons)}** de **{len(all_lessons)}** lecciones aprendidas.")
+
+        for idx, lesson in enumerate(filtered_lessons):
+            sev_color = "#ef4444" if lesson.severity == LessonSeverity.CRITICAL else ("#f59e0b" if lesson.severity == LessonSeverity.STRICT else "#3b82f6")
+            sev_bg = "rgba(239, 68, 68, 0.15)" if lesson.severity == LessonSeverity.CRITICAL else ("rgba(245, 158, 11, 0.15)" if lesson.severity == LessonSeverity.STRICT else "rgba(59, 130, 246, 0.15)")
+            
+            with st.expander(f"🔹 [{lesson.category.value}] {lesson.title} ({lesson.severity.value})", expanded=(idx == 0)):
+                st.markdown(f"""
+                    <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+                        <span style="font-size: 11px; background: {sev_bg}; color: {sev_color}; border: 1px solid {sev_color}; padding: 2px 8px; border-radius: 8px; font-weight: 700;">
+                            {lesson.severity.value}
+                        </span>
+                        <span style="font-size: 11px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 8px;">
+                            ID: <code>{lesson.rule_id}</code>
+                        </span>
+                        <span style="font-size: 11px; background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 8px; border-radius: 8px;">
+                            ⭐ Éxito: {int(lesson.success_rate * 100)}% ({lesson.times_applied} ejecuciones)
+                        </span>
+                    </div>
+                """, unsafe_allow_html=True)
+
+                st.markdown(f"**Descripción del Principio:**\n{lesson.description}")
+
+                anti_c, golden_c = st.columns(2)
+                with anti_c:
+                    st.markdown(f"""
+                        <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;">
+                            <strong style="color: #f87171;">❌ Anti-Patrón (Error Detectado):</strong>
+                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.anti_pattern}</p>
+                        </div>
+                    """, unsafe_allow_html=True)
+                with golden_c:
+                    st.markdown(f"""
+                        <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; padding: 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;">
+                            <strong style="color: #4ade80;">✨ Estándar Dorado (Regla de Producción):</strong>
+                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.golden_standard}</p>
+                        </div>
+                    """, unsafe_allow_html=True)
+
+                if lesson.recommended_params:
+                    st.markdown("**Parámetros y Directrices Óptimas Inyectadas:**")
+                    st.json(lesson.recommended_params)
+
+                st.markdown(f"**Nodos Afectados:** {', '.join([f'`{n}`' for n in lesson.applicable_nodes])}")
+                st.markdown(f"**Workflows Vinculados:** {', '.join([f'`{w}`' for w in lesson.applicable_workflows])}")
+
+    # =========================================================================
+    # SUBTAB 2: HISTORIAL DE CRÍTICAS & EVALUACIONES
+    # =========================================================================
+    with subtab_critiques:
+        st.markdown("##### 🎙️ Historial de Feedback, Evaluaciones y Críticas de Producción")
+        if not all_critiques:
+            st.info("No hay evaluaciones registradas aún. Puedes añadir una evaluación manual abajo o desde la pestaña de Proyectos.")
+        else:
+            for crit in reversed(all_critiques):
+                score_color = "#10b981" if crit.overall_score >= 80 else ("#f59e0b" if crit.overall_score >= 60 else "#ef4444")
+                with st.expander(f"📋 Feedback Proyecto `{crit.project_id}` — Puntuación: {crit.overall_score}/100 ({crit.timestamp[:10]})", expanded=True):
+                    c_h1, c_h2 = st.columns([2, 1])
+                    with c_h1:
+                        st.markdown(f"""
+                            <div style="background: rgba(30, 41, 59, 0.7); border: 1px solid #334155; border-radius: 8px; padding: 12px; margin-bottom: 10px;">
+                                <div style="font-size: 11px; color: #94a3b8; margin-bottom: 4px;">Transcripción Verbatim del Feedback / Crítica:</div>
+                                <div style="font-size: 13px; color: #e2e8f0; font-style: italic;">«{crit.user_feedback_raw}»</div>
+                            </div>
+                        """, unsafe_allow_html=True)
+                    with c_h2:
+                        st.markdown(f"""
+                            <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid #334155; border-radius: 8px; padding: 12px; text-align: center;">
+                                <div style="font-size: 11px; color: #94a3b8;">Calificación Global</div>
+                                <div style="font-size: 26px; font-weight: 800; color: {score_color};">{crit.overall_score} / 100</div>
+                            </div>
+                        """, unsafe_allow_html=True)
+
+                    if crit.critique_breakdown:
+                        st.markdown("**Desglose Dimensional:**")
+                        bd_cols = st.columns(len(crit.critique_breakdown))
+                        for b_idx, (dim, val) in enumerate(crit.critique_breakdown.items()):
+                            with bd_cols[b_idx]:
+                                st.metric(dim.replace("_", " ").title(), f"{val}/100")
+
+                    if crit.lessons_extracted:
+                        st.markdown(f"**Lecciones y Reglas Extraídas:** {', '.join([f'`{r}`' for r in crit.lessons_extracted])}")
+
+    # =========================================================================
+    # SUBTAB 3: DESPACHO MULTI-PROVEEDOR (FLUX.3 & APIS)
+    # =========================================================================
+    with subtab_providers:
+        st.markdown("##### ⚡ Matriz de Despacho y Rendimiento Multi-Proveedor")
+        st.markdown("Desacoplamiento canónico de capacidades y pasarelas de ejecución (Serverless Free vs APIs vs Dedicated GPU):")
+
+        for metric in all_metrics:
+            mode_badge = "🆓 SERVERLESS FREE" if metric.mode == ProviderExecutionMode.FREE_SERVERLESS else ("⚡ DEDICATED GPU" if metric.mode == ProviderExecutionMode.RUNPOD_GPU else ("🌐 REPLICATE API" if metric.mode == ProviderExecutionMode.REPLICATE_API else "🖥️ LOCAL VPS"))
+            mode_color = "#10b981" if metric.mode == ProviderExecutionMode.FREE_SERVERLESS else ("#38bdf8" if metric.mode == ProviderExecutionMode.REPLICATE_API else "#f59e0b")
+
+            with st.expander(f"⚙️ {metric.capability_id} ➔ {metric.provider_name} ({mode_badge})", expanded=True):
+                p_c1, p_c2, p_c3, p_c4 = st.columns(4)
+                with p_c1:
+                    st.metric("Modo", mode_badge)
+                with p_c2:
+                    st.metric("Latencia Media", f"{metric.latency_avg_sec}s")
+                with p_c3:
+                    st.metric("Tasa de Éxito", f"{int(metric.success_rate * 100)}%")
+                with p_c4:
+                    st.metric("Coste por Render", f"${metric.cost_per_generation}")
+
+                if metric.recommendations:
+                    st.info(f"💡 **Recomendación:** {metric.recommendations}")
+                if metric.failover_provider:
+                    st.caption(f"🔄 **Proveedor de Respaldo (Failover):** `{metric.failover_provider}`")
+
+    # =========================================================================
+    # SUBTAB 4: REGISTRAR NUEVA LECCIÓN
+    # =========================================================================
+    with subtab_new_lesson:
+        st.markdown("##### ➕ Registrar Nuevo Estándar Dorado / Regla de Experiencia")
+        with st.form("form_new_lesson"):
+            nl_id = st.text_input("ID de la Regla (snake_case):", value="rule_new_cinematic_principle")
+            nl_title = st.text_input("Título de la Lección:", value="Nuevo Estándar de Calidad")
+            nl_cat = st.selectbox("Categoría:", [c.value for c in LessonCategory], index=0)
+            nl_sev = st.selectbox("Severidad:", [s.value for s in LessonSeverity], index=1)
+            nl_desc = st.text_area("Descripción / Principio General:", value="Explicación detallada del estándar que debe cumplirse.")
+            
+            col_ap, col_gs = st.columns(2)
+            with col_ap:
+                nl_ap = st.text_area("Anti-Patrón (Lo que falló en el pasado):", value="Ejemplo del fallo visual o técnico observado.")
+            with col_gs:
+                nl_gs = st.text_area("Estándar Dorado (Lo que el sistema debe hacer ahora):", value="Directriz de ejecución exacta y no negociable.")
+
+            all_avail_nodes = list(SYSTEM_NODES.keys())
+            nl_nodes = st.multiselect("Nodos Aplicables:", options=all_avail_nodes, default=[all_avail_nodes[0]] if all_avail_nodes else [])
+            
+            all_avail_wf = list(SYSTEM_WORKFLOWS.keys())
+            nl_wf = st.multiselect("Workflows Aplicables:", options=all_avail_wf, default=all_avail_wf)
+
+            btn_submit_lesson = st.form_submit_button("💾 Guardar Lección y Sincronizar en Memoria", type="primary")
+            if btn_submit_lesson:
+                new_lesson_obj = LearnedLesson(
+                    rule_id=nl_id.strip(),
+                    category=LessonCategory(nl_cat),
+                    severity=LessonSeverity(nl_sev),
+                    title=nl_title.strip(),
+                    description=nl_desc.strip(),
+                    anti_pattern=nl_ap.strip(),
+                    golden_standard=nl_gs.strip(),
+                    applicable_nodes=nl_nodes,
+                    applicable_workflows=nl_wf,
+                    success_rate=1.0,
+                    times_applied=1
+                )
+                ok = learning_engine.register_lesson(new_lesson_obj)
+                if ok:
+                    learning_engine.sync_to_firebase_async()
+                    st.success(f"✅ Lección «{nl_title}» guardada y sincronizada.")
+                    st.rerun()
+                else:
+                    st.error("Error al guardar la lección.")
+

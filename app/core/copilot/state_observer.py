@@ -1,143 +1,96 @@
 """
-VideoPro Studio - Copilot State Observer
-File: app/core/copilot/state_observer.py
+app/core/copilot/state_observer.py
+================================================================================
+OBSERVADOR DE ESTADO EN TIEMPO REAL & TRADUCTOR PEDAGÓGICO
+================================================================================
+Monitorea el estado de Streamlit y traduce conceptos técnicos / errores crípticos
+a explicaciones pedagógicas de nivel principiante ("explicado para 12 años").
 """
 
-from __future__ import annotations
+from typing import Dict, List, Any, Optional
 
-import re
-import json
-import logging
-from datetime import datetime, timezone
-from enum import Enum
-from typing import Any, Dict, List, Optional, Tuple
-from collections import deque
-from pydantic import BaseModel, Field, ConfigDict
 
-class ViewType(str, Enum):
-    PROJECT_DASHBOARD = "project_dashboard"
-    QUICK_GENERATION = "quick_generation"
-    SCENE_DIRECTOR = "scene_director"
-    TIMELINE_EDITOR = "timeline_editor"
-    VOICE_STUDIO = "voice_studio"
-    FOLEY_SFX_MIXER = "foley_sfx_mixer"
-    SUBTITLE_KARAOKE = "subtitle_karaoke"
-    PROVIDER_SETTINGS = "provider_settings"
-    BATCH_RENDERER = "batch_renderer"
-    STORAGE_GALLERY = "storage_gallery"
-    YOUTUBE_MONETIZATION = "youtube_monetization"
-    UNKNOWN = "unknown"
+class PedagogicalGlossary:
+    """Diccionario de conceptos técnicos traducidos a analogías simples cotidianas."""
 
-class ErrorSeverity(str, Enum):
-    INFO = "info"
-    WARNING = "warning"
-    BLOCKED = "blocked"
-    CRITICAL_ABORT = "critical_abort"
-
-class LogEntry(BaseModel):
-    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
-    level: str
-    logger_name: str
-    message: str
-
-class ActiveViewContext(BaseModel):
-    view_type: ViewType = ViewType.UNKNOWN
-    view_title: str = "Vista Desconocida"
-    route_path: str = "/"
-    active_subtab: Optional[str] = None
-    project_id: Optional[str] = None
-    project_title: Optional[str] = None
-
-class RuntimeErrorSnapshot(BaseModel):
-    severity: ErrorSeverity = ErrorSeverity.WARNING
-    error_type: str
-    technical_message: str
-    user_facing_message: str
-    kid_friendly_analogy: str
-    actionable_fix_steps: List[str] = Field(default_factory=list)
-
-class StreamlitStateSnapshot(BaseModel):
-    model_config = ConfigDict(arbitrary_types_allowed=True)
-    snapshot_id: str
-    timestamp: str = Field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
-    session_id: str
-    active_view: ActiveViewContext
-    active_errors: List[RuntimeErrorSnapshot] = Field(default_factory=list)
-    recent_logs: List[LogEntry] = Field(default_factory=list)
-    sanitized_session_vars: Dict[str, Any] = Field(default_factory=dict)
-
-class PedagogicalEngine:
-    ERROR_ANALOGY_RULES = [
-        {
-            "pattern": re.compile(r"(?i)(cuda|out of memory|oom|vram|gpu memory)"),
-            "error_type": "Falta de Memoria en Tarjeta Gráfica (VRAM)",
-            "analogy": "Imagina que la tarjeta gráfica es una mesa de dibujo. Intentamos poner una hoja gigante (vídeo 4K) y ya no caben más lápices. La mesa se llenó.",
-            "fix_steps": [
-                "Baja la resolución de vídeo de 1080p a 720p en los ajustes.",
-                "Reduce la duración de la escena a 3 o 4 segundos."
-            ]
+    TERMS = {
+        "rpm": {
+            "title": "RPM (Revenue Per Mille / Ingreso por cada 1.000 vistas)",
+            "analogia": "Es el sueldo que te paga YouTube por cada 1.000 personas que ven tu vídeo completo con anuncios.",
+            "ejemplo": "Si tu RPM es de $20 USD y tienes 100.000 vistas, ganas $2.000 USD limpios.",
+            "consejo": "Para tener RPM alto ($18-$35), haz vídeos en inglés sobre ciencia, tecnología, viajes o historia para países como Estados Unidos o Alemania (Tier 1)."
         },
-        {
-            "pattern": re.compile(r"(?i)(429|rate limit|quota exceeded|too many requests)"),
-            "error_type": "Límite de Peticiones Alcanzado (Cuota API)",
-            "analogy": "El camarero de la cocina de IA está atendiendo a mucha gente y nos pide esperar 1 minuto antes del siguiente plato.",
-            "fix_steps": [
-                "Espera 30 a 60 segundos antes de volver a pulsar 'Generar'.",
-                "Usa un motor local gratuito como Kokoro para la voz."
-            ]
+        "anti_slop": {
+            "title": "Pentágono Anti-Slop (Calidad Editorial)",
+            "analogia": "Es la vacuna para que YouTube no considere tus vídeos como 'basura automática' o 'contenido repetitivo'.",
+            "ejemplo": "En vez de poner fotos fijas y voz robótica, usas guiones con inicio-nudo-desenlace, gráficos con datos reales (estilo Vox) y sonidos de fondo envolventes.",
+            "consejo": "Sigue los 5 puntos: Guion con tesis, cámaras 6-DoF, consistencia visual, rótulos de datos y audio masterizado."
+        },
+        "6dof": {
+            "title": "Control de Cámara 6-DoF (Seis Grados de Libertad)",
+            "analogia": "Imagina que manejas un dron de carreras que puede volar hacia adelante/atrás, subir/bajar y girar en cualquier ángulo sin tropezar.",
+            "ejemplo": "En lugar de una foto que solo hace zoom, la cámara vuela entre los edificios como si estuvieras allí de verdad.",
+            "consejo": "VideoPro usa coordenadas de satélite reales (OpenStreetMap) para que el vuelo sea 100% realista."
+        },
+        "ebu_r128": {
+            "title": "Audio EBU R128 (-14 LUFS / Sidechain Ducking)",
+            "analogia": "Es como un director de orquesta que baja el volumen de la música de fondo cada vez que el narrador empieza a hablar para que se le escuche clarísimo.",
+            "ejemplo": "La voz suena nítida al frente y la música a -18dB por debajo, sin que el espectador tenga que subir o bajar el volumen de sus auriculares.",
+            "consejo": "YouTube premia los vídeos con volumen estándar de -14 LUFS porque la gente no los quita por molestias de audio."
+        },
+        "ypp": {
+            "title": "YPP (YouTube Partner Program / Programa de Socios)",
+            "analogia": "Es el carnet oficial que te entrega YouTube para empezar a cobrar dinero de los anuncios en tu cuenta bancaria.",
+            "ejemplo": "Requiere 1.000 suscriptores y 4.000 horas de reproducción (con 10 vídeos buenos de 10 minutos y 4.800 vistas cada uno ya lo alcanzas).",
+            "consejo": "Publica con regularidad 2 vídeos por semana con miniaturas de alto contraste para llegar en menos de 60 días."
         }
-    ]
+    }
 
     @classmethod
-    def translate_error(cls, raw_error: str, exc_type: str = "") -> RuntimeErrorSnapshot:
-        combined = f"{exc_type} {raw_error}"
-        for rule in cls.ERROR_ANALOGY_RULES:
-            if rule["pattern"].search(combined):
-                return RuntimeErrorSnapshot(
-                    severity=ErrorSeverity.BLOCKED,
-                    error_type=rule["error_type"],
-                    technical_message=raw_error[:300],
-                    user_facing_message=f"Atención: {rule['error_type']}",
-                    kid_friendly_analogy=rule["analogy"],
-                    actionable_fix_steps=rule["fix_steps"]
-                )
-        return RuntimeErrorSnapshot(
-            severity=ErrorSeverity.WARNING,
-            error_type="Ajuste Necesario",
-            technical_message=raw_error[:300],
-            user_facing_message="Ocurrió un tropiezo inesperado.",
-            kid_friendly_analogy="Un engranaje se atascó un segundo con un ajuste.",
-            actionable_fix_steps=["Vuelve a hacer clic en la pestaña para refrescar."]
-        )
+    def get_term_explanation(cls, term_key: str) -> Optional[Dict[str, str]]:
+        term_clean = term_key.lower().strip()
+        for k, v in cls.TERMS.items():
+            if k in term_clean or term_clean in k:
+                return v
+        return None
 
-class StreamlitStateObserver:
+
+class StateObserver:
+    """Extrae y resume el contexto activo de la pantalla para el Copilot."""
+
     @staticmethod
-    def capture_snapshot(st_module: Any = None) -> StreamlitStateSnapshot:
-        if st_module is None:
-            try:
-                import streamlit as st
-                st_module = st
-            except ImportError:
-                st_module = None
+    def get_screen_summary(view_name: str, subtab_name: Optional[str] = None, channel_id: Optional[str] = None) -> Dict[str, Any]:
+        """Devuelve un resumen pedagógico de qué hace la pantalla actual y qué debe hacer el usuario."""
+        
+        summaries = {
+            "youtube_monetization": {
+                "title": "Centro de Mando de Canales & Monetización YouTube",
+                "proposito": "Aquí planificas, gestionas y supervisas tus canales de YouTube para generar ingresos en dólares con contenido 4K.",
+                "fase_sugerida": "Paso 1: Elige un canal o idea ➔ Paso 2: Revisa sus 10 episodios ➔ Paso 3: Genera metadatos SEO ➔ Paso 4: Audita el pipeline.",
+                "subtabs_info": {
+                    "academia": "Calcula cuánto dinero puedes ganar según tus vistas y aprende por qué los países ricos pagan hasta 27 veces más.",
+                    "canales": "Revisa los 5 canales de VideoPro listos para producir (guiones de 10 episodios, miniaturas y estilo visual).",
+                    "explorador": "Busca ideas de vídeos en tiempo real y descubre nichos con poca competencia (Océanos Azules).",
+                    "seo": "Crea el título, descripción con marcas de tiempo y etiquetas perfectas para que YouTube recomiende tu vídeo.",
+                    "multiplataforma": "Adapta tu vídeo horizontal 16:9 a formato vertical 9:16 (Shorts, TikTok y Reels) sin bandas negras.",
+                    "auditoria": "Comprueba con 1 clic que los archivos, guiones y sonidos cumplen las normas antes de gastar recursos."
+                }
+            }
+        }
 
-        session_state_dict = {}
-        if st_module and hasattr(st_module, "session_state"):
-            try:
-                session_state_dict = {k: str(v)[:200] for k, v in dict(st_module.session_state).items()}
-            except Exception:
-                pass
+        view_info = summaries.get(view_name, {
+            "title": view_name.replace("_", " ").title(),
+            "proposito": "Módulo de trabajo de VideoPro Studio.",
+            "fase_sugerida": "Sigue las instrucciones del asistente paso a paso.",
+            "subtabs_info": {}
+        })
 
-        raw_view = session_state_dict.get("active_view", "home")
-        active_view = ActiveViewContext(
-            view_type=ViewType.YOUTUBE_MONETIZATION if "youtube" in raw_view else ViewType.PROJECT_DASHBOARD,
-            view_title="Monetización & Canales" if "youtube" in raw_view else "Panel de Proyectos",
-            route_path=f"/{raw_view}",
-            project_id=session_state_dict.get("current_project_id")
-        )
-
-        return StreamlitStateSnapshot(
-            snapshot_id=f"snap_{datetime.now(timezone.utc).strftime('%Y%m%d_%H%M%S')}",
-            session_id=session_state_dict.get("session_id", "default_session"),
-            active_view=active_view,
-            sanitized_session_vars=session_state_dict
-        )
+        return {
+            "view_name": view_name,
+            "subtab_name": subtab_name,
+            "channel_id": channel_id,
+            "title": view_info["title"],
+            "proposito": view_info["proposito"],
+            "fase_sugerida": view_info["fase_sugerida"],
+            "subtabs_info": view_info.get("subtabs_info", {})
+        }

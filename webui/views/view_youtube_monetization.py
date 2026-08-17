@@ -9,8 +9,7 @@ Vista integral para VideoPro Studio / Hermes Agent.
 - Tab 3: 🔍 Explorador de Nichos en Vivo (Zero-API Blue Ocean Engine)
 - Tab 4: 🎯 Generador SEO en 6 Bloques & Checklist de Lanzamiento
 - Tab 5: 📱 Pipeline Multiplataforma & Orquestación Hermes
-- Tab 6: 📊 Dashboards Interactivos e Inteligencia Visual
-- Tab 7: 🛡️ Suite de Auditoría de Pipeline & Control Anti-Slop
+- Tab 6: 🛡️ Suite de Auditoría de Pipeline & Control Anti-Slop
 """
 
 import streamlit as st
@@ -24,6 +23,7 @@ from datetime import datetime
 
 from app.core.youtube_channel_manager import YouTubeChannelManager
 from app.core.youtube_niche_explorer import render_live_niche_explorer
+from webui.components.copilot_drawer import render_copilot_drawer
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 CHANNELS_DIR = BASE_DIR / "docs" / "02_canales_youtube" / "mis_canales"
@@ -122,7 +122,7 @@ def render_youtube_monetization_view():
                     <span class="yt-badge badge-green">HERMES ENGINE v3.0</span>
                 </h1>
                 <p style="font-size: 12.5px; color: #94a3b8; margin: 2px 0 0 0;">
-                    Monetización Tier 1 ($18-$35+ RPM), gestión del ciclo de vida de canales 01 a 05, explorador Zero-API y dashboards interactivos.
+                    Monetización Tier 1 ($18-$35+ RPM), gestión del ciclo de vida de canales 01 a 05, explorador Zero-API y orquestación Hermes.
                 </p>
             </div>
             <div style="display: flex; gap: 8px;">
@@ -132,14 +132,16 @@ def render_youtube_monetization_view():
         </div>
     """, unsafe_allow_html=True)
 
+    # Panel de Autoasistencia de IA y UX Guiada (Hermes Copilot)
+    render_copilot_drawer(view_name="youtube_monetization")
+
     tabs = st.tabs([
         "🎓 1. Academia & Calculadora",
         "🎬 2. Gestión de Canales",
         "🔍 3. Explorador Zero-API",
         "🎯 4. Generador SEO & Checklist",
         "📱 5. Pipeline Multiplataforma",
-        "📊 6. Dashboards Interactivos",
-        "🛡️ 7. Auditoría & Anti-Slop"
+        "🛡️ 6. Auditoría & Anti-Slop"
     ])
 
     # ==========================================================================
@@ -591,30 +593,9 @@ En este episodio de {g_canal}, desglosamos la ingeniería, contexto histórico y
             st.caption("Validación de H.264 High Profile, AAC 48kHz estricto y normalización EBU R128 (-14 LUFS).")
 
     # ==========================================================================
-    # TAB 6: DASHBOARDS INTERACTIVOS
+    # TAB 6: AUDITORÍA & ANTI-SLOP
     # ==========================================================================
     with tabs[5]:
-        st.markdown("### 📊 Dashboards Interactivos e Inteligencia Visual")
-        st.caption("Inspecciona los tableros visuales HTML de retención, demanda urbana y estado global de los canales.")
-
-        dashboards = YouTubeChannelManager.get_dashboard_html_paths()
-        if dashboards:
-            dash_choice = st.selectbox("Seleccionar Dashboard para Visualizar:", list(dashboards.keys()))
-            dash_path = dashboards[dash_choice]
-
-            if os.path.exists(dash_path):
-                with open(dash_path, "r", encoding="utf-8") as f:
-                    html_content = f.read()
-                components.html(html_content, height=820, scrolling=True)
-            else:
-                st.error(f"No se pudo encontrar el archivo en {dash_path}")
-        else:
-            st.info("No se encontraron archivos HTML de dashboards en `docs/02_canales_youtube/`.")
-
-    # ==========================================================================
-    # TAB 7: AUDITORÍA & ANTI-SLOP
-    # ==========================================================================
-    with tabs[6]:
         st.markdown("### 🛡️ Suite de Auditoría de Pipeline y Control Anti-Slop")
         st.caption("Ejecuta en tiempo real la suite de validación de esquemas JSON, storyboards 6-DoF y audio engineering.")
 

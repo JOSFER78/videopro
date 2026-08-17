@@ -552,6 +552,27 @@ def render_studio_orchestrator_view():
                             st.caption(f"• **Tipo de Toma:** `{sc.shot_type}` | **Duración:** {sc.duration_seconds}s | **Proveedor:** `{sc.assigned_provider}`")
 
             # -------------------------------------------------
+            # DIRECTRICES DE APRENDIZAJE ACTIVAS (SELF-LEARNING MEMORY)
+            # -------------------------------------------------
+            try:
+                from app.services.learning_memory_engine import learning_engine
+                guidelines = learning_engine.get_active_guidelines(selected_arch_id)
+                active_rules = guidelines.get("rules", [])
+                if active_rules:
+                    with st.expander(f"🧠 Directrices & Reglas Áureas de Aprendizaje Inyectadas ({len(active_rules)} Activas)", expanded=False):
+                        st.caption("Estas reglas se aplican automáticamente al guion, ritmo visual, tipografía y motores para evitar errores pasados:")
+                        for r in active_rules:
+                            sev_icon = "🔴" if r["severity"] == "CRITICAL" else ("🟠" if r["severity"] == "STRICT" else "🔵")
+                            st.markdown(f"""
+                                <div style="background: rgba(15, 23, 42, 0.7); border-left: 3px solid #38bdf8; padding: 6px 10px; border-radius: 0 6px 6px 0; margin-bottom: 6px; font-size: 11.5px;">
+                                    <strong>{sev_icon} {r['title']}</strong> ({r['category']})<br>
+                                    <span style="color: #4ade80;">✨ Estándar:</span> {r['golden_standard']}
+                                </div>
+                            """, unsafe_allow_html=True)
+            except Exception:
+                pass
+
+            # -------------------------------------------------
             # BOTÓN DE LANZAMIENTO Y SEGUIMIENTO EN VIVO
             # -------------------------------------------------
             st.markdown("<div style='height: 4px;'></div>", unsafe_allow_html=True)
@@ -560,9 +581,10 @@ def render_studio_orchestrator_view():
             if is_ready or len(st.session_state.get("director_messages", [])) >= 3:
                 st.markdown("""
                     <div style="padding: 8px 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.4); border-radius: 6px; margin-bottom: 6px; font-size: 11.5px; color: #34d399; display: flex; align-items: center; gap: 6px;">
-                        <span>🎉</span> <b>¡Proyecto consolidado!</b> Listo para rodar y renderizar en el pipeline.
+                        <span>🎉</span> <b>¡Proyecto consolidado!</b> Listo para rodar y renderizar en el pipeline con memoria de experiencia.
                     </div>
                 """, unsafe_allow_html=True)
+
 
             c_btn1, c_btn2 = st.columns([6, 4])
             with c_btn1:

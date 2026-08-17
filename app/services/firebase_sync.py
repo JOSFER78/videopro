@@ -439,3 +439,16 @@ def save_settings_to_firebase_async():
     t = threading.Thread(target=save_settings_to_firebase, daemon=True)
     t.start()
     return t
+
+
+def sync_learning_memory_to_firebase():
+    """Sincroniza la memoria de aprendizaje completa (lecciones, críticas y métricas) en Firestore."""
+    from app.services.learning_memory_engine import learning_engine
+    return learning_engine.sync_to_firebase()
+
+
+def load_learning_memory_from_firebase():
+    """Descarga la memoria de aprendizaje desde Firestore."""
+    from app.services.learning_memory_engine import learning_engine
+    return learning_engine.load_from_firebase()
+

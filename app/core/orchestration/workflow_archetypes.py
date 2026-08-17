@@ -1018,8 +1018,118 @@ ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
                 ],
                 default_value="Glassmorphism 3D Moderno (Tarjetas translúcidas flotantes con datos técnicos y badges de fuentes)"
             )
+        ]
+    ),
+    "VOX_INVESTIGATIVE_DOC": WorkflowArchetype(
+        id="VOX_INVESTIGATIVE_DOC",
+        name="VOX Investigative Documentary 4K (Paralaje 3D & Cartografía)",
+        icon="🗞️",
+        tag="VOX PARALLAX + QGIS 4K + STAGGER 60FPS",
+        description="El pipeline documental definitivo de investigación periodística estilo Vox / Johnny Harris. Integra mapas QGIS 4K con rutas punteadas animadas (Dash=78), paralaje multicapa de expedientes con textura de papel prensa, micro-stagger temporal (3-5 frames) para retención máxima y audio ducking a -18dB.",
+        category="documentary",
+        target_audience="Audiencias de YouTube interesadas en documentales de alta retención, análisis geopolítico e historia visual profunda",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.HYBRID,
+        default_voice_engine="vibevoice",
+        default_voice_id="vibevoice",
+        default_music_genre="investigative_minimal",
+        interview_schema=[
+            InterviewQuestion(
+                key="investigation_topic",
+                question="¿Cuál es el tema central o misterio de la investigación documental?",
+                description="Ejemplo: 'El búnker secreto bajo el Banco de España y la ingeniería hidráulica de Cibeles'",
+                question_type="text",
+                default_value="Secretos Ocultos y Misterios de Infraestructura Histórica"
+            ),
+            InterviewQuestion(
+                key="archive_and_parallax_depth",
+                question="¿Qué nivel de tratamiento físico y paralaje 3D deseas para documentos y prensa?",
+                description="Textura de papel prensa analógico, bordes desgastados Roughen Edges y sombras suaves",
+                question_type="select",
+                options=[
+                    "Vox Full Parallax (Capas Z 3D, Papel Prensa, Subrayado Tinta Fluor, Stagger 3 Frames)",
+                    "Minimalista Clean Document (Recortes limpios sin grano, tipografía suiza)",
+                    "Hemeroteca Histórica Sepia (Tratamiento analógico siglo XIX con grano y viñeta)"
+                ],
+                default_value="Vox Full Parallax (Capas Z 3D, Papel Prensa, Subrayado Tinta Fluor, Stagger 3 Frames)"
+            ),
+            InterviewQuestion(
+                key="map_animation_style",
+                question="¿Cómo deseas animar los mapas y rutas geográficas en 3D?",
+                description="Vectorial transparente QGIS, líneas punteadas Dash=78 y sobrevuelos de cámara suaves",
+                question_type="select",
+                options=[
+                    "Cartografía Cinemática Vox (Fondo transparente, Rutas Dash=78, Offset Z +0.001)",
+                    "Relieve Satelital 3D DEM (Elevación topográfica, viñeta de estudio y Soft Glow)",
+                    "Plano Urbano Vectorial 4K (Calles y manzanas en alto contraste con tracking GPS)"
+                ],
+                default_value="Cartografía Cinemática Vox (Fondo transparente, Rutas Dash=78, Offset Z +0.001)"
+            ),
+            InterviewQuestion(
+                key="pacing_and_audio_ducking",
+                question="¿Qué cadencia de montaje y mezcla sonora deseas aplicar?",
+                description="Cortes dinámicos cada 3-5s, audio ducking a -18dB y transiciones blink sutiles",
+                question_type="select",
+                options=[
+                    "Pacing Activo Broadcast (Cortes 3-5s, Ducking -18dB, Transiciones Blink, SFX Foley)",
+                    "Ensayo Visual Pausado (Planos de 5-7s con paneos lentos y música envolvente)",
+                    "Viral High-Energy (Cortes cada 2-3s con transiciones de impacto y subtítulos dinámicos)"
+                ],
+                default_value="Pacing Activo Broadcast (Cortes 3-5s, Ducking -18dB, Transiciones Blink, SFX Foley)"
+            )
         ],
-        pipeline_graph=FPV_REAL_FLOW_GRAPH
+        pipeline_graph={
+            "version": "1.0.0",
+            "name": "VOX Investigative Documentary Pipeline",
+            "nodes": [
+                {
+                    "id": "node_01_investigacion",
+                    "title": "🔎 Investigación Periodística & Archivo",
+                    "category": "llm",
+                    "color": "#38bdf8",
+                    "x": 50, "y": 140, "width": 280, "enabled": True,
+                    "parameters": [{"key": "depth", "label": "Nivel de Rigor", "type": "text", "value": "Fuentes Oficiales & Archivo Histórico"}]
+                },
+                {
+                    "id": "node_02_audio_rhythm",
+                    "title": "🎙️ Locución Narrativa & Pacing",
+                    "category": "voice",
+                    "color": "#10b981",
+                    "x": 370, "y": 140, "width": 280, "enabled": True,
+                    "parameters": [{"key": "voice", "label": "Motor Vocal", "type": "text", "value": "VibeVoice 1.5B Cadencia Documental"}]
+                },
+                {
+                    "id": "node_07_cartografia_3d",
+                    "title": "🗺️ Cartografía 3D QGIS (Dash=78)",
+                    "category": "visual",
+                    "color": "#ec4899",
+                    "x": 690, "y": 140, "width": 300, "enabled": True,
+                    "parameters": [{"key": "dash", "label": "Parámetro Dash", "type": "number", "value": 78}]
+                },
+                {
+                    "id": "node_04_remotion_parallax",
+                    "title": "📜 Paralaje 3D Expedientes & Prensa",
+                    "category": "motion",
+                    "color": "#8b5cf6",
+                    "x": 1030, "y": 140, "width": 300, "enabled": True,
+                    "parameters": [{"key": "stagger_frames", "label": "Stagger de Entrada", "type": "number", "value": 3}]
+                },
+                {
+                    "id": "node_05_dsp_mastering",
+                    "title": "🎛️ Mezcla DSP & Auto-Ducking -18dB",
+                    "category": "audio",
+                    "color": "#f59e0b",
+                    "x": 690, "y": 420, "width": 300, "enabled": True,
+                    "parameters": [{"key": "ducking_level", "label": "Nivel de Atenuación", "type": "text", "value": "-18dB"}]
+                }
+            ],
+            "connections": [
+                {"from_node": "node_01_investigacion", "from_socket": "dossier", "to_node": "node_02_audio_rhythm", "to_socket": "script", "payload_type": "text"},
+                {"from_node": "node_02_audio_rhythm", "from_socket": "voice_wav", "to_node": "node_07_cartografia_3d", "to_socket": "audio_ref", "payload_type": "audio"},
+                {"from_node": "node_07_cartografia_3d", "from_socket": "map_clips", "to_node": "node_04_remotion_parallax", "to_socket": "video_in", "payload_type": "video"},
+                {"from_node": "node_04_remotion_parallax", "from_socket": "render_out", "to_node": "node_05_dsp_mastering", "to_socket": "video_master", "payload_type": "video"}
+            ]
+        }
     )
 }
 
