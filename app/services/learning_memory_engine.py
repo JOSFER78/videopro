@@ -296,6 +296,10 @@ class LearningMemoryEngine:
             logger.error(f"Error al guardar lección: {ex}")
             return False
 
+    def register_lesson(self, lesson: LearnedLesson) -> bool:
+        """Registra o actualiza una lección aprendida en el catálogo (usado en WebUI)."""
+        return self.save_lesson(lesson)
+
     def delete_lesson(self, lesson_id: str) -> bool:
         """Elimina una lección aprendida."""
         try:
@@ -468,6 +472,64 @@ class LearningMemoryEngine:
         }
 
     # ------------------------------------------------------------------------
+    # CONSULTA DE EVENTOS, MEJORAS Y DESEMPEÑO DE WORKFLOWS
+    # ------------------------------------------------------------------------
+    def get_learning_events(self, limit: int = 50, event_type: Optional[str] = None) -> List[Dict[str, Any]]:
+        """Obtiene los eventos recientes de auto-aprendizaje en tiempo real."""
+        events_file = STORAGE_DIR / "learning_events.json"
+        if not events_file.exists():
+            return []
+        try:
+            with open(events_file, "r", encoding="utf-8") as f:
+                events = json.load(f)
+            if not isinstance(events, list):
+                return []
+            if event_type:
+                events = [e for e in events if e.get("event_type") == event_type]
+            return events[:limit]
+        except Exception as ex:
+            logger.error(f"Error al leer learning_events.json: {ex}")
+            return []
+
+    def get_latest_session_events(self) -> Dict[str, Any]:
+        """Obtiene los datos de la última sesión de auditoría/aprendizaje."""
+        session_file = STORAGE_DIR / "latest_session_events.json"
+        if not session_file.exists():
+            return {}
+        try:
+            with open(session_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception as ex:
+            logger.error(f"Error al leer latest_session_events.json: {ex}")
+            return {}
+
+    def get_workflow_improvements(self) -> List[Dict[str, Any]]:
+        """Obtiene el historial de auto-parcheo y versiones v+1 de workflows."""
+        imp_file = STORAGE_DIR / "workflow_improvements.json"
+        if not imp_file.exists():
+            return []
+        try:
+            with open(imp_file, "r", encoding="utf-8") as f:
+                improvements = json.load(f)
+            return improvements if isinstance(improvements, list) else []
+        except Exception as ex:
+            logger.error(f"Error al leer workflow_improvements.json: {ex}")
+            return []
+
+    def get_archetype_performance(self) -> Dict[str, Any]:
+        """Obtiene las métricas de rendimiento y calidad por tipo de vídeo/arquetipo."""
+        perf_file = STORAGE_DIR / "archetype_performance.json"
+        if not perf_file.exists():
+            return {}
+        try:
+            with open(perf_file, "r", encoding="utf-8") as f:
+                perf = json.load(f)
+            return perf if isinstance(perf, dict) else {}
+        except Exception as ex:
+            logger.error(f"Error al leer archetype_performance.json: {ex}")
+            return {}
+
+    # ------------------------------------------------------------------------
     # SINCRONIZACIÓN FIREBASE FIRESTORE
     # ------------------------------------------------------------------------
     def sync_to_firebase(self) -> (bool, str):
@@ -484,6 +546,9 @@ class LearningMemoryEngine:
             "lessons": [l.model_dump() for l in self.get_all_lessons()],
             "critiques": [c.model_dump() for c in self.get_all_critiques()],
             "metrics": [m.model_dump() for m in self.get_provider_metrics()],
+            "improvements": self.get_workflow_improvements(),
+            "archetype_performance": self.get_archetype_performance(),
+            "recent_events": self.get_learning_events(limit=30),
             "synced_at": datetime.now().isoformat()
         }
 
@@ -492,14 +557,15 @@ class LearningMemoryEngine:
             "learning_memory_json": {"stringValue": json.dumps(payload, ensure_ascii=False)},
             "updated_at": {"stringValue": datetime.now().isoformat()},
             "total_lessons": {"integerValue": str(len(payload["lessons"]))},
-            "total_critiques": {"integerValue": str(len(payload["critiques"]))}
+            "total_critiques": {"integerValue": str(len(payload["critiques"]))},
+            "total_improvements": {"integerValue": str(len(payload["improvements"]))}
         }
 
         try:
             import requests
             resp = requests.patch(url, headers=headers, json={"fields": fields}, timeout=12)
             if resp.status_code in (200, 201):
-                return True, f"Memoria de aprendizaje sincronizada con éxito en Firestore ({len(payload['lessons'])} lecciones, {len(payload['critiques'])} críticas)."
+                return True, f"Memoria de aprendizaje sincronizada con éxito en Firestore ({len(payload['lessons'])} lecciones, {len(payload['critiques'])} críticas, {len(payload['improvements'])} mejoras v+1)."
             return False, f"Firestore respondió con código HTTP {resp.status_code}: {resp.text}"
         except Exception as ex:
             return False, f"Error al conectar con Firestore: {ex}"
@@ -541,6 +607,12 @@ class LearningMemoryEngine:
             if "metrics" in payload and isinstance(payload["metrics"], list):
                 with open(METRICS_FILE, "w", encoding="utf-8") as f:
                     json.dump(payload["metrics"], f, indent=2, ensure_ascii=False)
+            if "improvements" in payload and isinstance(payload["improvements"], list):
+                with open(STORAGE_DIR / "workflow_improvements.json", "w", encoding="utf-8") as f:
+                    json.dump(payload["improvements"], f, indent=2, ensure_ascii=False)
+            if "archetype_performance" in payload and isinstance(payload["archetype_performance"], dict):
+                with open(STORAGE_DIR / "archetype_performance.json", "w", encoding="utf-8") as f:
+                    json.dump(payload["archetype_performance"], f, indent=2, ensure_ascii=False)
 
             return True, "Memoria de aprendizaje restaurada desde Firebase Firestore."
         except Exception as ex:
@@ -549,3 +621,4 @@ class LearningMemoryEngine:
 
 # Instancia singleton accesible globalmente
 learning_engine = LearningMemoryEngine()
+

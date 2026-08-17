@@ -21,6 +21,12 @@ WORKFLOWS_DIR = os.path.join(STORAGE_DIR, "workflows")
 JOBS_DIR = os.path.join(STORAGE_DIR, "jobs")
 
 
+def _model_to_dict(model_obj: Any) -> Dict[str, Any]:
+    if hasattr(model_obj, "model_dump"):
+        return model_obj.model_dump()
+    return model_obj.dict()
+
+
 class StudioRepository:
     """Repositorio unificado de Studio para metadatos, configuraciones y trazabilidad de Jobs."""
 
@@ -28,20 +34,23 @@ class StudioRepository:
     def get_ecosystem_manifest(cls) -> Dict[str, Any]:
         """Exporta el manifiesto completo del ecosistema (Capabilities, Engines, Providers, Workflows)."""
         return {
-            "capabilities": [c.dict() for c in get_all_capabilities()],
-            "engines": [e.dict() for e in get_all_engines()],
-            "providers": {k: [p.dict() for p in v] for k, v in PROVIDERS_CATALOG.items()},
-            "workflows": [w.dict() for w in get_all_workflows()]
+            "capabilities": [_model_to_dict(c) for c in get_all_capabilities()],
+            "engines": [_model_to_dict(e) for e in get_all_engines()],
+            "providers": {k: [_model_to_dict(p) for p in v] for k, v in PROVIDERS_CATALOG.items()},
+            "workflows": [_model_to_dict(w) for w in get_all_workflows()]
         }
 
     @classmethod
-    def save_workflow(cls, workflow: WorkflowDefinition) -> bool:
+    def save_workflow(cls, workflow: WorkflowDefinition, filename: Optional[str] = None) -> bool:
         """Guarda un workflow en almacenamiento local y sincroniza en Firestore."""
         try:
             os.makedirs(WORKFLOWS_DIR, exist_ok=True)
-            file_path = os.path.join(WORKFLOWS_DIR, f"{workflow.id}_v{workflow.version}.json")
+            if filename:
+                file_path = os.path.join(WORKFLOWS_DIR, filename if filename.endswith(".json") else f"{filename}.json")
+            else:
+                file_path = os.path.join(WORKFLOWS_DIR, f"{workflow.id}_v{workflow.version}.json")
             with open(file_path, "w", encoding="utf-8") as f:
-                json.dump(workflow.dict(), f, indent=2, ensure_ascii=False)
+                json.dump(_model_to_dict(workflow), f, indent=2, ensure_ascii=False)
             
             # Sincronizar en memoria
             WORKFLOW_TEMPLATES[workflow.id] = workflow
@@ -51,13 +60,49 @@ class StudioRepository:
             return False
 
     @classmethod
+    def load_workflow_from_file(cls, file_path: str) -> Optional[WorkflowDefinition]:
+        """Carga un WorkflowDefinition desde un archivo JSON local."""
+        if not os.path.isabs(file_path):
+            file_path = os.path.join(WORKFLOWS_DIR, file_path)
+        if not os.path.isfile(file_path):
+            return None
+        try:
+            with open(file_path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return WorkflowDefinition(**data)
+        except Exception as ex:
+            logger.error(f"Error al cargar workflow desde {file_path}: {ex}")
+            return None
+
+    @classmethod
+    def get_workflow(cls, wf_id: str) -> Optional[WorkflowDefinition]:
+        """Obtiene un workflow desde la memoria o desde el disco."""
+        return get_workflow(wf_id)
+
+    @classmethod
+    def load_all_workflows_from_storage(cls) -> List[WorkflowDefinition]:
+        """Carga todos los workflows válidos presentes en storage/workflows/."""
+        return get_all_workflows()
+
+    @classmethod
+    def list_stored_workflow_files(cls) -> List[str]:
+        """Lista las rutas de todos los archivos JSON en storage/workflows/."""
+        if not os.path.isdir(WORKFLOWS_DIR):
+            return []
+        return [
+            os.path.join(WORKFLOWS_DIR, f)
+            for f in sorted(os.listdir(WORKFLOWS_DIR))
+            if f.endswith(".json")
+        ]
+
+    @classmethod
     def save_job(cls, job: ExecutionJob) -> bool:
         """Persiste el estado auditable de un ExecutionJob en disco y en la base de datos."""
         try:
             os.makedirs(JOBS_DIR, exist_ok=True)
             job_file = os.path.join(JOBS_DIR, f"{job.job_id}.json")
             with open(job_file, "w", encoding="utf-8") as f:
-                json.dump(job.dict(), f, indent=2, ensure_ascii=False)
+                json.dump(_model_to_dict(job), f, indent=2, ensure_ascii=False)
             return True
         except Exception as ex:
             logger.error(f"Error al guardar job '{job.job_id}': {ex}")

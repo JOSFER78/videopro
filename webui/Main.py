@@ -16,7 +16,8 @@ from webui.views import (
     view_docs,
     view_comfy_pipeline,
     view_studio_orchestrator,
-    view_home_dashboard
+    view_home_dashboard,
+    view_learning_workflows
 )
 import hashlib
 import html
@@ -4565,6 +4566,9 @@ def _render_application():
         return
     elif active_view in ("pipeline", "comfy"):
         view_comfy_pipeline.render_comfy_pipeline_view()
+        return
+    elif active_view in ("learning_workflows", "learning", "workflows_control", "qa_audit"):
+        view_learning_workflows.render_learning_workflows_view()
         return
     elif active_view == "docs":
         view_docs.render_view()

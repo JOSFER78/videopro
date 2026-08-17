@@ -1130,6 +1130,132 @@ ARCHETYPES_CATALOG: Dict[str, WorkflowArchetype] = {
                 {"from_node": "node_04_remotion_parallax", "from_socket": "render_out", "to_node": "node_05_dsp_mastering", "to_socket": "video_master", "payload_type": "video"}
             ]
         }
+    ),
+
+    "FPV_URBAN_6DOF": WorkflowArchetype(
+        id="FPV_URBAN_6DOF",
+        name="Tours FPV Urbanos 6-DoF & Beat-Sync 4K",
+        icon="🚁",
+        tag="FPV 6-DOF & BEAT-SYNC 4K",
+        description="Vuelos cinemáticos rasantes y acrobáticos FPV a 140 km/h por metrópolis globales: interpolación spline 6-DoF con Gemini Omni Flash, telemetría HUD con altitud AGL y velocímetro, sincronización a 118-128 BPM y audio binaural.",
+        category="travel_fpv_action",
+        target_audience="Audiovisual Premium, Turismo Urbano, Récords de Arquitectura, Viral Reels",
+        default_aspect_ratio="9:16",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="flow_synthwave",
+        interview_schema=[
+            InterviewQuestion(key="target_city_and_landmarks", question="¿Qué ciudad y qué puntos emblemáticos compondrán la ruta FPV?", description="Ejemplo: 'Tokio: Azotea Scramble Square, Cruce Shibuya, Fachada 109, Callejón Yokocho'", question_type="text", default_value="Tokio: Azotea Scramble Square, Cruce de Shibuya, Fachada 109, Callejón Yokocho"),
+            InterviewQuestion(key="fpv_flight_style", question="¿Qué estilo y agresividad de vuelo FPV deseas imprimir?", description="Define la física de movimiento, aceleraciones y acrobacias de la cámara", question_type="select", options=["Acrobático & Extremo (Dives de 140 km/h, slaloms cerrados y giros de 360°)", "Cinemático & Fluido (Vuelos suaves, curvas amplias y paneos majestuosos)", "Cyberpunk Nocturno (Alta velocidad entre luces de neón y lluvia)"], default_value="Acrobático & Extremo (Dives de 140 km/h, slaloms cerrados y giros de 360°)"),
+            InterviewQuestion(key="audio_beat_bpm", question="¿Qué ritmo musical y tempo BPM conducirá el montaje?", description="BPM para cortes rítmicos al beat", question_type="select", options=["Flow Darksynth 128 BPM (Alta energía y transientes secos)", "Flow Chillhop 118 BPM (Groove relajado y bajo 35Hz)", "Trap Instrumental 135 BPM"], default_value="Flow Darksynth 128 BPM (Alta energía y transientes secos)")
+        ],
+        pipeline_graph=FPV_URBAN_GRAPH
+    ),
+
+    "VIRAL_SHORTS_HOOK_916": WorkflowArchetype(
+        id="VIRAL_SHORTS_HOOK_916",
+        name="Viral Shorts & Retención Extrema 9:16 (TikTok / Reels / Shorts)",
+        icon="⚡",
+        tag="ALTA RETENCIÓN 9:16 (>120% VTR)",
+        description="Vídeos verticales 9:16 de alta retención (>120% VTR): gancho de choque en los primeros 3 segundos, cortes rápidos cada 1.8s, subtítulos karaoke bold amarillo flúor, safe-zones móviles estrictas, sound design con riser/whoosh y bucle infinito zero-gap.",
+        category="social_media",
+        target_audience="TikTok, Instagram Reels, YouTube Shorts",
+        default_aspect_ratio="9:16",
+        visual_strategy=VisualStrategy.HYBRID,
+        default_voice_engine="vibevoice",
+        default_voice_id="es-emilio",
+        default_music_genre="energetic_bass",
+        interview_schema=[
+            InterviewQuestion(key="hook_theme", question="¿Cuál es el tema central o la curiosidad impactante?", description="Ejemplo: '3 tecnologías secretas que cambiarán todo este año'", question_type="text", default_value="Las 3 tecnologías secretas que transformarán la civilización"),
+            InterviewQuestion(key="hook_style", question="¿Qué fórmula de gancho inicial prefieres?", description="Tipo de apertura para 0-3s", question_type="select", options=["Pregunta Shock ('¿Sabías que...?')", "Desafío de Creencia ('Todo lo que creías sobre esto es mentira')", "Dato Prohibido ('Lo que las grandes empresas no quieren que sepas')"], default_value="Pregunta Shock ('¿Sabías que...?')"),
+            InterviewQuestion(key="call_to_action", question="¿Qué llamada a la acción incluir al final?", description="Cierre para engagement", question_type="select", options=["Pregunta a los comentarios ('¿Qué opinas tú?')", "Sígueme para parte 2", "Guarda este vídeo antes de que lo borren"], default_value="Pregunta a los comentarios ('¿Qué opinas tú?')")
+        ],
+        pipeline_graph=VIRAL_SHORTS_GRAPH
+    ),
+
+    "HOLLYWOOD_DOCUMENTARY_35MM": WorkflowArchetype(
+        id="HOLLYWOOD_DOCUMENTARY_35MM",
+        name="Hollywood Master Documentary 35mm (Cinematic Masterpiece)",
+        icon="🎬",
+        tag="HOLLYWOOD 35MM CINEMA",
+        description="Producción cinematográfica de máximo rigor visual: grano Kodak Vision3 500T 5219, óptica anamórfica 35mm f/1.8, iluminación física volumétrica PBR, restauración 4K de archivo real con filtros laplacianos, orquestación híbrida y corrección de color LUT cinematográfica.",
+        category="documentary",
+        target_audience="Cineastas, Audiencias Premium de YouTube 4K, Divulgación de Alto Nivel",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.HYBRID,
+        default_voice_engine="vibevoice",
+        default_voice_id="es-emilio",
+        default_music_genre="cinematic_orchestral",
+        interview_schema=[
+            InterviewQuestion(key="historical_subject", question="¿Qué acontecimiento o figura histórica protagoniza el documental?", description="Ejemplo: 'La expedición Balmis y la primera campaña de vacunación global'", question_type="text", default_value="Grandes expediciones científicas y descubrimientos del siglo XIX"),
+            InterviewQuestion(key="cinematic_optics", question="¿Qué tratamiento óptico y de emulsión deseas aplicar?", description="Look cinematográfico de 35mm", question_type="select", options=["Kodak Vision3 500T 5219 (Anamórfico 35mm f/1.8 con grano fino)", "Bleach Bypass 35mm (Alto contraste y desaturación dramática)", "Technicolor 3-Strip Vintage"], default_value="Kodak Vision3 500T 5219 (Anamórfico 35mm f/1.8 con grano fino)"),
+            InterviewQuestion(key="soundtrack_scale", question="¿Qué escala orquestal y mezcla sonora deseas para el clímax?", description="Diseño musical y foley", question_type="select", options=["Gran Orquesta Híbrida con Metales y Foley Diegético", "Cuerdas y Piano Minimalista Solemne", "Banda Sonora Épica con Coros y Riser"], default_value="Gran Orquesta Híbrida con Metales y Foley Diegético")
+        ],
+        pipeline_graph=HISTORICAL_SCRAPING_GRAPH
+    ),
+
+    "NANOVERSE_MACRO_PHYSICS": WorkflowArchetype(
+        id="NANOVERSE_MACRO_PHYSICS",
+        name="NANOVERSE: Macro Physics & Molecular 4K Exploration",
+        icon="🔬",
+        tag="MACRO PHYSICS & NANO 4K",
+        description="Viaje inmersivo al universo microscópico y atómico: micrografías reales SEM/TEM, física molecular cuántica 4K, 7 keyframes consistentes con Nano Banana Pro, micro-beats lo-fi a 112 BPM con sub-bass 38Hz y telemetría de escala nanométrica en Remotion.",
+        category="educational",
+        target_audience="Estudiantes de física/química, divulgación científica 4K, curiosos del mundo microscópico",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="vibevoice",
+        default_voice_id="es-emilio",
+        default_music_genre="micro_beats_lofi",
+        interview_schema=[
+            InterviewQuestion(key="target_structure", question="¿Qué estructura molecular, cristalina o biológica protagoniza la inmersión?", description="Ejemplo: 'La red hexagonal del grafeno y la conductividad cuántica'", question_type="text", default_value="La estructura molecular del grafeno y nanotubos de carbono a escala atómica"),
+            InterviewQuestion(key="scale_zoom_depth", question="¿Qué rango de escala y profundidad de zoom deseas recorrer?", description="Progresión escalar métrica", question_type="select", options=["Milimétrico a Atómico (1mm -> 10um -> 100nm -> 1Å)", "Celular a Molecular (10um -> 1nm)", "Subatómico Cuántico (Nivel orbitales electrónicos y quarks)"], default_value="Milimétrico a Atómico (1mm -> 10um -> 100nm -> 1Å)"),
+            InterviewQuestion(key="audio_groove_style", question="¿Qué atmósfera sonora micro-acústica deseas?", description="BGM 112 BPM y foley browniano", question_type="select", options=["Micro-Beats Lo-Fi con Sub-Bass 38Hz y Foley ASMR Cristalino", "Ambient Cuántico Frecuencias 432Hz", "Minimalista Electrónico Modular"], default_value="Micro-Beats Lo-Fi con Sub-Bass 38Hz y Foley ASMR Cristalino")
+        ],
+        pipeline_graph=DEEP_EXPLAINER_GRAPH
+    ),
+
+    "LIVING_CANVAS_3D": WorkflowArchetype(
+        id="LIVING_CANVAS_3D",
+        name="LIVING CANVAS: 3D Animated Stories & Artistic Realms",
+        icon="🧸",
+        tag="ANIMACIÓN 3D & CUENTOS VIVOS",
+        description="Producción de historias animadas y cuadros vivientes en 3D: coherencia de personajes, shaders PBR y subsurface scattering, iluminación de hora dorada, piano neoclásico y foley acústico a 85 BPM, y renderizado cinematográfico 24fps.",
+        category="storytelling",
+        target_audience="Familias, creativos y amantes del cine de animación emotivo",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="vibevoice",
+        default_voice_id="es-emilio",
+        default_music_genre="neoclassical_piano",
+        interview_schema=[
+            InterviewQuestion(key="character_name", question="¿Quién es el personaje principal y qué criatura o persona es?", description="Ejemplo: 'Kiro, un pequeño autómata relojero con corazón de cristal'", question_type="text", default_value="Kiro el autómata relojero"),
+            InterviewQuestion(key="story_conflict", question="¿Cuál es la misión o dilema emotivo de la historia?", description="Ejemplo: 'Reparar la linterna de las constelaciones antes de que se apague el firmamento'", question_type="text", default_value="Reparar las constelaciones apagadas del firmamento"),
+            InterviewQuestion(key="emotional_tone", question="¿Qué tono emotivo predomina en el cuento?", description="Emoción principal", question_type="select", options=["Tierno y Conmovedor", "Mágico y Asombroso", "Aventurero y Fantasioso"], default_value="Tierno y Conmovedor")
+        ],
+        pipeline_graph=PIXAR_3D_GRAPH
+    ),
+
+    "ASTRODRIFT_DEEP_SPACE": WorkflowArchetype(
+        id="ASTRODRIFT_DEEP_SPACE",
+        name="ASTRODRIFT: Deep Space & Exoplanet 4K Expeditions",
+        icon="🚀",
+        tag="ASTRODRIFT COSMIC 4K",
+        description="Exploración espacial e hiperrealismo cosmológico: altimetría láser NASA MOLA/LOLA 1:1, espectroscopía JWST, vuelos orbitales y descensos rasantes sobre exoplanetas con Gemini Omni Flash, Space Chillstep / Synthwave a 105 BPM y telemetría astronómica 3D.",
+        category="travel_fpv_action",
+        target_audience="Entusiastas de la astronomía, astrofísica, telescopio James Webb y ciencia ficción dura",
+        default_aspect_ratio="16:9",
+        visual_strategy=VisualStrategy.SINGLE_ENGINE,
+        default_voice_engine="edge_tts",
+        default_voice_id="es-ES-AlvaroNeural",
+        default_music_genre="space_chillstep",
+        interview_schema=[
+            InterviewQuestion(key="target_celestial_body", question="¿Qué planeta, luna o exoplaneta protagoniza la expedición espacial?", description="Ejemplo: 'Titán: Vuelo rasante sobre los mares de metano líquido de Kraken Mare'", question_type="text", default_value="Titán: Vuelo rasante sobre mares de metano de Kraken Mare"),
+            InterviewQuestion(key="flight_trajectory", question="¿Qué dinámica de descenso orbital y vuelo rasante deseas?", description="Trayectoria de la cámara 6-DoF", question_type="select", options=["Descenso Rasante Atmosférico 1:1 con Altimetría MOLA/LOLA", "Órbita Sincrónica Alta con Revelación de Anillos Planetarios", "Sobrevuelo Cañones y Géiseres Criovolcánicos"], default_value="Descenso Rasante Atmosférico 1:1 con Altimetría MOLA/LOLA"),
+            InterviewQuestion(key="cosmic_audio_style", question="¿Qué estilo de audio espacial y ondas de plasma deseas?", description="BGM a 105 BPM y frecuencias cósmicas", question_type="select", options=["Space Chillstep 105 BPM con Ondas de Plasma Espaciales", "Cinematic Space Synthwave con Sintetizadores Analógicos", "Dark Ambient Cósmico con Frecuencias Gravitacionales"], default_value="Space Chillstep 105 BPM con Ondas de Plasma Espaciales")
+        ],
+        pipeline_graph=FPV_URBAN_GRAPH
     )
 }
 
@@ -1142,3 +1268,4 @@ def get_all_archetypes() -> List[WorkflowArchetype]:
 def get_archetype(archetype_id: str) -> Optional[WorkflowArchetype]:
     """Obtiene un arquetipo específico por su ID."""
     return ARCHETYPES_CATALOG.get(archetype_id)
+

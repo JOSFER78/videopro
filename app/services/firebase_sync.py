@@ -9,6 +9,7 @@ import json
 import time
 import logging
 from datetime import datetime
+from pathlib import Path
 from typing import List, Optional, Dict, Any
 import requests
 
@@ -451,4 +452,331 @@ def load_learning_memory_from_firebase():
     """Descarga la memoria de aprendizaje desde Firestore."""
     from app.services.learning_memory_engine import learning_engine
     return learning_engine.load_from_firebase()
+
+
+def emit_learning_event_to_firebase(event_data: dict) -> tuple[bool, str]:
+    """
+    Emite un evento de aprendizaje en tiempo real a Firebase Firestore.
+    Actualiza el documento videopro_system/workflow_learner_live con el último evento
+    y registra el evento en la colección videopro_learning_events.
+    """
+    token = _get_firebase_auth_token()
+    if not token:
+        return False, "Token de autenticación Firebase no disponible."
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    event_id = event_data.get("event_id") or f"evt_{int(time.time() * 1000)}"
+
+    firestore_event_fields = {
+        "event_id": {"stringValue": str(event_id)},
+        "event_type": {"stringValue": str(event_data.get("event_type", "UNKNOWN"))},
+        "session_id": {"stringValue": str(event_data.get("session_id", "default_session"))},
+        "project_id": {"stringValue": str(event_data.get("project_id", "system"))},
+        "archetype_id": {"stringValue": str(event_data.get("archetype_id", "GLOBAL"))},
+        "message": {"stringValue": str(event_data.get("message", ""))},
+        "severity": {"stringValue": str(event_data.get("severity", "INFO"))},
+        "timestamp": {"stringValue": str(event_data.get("timestamp", datetime.now().isoformat()))},
+        "payload_json": {"stringValue": json.dumps(event_data.get("payload", {}), ensure_ascii=False)}
+    }
+
+    try:
+        # 1. Actualizar el estado en vivo del motor de aprendizaje
+        url_live = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_system/workflow_learner_live"
+        live_fields = {
+            "last_event_id": {"stringValue": str(event_id)},
+            "last_event_type": {"stringValue": str(event_data.get("event_type", "UNKNOWN"))},
+            "last_message": {"stringValue": str(event_data.get("message", ""))},
+            "last_project_id": {"stringValue": str(event_data.get("project_id", "system"))},
+            "last_archetype_id": {"stringValue": str(event_data.get("archetype_id", "GLOBAL"))},
+            "last_updated": {"stringValue": str(event_data.get("timestamp", datetime.now().isoformat()))},
+            "last_event_json": {"stringValue": json.dumps(event_data, ensure_ascii=False)}
+        }
+        requests.patch(url_live, headers=headers, json={"fields": live_fields}, timeout=8)
+
+        # 2. Registrar el evento en la colección videopro_learning_events
+        url_evt = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_learning_events/{event_id}"
+        requests.patch(url_evt, headers=headers, json={"fields": firestore_event_fields}, timeout=8)
+
+        return True, f"Evento {event_id} emitido a Firestore con éxito."
+    except Exception as ex:
+        logger.debug(f"Aviso al emitir evento a Firestore: {ex}")
+        return False, f"Error emitiendo evento a Firestore: {ex}"
+
+
+def emit_learning_event_to_firebase_async(event_data: dict):
+    """Emite un evento de aprendizaje en segundo plano no bloqueante."""
+    import threading
+    t = threading.Thread(target=emit_learning_event_to_firebase, args=(event_data,), daemon=True)
+    t.start()
+    return t
+
+
+def save_audit_report_to_firebase(report: dict) -> tuple[bool, str]:
+    """Persiste el informe completo de auditoría y auto-mejora en Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return False, "Token de autenticación Firebase no disponible."
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+    target_pid = report.get("project_id", "project_audit")
+
+    fields = {
+        "project_id": {"stringValue": str(target_pid)},
+        "archetype_id": {"stringValue": str(report.get("archetype_id", "GLOBAL"))},
+        "score": {"doubleValue": float(report.get("audit", {}).get("overall_score", 0.0))},
+        "passed": {"booleanValue": bool(report.get("audit", {}).get("passed", False))},
+        "violations_count": {"integerValue": str(len(report.get("audit", {}).get("violations", [])))},
+        "completed_at": {"stringValue": str(report.get("completed_at", datetime.now().isoformat()))},
+        "report_json": {"stringValue": json.dumps(report, ensure_ascii=False)}
+    }
+
+    try:
+        # Guardar auditoría por proyecto
+        url_audit = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_audits/{target_pid}"
+        requests.patch(url_audit, headers=headers, json={"fields": fields}, timeout=10)
+
+        # Actualizar última auditoría global del sistema
+        url_latest = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_system/latest_audit"
+        requests.patch(url_latest, headers=headers, json={"fields": fields}, timeout=10)
+
+        return True, f"Informe de auditoría para '{target_pid}' guardado en Firestore."
+    except Exception as ex:
+        logger.debug(f"Aviso guardando auditoría en Firestore: {ex}")
+        return False, f"Error guardando auditoría: {ex}"
+
+
+def save_audit_report_to_firebase_async(report: dict):
+    """Persiste el informe de auditoría en segundo plano."""
+    import threading
+    t = threading.Thread(target=save_audit_report_to_firebase, args=(report,), daemon=True)
+    t.start()
+    return t
+
+
+def sync_workflow_improvements_to_firebase(improvements: list) -> tuple[bool, str]:
+    """Persiste el historial completo de auto-mejoras (v+1) en Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return False, "Token de autenticación Firebase no disponible."
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    fields = {
+        "updated_at": {"stringValue": datetime.now().isoformat()},
+        "total_improvements": {"integerValue": str(len(improvements))},
+        "improvements_json": {"stringValue": json.dumps(improvements, ensure_ascii=False)}
+    }
+
+    try:
+        url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_system/workflow_improvements"
+        resp = requests.patch(url, headers=headers, json={"fields": fields}, timeout=10)
+        if resp.status_code in (200, 201):
+            return True, "Historial de mejoras de workflows sincronizado en Firestore."
+        return False, f"Firestore respondió con código HTTP {resp.status_code}"
+    except Exception as ex:
+        return False, f"Error al conectar con Firestore: {ex}"
+
+
+def sync_archetype_performance_to_firebase(perf: dict) -> tuple[bool, str]:
+    """Persiste las métricas de rendimiento por arquetipo en Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return False, "Token de autenticación Firebase no disponible."
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    fields = {
+        "updated_at": {"stringValue": datetime.now().isoformat()},
+        "performance_json": {"stringValue": json.dumps(perf, ensure_ascii=False)}
+    }
+
+    try:
+        url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_system/archetype_performance"
+        resp = requests.patch(url, headers=headers, json={"fields": fields}, timeout=10)
+        if resp.status_code in (200, 201):
+            return True, "Métricas de rendimiento por arquetipo sincronizadas en Firestore."
+        return False, f"Firestore HTTP {resp.status_code}"
+    except Exception as ex:
+        return False, f"Error al conectar con Firestore: {ex}"
+
+
+def fetch_learning_events_from_firebase(limit: int = 30) -> list[dict]:
+    """Obtiene los eventos recientes de aprendizaje desde Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return []
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_learning_events?pageSize={limit}"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        if resp.status_code != 200:
+            return []
+        docs = resp.json().get("documents", [])
+        events = []
+        for d in docs:
+            fields = d.get("fields", {})
+            payload_str = fields.get("payload_json", {}).get("stringValue", "{}")
+            payload = {}
+            try:
+                payload = json.loads(payload_str)
+            except Exception:
+                pass
+            events.append({
+                "event_id": fields.get("event_id", {}).get("stringValue", ""),
+                "event_type": fields.get("event_type", {}).get("stringValue", "UNKNOWN"),
+                "session_id": fields.get("session_id", {}).get("stringValue", ""),
+                "project_id": fields.get("project_id", {}).get("stringValue", ""),
+                "archetype_id": fields.get("archetype_id", {}).get("stringValue", ""),
+                "message": fields.get("message", {}).get("stringValue", ""),
+                "severity": fields.get("severity", {}).get("stringValue", "INFO"),
+                "timestamp": fields.get("timestamp", {}).get("stringValue", ""),
+                "payload": payload
+            })
+        return events
+    except Exception as ex:
+        logger.debug(f"Error descargando eventos de Firestore: {ex}")
+        return []
+
+
+def backup_workflow_to_firebase(workflow: dict) -> tuple[bool, str]:
+    """Respalda un workflow en la colección 'videopro_workflows' de Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return False, "No autenticado en Firebase."
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    wf_id = workflow.get("id") or workflow.get("workflow_id", "workflow_default")
+    
+    firestore_fields = {
+        "workflow_id": {"stringValue": str(wf_id)},
+        "name": {"stringValue": str(workflow.get("name", wf_id))},
+        "description": {"stringValue": str(workflow.get("description", ""))},
+        "version": {"integerValue": str(workflow.get("version", 1))},
+        "version_label": {"stringValue": str(workflow.get("version_label", f"v{workflow.get('version', 1)}.0"))},
+        "archetype_id": {"stringValue": str(workflow.get("archetype_id", "GLOBAL"))},
+        "updated_at": {"stringValue": str(workflow.get("updated_at", datetime.now().isoformat()))},
+        "workflow_json": {"stringValue": json.dumps(workflow, ensure_ascii=False)}
+    }
+    if "created_at" in workflow:
+        firestore_fields["created_at"] = {"stringValue": str(workflow["created_at"])}
+
+    try:
+        url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_workflows/{wf_id}"
+        resp = requests.patch(url, headers=headers, json={"fields": firestore_fields}, timeout=10)
+        if resp.status_code in (200, 201):
+            return True, f"Workflow '{wf_id}' respaldado en Firebase Firestore."
+        else:
+            return False, f"Fallo al respaldar workflow en Firestore (HTTP {resp.status_code})"
+    except Exception as ex:
+        return False, f"Error: {ex}"
+
+
+def backup_workflow_to_firebase_async(workflow: dict):
+    """Ejecuta el respaldo de workflow en segundo plano."""
+    import threading
+    t = threading.Thread(target=backup_workflow_to_firebase, args=(workflow,), daemon=True)
+    t.start()
+    return t
+
+
+def fetch_all_workflows_from_firebase() -> List[dict]:
+    """Obtiene todos los workflows de la colección 'videopro_workflows' en Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return []
+
+    project_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_workflows"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        if resp.status_code != 200:
+            return []
+        docs = resp.json().get("documents", [])
+        workflows = []
+        for d in docs:
+            fields = d.get("fields", {})
+            wf_str = fields.get("workflow_json", {}).get("stringValue", "{}")
+            try:
+                wf_data = json.loads(wf_str)
+            except Exception:
+                wf_data = {
+                    "id": fields.get("workflow_id", {}).get("stringValue", ""),
+                    "name": fields.get("name", {}).get("stringValue", ""),
+                    "description": fields.get("description", {}).get("stringValue", ""),
+                    "version": int(fields.get("version", {}).get("integerValue", 1)),
+                    "archetype_id": fields.get("archetype_id", {}).get("stringValue", "GLOBAL")
+                }
+            workflows.append(wf_data)
+        return workflows
+    except Exception as ex:
+        logger.error(f"Error al obtener workflows de Firestore: {ex}")
+        return []
+
+
+def fetch_single_workflow_from_firebase(workflow_id: str) -> Optional[dict]:
+    """Obtiene un workflow específico desde Firestore."""
+    token = _get_firebase_auth_token()
+    if not token:
+        return None
+
+    fb_proj_id = config.app.get("firebase_project_id") or DEFAULT_PROJECT_ID
+    headers = {"Authorization": f"Bearer {token}"}
+    url = f"https://firestore.googleapis.com/v1/projects/{fb_proj_id}/databases/(default)/documents/videopro_workflows/{workflow_id}"
+
+    try:
+        resp = requests.get(url, headers=headers, timeout=8)
+        if resp.status_code != 200:
+            return None
+        fields = resp.json().get("fields", {})
+        wf_str = fields.get("workflow_json", {}).get("stringValue", "{}")
+        try:
+            return json.loads(wf_str)
+        except Exception:
+            return {
+                "id": fields.get("workflow_id", {}).get("stringValue", workflow_id),
+                "name": fields.get("name", {}).get("stringValue", ""),
+                "description": fields.get("description", {}).get("stringValue", ""),
+                "version": int(fields.get("version", {}).get("integerValue", 1)),
+                "archetype_id": fields.get("archetype_id", {}).get("stringValue", "GLOBAL")
+            }
+    except Exception as ex:
+        logger.error(f"Error descargando workflow '{workflow_id}' de Firestore: {ex}")
+        return None
+
+
+def sync_all_workflows_to_firebase(workflows_dir: Optional[str] = None) -> tuple[bool, str]:
+    """Sincroniza todos los workflows locales (JSON) con Firestore."""
+    wf_dir = Path(workflows_dir) if workflows_dir else Path(BASE_DIR) / "storage" / "workflows"
+    if not wf_dir.exists():
+        return False, f"Directorio {wf_dir} no existe."
+    
+    count = 0
+    errors = 0
+    for jf in wf_dir.glob("*.json"):
+        if jf.name in ("workflow_catalog.json", "improvements.json"):
+            continue
+        try:
+            with open(jf, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if isinstance(data, dict) and "id" in data:
+                ok, _ = backup_workflow_to_firebase(data)
+                if ok:
+                    count += 1
+                else:
+                    errors += 1
+        except Exception:
+            errors += 1
+    return (errors == 0), f"Sincronizados {count} workflows en Firestore (Errores: {errors})."
+
 

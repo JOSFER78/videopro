@@ -8,7 +8,8 @@ from webui.views import (
     view_docs,
     view_comfy_pipeline,
     view_studio_orchestrator,
-    view_home_dashboard
+    view_home_dashboard,
+    view_learning_workflows
 )
 
 __all__ = [
@@ -21,5 +22,6 @@ __all__ = [
     "view_docs",
     "view_comfy_pipeline",
     "view_studio_orchestrator",
-    "view_home_dashboard"
+    "view_home_dashboard",
+    "view_learning_workflows"
 ]

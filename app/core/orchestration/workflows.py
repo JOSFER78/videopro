@@ -182,19 +182,86 @@ WORKFLOW_TEMPLATES: Dict[str, WorkflowDefinition] = {
 }
 
 
+def _load_storage_workflows() -> Dict[str, WorkflowDefinition]:
+    """Carga dinámicamente todos los workflows JSON canónicos desde storage/workflows/."""
+    import os
+    import json
+    import glob
+    
+    loaded: Dict[str, WorkflowDefinition] = {}
+    base_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    storage_wf_dir = os.path.join(base_dir, "storage", "workflows")
+    
+    if os.path.isdir(storage_wf_dir):
+        for json_path in glob.glob(os.path.join(storage_wf_dir, "*.json")):
+            try:
+                with open(json_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                if isinstance(data, dict) and "id" in data and "name" in data and "nodes" in data:
+                    wf = WorkflowDefinition(**data)
+                    loaded[wf.id] = wf
+                    # Alias por nombre de archivo base sin extensión
+                    base_name = os.path.splitext(os.path.basename(json_path))[0]
+                    loaded[base_name] = wf
+                    loaded[base_name.lower()] = wf
+                    loaded[base_name.upper()] = wf
+            except Exception:
+                pass
+    return loaded
+
+
 def get_all_workflows() -> List[WorkflowDefinition]:
-    """Retorna todas las plantillas de workflows oficiales."""
-    return list(WORKFLOW_TEMPLATES.values())
+    """Retorna todas las plantillas de workflows oficiales incluyendo las de storage."""
+    all_dict: Dict[str, WorkflowDefinition] = dict(WORKFLOW_TEMPLATES)
+    storage_wfs = _load_storage_workflows()
+    for wf in storage_wfs.values():
+        all_dict[wf.id] = wf
+    return list(all_dict.values())
 
 
 def get_workflow(wf_id: str) -> Optional[WorkflowDefinition]:
-    """Obtiene una definición de workflow por su ID."""
-    return WORKFLOW_TEMPLATES.get(wf_id)
+    """Obtiene una definición de workflow por su ID, alias o nombre de archivo en storage."""
+    if not wf_id:
+        return None
+    
+    # 1. En memoria WORKFLOW_TEMPLATES
+    if wf_id in WORKFLOW_TEMPLATES:
+        return WORKFLOW_TEMPLATES[wf_id]
+    if wf_id.upper() in WORKFLOW_TEMPLATES:
+        return WORKFLOW_TEMPLATES[wf_id.upper()]
+    if wf_id.lower() in WORKFLOW_TEMPLATES:
+        return WORKFLOW_TEMPLATES[wf_id.lower()]
+        
+    # 2. Por coincidencia en storage/workflows
+    storage_wfs = _load_storage_workflows()
+    if wf_id in storage_wfs:
+        return storage_wfs[wf_id]
+    if wf_id.upper() in storage_wfs:
+        return storage_wfs[wf_id.upper()]
+    if wf_id.lower() in storage_wfs:
+        return storage_wfs[wf_id.lower()]
+
+    # 3. Búsqueda por archetype_id
+    for wf in WORKFLOW_TEMPLATES.values():
+        if wf.archetype_id == wf_id or (wf.archetype_id and wf.archetype_id.upper() == wf_id.upper()):
+            return wf
+    for wf in storage_wfs.values():
+        if wf.archetype_id == wf_id or (wf.archetype_id and wf.archetype_id.upper() == wf_id.upper()):
+            return wf
+            
+    return None
 
 
 def get_workflow_by_archetype(archetype_id: str) -> Optional[WorkflowDefinition]:
     """Obtiene el workflow asociado a un arquetipo específico."""
+    if not archetype_id:
+        return None
     for wf in WORKFLOW_TEMPLATES.values():
-        if wf.archetype_id == archetype_id:
+        if wf.archetype_id == archetype_id or (wf.archetype_id and wf.archetype_id.upper() == archetype_id.upper()):
+            return wf
+    storage_wfs = _load_storage_workflows()
+    for wf in storage_wfs.values():
+        if wf.archetype_id == archetype_id or (wf.archetype_id and wf.archetype_id.upper() == archetype_id.upper()):
             return wf
     return None
+

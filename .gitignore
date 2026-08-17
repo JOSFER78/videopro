@@ -21,14 +21,10 @@ firestore-debug.log
 ui-debug.log
 
 # Almacenamiento local de tareas, proyectos, guiones y contenido generado
-storage/
-storage/tasks/
-storage/cache/
-storage/audio/
-storage/video/
-outputs/
-temp/
-tmp/
+/storage/
+/outputs/
+/temp/
+/tmp/
 *.r2_synced.json
 
 # Contenido multimedia pesado y renders (Vídeos, Audios, Foley, Materiales)

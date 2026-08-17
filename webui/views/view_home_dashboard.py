@@ -114,6 +114,32 @@ def render_home_dashboard_view():
 
     st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
 
+    # 1.5. Selección Rápida de Workflows con 1 Clic
+    st.markdown("### 🎛️ Selección Rápida de Workflows por Tipo de Vídeo (1 Clic)")
+    arch_keys = list(ARCHETYPES_CATALOG.keys())
+    c_wfs = st.columns(len(arch_keys))
+    for i, a_key in enumerate(arch_keys):
+        arch_item = ARCHETYPES_CATALOG[a_key]
+        with c_wfs[i]:
+            with st.container(border=True):
+                st.markdown(f"""
+                    <div style="text-align: center; margin-bottom: 4px;">
+                        <span style="font-size: 24px;">{arch_item.icon}</span>
+                        <div style="font-size: 12px; font-weight: 700; color: #f8fafc; margin-top: 2px;">{arch_item.name}</div>
+                        <div style="font-size: 10px; color: #38bdf8; font-weight: 600;">{arch_item.tag}</div>
+                    </div>
+                """, unsafe_allow_html=True)
+                if st.button("🚀 Seleccionar", key=f"quick_wf_btn_{arch_item.id}", use_container_width=True):
+                    try:
+                        from webui.views.view_studio_orchestrator import _init_director_session
+                        _init_director_session(arch_item.id)
+                    except Exception:
+                        st.session_state["director_arch_id"] = arch_item.id
+                    st.session_state["active_view"] = "studio"
+                    st.rerun()
+
+    st.markdown("<div style='height: 12px;'></div>", unsafe_allow_html=True)
+
     # 2. Grid de Accesos Rápidos a Módulos
     st.markdown("### 🚀 Accesos Directos & Cabina de Mando")
     

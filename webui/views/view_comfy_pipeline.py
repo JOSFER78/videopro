@@ -11,6 +11,11 @@ import streamlit.components.v1 as components
 from app.config import config
 from app.controllers.v1 import pipeline
 from app.services import firebase_sync
+from app.api.workflows import (
+    run_workflow_headless_endpoint, save_workflow_variant_endpoint,
+    WorkflowRunRequest, WorkflowSaveRequest, _get_recent_improvements
+)
+from app.core.orchestration.workflows import get_all_workflows, get_workflow, WORKFLOW_TEMPLATES
 from app.core.orchestration.workflow_archetypes import ARCHETYPES_CATALOG, get_all_archetypes, get_archetype
 from app.core.orchestration.videopro_system_registry import SYSTEM_WORKFLOWS, SYSTEM_NODES, SYSTEM_CAPABILITIES
 
@@ -207,10 +212,32 @@ def _render_workflows_catalog():
         st.info("No se encontraron workflows con los filtros seleccionados.")
         return
 
-    # Renderizar cada tarjeta de Workflow con estética premium
+    # Banner de Última Misión Headless Despachada
+    if "last_headless_mission" in st.session_state:
+        last_m = st.session_state["last_headless_mission"]
+        with st.container(border=True):
+            c_m1, c_m2 = st.columns([8, 4], vertical_alignment="center")
+            with c_m1:
+                st.markdown(f"""
+                    <div style="font-size: 13px; font-weight: 700; color: #34d399; display: flex; align-items: center; gap: 6px;">
+                        <span>🚀</span> Misión Headless Despachada: <code style="color: #38bdf8;">{last_m.get('mission_id', '')}</code>
+                    </div>
+                    <div style="font-size: 11.5px; color: #94a3b8;">
+                        Título: <b>{last_m.get('title', '')}</b> | Workflow: <b>{last_m.get('workflow_id', '')}</b> | Estado: <b>RUNNING (CoT Activo)</b>
+                    </div>
+                """, unsafe_allow_html=True)
+            with c_m2:
+                if st.button("🤖 Ver Telemetría en Hermes Control", type="primary", use_container_width=True, key="btn_goto_mission_control_catalog"):
+                    st.session_state["active_view"] = "hermes_control"
+                    st.rerun()
+
+    # Renderizar cada tarjeta de Workflow con estética premium y controles REST 1-Clic
     for arch in filtered:
+        wf = get_workflow(arch.id) or get_workflow_by_archetype(arch.id)
+        version_badge = wf.version_label if wf else f"v{arch.version}"
         nodes = arch.pipeline_graph.get("nodes", [])
         node_titles = [n.get("title", n.get("id", "Nodo")) for n in nodes]
+        improvements = _get_recent_improvements(arch.id, arch.id)
         
         with st.container(border=True):
             # Encabezado de la Tarjeta
@@ -221,8 +248,11 @@ def _render_workflows_catalog():
                         <span style="font-size: 24px;">{arch.icon}</span>
                         <div>
                             <span style="font-size: 16px; font-weight: 700; color: #f8fafc;">{arch.name}</span>
-                            <span style="font-size: 10.5px; font-weight: 600; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 6px; border-radius: 4px; margin-left: 6px;">
+                            <span style="font-size: 10.5px; font-weight: 700; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 6px; border-radius: 4px; margin-left: 6px;">
                                 {arch.tag}
+                            </span>
+                            <span style="font-size: 10.5px; font-weight: 700; background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); padding: 2px 6px; border-radius: 4px; margin-left: 4px;">
+                                {version_badge}
                             </span>
                         </div>
                     </div>
@@ -254,7 +284,7 @@ def _render_workflows_catalog():
                     (" <span style='color: #64748b; font-size: 10px;'>➔</span>" if idx < len(node_titles) - 1 else "")
                     for idx, t in enumerate(node_titles)
                 ])
-                st.markdown(f"<div style='margin-bottom: 10px; line-height: 1.9;'>{badges_html}</div>", unsafe_allow_html=True)
+                st.markdown(f"<div style='margin-bottom: 8px; line-height: 1.9;'>{badges_html}</div>", unsafe_allow_html=True)
 
             # Fila de Parámetros Clave
             c_p1, c_p2, c_p3, c_p4 = st.columns(4)
@@ -267,13 +297,57 @@ def _render_workflows_catalog():
             with c_p4:
                 st.caption(f"⚙️ **Preguntas CoT:** `{len(arch.interview_schema)} Pasos`")
 
-            # Botones de Acción
-            c_b1, c_b2, c_b3 = st.columns([4, 4, 4])
+            # Mejoras Recientes de Experiencia & Calidad
+            if improvements:
+                with st.expander(f"🧠 Mejoras Recientes & Reglas Áureas Inyectadas ({len(improvements)} Estándares)", expanded=False):
+                    for imp in improvements:
+                        s_icon = "🔴" if imp["severity"] == "CRITICAL" else ("🟠" if imp["severity"] == "STRICT" else "🔵")
+                        st.markdown(f"""
+                            <div style="background: rgba(15, 23, 42, 0.7); border-left: 3px solid #38bdf8; padding: 5px 8px; border-radius: 0 4px 4px 0; margin-bottom: 4px; font-size: 11.5px;">
+                                <strong>{s_icon} {imp.get('title', '')}</strong> ({imp.get('category', '')})<br>
+                                <span style="color: #4ade80;">✨ Regla Áurea:</span> {imp.get('golden_rule', '')}
+                            </div>
+                        """, unsafe_allow_html=True)
+
+            # Botones de Acción: 1-Clic Headless, Co-Creación, Lienzo, Guardar Variante y Esquema
+            c_b1, c_b2, c_b3, c_b4, c_b5 = st.columns([3, 3, 2, 2, 2])
+            
             with c_b1:
-                if st.button(f"👁️ Cargar en Lienzo de Nodos", key=f"btn_load_canvas_{arch.id}", use_container_width=True):
-                    st.session_state["pipeline_selected_archetype"] = arch.id
-                    st.toast(f"Cargado «{arch.name}» en el Lienzo de Nodos.")
-                    st.rerun()
+                with st.popover("⚡ Ejecutar Headless (1 Clic)", use_container_width=True):
+                    st.markdown(f"#### ⚡ Lanzamiento Headless: {arch.name}")
+                    st.caption("Lanza la ejecución autónoma desacoplada basada en el contrato de misión.")
+                    
+                    hl_title = st.text_input("Título de Producción:", value=f"{arch.name} — Producción Rápida", key=f"hl_title_{arch.id}")
+                    hl_topic = st.text_area("Tema o Premisa Central:", value=f"Producción cinematográfica optimizada para {arch.name}", height=60, key=f"hl_topic_{arch.id}")
+                    
+                    c_hl1, c_hl2 = st.columns(2)
+                    with c_hl1:
+                        hl_dur = st.selectbox("Duración Objetivo:", options=[30.0, 60.0, 120.0, 180.0, 240.0], index=1, format_func=lambda x: f"{int(x)} segundos", key=f"hl_dur_{arch.id}")
+                    with c_hl2:
+                        hl_async = st.checkbox("Ejecución Asíncrona (CoT en Vivo)", value=True, key=f"hl_async_{arch.id}")
+                    
+                    if st.button("🚀 Lanzar Misión Headless", type="primary", use_container_width=True, key=f"btn_run_headless_action_{arch.id}"):
+                        req_obj = WorkflowRunRequest(
+                            title=hl_title,
+                            topic=hl_topic,
+                            duration_target_sec=hl_dur,
+                            target_channel=arch.target_audience,
+                            visual_strategy=arch.visual_strategy,
+                            async_execution=hl_async
+                        )
+                        try:
+                            res = run_workflow_headless_endpoint(workflow_id=arch.id, req=req_obj)
+                            st.session_state["last_headless_mission"] = {
+                                "mission_id": res.get("mission_id"),
+                                "job_id": res.get("job_id"),
+                                "workflow_id": arch.id,
+                                "title": hl_title
+                            }
+                            st.toast(f"⚡ Misión '{hl_title}' despachada con éxito (ID: {res.get('mission_id')})", icon="🚀")
+                            st.rerun()
+                        except Exception as ex:
+                            st.error(f"Error al lanzar misión: {ex}")
+
             with c_b2:
                 if st.button(f"🚀 Usar en Co-Creación", type="primary", key=f"btn_cocreate_{arch.id}", use_container_width=True):
                     try:
@@ -283,10 +357,41 @@ def _render_workflows_catalog():
                         st.session_state["director_arch_id"] = arch.id
                     st.session_state["active_view"] = "studio"
                     st.rerun()
+
             with c_b3:
-                with st.popover("📋 Ver Esquema & Preguntas", use_container_width=True):
+                if st.button(f"👁️ Lienzo Visual", key=f"btn_load_canvas_{arch.id}", use_container_width=True):
+                    st.session_state["pipeline_selected_archetype"] = arch.id
+                    st.toast(f"Cargado «{arch.name}» en el Lienzo de Nodos.")
+                    st.rerun()
+
+            with c_b4:
+                with st.popover("⚙️ Guardar Variante", use_container_width=True):
+                    st.markdown(f"#### ⚙️ Guardar Ajustes / Variante: {arch.name}")
+                    st.caption("Crea una nueva variante congelada o actualiza la versión del workflow.")
+                    
+                    var_name = st.text_input("Nombre de Variante:", value=f"{arch.name} (Custom)", key=f"var_name_{arch.id}")
+                    var_label = st.text_input("Etiqueta de Versión:", value="v1.1-custom", key=f"var_label_{arch.id}")
+                    var_desc = st.text_area("Descripción de la Variante:", value=arch.description, height=60, key=f"var_desc_{arch.id}")
+                    is_new_var = st.checkbox("Guardar como Nueva Variante Independiente", value=True, key=f"var_is_new_{arch.id}")
+                    
+                    if st.button("💾 Guardar Variante", use_container_width=True, key=f"btn_save_variant_action_{arch.id}"):
+                        req_save = WorkflowSaveRequest(
+                            name=var_name,
+                            description=var_desc,
+                            version_label=var_label,
+                            is_new_variant=is_new_var
+                        )
+                        try:
+                            save_res = save_workflow_variant_endpoint(workflow_id=arch.id, req=req_save)
+                            st.toast(f"💾 {save_res.get('message', 'Variante guardada con éxito.')}", icon="✅")
+                            st.rerun()
+                        except Exception as ex:
+                            st.error(f"Error al guardar variante: {ex}")
+
+            with c_b5:
+                with st.popover("📋 Esquema & Parámetros", use_container_width=True):
                     st.markdown(f"#### 📋 Esquema de Producción: {arch.name}")
-                    st.markdown(f"**Categoría:** `{arch.category}` | **Versión:** `{arch.version}`")
+                    st.markdown(f"**Categoría:** `{arch.category}` | **Versión:** `{version_badge}`")
                     st.markdown("**Preguntas de la Entrevista Narrativa:**")
                     for q_idx, q in enumerate(arch.interview_schema, 1):
                         st.markdown(f"**{q_idx}. {q.question}**")
@@ -548,6 +653,10 @@ def _render_learning_memory_tab():
             </div>
         </div>
     """, unsafe_allow_html=True)
+
+    if st.button("🚀 Abrir Panel Completo de Aprendizaje & Control de Workflows (QA R01-R10)", type="primary", use_container_width=True, key="btn_goto_full_learning"):
+        st.session_state["active_view"] = "learning_workflows"
+        st.rerun()
 
     # Métricas Globales en 4 Columnas
     m_col1, m_col2, m_col3, m_col4 = st.columns(4)

@@ -9,6 +9,7 @@ NAV_VIEWS = [
     ("studio", "🚀 Empezar"),
     ("hermes_control", "🤖 Hermes Control"),
     ("pipeline", "🏛️ Workflows"),
+    ("learning_workflows", "🧠 Aprendizaje & QA"),
     ("projects", "📁 Proyectos"),
     ("youtube_monetization", "💰 Monetización & Canales"),
     ("cinema_vault", "🎞️ Bóveda Multimedia"),

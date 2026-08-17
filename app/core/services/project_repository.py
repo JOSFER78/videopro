@@ -267,12 +267,26 @@ class ProjectRepository:
             # Buscar vídeo final si existe
             has_video = False
             final_video_path = ""
-            for ext in ("*.mp4", "*.mkv", "*.mov", "*.webm"):
-                vids = glob.glob(os.path.join(p_dir, ext)) + glob.glob(os.path.join(p_dir, "renders", ext))
-                if vids:
-                    has_video = True
-                    final_video_path = vids[0]
-                    break
+            
+            # 1. Priorizar ruta explícita en el manifest
+            explicit_local = p_data.get("local_video_path") or ""
+            explicit_rel = os.path.join(self.base_dir, p_data.get("video_path", "")) if p_data.get("video_path") else ""
+            if explicit_local and os.path.isfile(explicit_local):
+                has_video = True
+                final_video_path = explicit_local
+            elif explicit_rel and os.path.isfile(explicit_rel):
+                has_video = True
+                final_video_path = explicit_rel
+            else:
+                for ext in ("*.mp4", "*.mkv", "*.mov", "*.webm"):
+                    vids = glob.glob(os.path.join(p_dir, ext)) + glob.glob(os.path.join(p_dir, "renders", ext))
+                    if vids:
+                        masters = [v for v in vids if "master" in os.path.basename(v).lower()]
+                        non_clips = [v for v in vids if not os.path.basename(v).startswith("clip_") and not os.path.basename(v).startswith("raw_")]
+                        chosen = masters[0] if masters else (non_clips[0] if non_clips else vids[0])
+                        has_video = True
+                        final_video_path = chosen
+                        break
 
             projects_list.append({
                 "project_id": pid,

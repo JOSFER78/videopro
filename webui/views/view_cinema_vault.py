@@ -40,7 +40,10 @@ def render_view():
     ])
 
     projects_base = Path(BASE_DIR) / "storage" / "projects"
-    master_videos = sorted(list(projects_base.glob("**/renders/*.mp4")) + list(projects_base.glob("**/*.mp4")), key=lambda p: p.stat().st_mtime, reverse=True)
+    all_vids = list(set(list(projects_base.glob("**/renders/*.mp4")) + list(projects_base.glob("**/*.mp4"))))
+    masters = [v for v in all_vids if "master" in v.name.lower()]
+    others = [v for v in all_vids if "master" not in v.name.lower() and not v.name.startswith("clip_") and not v.name.startswith("raw_")]
+    master_videos = sorted(masters, key=lambda p: p.stat().st_mtime, reverse=True) + sorted(others, key=lambda p: p.stat().st_mtime, reverse=True)
 
     with tab_player:
         if not master_videos:
@@ -103,11 +106,11 @@ def render_view():
         st.markdown("##### 📸 Tiras de Fotogramas de Control de Calidad (Contact Sheets)")
         st.caption("Verificación visual de no-repetición y balance de color.")
         
-        contact_sheets = list(projects_base.glob("**/*contact_sheet*.jpg")) + list(Path("/home/ubuntu/.gemini/antigravity-ide/brain/753522d0-fb23-452a-befd-d7a33b3b3415").glob("*mosaic*.jpg"))
+        contact_sheets = sorted(list(set(list(projects_base.glob("**/*contact_sheet*.jpg")) + list(projects_base.glob("**/renders/*.jpg")))), key=lambda p: p.stat().st_mtime, reverse=True)
         if contact_sheets:
             for cs in contact_sheets:
                 with st.container(border=True):
                     st.markdown(f"**Tira de Fotogramas:** `{cs.name}`")
-                    st.image(str(cs), use_column_width=True)
+                    st.image(str(cs), use_container_width=True)
         else:
             st.info("No hay mosaicos de control de calidad generados.")

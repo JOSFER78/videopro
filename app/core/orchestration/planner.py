@@ -136,7 +136,7 @@ class RequestPlanner:
         # Extraer elementos de la entrevista según el arquetipo
         scenes_data: List[Dict[str, Any]] = []
 
-        if archetype.id == "PIXAR_3D_ANIMATION":
+        if archetype.id in ("PIXAR_3D_ANIMATION", "LIVING_CANVAS_3D"):
             char_name = interview_answers.get("character_name", "Protagonista 3D")
             conflict = interview_answers.get("story_conflict", "Gran aventura")
             environment = interview_answers.get("visual_environment", "Mundo de cuento")
@@ -147,13 +147,59 @@ class RequestPlanner:
                 {"id": "scene_4", "prompt": f"Hollywood Pixar 3D: Gran plano final emotivo y triunfal de {char_name} en {environment}, luz dorada de atardecer, etalonaje cinematográfico Disney/Pixar", "shot_type": "medium", "engine": "nanobanana", "duration": 4.0}
             ]
 
-        elif archetype.id == "HISTORICAL_SCRAPING":
+        elif archetype.id in ("HISTORICAL_SCRAPING", "HOLLYWOOD_DOCUMENTARY_35MM"):
             subject = interview_answers.get("historical_subject", "Hecho histórico")
             scenes_data = [
                 {"id": "scene_1", "prompt": f"Investigación Documental Master: Primer plano macro de documentos de archivo, grabados antiguos y mapas táctiles 2.5D sobre {subject}, textura papel fotográfico vintage", "shot_type": "macro_detail", "engine": "stock_db", "duration": 4.0},
                 {"id": "scene_2", "prompt": f"Fotografía histórica auténtica restaurada en 4K Ultra-HD con efecto Ken Burns cinemático y profundidad multi-capa sobre {subject}", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 5.0},
                 {"id": "scene_3", "prompt": f"Recreación cinematográfica 4K estilo película de época 35mm Kodak 5219 del momento clave de {subject}, humo, atmósfera y luz lateral ARRI Alexa", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.5},
                 {"id": "scene_4", "prompt": f"Plano de síntesis histórica y legado monumental en 4K HDR, transición suave de archivo a época actual sobre {subject}", "shot_type": "medium", "engine": "stock_db", "duration": 4.0}
+            ]
+
+        elif archetype.id == "CHRONODRIFT_TRITEMPORAL":
+            target_city = interview_answers.get("target_city_and_timeline", "Tokio: Edo 1626 -> Shibuya 2026 -> Neo-Tokyo 2226")
+            contrast_style = interview_answers.get("temporal_contrast_style", "Match-Cut Fotogramétrico Continuo")
+            scenes_data = [
+                {"id": "scene_1", "prompt": f"CHRONODRIFT 4K: Terminal Dive vertical a 140 km/h desde 850m atravesando nubes sobre {target_city} en época histórica, vista 6-DoF y arquitectura original", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0},
+                {"id": "scene_2", "prompt": f"CHRONODRIFT 4K: Rasante a 110 km/h en cañón urbano histórico y aproximación a monumentos clave de {target_city}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.5},
+                {"id": "scene_3", "prompt": f"CHRONODRIFT 4K: {contrast_style} match-cut temporal atravesando bajo puente/túnel y emergiendo en la metrópolis moderna 2026", "shot_type": "action_tracking", "engine": "nanobanana", "duration": 4.0},
+                {"id": "scene_4", "prompt": f"CHRONODRIFT 4K: Salto temporal a 2226 Neo-City con mega-estructuras bioclimáticas, ascensión vertical y HUD Remotion 3D", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 5.0}
+            ]
+
+        elif archetype.id in ("FPV_URBAN_REAL_FLOW", "FPV_URBAN_6DOF", "FPV_URBAN_STORYTELLING"):
+            city = interview_answers.get("city_and_visual_spots") or interview_answers.get("target_city_and_landmarks", "Metrópolis Urbana")
+            scenes_data = [
+                {"id": "scene_1", "prompt": f"FPV 6-DoF 4K: Vuelo acrobático rasante a 140 km/h sobre {city} con telemetría HUD y cámara de alta velocidad", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0},
+                {"id": "scene_2", "prompt": f"FPV 6-DoF 4K: Slalom vertiginoso entre rascacielos y cañones urbanos de {city}, sincronizado al beat de 128 BPM", "shot_type": "action_tracking", "engine": "google_flow", "duration": 4.0},
+                {"id": "scene_3", "prompt": f"FPV 6-DoF 4K: Vuelo a ras de acera y detalle arquitectónico con motion blur óptico de 180 grados en {city}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 3.5},
+                {"id": "scene_4", "prompt": f"FPV 6-DoF 4K: Ascenso vertical hacia el horizonte al atardecer y rotación 360 continua en {city}", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.5}
+            ]
+
+        elif archetype.id == "VOX_INVESTIGATIVE_DOC":
+            topic = interview_answers.get("investigation_topic", "Misterio de infraestructura y geopolítica")
+            scenes_data = [
+                {"id": "scene_1", "prompt": f"VOX Doc 4K: Planteamiento de la investigación sobre {topic}, documentos desclasificados sobre mesa con textura de papel prensa y luz cenital", "shot_type": "macro_detail", "engine": "stock_db", "duration": 4.5},
+                {"id": "scene_2", "prompt": f"VOX Doc 4K: Mapa 3D QGIS interactivo con rutas punteadas Dash=78 y sobrevuelo de cámara sobre las coordenadas clave de {topic}", "shot_type": "wide_establishing", "engine": "google_flow", "duration": 5.5},
+                {"id": "scene_3", "prompt": f"VOX Doc 4K: Paralaje 3D en Remotion con recortes de expedientes, rotulador amarillo flúor animado y micro-stagger temporal", "shot_type": "action_tracking", "engine": "nanobanana", "duration": 5.0},
+                {"id": "scene_4", "prompt": f"VOX Doc 4K: Conclusión analítica y revelación de datos con gráficos minimalistas y mezcla sonora EBU R128 (-14 LUFS)", "shot_type": "medium", "engine": "stock_db", "duration": 4.5}
+            ]
+
+        elif archetype.id == "NANOVERSE_MACRO_PHYSICS":
+            target = interview_answers.get("target_structure", "Estructura molecular y física cuántica")
+            scenes_data = [
+                {"id": "scene_1", "prompt": f"NANOVERSE 4K: Zoom macroscópico continuo desde escala milimétrica hasta nivel celular sobre {target}", "shot_type": "macro_detail", "engine": "nanobanana", "duration": 4.5},
+                {"id": "scene_2", "prompt": f"NANOVERSE 4K: Inmersión en micrografía SEM/TEM 4K revelando la red atómica y enlaces moleculares de {target}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 5.0},
+                {"id": "scene_3", "prompt": f"NANOVERSE 4K: Simulación molecular de transporte cuántico y densidad electrónica con telemetría HUD nanométrica", "shot_type": "action_tracking", "engine": "google_flow", "duration": 5.0},
+                {"id": "scene_4", "prompt": f"NANOVERSE 4K: Gran plano atómico con iluminación volumétrica y micro-beats a 112 BPM", "shot_type": "wide_establishing", "engine": "nanobanana", "duration": 4.5}
+            ]
+
+        elif archetype.id == "ASTRODRIFT_DEEP_SPACE":
+            body = interview_answers.get("target_celestial_body", "Titán y exoplanetas")
+            scenes_data = [
+                {"id": "scene_1", "prompt": f"ASTRODRIFT 4K: Vista orbital de alta resolución sobre {body}, revelando anillos y atmósfera espectroscópica JWST", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 5.0},
+                {"id": "scene_2", "prompt": f"ASTRODRIFT 4K: Descenso rasante atmosférico 1:1 con altimetría NASA MOLA/LOLA sobre la superficie de {body}", "shot_type": "action_tracking", "engine": "google_flow", "duration": 5.5},
+                {"id": "scene_3", "prompt": f"ASTRODRIFT 4K: Vuelo a baja cota entre cañones y mares criogénicos de {body} con telemetría HUD 3D", "shot_type": "action_tracking", "engine": "google_flow", "duration": 5.0},
+                {"id": "scene_4", "prompt": f"ASTRODRIFT 4K: Ascensión panorámica hacia el horizonte estelar con Space Chillstep a 105 BPM", "shot_type": "drone_aerial", "engine": "nanobanana", "duration": 5.0}
             ]
 
         elif archetype.id == "CITY_ROUTES_BEATS":
@@ -166,7 +212,7 @@ class RequestPlanner:
                 {"id": "scene_4", "prompt": f"Plano secuencia aéreo nocturno de {spots} con estelas de luz, neones vibrantes y atmósfera cinematográfica Cyber-City", "shot_type": "drone_aerial", "engine": "google_flow", "duration": 4.0}
             ]
 
-        elif archetype.id == "VIRAL_SHORTS_HOOK":
+        elif archetype.id in ("VIRAL_SHORTS_HOOK", "VIRAL_SHORTS_HOOK_916"):
             hook = interview_answers.get("hook_theme", "Curiosidad Viral")
             scenes_data = [
                 {"id": "scene_1", "prompt": f"Gancho visual hiper-cinemático de 2s sobre {hook}, primer plano de impacto con iluminación dramática y movimiento rápido de cámara", "shot_type": "character_close_up", "engine": "flux_video", "duration": 2.0},
@@ -175,8 +221,8 @@ class RequestPlanner:
                 {"id": "scene_4", "prompt": f"Plano de cierre con alta energía visual y llamada a la acción en pantalla", "shot_type": "medium", "engine": "flux_video", "duration": 2.0}
             ]
 
-        else: # DEEP_EXPLAINER_ESSAY
-            thesis = interview_answers.get("essay_thesis", "Tesis del ensayo")
+        else: # DEEP_EXPLAINER_ESSAY / MADRID_CURIOSITIES / Otros
+            thesis = interview_answers.get("essay_thesis") or interview_answers.get("madrid_spots_and_secrets", "Tesis del ensayo")
             scenes_data = [
                 {"id": "scene_1", "prompt": f"Hollywood Videoessay: Planteamiento visual cinemático del dilema central: {thesis}, plano general sobrio con iluminación claroscuro", "shot_type": "wide_establishing", "engine": "stock_db", "duration": 5.0},
                 {"id": "scene_2", "prompt": f"Infografía gráfica de datos en movimiento 4K estilo Vox/Bloomberg, diseño minimalista sobre fondo dark glassmorphism", "shot_type": "macro_detail", "engine": "nanobanana", "duration": 6.0},

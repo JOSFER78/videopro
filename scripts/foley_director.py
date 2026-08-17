@@ -10,6 +10,7 @@ import math
 import struct
 import wave
 from pathlib import Path
+from typing import Optional, List, Dict, Any
 from loguru import logger
 
 def create_sine_burst(freq_start, freq_end, duration_s, sample_rate=48000, volume=0.8, decay=True):

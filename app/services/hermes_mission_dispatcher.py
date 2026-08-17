@@ -12,6 +12,7 @@ import os
 import json
 import time
 import uuid
+import threading
 import requests
 from datetime import datetime
 from pathlib import Path
@@ -213,27 +214,29 @@ class HermesMissionDispatcher:
         return missions[:limit]
 
     def _sync_mission_to_firestore(self, mission_data: Dict[str, Any]) -> bool:
-        """Persiste el documento de la misión en Firestore de manera no bloqueante."""
-        project_id = self._get_project_id()
-        mission_id = mission_data["mission_id"]
-        url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_missions/{mission_id}"
+        """Persiste el documento de la misión en Firestore de manera no bloqueante en hilo secundario."""
+        def _do_sync():
+            try:
+                project_id = self._get_project_id()
+                mission_id = mission_data["mission_id"]
+                url = f"https://firestore.googleapis.com/v1/projects/{project_id}/databases/(default)/documents/videopro_missions/{mission_id}"
 
-        fields = {
-            "mission_id": {"stringValue": mission_id},
-            "title": {"stringValue": mission_data.get("title", "")},
-            "workflow_id": {"stringValue": mission_data.get("workflow_id", "")},
-            "status": {"stringValue": mission_data.get("status", HermesMissionStatus.PENDING)},
-            "progress_percent": {"doubleValue": float(mission_data.get("progress_percent", 0.0))},
-            "updated_at": {"stringValue": mission_data.get("updated_at", datetime.now().isoformat())},
-            "payload_json": {"stringValue": json.dumps(mission_data, ensure_ascii=False)}
-        }
+                fields = {
+                    "mission_id": {"stringValue": mission_id},
+                    "title": {"stringValue": mission_data.get("title", "")},
+                    "workflow_id": {"stringValue": mission_data.get("workflow_id", "")},
+                    "status": {"stringValue": mission_data.get("status", HermesMissionStatus.PENDING)},
+                    "progress_percent": {"doubleValue": float(mission_data.get("progress_percent", 0.0))},
+                    "updated_at": {"stringValue": mission_data.get("updated_at", datetime.now().isoformat())},
+                    "payload_json": {"stringValue": json.dumps(mission_data, ensure_ascii=False)}
+                }
+                headers = self._get_firestore_headers()
+                requests.patch(url, headers=headers, json={"fields": fields}, timeout=4)
+            except Exception:
+                pass
 
-        try:
-            headers = self._get_firestore_headers()
-            resp = requests.patch(url, headers=headers, json={"fields": fields}, timeout=4)
-            return resp.status_code in (200, 201)
-        except Exception:
-            return False
+        threading.Thread(target=_do_sync, daemon=True).start()
+        return True
 
     def _fetch_mission_from_firestore(self, mission_id: str) -> Optional[Dict[str, Any]]:
         """Obtiene el JSON completo de la misión desde Firestore si no está en local."""

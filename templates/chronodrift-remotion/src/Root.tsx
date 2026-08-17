@@ -1,10 +1,27 @@
 import React from 'react';
 import { Composition } from 'remotion';
 import { ChronoDriftComposition } from './Composition';
+import { DocumentaryComposition } from './DocumentaryComposition';
 
 export const RemotionRoot: React.FC = () => {
   return (
     <>
+      <Composition
+        id="DocumentalUmbralCuantico120s"
+        component={DocumentaryComposition}
+        durationInFrames={7200} // 120 segundos a 60 fps
+        fps={60}
+        width={3840}
+        height={2160}
+        defaultProps={{
+          title: 'El Umbral Cuántico: La Revolución Silenciosa del Silicio',
+          totalDurationSec: 120.0,
+          shots: [],
+          subtitleChunks: [],
+          highlightColor: '#FFD700',
+          textColor: '#FFFFFF'
+        }}
+      />
       <Composition
         id="ChronoDriftMaster"
         component={ChronoDriftComposition}

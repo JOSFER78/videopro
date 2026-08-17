@@ -4,9 +4,13 @@ import re
 from time import perf_counter
 from typing import List
 
-from loguru import logger
-from openai import AzureOpenAI, OpenAI
-from openai.types.chat import ChatCompletion
+try:
+    from openai import AzureOpenAI, OpenAI
+    from openai.types.chat import ChatCompletion
+except ImportError:
+    AzureOpenAI = None
+    OpenAI = None
+    ChatCompletion = None
 
 from app.config import config
 from app.models.llm_provider import DEFAULT_LLM_PROVIDER_ID, get_llm_provider

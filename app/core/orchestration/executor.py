@@ -22,6 +22,12 @@ class WorkflowExecutor:
     def __init__(self, max_retries_per_step: int = 2):
         self.max_retries_per_step = max_retries_per_step
 
+    @classmethod
+    def execute_job_sync(cls, job: ExecutionJob, context: Optional[Dict[str, Any]] = None, max_retries: int = 2) -> ExecutionJob:
+        """Ejecuta un job sincrónicamente usando una instancia de WorkflowExecutor."""
+        executor = cls(max_retries_per_step=max_retries)
+        return executor.execute_job(job, context=context)
+
     def execute_job(self, job: ExecutionJob, context: Optional[Dict[str, Any]] = None) -> ExecutionJob:
         """Ejecuta todos los pasos de un Job, manejando fallbacks y recopilando artefactos."""
         context = context or {}
