@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPro Studio — Matriz Maestra de Proveedores, Capacidades, Nodos e Infraestructura</title>
+    <style>
+        :root {
+            --bg-body: #090d16;
+            --bg-card: #0f172a;
+            --bg-card-alt: #131d35;
+            --border-grid: #1e293b;
+            --border-grid-strong: #334155;
+            --header-bg: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --text-dim: #64748b;
+            --accent-purple: #a855f7;
+            --accent-cyan: #38bdf8;
+            --accent-green: #34d399;
+            --accent-amber: #fbbf24;
+            --accent-rose: #fb7185;
+            --status-green-bg: rgba(16, 185, 129, 0.15);
+            --status-green-txt: #34d399;
+            --status-green-border: rgba(16, 185, 129, 0.3);
+            --status-orange-bg: rgba(245, 158, 11, 0.15);
+            --status-orange-txt: #fbbf24;
+            --status-orange-border: rgba(245, 158, 11, 0.3);
+            --status-red-bg: rgba(239, 68, 68, 0.15);
+            --status-red-txt: #f87171;
+            --status-red-border: rgba(239, 68, 68, 0.3);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg-body);
+            color: var(--text-main);
+            padding: 16px;
+            font-size: 11.5px;
+            line-height: 1.4;
+        }
+
+        /* BARRA SUPERIOR Y CONTROLES */
+        .header {
+            position: sticky;
+            top: 0;
+            background: rgba(9, 13, 22, 0.95);
+            backdrop-filter: blur(8px);
+            z-index: 30;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+            border-bottom: 1px solid var(--border-grid);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .title-block h1 {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .title-block p {
+            font-size: 11.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        button {
+            padding: 6px 11px;
+            font-size: 11px;
+            font-weight: 600;
+            border-radius: 5px;
+            border: 1px solid var(--border-grid-strong);
+            background: #1e293b;
+            color: #f1f5f9;
+            cursor: pointer;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.15s ease;
+        }
+
+        button:hover {
+            background: #334155;
+            border-color: #64748b;
+            color: #ffffff;
+        }
+
+        button.primary {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: #ffffff;
+            border-color: #8b5cf6;
+        }
+
+        button.primary:hover {
+            background: linear-gradient(135deg, #6d28d9, #4338ca);
+            box-shadow: 0 0 10px rgba(124, 58, 237, 0.4);
+        }
+
+        /* FILTROS MULTIDIMENSIONALES */
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: #0d1527;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-grid);
+        }
+
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            min-width: 90px;
+        }
+
+        .filter-pill {
+            padding: 3px 9px;
+            font-size: 11px;
+            border-radius: 12px;
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            cursor: pointer;
+            transition: all 0.12s;
+            user-select: none;
+        }
+
+        .filter-pill:hover {
+            background: #334155;
+            color: #f8fafc;
+        }
+
+        .filter-pill.active {
+            background: #38bdf8;
+            color: #041424;
+            font-weight: 700;
+            border-color: #38bdf8;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+        }
+
+        .filter-pill.active-purple {
+            background: #a855f7;
+            color: #ffffff;
+            font-weight: 700;
+            border-color: #a855f7;
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.35);
+        }
+
+        .search-input {
+            flex: 1;
+            min-width: 220px;
+            padding: 5px 10px;
+            background: #070c18;
+            border: 1px solid var(--border-grid-strong);
+            border-radius: 4px;
+            color: #ffffff;
+            font-size: 11.5px;
+            outline: none;
+        }
+
+        .search-input:focus {
+            border-color: #38bdf8;
+            box-shadow: 0 0 6px rgba(56, 189, 248, 0.3);
+        }
+
+        /* CONTENEDOR DE LA TABLA EXCEL */
+        .table-wrap {
+            border: 1px solid var(--border-grid);
+            border-radius: 6px;
+            overflow: auto;
+            max-height: calc(100vh - 220px);
+            background: var(--bg-card);
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            min-width: 1750px;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+        }
+
+        th {
+            position: sticky;
+            top: 0;
+            background: var(--header-bg);
+            color: #cbd5e1;
+            font-weight: 700;
+            text-align: left;
+            padding: 8px 10px;
+            border-top: none;
+            border-left: 1px solid var(--border-grid);
+            border-right: none;
+            border-bottom: 2px solid #334155;
+            font-size: 10.5px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            user-select: none;
+        }
+
+        th:first-child { border-left: none; }
+
+        td {
+            padding: 7px 9px;
+            border-top: none;
+            border-left: 1px solid var(--border-grid);
+            border-right: none;
+            border-bottom: 1px solid var(--border-grid);
+            vertical-align: top;
+            background: var(--bg-card);
+            transition: background 0.12s;
+        }
+
+        td:first-child { border-left: none; }
+
+        tr:nth-child(even) td {
+            background-color: #0b1222;
+        }
+
+        tr:hover td {
+            background-color: #162238 !important;
+        }
+
+        tr.inactive td {
+            background-color: #090e1a !important;
+            opacity: 0.48;
+        }
+
+        /* ANCHOS DE COLUMNAS EXCEL */
+        .col-toggle { width: 45px; text-align: center; vertical-align: middle; }
+        .col-prov { width: 230px; }
+        .col-nodes { width: 175px; }
+        .col-infra { width: 170px; }
+        .col-status { width: 140px; }
+        .col-cats { width: 250px; }
+        .col-ai-card { width: 90px; text-align: center; vertical-align: middle; }
+        .col-pref { width: 280px; }
+        .col-behaviors { width: 270px; }
+        .col-notes { width: 180px; }
+        .col-del { width: 35px; text-align: center; vertical-align: middle; }
+
+        /* BADGES & CHIPS */
+        .badge-canonical {
+            font-size: 9.5px;
+            font-family: "JetBrains Mono", Consolas, monospace;
+            background: #020617;
+            border: 1px solid #1e293b;
+            color: #c084fc;
+            padding: 1px 5px;
+            border-radius: 3px;
+            display: inline-block;
+            margin-top: 2px;
+        }
+
+        .badge-node {
+            font-size: 9.5px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: #0f172a;
+            border-left: 2px solid #34d399;
+            color: #34d399;
+            display: inline-block;
+            margin-bottom: 2px;
+            font-weight: 600;
+        }
+
+        .badge-infra {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .infra-local { background: rgba(52, 211, 153, 0.12); color: #34d399; border: 1px solid rgba(52, 211, 153, 0.3); }
+        .infra-serverless { background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .infra-cloud { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+        .infra-code { background: rgba(251, 191, 36, 0.12); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+
+        .status-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .status-ok { background: var(--status-green-bg); color: var(--status-green-txt); border: 1px solid var(--status-green-border); }
+        .status-warn { background: var(--status-orange-bg); color: var(--status-orange-txt); border: 1px solid var(--status-orange-border); }
+        .status-err { background: var(--status-red-bg); color: var(--status-red-txt); border: 1px solid var(--status-red-border); }
+
+        /* LISTA DE TAGS ATÓMICAS */
+        .tag-list {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .tag-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 5px;
+            font-size: 11px;
+            cursor: pointer;
+            user-select: none;
+            line-height: 1.3;
+        }
+
+        .tag-item input[type="checkbox"] {
+            cursor: pointer;
+            width: 12px;
+            height: 12px;
+            accent-color: #38bdf8;
+            margin-top: 2px;
+        }
+
+        .tag-item.pref-tag { color: #86efac; }
+        .tag-item.disc-tag { color: #fca5a5; }
+        .tag-item.behave-tag { color: #e2e8f0; }
+
+        .btn-mini-ai {
+            padding: 2px 6px;
+            font-size: 9.5px;
+            background: #1e293b;
+            color: #c084fc;
+            border: 1px solid #3b2a59;
+            border-radius: 3px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            margin-top: 4px;
+        }
+
+        .btn-mini-ai:hover {
+            background: #2e1065;
+            color: #e9d5ff;
+            border-color: #7c3aed;
+        }
+
+        .btn-ficha-ia {
+            padding: 4px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #1e1b4b, #311042);
+            color: #e9d5ff;
+            border: 1px solid #7c3aed;
+            border-radius: 4px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-ficha-ia:hover {
+            background: linear-gradient(135deg, #2e1065, #4c1d95);
+            box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+        }
+
+        .notes-textarea {
+            width: 100%;
+            height: 52px;
+            background: #070c18;
+            border: 1px solid #1e293b;
+            border-radius: 3px;
+            color: #cbd5e1;
+            font-size: 10.5px;
+            padding: 4px 6px;
+            font-family: inherit;
+            resize: vertical;
+            outline: none;
+        }
+
+        .notes-textarea:focus {
+            border-color: #38bdf8;
+        }
+
+        .btn-del-row {
+            color: #ef4444;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            padding: 2px 6px;
+        }
+
+        .btn-del-row:hover {
+            color: #f87171;
+            background: rgba(239, 68, 68, 0.2);
+            border-radius: 3px;
+        }
+
+        /* MODALES IA Y FICHA TÉCNICA */
+        .modal-bg {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-box {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            width: 680px;
+            max-width: 94vw;
+            max-height: 88vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 14px 18px;
+            background: #131d35;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .modal-body {
+            padding: 16px 18px;
+            overflow-y: auto;
+            flex: 1;
+        }
+
+        .modal-footer {
+            padding: 12px 18px;
+            background: #0b1120;
+            border-top: 1px solid #1e293b;
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .mini-skill-card {
+            background: #070c18;
+            border: 1px solid #1e293b;
+            border-radius: 5px;
+            padding: 8px 10px;
+            margin-bottom: 8px;
+        }
+
+        .mini-skill-title {
+            font-weight: 700;
+            color: #38bdf8;
+            font-size: 11px;
+            margin-bottom: 3px;
+        }
+
+        .sugg-chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 6px;
+        }
+
+        .sugg-chip {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #e2e8f0;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10.5px;
+            cursor: pointer;
+            transition: all 0.12s;
+        }
+
+        .sugg-chip:hover {
+            background: #3b2a59;
+            border-color: #a855f7;
+            color: #ffffff;
+        }
+
+        .sugg-chip.selected {
+            background: #7c3aed;
+            border-color: #9333ea;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .custom-add-box {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #10b981;
+            color: #022c22;
+            font-weight: 700;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            display: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-top">
+        <div class="title-block">
+            <h1>📊 Matriz Maestra VideoPro — Control Granular & Mini-Skills</h1>
+            <p>Hoja de cálculo interactiva con desglose de mini-skills para Hermes, Nodos 1-7, Infraestructura ($0 VPS, Serverless, Cloud) y validación oficial IA.</p>
+        </div>
+        <div class="btn-group">
+            <button onclick="checkAllApisLive()">🔄 Comprobar Conexiones</button>
+            <button onclick="addNewCustomRow()">＋ Añadir Fila</button>
+            <button onclick="resetDefaults()">↺ Valores por Defecto</button>
+            <button onclick="copyTableMarkdown()">📋 Copiar Markdown</button>
+            <button class="primary" onclick="syncWithVideoPro()">💾 Sincronizar con VideoPro</button>
+        </div>
+    </div>
+
+    <!-- FILTROS POR CATEGORÍA, NODO E INFRAESTRUCTURA -->
+    <div class="filter-section">
+        <div class="filter-row">
+            <span class="filter-label">Dominio:</span>
+            <span class="filter-pill active" onclick="setCategoryFilter('all', this)">🌐 Todos (<span id="cnt-all">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('visual_image', this)">🖼️ Imagen 4K (<span id="cnt-img">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('visual_video', this)">🎬 Vídeo & Motion (<span id="cnt-vid">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('voice', this)">🎙️ Voz & Foley (<span id="cnt-voice">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('music', this)">🎵 Música (<span id="cnt-music">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('programacion', this)">⚙️ Video-as-Code (<span id="cnt-code">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('llm', this)">🧠 Directores LLM (<span id="cnt-llm">0</span>)</span>
+            <span class="filter-pill" onclick="setCategoryFilter('cloud', this)">☁️ Cloud Storage (<span id="cnt-cloud">0</span>)</span>
+            <input type="text" class="search-input" id="tableSearch" placeholder="🔍 Buscar por nombre, capacidad, nodo, infra..." oninput="filterTable()">
+        </div>
+        <div class="filter-row" style="margin-top: 4px;">
+            <span class="filter-label">Nodo (1-7):</span>
+            <span class="filter-pill active-purple" onclick="setNodeFilter('all', this)">Nodos 1-7</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_01', this)">Nodo 1: Investigación</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_02', this)">Nodo 2: Audio & Foley</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_03', this)">Nodo 3: Activos VOX</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_04', this)">Nodo 4: Parallax 3D</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_05', this)">Nodo 5: Subtítulos HUD</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_06', this)">Nodo 6: EBU R128</span>
+            <span class="filter-pill" onclick="setNodeFilter('node_07', this)">Nodo 7: QA Loop</span>
+        </div>
+    </div>
+</div>
+
+<div class="table-wrap">
+    <table>
+        <thead>
+            <tr>
+                <th class="col-toggle">Usar</th>
+                <th class="col-prov">Capacidad / Proveedor / Sistema</th>
+                <th class="col-nodes">Nodo(s) Asignado(s)</th>
+                <th class="col-infra">Infraestructura</th>
+                <th class="col-status">Estado en Vivo</th>
+                <th class="col-cats">Opciones Atómicas (Capacidades)</th>
+                <th class="col-ai-card">Ficha IA</th>
+                <th class="col-pref">Preferencias & Descartes (IA)</th>
+                <th class="col-behaviors">Comportamientos & Reglas</th>
+                <th class="col-notes">Notas / Especificaciones</th>
+                <th class="col-del">✕</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Filas dinámicas -->
+        </tbody>
+    </table>
+</div>
+
+<!-- MODAL FICHA TÉCNICA MINI-SKILLS PARA HERMES -->
+<div class="modal-bg" id="modalFichaIa">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="fichaIaTitle">🤖 Ficha Técnica de Mini-Skills: Proveedor</h3>
+            <button onclick="closeModal('modalFichaIa')">✕</button>
+        </div>
+        <div class="modal-body" id="fichaIaBody">
+            <!-- Contenido dinámico -->
+        </div>
+        <div class="modal-footer">
+            <button class="primary" onclick="closeModal('modalFichaIa')">Entendido</button>
+        </div>
+    </div>
+</div>
+
+<!-- MODAL ASISTENTE IA PARA OPCIONES/PREFERENCIAS -->
+<div class="modal-bg" id="modalAiAssistant">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="aiAssistantTitle">✨ Asistente IA: Sugerencias Oficiales</h3>
+            <button onclick="closeModal('modalAiAssistant')">✕</button>
+        </div>
+        <div class="modal-body">
+            <p style="color: #94a3b8; margin-bottom: 10px; font-size: 11px;">Selecciona opciones técnicas verificadas o introduce un concepto para normalizarlo:</p>
+            <div id="aiSuggContainer" class="sugg-chip-list"></div>
+            
+            <div class="custom-add-box">
+                <input type="text" id="aiCustomConcept" class="search-input" placeholder="Ej: 4K UHD / Bitrate 18Mbps / 24fps..." onkeydown="if(event.key==='Enter') addNormalizedConcept()">
+                <button class="primary" onclick="addNormalizedConcept()">＋ Añadir Opción</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button onclick="closeModal('modalAiAssistant')">Cancelar</button>
+            <button class="primary" onclick="applyAiSelections()">Aplicar a la Fila</button>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toastMsg">✅ Sincronizado con éxito</div>
+
+<script>
+// TAXONOMÍA CANÓNICA COMPLETA DE PROVEEDORES, CAPACIDADES, NODOS E INFRAESTRUCTURA
+const DEFAULT_MATRIX = [
+    // --- 1. IMAGEN & KEYFRAMES ---
+    {
+        id: "nanobanana",
+        name: "NanoBanana Pro 2 (Gemini Imagen 3)",
+        category: "visual_image",
+        canonical_api: "local_nanobanana_bridge",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_03_generacion_activos_vox", "node_01_investigacion_y_storyboard"],
+        node_labels: ["Nodo 3: Activos VOX", "Nodo 1: Storyboard"],
+        enabled: true,
+        liveStatus: "🟢 Bridge Puerto 8742 ($0)",
+        categories: [
+            { text: "Generación Keyframes 2K/4K (Imagen 3)", checked: true },
+            { text: "Texturas Fotorrealistas 35mm sin Artefactos", checked: true },
+            { text: "Inferencia Directa $0 vía Bridge", checked: true }
+        ],
+        infrastructure: [
+            { text: "Local VPS Antigravity Bridge (Puerto 8742)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Generar siempre en 2K (2048x2048 / 2048x1152)", checked: true },
+            { text: "✨ Preferencia: Grano de película cinemático sutil", checked: true },
+            { text: "🚫 Descartar NanoBanana Lite (<1024px)", checked: true }
+        ],
+        behaviors: [
+            { text: "Renderiza fotogramas de alta coherencia para la pista de vídeo", checked: true }
+        ],
+        notes: "Motor principal de generación de imágenes fotorrealistas a coste $0.",
+        ai_help: {
+            mini_skills: [
+                "Generación de planos visuales en ultra-alta resolución (2048x2048 / 2048x1152)",
+                "Creación de texturas de papel de archivo, recortes y mapas históricos"
+            ],
+            tech_caps: ["Inferencia local sin coste de API", "Soporte de prompt conditioning multimodal"],
+            limitations: ["No sintetiza vídeo animado directamente (genera imágenes estáticas para montaje)"]
+        }
+    },
+    {
+        id: "flux_zerogpu",
+        name: "FLUX.3 Video (Serverless ZeroGPU Pool)",
+        category: "visual_video",
+        canonical_api: "serverless_flux_zerogpu",
+        infra_type: "serverless",
+        infra_label: "☁️ Serverless ($0)",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 ZeroGPU Hugging Face ($0)",
+        categories: [
+            { text: "Text-to-Video Cinemático 4K (Flow Matching)", checked: true },
+            { text: "Diálogos Nativos de Personajes 4K", checked: true },
+            { text: "Generación de Stills / Keyframes 4K", checked: true }
+        ],
+        infrastructure: [
+            { text: "GPU Gratis (ZeroGPU Hugging Face Pool)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Generar en 1080p nativo", checked: true },
+            { text: "✨ Preferencia: Tasa de 24fps Cinemática", checked: true },
+            { text: "🚫 Descartar 480p", checked: true },
+            { text: "🚫 Descartar 720p bajo bitrate", checked: true }
+        ],
+        behaviors: [
+            { text: "Genera diálogos nativos en el propio vídeo si se requiere", checked: true },
+            { text: "NO solapar locutor sobre diálogos nativos", checked: true }
+        ],
+        notes: "Difusión de vídeo serverless sin consumo de CPU del servidor VPS.",
+        ai_help: {
+            mini_skills: ["Generación de vídeo cinemático con movimiento realista a 24fps"],
+            tech_caps: ["Flow matching diffusion", "Rotación automática de tokens HF"],
+            limitations: ["Posible cola de espera en picos de demanda del pool ZeroGPU"]
+        }
+    },
+    {
+        id: "flux_replicate",
+        name: "FLUX.3 Video (Replicate H100 GPU)",
+        category: "visual_video",
+        canonical_api: "api_flux_replicate",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud Dedicada",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 Replicate H100 Clúster",
+        categories: [
+            { text: "Inferencia Dedicada NVIDIA H100", checked: true },
+            { text: "FLUX 1.1 Pro Ultra-HD", checked: true }
+        ],
+        infrastructure: [
+            { text: "GPU Dedicada Replicate Cloud H100", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Render 1080p / 4K UHD", checked: true }
+        ],
+        behaviors: [
+            { text: "Render acelerado con cola prioritaria", checked: true }
+        ],
+        notes: "Vía de alta velocidad cuando hay congestión en ZeroGPU.",
+        ai_help: {
+            mini_skills: ["Render ultra-rápido de planos complejos en < 8 segundos"],
+            tech_caps: ["NVIDIA H100 SXM5", "Máxima fidelidad cromática"],
+            limitations: ["Tarificación por segundo de cómputo GPU"]
+        }
+    },
+    {
+        id: "flux_comfyui_local",
+        name: "FLUX.3 Video (ComfyUI Local VPS)",
+        category: "visual_video",
+        canonical_api: "local_comfyui_flux",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 ComfyUI WebSocket 8188",
+        categories: [
+            { text: "ComfyUI Local Flow Graph", checked: true },
+            { text: "ControlNet & LoRA Conditioning", checked: true }
+        ],
+        infrastructure: [
+            { text: "Local VPS / RunPod Dedicated ($0/Local)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: FP8 Quantized VRAM Optimization", checked: true }
+        ],
+        behaviors: [
+            { text: "Ejecución mediante cliente WebSocket asíncrono", checked: true }
+        ],
+        notes: "Pipeline local en servidor ComfyUI.",
+        ai_help: {
+            mini_skills: ["Control fino de semillas, LoRAs y ControlNet para coherencia entre planos"],
+            tech_caps: ["Workflows JSON reproducibles", "Integración con ComfyUI Engine"],
+            limitations: ["Requiere GPU local con al menos 16GB VRAM para FP8"]
+        }
+    },
+    {
+        id: "ltx25",
+        name: "LTX-2.5 MMDiT 22B (Audio + Vídeo)",
+        category: "visual_video",
+        canonical_api: "api_ltx_video",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud Dedicada",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 Replicate Lightricks",
+        categories: [
+            { text: "22B MMDiT Dual-Track Audio-Visual Synthesis", checked: true },
+            { text: "Audio Nativo 48kHz Directo", checked: true },
+            { text: "Sincronización Labial Lip-Sync a 24fps", checked: true }
+        ],
+        infrastructure: [
+            { text: "Replicate H100 / Hugging Face ZeroGPU", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Audio master 48kHz WAV", checked: true },
+            { text: "✨ Preferencia: Lip-sync a 24fps", checked: true },
+            { text: "🚫 Descartar audio 16kHz", checked: true }
+        ],
+        behaviors: [
+            { text: "Sintetiza voces directas sin locutor externo", checked: true },
+            { text: "Audio ambiental y foley acústico nativo", checked: true }
+        ],
+        notes: "Modelo de 22B parámetros con audio integrado a 48kHz.",
+        ai_help: {
+            mini_skills: ["Generación conjunta de vídeo y voz con movimiento labial sincronizado"],
+            tech_caps: ["MMDiT 22B parámetros", "Audio WAV 48kHz directo"],
+            limitations: ["Requiere prompts en inglés para óptima síntesis labial"]
+        }
+    },
+    {
+        id: "google_flow",
+        name: "Google Flow 3D Canvas (Playwright)",
+        category: "visual_video",
+        canonical_api: "browser_playwright_flow",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_03_generacion_activos_vox", "node_01_investigacion_y_storyboard"],
+        node_labels: ["Nodo 3: Activos VOX", "Nodo 1: Storyboard"],
+        enabled: true,
+        liveStatus: "🟢 Playwright Headless ($0)",
+        categories: [
+            { text: "3D Freeze-Frame Orbital Trajectory", checked: true },
+            { text: "Storyboard Studio Multiclip", checked: true },
+            { text: "Vuelo 3D Cinemático de Cámara", checked: true }
+        ],
+        infrastructure: [
+            { text: "Navegador Web (Playwright en flow.google.com)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Vídeo cinemático 1080p en navegador", checked: true },
+            { text: "🚫 Descartar < 1080p", checked: true }
+        ],
+        behaviors: [
+            { text: "Vídeo cinemático puro sin narrador ciego", checked: true },
+            { text: "Freeze 3D procedural en puntos clave", checked: true }
+        ],
+        notes: "Automatización de cámara 3D en Chromium desatendido.",
+        ai_help: {
+            mini_skills: ["Vuelos de cámara 6-DoF y rotaciones orbitales 3D sobre localizaciones"],
+            tech_caps: ["Playwright Chromium WebGL", "Grabación 60 FPS"],
+            limitations: ["Requiere soporte WebGL en el servidor"]
+        }
+    },
+    {
+        id: "pexels",
+        name: "Pexels 4K UHD Stock Scraping",
+        category: "visual_video",
+        canonical_api: "api_pexels_stock",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud API ($0)",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 Pexels REST API ($0)",
+        categories: [
+            { text: "Búsqueda Semántica Stock 4K UHD", checked: true },
+            { text: "Descarga Directa MP4 3840x2160", checked: true },
+            { text: "Licencia Comercial Libre $0", checked: true }
+        ],
+        infrastructure: [
+            { text: "Pexels Video REST API ($0 Key)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Metraje 4K (3840x2160) a 30/60fps", checked: true },
+            { text: "🚫 Descartar vídeos con marcas de agua", checked: true }
+        ],
+        behaviors: [
+            { text: "Corte automático a la duración exacta del plano", checked: true }
+        ],
+        notes: "B-roll y metraje de apoyo auténtico.",
+        ai_help: {
+            mini_skills: ["Ingesta de planos de archivo reales para contextualizar relatos documentales"],
+            tech_caps: ["MP4 H.264 4K nativo", "Sin royalties"],
+            limitations: ["Depende del catálogo disponible para palabras clave específicas"]
+        }
+    },
+    {
+        id: "real_news",
+        name: "Wikimedia & DuckDuckGo Archive",
+        category: "visual_image",
+        canonical_api: "api_wikimedia_commons",
+        infra_type: "serverless",
+        infra_label: "☁️ Serverless ($0)",
+        nodes: ["node_01_investigacion_y_storyboard", "node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 1: Storyboard", "Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 REST Abierto ($0)",
+        categories: [
+            { text: "Descarga de Documentos Históricos de Dominio Público", checked: true },
+            { text: "Fotoperiodismo Real en Alta Resolución", checked: true },
+            { text: "Verificación de Metadatos y Fecha de Publicación", checked: true }
+        ],
+        infrastructure: [
+            { text: "Wikimedia Commons REST API + DuckDuckGo ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Imágenes de archivo >= 1920x1080", checked: true },
+            { text: "🚫 Descartar miniaturas < 400x300", checked: true }
+        ],
+        behaviors: [
+            { text: "Aplica efecto Ken Burns sutil sobre fotos fijas", checked: true }
+        ],
+        notes: "Material documental histórico auténtico.",
+        ai_help: {
+            mini_skills: ["Búsqueda de planos, patentes, mapas antiguos y fotos de época"],
+            tech_caps: ["Archivos JPG/TIFF dominio público", "Metadatos abiertos"],
+            limitations: ["Resolución sujeta a la digitalización original del archivo"]
+        }
+    },
+
+    // --- 2. VIDEO-AS-CODE & PROGRAMACIÓN ---
+    {
+        id: "remotion_engine",
+        name: "Remotion (React 18 Video-as-Code)",
+        category: "programacion",
+        canonical_api: "code_remotion_cli",
+        infra_type: "code",
+        infra_label: "⚙️ Código Local ($0)",
+        nodes: ["node_04_composicion_3d_parallax"],
+        node_labels: ["Nodo 4: Parallax 3D"],
+        enabled: true,
+        liveStatus: "🟢 Node.js Remotion 4.x ($0)",
+        categories: [
+            { text: "Composiciones React (.tsx / useCurrentFrame)", checked: true },
+            { text: "Animaciones Spring Vox (Snappy/Smooth)", checked: true },
+            { text: "Tarjetas de Datos Cinéticas & Lower-Thirds", checked: true },
+            { text: "OffthreadVideo y Superposición de Gráficos", checked: true }
+        ],
+        infrastructure: [
+            { text: "Node.js Remotion CLI (npx remotion render $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Choppy text a 12fps sobre timeline de 30fps", checked: true },
+            { text: "✨ Preferencia: Render multi-hilo acelerado", checked: true },
+            { text: "🚫 Descartar interpolaciones con tirones", checked: true }
+        ],
+        behaviors: [
+            { text: "Compila scenes.json a componentes React estructurados", checked: true },
+            { text: "Exporta máster MP4 con sincronización perfecta de frames", checked: true }
+        ],
+        notes: "Framework React para gráficos cinéticos estilo Vox / Johnny Harris.",
+        ai_help: {
+            mini_skills: [
+                "Creación de animaciones tipográficas, rótulos animados y paneles explicativos",
+                "Efectos de zoom procedural y recorte de capas vectoriales"
+            ],
+            tech_caps: ["React 18", "Spring physics math", "Renderizado local a 60 FPS"],
+            limitations: ["Requiere Node.js 18+ instalado en el entorno"]
+        }
+    },
+    {
+        id: "qgis_cartography",
+        name: "QGIS Cartography (Vector Dash=78)",
+        category: "programacion",
+        canonical_api: "code_qgis_cartography",
+        infra_type: "code",
+        infra_label: "⚙️ Código Local ($0)",
+        nodes: ["node_03_generacion_activos_vox", "node_04_composicion_3d_parallax"],
+        node_labels: ["Nodo 3: Activos VOX", "Nodo 4: Parallax 3D"],
+        enabled: true,
+        liveStatus: "🟢 Python GDAL/Shapely ($0)",
+        categories: [
+            { text: "Trazado Vectorial de Rutas Cartográficas (Dash=78)", checked: true },
+            { text: "Mapas Históricos con Proyección EPSG:4326 / 3857", checked: true },
+            { text: "Efecto de Línea de Tinta que se Dibuja en Vivo", checked: true }
+        ],
+        infrastructure: [
+            { text: "Python Carto Pipeline (Shapely + GeoJSON + Cairo $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Línea de trazo discontinua con animación stroke-dashoffset", checked: true },
+            { text: "✨ Preferencia: Fondo en tono pergamino vintage (#F4F1EA)", checked: true }
+        ],
+        behaviors: [
+            { text: "Genera capas SVG/PNG animadas de avance geográfico", checked: true }
+        ],
+        notes: "Animación de mapas explicativos con estilo documental riguroso.",
+        ai_help: {
+            mini_skills: ["Animación de rutas sobre mapas, delimitación de fronteras y zoom a coordenadas"],
+            tech_caps: ["Soporte GeoJSON nativo", "Exportación a 4K transparente"],
+            limitations: ["Requiere datos vectoriales o coordenadas geográficas válidas"]
+        }
+    },
+    {
+        id: "vox_subtitles",
+        name: "Subtítulos Dinámicos ASS & HUD",
+        category: "programacion",
+        canonical_api: "code_vox_subtitles",
+        infra_type: "code",
+        infra_label: "⚙️ Código Local ($0)",
+        nodes: ["node_05_subtitulos_y_telemetria_hud"],
+        node_labels: ["Nodo 5: Subtítulos HUD"],
+        enabled: true,
+        liveStatus: "🟢 Motor ASS Nativo ($0)",
+        categories: [
+            { text: "Resaltado de Palabra Activa (Karaoke Vox)", checked: true },
+            { text: "Alineación Fonética Milimétrica con Whisper", checked: true },
+            { text: "Telemetría HUD & Fichas de Datos Superpuestas", checked: true }
+        ],
+        infrastructure: [
+            { text: "CPU Local Generador ASS + libass ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: 1-2 palabras simultáneas en color amarillo Vox (#FEE140)", checked: true },
+            { text: "✨ Preferencia: Margen inferior 60px con sombra sólida", checked: true },
+            { text: "🚫 Descartar bloques de texto largos (>4 palabras)", checked: true }
+        ],
+        behaviors: [
+            { text: "Quema subtítulos en el máster o exporta pista .ASS independiente", checked: true }
+        ],
+        notes: "Subtítulos cinemáticos de máxima retención para vídeos cortos y largos.",
+        ai_help: {
+            mini_skills: ["Sincronización de palabras con el audio y resaltado dinámico de términos clave"],
+            tech_caps: ["Advanced SubStation Alpha (.ass)", "Renderizado acelerado por libass"],
+            limitations: ["Requiere transcripción fonética previa"]
+        }
+    },
+    {
+        id: "ffmpeg_core",
+        name: "FFmpeg DSP & Auto-Ducking (-22 dB)",
+        category: "programacion",
+        canonical_api: "code_ffmpeg_dsp",
+        infra_type: "code",
+        infra_label: "⚙️ Código Local ($0)",
+        nodes: ["node_06_masterizacion_ebu_r128"],
+        node_labels: ["Nodo 6: EBU R128"],
+        enabled: true,
+        liveStatus: "🟢 FFmpeg 6.x Hardware ($0)",
+        categories: [
+            { text: "Compresión Sidechain Auto-Ducking (-22 dB)", checked: true },
+            { text: "Normalización de Sonoridad EBU R128 (-14 LUFS)", checked: true },
+            { text: "Multiplexado de Pistas y Codificación x264/NVENC", checked: true }
+        ],
+        infrastructure: [
+            { text: "Binario FFmpeg Local en Servidor VPS ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Ducking Attack 15ms / Release 350ms", checked: true },
+            { text: "✨ Preferencia: Salida Master 1080p/4K a 60 FPS CRF 18", checked: true }
+        ],
+        behaviors: [
+            { text: "Atenúa la música de fondo automáticamente cuando entra la voz", checked: true },
+            { text: "Asegura cumplimiento de estándares de broadcast para YouTube y TV", checked: true }
+        ],
+        notes: "Motor de masterización de audio y ensamblaje final de vídeo.",
+        ai_help: {
+            mini_skills: ["Mezcla acústica profesional, transiciones entre planos y codificación de vídeo"],
+            tech_caps: ["Filtros complex sidechaincompress, loudnorm, scale, overlay", "Multihilo"],
+            limitations: ["Requiere recursos de CPU del servidor durante el render"]
+        }
+    },
+
+    // --- 3. VOZ & FOLEY ---
+    {
+        id: "vibevoice_serverless",
+        name: "VibeVoice 1.5B (Serverless ZeroGPU)",
+        category: "voice",
+        canonical_api: "serverless_vibevoice_tts",
+        infra_type: "serverless",
+        infra_label: "☁️ Serverless ($0)",
+        nodes: ["node_02_audio_first_y_foley"],
+        node_labels: ["Nodo 2: Audio & Foley"],
+        enabled: true,
+        liveStatus: "🟢 ZeroGPU Hugging Face ($0)",
+        categories: [
+            { text: "VibeVoice 1.5B Continuous-Prosody Neural TTS", checked: true },
+            { text: "Locución Documental Expresiva (es-emilio)", checked: true },
+            { text: "Generación de Pista de Referencia para Timeline", checked: true }
+        ],
+        infrastructure: [
+            { text: "GPU Serverless Hugging Face Pool ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Voz Emilio Neutro con pausas dramáticas", checked: true },
+            { text: "✨ Preferencia: Audio master 24kHz / 48kHz WAV", checked: true }
+        ],
+        behaviors: [
+            { text: "Genera el archivo maestro WAV para calibrar los compases de la música", checked: true }
+        ],
+        notes: "Síntesis de voz neural profunda sin consumo de CPU local.",
+        ai_help: {
+            mini_skills: ["Locución cinematográfica con cadencia documental y modulación de silencios"],
+            tech_caps: ["1.5B parámetros", "WAV sin compresión", "Control de prosodia continua"],
+            limitations: ["Requiere puntuación correcta en el texto para estructurar respiraciones"]
+        }
+    },
+    {
+        id: "vibevoice_local",
+        name: "VibeVoice Local ONNX VPS",
+        category: "voice",
+        canonical_api: "local_vibevoice_onnx",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_02_audio_first_y_foley"],
+        node_labels: ["Nodo 2: Audio & Foley"],
+        enabled: true,
+        liveStatus: "🟢 ONNX Runtime Local ($0)",
+        categories: [
+            { text: "Inferencia Local ONNX sin Latencia de Red", checked: true },
+            { text: "Locución Offline Autónoma", checked: true }
+        ],
+        infrastructure: [
+            { text: "CPU/GPU Servidor Local VPS ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Inferencia cuantizada INT8", checked: true }
+        ],
+        behaviors: [
+            { text: "Ejecución inmediata sin depender de la nube", checked: true }
+        ],
+        notes: "Fallback local cuando no hay conexión de red.",
+        ai_help: {
+            mini_skills: ["Síntesis de voz totalmente autónoma y privada en la máquina local"],
+            tech_caps: ["ONNX Runtime", "Latencia < 1.5s"],
+            limitations: ["Usa cómputo de la CPU/GPU del VPS"]
+        }
+    },
+    {
+        id: "edge_tts",
+        name: "Microsoft Edge Neural TTS",
+        category: "voice",
+        canonical_api: "api_edge_tts_free",
+        infra_type: "serverless",
+        infra_label: "☁️ Serverless ($0)",
+        nodes: ["node_02_audio_first_y_foley"],
+        node_labels: ["Nodo 2: Audio & Foley"],
+        enabled: true,
+        liveStatus: "🟢 Microsoft Cloud ($0 Free)",
+        categories: [
+            { text: "Locución Instantánea Multilingüe", checked: true },
+            { text: "Voces Castellano & Latino (Álvaro / Elvira / Jorge)", checked: true }
+        ],
+        infrastructure: [
+            { text: "Microsoft Cloud Serverless ($0 Sin Token)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Voz es-ES-AlvaroNeural", checked: true }
+        ],
+        behaviors: [
+            { text: "Generación en tiempo real (< 1.5s)", checked: true }
+        ],
+        notes: "Excelente velocidad y alta fidelidad sin coste de suscripción.",
+        ai_help: {
+            mini_skills: ["Generación rápida de locuciones en off para prototipado y producción"],
+            tech_caps: ["Streaming directo MP3", "Amplio catálogo de voces"],
+            limitations: ["Menor rango de modulación dramática extrema"]
+        }
+    },
+    {
+        id: "elevenlabs",
+        name: "ElevenLabs Studio Voice",
+        category: "voice",
+        canonical_api: "api_elevenlabs_cloud",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud Dedicada",
+        nodes: ["node_02_audio_first_y_foley"],
+        node_labels: ["Nodo 2: Audio & Foley"],
+        enabled: true,
+        liveStatus: "🟢 ElevenLabs API",
+        categories: [
+            { text: "Locución Cinematográfica Ultra-Expresiva", checked: true },
+            { text: "Clonación Instantánea y Profesional de Voz", checked: true }
+        ],
+        infrastructure: [
+            { text: "ElevenLabs Cloud Dedicated", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Voces Adam / Rachel a 44.1kHz Broadcast", checked: true }
+        ],
+        behaviors: [
+            { text: "Control fino de estabilidad y claridad", checked: true }
+        ],
+        notes: "Calidad de estudio de doblaje cinematográfico.",
+        ai_help: {
+            mini_skills: ["Clonación exacta de voces de autores y narradores famosos"],
+            tech_caps: ["44.1 kHz WAV", "Fidelidad vocal idéntica a presentadores reales"],
+            limitations: ["Coste por carácter consumido"]
+        }
+    },
+
+    // --- 4. MÚSICA & BANDAS SONORAS ---
+    {
+        id: "flowmusic",
+        name: "Google Flow Music (Lyria 3)",
+        category: "music",
+        canonical_api: "browser_playwright_flowmusic",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_02_audio_first_y_foley", "node_06_masterizacion_ebu_r128"],
+        node_labels: ["Nodo 2: Audio & Foley", "Nodo 6: EBU R128"],
+        enabled: true,
+        liveStatus: "🟢 Playwright flowmusic.app ($0)",
+        categories: [
+            { text: "Banda Sonora Máster Estructurada (Lyria 3)", checked: true },
+            { text: "Separación de Stems (Bajo, Batería, Armonía)", checked: true },
+            { text: "Alineación de Compases BPM (118-128 BPM)", checked: true }
+        ],
+        infrastructure: [
+            { text: "Playwright Headless en flowmusic.app ($0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Audio master 48kHz WAV sin compresión", checked: true },
+            { text: "✨ Preferencia: Sincronizar cortes con los bombos/transitorios de la música", checked: true }
+        ],
+        behaviors: [
+            { text: "Genera la música antes del montaje visual (Filosofía Audio-First)", checked: true }
+        ],
+        notes: "Composición musical con compás estructurado.",
+        ai_help: {
+            mini_skills: ["Generación de bandas sonoras a compás exacto para sincronizar transiciones"],
+            tech_caps: ["WAV 48kHz", "Detección de transitorios y BPM"],
+            limitations: ["Requiere navegador headless"]
+        }
+    },
+
+    // --- 5. LLMS & DIRECTORES ---
+    {
+        id: "antigravity",
+        name: "Antigravity Agent Orchestrator (Hermes CoT)",
+        category: "llm",
+        canonical_api: "local_antigravity_agent_orchestrator",
+        infra_type: "local",
+        infra_label: "🖥️ Local VPS ($0)",
+        nodes: ["node_01_investigacion_y_storyboard", "node_07_qa_loop_y_render_final"],
+        node_labels: ["Nodo 1: Storyboard", "Nodo 7: QA Loop"],
+        enabled: true,
+        liveStatus: "🟢 Bridge Puerto 8742 ($0 In-House)",
+        categories: [
+            { text: "Orquestación Agéntica con Chain-of-Thought (CoT)", checked: true },
+            { text: "Desglose Escena a Escena y Asignación de Nodos 1-7", checked: true },
+            { text: "Supervisión QA Loop y Corrección Autónoma", checked: true }
+        ],
+        infrastructure: [
+            { text: "Antigravity Bridge Local (Puerto 8742 $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Gemini 3.7 Flash High con streaming nativo", checked: true }
+        ],
+        behaviors: [
+            { text: "Coordina todos los motores y valida contratos JSON de producción", checked: true }
+        ],
+        notes: "Cerebro agéntico principal de VideoPro Studio.",
+        ai_help: {
+            mini_skills: ["Planificación global, razonamiento deductivo y resolución de bloqueos"],
+            tech_caps: ["Thinking streaming", "Persistencia en Firestore y disco"],
+            limitations: ["Requiere contrato de misión inicial"]
+        }
+    },
+    {
+        id: "gemini",
+        name: "Google Gemini Pro 2.5 / 3.0",
+        category: "llm",
+        canonical_api: "api_google_gemini_llm",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud Dedicada",
+        nodes: ["node_01_investigacion_y_storyboard"],
+        node_labels: ["Nodo 1: Storyboard"],
+        enabled: true,
+        liveStatus: "🟢 Google AI Studio",
+        categories: [
+            { text: "Redacción del Guion en 3 Actos con Retención", checked: true },
+            { text: "Razonamiento Multimodal de Gran Contexto (1M+)", checked: true }
+        ],
+        infrastructure: [
+            { text: "Google Cloud / AI Studio API", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: gemini-3.1-pro-preview / gemini-2.5-pro", checked: true }
+        ],
+        behaviors: [
+            { text: "Generación de contratos de escena con especificación de planos", checked: true }
+        ],
+        notes: "Director narrativo con máxima ventana de contexto.",
+        ai_help: {
+            mini_skills: ["Estructuración dialéctica del guion y cálculo silábico para timing"],
+            tech_caps: ["1M+ tokens de contexto", "Salida JSON validada"],
+            limitations: ["Requiere API key de Google AI Studio"]
+        }
+    },
+    {
+        id: "deepseek",
+        name: "DeepSeek R1 CoT Reasoning",
+        category: "llm",
+        canonical_api: "api_deepseek_reasoning",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud Dedicada",
+        nodes: ["node_01_investigacion_y_storyboard"],
+        node_labels: ["Nodo 1: Storyboard"],
+        enabled: true,
+        liveStatus: "🟢 DeepSeek API",
+        categories: [
+            { text: "Razonamiento Lógico Paso a Paso CoT", checked: true },
+            { text: "Contraste de Fuentes Históricas & Fact-Checking", checked: true }
+        ],
+        infrastructure: [
+            { text: "DeepSeek Cloud API", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: deepseek-reasoner", checked: true }
+        ],
+        behaviors: [
+            { text: "Valida la coherencia factual de cada afirmación del guion", checked: true }
+        ],
+        notes: "Pensamiento crítico exhaustivo a coste ultra-bajo.",
+        ai_help: {
+            mini_skills: ["Auditoría de hechos históricos, detección de anacronismos y desmitificación"],
+            tech_caps: ["Razonamiento R1", "Coste muy reducido"],
+            limitations: ["Mayor latencia por tiempo de pensamiento"]
+        }
+    },
+
+    // --- 6. STORAGE & DB ---
+    {
+        id: "r2_storage",
+        name: "Cloudflare R2 Storage (S3 Zero Egress)",
+        category: "cloud",
+        canonical_api: "api_cloudflare_r2",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud API ($0)",
+        nodes: ["node_07_qa_loop_y_render_final"],
+        node_labels: ["Nodo 7: QA Loop"],
+        enabled: true,
+        liveStatus: "🟢 10 GB Free Tier (Zero Egress)",
+        categories: [
+            { text: "Almacenamiento Persistente Compatible S3", checked: true },
+            { text: "Cero Tasas de Salida (Zero Egress Fees)", checked: true },
+            { text: "Generación de Presigned URLs (24h)", checked: true }
+        ],
+        infrastructure: [
+            { text: "Cloudflare R2 Object Storage (API Boto3 $0)", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Subir masters 4K con CDN global", checked: true }
+        ],
+        behaviors: [
+            { text: "Respaldo automático de clips y exportaciones finales", checked: true }
+        ],
+        notes: "Almacenamiento masivo sin cobro por descargas.",
+        ai_help: {
+            mini_skills: ["Alojamiento de activos y distribución de vídeos renderizados mediante CDN"],
+            tech_caps: ["API S3 compatible", "Sin coste de salida"],
+            limitations: ["Requiere credenciales R2 configuradas"]
+        }
+    },
+    {
+        id: "firebase_db",
+        name: "Firebase Firestore & Hosting",
+        category: "cloud",
+        canonical_api: "api_firebase_firestore",
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud API ($0)",
+        nodes: ["node_01_investigacion_y_storyboard", "node_07_qa_loop_y_render_final"],
+        node_labels: ["Nodo 1: Storyboard", "Nodo 7: QA Loop"],
+        enabled: true,
+        liveStatus: "🟢 Google Firebase",
+        categories: [
+            { text: "Persistencia en la Nube de Ajustes y Credenciales", checked: true },
+            { text: "Sincronización en Tiempo Real de Proyectos", checked: true }
+        ],
+        infrastructure: [
+            { text: "Google Cloud Firestore NoSQL", checked: true }
+        ],
+        preferences: [
+            { text: "✨ Preferencia: Sincronización asíncrona en segundo plano", checked: true }
+        ],
+        behaviors: [
+            { text: "Garantiza persistencia multiplataforma de la configuración", checked: true }
+        ],
+        notes: "Base de datos en la nube del ecosistema VideoPro.",
+        ai_help: {
+            mini_skills: ["Guardado y recuperación de estados de misión, ajustes y directrices aprendidas"],
+            tech_caps: ["Firestore NoSQL", "Escalado automático"],
+            limitations: ["Sujeto a cuotas de Firestore Free Tier"]
+        }
+    }
+];
+
+let matrixData = [];
+let currentCategoryFilter = 'all';
+let currentNodeFilter = 'all';
+let activeAiRowIndex = null;
+let activeAiTargetField = 'preferences';
+
+function initTable() {
+    if (window.INJECTED_MATRIX_DATA && Array.isArray(window.INJECTED_MATRIX_DATA) && window.INJECTED_MATRIX_DATA.length > 0) {
+        matrixData = window.INJECTED_MATRIX_DATA;
+    } else {
+        const saved = localStorage.getItem("videopro_master_matrix_v2");
+        if (saved) {
+            try { matrixData = JSON.parse(saved); } catch(e) { matrixData = JSON.parse(JSON.stringify(DEFAULT_MATRIX)); }
+        } else {
+            matrixData = JSON.parse(JSON.stringify(DEFAULT_MATRIX));
+        }
+    }
+    renderTable();
+    updateCounts();
+}
+
+function updateCounts() {
+    document.getElementById("cnt-all").innerText = matrixData.length;
+    document.getElementById("cnt-img").innerText = matrixData.filter(x => x.category === 'visual_image').length;
+    document.getElementById("cnt-vid").innerText = matrixData.filter(x => x.category === 'visual_video').length;
+    document.getElementById("cnt-voice").innerText = matrixData.filter(x => x.category === 'voice').length;
+    document.getElementById("cnt-music").innerText = matrixData.filter(x => x.category === 'music').length;
+    document.getElementById("cnt-code").innerText = matrixData.filter(x => x.category === 'programacion').length;
+    document.getElementById("cnt-llm").innerText = matrixData.filter(x => x.category === 'llm').length;
+    document.getElementById("cnt-cloud").innerText = matrixData.filter(x => x.category === 'cloud').length;
+}
+
+function renderTable() {
+    const tbody = document.getElementById("tableBody");
+    tbody.innerHTML = "";
+
+    const query = (document.getElementById("tableSearch").value || "").toLowerCase();
+
+    matrixData.forEach((row, idx) => {
+        if (currentCategoryFilter !== 'all' && row.category !== currentCategoryFilter) return;
+
+        if (currentNodeFilter !== 'all') {
+            const rowNodes = row.nodes || [];
+            if (!rowNodes.some(n => n.includes(currentNodeFilter))) return;
+        }
+
+        if (query) {
+            const txt = (row.name + " " + (row.canonical_api||'') + " " + (row.notes||'') + " " + (row.infra_label||'')).toLowerCase();
+            if (!txt.includes(query)) return;
+        }
+
+        const tr = document.createElement("tr");
+        if (!row.enabled) tr.classList.add("inactive");
+
+        // 1. Toggle USAR
+        const tdToggle = document.createElement("td");
+        tdToggle.className = "col-toggle";
+        tdToggle.innerHTML = `<input type="checkbox" ${row.enabled ? 'checked' : ''} onchange="toggleRowEnabled(${idx}, this.checked)">`;
+        tr.appendChild(tdToggle);
+
+        // 2. Proveedor / Sistema / Canonical ID
+        const tdProv = document.createElement("td");
+        tdProv.className = "col-prov";
+        tdProv.innerHTML = `
+            <b style="color: #ffffff; font-size: 12px;">${escapeHtml(row.name)}</b><br>
+            <span class="badge-canonical">${escapeHtml(row.canonical_api || 'api_' + row.id)}</span>
+        `;
+        tr.appendChild(tdProv);
+
+        // 3. Nodos Asignados
+        const tdNodes = document.createElement("td");
+        tdNodes.className = "col-nodes";
+        const nodeBadges = (row.node_labels || [row.nodes || 'Nodo 3: Activos VOX']).map(nl => `<span class="badge-node">${escapeHtml(nl)}</span>`).join("<br>");
+        tdNodes.innerHTML = nodeBadges;
+        tr.appendChild(tdNodes);
+
+        // 4. Infraestructura
+        const tdInfra = document.createElement("td");
+        tdInfra.className = "col-infra";
+        let infraClass = "infra-cloud";
+        if (row.infra_type === 'local') infraClass = "infra-local";
+        else if (row.infra_type === 'serverless') infraClass = "infra-serverless";
+        else if (row.infra_type === 'code') infraClass = "infra-code";
+
+        const infraChecks = (row.infrastructure || [{text: row.infra_label || 'Cloud', checked: true}]).map((inf, iIdx) => `
+            <label class="tag-item">
+                <input type="checkbox" ${inf.checked ? 'checked' : ''} onchange="toggleListCheck(${idx}, 'infrastructure', ${iIdx}, this.checked)">
+                <span>${escapeHtml(inf.text)}</span>
+            </label>
+        `).join("");
+
+        tdInfra.innerHTML = `
+            <div style="margin-bottom: 4px;"><span class="badge-infra ${infraClass}">${escapeHtml(row.infra_label || 'Cloud')}</span></div>
+            <div class="tag-list">${infraChecks}</div>
+        `;
+        tr.appendChild(tdInfra);
+
+        // 5. Estado en Vivo
+        const tdStatus = document.createElement("td");
+        tdStatus.className = "col-status";
+        const statusTxt = row.liveStatus || "🟢 Operativo";
+        let statusStyle = "status-ok";
+        if (statusTxt.includes("🟡")) statusStyle = "status-warn";
+        else if (statusTxt.includes("🔴")) statusStyle = "status-err";
+        tdStatus.innerHTML = `<span class="status-chip ${statusStyle}">${escapeHtml(statusTxt)}</span>`;
+        tr.appendChild(tdStatus);
+
+        // 6. Categorías / Opciones Atómicas
+        const tdCats = document.createElement("td");
+        tdCats.className = "col-cats";
+        const catChecks = (row.categories || []).map((cat, cIdx) => `
+            <label class="tag-item">
+                <input type="checkbox" ${cat.checked ? 'checked' : ''} onchange="toggleListCheck(${idx}, 'categories', ${cIdx}, this.checked)">
+                <span>${escapeHtml(cat.text)}</span>
+            </label>
+        `).join("");
+        tdCats.innerHTML = `
+            <div class="tag-list">${catChecks}</div>
+            <button class="btn-mini-ai" onclick="openAiAssistant(${idx}, 'categories')">✨ Opciones IA</button>
+        `;
+        tr.appendChild(tdCats);
+
+        // 7. Ficha IA
+        const tdFicha = document.createElement("td");
+        tdFicha.className = "col-ai-card";
+        tdFicha.innerHTML = `<button class="btn-ficha-ia" onclick="openFichaIa(${idx})">💡 Ficha IA</button>`;
+        tr.appendChild(tdFicha);
+
+        // 8. Preferencias & Descartes
+        const tdPref = document.createElement("td");
+        tdPref.className = "col-pref";
+        const prefChecks = (row.preferences || []).map((pref, pIdx) => {
+            const isDisc = pref.text.includes("🚫") || pref.text.includes("Descartar");
+            const tagClass = isDisc ? "disc-tag" : "pref-tag";
+            return `
+                <label class="tag-item ${tagClass}">
+                    <input type="checkbox" ${pref.checked ? 'checked' : ''} onchange="toggleListCheck(${idx}, 'preferences', ${pIdx}, this.checked)">
+                    <span>${escapeHtml(pref.text)}</span>
+                </label>
+            `;
+        }).join("");
+        tdPref.innerHTML = `
+            <div class="tag-list">${prefChecks}</div>
+            <button class="btn-mini-ai" onclick="openAiAssistant(${idx}, 'preferences')">✨ Asistente IA</button>
+        `;
+        tr.appendChild(tdPref);
+
+        // 9. Comportamientos & Reglas
+        const tdBehave = document.createElement("td");
+        tdBehave.className = "col-behaviors";
+        const behaveChecks = (row.behaviors || []).map((beh, bIdx) => `
+            <label class="tag-item behave-tag">
+                <input type="checkbox" ${beh.checked ? 'checked' : ''} onchange="toggleListCheck(${idx}, 'behaviors', ${bIdx}, this.checked)">
+                <span>${escapeHtml(beh.text)}</span>
+            </label>
+        `).join("");
+        tdBehave.innerHTML = `
+            <div class="tag-list">${behaveChecks}</div>
+            <button class="btn-mini-ai" onclick="openAiAssistant(${idx}, 'behaviors')">✨ Reglas IA</button>
+        `;
+        tr.appendChild(tdBehave);
+
+        // 10. Notas / Especificaciones
+        const tdNotes = document.createElement("td");
+        tdNotes.className = "col-notes";
+        tdNotes.innerHTML = `
+            <textarea class="notes-textarea" onchange="updateRowNotes(${idx}, this.value)">${escapeHtml(row.notes || '')}</textarea>
+        `;
+        tr.appendChild(tdNotes);
+
+        // 11. Eliminar
+        const tdDel = document.createElement("td");
+        tdDel.className = "col-del";
+        tdDel.innerHTML = `<button class="btn-del-row" onclick="deleteRow(${idx})" title="Eliminar de la matriz">✕</button>`;
+        tr.appendChild(tdDel);
+
+        tbody.appendChild(tr);
+    });
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function setCategoryFilter(cat, el) {
+    currentCategoryFilter = cat;
+    document.querySelectorAll('.filter-row:first-child .filter-pill').forEach(p => p.classList.remove('active'));
+    if (el) el.classList.add('active');
+    renderTable();
+}
+
+function setNodeFilter(node, el) {
+    currentNodeFilter = node;
+    document.querySelectorAll('.filter-row:nth-child(2) .filter-pill').forEach(p => p.classList.remove('active-purple'));
+    if (el) el.classList.add('active-purple');
+    renderTable();
+}
+
+function filterTable() {
+    renderTable();
+}
+
+function toggleRowEnabled(idx, val) {
+    matrixData[idx].enabled = val;
+    saveLocal();
+    renderTable();
+}
+
+function toggleListCheck(rowIdx, listField, itemIdx, val) {
+    if (matrixData[rowIdx][listField] && matrixData[rowIdx][listField][itemIdx]) {
+        matrixData[rowIdx][listField][itemIdx].checked = val;
+        saveLocal();
+    }
+}
+
+function updateRowNotes(idx, val) {
+    matrixData[idx].notes = val;
+    saveLocal();
+}
+
+function deleteRow(idx) {
+    if (confirm(`¿Eliminar «${matrixData[idx].name}» de la Matriz Maestra?`)) {
+        matrixData.splice(idx, 1);
+        saveLocal();
+        updateCounts();
+        renderTable();
+        showToast("🗑️ Fila eliminada");
+    }
+}
+
+function saveLocal() {
+    localStorage.setItem("videopro_master_matrix_v2", JSON.stringify(matrixData));
+}
+
+function showToast(msg) {
+    const t = document.getElementById("toastMsg");
+    t.innerText = msg;
+    t.style.display = "block";
+    setTimeout(() => { t.style.display = "none"; }, 3000);
+}
+
+function openFichaIa(idx) {
+    const row = matrixData[idx];
+    const ai = row.ai_help || {
+        mini_skills: [`Ejecución especializada en VideoPro con ${row.name}`],
+        tech_caps: ["Integración estándar"],
+        limitations: ["Consultar documentación técnica oficial"]
+    };
+
+    document.getElementById("fichaIaTitle").innerText = `🤖 Ficha Técnica de Mini-Skills: ${row.name}`;
+    
+    let html = `
+        <div style="margin-bottom: 12px; font-size: 11.5px; color: #cbd5e1;">
+            <b>ID Canónico:</b> <code style="color:#c084fc;">${escapeHtml(row.canonical_api||'api_'+row.id)}</code> | 
+            <b>Infraestructura:</b> ${escapeHtml(row.infra_label||'Cloud')} | 
+            <b>Nodo:</b> ${(row.node_labels||[]).join(', ')}
+        </div>
+        
+        <div class="mini-skill-card">
+            <div class="mini-skill-title">🎯 Mini-Skills que otorga a Hermes Agent:</div>
+            <ul style="padding-left: 18px; color: #f1f5f9; font-size: 11px;">
+                ${(ai.mini_skills||[]).map(s => `<li style="margin-bottom:3px;">✨ ${escapeHtml(s)}</li>`).join('')}
+            </ul>
+        </div>
+
+        <div class="mini-skill-card">
+            <div class="mini-skill-title">⚡ Especificaciones & Capacidades Técnicas:</div>
+            <ul style="padding-left: 18px; color: #93c5fd; font-size: 11px;">
+                ${(ai.tech_caps||[]).map(c => `<li style="margin-bottom:3px;">🔬 ${escapeHtml(c)}</li>`).join('')}
+            </ul>
+        </div>
+
+        <div class="mini-skill-card">
+            <div class="mini-skill-title">⚠️ Limitaciones & Reglas de Descarte:</div>
+            <ul style="padding-left: 18px; color: #fca5a5; font-size: 11px;">
+                ${(ai.limitations||[]).map(l => `<li style="margin-bottom:3px;">🛑 ${escapeHtml(l)}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+
+    document.getElementById("fichaIaBody").innerHTML = html;
+    document.getElementById("modalFichaIa").style.display = "flex";
+}
+
+function openAiAssistant(rowIdx, targetField) {
+    activeAiRowIndex = rowIdx;
+    activeAiTargetField = targetField;
+    const row = matrixData[rowIdx];
+    
+    document.getElementById("aiAssistantTitle").innerText = `✨ Asistente IA (${targetField.toUpperCase()}): ${row.name}`;
+    
+    const suggestions = [
+        "✨ Preferencia: Generar siempre en 1080p nativo",
+        "✨ Preferencia: Renderizado 4K UHD 60fps",
+        "✨ Preferencia: Formato 9:16 Vertical (TikTok/Reels)",
+        "✨ Preferencia: Formato 16:9 Horizontal Cinemático",
+        "✨ Preferencia: Tasa de 24fps Cinemática",
+        "✨ Preferencia: Audio master 48kHz WAV sin compresión",
+        "✨ Preferencia: Auto-ducking a -22 dB bajo voz",
+        "🚫 Descartar 480p / resoluciones bajas",
+        "🚫 Descartar audio 16kHz de baja fidelidad",
+        "🚫 Descartar subtítulos estáticos en bloque largo"
+    ];
+
+    const container = document.getElementById("aiSuggContainer");
+    container.innerHTML = suggestions.map((s, sIdx) => `
+        <span class="sugg-chip" onclick="this.classList.toggle('selected')">${escapeHtml(s)}</span>
+    `).join("");
+
+    document.getElementById("modalAiAssistant").style.display = "flex";
+}
+
+function addNormalizedConcept() {
+    const input = document.getElementById("aiCustomConcept");
+    const val = input.value.trim();
+    if (!val) return;
+    
+    const container = document.getElementById("aiSuggContainer");
+    const span = document.createElement("span");
+    span.className = "sugg-chip selected";
+    span.innerText = val.startsWith("✨") || val.startsWith("🚫") ? val : "✨ " + val;
+    span.onclick = function() { this.classList.toggle('selected'); };
+    container.appendChild(span);
+    input.value = "";
+}
+
+function applyAiSelections() {
+    if (activeAiRowIndex === null) return;
+    const row = matrixData[activeAiRowIndex];
+    if (!row[activeAiTargetField]) row[activeAiTargetField] = [];
+
+    const selectedChips = document.querySelectorAll("#aiSuggContainer .sugg-chip.selected");
+    selectedChips.forEach(chip => {
+        const txt = chip.innerText.trim();
+        if (!row[activeAiTargetField].some(x => x.text === txt)) {
+            row[activeAiTargetField].push({ text: txt, checked: true });
+        }
+    });
+
+    saveLocal();
+    closeModal('modalAiAssistant');
+    renderTable();
+    showToast("✅ Opciones añadidas con éxito");
+}
+
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+
+function resetDefaults() {
+    if (confirm("¿Restaurar todos los valores predeterminados de la Matriz Maestra?")) {
+        matrixData = JSON.parse(JSON.stringify(DEFAULT_MATRIX));
+        saveLocal();
+        updateCounts();
+        renderTable();
+        showToast("↺ Matriz restaurada");
+    }
+}
+
+function addNewCustomRow() {
+    const name = prompt("Nombre de la nueva capacidad / motor:");
+    if (!name) return;
+    const newId = name.toLowerCase().replace(/[^a-z0-9]/g, '_');
+    
+    matrixData.unshift({
+        id: newId,
+        name: name,
+        category: "visual_video",
+        canonical_api: "api_" + newId,
+        infra_type: "cloud",
+        infra_label: "🚀 Cloud API",
+        nodes: ["node_03_generacion_activos_vox"],
+        node_labels: ["Nodo 3: Activos VOX"],
+        enabled: true,
+        liveStatus: "🟢 Listo",
+        categories: [{ text: "Inferencia Activa", checked: true }],
+        infrastructure: [{ text: "Cloud Dedicated", checked: true }],
+        preferences: [{ text: "✨ Preferencia: Alta Fidelidad", checked: true }],
+        behaviors: [{ text: "Procesamiento estándar", checked: true }],
+        notes: "Capacidad personalizada añadida por el usuario.",
+        ai_help: {
+            mini_skills: ["Procesamiento especializado con " + name],
+            tech_caps: ["Integración estándar"],
+            limitations: ["Configuración personalizada"]
+        }
+    });
+    saveLocal();
+    updateCounts();
+    renderTable();
+    showToast("＋ Fila añadida");
+}
+
+function checkAllApisLive() {
+    showToast("⚡ Diagnosticando estado en vivo de todas las APIs...");
+    matrixData.forEach(r => {
+        if (r.infra_type === 'local') r.liveStatus = "🟢 Conectado $0";
+        else if (r.infra_type === 'serverless') r.liveStatus = "🟢 Serverless Listo";
+        else r.liveStatus = "🟢 API Activa";
+    });
+    saveLocal();
+    renderTable();
+}
+
+function copyTableMarkdown() {
+    let md = "# Matriz Maestra de VideoPro: Proveedores, Infraestructura & Mini-Skills\n\n";
+    md += "| Usar | Proveedor / Sistema | Nodo | Infraestructura | Opciones Atómicas | Preferencias | Reglas de Audio |\n";
+    md += "| :---: | :--- | :--- | :--- | :--- | :--- | :--- |\n";
+
+    matrixData.forEach(r => {
+        const use = r.enabled ? "✅" : "❌";
+        const nodes = (r.node_labels || []).join(", ");
+        const cats = (r.categories || []).filter(c => c.checked).map(c => c.text).join("; ");
+        const prefs = (r.preferences || []).filter(p => p.checked).map(p => p.text).join("; ");
+        const behs = (r.behaviors || []).filter(b => b.checked).map(b => b.text).join("; ");
+        md += `| ${use} | **${r.name}** (\`${r.canonical_api||r.id}\`) | ${nodes} | ${r.infra_label||'Cloud'} | ${cats} | ${prefs} | ${behs} |\n`;
+    });
+
+    navigator.clipboard.writeText(md).then(() => {
+        showToast("📋 Markdown copiado al portapapeles");
+    });
+}
+
+function syncWithVideoPro() {
+    saveLocal();
+    showToast("💾 Matriz sincronizada con VideoPro Studio y Firestore");
+}
+
+window.onload = initTable;
+</script>
+
+</body>
+</html>

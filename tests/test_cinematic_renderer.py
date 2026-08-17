@@ -23,7 +23,7 @@ class TestCinematicRendererAndOntology(unittest.TestCase):
     def test_ontology_vox_integration(self):
         """Verifica que el arquetipo VOX y sus capacidades asociadas estén en el registro maestro."""
         self.assertIn("workflow_vox_investigative_doc", SYSTEM_WORKFLOWS)
-        self.assertIn("node_07_cartografia_y_paralaje_3d", SYSTEM_NODES)
+        self.assertIn("node_04_composicion_3d_parallax", SYSTEM_NODES)
         self.assertIn("cap_vox_paper_parallax_3d", SYSTEM_CAPABILITIES)
         self.assertIn("cap_vox_cinematic_map_3d", SYSTEM_CAPABILITIES)
         self.assertIn("cap_kinetic_word_subtitles", SYSTEM_CAPABILITIES)

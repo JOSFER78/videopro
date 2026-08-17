@@ -630,38 +630,34 @@ def _render_learning_memory_tab():
                             {lesson.severity.value}
                         </span>
                         <span style="font-size: 11px; background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); padding: 2px 8px; border-radius: 8px;">
-                            ID: <code>{lesson.rule_id}</code>
+                            ID: <code>{lesson.id}</code>
                         </span>
                         <span style="font-size: 11px; background: rgba(16, 185, 129, 0.12); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 8px; border-radius: 8px;">
-                            ⭐ Éxito: {int(lesson.success_rate * 100)}% ({lesson.times_applied} ejecuciones)
+                            ⭐ Éxito: {int(lesson.success_rating * 100)}% ({lesson.applied_count} ejecuciones)
                         </span>
                     </div>
                 """, unsafe_allow_html=True)
-
-                st.markdown(f"**Descripción del Principio:**\n{lesson.description}")
 
                 anti_c, golden_c = st.columns(2)
                 with anti_c:
                     st.markdown(f"""
                         <div style="background: rgba(239, 68, 68, 0.08); border-left: 3px solid #ef4444; padding: 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;">
-                            <strong style="color: #f87171;">❌ Anti-Patrón (Error Detectado):</strong>
-                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.anti_pattern}</p>
+                            <strong style="color: #f87171;">❌ Anti-Patrón (Causa de Fallo Previa):</strong>
+                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.what_failed}</p>
                         </div>
                     """, unsafe_allow_html=True)
                 with golden_c:
                     st.markdown(f"""
                         <div style="background: rgba(16, 185, 129, 0.08); border-left: 3px solid #10b981; padding: 10px; border-radius: 0 6px 6px 0; margin-bottom: 8px;">
-                            <strong style="color: #4ade80;">✨ Estándar Dorado (Regla de Producción):</strong>
-                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.golden_standard}</p>
+                            <strong style="color: #4ade80;">✨ Regla Áurea Obligatoria:</strong>
+                            <p style="font-size: 12px; color: #cbd5e1; margin: 4px 0 0 0;">{lesson.golden_rule}</p>
                         </div>
                     """, unsafe_allow_html=True)
 
-                if lesson.recommended_params:
-                    st.markdown("**Parámetros y Directrices Óptimas Inyectadas:**")
-                    st.json(lesson.recommended_params)
-
-                st.markdown(f"**Nodos Afectados:** {', '.join([f'`{n}`' for n in lesson.applicable_nodes])}")
-                st.markdown(f"**Workflows Vinculados:** {', '.join([f'`{w}`' for w in lesson.applicable_workflows])}")
+                nodes_str = ", ".join([f"`{n}`" for n in lesson.applicable_nodes]) if lesson.applicable_nodes else "`TODOS`"
+                wf_str = ", ".join([f"`{w}`" for w in lesson.applicable_workflows]) if lesson.applicable_workflows else "`ALL`"
+                st.markdown(f"**Nodos Afectados:** {nodes_str}")
+                st.markdown(f"**Workflows Vinculados:** {wf_str}")
 
     # =========================================================================
     # SUBTAB 2: HISTORIAL DE CRÍTICAS & EVALUACIONES
@@ -709,7 +705,6 @@ def _render_learning_memory_tab():
 
         for metric in all_metrics:
             mode_badge = "🆓 SERVERLESS FREE" if metric.mode == ProviderExecutionMode.FREE_SERVERLESS else ("⚡ DEDICATED GPU" if metric.mode == ProviderExecutionMode.RUNPOD_GPU else ("🌐 REPLICATE API" if metric.mode == ProviderExecutionMode.REPLICATE_API else "🖥️ LOCAL VPS"))
-            mode_color = "#10b981" if metric.mode == ProviderExecutionMode.FREE_SERVERLESS else ("#38bdf8" if metric.mode == ProviderExecutionMode.REPLICATE_API else "#f59e0b")
 
             with st.expander(f"⚙️ {metric.capability_id} ➔ {metric.provider_name} ({mode_badge})", expanded=True):
                 p_c1, p_c2, p_c3, p_c4 = st.columns(4)
@@ -722,10 +717,8 @@ def _render_learning_memory_tab():
                 with p_c4:
                     st.metric("Coste por Render", f"${metric.cost_per_generation}")
 
-                if metric.recommendations:
-                    st.info(f"💡 **Recomendación:** {metric.recommendations}")
-                if metric.failover_provider:
-                    st.caption(f"🔄 **Proveedor de Respaldo (Failover):** `{metric.failover_provider}`")
+                if metric.notes:
+                    st.info(f"💡 **Observaciones:** {metric.notes}")
 
     # =========================================================================
     # SUBTAB 4: REGISTRAR NUEVA LECCIÓN
@@ -737,7 +730,6 @@ def _render_learning_memory_tab():
             nl_title = st.text_input("Título de la Lección:", value="Nuevo Estándar de Calidad")
             nl_cat = st.selectbox("Categoría:", [c.value for c in LessonCategory], index=0)
             nl_sev = st.selectbox("Severidad:", [s.value for s in LessonSeverity], index=1)
-            nl_desc = st.text_area("Descripción / Principio General:", value="Explicación detallada del estándar que debe cumplirse.")
             
             col_ap, col_gs = st.columns(2)
             with col_ap:
@@ -754,17 +746,16 @@ def _render_learning_memory_tab():
             btn_submit_lesson = st.form_submit_button("💾 Guardar Lección y Sincronizar en Memoria", type="primary")
             if btn_submit_lesson:
                 new_lesson_obj = LearnedLesson(
-                    rule_id=nl_id.strip(),
+                    id=nl_id.strip(),
                     category=LessonCategory(nl_cat),
                     severity=LessonSeverity(nl_sev),
                     title=nl_title.strip(),
-                    description=nl_desc.strip(),
-                    anti_pattern=nl_ap.strip(),
-                    golden_standard=nl_gs.strip(),
+                    what_failed=nl_ap.strip(),
+                    golden_rule=nl_gs.strip(),
                     applicable_nodes=nl_nodes,
                     applicable_workflows=nl_wf,
-                    success_rate=1.0,
-                    times_applied=1
+                    success_rating=1.0,
+                    applied_count=1
                 )
                 ok = learning_engine.register_lesson(new_lesson_obj)
                 if ok:

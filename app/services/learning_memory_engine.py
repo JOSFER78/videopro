@@ -446,11 +446,25 @@ class LearningMemoryEngine:
                 "what_failed": l.what_failed
             })
 
+        rules_list = [
+            {
+                "id": l.id,
+                "title": l.title,
+                "category": l.category.value,
+                "severity": l.severity.value,
+                "golden_rule": l.golden_rule,
+                "golden_standard": l.golden_rule,
+                "what_failed": l.what_failed
+            }
+            for l in lessons
+        ]
+
         return {
             "workflow_id": workflow_id,
             "total_rules": len(lessons),
             "critical_rules_count": sum(1 for l in lessons if l.severity == LessonSeverity.CRITICAL),
-            "guidelines_by_category": grouped
+            "guidelines_by_category": grouped,
+            "rules": rules_list
         }
 
     # ------------------------------------------------------------------------

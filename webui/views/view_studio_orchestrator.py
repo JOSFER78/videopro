@@ -565,8 +565,8 @@ def render_studio_orchestrator_view():
                             sev_icon = "🔴" if r["severity"] == "CRITICAL" else ("🟠" if r["severity"] == "STRICT" else "🔵")
                             st.markdown(f"""
                                 <div style="background: rgba(15, 23, 42, 0.7); border-left: 3px solid #38bdf8; padding: 6px 10px; border-radius: 0 6px 6px 0; margin-bottom: 6px; font-size: 11.5px;">
-                                    <strong>{sev_icon} {r['title']}</strong> ({r['category']})<br>
-                                    <span style="color: #4ade80;">✨ Estándar:</span> {r['golden_standard']}
+                                    <strong>{sev_icon} {r.get('title', '')}</strong> ({r.get('category', '')})<br>
+                                    <span style="color: #4ade80;">✨ Estándar:</span> {r.get('golden_rule', r.get('golden_standard', ''))}
                                 </div>
                             """, unsafe_allow_html=True)
             except Exception:
