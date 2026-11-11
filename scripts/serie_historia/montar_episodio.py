@@ -19,16 +19,16 @@ import sys
 import wave
 
 SR = 48000
-GAP = 0.55            # silencio entre frases
+GAP = 0.75            # silencio entre frases
 PART_IN = 1.6         # la parte se anuncia en pantalla antes de que empiece la voz
-PART_OUT = 2.4        # respiro al cerrar la parte, con «Aprendido» todavía en pantalla
+PART_OUT = 3.2        # respiro al cerrar la parte, con «Aprendido» todavía en pantalla
 INTRO = 1.0
 OUTRO = 3.5
 
 
-def leer(path):
+def leer(path, tempo=1.0):
     """Frase a PCM de 16 bits, sin los silencios de los extremos y con el volumen igualado."""
-    raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", path, "-ar", str(SR), "-ac", "1", "-f", "s16le", "-"],
+    raw = subprocess.run(["ffmpeg", "-nostdin", "-v", "error", "-i", path, "-af", f"atempo={tempo}", "-ar", str(SR), "-ac", "1", "-f", "s16le", "-"],
                          check=True, capture_output=True).stdout
     x = array.array("h"); x.frombytes(raw)
     win = SR // 100                                   # ventanas de 10 ms
@@ -63,7 +63,7 @@ def main(guion_path, wav_dir, voz_out, config_out):
         ask_at = None
         for s in p["locucion"]:
             t0[s["id"]] = now()
-            pcm.extend(leer(f"{wav_dir}/{s['id']}.wav"))
+            pcm.extend(leer(f"{wav_dir}/{s['id']}.wav", G.get("voz", {}).get("tempo", 1.0)))
             t1[s["id"]] = now()
             if ask and ask["despues_de"] == s["id"]:
                 ask_at = now() + 0.25
@@ -112,7 +112,7 @@ def main(guion_path, wav_dir, voz_out, config_out):
             C["journey"].append({"at": r(max(at + 0.2, t0[j["desde"]])), "yearsAgo": j["anios_atras"], "travel": 2.2})
         d = p.get("dato")
         if d:
-            C["data"].append({"at": r(t0[d["desde"]] + 0.15), "until": r(end - 0.4), "label": d["rotulo"], "value": d["valor"], "unit": d["unidad"], "compare": d["comparacion"]})
+            C["data"].append({"at": r(t0[d["desde"]] + 0.15), "until": r(t0[d["hasta"]] - 0.4 if d.get("hasta") else end - 0.4), "label": d["rotulo"], "value": d["valor"], "unit": d["unidad"], "compare": d["comparacion"]})
         if ask_at is not None:
             a = p["pregunta_pausa"]
             C["asks"].append({"at": r(ask_at), "hold": a["segundos"], "kicker": a.get("rotulo", "Pausa y piensa"), "text": a["texto"]})

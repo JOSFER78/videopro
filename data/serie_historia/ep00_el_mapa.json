@@ -166,7 +166,7 @@
     {
      "desde": "c1_01",
      "tipo": "archivo",
-     "archivo": "media/ep00/irhoud_craneo.jpg",
+     "archivo": "media/ep00/irhoud_craneo_c.jpg",
      "que_se_ve": "El cráneo Irhoud 1 completo.",
      "credito_pantalla": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
      "licencia": "CC BY-SA 4.0",
@@ -174,11 +174,11 @@
      "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
      "focus": [
       50,
-      45
+      50
      ],
      "zoom": [
       1.0,
-      1.08
+      1.12
      ]
     },
     {
@@ -192,11 +192,11 @@
      "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
      "focus": [
       45,
-      62
+      60
      ],
      "zoom": [
-      1.25,
-      1.45
+      1.0,
+      1.12
      ]
     },
     {
@@ -238,7 +238,7 @@
     {
      "desde": "c1_10",
      "tipo": "archivo",
-     "archivo": "media/ep00/irhoud_craneo.jpg",
+     "archivo": "media/ep00/irhoud_craneo_c.jpg",
      "que_se_ve": "El cráneo, de nuevo.",
      "credito_pantalla": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
      "licencia": "CC BY-SA 4.0",
@@ -246,10 +246,10 @@
      "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
      "focus": [
       50,
-      40
+      50
      ],
      "zoom": [
-      1.15,
+      1.12,
       1.0
      ]
     }
@@ -1386,7 +1386,8 @@
     "rotulo": "Censo Han · año 2",
     "valor": "≈ 59 M",
     "unidad": "personas (57,7 a 59,6 M)",
-    "comparacion": "Uno de los <b>censos más antiguos</b> que se conservan"
+    "comparacion": "Uno de los <b>censos más antiguos</b> que se conservan",
+    "hasta": "c6_10"
    },
    "pregunta_pausa": {
     "despues_de": "c6_07",
@@ -1499,12 +1500,12 @@
      "autor": "Juan de la Cosa, 1500",
      "origen": "https://commons.wikimedia.org/wiki/File:1500_map_by_Juan_de_la_Cosa_rotated.jpg",
      "focus": [
-      45,
+      30,
       50
      ],
      "zoom": [
-      1.75,
-      1.22
+      1.28,
+      1.18
      ]
     },
     {
@@ -1900,11 +1901,11 @@
      "origen": "https://images.nasa.gov/details/as11-40-5903",
      "focus": [
       52,
-      28
+      10
      ],
      "zoom": [
       1.0,
-      1.12
+      1.1
      ]
     },
     {
@@ -1973,7 +1974,7 @@
      "nombre": "Todo el planeta",
      "pais": "8.000 millones de personas",
      "lon": 0,
-     "lat": -89,
+     "lat": -200,
      "encuadre": [
       -180,
       -60,
@@ -2318,5 +2319,19 @@
    "Las fechas más antiguas son estimaciones con margen de error: en pantalla y en la locución se da el rango cuando las fuentes no coinciden."
   ],
   "comentario_fijado": "De las nueve ideas del episodio, ¿cuál crees que ha cambiado más nuestra vida? Yo dudo entre la 4 (echar raíces) y la 8 (las máquinas). Te leo. Y si ves algún dato que no cuadra, dímelo con la fuente y lo corrijo: todas las nuestras están en la descripción."
+ },
+ "voz": {
+  "motor": "Chatterbox Multilingual (local, CPU)",
+  "idioma": "es",
+  "exaggeration": {
+   "narrativo": 0.5,
+   "asombro": 0.8
+  },
+  "cfg_weight": {
+   "narrativo": 0.35,
+   "asombro": 0.3
+  },
+  "tempo": 0.94,
+  "nota": "Cada frase se transcribe con Whisper y se repite si no coincide con el texto. El tempo 0,94 baja un poco el ritmo sin cambiar el tono."
  }
 }

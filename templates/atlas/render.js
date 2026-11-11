@@ -92,7 +92,7 @@ if (!configPath || !outPath) {
   await browser.close();
   const ff = ["-y", "-v", "error", "-framerate", String(fps), "-i", path.join(work, "f%05d.jpg")];
   if (audio) ff.push("-i", audio, "-c:a", "aac", "-b:a", "192k");
-  ff.push("-t", String(config.duration), "-r", String(fps), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", "-movflags", "+faststart", outPath);
+  ff.push("-t", String(config.duration), "-r", String(fps), "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "20", "-movflags", "+faststart", outPath);
   const res = spawnSync("ffmpeg", ff, { stdio: "inherit" });
   done(res.status ?? 1);
 })();
