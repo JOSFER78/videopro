@@ -1,0 +1,472 @@
+{
+  "codigo": "T1-E05",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      43.0,
+      29.5,
+      50.0,
+      34.0
+    ]
+  },
+  "partes": [
+    {
+      "label": "Demasiada gente",
+      "titulo": "Una ciudad sin memoria suficiente",
+      "idea": "Uruk, sur de Mesopotamia",
+      "frases": [
+        {
+          "texto": "En el episodio anterior subiste a una colina de Turquía llena de pilares. ¿Recuerdas quién los levantó?",
+          "emocion": 0.5,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilar 43 de Göbekli Tepe, visto en el episodio 4",
+            "busqueda": "Göbekli Tepe pillar 43"
+          }
+        },
+        {
+          "texto": "Cazadores-recolectores. Y muy cerca, poco después, apareció uno de los primeros trigos sembrados.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña",
+            "busqueda": "Einkorn wheat Triticum monococcum"
+          }
+        },
+        {
+          "texto": "Sembrar trajo más comida, y más comida trajo más gente. Hoy ves adónde lleva eso.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campos de cebada en la llanura mesopotámica",
+            "busqueda": "barley field Iraq"
+          }
+        },
+        {
+          "texto": "Bajas al sur, a la llanura entre el Tigris y el Éufrates, en el actual Irak. A una ciudad llamada Uruk.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "busqueda": "Uruk Warka ruins"
+          },
+          "lugar": {
+            "nombre": "Uruk",
+            "pais": "Irak",
+            "lon": 45.6372,
+            "lat": 31.3242
+          }
+        },
+        {
+          "texto": "Es hacia el año tres mil doscientos antes de Cristo. Hace unos cinco mil doscientos años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "zigurat de Anu y restos del Templo Blanco de Uruk",
+            "busqueda": "Uruk Anu ziggurat White Temple"
+          },
+          "anios_atras": 5226
+        },
+        {
+          "texto": "Lo que ves hoy son montones de barro en el desierto. Pero entonces aquí había templos, casas, talleres y campos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "restos de muros de adobe en Uruk",
+            "busqueda": "Uruk mud brick walls Eanna"
+          }
+        },
+        {
+          "texto": "Mira este vaso de piedra de Uruk. Filas de plantas, filas de ovejas y hombres cargando ofrendas para el templo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vaso de Warka, Museo de Irak",
+            "busqueda": "Warka Vase"
+          }
+        },
+        {
+          "texto": "Unas cincuenta mil personas. En su mejor momento, Uruk fue la mayor ciudad del mundo.",
+          "emocion": 0.8,
+          "pausa": "¿Cuántas personas crees que llegaron a vivir en Uruk?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista aérea de la extensión de las ruinas de Uruk",
+            "busqueda": "Uruk aerial view"
+          },
+          "dato": {
+            "rotulo": "Habitantes de Uruk",
+            "valor": "50.000",
+            "unidad": "personas",
+            "comparacion": "Hacia el 3100 a. C. era la mayor zona urbana del mundo."
+          },
+          "anios_atras": 5126
+        },
+        {
+          "texto": "Para que te hagas una idea. En Göbekli Tepe se reunían cientos de personas durante unas semanas.",
+          "pronunciacion": "Para que te hagas una idea. En Guebekli Tepe se reunían cientos de personas durante unas semanas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto D de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe enclosure D"
+          }
+        },
+        {
+          "texto": "Aquí viven decenas de miles, juntas, todo el año.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "plano de la ciudad de Uruk con su muralla",
+            "busqueda": "Uruk city plan map"
+          }
+        },
+        {
+          "texto": "Ahora piensa en lo que eso supone. En un campamento de cazadores conoces a todos por su nombre.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: patio de un almacén del templo de Uruk lleno de sacos y gente",
+            "prompt_flow": "Documentary-realistic wide shot of a busy courtyard of a mud-brick temple storehouse in ancient Uruk, Mesopotamia, around 3200 BC. Dozens of workers seen from behind and at a distance carry reed baskets and sacks of barley, sheep pass through, piles of grain under harsh midday sun, dust in the air. Natural colours, slow lateral camera move, no faces, no text."
+          }
+        },
+        {
+          "texto": "Aquí no. Aquí hay cientos de trabajadores, montañas de sacos de cebada y rebaños enteros de ovejas."
+        },
+        {
+          "texto": "Y alguien tiene que repartir. Cuánto grano entra, cuánto sale, a quién se le da y quién lo debe todavía."
+        },
+        {
+          "texto": "Si nadie lleva la cuenta, alguien cobra dos veces y alguien se queda sin su ración."
+        },
+        {
+          "texto": "Con decenas de miles de personas, ninguna memoria humana da para tanto.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de Blombos con trazos de ocre, vista en el episodio 3",
+            "busqueda": "Blombos Cave drawing silcrete flake"
+          }
+        },
+        {
+          "texto": "¿Te suena? Es lo que viste en Blombos. Hace falta guardar la información fuera de la cabeza.",
+          "aprendido": "La ciudad necesitaba memoria externa."
+        }
+      ]
+    },
+    {
+      "label": "Fichas y sellos",
+      "titulo": "Bolitas de barro antes que letras",
+      "idea": "De la ficha a la tablilla",
+      "frases": [
+        {
+          "texto": "La solución no llegó de golpe. Empezó con unas bolitas de barro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
+            "busqueda": "clay tokens Mesopotamia accounting"
+          }
+        },
+        {
+          "texto": "Son fichas de contar. Conos, esferas y otras formas sencillas. Cada una vale por una cantidad de grano o de animales.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fichas de arcilla de distintas formas en una vitrina",
+            "busqueda": "Mesopotamian clay tokens museum"
+          }
+        },
+        {
+          "texto": "Más de doscientos años antes de la escritura, ya se usaban fichas así para contar.",
+          "anios_atras": 5426
+        },
+        {
+          "texto": "Pero una ficha se pierde, o alguien la cambia por otra. Hace falta protegerlas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sobre esférico de arcilla con fichas de contabilidad, de Susa",
+            "busqueda": "Susa clay envelope bulla tokens"
+          }
+        },
+        {
+          "texto": "En Susa, en el actual Irán, apareció esta bola hueca de barro. Dentro guardaba las fichas de una cuenta.",
+          "lugar": {
+            "nombre": "Susa",
+            "pais": "Irán",
+            "lon": 48.2578,
+            "lat": 32.1906
+          }
+        },
+        {
+          "texto": "Por fuera llevaba la huella de un sello. Nadie podía abrirla sin que se notara. Era como un recibo con candado.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "bula de arcilla de Susa con impresión de sello cilíndrico",
+            "busqueda": "Susa bulla cylinder seal impression"
+          }
+        },
+        {
+          "texto": "Ahora fíjate en el truco. Para saber qué había dentro, apretaban las fichas contra la bola antes de cerrarla.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "bula de Susa con marcas de fichas impresas en la superficie",
+            "busqueda": "bulla token impressions Susa Louvre"
+          }
+        },
+        {
+          "texto": "Una marca por cada ficha. Si dentro había tres fichas, fuera se veían tres huellas."
+        },
+        {
+          "texto": "Y alguien se dio cuenta de algo. Si las marcas ya dicen lo que hay, sobran las fichas.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "Así nacen las tablillas numéricas. Un trozo de barro plano, sin bola y sin fichas, solo con las marcas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla numérica de arcilla de finales del periodo de Uruk",
+            "busqueda": "numerical tablet Uruk period clay"
+          },
+          "anios_atras": 5276
+        },
+        {
+          "texto": "Al principio apretaban las propias fichas contra el barro. Después, un punzón tallado para dejar la misma huella.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla numérica con impresiones circulares y cónicas",
+            "busqueda": "numerical tablet impressions Susa Louvre"
+          }
+        },
+        {
+          "texto": "Y poco después, en Uruk, junto a los números aparecen dibujos de las cosas contadas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablillas protocuneiformes de Uruk",
+            "busqueda": "proto-cuneiform tablet Uruk"
+          }
+        },
+        {
+          "texto": "En el barrio de los templos de Uruk, llamado Eanna, están los ejemplos de escritura más antiguos que se conocen.",
+          "pronunciacion": "En el barrio de los templos de Uruk, llamado Eana, están los ejemplos de escritura más antiguos que se conocen.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto de Eanna en las ruinas de Uruk",
+            "busqueda": "Eanna district Uruk"
+          }
+        },
+        {
+          "texto": "Es hacia el tres mil doscientos antes de Cristo. Allí, en Mesopotamia, nace la escritura.",
+          "anios_atras": 5226,
+          "aprendido": "La escritura nació en Mesopotamia, 3200 a. C."
+        }
+      ]
+    },
+    {
+      "label": "Números primero",
+      "titulo": "Lo primero que se escribió",
+      "idea": "Tablilla del Met, reparto de cebada",
+      "frases": [
+        {
+          "texto": "Ahora mira bien este trozo de barro. Hoy está en el Museo Metropolitano de Nueva York.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme con impresiones de sello, Met 1988.433.1",
+            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan Museum 1988.433.1"
+          }
+        },
+        {
+          "texto": "Una cuenta de cebada. Un reparto de grano, apuntado en un trozo de barro de unos seis centímetros.",
+          "emocion": 0.8,
+          "pausa": "¿Qué crees que se escribió primero: un poema, una ley o una cuenta de cebada?",
+          "dato": {
+            "rotulo": "Tamaño de la tablilla",
+            "valor": "6",
+            "unidad": "cm",
+            "comparacion": "Cabe en la palma de la mano, y de objetos así desciende todo lo que se ha escrito después."
+          }
+        },
+        {
+          "texto": "Cabe en la palma de tu mano.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme sostenida en la mano, para dar escala",
+            "busqueda": "proto-cuneiform tablet in hand"
+          }
+        },
+        {
+          "texto": "El museo la fecha entre el tres mil cien y el dos mil novecientos antes de Cristo, y cree que viene de Uruk."
+        },
+        {
+          "texto": "Y tiene unos cuatro de grueso. Más que una hoja, parece una galleta gorda de barro."
+        },
+        {
+          "texto": "Las marcas hundidas en el barro son números. Junto a ellas, el signo de lo que se reparte: la cebada.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de los signos numéricos de la tablilla del Met",
+            "busqueda": "proto-cuneiform numerical signs barley tablet detail"
+          }
+        },
+        {
+          "texto": "Y por encima, rodando sobre el barro, la huella de un sello cilíndrico.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sello cilíndrico mesopotámico junto a su impresión en arcilla",
+            "busqueda": "Mesopotamian cylinder seal and impression"
+          }
+        },
+        {
+          "texto": "En la huella ves a un hombre, unos perros de caza y unos jabalíes. Es la firma del administrador que dio el visto bueno.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "busqueda": "Met proto-cuneiform tablet cylinder seal impression male figure hunting dogs boars"
+          }
+        },
+        {
+          "texto": "Escritura, número y poder, en un solo trozo de barro.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "El número dice cuánto. El signo dice qué. Y el sello dice quién lo autoriza."
+        },
+        {
+          "texto": "Fíjate en lo que no hay. No hay verbos. No hay nombres de héroes. No hay historias.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablillas administrativas protocuneiformes en una vitrina",
+            "busqueda": "proto-cuneiform administrative tablets museum"
+          }
+        },
+        {
+          "texto": "Los primeros signos son cantidades y cosas: cebada, ovejas, tejidos. Lo que entra en el almacén y lo que sale.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme con recuento de ovejas y cabras",
+            "busqueda": "proto-cuneiform tablet sheep goats account"
+          }
+        },
+        {
+          "texto": "La escritura no se inventó para contar historias. Se inventó para llevar las cuentas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Met, de frente",
+            "busqueda": "proto-cuneiform tablet Metropolitan Museum"
+          }
+        },
+        {
+          "texto": "Los poemas y las leyes llegarán siglos más tarde, usando el mismo invento.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: un escriba de espaldas marca una tablilla de barro con un cálamo",
+            "plano_especial": true,
+            "duracion_seg": 15,
+            "prompt_flow": "Documentary-realistic close shot over the shoulder of an ancient Mesopotamian scribe, seen from behind, pressing a reed stylus into a small wet clay tablet in a dim mud-brick room around 3200 BC. Warm light from a doorway, baskets of barley in the background, slow push-in to the fresh marks in the clay. Natural colours, no face visible, no readable text."
+          }
+        },
+        {
+          "texto": "Pero al principio, lo primero que alguien escribió fueron números y cosas.",
+          "aprendido": "Primero se escribieron números y cosas, no historias."
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "frases": [
+        {
+          "texto": "Vamos a repasar. ¿Qué registra la tablilla del Met?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+          }
+        },
+        {
+          "texto": "Un reparto de cebada, con la huella del sello de un administrador."
+        },
+        {
+          "texto": "Un hombre, unos perros de caza y unos jabalíes, rodados sobre el barro para decir: esto lo autorizo yo."
+        },
+        {
+          "texto": "¿Qué hubo antes de las tablillas con signos? Fichas de barro, y bolas de arcilla selladas para guardarlas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sobre de arcilla con fichas de Susa",
+            "busqueda": "Susa clay envelope tokens"
+          }
+        },
+        {
+          "texto": "¿Y qué se escribía en aquellas primeras tablillas? Cantidades y cosas: cebada, ovejas, tejidos. Ni verbos, ni relatos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablillas protocuneiformes de Uruk",
+            "busqueda": "proto-cuneiform tablets Uruk"
+          }
+        },
+        {
+          "texto": "¿Y para qué se inventó la escritura? Para llevar las cuentas de una ciudad demasiado grande para la memoria.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ruinas de Uruk",
+            "busqueda": "Uruk Warka"
+          }
+        },
+        {
+          "texto": "Recuerda el orden. La ciudad creó el problema. La escritura fue la solución contable.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Met, de cerca",
+            "busqueda": "proto-cuneiform tablet Metropolitan Museum"
+          },
+          "indice": true
+        },
+        {
+          "texto": "Y acuérdate de Blombos. Un símbolo guarda una idea fuera de la cabeza. En Uruk, ese símbolo se convierte en contabilidad.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de Blombos con trazos de ocre",
+            "busqueda": "Blombos Cave drawing"
+          }
+        },
+        {
+          "texto": "Y ese invento pronto sirve para algo más que contar cebada. Sirve para que un rey hable a gente que nunca verá.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "acantilado del monte Behistún con el relieve de Darío",
+            "busqueda": "Behistun inscription cliff"
+          }
+        },
+        {
+          "texto": "En el próximo episodio, un rey persa talla su versión de los hechos en un acantilado, para que la crea un imperio entero.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Darío I con los rebeldes atados, en Behistún",
+            "busqueda": "Behistun relief Darius"
+          },
+          "asoma": 7
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "La escritura nació para llevar cuentas, no para contar historias."
+  },
+  "miniatura": {
+    "antetitulo": "Lo primero que se escribió",
+    "gancho": [
+      "5.000 años",
+      "contando cebada"
+    ],
+    "que_se_ve": "tablilla protocuneiforme Met 1988.433.1 con impresiones de sello"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "Tablilla Met 1988.433.1: reparto de cebada con impresión de sello cilíndrico; h. 3100–2900 a. C. (periodo Yemdet Nasr); mide 5,4 × 6 × 4,1 cm. La procedencia probable es Uruk, según el Met; el CDLI la sitúa en Uruk III, h. 3200–3000 a. C. Nuevo: la impresión del sello muestra una figura masculina, perros de caza y jabalíes; adquirida por el Met en 1988.",
+      "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/329081"
+    },
+    {
+      "afirmacion": "La escritura comienza hacia 3200 a. C.; antes hubo fichas (antes de 3400 a. C.), sobres sellados (3400–3300 a. C.) y tablillas numéricas (3300–3200 a. C.); los primeros ideogramas representan los bienes de la transacción. 3200 a. C. = hace 5.226 años desde 2026.",
+      "url": "https://mpiwg-berlin.mpg.de/sites/default/files/migrated/p183.pdf"
+    },
+    {
+      "afirmacion": "Coordenadas de Uruk: 31°19′27″N 45°38′14″E. Nuevo: hacia 3100 a. C. Uruk pudo tener hasta 50.000 habitantes y era la mayor zona urbana del mundo; el distrito de Eanna (nivel IVa) contiene los ejemplos de escritura más antiguos.",
+      "url": "https://en.wikipedia.org/wiki/Uruk"
+    },
+    {
+      "afirmacion": "Nuevo: sobre globular de arcilla con fichas de contabilidad, periodo de Uruk (h. 3500 a. C.), hallado en la acrópolis de Susa; coordenadas de Susa 32°11′26″N 48°15′28″E.",
+      "url": "https://en.wikipedia.org/wiki/Susa"
+    }
+  ]
+}

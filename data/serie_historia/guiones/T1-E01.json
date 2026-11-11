@@ -1,0 +1,497 @@
+{
+  "codigo": "T1-E01",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "titulo": "Nuestro origen: la primera cara como la tuya",
+  "mapa": {
+    "bounds": [
+      -20,
+      -36,
+      50,
+      38
+    ]
+  },
+  "partes": [
+    {
+      "label": "Una colina",
+      "titulo": "Huesos sin fecha",
+      "idea": "Jebel Irhoud, Marruecos",
+      "frases": [
+        {
+          "texto": "En el episodio cero metimos toda nuestra historia en un solo día. ¿Recuerdas a qué hora aparecía la escritura?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Metropolitan Museum, vista en el episodio cero",
+            "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1"
+          }
+        },
+        {
+          "texto": "A las once y treinta y cinco de la noche. Hoy viajamos al otro extremo de ese día: a su primera hora.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Irhoud 1 en el Museo Arqueológico de Rabat",
+            "busqueda": "Irhoud 1 skull"
+          }
+        },
+        {
+          "texto": "Vamos a buscar a los primeros humanos con una cara como la tuya. Y aparecen donde casi nadie los buscaba."
+        },
+        {
+          "texto": "Marruecos, mil novecientos sesenta y uno. Unos mineros excavan una colina llamada Jebel Irhoud. Buscan barita, un mineral.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "colina y cantera de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud"
+          },
+          "pronunciacion": "Marruecos, mil novecientos sesenta y uno. Unos mineros excavan una colina llamada Yébel Irjud. Buscan barita, un mineral.",
+          "lugar": {
+            "nombre": "Jebel Irhoud",
+            "pais": "Marruecos",
+            "lon": -8.8725,
+            "lat": 31.855
+          },
+          "anios_atras": 65
+        },
+        {
+          "texto": "En la pared de una cueva, uno de ellos ve algo que no es piedra: un cráneo humano.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Irhoud 1, vista frontal",
+            "busqueda": "Irhoud 1 cranium"
+          },
+          "emocion": 0.7
+        },
+        {
+          "texto": "No lo encuentra un equipo de científicos. Es un golpe de suerte en mitad de una mina."
+        },
+        {
+          "texto": "Lo llaman Irhoud uno. Y enseguida empieza el problema: nadie sabe qué edad tiene.",
+          "pronunciacion": "Lo llaman Irjud uno. Y enseguida empieza el problema: nadie sabe qué edad tiene."
+        },
+        {
+          "texto": "Primero se dice que es un neandertal, de unos cuarenta mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo neandertal de La Ferrassie 1",
+            "busqueda": "La Ferrassie 1 skull"
+          }
+        },
+        {
+          "texto": "Después, una mandíbula del mismo sitio se fecha en unos ciento sesenta mil.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mandíbula juvenil Irhoud 3",
+            "busqueda": "Irhoud 3 mandible"
+          }
+        },
+        {
+          "texto": "Durante décadas, aquellos huesos son un rompecabezas sin fecha fija.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "yacimiento de Jebel Irhoud en excavación",
+            "busqueda": "Jebel Irhoud excavation"
+          }
+        },
+        {
+          "texto": "Y sin fecha, un hueso no puede contarte su historia. Solo puede decirte que estuvo ahí."
+        },
+        {
+          "texto": "En dos mil cuatro vuelve un equipo marroquí y alemán, dirigido por Abdelouahed Ben-Ncer y Jean-Jacques Hublin.",
+          "pronunciacion": "En dos mil cuatro vuelve un equipo marroquí y alemán, dirigido por Abdeluajed Ben Nser y Yan Yak Ublán."
+        },
+        {
+          "texto": "Encuentran más huesos, de al menos cinco personas. Y junto a ellos, algo mejor para fechar: sílex quemados.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sílex quemados de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud heated flint artefacts"
+          }
+        },
+        {
+          "texto": "Alguien hizo fuego allí, y el fuego calentó las piedras talladas que había en el suelo.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: hoguera al pie de la colina de Jebel Irhoud al atardecer, con un pequeño grupo de espaldas",
+            "prompt_flow": "15-second slow push-in at dusk towards a small campfire at the foot of a rocky limestone hill in a dry Moroccan steppe, 300,000 years ago. A small group of hunter-gatherers sits around the fire, seen only from behind and at a distance, silhouettes against the flames. Knapped flint flakes lie scattered on the ground beside the fire, glowing faintly in the heat. Smoke drifts into a pale orange sky. Documentary photography style, natural light, fine film grain, realistic, muted colours, no close-up faces, no text, no captions, no logos.",
+            "plano_especial": true,
+            "duracion_seg": 15
+          }
+        },
+        {
+          "texto": "El calor pone a cero un reloj escondido dentro del sílex. Medirlo se llama termoluminiscencia."
+        },
+        {
+          "texto": "Cuanto más tiempo pasa desde aquel fuego, más luz suelta la piedra cuando se calienta en el laboratorio."
+        },
+        {
+          "texto": "Los resultados se publican en dos mil diecisiete, en la revista Nature.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "número de la revista Nature del 8 de junio de 2017",
+            "busqueda": "Nature journal 8 June 2017 issue 546"
+          },
+          "pronunciacion": "Los resultados se publican en dos mil diecisiete, en la revista Néichur."
+        },
+        {
+          "texto": "Cien mil años más antiguos. El récord anterior rondaba los ciento noventa y cinco mil. Irhoud salta a unos trescientos mil.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Irhoud 1, vista de tres cuartos",
+            "busqueda": "Irhoud 1 skull Morocco"
+          },
+          "pronunciacion": "Cien mil años más antiguos. El récord anterior rondaba los ciento noventa y cinco mil. Irjud salta a unos trescientos mil.",
+          "pausa": "¿Cuánto más antiguos crees que eran estos huesos que el récord anterior: diez mil años, cincuenta mil o cien mil?",
+          "dato": {
+            "rotulo": "Origen adelantado",
+            "valor": "100.000",
+            "unidad": "años",
+            "comparacion": "Antes de Jebel Irhoud, los fósiles más antiguos de nuestra especie (Omo Kibish, Etiopía) tenían unos 195.000 años; Irhoud llevó el origen unos 100.000 años más atrás."
+          },
+          "anios_atras": 300000,
+          "emocion": 0.8
+        },
+        {
+          "texto": "Hace trescientos mil años, en esa colina, ya vivía gente de nuestra especie.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "colina de Jebel Irhoud, vista general",
+            "busqueda": "Jebel Irhoud hill Morocco"
+          },
+          "aprendido": "Hace 300.000 años ya había Homo sapiens"
+        }
+      ]
+    },
+    {
+      "label": "Cara y cerebro",
+      "titulo": "Mira de frente, luego de lado",
+      "idea": "Irhoud 1 e Irhoud 10",
+      "frases": [
+        {
+          "texto": "Ahora mira el cráneo de frente. El equipo lo escaneó y tomó cientos de medidas en tres dimensiones.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "reconstrucción compuesta de Irhoud 1 e Irhoud 10, vista frontal",
+            "busqueda": "Jebel Irhoud composite reconstruction Hublin"
+          }
+        },
+        {
+          "texto": "Comparó su cara con la de personas de hoy. Y salió casi indistinguible.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "No la cara de un pariente extraño. La de alguien de ahora."
+        },
+        {
+          "texto": "Si te cruzaras con alguien con esa cara en una plaza llena de gente, quizá ni te fijarías.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "plaza Jemaa el-Fna de Marrakech llena de gente",
+            "busqueda": "Jemaa el-Fnaa crowd"
+          }
+        },
+        {
+          "texto": "Pero gira el cráneo y mira la parte de atrás. Ahí cambia todo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "reconstrucción de Irhoud, vista lateral",
+            "busqueda": "Jebel Irhoud skull reconstruction lateral view"
+          }
+        },
+        {
+          "texto": "Por delante, una persona de hoy. Por detrás, otra cosa."
+        },
+        {
+          "texto": "Tu cráneo es redondeado, casi como un balón. El suyo es alargado, bajo, estirado hacia atrás.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "comparación de un cráneo humano actual y el cráneo de Irhoud de perfil",
+            "busqueda": "modern human skull Jebel Irhoud comparison"
+          }
+        },
+        {
+          "texto": "Y el interior del cráneo funciona como un molde: su forma copia la del cerebro que había dentro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "molde interno virtual del cráneo de Irhoud",
+            "busqueda": "Jebel Irhoud endocast"
+          }
+        },
+        {
+          "texto": "Si el molde es alargado, el cerebro también lo era. Es una forma arcaica, como la de humanos más antiguos."
+        },
+        {
+          "texto": "Así que la cara ya era la nuestra. La forma del cerebro, todavía no."
+        },
+        {
+          "texto": "Es fácil imaginar que el humano moderno apareció completo, de golpe, como una estatua terminada.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mandíbula Irhoud 11",
+            "busqueda": "Irhoud 11 mandible"
+          }
+        },
+        {
+          "texto": "Irhoud dice otra cosa: primero llegó la cara, y la forma del cerebro cambió después, poco a poco.",
+          "pronunciacion": "Irjud dice otra cosa: primero llegó la cara, y la forma del cerebro cambió después, poco a poco."
+        },
+        {
+          "texto": "Piensa en una casa: primero se levanta la fachada, y el interior se va reformando durante años."
+        },
+        {
+          "texto": "Y con la forma, según el equipo, quizá cambió también su manera de funcionar."
+        },
+        {
+          "texto": "Y ese cambio ocurrió dentro de nuestra propia especie. No aparecimos de golpe: nos fuimos haciendo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo humano actual de perfil",
+            "busqueda": "modern human skull lateral view"
+          },
+          "aprendido": "La cara moderna llegó antes que el cerebro"
+        }
+      ]
+    },
+    {
+      "label": "Toda África",
+      "titulo": "Más de una cuna",
+      "idea": "Tres puntos en el mapa",
+      "frases": [
+        {
+          "texto": "Queda otra pregunta. Si los fósiles más antiguos están en Marruecos, ¿nacimos en el norte de África?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa físico de África",
+            "busqueda": "Africa relief map"
+          }
+        },
+        {
+          "texto": "Hasta hace poco, la idea dominante era otra: una sola cuna, en el este de África, hace unos doscientos mil años."
+        },
+        {
+          "texto": "Era una imagen sencilla: un lugar, un momento, y desde ahí, todos nosotros."
+        },
+        {
+          "texto": "Allí, junto al río Omo, en Etiopía, están los fósiles de Omo Kibish. Tienen unos ciento noventa y cinco mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "valle del río Omo, en Etiopía",
+            "busqueda": "Omo River Ethiopia"
+          },
+          "lugar": {
+            "nombre": "Omo Kibish",
+            "pais": "Etiopía",
+            "lon": 35.967,
+            "lat": 4.8
+          },
+          "anios_atras": 195000
+        },
+        {
+          "texto": "Ahora mira el mapa. Marruecos, en el norte: trescientos mil años. Etiopía, en el este: algo menos de doscientos mil.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa físico de África",
+            "busqueda": "Africa topographic map"
+          }
+        },
+        {
+          "texto": "Y Florisbad, en el interior de Sudáfrica: un cráneo incompleto de unos doscientos sesenta mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo de Florisbad",
+            "busqueda": "Florisbad skull"
+          },
+          "lugar": {
+            "nombre": "Florisbad",
+            "pais": "Sudáfrica",
+            "lon": 26.067,
+            "lat": -28.767
+          },
+          "anios_atras": 260000
+        },
+        {
+          "texto": "Tres extremos del continente, miles de kilómetros entre ellos, y en los tres, rasgos de nuestra especie."
+        },
+        {
+          "texto": "Es como encontrar piezas del mismo puzle repartidas por tres habitaciones distintas de una casa.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa físico de África",
+            "busqueda": "Africa relief map"
+          }
+        },
+        {
+          "texto": "Hay más. Las herramientas de piedra de Irhoud se parecen mucho a las de la misma época en el este y el sur de África.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "puntas Levallois de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud Levallois point"
+          },
+          "pronunciacion": "Hay más. Las herramientas de piedra de Irjud se parecen mucho a las de la misma época en el este y el sur de África."
+        },
+        {
+          "texto": "Usaban sílex de buena calidad traído de fuera. Y cazaban, sobre todo, gacelas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gacela de Cuvier, una gacela norteafricana",
+            "busqueda": "Gazella cuvieri"
+          }
+        },
+        {
+          "texto": "Las mismas formas de tallar la piedra aparecen a miles de kilómetros. Eso sugiere gente que se mueve y comparte maneras de hacer."
+        },
+        {
+          "texto": "Ben-Ncer lo resume así: el norte de África llevaba mucho tiempo olvidado en este debate. Y ahora está en el centro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "puntas Levallois de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud stone tools"
+          },
+          "pronunciacion": "Ben Nser lo resume así: el norte de África llevaba mucho tiempo olvidado en este debate. Y ahora está en el centro."
+        },
+        {
+          "texto": "Mucho antes de salir de África, ya nos habíamos extendido por todo el continente.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: sabana africana desde el aire con un grupo diminuto caminando a lo lejos",
+            "prompt_flow": "Slow high aerial drift over a vast African savanna with scattered acacia trees under a hazy morning sky. Far below and far away, a tiny line of hunter-gatherers walks across the grassland, seen from behind, too small to show any detail. Documentary photography style, natural light, fine film grain, realistic, muted colours, no close-up faces, no text, no captions, no logos."
+          }
+        },
+        {
+          "texto": "No hubo un jardín único. La cuna fue el continente entero.",
+          "emocion": 0.7,
+          "aprendido": "Nuestra cuna fue toda África"
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "titulo": "Tres preguntas",
+      "idea": "Nos hicimos poco a poco",
+      "frases": [
+        {
+          "texto": "Repasemos. Tres preguntas, y contesta tú antes que yo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Irhoud 1",
+            "busqueda": "Irhoud 1 skull"
+          }
+        },
+        {
+          "texto": "Primera. ¿En qué país está la colina de Jebel Irhoud?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "colina de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud"
+          },
+          "pronunciacion": "Primera. ¿En qué país está la colina de Yébel Irjud?"
+        },
+        {
+          "texto": "En Marruecos, en el norte de África. Allí donde unos mineros buscaban barita."
+        },
+        {
+          "texto": "Segunda. ¿Qué parte de aquellos cráneos ya se parece a la tuya?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "reconstrucción compuesta de Irhoud 1 e Irhoud 10",
+            "busqueda": "Jebel Irhoud composite reconstruction"
+          }
+        },
+        {
+          "texto": "La cara. El cráneo seguía siendo alargado, y la forma del cerebro aún no era la nuestra."
+        },
+        {
+          "texto": "Primero la fachada. El interior, después."
+        },
+        {
+          "texto": "Tercera. ¿Cuántos años adelantó Irhoud el origen de nuestra especie?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sílex quemados de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud heated flint"
+          },
+          "pronunciacion": "Tercera. ¿Cuántos años adelantó Irjud el origen de nuestra especie?"
+        },
+        {
+          "texto": "Unos cien mil. De casi doscientos mil a unos trescientos mil años."
+        },
+        {
+          "texto": "Quédate con esto: no aparecimos de golpe. Nos fuimos haciendo, y en toda África.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa físico de África",
+            "busqueda": "Africa relief map"
+          }
+        },
+        {
+          "texto": "Tres puntos en el mapa: Marruecos, Etiopía y Sudáfrica. Ninguno es, por sí solo, la cuna."
+        },
+        {
+          "texto": "Pero un día, un grupo cruzó la puerta del continente. Y casi todos los que no son africanos descienden de él.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "península del Sinaí vista desde el espacio",
+            "busqueda": "Sinai Peninsula from space"
+          }
+        },
+        {
+          "texto": "Esa puerta está en Oriente Próximo. Y allí, dentro de una cueva, nos espera otro cráneo. Lo verás en el próximo episodio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "entrada de la cueva de Manot",
+            "busqueda": "Manot Cave"
+          }
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "Hace 300.000 años ya teníamos nuestra cara, no nuestro cerebro: nos fuimos haciendo, en toda África."
+  },
+  "miniatura": {
+    "antetitulo": "La primera cara como la tuya",
+    "gancho": [
+      "Tu cara",
+      "300.000 años"
+    ],
+    "que_se_ve": "cráneo Irhoud 1 de frente, sobre fondo oscuro (foto real del Museo Arqueológico de Rabat)"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "Los fósiles de Jebel Irhoud se datan en unos 300.000 años por termoluminiscencia de sílex quemados (la cifra publicada en Nature es de unos 315.000 ± 34.000 años; se redondea a 300.000).",
+      "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+    },
+    {
+      "afirmacion": "Cara casi indistinguible de la actual y cráneo alargado arcaico; restos de al menos 5 individuos.",
+      "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+    },
+    {
+      "afirmacion": "El récord anterior era Omo Kibish (Etiopía), unos 195.000 años; Irhoud adelanta el origen unos 100.000 años.",
+      "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+    },
+    {
+      "afirmacion": "Coordenadas de Jebel Irhoud: 31°51′18″N 8°52′21″W; especímenes Irhoud 1 (cráneo, 1961) e Irhoud 10 (cráneo, 2007).",
+      "url": "https://en.wikipedia.org/wiki/Jebel_Irhoud"
+    },
+    {
+      "afirmacion": "El yacimiento se descubrió en 1961 mientras se explotaba barita; un minero vio un cráneo en la pared de la cueva. Al principio se interpretó como neandertal de unos 40.000 años; más tarde se habló de unos 160.000.",
+      "url": "https://en.wikipedia.org/wiki/Jebel_Irhoud"
+    },
+    {
+      "afirmacion": "La mandíbula Irhoud 3 se había fechado en 160.000 años; el nuevo proyecto empezó en 2004, dirigido por Jean-Jacques Hublin (Max Planck) y Abdelouahed Ben-Ncer (INSAP, Rabat); sílex calentados en el pasado; cientos de medidas 3D; la forma interna del cráneo refleja la del cerebro, que evolucionó dentro del linaje sapiens.",
+      "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+    },
+    {
+      "afirmacion": "Antes se pensaba en una cuna en África oriental hace 200.000 años; Florisbad (Sudáfrica) tiene unos 260.000 años y Omo Kibish unos 195.000; herramientas parecidas en el este y el sur de África; sílex de calidad importado; la presa más frecuente era la gacela; dispersión dentro de África mucho antes de la salida.",
+      "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+    },
+    {
+      "afirmacion": "Cráneo de Florisbad: Estado Libre, Sudáfrica, 28°46′S 26°04′E; unos 259.000 años.",
+      "url": "https://en.wikipedia.org/wiki/Florisbad_Skull"
+    },
+    {
+      "afirmacion": "Coordenadas de los restos de Omo (Etiopía): 4°48′N 35°58′E; unos 195.000 años.",
+      "url": "https://en.wikipedia.org/wiki/Omo_remains"
+    }
+  ]
+}

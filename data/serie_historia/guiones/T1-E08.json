@@ -1,0 +1,452 @@
+{
+  "codigo": "T1-E08",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      -7.5,
+      50,
+      2.5,
+      56.5
+    ]
+  },
+  "partes": [
+    {
+      "label": "Músculo y leña",
+      "titulo": "Todo salía de un cuerpo",
+      "idea": "Brazos, bueyes, agua, viento y leña",
+      "frases": [
+        {
+          "texto": "En el episodio anterior hiciste girar el globo terrestre más antiguo que se conserva. ¿Recuerdas qué continente le faltaba?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el globo de Behaim (Erdapfel), visto en el episodio 7",
+            "busqueda": "Behaim globe Erdapfel"
+          }
+        },
+        {
+          "texto": "América. Al cruzar el océano, el mundo empezó a conectarse. Pero hazte otra pregunta: ¿con qué fuerza se movía ese mundo?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "réplicas de las naves de Colón en el Muelle de las Carabelas",
+            "busqueda": "Muelle de las Carabelas Palos replicas"
+          }
+        },
+        {
+          "texto": "Hoy pulsas un interruptor y algo se mueve. Pero hasta hace poco más de dos siglos, casi toda la fuerza del mundo salía de cuerpos y de plantas."
+        },
+        {
+          "texto": "Mira cualquier trabajo de entonces. Arar, moler, tejer, cargar, cavar. Detrás de cada uno hay un cuerpo cansado.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campesinos arando con bueyes en el Salterio de Luttrell",
+            "busqueda": "Luttrell Psalter ploughing oxen"
+          }
+        },
+        {
+          "texto": "Piensa en tu pan de cada día. Antes de llegar a la mesa, alguien ha tenido que sembrar, segar, trillar y moler ese grano, casi todo a mano."
+        },
+        {
+          "texto": "Unas veces es tu brazo. Otras, la espalda de un buey o de un caballo."
+        },
+        {
+          "texto": "Si tienes suerte, un río mueve la rueda de tu molino, o el viento empuja sus aspas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "molino de agua en el Salterio de Luttrell",
+            "busqueda": "Luttrell Psalter watermill"
+          }
+        },
+        {
+          "texto": "Pero el río no siempre pasa donde lo necesitas, y el viento sopla cuando quiere él, no cuando quieres tú."
+        },
+        {
+          "texto": "Y para calentarte, cocinar o fundir hierro, quemas lo que crece: leña y carbón vegetal.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "carbonera tradicional humeando en un bosque",
+            "busqueda": "charcoal kiln traditional clamp burning wood"
+          }
+        },
+        {
+          "texto": "Y un bosque talado tarda muchos años en volver a crecer. La leña de mañana depende del sol de hoy.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "bosque de robles talado con tocones",
+            "busqueda": "coppiced woodland stumps"
+          }
+        },
+        {
+          "texto": "En mil ochocientos, casi nada: ni un dos por ciento. Casi todo lo demás era leña, paja y otras plantas, la energía del sol de ese mismo año.",
+          "pausa": "En 1800, ¿qué parte de la energía del mundo crees que salía del carbón: casi toda, la mitad o casi nada?",
+          "emocion": 0.8,
+          "anios_atras": 226,
+          "dato": {
+            "rotulo": "Carbón en 1800",
+            "valor": "2",
+            "unidad": "%",
+            "comparacion": "En 1800 solo el 2 % de la energía primaria del mundo venía del carbón; en 1910 ya superaba la mitad (55 %). (Estos datos no cuentan el trabajo de personas y animales.)"
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
+            "busqueda": "Our World in Data global primary energy substitution"
+          }
+        },
+        {
+          "texto": "Y eso que en esa cuenta ni siquiera entra el trabajo de personas y animales."
+        },
+        {
+          "texto": "Ese es el techo. Lo que crece en un año, más lo que dan tus músculos. Para romperlo había que cambiar de combustible.",
+          "emocion": 0.6,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pila de leña cortada",
+            "busqueda": "stacked firewood logs"
+          },
+          "aprendido": "La industria fue un cambio de energía"
+        }
+      ]
+    },
+    {
+      "label": "La bomba",
+      "titulo": "Fuego para vaciar un pozo",
+      "idea": "Una máquina que quema carbón saca agua",
+      "frases": [
+        {
+          "texto": "Viajamos a Elsecar, un pueblo minero cerca de Barnsley, en el norte de Inglaterra.",
+          "pronunciacion": "Viajamos a Élsecar, un pueblo minero cerca de Bárnsli, en el norte de Inglaterra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "talleres del Elsecar Heritage Centre",
+            "busqueda": "Elsecar Heritage Centre"
+          },
+          "lugar": {
+            "nombre": "Elsecar, Barnsley (South Yorkshire)",
+            "pais": "Reino Unido",
+            "lon": -1.4197,
+            "lat": 53.4939
+          }
+        },
+        {
+          "texto": "Hoy es un museo tranquilo. Hace algo más de dos siglos, aquí olía a humo y a carbón."
+        },
+        {
+          "texto": "En mil setecientos noventa y cuatro, el conde Fitzwilliam manda abrir una mina de carbón nueva.",
+          "pronunciacion": "En mil setecientos noventa y cuatro, el conde Fitswíliam manda abrir una mina de carbón nueva.",
+          "anios_atras": 232,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pozo de la mina Elsecar New Colliery junto a la casa de máquinas",
+            "busqueda": "Elsecar New Colliery shaft"
+          }
+        },
+        {
+          "texto": "Pero cuanto más hondo cavas, más agua brota de las paredes. Si no la sacas, el pozo se inunda y la mina muere.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación: galería de mina del siglo XVIII con agua hasta las rodillas, un minero de espaldas",
+            "prompt_flow": "Documentary-realistic slow handheld push along a narrow eighteenth-century coal mine tunnel lit by one candle, black water up to the knees rippling, water dripping from the rock ceiling, a single miner seen from behind wading away with a wooden bucket, deep shadows, natural low light, fine film grain, no faces, no text, no captions, no logos"
+          }
+        },
+        {
+          "texto": "Sacarla a fuerza de brazos es lento y agotador. Y a esa profundidad, el agua nunca deja de entrar."
+        },
+        {
+          "texto": "Así que, al año siguiente, junto al pozo se levanta una casa alta con una viga enorme asomando por arriba.",
+          "anios_atras": 231,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "casa de máquinas de Elsecar con el balancín asomando",
+            "busqueda": "Elsecar Newcomen engine house beam"
+          }
+        },
+        {
+          "texto": "Dentro hay una máquina de vapor del tipo que inventó Thomas Newcomen. Funciona así.",
+          "pronunciacion": "Dentro hay una máquina de vapor del tipo que inventó Tomas Niúcomen. Funciona así.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "diagrama de una máquina atmosférica de Newcomen",
+            "busqueda": "Newcomen atmospheric engine diagram"
+          }
+        },
+        {
+          "texto": "El fuego de carbón hierve agua y el vapor llena un cilindro. Luego un chorro de agua fría lo enfría de golpe."
+        },
+        {
+          "texto": "El vapor se encoge, el aire de fuera empuja el pistón hacia abajo y la gran viga cabecea como un balancín.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el balancín de la máquina Newcomen de Elsecar",
+            "busqueda": "Elsecar Newcomen engine beam"
+          }
+        },
+        {
+          "texto": "En el otro extremo, unas varas largas bajan al pozo y suben agua. Unas doce veces por minuto, sin cansarse."
+        },
+        {
+          "texto": "Día y noche, sin comer y sin dormir. Lo que antes exigía muchas espaldas, ahora lo hace el fuego.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "varas de bomba de la máquina de Elsecar bajando al pozo",
+            "busqueda": "Elsecar Newcomen engine pump rods shaft"
+          }
+        },
+        {
+          "texto": "Hasta mil novecientos veintitrés. Ciento veintiocho años bombeando agua, hasta que la sustituyeron bombas eléctricas.",
+          "pausa": "Esta máquina empezó a trabajar en 1795. ¿Hasta qué año crees que siguió en marcha?",
+          "emocion": 0.8,
+          "anios_atras": 103,
+          "dato": {
+            "rotulo": "Años bombeando",
+            "valor": "128",
+            "unidad": "años",
+            "comparacion": "De 1795 a 1923, cuando la sustituyeron bombas eléctricas."
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la máquina Newcomen de Elsecar por dentro, con su cilindro",
+            "busqueda": "Elsecar Newcomen engine cylinder interior"
+          }
+        },
+        {
+          "texto": "Hoy sigue en su sitio. Es la máquina de vapor más antigua del mundo que no se ha movido de donde la pusieron.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "exterior de la casa de máquinas Newcomen de Elsecar hoy",
+            "busqueda": "Elsecar Newcomen beam engine"
+          }
+        },
+        {
+          "texto": "Fíjate en para qué servía. No movía trenes ni telares. Sacaba agua de una mina.",
+          "emocion": 0.6,
+          "aprendido": "Las primeras máquinas de vapor servían a minas"
+        }
+      ]
+    },
+    {
+      "label": "El círculo",
+      "titulo": "Carbón que saca carbón",
+      "idea": "Más carbón alimenta más máquinas",
+      "frases": [
+        {
+          "texto": "Ahora mira el truco escondido. La máquina quema carbón para sacar el agua de una mina de carbón.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación (plano especial, 15 s): la mina de Elsecar hacia 1795 al anochecer, con el balancín cabeceando y humo de carbón",
+            "prompt_flow": "15-second documentary-realistic slow crane shot at dusk over a small late-eighteenth-century English coal mine, a tall stone engine house with a huge wooden beam slowly rocking up and down above a pit shaft, thick coal smoke rising from a brick chimney, heaps of coal and wooden wagons in the foreground, two miners seen far away from behind pushing a cart, orange glow from the boiler fire, natural light, fine film grain, no text, no captions, no logos"
+          }
+        },
+        {
+          "texto": "Era una máquina torpe. Gastaba muchísimo combustible, porque en cada golpe enfriaba su propio cilindro."
+        },
+        {
+          "texto": "Imagínala tragando carbón a paladas, golpe tras golpe, solo para no pararse."
+        },
+        {
+          "texto": "En cualquier otro sitio habría salido carísima. Pero en una mina, el carbón está ahí mismo, y casi no cuesta nada.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "montón de carbón junto a una mina histórica",
+            "busqueda": "coal heap colliery historic photograph"
+          }
+        },
+        {
+          "texto": "Así se cierra el círculo. Más carbón alimenta más máquinas. Más máquinas permiten cavar más hondo. Y cavar más hondo da más carbón.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "casa de máquinas de Elsecar junto al pozo de la mina",
+            "busqueda": "Elsecar Newcomen engine house"
+          }
+        },
+        {
+          "texto": "La primera máquina de Newcomen se montó en mil setecientos doce, en otra mina de carbón inglesa, en Tipton.",
+          "pronunciacion": "La primera máquina de Niúcomen se montó en mil setecientos doce, en otra mina de carbón inglesa, en Típton.",
+          "anios_atras": 314,
+          "lugar": {
+            "nombre": "Tipton (Black Country)",
+            "pais": "Reino Unido",
+            "lon": -2.0446,
+            "lat": 52.5284
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "grabado de Thomas Barney de 1719 de la máquina de Newcomen de Dudley Castle",
+            "busqueda": "Thomas Barney 1719 Newcomen engine Dudley Castle"
+          }
+        },
+        {
+          "texto": "En ese siglo se construyeron cientos. Después, James Watt mejoró el diseño: su máquina gastaba más o menos la mitad de combustible.",
+          "pronunciacion": "En ese siglo se construyeron cientos. Después, Yeims Uat mejoró el diseño: su máquina gastaba más o menos la mitad de combustible.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "máquina de vapor de Boulton y Watt en el Science Museum de Londres",
+            "busqueda": "Boulton and Watt engine Science Museum London"
+          }
+        },
+        {
+          "texto": "Y entonces el vapor salió de las minas, hacia las fábricas, los barcos y los trenes.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "locomotora Rocket de Stephenson en el Science Museum",
+            "busqueda": "Stephenson's Rocket Science Museum"
+          }
+        },
+        {
+          "texto": "Cada una de esas máquinas pedía carbón. Y ese carbón salía de minas que, para no inundarse, necesitaban más máquinas."
+        },
+        {
+          "texto": "Más de la mitad. Un cincuenta y cinco por ciento. En poco más de un siglo, el mundo cambió de combustible.",
+          "pausa": "Si en 1800 el carbón daba un 2 % de la energía del mundo, ¿cuánto crees que daba en 1910?",
+          "emocion": 0.85,
+          "anios_atras": 116,
+          "dato": {
+            "rotulo": "Carbón en 1910",
+            "valor": "55",
+            "unidad": "%",
+            "comparacion": "Del 2 % en 1800 al 55 % en 1910 de la energía primaria mundial (sin contar el trabajo de personas y animales)."
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
+            "busqueda": "Our World in Data global primary energy substitution"
+          }
+        },
+        {
+          "texto": "Y ese carbón es luz del sol de hace millones de años, guardada bajo tierra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fósil de helecho del Carbonífero en una pizarra de carbón",
+            "busqueda": "Carboniferous fern fossil coal measures"
+          }
+        },
+        {
+          "texto": "Hasta entonces vivíamos de lo que crecía cada año. Ahora abríamos una despensa que se había llenado durante eras.",
+          "aprendido": "El carbón pasó de casi nada a la mitad"
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "titulo": "Una viga que no paró",
+      "idea": "La industria nace de un cambio de combustible",
+      "frases": [
+        {
+          "texto": "Tres preguntas antes de seguir. ¿Qué hacía la máquina de Elsecar?",
+          "pronunciacion": "Tres preguntas antes de seguir. ¿Qué hacía la máquina de Élsecar?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "casa de máquinas de Elsecar con el balancín",
+            "busqueda": "Elsecar Newcomen engine house beam"
+          }
+        },
+        {
+          "texto": "Sacar agua de una mina de carbón, quemando carbón."
+        },
+        {
+          "texto": "¿Cuánta energía del mundo salía del carbón en mil ochocientos? Alrededor de un dos por ciento.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente",
+            "busqueda": "Our World in Data global primary energy substitution"
+          }
+        },
+        {
+          "texto": "¿Y hasta cuándo trabajó la máquina? Hasta mil novecientos veintitrés, cuando llegaron las bombas eléctricas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el balancín de la máquina Newcomen de Elsecar",
+            "busqueda": "Elsecar Newcomen engine beam"
+          }
+        },
+        {
+          "texto": "Un dato más, para que la recuerdes. Henry Ford intentó comprarla dos veces, y el conde dijo que no.",
+          "pronunciacion": "Un dato más, para que la recuerdes. Jenri Ford intentó comprarla dos veces, y el conde dijo que no.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato fotográfico de Henry Ford",
+            "busqueda": "Henry Ford portrait photograph"
+          }
+        },
+        {
+          "texto": "Por eso sigue en su sitio. En dos mil catorce la restauraron, y su viga vuelve a cabecear.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la máquina Newcomen de Elsecar restaurada",
+            "busqueda": "Elsecar Newcomen engine restored"
+          }
+        },
+        {
+          "texto": "Quédate con la idea. La revolución industrial fue, ante todo, un cambio de energía: del músculo y la leña al carbón.",
+          "emocion": 0.6,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campesinos arando con bueyes en el Salterio de Luttrell",
+            "busqueda": "Luttrell Psalter ploughing oxen"
+          }
+        },
+        {
+          "texto": "Y recuerda el círculo: carbón que alimenta máquinas que sacan más carbón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "grabado de Thomas Barney de 1719 de la máquina de Newcomen",
+            "busqueda": "Thomas Barney 1719 Newcomen engine Dudley Castle"
+          }
+        },
+        {
+          "texto": "Sin ese cambio de combustible no habría habido fábricas, ni trenes, ni cohetes."
+        },
+        {
+          "texto": "Con esa energía, la humanidad creció como nunca. Y menos de dos siglos después de Elsecar, tres personas despegaron hacia la Luna.",
+          "pronunciacion": "Con esa energía, la humanidad creció como nunca. Y menos de dos siglos después de Élsecar, tres personas despegaron hacia la Luna.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "despegue del Apolo 8 desde la plataforma 39A",
+            "busqueda": "Apollo 8 launch Saturn V"
+          }
+        },
+        {
+          "texto": "En el próximo episodio, el último de la temporada, miramos la foto que tomaron allí: la Tierra entera, saliendo sobre la Luna.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "La industria nació de un cambio de combustible: del músculo y la leña al carbón."
+  },
+  "miniatura": {
+    "antetitulo": "La máquina de vapor más antigua",
+    "gancho": [
+      "128 años",
+      "sin parar"
+    ],
+    "que_se_ve": "el balancín de la máquina Newcomen de Elsecar asomando de su casa de máquinas"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "La mina se abrió en 1794 y la máquina se construyó en 1795; funcionó hasta 1923; es la máquina de vapor más antigua del mundo que sigue en su ubicación original; el conde Fitzwilliam rechazó dos intentos de Henry Ford de comprarla; Barnsley Museums la restauró y la devolvió a funcionamiento en 2014. 1795 = hace 231 años desde 2026.",
+      "url": "https://www.elsecar-heritage.com/news/historic-engine-ready-to-mark-a-special-year-at-elsecar-colliery"
+    },
+    {
+      "afirmacion": "La máquina bombeaba agua de Elsecar New Colliery, construida en 1795 por orden de William Wentworth, 4.º conde Fitzwilliam; sustituida en 1923 por bombas eléctricas.",
+      "url": "https://en.wikipedia.org/wiki/Elsecar_Heritage_Centre"
+    },
+    {
+      "afirmacion": "Funcionamiento de la máquina atmosférica de Newcomen (vapor en el cilindro, chorro de agua fría que lo condensa, la presión del aire empuja el pistón, el balancín sube las varas de la bomba, unas 12 veces por minuto); primera máquina en 1712 en Conygree Coalworks, Tipton; cientos construidas en el siglo XVIII, sobre todo para minas de carbón; poco eficiente, pero en las minas el carbón era barato; el diseño de Watt con condensador separado duplicó aproximadamente la eficiencia.",
+      "url": "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine"
+    },
+    {
+      "afirmacion": "Energía primaria mundial (Smil 2017 y Energy Institute, Our World in Data): carbón ≈ 1,7 % en 1800 (biomasa tradicional ≈ 98 %) y ≈ 55 % en 1910; la serie no incluye el trabajo muscular humano ni animal.",
+      "url": "https://ourworldindata.org/grapher/global-energy-substitution"
+    }
+  ]
+}

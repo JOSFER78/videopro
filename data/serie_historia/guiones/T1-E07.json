@@ -1,0 +1,519 @@
+{
+  "codigo": "T1-E07",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      -85,
+      8,
+      150,
+      62
+    ]
+  },
+  "partes": [
+    {
+      "label": "Mundo esférico",
+      "titulo": "Una bola de lino en Núremberg",
+      "idea": "Europa reúne su planeta en una esfera",
+      "frases": [
+        {
+          "texto": "En el episodio anterior, un rey persa talló su versión de la historia en un acantilado. ¿Recuerdas por voluntad de qué dios decía reinar?",
+          "emocion": 0.5,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Darío I en Behistún, visto en el episodio 6",
+            "busqueda": "Behistun relief Darius"
+          }
+        },
+        {
+          "texto": "Por la de Ahuramazda. Darío mandaba sobre millones de personas, y aun así su imperio era solo un rincón de un planeta que nadie había visto entero.",
+          "pronunciacion": "Por la de Ahura Mazda. Darío mandaba sobre millones de personas, y aun así su imperio era solo un rincón de un planeta que nadie había visto entero.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "símbolo alado de Ahuramazda sobre el relieve de Behistún",
+            "busqueda": "Behistun Inscription Ahura Mazda winged symbol"
+          }
+        },
+        {
+          "texto": "Hoy saltamos dos mil años. Estamos en mil cuatrocientos noventa y dos, en Núremberg, en el sur de Alemania.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "casco antiguo de Núremberg con el castillo imperial",
+            "busqueda": "Nuremberg Kaiserburg old town"
+          },
+          "lugar": {
+            "nombre": "Núremberg (Germanisches Nationalmuseum)",
+            "pais": "Alemania",
+            "lon": 11.0762,
+            "lat": 49.4481
+          },
+          "anios_atras": 534
+        },
+        {
+          "texto": "Aquí, Martin Behaim y sus colaboradores están fabricando una bola del mundo.",
+          "pronunciacion": "Aquí, Martin Béjaim y sus colaboradores están fabricando una bola del mundo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "estatua de Martin Behaim en Núremberg",
+            "busqueda": "Martin Behaim monument Nuremberg"
+          }
+        },
+        {
+          "texto": "El encargo lo paga el concejo de la ciudad. Quieren tener el mundo entero en una sala, al alcance de la mano.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "antiguo ayuntamiento de Núremberg",
+            "busqueda": "Altes Rathaus Nürnberg"
+          }
+        },
+        {
+          "texto": "Por dentro es una esfera de lino prensado, hecha en dos mitades y reforzada con madera.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el globo de Behaim completo sobre su pedestal",
+            "busqueda": "Behaim globe Erdapfel"
+          }
+        },
+        {
+          "texto": "Por fuera, el pintor Georg Glockendon pinta el mundo en husos, esas tiras en forma de gajo que luego envuelven la bola.",
+          "pronunciacion": "Por fuera, el pintor Yeorg Glókendon pinta el mundo en husos, esas tiras en forma de gajo que luego envuelven la bola.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación: taller de 1492, un artesano de espaldas pinta un huso del globo",
+            "prompt_flow": "Documentary-realistic slow push-in, late fifteenth-century German workshop lit by a single window, a craftsman seen from behind leaning over a long curved paper gore, painting coastlines with a fine brush, an unfinished linen globe on a wooden stand in soft focus, dust in the light beam, natural light, fine film grain, no faces, no text, no captions, no logos"
+          }
+        },
+        {
+          "texto": "Mide cincuenta y un centímetros. Podrías abrazarla.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el Erdapfel de cerca, con sus colores gastados",
+            "busqueda": "Erdapfel Behaim globe detail"
+          }
+        },
+        {
+          "texto": "Un mapa plano estira y deforma las costas. Una esfera te las enseña como son, curvándose hacia el horizonte."
+        },
+        {
+          "texto": "Hoy la llamamos Erdapfel, que en alemán quiere decir «manzana de tierra». Y es el globo terrestre más antiguo que se conserva.",
+          "pronunciacion": "Hoy la llamamos Érdapfel, que en alemán quiere decir «manzana de tierra». Y es el globo terrestre más antiguo que se conserva.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "Pasó años en una sala del ayuntamiento de Núremberg. Desde mil novecientos siete se guarda en el Museo Nacional Germano, en la misma ciudad.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sala del Germanisches Nationalmuseum con el globo de Behaim en su vitrina",
+            "busqueda": "Germanisches Nationalmuseum Behaim globe"
+          }
+        },
+        {
+          "texto": "Sobre ella está todo lo que Europa sabía del planeta: costas, reinos, islas y mares.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de Europa y África en el Erdapfel",
+            "busqueda": "Behaim globe Europe Africa"
+          }
+        },
+        {
+          "texto": "Gírala despacio, como harías tú delante de la vitrina. Pasa Europa, pasa África, pasa la India.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle del océano Índico y la India en el Erdapfel",
+            "busqueda": "Erdapfel Behaim globe Indian Ocean"
+          }
+        },
+        {
+          "texto": "Ves mares que conoces, rutas de comerciantes, nombres de reinos lejanos. Todo parece estar en su sitio."
+        },
+        {
+          "texto": "Y entonces notas que algo no encaja. En este mundo falta un continente entero: no hay América.",
+          "emocion": 0.8,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el Atlántico vacío en el globo de Behaim",
+            "busqueda": "Behaim globe Atlantic Ocean"
+          },
+          "aprendido": "El globo más antiguo no tiene América"
+        }
+      ]
+    },
+    {
+      "label": "El hueco",
+      "titulo": "Agua donde hoy hay un continente",
+      "idea": "Entre Europa y Asia, solo océano",
+      "frases": [
+        {
+          "texto": "Fíjate en la cara del globo que mira al oeste de Europa.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "los husos del globo de Behaim desplegados en un mapa plano",
+            "busqueda": "Behaim globe gores Ravenstein"
+          }
+        },
+        {
+          "texto": "Si sales de Portugal hacia donde se pone el sol, solo encuentras agua, unas pocas islas y, al fondo, Asia.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el océano entre Portugal y Asia en los husos del globo de Behaim",
+            "busqueda": "Behaim globe Atlantic Asia map"
+          }
+        },
+        {
+          "texto": "Ponte en el lugar de un marino de mil cuatrocientos noventa y dos. Miras este globo y piensas: hacia el oeste, el camino a Asia está despejado.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el Atlántico vacío en el globo de Behaim",
+            "busqueda": "Behaim globe Atlantic Ocean"
+          }
+        },
+        {
+          "texto": "Delante de Asia aparece una isla grande: Cipango. Así llamaban entonces a Japón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de Cipango en el Erdapfel",
+            "busqueda": "Behaim globe Cipango"
+          },
+          "lugar": {
+            "nombre": "Japón (Cipango en el globo)",
+            "pais": "Japón",
+            "lon": 138.25,
+            "lat": 36.2
+          }
+        },
+        {
+          "texto": "Pero está fuera de sitio. Es demasiado grande y está mucho más al sur de donde está de verdad."
+        },
+        {
+          "texto": "Europa conocía Japón solo de oídas, por relatos de viajeros, y lo coloca donde cree que está."
+        },
+        {
+          "texto": "Entre las costas de Europa y ese Japón mal colocado, el globo solo pinta un océano vacío.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el océano vacío entre Europa y Asia en el Erdapfel",
+            "busqueda": "Erdapfel empty ocean between Europe and Asia"
+          }
+        },
+        {
+          "texto": "Justo ahí, en ese azul sin nada, debería estar un continente entero, de norte a sur: América.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la Tierra vista desde el espacio con América entera",
+            "busqueda": "Blue Marble Western Hemisphere NASA"
+          }
+        },
+        {
+          "texto": "Y no es un globo pobre. Quienes lo hicieron lo llenaron de nombres y de textos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "inscripciones pintadas en la superficie del Erdapfel",
+            "busqueda": "Behaim globe inscriptions"
+          }
+        },
+        {
+          "texto": "Unos dos mil nombres de lugares y cincuenta inscripciones largas. ¿En América? Ninguno.",
+          "pausa": "¿Cuántos lugares crees que nombraba el globo más completo de 1492? ¿Y cuántos de ellos en América?",
+          "emocion": 0.8,
+          "dato": {
+            "rotulo": "Nombres en el globo",
+            "valor": "2.000",
+            "unidad": "topónimos",
+            "comparacion": "Unos 2.000 nombres de lugares y ninguno en América."
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "nombres de lugares escritos sobre el globo de Behaim",
+            "busqueda": "Erdapfel place names detail"
+          }
+        },
+        {
+          "texto": "No es un descuido. Es lo que Europa sabía del mundo en aquel momento."
+        },
+        {
+          "texto": "Los pueblos de América llevaban miles de años viviendo allí. Pero entre sus orillas y las de Europa no había ningún contacto duradero.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la Tierra vista desde el espacio con el Atlántico entre América y Europa",
+            "busqueda": "Atlantic Ocean from space NASA"
+          }
+        },
+        {
+          "texto": "Y ese mismo año, mil cuatrocientos noventa y dos, tres barcos salen de Palos, en España, hacia ese océano vacío.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "réplicas de la Niña, la Pinta y la Santa María en el Muelle de las Carabelas",
+            "busqueda": "Muelle de las Carabelas Palos replicas"
+          },
+          "lugar": {
+            "nombre": "Palos de la Frontera",
+            "pais": "España",
+            "lon": -6.8936,
+            "lat": 37.2283
+          }
+        },
+        {
+          "texto": "Así que este globo es como una foto del mundo justo antes de que llegue la noticia.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el globo de Behaim completo, de nuevo",
+            "busqueda": "Behaim globe Erdapfel"
+          },
+          "aprendido": "A aquel mapa le faltaba un continente"
+        }
+      ]
+    },
+    {
+      "label": "Océano cruzado",
+      "titulo": "Cuando el hueco se llena",
+      "idea": "Colón vuelve y las orillas se tocan",
+      "frases": [
+        {
+          "texto": "Al frente de esos barcos va Cristóbal Colón. Quiere llegar a Asia navegando hacia el oeste.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato de un hombre identificado como Colón, de Sebastiano del Piombo",
+            "busqueda": "Sebastiano del Piombo portrait of a man said to be Christopher Columbus"
+          }
+        },
+        {
+          "texto": "En un globo como este, el plan tiene sentido. Entre España y Cipango solo hay agua.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el Atlántico vacío y Cipango en los husos del globo de Behaim",
+            "busqueda": "Behaim globe gores Ravenstein"
+          }
+        },
+        {
+          "texto": "El doce de octubre, después de más de dos meses en el mar, ven tierra. Pero no es Asia.",
+          "emocion": 0.85,
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación (plano especial, 15 s): tres naves de 1492 en mar abierto y una franja de tierra al amanecer",
+            "prompt_flow": "15-second documentary-realistic aerial shot at dawn over the open Atlantic, the camera glides slowly forward above long ocean swells toward three small fifteenth-century sailing ships seen from far behind, square sails catching the first light, and a thin low line of a green island slowly appears on the horizon, soft golden mist, natural light, fine film grain, no people visible up close, no text, no captions, no logos"
+          },
+          "anios_atras": 534
+        },
+        {
+          "texto": "Es una isla de las Bahamas que sus habitantes llamaban Guanahaní.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "costa de la isla de San Salvador, en las Bahamas",
+            "busqueda": "San Salvador Island Bahamas coast"
+          },
+          "lugar": {
+            "nombre": "Guanahaní (isla de San Salvador)",
+            "pais": "Bahamas",
+            "lon": -74.48,
+            "lat": 24.05
+          }
+        },
+        {
+          "texto": "Colón cree que ha llegado a las Indias, y vuelve para contarlo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de la ruta del primer viaje de Colón",
+            "busqueda": "Columbus first voyage route map"
+          }
+        },
+        {
+          "texto": "En marzo de mil cuatrocientos noventa y tres, una tormenta lo empuja hasta Lisboa. Días después entra en Palos.",
+          "lugar": {
+            "nombre": "Lisboa",
+            "pais": "Portugal",
+            "lon": -9.1393,
+            "lat": 38.7223
+          },
+          "anios_atras": 533
+        },
+        {
+          "texto": "Desde ese momento, el océano vacío del globo de Núremberg empieza a llenarse.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el Atlántico vacío en el globo de Behaim",
+            "busqueda": "Behaim globe Atlantic Ocean"
+          }
+        },
+        {
+          "texto": "En mil quinientos siete, un mapa impreso en Saint-Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
+          "pronunciacion": "En mil quinientos siete, un mapa impreso en San Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
+            "busqueda": "Waldseemüller map 1507 America"
+          },
+          "anios_atras": 519
+        },
+        {
+          "texto": "Solo quince años separan ese mapa del globo de Behaim.",
+          "pronunciacion": "Solo quince años separan ese mapa del globo de Béjaim."
+        },
+        {
+          "texto": "Piensa en lo que significa. Un niño que vio el globo recién pintado, siendo adulto ya podía ver un mapa con América."
+        },
+        {
+          "texto": "Y por el océano ya no cruzan solo noticias. Cruzan personas, plantas, animales y enfermedades.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación: puerto del siglo XVI con barriles, sacos y caballos junto a una nave",
+            "prompt_flow": "Documentary-realistic slow lateral tracking shot along a sixteenth-century wooden harbour quay, barrels, grain sacks and two horses waiting beside a moored sailing ship, dockworkers seen from behind at a distance carrying cargo up a gangplank, overcast morning light, natural colours, fine film grain, no faces, no text, no captions, no logos"
+          }
+        },
+        {
+          "texto": "El maíz y la patata viajan de América al resto del mundo. El caballo y el trigo hacen el camino contrario.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mazorcas de maíz y patatas nativas de los Andes",
+            "busqueda": "Andean native potatoes maize market"
+          }
+        },
+        {
+          "texto": "La viruela, por desgracia, también cruzó, y fue la más mortífera de todas. Volveremos a ella en otra temporada.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ilustración del Códice Florentino sobre la viruela entre los mexicas",
+            "busqueda": "Florentine Codex smallpox"
+          }
+        },
+        {
+          "texto": "Ya no hay dos mundos que se ignoran. Hay uno solo, que empieza a mezclarse.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
+            "busqueda": "Waldseemüller map 1507 America"
+          }
+        },
+        {
+          "texto": "Por primera vez, las orillas del planeta empiezan a quedar unidas.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de Waldseemüller completo",
+            "busqueda": "Waldseemüller map 1507 Library of Congress"
+          },
+          "aprendido": "Al cruzar el océano, empezó un mundo conectado"
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "titulo": "Lo que cabe en una esfera",
+      "idea": "El mapa cambió en una sola generación",
+      "frases": [
+        {
+          "texto": "Tres preguntas para que no se te escape. ¿Dónde está el globo terrestre más antiguo que se conserva?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sala del Germanisches Nationalmuseum con el globo de Behaim",
+            "busqueda": "Germanisches Nationalmuseum Behaim globe"
+          }
+        },
+        {
+          "texto": "En el Museo Nacional Germano de Núremberg. Lo llaman Erdapfel, la manzana de tierra.",
+          "pronunciacion": "En el Museo Nacional Germano de Núremberg. Lo llaman Érdapfel, la manzana de tierra."
+        },
+        {
+          "texto": "¿Qué continente le falta? América entera.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el océano vacío entre Europa y Asia en el Erdapfel",
+            "busqueda": "Erdapfel empty ocean between Europe and Asia"
+          }
+        },
+        {
+          "texto": "¿Y por qué le falta? Porque se hizo justo antes de que la noticia del viaje de Colón llegara a Europa.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de la ruta del primer viaje de Colón",
+            "busqueda": "Columbus first voyage route map"
+          }
+        },
+        {
+          "texto": "Por eso, entre Europa y Asia, el globo solo pinta agua y un Japón fuera de sitio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de Cipango en el Erdapfel",
+            "busqueda": "Behaim globe Cipango"
+          }
+        },
+        {
+          "texto": "Quédate con esa imagen: una bola de cincuenta y un centímetros, dos mil nombres y un hueco del tamaño de un continente.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el globo de Behaim completo",
+            "busqueda": "Behaim globe Erdapfel"
+          }
+        },
+        {
+          "texto": "Ahora piensa en esto. Durante milenios, el mapa del mundo cambió muy despacio."
+        },
+        {
+          "texto": "Y en una sola generación se llenó un océano entero. Ahí empieza un planeta conectado.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de Waldseemüller de 1507",
+            "busqueda": "Waldseemüller map 1507 America"
+          }
+        },
+        {
+          "texto": "Pero mover barcos, cosechas y ciudades exigía cada vez más fuerza. Y esa fuerza seguía saliendo de brazos, animales, viento y leña.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "molino de viento histórico de madera",
+            "busqueda": "historic post mill windmill"
+          }
+        },
+        {
+          "texto": "En el próximo episodio viajamos a una mina inglesa, donde una máquina quema carbón para sacar agua de una mina de carbón.",
+          "emocion": 0.6,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "máquina Newcomen de Elsecar y su balancín",
+            "busqueda": "Elsecar Newcomen engine"
+          }
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "En 1492 al mapa del mundo le faltaba un continente; llenar ese hueco empezó a conectar el planeta."
+  },
+  "miniatura": {
+    "antetitulo": "El globo más antiguo del mundo",
+    "gancho": [
+      "2.000 nombres,",
+      "cero América"
+    ],
+    "que_se_ve": "el globo de Behaim (Erdapfel) con el Atlántico vacío en primer plano"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "El Erdapfel se fecha h. 1491–1494, lo encargó el concejo de Núremberg en 1492/93, muestra el mundo conocido antes del viaje de Colón de 1492 y se expone en el Germanisches Nationalmuseum. 1492 = hace 534 años desde 2026.",
+      "url": "https://germanhistory-intersections.org/en/knowledge-and-education/ghis:image-74"
+    },
+    {
+      "afirmacion": "El globo de Behaim es el globo terrestre más antiguo que se conserva, con unos 2.000 topónimos y 50 inscripciones largas, y refleja el mundo antes del descubrimiento de América en 1492.",
+      "url": "https://behaim.wisski.data.fau.de/sites/default/files/Darstellung_des_Globus_in_30.html"
+    },
+    {
+      "afirmacion": "Diámetro de 51 cm; bola de lino laminado en dos mitades reforzada con madera; mapa pintado en husos por Georg Glockendon; estuvo en una sala del ayuntamiento de Núremberg hasta principios del siglo XVI y pasó al Germanisches Nationalmuseum en 1907; no incluye América porque Colón volvió a España no antes de marzo de 1493; Cipango aparece sobredimensionado y muy al sur de su posición real, con un océano vacío entre Europa y Asia.",
+      "url": "https://en.wikipedia.org/wiki/Erdapfel"
+    },
+    {
+      "afirmacion": "Colón zarpó de Palos el 3 de agosto de 1492, tocó tierra el 12 de octubre de 1492 en Guanahaní (probablemente la actual isla de San Salvador, Bahamas), llegó a Lisboa el 4 de marzo de 1493 forzado por una tormenta y a Palos el 15 de marzo de 1493.",
+      "url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus"
+    },
+    {
+      "afirmacion": "El mapa de Waldseemüller, publicado en abril de 1507 en Saint-Dié-des-Vosges (Lorena), es el primero que usa el nombre «America»; la única copia completa está en la Biblioteca del Congreso. 1507 = hace 519 años desde 2026.",
+      "url": "https://en.wikipedia.org/wiki/Waldseem%C3%BCller_map"
+    },
+    {
+      "afirmacion": "El intercambio colombino empezó con el primer viaje de Colón en 1492: patata y maíz se extendieron desde América; caballos y trigo llegaron a América; también cruzaron enfermedades como la viruela.",
+      "url": "https://en.wikipedia.org/wiki/Columbian_exchange"
+    }
+  ]
+}

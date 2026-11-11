@@ -1,0 +1,501 @@
+{
+  "codigo": "T1-E09",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      -100,
+      0,
+      50,
+      50
+    ]
+  },
+  "partes": [
+    {
+      "label": "La foto",
+      "titulo": "Nochebuena en órbita lunar",
+      "idea": "Tres hombres ven salir la Tierra",
+      "frases": [
+        {
+          "texto": "En el episodio anterior, una máquina quemaba carbón para sacar agua de una mina. ¿Recuerdas qué parte de la energía del mundo daba el carbón en mil ochocientos?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "máquina Newcomen de Elsecar, vista en el episodio 8",
+            "busqueda": "Elsecar Newcomen engine"
+          }
+        },
+        {
+          "texto": "Casi nada, un dos por ciento. Pero con ese fuego, en menos de dos siglos llegamos mucho más lejos que el fondo de una mina.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cohete Saturno V del Apolo 8 en la plataforma de lanzamiento",
+            "busqueda": "Apollo 8 Saturn V on launch pad"
+          }
+        },
+        {
+          "texto": "Veintiuno de diciembre de mil novecientos sesenta y ocho. Plataforma treinta y nueve A, en Florida.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "despegue del Apolo 8 desde la plataforma 39A",
+            "busqueda": "Apollo 8 launch"
+          },
+          "lugar": {
+            "nombre": "Plataforma 39A, Centro Espacial Kennedy",
+            "pais": "Estados Unidos",
+            "lon": -80.6041,
+            "lat": 28.6065
+          },
+          "anios_atras": 58
+        },
+        {
+          "texto": "Un cohete enorme despega con tres hombres dentro: Frank Borman, Jim Lovell y Bill Anders.",
+          "pronunciacion": "Un cohete enorme despega con tres hombres dentro: Frank Bórman, Yim Lóvel y Bil Ánders.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato oficial de la tripulación del Apolo 8: Borman, Lovell y Anders",
+            "busqueda": "Apollo 8 crew portrait Borman Lovell Anders"
+          }
+        },
+        {
+          "texto": "Es la primera vez que un cohete Saturno cinco despega con gente a bordo."
+        },
+        {
+          "texto": "Van a ser los primeros humanos en dar vueltas alrededor de la Luna.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la Luna vista desde la Tierra",
+            "busqueda": "Full Moon photograph"
+          }
+        },
+        {
+          "texto": "Tres días después, el veinticuatro de diciembre, ya están en órbita lunar. Es Nochebuena.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "superficie de la Luna con cráteres fotografiada desde el Apolo 8",
+            "busqueda": "Apollo 8 lunar surface craters photograph"
+          }
+        },
+        {
+          "texto": "Bajo la nave pasa un suelo gris, sin aire, lleno de cráteres. Su trabajo es estudiarlo y fotografiarlo."
+        },
+        {
+          "texto": "Pasarán unas veinte horas dando vueltas a la Luna, mirando hacia abajo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráteres lunares fotografiados desde el Apolo 8",
+            "busqueda": "Apollo 8 Moon craters"
+          }
+        },
+        {
+          "texto": "Y entonces, por encima del horizonte de la Luna, asoma algo azul.",
+          "emocion": 0.85,
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "Recreación (plano especial, 15 s): tres astronautas de espaldas junto a la ventanilla de la cápsula mientras la Tierra sale sobre la Luna",
+            "prompt_flow": "15-second documentary-realistic shot from inside a cramped 1968 space capsule, three astronauts in white flight suits seen from behind, silhouetted against a small square window, through the window the grey cratered lunar horizon slowly drifts and a small blue and white Earth rises above it into black space, soft sunlight sliding across the instrument panel, slow gentle push-in toward the window, fine film grain, no faces, no text, no captions, no logos"
+          }
+        },
+        {
+          "texto": "Nadie lo había visto nunca. Esos tres hombres son los primeros humanos que ven salir la Tierra sobre otro mundo.",
+          "emocion": 0.8
+        },
+        {
+          "texto": "Anders coge la cámara y dispara. Esa foto se llama Earthrise, «salida de la Tierra».",
+          "pronunciacion": "Ánders coge la cámara y dispara. Esa foto se llama Érzrais, «salida de la Tierra».",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        },
+        {
+          "texto": "Mírala bien. Abajo, la Luna, gris y quieta. Arriba, una bola azul y blanca, sola en medio de lo negro."
+        },
+        {
+          "texto": "Todo lo que has visto esta temporada está ahí dentro. Jebel Irhoud, Blombos, Göbekli Tepe, Uruk, Behistún, Núremberg, Elsecar.",
+          "pronunciacion": "Todo lo que has visto esta temporada está ahí dentro. Yébel Irjud, Blómbos, Gobekli Tepe, Uruk, Behistún, Núremberg, Élsecar."
+        },
+        {
+          "texto": "En esa bola vivían entonces unos tres mil quinientos millones de personas. Hoy somos más de ocho mil millones. Más del doble.",
+          "pausa": "Desde que se tomó esta foto, ¿cuánto crees que ha crecido la humanidad?",
+          "emocion": 0.85,
+          "dato": {
+            "rotulo": "Humanos hoy",
+            "valor": "8.000",
+            "unidad": "millones",
+            "comparacion": "En 2023 éramos unos 8.092 millones; en 1968, el año de Earthrise, unos 3.545 millones. Más del doble en una vida humana."
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la población mundial",
+            "busqueda": "Our World in Data world population chart"
+          },
+          "aprendido": "Somos más de 8.000 millones"
+        }
+      ]
+    },
+    {
+      "label": "Ocho mil millones",
+      "titulo": "El doble en una sola vida",
+      "idea": "La humanidad se ha más que duplicado",
+      "frases": [
+        {
+          "texto": "Piensa en lo rápido que ha sido. Bill Anders murió en dos mil veinticuatro.",
+          "pronunciacion": "Piensa en lo rápido que ha sido. Bil Ánders murió en dos mil veinticuatro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato oficial del astronauta Bill Anders",
+            "busqueda": "William Anders NASA portrait"
+          }
+        },
+        {
+          "texto": "Así que el hombre que hizo la foto vivió lo bastante para ver a la humanidad duplicarse."
+        },
+        {
+          "texto": "Ninguna generación anterior vio algo así. Durante casi toda la historia, la población creció tan despacio que nadie lo notaba en su propia vida."
+        },
+        {
+          "texto": "Ahora compáralo con lo que has visto esta temporada. Antes del campo, en todo el planeta éramos unos cuatro millones y medio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilares en forma de T de Göbekli Tepe, vistos en el episodio 4",
+            "busqueda": "Göbekli Tepe pillars"
+          }
+        },
+        {
+          "texto": "Hicieron falta cientos de miles de años para llegar a los tres mil quinientos millones de la foto. Y solo una vida para duplicarlos.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la población mundial a largo plazo",
+            "busqueda": "Our World in Data world population long run"
+          }
+        },
+        {
+          "texto": "Detrás está la energía del episodio anterior. Primero el carbón, después el petróleo, moviendo tractores, fábricas, barcos y hospitales.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "máquina Newcomen de Elsecar y su balancín",
+            "busqueda": "Elsecar Newcomen engine beam"
+          }
+        },
+        {
+          "texto": "Mira la Tierra de noche. Cada mancha de luz es una ciudad encendida con esa energía.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "imagen de la NASA de la Tierra de noche con las luces de las ciudades",
+            "busqueda": "NASA Black Marble Earth at night 2016"
+          }
+        },
+        {
+          "texto": "Y todas esas luces están unidas. El océano vacío del globo de Behaim hoy se cruza en avión en unas horas.",
+          "pronunciacion": "Y todas esas luces están unidas. El océano vacío del globo de Béjaim hoy se cruza en avión en unas horas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el océano vacío entre Europa y Asia en el globo de Behaim, visto en el episodio 7",
+            "busqueda": "Behaim globe Atlantic Ocean"
+          }
+        },
+        {
+          "texto": "Y un mensaje lo cruza en menos de un segundo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de los cables submarinos de telecomunicaciones del mundo",
+            "busqueda": "submarine communications cable map world"
+          }
+        },
+        {
+          "texto": "Lo que ocurre en una ciudad lo sabes en la otra punta del mundo antes de terminarte el café."
+        },
+        {
+          "texto": "Ocho mil millones de personas, en un mismo planeta, a un clic unas de otras.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "imagen de la NASA de la Tierra de noche",
+            "busqueda": "NASA Black Marble Earth at night 2016"
+          },
+          "aprendido": "Nos hemos duplicado desde 1968"
+        }
+      ]
+    },
+    {
+      "label": "Un solo mundo",
+      "titulo": "La casa de todos, desde fuera",
+      "idea": "Descendientes de África, en un planeta",
+      "frases": [
+        {
+          "texto": "Vuelve a mirar la foto. ¿Ves fronteras? ¿Ves imperios, idiomas, banderas?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        },
+        {
+          "texto": "No. Ves una sola bola. Y todos los que viven en ella descienden de humanos que vivían en África hace unos trescientos mil años.",
+          "emocion": 0.75,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "reconstrucción del cráneo de Jebel Irhoud, vista en el episodio 1",
+            "busqueda": "Jebel Irhoud skull reconstruction"
+          },
+          "lugar": {
+            "nombre": "Jebel Irhoud",
+            "pais": "Marruecos",
+            "lon": -8.8725,
+            "lat": 31.855
+          },
+          "anios_atras": 300000
+        },
+        {
+          "texto": "Unos se quedaron allí. Otros salieron hace unos cincuenta mil años, y por el camino se mezclaron con los neandertales.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Manot 1, visto en el episodio 2",
+            "busqueda": "Manot 1 skull"
+          },
+          "lugar": {
+            "nombre": "Cueva de Manot",
+            "pais": "Israel",
+            "lon": 35.1933,
+            "lat": 33.035
+          },
+          "anios_atras": 50000
+        },
+        {
+          "texto": "Se repartieron por todos los continentes. Y con los milenios inventaron campos, ciudades, escrituras y dioses distintos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del reparto de cebada del Met, vista en el episodio 5",
+            "busqueda": "proto-cuneiform tablet Met 1988.433.1"
+          }
+        },
+        {
+          "texto": "Cada grupo con su lengua, sus mapas y sus historias sobre quién debía mandar."
+        },
+        {
+          "texto": "Se alejaron tanto que olvidaron que eran parientes."
+        },
+        {
+          "texto": "Durante milenios, muchos pueblos ni siquiera sabían que existían los otros. Recuerda el océano vacío del globo de Núremberg.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el océano vacío entre Europa y Asia en el globo de Behaim",
+            "busqueda": "Erdapfel empty ocean between Europe and Asia"
+          }
+        },
+        {
+          "texto": "En mil cuatrocientos noventa y dos, las orillas del planeta volvieron a tocarse. Con el carbón, los viajes se volvieron rápidos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
+            "busqueda": "Waldseemüller map 1507 America"
+          },
+          "anios_atras": 534
+        },
+        {
+          "texto": "Y en mil novecientos sesenta y ocho, tres de esos descendientes se dieron la vuelta y vieron, por fin, la casa de todos.",
+          "emocion": 0.85,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          },
+          "anios_atras": 58
+        },
+        {
+          "texto": "El veintisiete de diciembre, los tres volvieron a casa y cayeron en el mar, sanos y salvos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cápsula del Apolo 8 en el océano tras el amerizaje",
+            "busqueda": "Apollo 8 splashdown recovery"
+          }
+        },
+        {
+          "texto": "Anders lo dijo así: «Vinimos hasta aquí para explorar la Luna, y lo más importante es que descubrimos la Tierra».",
+          "pronunciacion": "Ánders lo dijo así: «Vinimos hasta aquí para explorar la Luna, y lo más importante es que descubrimos la Tierra».",
+          "emocion": 0.8,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Bill Anders con su traje de vuelo del Apolo 8",
+            "busqueda": "William Anders Apollo 8 astronaut"
+          }
+        },
+        {
+          "texto": "Desde allí arriba no se ven vencedores ni vencidos, ni rebeldes atados a los pies de un rey. Solo una casa compartida.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        },
+        {
+          "texto": "Un planeta pequeño. Una sola familia, por primera vez conectada de punta a punta.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Blue Marble de la Tierra entera",
+            "busqueda": "Blue Marble AS17-148-22727"
+          },
+          "aprendido": "Todos descendemos de aquellos primeros africanos"
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "titulo": "Nueve objetos, una historia",
+      "idea": "De cazadores en África a una humanidad",
+      "frases": [
+        {
+          "texto": "Tres preguntas antes de cerrar. ¿Quién hizo la foto Earthrise, y cuándo?",
+          "pronunciacion": "Tres preguntas antes de cerrar. ¿Quién hizo la foto Érzrais, y cuándo?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        },
+        {
+          "texto": "Bill Anders, del Apolo ocho, el veinticuatro de diciembre de mil novecientos sesenta y ocho.",
+          "pronunciacion": "Bil Ánders, del Apolo ocho, el veinticuatro de diciembre de mil novecientos sesenta y ocho."
+        },
+        {
+          "texto": "¿Cuántos humanos somos? Más de ocho mil millones, más del doble que entonces.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "imagen de la NASA de la Tierra de noche",
+            "busqueda": "NASA Black Marble Earth at night 2016"
+          }
+        },
+        {
+          "texto": "¿Y cuál es el hilo de toda la temporada? Ahora lo recorres de un tirón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "reconstrucción del cráneo de Jebel Irhoud",
+            "busqueda": "Jebel Irhoud skull reconstruction"
+          }
+        },
+        {
+          "texto": "Una cara como la tuya, en Marruecos. Una salida de África. Unas rayas rojas que guardan ideas fuera de la cabeza.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de Blombos con trazos de ocre",
+            "busqueda": "Blombos Cave ochre drawing silcrete flake"
+          }
+        },
+        {
+          "texto": "Quizá un templo antes que el campo. Una tablilla para contar cebada. Un rey que talla su historia en la roca.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Darío I en Behistún",
+            "busqueda": "Behistun relief Darius"
+          }
+        },
+        {
+          "texto": "Un globo sin América. Una máquina que quema carbón para sacar carbón. Y una foto de la Tierra entera.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el globo de Behaim (Erdapfel)",
+            "busqueda": "Behaim globe Erdapfel"
+          }
+        },
+        {
+          "texto": "Cada paso nos fue juntando un poco más."
+        },
+        {
+          "texto": "Nueve objetos, una sola historia. De unos pocos grupos dispersos por África a una sola humanidad conectada, que se ve desde fuera.",
+          "emocion": 0.8,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Blue Marble de la Tierra entera",
+            "busqueda": "Blue Marble AS17-148-22727"
+          }
+        },
+        {
+          "texto": "¿Y recuerdas el reloj del episodio cero? Si toda nuestra historia cupiera en un día, la escritura llegaría a las once y treinta y cinco de la noche.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del reparto de cebada del Met",
+            "busqueda": "proto-cuneiform tablet Met 1988.433.1"
+          }
+        },
+        {
+          "texto": "Y esta foto, a menos de veinte segundos de la medianoche. Todo lo que ha cambiado desde entonces cabe en ese último suspiro.",
+          "emocion": 0.8,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fotografía Earthrise del Apolo 8",
+            "busqueda": "Earthrise AS08-14-2383"
+          }
+        },
+        {
+          "texto": "Pero ¿de dónde sacamos la fuerza para llegar tan lejos? Esa es la pregunta de la segunda temporada: la energía.",
+          "emocion": 0.6,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "máquina Newcomen de Elsecar y su balancín",
+            "busqueda": "Elsecar Newcomen engine beam"
+          }
+        },
+        {
+          "texto": "Y la empezamos donde empezó todo: junto a una hoguera, en una cueva de Israel, hace trescientos mil años.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cueva de Qesem, Israel",
+            "busqueda": "Qesem Cave"
+          },
+          "lugar": {
+            "nombre": "Cueva de Qesem",
+            "pais": "Israel",
+            "lon": 34.98,
+            "lat": 32.11
+          },
+          "anios_atras": 300000
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "Por primera vez somos una sola humanidad conectada en un planeta pequeño, y lo supimos al vernos desde fuera."
+  },
+  "miniatura": {
+    "antetitulo": "La foto que cambió la mirada",
+    "gancho": [
+      "8.000 millones",
+      "aquí dentro"
+    ],
+    "que_se_ve": "la fotografía Earthrise (AS08-14-2383): la Tierra saliendo sobre el horizonte de la Luna"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "Bill Anders tomó Earthrise el 24 de diciembre de 1968 desde la órbita lunar (Apolo 8); Anders, Borman y Lovell fueron los primeros humanos en orbitar la Luna y en presenciar esa vista; Anders murió el 7 de junio de 2024.",
+      "url": "https://www.nasa.gov/image-article/earthrise-by-nasa-astronaut-bill-anders/"
+    },
+    {
+      "afirmacion": "El Apolo 8 despegó el 21 de diciembre de 1968 desde la plataforma 39A del Centro Espacial Kennedy; Borman, Lovell y Anders fueron los primeros humanos en orbitar la Luna.",
+      "url": "https://www.nasa.gov/mission/apollo-8/"
+    },
+    {
+      "afirmacion": "El Apolo 8 fue el primer lanzamiento tripulado del Saturno V; la tripulación pasó unas 20 horas en órbita lunar y amerizó el 27 de diciembre de 1968.",
+      "url": "https://www.nasa.gov/mission/apollo-8/"
+    },
+    {
+      "afirmacion": "Cita de William Anders (Apolo 8): «We came all this way to explore the Moon, and the most important thing is that we discovered the Earth.»",
+      "url": "https://science.nasa.gov/earth/10-things-looking-homeward/"
+    },
+    {
+      "afirmacion": "Población mundial: unos 3.545 millones en 1968 y unos 8.092 millones en 2023 (HYDE, Gapminder y UN WPP 2024, Our World in Data).",
+      "url": "https://ourworldindata.org/grapher/population"
+    },
+    {
+      "afirmacion": "Recapitulación de la temporada (Jebel Irhoud hace unos 300.000 años, salida de África hace unos 50.000 años y mezcla con neandertales, Blombos, Göbekli Tepe y unos pocos millones de humanos antes del campo, tablilla de cebada, Behistún, Erdapfel, Elsecar) y apertura de la temporada 2 en la cueva de Qesem, hace unos 300.000 años: datos del temario verificado.",
+      "url": "https://en.wikipedia.org/wiki/Qesem_Cave"
+    },
+    {
+      "afirmacion": "Reloj de un día (temario T1-E00): la escritura, hacia 3200 a. C., cae hacia las 23:35. Cálculo propio: 58 años / 300.000 × 86.400 s ≈ 17 s antes de medianoche para Earthrise (1968).",
+      "url": "https://mpiwg-berlin.mpg.de/sites/default/files/migrated/p183.pdf"
+    }
+  ]
+}

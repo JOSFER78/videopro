@@ -1,0 +1,527 @@
+{
+  "codigo": "T1-E04",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      36.5,
+      35.5,
+      41.5,
+      39.0
+    ]
+  },
+  "partes": [
+    {
+      "label": "Sin granjeros",
+      "titulo": "Piedras gigantes, ningún campo",
+      "idea": "Göbekli Tepe, sureste de Turquía",
+      "frases": [
+        {
+          "texto": "En el episodio anterior viste el dibujo más antiguo que se conoce. ¿Recuerdas dónde apareció aquel garabato rojo?",
+          "emocion": 0.5,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta con trazos de ocre de Blombos, vista en el episodio 3",
+            "busqueda": "Blombos Cave drawing silcrete flake ochre"
+          }
+        },
+        {
+          "texto": "En una cueva de Sudáfrica, hace setenta y tres mil años. Unas rayas que guardaban una idea fuera de la cabeza.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
+            "busqueda": "Blombos Cave"
+          }
+        },
+        {
+          "texto": "Hoy das un salto enorme hacia delante. Hasta hace once mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe aerial view"
+          },
+          "anios_atras": 11000
+        },
+        {
+          "texto": "Estás en una colina del sureste de Turquía, cerca de la ciudad de Şanlıurfa. Se llama Göbekli Tepe.",
+          "pronunciacion": "Estás en una colina del sureste de Turquía, cerca de la ciudad de Shanliurfa. Se llama Guebekli Tepe.",
+          "lugar": {
+            "nombre": "Göbekli Tepe",
+            "pais": "Turquía",
+            "lon": 38.9217,
+            "lat": 37.2236
+          }
+        },
+        {
+          "texto": "En la cima hay círculos de piedras enormes. Son pilares con forma de letra te, y los más altos miden unos cinco metros.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto D de Göbekli Tepe con sus dos pilares centrales en forma de T",
+            "busqueda": "Göbekli Tepe enclosure D pillars"
+          }
+        },
+        {
+          "texto": "Ponte al lado de uno. Es casi tres veces más alto que tú.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "visitantes junto a los pilares de Göbekli Tepe, para dar escala",
+            "busqueda": "Göbekli Tepe pillars visitors scale"
+          }
+        },
+        {
+          "texto": "Mira este, el pilar cuarenta y tres. Lo llaman la «piedra del buitre», por el ave enorme que lleva tallada.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilar 43, la «piedra del buitre», de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe pillar 43 vulture stone"
+          }
+        },
+        {
+          "texto": "En otros pilares hay zorros, serpientes, leones y escorpiones. Animales que dan miedo, no animales para comer.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe fox relief pillar"
+          }
+        },
+        {
+          "texto": "Y todo esto es unos seis mil años más antiguo que Stonehenge.",
+          "pronunciacion": "Y todo esto es unos seis mil años más antiguo que Estónjench.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "círculo de piedras de Stonehenge",
+            "busqueda": "Stonehenge"
+          }
+        },
+        {
+          "texto": "Y no fue cosa de una generación. La colina estuvo en uso desde hace unos once mil quinientos años hasta hace unos diez mil.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "plano de los recintos A, B, C y D de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe site plan enclosures"
+          }
+        },
+        {
+          "texto": "Unos mil quinientos años de gente volviendo una y otra vez al mismo sitio."
+        },
+        {
+          "texto": "Entonces, ¿quién lo levantó? La pista no está en los pilares. Está en la basura que dejaron alrededor.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "zona de excavación de Göbekli Tepe bajo la cubierta protectora",
+            "busqueda": "Göbekli Tepe excavation"
+          }
+        },
+        {
+          "texto": "Los arqueólogos han estudiado más de cien mil fragmentos de hueso. Más de la mitad son de gacela.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gacela persa, la presa más cazada en Göbekli Tepe",
+            "busqueda": "Gazella subgutturosa goitered gazelle"
+          }
+        },
+        {
+          "texto": "El resto, jabalíes, ovejas salvajes, ciervos, patos y grullas. Los huesos tienen marcas de corte: los despiezaron y los cocinaron.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "jabalí salvaje",
+            "busqueda": "Sus scrofa wild boar"
+          }
+        },
+        {
+          "texto": "Ninguno. Ni uno solo de esos huesos es de un animal doméstico.",
+          "emocion": 0.8,
+          "pausa": "De más de cien mil huesos, ¿cuántos crees que son de animales domésticos?",
+          "dato": {
+            "rotulo": "Huesos de animales domésticos",
+            "valor": "0",
+            "unidad": "de 100.000",
+            "comparacion": "Más del 60 % son de gacela; el resto, jabalí, oveja salvaje, ciervo y aves. Todo caza."
+          }
+        },
+        {
+          "texto": "Junto a los huesos salen martillos de piedra y cuchillas de sílex. Con eso tallaron la caliza.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "herramientas de sílex del Neolítico precerámico",
+            "busqueda": "Pre-Pottery Neolithic flint tools"
+          }
+        },
+        {
+          "texto": "No tenían granjas ni rebaños. Los que tallaron estos pilares eran cazadores-recolectores.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilar central del recinto D de Göbekli Tepe, de cerca",
+            "busqueda": "Göbekli Tepe pillar 18"
+          },
+          "aprendido": "Göbekli Tepe lo construyeron cazadores-recolectores."
+        }
+      ]
+    },
+    {
+      "label": "Juntos",
+      "titulo": "Cientos de manos, una colina",
+      "idea": "Diez toneladas no se mueven a solas",
+      "frases": [
+        {
+          "texto": "Ahora piensa en cómo se hizo. Los pilares más grandes pesan hasta diez toneladas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilares de varias toneladas en pie en un recinto de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe T-shaped pillars"
+          }
+        },
+        {
+          "texto": "Diez toneladas. Más o menos lo que pesan siete coches.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cantera de caliza en la meseta de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe limestone quarry"
+          }
+        },
+        {
+          "texto": "No había ruedas, ni animales de tiro, ni metal. Solo cuerdas, sílex y brazos."
+        },
+        {
+          "texto": "Klaus Schmidt, el arqueólogo que dirigió la excavación, calculó que hacían falta cientos de trabajadores.",
+          "pronunciacion": "Claus Shmit, el arqueólogo que dirigió la excavación, calculó que hacían falta cientos de trabajadores.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el arqueólogo Klaus Schmidt en Göbekli Tepe",
+            "busqueda": "Klaus Schmidt archaeologist Göbekli Tepe"
+          }
+        },
+        {
+          "texto": "Imagínalos. Cientos de personas tirando de las cuerdas a la vez para arrastrar una sola piedra.",
+          "emocion": 0.85,
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: cientos de personas arrastran un pilar en forma de T por la colina",
+            "plano_especial": true,
+            "duracion_seg": 15,
+            "prompt_flow": "Documentary-realistic wide shot at dawn on a dry limestone hilltop in southeastern Anatolia, 9500 BC. Hundreds of hunter-gatherers in hide clothing, seen from behind and at a distance, haul a huge T-shaped limestone pillar with long plant-fibre ropes, pulling in rhythm. Dust in low golden light, slow aerial dolly pulling back to reveal the crowd and the stone circle under construction. Natural colours, no faces visible, no text."
+          }
+        },
+        {
+          "texto": "Alguien tiene que marcar el ritmo. Alguien tiene que decidir dónde va cada piedra."
+        },
+        {
+          "texto": "Y toda esa gente tiene que comer. Durante semanas, en el mismo sitio."
+        },
+        {
+          "texto": "Hay que cazar más gacelas, recoger más grano silvestre y cocinar para todos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña silvestre, el trigo salvaje de la zona",
+            "busqueda": "Triticum boeoticum wild einkorn"
+          }
+        },
+        {
+          "texto": "Y hay un detalle curioso. Las gacelas solo pasaban por esta zona en ciertas épocas del año.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "manada de gacelas persas en la estepa",
+            "busqueda": "goitered gazelle herd steppe"
+          }
+        },
+        {
+          "texto": "Quizá las reuniones se hacían justo entonces, cuando había carne de sobra para alimentar a todos."
+        },
+        {
+          "texto": "Ahora piensa en cuánta gente había entonces en el mundo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfica de la población mundial desde el 10.000 antes de Cristo",
+            "busqueda": "World population history graph"
+          },
+          "anios_atras": 12000
+        },
+        {
+          "texto": "Unos cuatro millones y medio. En todo el planeta, menos de los que viven hoy en una sola gran ciudad.",
+          "emocion": 0.8,
+          "pausa": "Antes de la agricultura, ¿cuántas personas crees que vivían en todo el planeta?",
+          "dato": {
+            "rotulo": "Humanos en la Tierra",
+            "valor": "4,5",
+            "unidad": "millones",
+            "comparacion": "Es la población mundial estimada hacia el 10.000 a. C. Hoy somos unas 1.800 veces más."
+          }
+        },
+        {
+          "texto": "En un mundo tan vacío, juntar a cientos de personas en una colina era algo excepcional.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la colina de Göbekli Tepe sobre la llanura vacía",
+            "busqueda": "Göbekli Tepe hill landscape"
+          }
+        },
+        {
+          "texto": "Y no lo hicieron una sola vez. Al terminar un círculo, lo cubrían de tierra y levantaban otro al lado, o encima.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe excavation layers walls"
+          }
+        },
+        {
+          "texto": "Así, capa sobre capa, durante siglos, creció la colina que ves hoy."
+        },
+        {
+          "texto": "Éramos muy pocos y vivíamos de la caza. Y aun así, nos reuníamos para construir algo enorme.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieves de animales en un pilar de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe pillar relief animals"
+          },
+          "aprendido": "Antes del campo éramos solo unos pocos millones."
+        }
+      ]
+    },
+    {
+      "label": "El trigo",
+      "titulo": "Treinta kilómetros más allá",
+      "idea": "El monumento y el campo, juntos",
+      "frases": [
+        {
+          "texto": "Ahora baja de la colina y camina unos treinta kilómetros.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campos de cereal en la llanura de Şanlıurfa",
+            "busqueda": "Şanlıurfa plain wheat fields"
+          }
+        },
+        {
+          "texto": "Allí apareció uno de los trigos domesticados más antiguos que se conocen, de hace unos diez mil quinientos años.",
+          "emocion": 0.75,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
+            "busqueda": "Einkorn wheat Triticum monococcum"
+          },
+          "anios_atras": 10500
+        },
+        {
+          "texto": "Fíjate en el orden, porque es lo importante. Primero, cazadores que se juntan para levantar piedras.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilar 43 de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe pillar 43"
+          }
+        },
+        {
+          "texto": "Después, muy cerca y poco tiempo más tarde, el trigo sembrado.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "granos y espigas de escaña cultivada",
+            "busqueda": "einkorn grains spikelets"
+          }
+        },
+        {
+          "texto": "La historia que solemos contar va al revés. Primero el campo, luego el pueblo y, al final, el templo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "aldea neolítica reconstruida de casas de barro",
+            "busqueda": "Neolithic village reconstruction mud brick houses"
+          }
+        },
+        {
+          "texto": "Schmidt le dio la vuelta. Para él, el gran esfuerzo de construir juntos preparó el terreno para todo lo demás.",
+          "pronunciacion": "Shmit le dio la vuelta. Para él, el gran esfuerzo de construir juntos preparó el terreno para todo lo demás.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Klaus Schmidt junto a un pilar de Göbekli Tepe",
+            "busqueda": "Klaus Schmidt Göbekli Tepe pillar"
+          }
+        },
+        {
+          "texto": "El arqueólogo Ian Hodder lo resume así: primero cambia la forma de vivir juntos; la agricultura llega después.",
+          "pronunciacion": "El arqueólogo Ian Jóder lo resume así: primero cambia la forma de vivir juntos; la agricultura llega después.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "el arqueólogo Ian Hodder",
+            "busqueda": "Ian Hodder archaeologist"
+          }
+        },
+        {
+          "texto": "Tiene lógica. Si mucha gente quiere quedarse junta en un sitio, el grano silvestre no alcanza.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: recolectores siegan trigo silvestre junto a la colina",
+            "prompt_flow": "Documentary-realistic medium-wide shot of a few Neolithic people seen from behind, harvesting tall wild wheat with flint sickles on a gentle slope in southeastern Anatolia at late afternoon. A limestone hill with a stone enclosure is visible far in the background. Warm natural light, handheld documentary feel, no faces, no text."
+          }
+        },
+        {
+          "texto": "Así que alguien empieza a guardar semillas y a plantarlas cerca. Quedarse lleva a sembrar."
+        },
+        {
+          "texto": "En la propia colina han aparecido muchas piedras de moler. Allí se molía grano en grandes cantidades.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "piedras de moler neolíticas halladas en Göbekli Tepe",
+            "busqueda": "Göbekli Tepe grinding stones"
+          }
+        },
+        {
+          "texto": "Lo que aún no sabemos es si aquel grano era silvestre o ya sembrado."
+        },
+        {
+          "texto": "Y sembrar lo cambia todo. Más comida en el mismo sitio significa más gente.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfica de la población mundial disparándose tras la agricultura",
+            "busqueda": "World population growth curve"
+          }
+        },
+        {
+          "texto": "De aquellos cuatro millones y medio hemos pasado a más de ocho mil millones. Unas mil ochocientas veces más.",
+          "emocion": 0.75
+        },
+        {
+          "texto": "Todo ese camino empezó cerca de esta colina, poco después de los pilares.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista general de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe"
+          },
+          "aprendido": "La agricultura apareció muy cerca, poco después."
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "frases": [
+        {
+          "texto": "Vamos a repasar. ¿Quién levantó Göbekli Tepe?",
+          "pronunciacion": "Vamos a repasar. ¿Quién levantó Guebekli Tepe?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto D de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe enclosure D"
+          }
+        },
+        {
+          "texto": "Cazadores-recolectores. Más de cien mil huesos, y ninguno de un animal doméstico.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gacela persa",
+            "busqueda": "goitered gazelle"
+          }
+        },
+        {
+          "texto": "Gente que vivía de la caza y aun así movía piedras de diez toneladas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilares en forma de T de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe T-shaped pillars"
+          }
+        },
+        {
+          "texto": "Recuerda la escena: cientos de personas tirando de la misma cuerda, en un mundo casi vacío.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto de Göbekli Tepe al atardecer",
+            "busqueda": "Göbekli Tepe sunset"
+          }
+        },
+        {
+          "texto": "¿Qué apareció a unos treinta kilómetros, poco después? Uno de los trigos domesticados más antiguos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña",
+            "busqueda": "Einkorn wheat"
+          }
+        },
+        {
+          "texto": "¿Y cuántos éramos entonces en todo el mundo? Unos cuatro millones y medio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfica de la población mundial",
+            "busqueda": "World population history graph"
+          }
+        },
+        {
+          "texto": "Ojo: excavaciones recientes muestran que allí ya comían cereales y vivían parte del año. La idea de Schmidt sigue en debate.",
+          "pronunciacion": "Ojo: excavaciones recientes muestran que allí ya comían cereales y vivían parte del año. La idea de Shmit sigue en debate.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "arqueólogos trabajando en Göbekli Tepe",
+            "busqueda": "Göbekli Tepe archaeologists excavation"
+          }
+        },
+        {
+          "texto": "Pero quédate con esto: quizá primero fue la reunión, y después el campo.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilar 43 de Göbekli Tepe, de cerca",
+            "busqueda": "Göbekli Tepe vulture stone"
+          },
+          "indice": true
+        },
+        {
+          "texto": "Cuando muchos se quedan en un sitio, sembrar deja de ser una opción y se vuelve una necesidad.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña cultivada",
+            "busqueda": "Einkorn field"
+          }
+        },
+        {
+          "texto": "Y desde entonces no hemos dejado de crecer: de unos pocos millones a más de ocho mil millones."
+        },
+        {
+          "texto": "Quedarse quieto trae más gente. Y más gente trae un problema nuevo: ¿quién se acuerda de quién debe qué?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "busqueda": "Uruk Warka ruins"
+          }
+        },
+        {
+          "texto": "En el próximo episodio llegas a Uruk, la primera gran ciudad, donde la escritura nació para contar cebada.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Met con impresiones de sello",
+            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+          },
+          "asoma": 6
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "Quizá primero fue la reunión, y después el campo."
+  },
+  "miniatura": {
+    "antetitulo": "Antes del primer campo",
+    "gancho": [
+      "11.000 años",
+      "sin granjeros"
+    ],
+    "que_se_ve": "pilar 43 («piedra del buitre») de Göbekli Tepe"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "Los megalitos de Göbekli Tepe tienen unos 11.000 años y son unos 6.000 años anteriores a Stonehenge; los pilares más altos miden unos 16 pies (unos 5 m) y pesan de 7 a 10 toneladas.",
+      "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+    },
+    {
+      "afirmacion": "Sus constructores eran cazadores-recolectores; a unas 20 millas (unos 32 km) se halló una de las variedades de trigo domesticado más antiguas, de hace unos 10.500 años.",
+      "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+    },
+    {
+      "afirmacion": "Nuevo: más de 100.000 fragmentos de hueso estudiados por Joris Peters; más del 60 % de gacela, además de jabalí, oveja salvaje, ciervo y aves (buitres, grullas, patos, gansos); marcas de corte; ningún animal doméstico. Relieves de zorros, leones, escorpiones, serpientes y buitres; martillos de piedra y cuchillas de sílex; Schmidt calcula «cientos de trabajadores» y sostiene que el esfuerzo colectivo de construir sentó las bases de las sociedades complejas, al revés de la visión habitual; cada círculo se cubría de tierra y se levantaban otros al lado o encima.",
+      "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+    },
+    {
+      "afirmacion": "Ocupación entre el 9500 y el 8000 a. C. aprox.; sus habitantes complementaban la dieta con cereales y vivían en aldeas al menos parte del año, por lo que la interpretación de Schmidt («primero el templo») está en debate. Pilar 43 del recinto D, la «piedra del buitre». Coordenadas 37°13′25″N 38°55′18″E.",
+      "url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+    },
+    {
+      "afirmacion": "Población mundial estimada: unos 4,5 millones en el 10.000 a. C. y unos 8.092 millones en 2023 (HYDE/UN WPP, Our World in Data); cociente ≈ 1.800.",
+      "url": "https://ourworldindata.org/grapher/population"
+    }
+  ]
+}

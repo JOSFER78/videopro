@@ -1,0 +1,462 @@
+{
+  "codigo": "T1-E03",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "titulo": "Arte y símbolos: el primer garabato",
+  "mapa": {
+    "bounds": [
+      -20,
+      -38,
+      52,
+      36
+    ]
+  },
+  "partes": [
+    {
+      "label": "Rayas cruzadas",
+      "titulo": "Nueve rayas rojas",
+      "idea": "Cueva de Blombos, Sudáfrica",
+      "frases": [
+        {
+          "texto": "En el episodio anterior salimos de África. ¿Recuerdas cuánto ADN neandertal llevamos encima?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cráneo Manot 1, visto en el episodio 2",
+            "busqueda": "Manot 1 skull"
+          }
+        },
+        {
+          "texto": "Alrededor de un dos por ciento. Hoy retrocedemos: lo que vas a ver es más de veinte mil años anterior a esa salida.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "modelo de doble hélice de ADN",
+            "busqueda": "DNA double helix model"
+          }
+        },
+        {
+          "texto": "Viajamos a la cueva de Blombos, en la costa sur de Sudáfrica, a unos trescientos kilómetros al este de Ciudad del Cabo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
+            "busqueda": "Blombos Cave"
+          },
+          "pronunciacion": "Viajamos a la cueva de Blómbos, en la costa sur de Sudáfrica, a unos trescientos kilómetros al este de Ciudad del Cabo.",
+          "lugar": {
+            "nombre": "Cueva de Blombos",
+            "pais": "Sudáfrica",
+            "lon": 21.2225,
+            "lat": -34.4144
+          }
+        },
+        {
+          "texto": "Su entrada mira al mar.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "costa rocosa junto a la cueva de Blombos",
+            "busqueda": "Blombos Cave coast"
+          }
+        },
+        {
+          "texto": "Bajo el suelo de la cueva hay capas de restos que van de hace unos cien mil años a unos setenta y dos mil.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "estratos excavados de la cueva de Blombos",
+            "busqueda": "Blombos Cave excavation"
+          }
+        },
+        {
+          "texto": "En dos mil once, entre puntas de lanza y otros restos excavados, aparece una lasca de piedra pequeña.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos",
+            "busqueda": "Blombos Cave drawing silcrete flake"
+          },
+          "anios_atras": 15
+        },
+        {
+          "texto": "Es silcreta, una roca dura. Y sobre una de sus caras hay rayas rojas."
+        },
+        {
+          "texto": "La miras y piensas: esto lo podría haber hecho un niño ayer, con un rotulador."
+        },
+        {
+          "texto": "Tres líneas cruzadas por otras seis: nueve rayas en total. Parece una almohadilla, el símbolo de tu teclado.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
+            "busqueda": "Blombos Cave drawing cross-hatched lines"
+          }
+        },
+        {
+          "texto": "Las líneas se cortan de golpe en el borde. El dibujo seguía: era más grande, y quizá más complejo."
+        },
+        {
+          "texto": "Pero el nivel donde estaba tiene unos setenta y tres mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos, vista completa",
+            "busqueda": "Blombos Cave drawing Henshilwood 2018"
+          },
+          "anios_atras": 73000,
+          "emocion": 0.7
+        },
+        {
+          "texto": "Al menos treinta mil años más antiguo que cualquier otro dibujo conocido. Así estaban las cosas cuando se publicó, en dos mil dieciocho.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos",
+            "busqueda": "Blombos Cave drawing"
+          },
+          "pausa": "¿Cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos?",
+          "dato": {
+            "rotulo": "Ventaja del garabato",
+            "valor": "30.000",
+            "unidad": "años",
+            "comparacion": "Es al menos 30.000 años más antiguo que cualquier otro dibujo abstracto o figurativo conocido cuando se publicó, en 2018."
+          },
+          "emocion": 0.8
+        },
+        {
+          "texto": "Esperarías que el primer dibujo fuera un bisonte, o una mano. Y es un cruce de líneas."
+        },
+        {
+          "texto": "No copia nada que se vea en la naturaleza. Es un símbolo puro.",
+          "aprendido": "El dibujo más antiguo es abstracto"
+        }
+      ]
+    },
+    {
+      "label": "A propósito",
+      "titulo": "Siete años de pruebas",
+      "idea": "Microscopio y luz",
+      "frases": [
+        {
+          "texto": "Pero unas rayas rojas en una piedra pueden ser casualidad. Una mancha, un roce, un mineral de la propia roca.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de Blombos bajo luz de laboratorio",
+            "busqueda": "Blombos silcrete flake ochre"
+          }
+        },
+        {
+          "texto": "Por eso el equipo de Christopher Henshilwood la estudió durante siete años antes de publicarla.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato de Christopher Henshilwood",
+            "busqueda": "Christopher Henshilwood"
+          },
+          "pronunciacion": "Por eso el equipo de Cristofer Jénshilwud la estudió durante siete años antes de publicarla."
+        },
+        {
+          "texto": "Siete años para poder decir una sola frase: esto lo hizo alguien."
+        },
+        {
+          "texto": "Primero, bajo el microscopio: ¿el rojo era parte de la piedra, o estaba encima?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "microscopio óptico de laboratorio",
+            "busqueda": "stereo microscope laboratory"
+          }
+        },
+        {
+          "texto": "Estaba encima. Luego usaron un microscopio electrónico y espectroscopia Raman, que reconoce cada material por cómo devuelve la luz.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espectrómetro Raman",
+            "busqueda": "Raman spectrometer"
+          },
+          "pronunciacion": "Estaba encima. Luego usaron un microscopio electrónico y espectroscopia Rámann, que reconoce cada material por cómo devuelve la luz."
+        },
+        {
+          "texto": "El rojo es ocre, una tierra rica en hierro que sirve de pigmento.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment"
+          }
+        },
+        {
+          "texto": "Y el grosor de las rayas cuenta cómo se hizo: una punta de entre uno y tres milímetros."
+        },
+        {
+          "texto": "Como la de un lápiz de colores bien afilado.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: una mano traza líneas rojas con un lápiz de ocre sobre una lasca, vista por encima del hombro",
+            "prompt_flow": "15-second slow push-in, over the shoulder of a person seen from behind, inside a shallow sea cave on the South African coast, 73,000 years ago. Their hand holds a sharpened piece of red ochre and draws thin cross-hatched lines on a small grey stone flake resting on a rock. Soft daylight from the cave mouth, a coastal landscape beyond, dust in the light. Only the back, shoulder and hand are visible. Documentary photography style, natural light, fine film grain, realistic, muted colours, no close-up faces, no text, no captions, no logos.",
+            "plano_especial": true,
+            "duracion_seg": 15
+          }
+        },
+        {
+          "texto": "Alguien cogió un trozo de ocre afilado y lo usó como un lápiz."
+        },
+        {
+          "texto": "No fue un accidente. Fue a propósito.",
+          "emocion": 0.8
+        },
+        {
+          "texto": "Alguien eligió el color, eligió la piedra y decidió dónde poner cada raya."
+        },
+        {
+          "texto": "Y no era la primera vez que usaban ocre. En niveles de unos cien mil años hay un taller, con ocre mezclado y guardado en dos conchas de abalón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "conchas de abalón con ocre del taller de Blombos",
+            "busqueda": "Blombos Cave abalone shell ochre toolkit"
+          },
+          "anios_atras": 100000
+        },
+        {
+          "texto": "Mezclar un pigmento y guardarlo para usarlo después ya dice mucho de quien lo hace."
+        },
+        {
+          "texto": "En la capa del dibujo había más: trozos de ocre grabados con dibujos parecidos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ocre grabado de la cueva de Blombos",
+            "busqueda": "Blombos Cave engraved ochre"
+          }
+        },
+        {
+          "texto": "Y más de setenta cuentas de concha, algunas teñidas de ocre. Quienes vivían aquí repetían patrones y se adornaban.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cuentas de concha Nassarius de Blombos",
+            "busqueda": "Blombos Cave Nassarius shell beads"
+          }
+        },
+        {
+          "texto": "Lo hacían en África, hace unos setenta y tres mil años.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
+            "busqueda": "Blombos Cave"
+          },
+          "anios_atras": 73000,
+          "aprendido": "En África, hace unos 73.000 años"
+        }
+      ]
+    },
+    {
+      "label": "Memoria externa",
+      "titulo": "Una idea fuera de la cabeza",
+      "idea": "Herramienta frente a símbolo",
+      "frases": [
+        {
+          "texto": "Ahora piensa en la diferencia entre una herramienta y un símbolo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "punta bifacial de piedra de la cueva de Blombos",
+            "busqueda": "Blombos Cave Still Bay point"
+          }
+        },
+        {
+          "texto": "Una punta de lanza sirve para cazar. Funciona aunque nadie sepa quién la hizo."
+        },
+        {
+          "texto": "Un símbolo no corta ni pincha. Solo sirve si alguien sabe leerlo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos",
+            "busqueda": "Blombos Cave drawing"
+          }
+        },
+        {
+          "texto": "Una herramienta trabaja en el mundo. Un símbolo trabaja en la cabeza de quien lo mira."
+        },
+        {
+          "texto": "Piensa en una marca en un árbol junto a un camino. Le dice algo a quien llega después.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "marca de pintura de un sendero en el tronco de un árbol",
+            "busqueda": "trail blaze marking on tree"
+          }
+        },
+        {
+          "texto": "Imagina que alguien, al día siguiente, ve esas rayas y entiende algo. Ya no hace falta que su autor esté delante."
+        },
+        {
+          "texto": "Esas rayas guardaban algo que estaba en la cabeza de quien las trazó. Lo sacaban fuera, a una piedra."
+        },
+        {
+          "texto": "Y una piedra dura más que una persona. Quien trazó esas rayas murió hace más de setenta mil años, y su gesto sigue aquí.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: la cueva de Blombos vacía al atardecer, con la lasca sobre una roca",
+            "prompt_flow": "Slow static-to-push shot of an empty shallow sea cave on the South African coast at dusk. On a flat rock near the entrance lies a small grey stone flake with faint red lines. Nobody is present. Last orange evening light slides across the rock. Documentary photography style, natural light, fine film grain, realistic, muted colours, no close-up faces, no text, no captions, no logos."
+          }
+        },
+        {
+          "texto": "Eso es una memoria externa: una idea que sobrevive a quien la pensó."
+        },
+        {
+          "texto": "Tu cerebro olvida. Una marca en una piedra, no."
+        },
+        {
+          "texto": "Y una marca se puede copiar, enseñar y heredar. Una idea que se queda en la cabeza muere con quien la tiene.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ocre grabado de la cueva de Blombos",
+            "busqueda": "Blombos Cave engraved ochre"
+          }
+        },
+        {
+          "texto": "No sabemos qué significaban aquellas rayas. Quizá nunca lo sepamos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
+            "busqueda": "Blombos Cave drawing cross-hatched lines"
+          }
+        },
+        {
+          "texto": "Pero sí sabemos algo: alguien quiso dejarlas ahí, y otros podían verlas."
+        },
+        {
+          "texto": "Pero el mecanismo es el mismo que usas tú cada día. Cuando lees un mensaje, entiendes una marca que dejó otra persona.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "partitura autógrafa de Bach",
+            "busqueda": "Bach autograph manuscript"
+          }
+        },
+        {
+          "texto": "Las letras de un libro, las notas de una partitura, las cifras de una factura: marcas que guardan ideas fuera de la cabeza."
+        },
+        {
+          "texto": "La escritura llegará muchísimo después, como viste en el episodio cero. Pero su idea de fondo ya está en este garabato.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Metropolitan Museum",
+            "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1"
+          }
+        },
+        {
+          "texto": "Todo empieza con el mismo gesto: dejar una marca para que otro la lea.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos",
+            "busqueda": "Blombos Cave drawing silcrete flake"
+          },
+          "aprendido": "Un símbolo guarda una idea fuera del cerebro"
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "titulo": "Tres preguntas",
+      "idea": "El símbolo, una tecnología",
+      "frases": [
+        {
+          "texto": "Repasemos. Tres preguntas, y contesta tú antes que yo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
+            "busqueda": "Blombos Cave"
+          }
+        },
+        {
+          "texto": "Primera. ¿En qué país está la cueva de Blombos?",
+          "pronunciacion": "Primera. ¿En qué país está la cueva de Blómbos?"
+        },
+        {
+          "texto": "En Sudáfrica, en la costa sur del Cabo, a unos trescientos kilómetros de Ciudad del Cabo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "costa rocosa junto a la cueva de Blombos",
+            "busqueda": "Blombos Cave coast"
+          }
+        },
+        {
+          "texto": "Segunda. ¿Con qué se trazaron las líneas?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment"
+          }
+        },
+        {
+          "texto": "Con un lápiz de ocre rojo, de punta finísima. El microscopio y la luz lo confirmaron: el rojo estaba encima, puesto a propósito."
+        },
+        {
+          "texto": "Tercera. ¿Qué hace un símbolo que no hace una herramienta?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "lasca de silcreta L13 de Blombos",
+            "busqueda": "Blombos Cave drawing"
+          }
+        },
+        {
+          "texto": "Guarda un significado que otros pueden leer, incluso cuando su autor ya no está."
+        },
+        {
+          "texto": "Y recuerda: el dibujo más antiguo que conocemos no es un animal. Es una almohadilla roja."
+        },
+        {
+          "texto": "Quédate con esto: el símbolo es la tecnología que hará posibles el arte, la escritura y la ciencia.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cuentas de concha Nassarius de Blombos",
+            "busqueda": "Blombos Cave Nassarius shell beads"
+          }
+        },
+        {
+          "texto": "Y esa forma de pensar ya viajaba con nosotros cuando salimos de África."
+        },
+        {
+          "texto": "Rayas, cuentas y colores: el equipaje más ligero, y el más potente, que hemos llevado nunca."
+        },
+        {
+          "texto": "Después seguimos caminando durante decenas de miles de años. Hasta que alguien, en lo que hoy es Turquía, levantó pilares de piedra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "pilares en forma de T de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe pillars"
+          }
+        },
+        {
+          "texto": "Lo hizo antes de saber sembrar. Lo veremos en el próximo episodio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto D de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe enclosure D"
+          }
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "Unas rayas de ocre de hace 73.000 años muestran que ya sabíamos guardar ideas fuera de la cabeza."
+  },
+  "miniatura": {
+    "antetitulo": "El primer dibujo conocido",
+    "gancho": [
+      "Un garabato",
+      "de 73.000 años"
+    ],
+    "que_se_ve": "lasca de silcreta de Blombos con las líneas rojas cruzadas (foto real de la publicación de 2018)"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "Dibujo de líneas cruzadas con lápiz de ocre sobre una lasca de silcreta de niveles de unos 73.000 años; anterior en al menos 30.000 años a los dibujos conocidos (Henshilwood et al., Nature 562, 2018).",
+      "url": "https://digitalcommons.usf.edu/kip_articles/302"
+    },
+    {
+      "afirmacion": "Tres líneas rojas cruzadas por seis; punta del lápiz de 1 a 3 mm; cueva a unos 300 km al este de Ciudad del Cabo.",
+      "url": "https://www.sci.news/archaeology/earliest-drawing-human-blombos-cave-06408.html"
+    },
+    {
+      "afirmacion": "Coordenadas de la cueva de Blombos: 34°24′52″S 21°13′21″E.",
+      "url": "https://en.wikipedia.org/wiki/Blombos_Cave"
+    },
+    {
+      "afirmacion": "La lasca se halló en 2011 entre puntas y otros materiales excavados; tras siete años de pruebas se confirmó que las líneas se hicieron con un lápiz de ocre. En Blombos hay más de 70 cuentas de concha Nassarius kraussianus y ocres grabados. En 2008 apareció, en niveles de unos 100.000 años, un taller de ocre con la mezcla guardada en dos conchas de abalón (Haliotis midae).",
+      "url": "https://en.wikipedia.org/wiki/Blombos_Cave"
+    },
+    {
+      "afirmacion": "Se estudió con microscopio, espectroscopia Raman y microscopio electrónico; las líneas terminan de golpe en el borde, así que el dibujo era mayor; en la misma capa hay cuentas cubiertas de ocre y ocres grabados con patrones parecidos; dirigió el estudio Christopher Henshilwood (Universidad de Bergen, Noruega, y Universidad de Witwatersrand, Sudáfrica); depósitos de la Edad de Piedra Media de entre 100.000 y 72.000 años.",
+      "url": "https://www.sci.news/archaeology/earliest-drawing-human-blombos-cave-06408.html"
+    }
+  ]
+}

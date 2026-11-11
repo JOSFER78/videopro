@@ -1,0 +1,455 @@
+{
+  "codigo": "T1-E06",
+  "canal": "Temario",
+  "tema": "Historia de la humanidad",
+  "mapa": {
+    "bounds": [
+      43.5,
+      31.5,
+      49.5,
+      35.5
+    ]
+  },
+  "partes": [
+    {
+      "label": "Un usurpador",
+      "titulo": "Un trono que hay que justificar",
+      "idea": "Monte Behistún, oeste de Irán",
+      "frases": [
+        {
+          "texto": "En el episodio anterior viste nacer la escritura en Uruk. ¿Recuerdas qué fue lo primero que se escribió?",
+          "emocion": 0.5,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme del Met, vista en el episodio 5",
+            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+          }
+        },
+        {
+          "texto": "Cuentas. Cebada, ovejas, tejidos. Números y cosas, no historias.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablillas protocuneiformes de Uruk",
+            "busqueda": "proto-cuneiform tablets Uruk"
+          }
+        },
+        {
+          "texto": "Hoy avanzas casi tres mil años y descubres que la escritura ya sirve para algo mucho más ambicioso: mandar.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "acantilado del monte Behistún visto desde la llanura",
+            "busqueda": "Mount Behistun cliff"
+          }
+        },
+        {
+          "texto": "Estás en el oeste de Irán, cerca de Kermanshah, al pie de un acantilado. Es el monte Behistún.",
+          "pronunciacion": "Estás en el oeste de Irán, cerca de Kermanshá, al pie de un acantilado. Es el monte Behistún.",
+          "lugar": {
+            "nombre": "Monte Behistún",
+            "pais": "Irán",
+            "lon": 47.4358,
+            "lat": 34.3906
+          }
+        },
+        {
+          "texto": "Y allá arriba, en la roca, hay un relieve. Un rey, un dios alado y una fila de prisioneros atados.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Darío I con los prisioneros atados, en Behistún",
+            "busqueda": "Behistun relief Darius"
+          }
+        },
+        {
+          "texto": "El rey es Darío, rey de Persia. Y su llegada al trono no fue tranquila.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "figura de Darío I en el relieve de Behistún, de cerca",
+            "busqueda": "Behistun relief Darius detail"
+          }
+        },
+        {
+          "texto": "En el año quinientos veintidós antes de Cristo, Darío derrocó a otro que ocupaba el trono, un tal Gaumata.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "figura tumbada bajo el pie de Darío, identificada con Gaumata",
+            "busqueda": "Behistun relief Gaumata"
+          },
+          "anios_atras": 2548
+        },
+        {
+          "texto": "Después vinieron las rebeliones. Pueblo tras pueblo se levantó contra él, y Darío tuvo que vencerlos uno a uno.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: un ejército persa en marcha por un valle de los Zagros",
+            "prompt_flow": "Documentary-realistic wide aerial shot of an ancient Persian army of spearmen and horsemen marching in a long column through a dry mountain valley of the Zagros, around 520 BC, seen from far above and behind. Dust clouds, low morning sun, natural colours, no faces, no banners with text, no text."
+          }
+        },
+        {
+          "texto": "Ganar batallas es una cosa. Pero no puedes poner un soldado al lado de cada persona de tu imperio."
+        },
+        {
+          "texto": "Y hay un problema más. Si un rey llega al trono por la fuerza, cualquier otro puede intentar lo mismo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "los prisioneros rebeldes atados en el relieve de Behistún",
+            "busqueda": "Behistun relief rebel kings"
+          }
+        },
+        {
+          "texto": "La fuerza te da el trono. Pero no te dice por qué deberías conservarlo."
+        },
+        {
+          "texto": "Y su imperio era enorme. No sabemos cuánta gente vivía en él, pero eran millones.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa del Imperio aqueménida en tiempos de Darío I",
+            "busqueda": "Achaemenid Empire map Darius"
+          }
+        },
+        {
+          "texto": "Así que Darío necesita algo más que un ejército. Necesita que millones crean que el trono es suyo por derecho.",
+          "aprendido": "La fuerza sola no basta para gobernar millones."
+        }
+      ]
+    },
+    {
+      "label": "La historia oficial",
+      "titulo": "Propaganda tallada en la roca",
+      "idea": "Tres lenguas, un dios, un camino",
+      "frases": [
+        {
+          "texto": "Darío la puso aquí. En la pared del acantilado, a unos cien metros sobre el suelo.",
+          "emocion": 0.8,
+          "pausa": "Si quisieras que un imperio entero creyera tu versión, ¿dónde la pondrías?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la inscripción de Behistún en lo alto del acantilado, vista desde abajo",
+            "busqueda": "Behistun inscription from below"
+          },
+          "dato": {
+            "rotulo": "Altura del relieve",
+            "valor": "100",
+            "unidad": "metros",
+            "comparacion": "Está tallado a unos 100 m sobre el suelo, como en lo alto de un edificio de unos 30 pisos: no estaba hecho para leerse de cerca, sino para impresionar."
+          }
+        },
+        {
+          "texto": "Es como lo alto de un edificio de treinta pisos. Desde abajo no se lee ni una palabra. Está hecho para impresionar."
+        },
+        {
+          "texto": "Y no es un sitio cualquiera. Al pie pasa el camino que une Babilonia con Ecbatana, dos capitales del imperio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "ruinas de Babilonia, en Irak",
+            "busqueda": "Babylon ruins Iraq"
+          },
+          "lugar": {
+            "nombre": "Babilonia",
+            "pais": "Irak",
+            "lon": 44.4211,
+            "lat": 32.5425
+          }
+        },
+        {
+          "texto": "Ecbatana es la actual Hamadán, al norte. Por ese camino pasaban soldados, mercaderes y mensajeros.",
+          "pronunciacion": "Ecbatana es la actual Jamadán, al norte. Por ese camino pasaban soldados, mercaderes y mensajeros.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "colina de Ecbatana en Hamadán",
+            "busqueda": "Ecbatana Hamadan Hegmataneh"
+          },
+          "lugar": {
+            "nombre": "Ecbatana (Hamadán)",
+            "pais": "Irán",
+            "lon": 48.5161,
+            "lat": 34.8064
+          }
+        },
+        {
+          "texto": "Imagina que eres uno de ellos. Levantas la vista y ves al rey, enorme, mirándote desde la roca.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: viajeros en el camino real miran hacia el relieve del acantilado",
+            "plano_especial": true,
+            "duracion_seg": 15,
+            "prompt_flow": "Documentary-realistic slow crane shot in ancient Persia around 520 BC: a small caravan of travellers, a merchant with donkeys and two soldiers, seen from behind on a dusty road at the foot of a huge limestone cliff, stop and look up. The camera rises along the sunlit rock face to a freshly carved relief panel high above, with columns of carved cuneiform beside it, too far to read. Natural colours, no faces visible, no legible text."
+          }
+        },
+        {
+          "texto": "Ni siquiera hace falta saber leer. La imagen ya lo dice todo."
+        },
+        {
+          "texto": "Ahora mira el relieve de cerca. Mide unos cinco metros y medio de ancho.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "panel completo del relieve de Behistún",
+            "busqueda": "Behistun relief panel"
+          }
+        },
+        {
+          "texto": "Darío pisa el pecho de un hombre tumbado, el que se identifica con Gaumata. Delante, nueve prisioneros con una cuerda al cuello.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "los nueve prisioneros atados por el cuello en el relieve de Behistún",
+            "busqueda": "Behistun relief bound prisoners"
+          }
+        },
+        {
+          "texto": "Y encima de todos flota un dios con alas. Es Ahuramazda, el gran dios de los persas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "símbolo alado de Ahuramazda sobre el relieve de Behistún",
+            "busqueda": "Behistun Ahura Mazda winged symbol"
+          }
+        },
+        {
+          "texto": "Alrededor, columnas y columnas de texto. Toda la inscripción ocupa unos quince metros de alto por veinticinco de ancho.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "columnas de texto cuneiforme en persa antiguo de Behistún",
+            "busqueda": "Behistun inscription Old Persian columns"
+          }
+        },
+        {
+          "texto": "Cuenta la misma historia en tres lenguas: persa antiguo, elamita y babilonio. Así el mensaje llega más lejos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "versión babilonia de la inscripción de Behistún",
+            "busqueda": "Behistun inscription Babylonian version"
+          }
+        },
+        {
+          "texto": "Persas, elamitas, babilonios. Cada uno puede oír la versión del rey en su propio idioma."
+        },
+        {
+          "texto": "¿Y qué dice? Que Darío venció a los rebeldes. Y una frase que lo explica todo: «Por la gracia de Ahuramazda soy rey».",
+          "emocion": 0.75,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de Darío y Ahuramazda en el relieve de Behistún",
+            "busqueda": "Behistun Darius Ahuramazda detail"
+          }
+        },
+        {
+          "texto": "Las victorias de los años siguientes se fueron añadiendo mientras se tallaba. La historia oficial se iba poniendo al día.",
+          "anios_atras": 2546
+        },
+        {
+          "texto": "No reina porque ganó una pelea. Reina porque un dios lo eligió. Esa es la versión que Darío talló en piedra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Behistún iluminado por el sol",
+            "busqueda": "Behistun relief"
+          },
+          "aprendido": "Darío justificó su poder con una historia tallada."
+        }
+      ]
+    },
+    {
+      "label": "Obedecer es creer",
+      "titulo": "Menos soldados, más relato",
+      "idea": "Una historia compartida sostiene el imperio",
+      "frases": [
+        {
+          "texto": "Pero un acantilado no viaja. ¿Cómo llega esa historia a quien vive a miles de kilómetros?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa del Imperio aqueménida",
+            "busqueda": "Achaemenid Empire map"
+          }
+        },
+        {
+          "texto": "Copiándola. En Egipto apareció una copia del texto en arameo, escrita en tiempos de otro Darío, el segundo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "papiro arameo con la copia de la inscripción de Behistún hallado en Egipto",
+            "busqueda": "Aramaic Behistun papyrus Elephantine"
+          }
+        },
+        {
+          "texto": "Casi un siglo después, la versión de Darío seguía copiándose en la otra punta del imperio.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "Ahora piensa en un campesino de ese imperio. Paga su parte de la cosecha al gobernador del rey.",
+          "visual": {
+            "tipo": "flow",
+            "que_se_ve": "recreación: un campesino entrega sacos de grano a un funcionario persa",
+            "prompt_flow": "Documentary-realistic medium shot in a village of the ancient Persian Empire around 500 BC: a farmer seen from behind hands sacks of grain to a seated royal official under a reed awning, while a scribe nearby writes on a clay tablet. Dry fields in the background, late afternoon light, natural colours, no faces, no text."
+          }
+        },
+        {
+          "texto": "¿Por qué lo hace? Seguro que no hay un soldado vigilándolo a todas horas."
+        },
+        {
+          "texto": "Puede que tenga miedo, sí. Pero el miedo solo no basta para que millones paguen, año tras año."
+        },
+        {
+          "texto": "Lo hace porque todos a su alrededor creen lo mismo. Que el rey manda porque los dioses lo quieren así."
+        },
+        {
+          "texto": "Cuando todo el mundo cree la misma historia, obedecer deja de parecer una imposición. Parece lo normal.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Behistún con Darío y Ahuramazda",
+            "busqueda": "Behistun relief Darius Ahuramazda"
+          }
+        },
+        {
+          "texto": "Y entonces hacen falta muchos menos soldados. El relato hace buena parte del trabajo."
+        },
+        {
+          "texto": "Pasa lo mismo hoy con un billete. Es solo papel, pero vale porque todos creemos que vale.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "billete de banco de euro",
+            "busqueda": "euro banknote"
+          }
+        },
+        {
+          "texto": "Un rey, una ley, una moneda. Funcionan mientras la gente cree en ellos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "dárico de oro con la figura del rey persa",
+            "busqueda": "Achaemenid gold daric coin"
+          }
+        },
+        {
+          "texto": "Recuerda Uruk. Allí la escritura llevaba la cuenta de la cebada. Aquí lleva la cuenta de quién manda y por qué.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "signos cuneiformes de la inscripción de Behistún, de cerca",
+            "busqueda": "Behistun inscription cuneiform close-up"
+          }
+        },
+        {
+          "texto": "Por eso los imperios no se sostienen solo con espadas. Se sostienen sobre historias que millones comparten.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "acantilado de Behistún al atardecer",
+            "busqueda": "Bisotun cliff sunset"
+          },
+          "aprendido": "Los imperios se sostienen sobre relatos compartidos."
+        }
+      ]
+    },
+    {
+      "label": "Repaso",
+      "frases": [
+        {
+          "texto": "Vamos a repasar. ¿Quién mandó tallar la inscripción de Behistún?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "inscripción de Behistún",
+            "busqueda": "Behistun inscription"
+          }
+        },
+        {
+          "texto": "Darío primero, rey de Persia. Un rey que llegó al trono tras una lucha."
+        },
+        {
+          "texto": "¿Por qué derecho dice Darío que reina? Por la gracia del dios Ahuramazda.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "símbolo alado de Ahuramazda en Behistún",
+            "busqueda": "Behistun Faravahar Ahura Mazda"
+          }
+        },
+        {
+          "texto": "¿Dónde puso su versión? A cien metros de altura, sobre el camino de Babilonia a Ecbatana, y en tres lenguas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "acantilado de Behistún sobre la llanura",
+            "busqueda": "Bisotun cliff"
+          }
+        },
+        {
+          "texto": "Recuerda la imagen. El rey pisando a su rival, los rebeldes atados y el dios encima, dándole la razón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve completo de Behistún",
+            "busqueda": "Behistun relief panel"
+          }
+        },
+        {
+          "texto": "¿Y qué mantiene unido a un imperio, además de la fuerza? Una historia compartida que hace que obedecer parezca justo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa del Imperio aqueménida",
+            "busqueda": "Achaemenid Empire map"
+          }
+        },
+        {
+          "texto": "Quédate con esto: el poder de los imperios descansa sobre relatos que todos creen.",
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "relieve de Darío en Behistún, de cerca",
+            "busqueda": "Behistun relief Darius"
+          },
+          "indice": true
+        },
+        {
+          "texto": "Y un último giro. Más de dos mil años después, un británico llamado Henry Rawlinson subió a copiar estas columnas.",
+          "pronunciacion": "Y un último giro. Más de dos mil años después, un británico llamado Henri Rólinson subió a copiar estas columnas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "retrato de Henry Rawlinson",
+            "busqueda": "Henry Creswicke Rawlinson portrait"
+          }
+        },
+        {
+          "texto": "Empezó en mil ochocientos treinta y cinco. Y la propaganda de Darío se convirtió en una de las llaves para descifrar la escritura cuneiforme.",
+          "anios_atras": 191
+        },
+        {
+          "texto": "Cada imperio contaba su historia sobre su trozo de mundo. Pero nadie tenía todavía el mapa completo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "globo de Behaim (Erdapfel) en el Germanisches Nationalmuseum",
+            "busqueda": "Behaim globe Erdapfel"
+          }
+        },
+        {
+          "texto": "En el próximo episodio saltas a mil cuatrocientos noventa y dos, a un globo terráqueo al que le falta un continente entero.",
+          "asoma": 8
+        }
+      ]
+    }
+  ],
+  "indice": {
+    "kicker": "Quédate con esto",
+    "conclusion": "El poder de los imperios descansa sobre relatos compartidos."
+  },
+  "miniatura": {
+    "antetitulo": "Propaganda tallada en piedra",
+    "gancho": [
+      "100 metros",
+      "de propaganda"
+    ],
+    "que_se_ve": "relieve de Darío I con los prisioneros atados en Behistún"
+  },
+  "fuentes": [
+    {
+      "afirmacion": "La inscripción está a unos 100 m del suelo; Darío destronó a Gaumata en 522 a. C. y sus victorias posteriores, de 520–519 a. C., se añadieron mientras se tallaba; tres versiones (persa antiguo, babilonio y elamita); Darío mira a nueve pueblos atados y Ahuramazda aparece encima. Nuevo: el lugar está junto a la ruta entre Babilonia y Ecbatana (Hamadán), capitales de Babilonia y Media, muy transitada; el relieve mide unos 5,5 × 3 m.",
+      "url": "https://www.livius.org/articles/place/behistun/"
+    },
+    {
+      "afirmacion": "Darío afirma reinar por la gracia de Ahuramazda («By the grace of Ahuramazda am I king»); coordenadas 34°23′26″N 47°26′9″E; UNESCO desde 2006. 520 a. C. = hace 2.546 años desde 2026. Nuevo: Darío apoya el pie izquierdo sobre el pecho de una figura tumbada que se identifica con Gaumata; la inscripción mide unos 15 m de alto por 25 m de ancho; se encontró en Egipto una copia en arameo escrita en tiempos de Darío II; Henry Rawlinson empezó a estudiarla en 1835 y envió una copia completa a Europa en 1847; fue clave para descifrar el cuneiforme.",
+      "url": "https://en.wikipedia.org/wiki/Behistun_Inscription"
+    },
+    {
+      "afirmacion": "La población del Imperio aqueménida es incierta: las estimaciones van de unos 17 a unos 35 millones (la cifra de 50 millones carece de fuente); por eso el guion dice solo «millones».",
+      "url": "https://www.bookandsword.com/2014/11/08/the-population-of-the-achemenid-empire/"
+    },
+    {
+      "afirmacion": "Nuevo: coordenadas de Babilonia, 32°32′33″N 44°25′16″E.",
+      "url": "https://en.wikipedia.org/wiki/Babylon"
+    },
+    {
+      "afirmacion": "Nuevo: Ecbatana, capital del reino medo, se identifica con la actual Hamadán; coordenadas 34°48′23″N 48°30′58″E.",
+      "url": "https://en.wikipedia.org/wiki/Ecbatana"
+    }
+  ]
+}
