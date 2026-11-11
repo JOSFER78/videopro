@@ -17,6 +17,11 @@ from typing import Optional
 from loguru import logger
 
 
+def flow_strict_mode() -> bool:
+    """True si VIDEOPRO_FLOW_STRICT pide fallar en vez de sustituir el plano de Flow."""
+    return os.environ.get("VIDEOPRO_FLOW_STRICT", "").strip().lower() in ("1", "true", "yes", "si", "sí")
+
+
 async def _dismiss_modals(page):
     """Cierra popups, modales de bienvenida o advertencias en Google Flow."""
     modal_buttons = [
@@ -38,24 +43,37 @@ async def _dismiss_modals(page):
             pass
 
 
-async def _select_gemini_omni_flash(page):
-    """Selecciona el modelo Gemini Omni Flash."""
+# Nombres con los que Flow ha listado el modelo Omni Flash, del más nuevo al más antiguo.
+# Omni Flash 1.1 se retira el 5-dic-2026; la 1.2 es la que admite extender y clips de 15 s.
+OMNI_MODEL_LABELS = ("Omni Flash 1.2", "Omni Flash", "Gemini Omni Flash")
+
+
+async def _select_gemini_omni_flash(page) -> bool:
+    """Selecciona el modelo Omni Flash. Devuelve True solo si se pudo elegir."""
+    selected = False
     try:
         # Buscar botón selector de modelo
         model_btn = page.locator('button:has-text("ULTRA"), button:has-text("Ultra"), button:has-text("Model")').first
         if await model_btn.count() > 0 and await model_btn.is_visible():
             await model_btn.click()
             await page.wait_for_timeout(1000)
-            
-            # Buscar opción Gemini Omni Flash
-            omni_opt = page.locator('[role="option"]:has-text("Gemini Omni Flash"), [role="menuitem"]:has-text("Gemini Omni Flash")').first
-            if await omni_opt.count() > 0 and await omni_opt.is_visible():
-                await omni_opt.click()
-                logger.info("Selected Gemini Omni Flash model")
+
+            for label in OMNI_MODEL_LABELS:
+                omni_opt = page.locator(
+                    f'[role="option"]:has-text("{label}"), [role="menuitem"]:has-text("{label}")'
+                ).first
+                if await omni_opt.count() > 0 and await omni_opt.is_visible():
+                    await omni_opt.click()
+                    logger.info(f"Selected Flow model: {label}")
+                    selected = True
+                    break
             await page.keyboard.press("Escape")
             await page.wait_for_timeout(500)
     except Exception as e:
         logger.warning(f"Could not switch model explicitly (using default): {e}")
+    if not selected:
+        logger.warning("Omni Flash no encontrado en el selector de Flow: se usará el modelo por defecto")
+    return selected
 
 
 async def _inject_ingredient_image(page, image_path: str):
@@ -196,6 +214,7 @@ async def run_google_flow_job(
     from playwright.async_api import async_playwright
 
     logger.info(f"Initiating Google Flow job for scene. Target: {output_mp4_path}")
+    flow_error = ""
     try:
         async with async_playwright() as p:
             browser = await p.chromium.connect_over_cdp("http://localhost:9222")
@@ -226,12 +245,25 @@ async def run_google_flow_job(
                     "success": True,
                     "clip_path": output_mp4_path,
                     "engine": "google_flow_omni",
+                    "fallback_used": False,
                 }
     except Exception as exc:
+        flow_error = str(exc)
         logger.warning(f"Google Flow CDP automation encountered an issue: {exc}")
 
-    # Fallback elegante: si CDP o Flow no pudieron descargar el clip, sintetizar escena con FLUX 2.5D
-    logger.info("Generating cinematic clip fallback via FLUX 2.5D engine...")
+    # Flow no entregó el clip. Con VIDEOPRO_FLOW_STRICT=1 se informa del fallo en vez de taparlo.
+    if flow_strict_mode():
+        logger.error("Google Flow no entregó el clip y el modo estricto impide sustituirlo")
+        return {
+            "success": False,
+            "clip_path": "",
+            "engine": "google_flow_omni",
+            "fallback_used": False,
+            "error": flow_error or "Google Flow no entregó el clip",
+        }
+
+    # Sustitución: imagen fija con movimiento 2.5D. NO es vídeo de Flow; queda marcado como tal.
+    logger.warning("Google Flow falló: sustituyendo el plano por una imagen fija FLUX 2.5D")
     from app.services.flux_keyframe import generate_flux_keyframe, synthesize_flux_clip
 
     temp_img = output_mp4_path.replace(".mp4", "_keyframe.png")
@@ -241,6 +273,8 @@ async def run_google_flow_job(
         "success": True,
         "clip_path": output_mp4_path,
         "engine": "flux_fallback",
+        "fallback_used": True,
+        "error": flow_error or "Google Flow no entregó el clip",
         "notice": "Rendered via FLUX 2.5D cinematic fallback",
     }
 

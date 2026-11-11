@@ -1762,6 +1762,11 @@ def chatterbox_tts(
     return None
 
 
+def voice_strict_mode() -> bool:
+    """True si VIDEOPRO_VOICE_STRICT pide fallar antes que cambiar VibeVoice por EdgeTTS."""
+    return os.environ.get("VIDEOPRO_VOICE_STRICT", "").strip().lower() in ("1", "true", "yes", "si", "sí")
+
+
 def vibevoice_tts(
     text: str,
     voice_name: str,
@@ -1838,7 +1843,10 @@ def vibevoice_tts(
         gen_wav = os.path.join(output_dir, f"{stem}_generated.wav")
 
         if not os.path.exists(gen_wav) or os.path.getsize(gen_wav) < 1000:
-            logger.warning(f"VibeVoice output wav not found, fallback to EdgeTTS for safety: {res.stderr[:200]}")
+            logger.warning(f"VibeVoice no produjo audio; se sustituiría por la voz EdgeTTS: {res.stderr[:200]}")
+            if voice_strict_mode():
+                logger.error("VIDEOPRO_VOICE_STRICT activo: no se sustituye la voz VibeVoice por EdgeTTS")
+                return None
             fallback_voice = "es-ES-ElviraNeural-Female" if "female" in voice_name.lower() else "es-ES-AlvaroNeural-Male"
             return azure_tts_v1(text, fallback_voice, voice_rate, voice_file, voice_volume)
 
@@ -1875,7 +1883,11 @@ def vibevoice_tts(
             audio_duration_seconds=audio_duration
         )
     except Exception as e:
-        logger.error(f"VibeVoice generation error: {e}")
+        logger.error(f"VibeVoice generation error (p. ej. límite de 300 s en CPU): {e}")
+        if voice_strict_mode():
+            logger.error("VIDEOPRO_VOICE_STRICT activo: no se sustituye la voz VibeVoice por EdgeTTS")
+            return None
+        logger.warning("Sustituyendo la voz VibeVoice por EdgeTTS es-ES-AlvaroNeural (menos expresiva)")
         fallback_voice = "es-ES-AlvaroNeural-Male"
         return azure_tts_v1(text, fallback_voice, voice_rate, voice_file, voice_volume)
     finally:

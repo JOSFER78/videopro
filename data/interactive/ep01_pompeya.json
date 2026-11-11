@@ -1,0 +1,61 @@
+{
+  "episode_id": "ep01_pompeya",
+  "title": "Estás en Pompeya el día de la erupción. ¿Por dónde huyes?",
+  "question": "¿Huyes por el puerto o por el camino del sur?",
+  "sources": [
+    "Plinio el Joven, Cartas VI.16 y VI.20 (relato de testigo de la erupción y de la muerte de Plinio el Viejo)",
+    "Sigurdsson, Cashdollar y Sparks (1982), 'The Eruption of Vesuvius in A.D. 79', American Journal of Archaeology 86",
+    "Parco Archeologico di Pompei: la inscripción a carbón que apunta a una fecha de otoño"
+  ],
+  "scenes": [
+    {"emotion": "(con calma tensa)", "duration": 10,
+     "text": "Pompeya, año setenta y nueve. Es mediodía y el pan todavía está caliente en tu mesa. Aquí nadie sabe lo que es un volcán: el Vesubio es solo un monte cubierto de viñas.",
+     "prompt": "Inside a Roman thermopolium in Pompeii at midday, hands breaking a round loaf of bread on a marble counter, painted frescoes, warm sunlight through the doorway, Vesuvius green with vineyards in the distance."},
+    {"emotion": "(con seriedad)", "duration": 8,
+     "text": "Llevas días notando temblores. No te extrañan: en Campania la tierra tiembla a menudo, y hace diecisiete años un terremoto ya derribó media ciudad.",
+     "prompt": "Walking down a paved Pompeii street with stepping stones, a cup of water trembling on a fountain edge, cracks repaired in a brick wall, townspeople unbothered."},
+    {"emotion": "(con urgencia)", "duration": 10,
+     "text": "Hacia la una, la montaña revienta. Una columna de ceniza y piedra sube más de treinta kilómetros y se abre arriba como la copa de un pino. Así la describirá Plinio el Joven, que la está viendo desde el otro lado de la bahía.",
+     "prompt": "Looking up from the forum of Pompeii as a colossal dark eruption column rises from Vesuvius and spreads at the top like an umbrella pine, crowd freezing and pointing, daylight starting to dim."},
+    {"emotion": "(con urgencia)", "duration": 8,
+     "text": "En menos de una hora empieza a llover piedra pómez. Es ligera, pero cae sin parar, y los tejados se cargan a razón de un palmo cada hora.",
+     "prompt": "Running under a colonnade while light grey pumice stones rain onto the street and pile up, people covering their heads with pillows and cloth, sky turned black at midday, oil lamps being lit."},
+    {"emotion": "(con misterio)", "duration": 10,
+     "text": "Tienes pocas horas. Los que se queden a esperar morirán mañana al amanecer, cuando la columna se derrumbe y baje por la ladera una nube ardiente. Tú todavía no lo sabes. Solo sabes que hay que salir.",
+     "prompt": "At a crossroads in Pompeii in near darkness, pumice ankle-deep, one street sloping down toward the harbour gate, the other leading to the southern gate, torchlight, families hurrying both ways."}
+  ],
+  "options": [
+    {
+      "key": "A",
+      "label": "Por el puerto",
+      "outcome_title": "Pompeya: elegiste el puerto",
+      "scenes": [
+        {"emotion": "(con urgencia)", "duration": 10,
+         "text": "Bajas hacia el mar con cientos de personas. Pero el viento sopla de cara y el agua está cubierta de piedra pómez flotante. Los barcos no pueden salir.",
+         "prompt": "Arriving at a Roman harbour at night, sea surface covered with floating pumice, rough waves, moored merchant ships straining at their ropes, crowd on the quay holding torches."},
+        {"emotion": "(con seriedad)", "duration": 10,
+         "text": "Es lo mismo que le ocurre a Plinio el Viejo. Cruza la bahía con la flota para rescatar gente, desembarca en Estabia y ya no puede volver a zarpar: el mar sigue demasiado bravo.",
+         "prompt": "On a dark beach near Stabiae, Roman warships anchored offshore unable to launch, sailors testing the surf with torches, ash falling like snow, the glow of the volcano behind."},
+        {"emotion": "(con tristeza contenida)", "duration": 10,
+         "text": "En Herculano, casi trescientas personas esperan un barco refugiadas en los almacenes de la playa. Allí las encontrarán los arqueólogos, diecinueve siglos después. El puerto no era la salida.",
+         "prompt": "Inside a vaulted stone boat shed on a beach at night, looking out through the arch at the dark sea, a single oil lamp, people huddled in silence, a faint red glow growing on the horizon."}
+      ]
+    },
+    {
+      "key": "B",
+      "label": "Por el camino del sur",
+      "outcome_title": "Pompeya: elegiste el camino del sur",
+      "scenes": [
+        {"emotion": "(con urgencia)", "duration": 10,
+         "text": "Sales por la puerta del sur con un cojín atado a la cabeza. Avanzas a ciegas sobre la piedra suelta, a oscuras en pleno día.",
+         "prompt": "Passing through a Roman city gate in darkness, pumice falling, a line of refugees on a road with carts and mules, torches, tombs lining the roadside outside the walls."},
+        {"emotion": "(con seriedad)", "duration": 10,
+         "text": "Cada hora de camino cuenta. La lluvia de piedra dura unas dieciocho horas, y mientras dura se puede andar. Lo que mata llega después.",
+         "prompt": "Walking a country road at night away from the volcano, looking back over the shoulder at lightning flashing inside the eruption column, ash-covered olive trees, exhausted travellers."},
+        {"emotion": "(con alivio)", "duration": 10,
+         "text": "Al amanecer estás a kilómetros de la ciudad cuando la nube ardiente la alcanza. De los once mil habitantes de Pompeya, dentro se han encontrado unos mil cien cuerpos. La mayoría hizo lo que tú: se fue a tiempo.",
+         "prompt": "Dawn on a hillside far south of Pompeii, grey ash-covered landscape, turning to see a pale surge cloud rolling over the distant city, survivors standing silent beside a cart."}
+      ]
+    }
+  ]
+}

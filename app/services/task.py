@@ -613,6 +613,10 @@ def get_video_materials(task_id, params, video_terms, audio_duration):
                     image_reference=sc_ref,
                     timeout_seconds=180
                 )
+                if not res.get("success") or not res.get("clip_path"):
+                    raise RuntimeError(f"Google Flow no generó el plano {idx+1}: {res.get('error', 'sin detalle')}")
+                if res.get("fallback_used"):
+                    logger.warning(f"Plano {idx+1}: Google Flow falló, se usó imagen fija FLUX en su lugar")
                 scene_clips.append(res["clip_path"])
             else:  # stock mode
                 stock_res = material.download_videos(
