@@ -1,0 +1,843 @@
+{
+  "temporada": 1,
+  "titulo": "De dónde venimos",
+  "episodios": [
+    {
+      "codigo": "T1-E00",
+      "titulo": "El mapa: 300.000 años en un solo día",
+      "idea": "Durante casi toda nuestra historia fuimos cazadores-recolectores; ciudades, escritura, imperios y máquinas caben en el último suspiro del día.",
+      "pregunta_apertura": "Si toda la historia de nuestra especie cupiera en un solo día, ¿a qué hora aparecería la escritura?",
+      "ancla": null,
+      "cuando": {
+        "texto": "de hace 300.000 años a hoy",
+        "anios_atras": 300000
+      },
+      "partes": [
+        {
+          "label": "Caminantes",
+          "idea": "Nacemos en África, salimos de ella y empezamos a pensar con símbolos (episodios 1 a 3)."
+        },
+        {
+          "label": "Campos y ciudades",
+          "idea": "Nos quedamos quietos: llegan el campo, la ciudad, la escritura y los imperios (episodios 4 a 6)."
+        },
+        {
+          "label": "Un solo mundo",
+          "idea": "Los océanos se cruzan, las máquinas sustituyen al músculo y hoy somos una sola humanidad conectada (episodios 7 a 9)."
+        },
+        {
+          "label": "Repaso",
+          "idea": "El mapa completo de la temporada y la respuesta a la pregunta inicial."
+        }
+      ],
+      "dato": {
+        "rotulo": "Hora de la escritura",
+        "valor": "23:35",
+        "unidad": "h",
+        "comparacion": "Si los 300.000 años de nuestra especie fueran 24 horas, la escritura (hacia 3200 a. C.) llegaría a falta de 25 minutos para medianoche: el 98 % del día no hay nada escrito."
+      },
+      "pregunta_pausa": "Si nuestra especie lleva un día entero en la Tierra, ¿a qué hora crees que alguien escribió por primera vez?",
+      "aprendido": [
+        "Casi toda nuestra historia es anterior a la escritura.",
+        "La temporada sigue un hilo: caminar, asentarse, conectarse.",
+        "Cada episodio se ancla en un objeto real."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Dónde aparece nuestra especie?",
+          "respuesta": "En África, hace unos 300.000 años."
+        },
+        {
+          "pregunta": "En el reloj de un día, ¿a qué hora llega la escritura?",
+          "respuesta": "Hacia las 23:35, a falta de unos 25 minutos para medianoche."
+        },
+        {
+          "pregunta": "¿Cuáles son los tres grandes tramos de la temporada?",
+          "respuesta": "Caminantes, campos y ciudades, y un solo mundo."
+        }
+      ],
+      "imagenes_reales": [
+        "cráneo Irhoud 1",
+        "lasca con dibujo de Blombos",
+        "pilares de Göbekli Tepe",
+        "tablilla protocuneiforme Met 1988.433.1",
+        "fotografía Earthrise AS08-14-2383"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Homo sapiens aparece en África hace unos 300.000 años (Jebel Irhoud, Marruecos).",
+          "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+        },
+        {
+          "afirmacion": "Smithsonian: Homo sapiens vive desde hace unos 300.000 años hasta hoy y evolucionó en África.",
+          "url": "https://humanorigins.si.edu/evidence/human-fossils/species/homo-sapiens"
+        },
+        {
+          "afirmacion": "Las primeras tablillas con signos (Uruk tardío) datan de hacia 3200 a. C. Cálculo propio: 5.226 años / 300.000 × 24 h ≈ 25 min antes de medianoche (23:35); 1 − 5.226/300.000 ≈ 98 %.",
+          "url": "https://mpiwg-berlin.mpg.de/sites/default/files/migrated/p183.pdf"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E01",
+      "titulo": "Nuestro origen: la primera cara como la tuya",
+      "idea": "Hace unos 300.000 años ya existían humanos con nuestra cara, pero su cerebro aún no tenía nuestra forma: no aparecimos de golpe, nos fuimos haciendo.",
+      "ancla": {
+        "objeto": "Cráneos de Jebel Irhoud (Irhoud 1 y la reconstrucción con Irhoud 10)",
+        "por_que": "Tienen una cara casi indistinguible de la de una persona actual y un cráneo alargado y arcaico: en un solo objeto se ve que el rostro llegó antes que el cerebro moderno.",
+        "lugar": {
+          "nombre": "Jebel Irhoud",
+          "pais": "Marruecos",
+          "lon": -8.8725,
+          "lat": 31.855
+        }
+      },
+      "cuando": {
+        "texto": "hace unos 300.000 años",
+        "anios_atras": 300000
+      },
+      "partes": [
+        {
+          "label": "Una colina",
+          "idea": "En una colina de Marruecos aparecen huesos humanos que durante décadas nadie supo fechar bien."
+        },
+        {
+          "label": "Cara y cerebro",
+          "idea": "La cara ya es la nuestra; la forma del cerebro todavía no."
+        },
+        {
+          "label": "Toda África",
+          "idea": "No hubo una sola cuna: nuestra especie se formó a lo largo de todo el continente."
+        },
+        {
+          "label": "Repaso",
+          "idea": "Nos hicimos poco a poco, y África entera fue la cuna."
+        }
+      ],
+      "dato": {
+        "rotulo": "Origen adelantado",
+        "valor": "100.000",
+        "unidad": "años",
+        "comparacion": "Antes de Jebel Irhoud, los fósiles más antiguos de nuestra especie (Omo Kibish, Etiopía) tenían unos 195.000 años; Irhoud llevó el origen unos 100.000 años más atrás."
+      },
+      "pregunta_pausa": "¿Cuánto más antiguos crees que eran estos huesos que el récord anterior: diez mil años, cincuenta mil o cien mil?",
+      "aprendido": [
+        "Hace unos 300.000 años ya había Homo sapiens.",
+        "La cara moderna llegó antes que el cerebro moderno.",
+        "La cuna fue toda África, no un solo lugar."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿En qué país está Jebel Irhoud?",
+          "respuesta": "En Marruecos."
+        },
+        {
+          "pregunta": "¿Qué parte de aquellos cráneos ya se parece a la nuestra?",
+          "respuesta": "La cara; el cráneo seguía siendo alargado y arcaico."
+        },
+        {
+          "pregunta": "¿Cuántos años adelantó Irhoud el origen de nuestra especie?",
+          "respuesta": "Unos 100.000 años."
+        }
+      ],
+      "imagenes_reales": [
+        "cráneo Irhoud 1 (Museo Arqueológico de Rabat)",
+        "reconstrucción compuesta de Irhoud 1 e Irhoud 10 (Instituto Max Planck)",
+        "yacimiento de Jebel Irhoud en excavación",
+        "sílex quemados de Jebel Irhoud",
+        "mandíbula Irhoud 11"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Los fósiles de Jebel Irhoud se datan en unos 300.000 años por termoluminiscencia de sílex quemados (la cifra publicada en Nature es de unos 315.000 ± 34.000 años; se redondea a 300.000).",
+          "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+        },
+        {
+          "afirmacion": "Cara casi indistinguible de la actual y cráneo alargado arcaico; restos de al menos 5 individuos.",
+          "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+        },
+        {
+          "afirmacion": "El récord anterior era Omo Kibish (Etiopía), unos 195.000 años; Irhoud adelanta el origen unos 100.000 años.",
+          "url": "https://www.eva.mpg.de/fileadmin/content_files/human_evolution/Homo_Sapiens_presskit/pdf/English_PressRelease_Irhoud.pdf"
+        },
+        {
+          "afirmacion": "Coordenadas de Jebel Irhoud: 31°51′18″N 8°52′21″W; especímenes Irhoud 1 (cráneo, 1961) e Irhoud 10 (cráneo, 2007).",
+          "url": "https://en.wikipedia.org/wiki/Jebel_Irhoud"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E02",
+      "titulo": "Salimos de África: el cráneo de la puerta",
+      "idea": "Todas las personas cuyos antepasados no son africanos descienden de un grupo que salió de África hace unos 50.000 años y, por el camino, se mezcló con los neandertales.",
+      "ancla": {
+        "objeto": "Cráneo Manot 1",
+        "por_que": "Es un cráneo de Homo sapiens hallado en el corredor de salida de África, justo en el momento de la gran dispersión y en una región donde también vivían neandertales.",
+        "lugar": {
+          "nombre": "Cueva de Manot, Galilea occidental",
+          "pais": "Israel",
+          "lon": 35.1933,
+          "lat": 33.035
+        }
+      },
+      "cuando": {
+        "texto": "hace unos 50.000 años",
+        "anios_atras": 50000
+      },
+      "partes": [
+        {
+          "label": "La puerta",
+          "idea": "Para salir de África a pie hay que pasar por Oriente Próximo, y allí apareció Manot 1."
+        },
+        {
+          "label": "El encuentro",
+          "idea": "En ese corredor convivieron sapiens y neandertales, y tuvieron hijos juntos."
+        },
+        {
+          "label": "Llevas su huella",
+          "idea": "Ese encuentro quedó escrito en el ADN de casi todos los no africanos de hoy."
+        },
+        {
+          "label": "Repaso",
+          "idea": "Una sola salida que funcionó explica a la mayoría de la humanidad fuera de África."
+        }
+      ],
+      "dato": {
+        "rotulo": "ADN neandertal",
+        "valor": "2",
+        "unidad": "%",
+        "comparacion": "Es la media en humanos actuales según el Museo de Historia Natural de Londres; quienes tienen antepasados fuera de África llevan más que quienes los tienen dentro."
+      },
+      "pregunta_pausa": "Los neandertales se extinguieron hace decenas de miles de años. ¿Crees que queda algo de ellos dentro de ti?",
+      "aprendido": [
+        "Los no africanos descienden de una salida de hace unos 50.000 años.",
+        "Por el camino nos mezclamos con neandertales.",
+        "Llevamos de media un 2 % de ADN neandertal."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Dónde se halló el cráneo Manot 1?",
+          "respuesta": "En la cueva de Manot, en Galilea occidental (Israel)."
+        },
+        {
+          "pregunta": "¿Con qué otra especie humana nos mezclamos al salir de África?",
+          "respuesta": "Con los neandertales."
+        },
+        {
+          "pregunta": "¿Qué porcentaje medio de nuestro ADN es neandertal?",
+          "respuesta": "Alrededor del 2 %."
+        }
+      ],
+      "imagenes_reales": [
+        "cráneo Manot 1",
+        "entrada de la cueva de Manot",
+        "cráneo neandertal de La Ferrassie 1",
+        "restos humanos de Ranis (Ilsenhöhle, Alemania)"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Manot 1 tiene unos 55.000 años (Nature, 2015: 54.700 ± 5.500 por uranio-torio) y es la primera prueba fósil del periodo de salida de África; la cueva se descubrió en 2008.",
+          "url": "https://www.eurekalert.org/news-releases/828013"
+        },
+        {
+          "afirmacion": "Datación de Manot 1 en 54.700 años y coordenadas 33°02′06″N 35°11′36″E.",
+          "url": "https://en.wikipedia.org/wiki/Manot_Cave"
+        },
+        {
+          "afirmacion": "La mezcla con neandertales ocurrió hace entre 45.000 y 50.000 años (Nature 2024; Science 2024 da 50.500–43.500); estimaciones anteriores decían 50.000–60.000. Por eso los antepasados de los no africanos salieron hace unos 50.000 años (rango discutido).",
+          "url": "https://www.nhm.ac.uk/discover/news/2024/december/neanderthals-homo-sapiens-interbred-within-past-50000-years.html"
+        },
+        {
+          "afirmacion": "Media de ADN neandertal en humanos actuales: alrededor del 2 %, mayor en personas con ascendencia fuera de África.",
+          "url": "https://www.nhm.ac.uk/discover/news/2024/december/neanderthals-homo-sapiens-interbred-within-past-50000-years.html"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E03",
+      "titulo": "Arte y símbolos: el primer garabato",
+      "idea": "Cuando unas rayas rojas empezaron a significar algo, los humanos aprendimos a guardar ideas fuera de la cabeza.",
+      "ancla": {
+        "objeto": "Lasca de silcreta con trazos de ocre de la cueva de Blombos",
+        "por_que": "Es el dibujo más antiguo conocido: un cruce de líneas hecho a propósito con un lápiz de ocre. No representa nada concreto, y por eso es puro símbolo.",
+        "lugar": {
+          "nombre": "Cueva de Blombos",
+          "pais": "Sudáfrica",
+          "lon": 21.2225,
+          "lat": -34.4144
+        }
+      },
+      "cuando": {
+        "texto": "hace unos 73.000 años",
+        "anios_atras": 73000
+      },
+      "partes": [
+        {
+          "label": "Rayas cruzadas",
+          "idea": "Tres líneas rojas cruzadas por otras seis, sobre una pequeña lasca de piedra."
+        },
+        {
+          "label": "A propósito",
+          "idea": "El análisis químico demuestra que el ocre se aplicó con intención, como con un lápiz."
+        },
+        {
+          "label": "Memoria externa",
+          "idea": "Un símbolo permite que una idea sobreviva a quien la pensó."
+        },
+        {
+          "label": "Repaso",
+          "idea": "El símbolo es la tecnología que hará posibles el arte, la escritura y la ciencia."
+        }
+      ],
+      "dato": {
+        "rotulo": "Ventaja del garabato",
+        "valor": "30.000",
+        "unidad": "años",
+        "comparacion": "Es al menos 30.000 años más antiguo que cualquier otro dibujo abstracto o figurativo conocido cuando se publicó, en 2018."
+      },
+      "pregunta_pausa": "¿Cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos?",
+      "aprendido": [
+        "El dibujo más antiguo conocido es abstracto, no un animal.",
+        "Un símbolo guarda una idea fuera del cerebro.",
+        "Esto ocurrió en África, hace unos 73.000 años."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿En qué país está la cueva de Blombos?",
+          "respuesta": "En Sudáfrica, en la costa sur del Cabo."
+        },
+        {
+          "pregunta": "¿Con qué se hicieron las líneas?",
+          "respuesta": "Con un lápiz de ocre rojo."
+        },
+        {
+          "pregunta": "¿Qué hace un símbolo que no hace una herramienta?",
+          "respuesta": "Guarda un significado que otros pueden leer, incluso cuando el autor ya no está."
+        }
+      ],
+      "imagenes_reales": [
+        "lasca de silcreta L13 con trazos de ocre (Blombos)",
+        "ocre grabado de Blombos",
+        "cuentas de concha Nassarius de Blombos",
+        "entrada de la cueva de Blombos sobre el mar"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Dibujo de líneas cruzadas con lápiz de ocre sobre una lasca de silcreta de niveles de unos 73.000 años; anterior en al menos 30.000 años a los dibujos conocidos (Henshilwood et al., Nature 562, 2018).",
+          "url": "https://digitalcommons.usf.edu/kip_articles/302"
+        },
+        {
+          "afirmacion": "Tres líneas rojas cruzadas por seis; punta del lápiz de 1 a 3 mm; cueva a unos 300 km al este de Ciudad del Cabo.",
+          "url": "https://www.sci.news/archaeology/earliest-drawing-human-blombos-cave-06408.html"
+        },
+        {
+          "afirmacion": "Coordenadas de la cueva de Blombos: 34°24′52″S 21°13′21″E.",
+          "url": "https://en.wikipedia.org/wiki/Blombos_Cave"
+        }
+      ],
+      "nota_orden": "El garabato de Blombos es anterior a la salida de África del episodio 2: el arte ya viajaba con nosotros. En el eje, este episodio retrocede."
+    },
+    {
+      "codigo": "T1-E04",
+      "titulo": "La agricultura: ¿primero fue el templo?",
+      "idea": "Dejar de caminar para quedarse junto a un campo cambió para siempre cuántos somos y cómo vivimos, y quizá empezó con reuniones, no con hambre.",
+      "ancla": {
+        "objeto": "Pilares en forma de T de Göbekli Tepe",
+        "por_que": "Cazadores-recolectores que aún no cultivaban levantaron estos pilares de varias toneladas, y muy cerca aparece después uno de los trigos domesticados más antiguos: el monumento y el campo van juntos.",
+        "lugar": {
+          "nombre": "Göbekli Tepe, cerca de Şanlıurfa",
+          "pais": "Turquía",
+          "lon": 38.9217,
+          "lat": 37.2236
+        }
+      },
+      "cuando": {
+        "texto": "hace unos 11.000 años",
+        "anios_atras": 11000
+      },
+      "partes": [
+        {
+          "label": "Sin granjeros",
+          "idea": "Los huesos de animales salvajes muestran que los constructores aún cazaban y recolectaban."
+        },
+        {
+          "label": "Juntos",
+          "idea": "Mover pilares de hasta 10 toneladas exige reunir y alimentar a mucha gente en un sitio."
+        },
+        {
+          "label": "El trigo",
+          "idea": "A unos 30 km aparece uno de los trigos domesticados más antiguos: quedarse lleva a sembrar."
+        },
+        {
+          "label": "Repaso",
+          "idea": "Quizá primero fue la reunión, y después el campo. La idea sigue debatiéndose."
+        }
+      ],
+      "dato": {
+        "rotulo": "Humanos en la Tierra",
+        "valor": "4,5",
+        "unidad": "millones",
+        "comparacion": "Es la población mundial estimada hacia el 10.000 a. C. Hoy somos unas 1.800 veces más."
+      },
+      "pregunta_pausa": "Antes de la agricultura, ¿cuántas personas crees que vivían en todo el planeta?",
+      "aprendido": [
+        "Göbekli Tepe lo construyeron cazadores-recolectores.",
+        "La agricultura apareció muy cerca, poco después.",
+        "Antes del campo éramos solo unos pocos millones."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Quién construyó Göbekli Tepe?",
+          "respuesta": "Cazadores-recolectores que aún no cultivaban."
+        },
+        {
+          "pregunta": "¿Qué planta domesticada aparece muy cerca?",
+          "respuesta": "Uno de los trigos domesticados más antiguos."
+        },
+        {
+          "pregunta": "¿Cuántos humanos había en el mundo hacia el 10.000 a. C.?",
+          "respuesta": "Unos 4,5 millones, según la estimación HYDE."
+        }
+      ],
+      "imagenes_reales": [
+        "pilar 43 o «pilar del buitre» de Göbekli Tepe",
+        "recinto D de Göbekli Tepe con sus pilares centrales",
+        "relieves de animales en los pilares de Göbekli Tepe",
+        "espigas de escaña (einkorn) silvestre"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Los megalitos de Göbekli Tepe tienen unos 11.000 años y son unos 6.000 años anteriores a Stonehenge; los pilares más altos miden unos 16 pies (unos 5 m) y pesan de 7 a 10 toneladas.",
+          "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+        },
+        {
+          "afirmacion": "Sus constructores eran cazadores-recolectores; a unas 20 millas (unos 32 km) se halló una de las variedades de trigo domesticado más antiguas, de hace unos 10.500 años.",
+          "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+        },
+        {
+          "afirmacion": "Ocupación entre el 9500 y el 8000 a. C. aprox.; investigaciones recientes indican que sus habitantes ya complementaban la dieta con cereales y vivían allí parte del año, por lo que la interpretación de Schmidt («primero el templo») está en debate. Coordenadas 37°13′25″N 38°55′18″E.",
+          "url": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+        },
+        {
+          "afirmacion": "Población mundial estimada: unos 4,5 millones en el 10.000 a. C. y unos 8.092 millones en 2023 (HYDE/UN WPP, Our World in Data); cociente ≈ 1.800.",
+          "url": "https://ourworldindata.org/grapher/population"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E05",
+      "titulo": "Ciudades y escritura: inventada para contar cebada",
+      "idea": "La escritura no nació para contar historias, sino para llevar las cuentas de una ciudad demasiado grande para la memoria.",
+      "ancla": {
+        "objeto": "Tablilla protocuneiforme con impresiones de sello, Met 1988.433.1 (reparto de cebada)",
+        "por_que": "Una tablilla del tamaño de la palma que registra cebada repartida y lleva el sello de un administrador: escritura, número y poder en un solo trozo de barro.",
+        "lugar": {
+          "nombre": "Uruk (Warka), procedencia probable de la tablilla",
+          "pais": "Irak",
+          "lon": 45.6372,
+          "lat": 31.3242
+        }
+      },
+      "cuando": {
+        "texto": "hacia 3200 a. C.",
+        "anios_atras": 5226
+      },
+      "partes": [
+        {
+          "label": "Demasiada gente",
+          "idea": "En Uruk vive tanta gente que nadie puede recordar quién debe qué."
+        },
+        {
+          "label": "Fichas y sellos",
+          "idea": "Primero hubo fichas de barro y sobres sellados; luego, marcas de números en tablillas."
+        },
+        {
+          "label": "Números primero",
+          "idea": "Los primeros signos son cantidades y cosas: cebada, ovejas, tejidos. Aún no hay verbos ni relatos."
+        },
+        {
+          "label": "Repaso",
+          "idea": "La ciudad creó la necesidad; la escritura fue la solución contable."
+        }
+      ],
+      "dato": {
+        "rotulo": "Tamaño de la tablilla",
+        "valor": "6",
+        "unidad": "cm",
+        "comparacion": "Cabe en la palma de la mano, y de objetos así desciende todo lo que se ha escrito después."
+      },
+      "pregunta_pausa": "¿Qué crees que se escribió primero: un poema, una ley o una cuenta de cebada?",
+      "aprendido": [
+        "La escritura nació en Mesopotamia hacia 3200 a. C.",
+        "Primero se escribieron números y cosas, no historias.",
+        "La ciudad necesitaba memoria externa."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Qué registra la tablilla del Met?",
+          "respuesta": "Un reparto de cebada, con la impresión del sello de un administrador."
+        },
+        {
+          "pregunta": "¿Qué hubo antes de las tablillas con signos?",
+          "respuesta": "Fichas de barro y sobres de arcilla sellados."
+        },
+        {
+          "pregunta": "¿Para qué se inventó la escritura?",
+          "respuesta": "Para llevar la contabilidad de bienes y repartos."
+        }
+      ],
+      "imagenes_reales": [
+        "tablilla protocuneiforme Met 1988.433.1",
+        "fichas de arcilla (tokens) y bulas de Susa",
+        "ruinas de Uruk (Warka)",
+        "vaso de Warka (Museo de Irak)"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Tablilla Met 1988.433.1: reparto de cebada con impresión de sello cilíndrico; h. 3100–2900 a. C. (periodo Yemdet Nasr); mide 5,4 × 6 × 4,1 cm. La procedencia probable es Uruk, según el Met; el CDLI la sitúa en Uruk III, h. 3200–3000 a. C. (las fuentes difieren en un siglo).",
+          "url": "https://collectionapi.metmuseum.org/public/collection/v1/objects/329081"
+        },
+        {
+          "afirmacion": "La escritura comienza hacia 3200 a. C.; antes hubo fichas (antes de 3400 a. C.), sobres sellados (3400–3300 a. C.) y tablillas numéricas (3300–3200 a. C.); los primeros ideogramas representan los bienes de la transacción. 3200 a. C. = hace 5.226 años desde 2026.",
+          "url": "https://mpiwg-berlin.mpg.de/sites/default/files/migrated/p183.pdf"
+        },
+        {
+          "afirmacion": "Coordenadas de Uruk: 31°19′27″N 45°38′14″E.",
+          "url": "https://en.wikipedia.org/wiki/Uruk"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E06",
+      "titulo": "Imperios: por qué millones obedecen a uno",
+      "idea": "Un imperio no se sostiene solo con soldados: millones obedecen a uno cuando todos creen la misma historia sobre por qué ese uno debe mandar.",
+      "ancla": {
+        "objeto": "Relieve e inscripción de Behistún de Darío I",
+        "por_que": "Darío, que llegó al trono tras una lucha, talló en un acantilado su versión de los hechos: él reina por voluntad de Ahuramazda y los rebeldes yacen atados a sus pies. Es propaganda en piedra.",
+        "lugar": {
+          "nombre": "Monte Behistún (Bisotún), Kermanshah",
+          "pais": "Irán",
+          "lon": 47.4358,
+          "lat": 34.3906
+        }
+      },
+      "cuando": {
+        "texto": "hacia 520 a. C.",
+        "anios_atras": 2546
+      },
+      "partes": [
+        {
+          "label": "Un usurpador",
+          "idea": "Darío necesita convencer de que el trono es suyo por derecho."
+        },
+        {
+          "label": "La historia oficial",
+          "idea": "Lo escribe en tres lenguas y lo talla junto a un camino real, bajo el dios Ahuramazda."
+        },
+        {
+          "label": "Obedecer es creer",
+          "idea": "Cuando todos creen la misma historia, obedecer parece lo normal y hacen falta menos soldados."
+        },
+        {
+          "label": "Repaso",
+          "idea": "El poder de los imperios descansa sobre relatos compartidos."
+        }
+      ],
+      "dato": {
+        "rotulo": "Altura del relieve",
+        "valor": "100",
+        "unidad": "metros",
+        "comparacion": "Está tallado a unos 100 m sobre el suelo, como en lo alto de un edificio de unos 30 pisos: no estaba hecho para leerse de cerca, sino para impresionar."
+      },
+      "pregunta_pausa": "Si quisieras que un imperio entero creyera tu versión, ¿dónde la pondrías?",
+      "aprendido": [
+        "Darío justificó su poder con una historia tallada en piedra.",
+        "Los imperios se sostienen sobre relatos compartidos.",
+        "La fuerza sola no basta para gobernar a millones."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Quién mandó tallar la inscripción de Behistún?",
+          "respuesta": "Darío I, rey de Persia."
+        },
+        {
+          "pregunta": "¿Por qué derecho dice Darío que reina?",
+          "respuesta": "Por la gracia del dios Ahuramazda."
+        },
+        {
+          "pregunta": "¿Qué mantiene unido a un imperio, además de la fuerza?",
+          "respuesta": "Una historia compartida que hace que obedecer parezca legítimo."
+        }
+      ],
+      "imagenes_reales": [
+        "relieve de Darío con los reyes rebeldes atados (Behistún)",
+        "acantilado del monte Behistún",
+        "columnas de texto en persa antiguo de Behistún",
+        "símbolo alado de Ahuramazda sobre el relieve"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "La inscripción está a unos 100 m del suelo; Darío destronó a Gaumata en 522 a. C. y sus victorias posteriores, de 520–519 a. C., se añadieron mientras se tallaba; tres versiones (persa antiguo, babilonio y elamita); Darío mira a nueve pueblos atados y Ahuramazda aparece encima.",
+          "url": "https://www.livius.org/articles/place/behistun/"
+        },
+        {
+          "afirmacion": "Darío afirma reinar por la gracia de Ahuramazda; coordenadas 34°23′26″N 47°26′9″E; UNESCO desde 2006. 520 a. C. = hace 2.546 años desde 2026.",
+          "url": "https://en.wikipedia.org/wiki/Behistun_Inscription"
+        },
+        {
+          "afirmacion": "La población del Imperio aqueménida es incierta: las estimaciones van de unos 17 a unos 35 millones (la cifra de 50 millones carece de fuente); por eso el guion dice solo «millones».",
+          "url": "https://www.bookandsword.com/2014/11/08/the-population-of-the-achemenid-empire/"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E07",
+      "titulo": "El mundo se conecta: el globo sin América",
+      "idea": "En 1492 Europa podía poner el mundo entero en una esfera y aun así le faltaba un continente: ese hueco es el momento en que el planeta empieza a conectarse.",
+      "ancla": {
+        "objeto": "Globo de Behaim («Erdapfel»)",
+        "por_que": "Es el globo terrestre más antiguo que se conserva y se hizo justo antes de que la noticia del viaje de Colón llegara a Europa: entre Europa y Asia solo muestra un océano vacío.",
+        "lugar": {
+          "nombre": "Germanisches Nationalmuseum, Núremberg",
+          "pais": "Alemania",
+          "lon": 11.0762,
+          "lat": 49.4481
+        }
+      },
+      "cuando": {
+        "texto": "1492",
+        "anios_atras": 534
+      },
+      "partes": [
+        {
+          "label": "Mundo esférico",
+          "idea": "En Núremberg, Martin Behaim y sus colaboradores reúnen en una esfera lo que Europa sabe del planeta."
+        },
+        {
+          "label": "El hueco",
+          "idea": "Entre Europa y Asia solo hay agua y un Japón fuera de sitio."
+        },
+        {
+          "label": "Océano cruzado",
+          "idea": "Al volver Colón, el océano vacío deja de serlo y los continentes empiezan a conectarse."
+        },
+        {
+          "label": "Repaso",
+          "idea": "El mapa del mundo cambió más en una generación que en milenios."
+        }
+      ],
+      "dato": {
+        "rotulo": "Nombres en el globo",
+        "valor": "2.000",
+        "unidad": "topónimos",
+        "comparacion": "Unos 2.000 nombres de lugares y ninguno en América."
+      },
+      "pregunta_pausa": "¿Cuántos lugares crees que nombraba el globo más completo de 1492? ¿Y cuántos de ellos en América?",
+      "aprendido": [
+        "El globo terrestre más antiguo que se conserva no tiene América.",
+        "A aquel mapa del mundo le faltaba un continente entero.",
+        "Al cruzarse el océano empezó un mundo conectado."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Dónde se conserva el globo de Behaim?",
+          "respuesta": "En el Germanisches Nationalmuseum de Núremberg."
+        },
+        {
+          "pregunta": "¿Qué continente falta en él?",
+          "respuesta": "América."
+        },
+        {
+          "pregunta": "¿Por qué falta?",
+          "respuesta": "Porque se hizo antes de que la noticia del viaje de Colón llegara a Europa."
+        }
+      ],
+      "imagenes_reales": [
+        "globo de Behaim (Erdapfel) completo",
+        "detalle de Cipango en el Erdapfel",
+        "océano vacío entre Europa y Asia en el Erdapfel",
+        "sala del Germanisches Nationalmuseum con el Erdapfel"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "El Erdapfel se fecha h. 1491–1494, lo encargó el concejo de Núremberg en 1492/93, muestra el mundo conocido antes del viaje de Colón de 1492 y se expone en el Germanisches Nationalmuseum (las fuentes dan 1490–1492 o 1491–1494). 1492 = hace 534 años desde 2026.",
+          "url": "https://germanhistory-intersections.org/en/knowledge-and-education/ghis:image-74"
+        },
+        {
+          "afirmacion": "El globo de Behaim es el globo terrestre más antiguo que se conserva, con unos 2.000 topónimos y 50 inscripciones largas, y refleja el mundo antes del descubrimiento de América en 1492.",
+          "url": "https://behaim.wisski.data.fau.de/sites/default/files/Darstellung_des_Globus_in_30.html"
+        },
+        {
+          "afirmacion": "Diámetro de 51 cm; no incluye América porque Colón volvió a España no antes de marzo de 1493; Cipango aparece sobredimensionado y fuera de sitio, con un océano vacío entre Europa y Asia.",
+          "url": "https://en.wikipedia.org/wiki/Erdapfel"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E08",
+      "titulo": "Ciencia e industria: del músculo al carbón",
+      "idea": "La revolución industrial fue, ante todo, un cambio de energía: pasamos de depender del músculo y la leña a quemar carbón, la luz del sol guardada bajo tierra.",
+      "ancla": {
+        "objeto": "Máquina de vapor tipo Newcomen de Elsecar",
+        "por_que": "Es la máquina de vapor más antigua del mundo que sigue en su sitio original: quemaba carbón para sacar agua de una mina de carbón. La energía que alimenta la máquina es la misma que extrae.",
+        "lugar": {
+          "nombre": "Elsecar, Barnsley (South Yorkshire)",
+          "pais": "Reino Unido",
+          "lon": -1.4197,
+          "lat": 53.4939
+        }
+      },
+      "cuando": {
+        "texto": "1795",
+        "anios_atras": 231
+      },
+      "partes": [
+        {
+          "label": "Músculo y leña",
+          "idea": "Durante milenios, todo trabajo salió de brazos, animales, agua, viento y leña."
+        },
+        {
+          "label": "La bomba",
+          "idea": "Las minas se inundan; una máquina que quema carbón saca el agua y permite cavar más hondo."
+        },
+        {
+          "label": "El círculo",
+          "idea": "Más carbón alimenta más máquinas, que sacan más carbón: la energía se dispara."
+        },
+        {
+          "label": "Repaso",
+          "idea": "La industria nace de un cambio de combustible."
+        }
+      ],
+      "dato": {
+        "rotulo": "Carbón en 1800",
+        "valor": "2",
+        "unidad": "%",
+        "comparacion": "En 1800 solo el 2 % de la energía primaria del mundo venía del carbón; en 1910 ya superaba la mitad (55 %). (Estos datos no cuentan el trabajo de personas y animales.)"
+      },
+      "pregunta_pausa": "En 1800, ¿qué parte de la energía del mundo crees que salía del carbón: casi toda, la mitad o casi nada?",
+      "aprendido": [
+        "La industria fue sobre todo un cambio de energía.",
+        "El carbón pasó de casi nada a más de la mitad en un siglo.",
+        "Las primeras máquinas de vapor servían a las minas."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Qué hacía la máquina de Elsecar?",
+          "respuesta": "Sacar agua de una mina de carbón."
+        },
+        {
+          "pregunta": "¿Cuánta energía mundial venía del carbón en 1800?",
+          "respuesta": "Alrededor del 2 %."
+        },
+        {
+          "pregunta": "¿Hasta qué año trabajó la máquina de Elsecar?",
+          "respuesta": "Hasta 1923, cuando la sustituyeron bombas eléctricas."
+        }
+      ],
+      "imagenes_reales": [
+        "máquina Newcomen de Elsecar y su balancín",
+        "casa de máquinas de Elsecar New Colliery",
+        "pozo de la mina junto a la máquina de Elsecar",
+        "talleres del Elsecar Heritage Centre"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "La mina se abrió en 1794 y la máquina se construyó en 1795; funcionó hasta 1923; es la máquina de vapor más antigua del mundo que sigue en su ubicación original. 1795 = hace 231 años desde 2026.",
+          "url": "https://www.elsecar-heritage.com/news/historic-engine-ready-to-mark-a-special-year-at-elsecar-colliery"
+        },
+        {
+          "afirmacion": "La máquina bombeaba agua de Elsecar New Colliery; fue sustituida en 1923 por bombas eléctricas. Coordenadas del conjunto: 53°29′38″N 1°25′11″W (la máquina está en el mismo recinto; coordenada aproximada).",
+          "url": "https://en.wikipedia.org/wiki/Elsecar_Heritage_Centre"
+        },
+        {
+          "afirmacion": "Energía primaria mundial (Smil 2017 y Energy Institute, Our World in Data): carbón ≈ 1,7 % en 1800 (biomasa tradicional ≈ 98 %) y ≈ 55 % en 1910; la serie no incluye el trabajo muscular humano ni animal.",
+          "url": "https://ourworldindata.org/grapher/global-energy-substitution"
+        }
+      ]
+    },
+    {
+      "codigo": "T1-E09",
+      "titulo": "El mundo de hoy: la Tierra vista desde fuera",
+      "idea": "Por primera vez somos una sola humanidad conectada en un planeta pequeño, y lo supimos al vernos desde fuera.",
+      "ancla": {
+        "objeto": "Fotografía «Earthrise» (AS08-14-2383) del Apolo 8",
+        "por_que": "Es la primera vez que unos humanos ven la Tierra entera salir sobre otro mundo: todas las historias de la temporada caben en esa bola azul.",
+        "lugar": {
+          "nombre": "Plataforma 39A, Centro Espacial Kennedy (despegue del Apolo 8)",
+          "pais": "Estados Unidos",
+          "lon": -80.6041,
+          "lat": 28.6065
+        }
+      },
+      "cuando": {
+        "texto": "1968 – hoy",
+        "anios_atras": 58
+      },
+      "partes": [
+        {
+          "label": "La foto",
+          "idea": "En Nochebuena de 1968, Bill Anders fotografía la Tierra saliendo sobre la Luna."
+        },
+        {
+          "label": "Ocho mil millones",
+          "idea": "Desde aquella foto, la humanidad se ha más que duplicado."
+        },
+        {
+          "label": "Un solo mundo",
+          "idea": "Los descendientes de aquel grupo africano hoy compartimos un único planeta conectado."
+        },
+        {
+          "label": "Repaso",
+          "idea": "De un puñado de cazadores en África a una sola humanidad que se ve desde fuera."
+        }
+      ],
+      "dato": {
+        "rotulo": "Humanos hoy",
+        "valor": "8.000",
+        "unidad": "millones",
+        "comparacion": "En 2023 éramos unos 8.092 millones; en 1968, el año de Earthrise, unos 3.545 millones. Más del doble en una vida humana."
+      },
+      "pregunta_pausa": "Desde que se tomó esta foto, ¿cuánto crees que ha crecido la humanidad?",
+      "aprendido": [
+        "Somos más de 8.000 millones.",
+        "Nos hemos duplicado desde 1968.",
+        "Todos descendemos de aquellos primeros africanos."
+      ],
+      "repaso": [
+        {
+          "pregunta": "¿Quién tomó la foto Earthrise y cuándo?",
+          "respuesta": "Bill Anders, del Apolo 8, el 24 de diciembre de 1968."
+        },
+        {
+          "pregunta": "¿Cuántos humanos somos aproximadamente?",
+          "respuesta": "Más de 8.000 millones."
+        },
+        {
+          "pregunta": "¿Cuál es el hilo de toda la temporada?",
+          "respuesta": "Venimos de África y hemos pasado de grupos dispersos a una sola humanidad conectada."
+        }
+      ],
+      "imagenes_reales": [
+        "fotografía Earthrise AS08-14-2383",
+        "despegue del Apolo 8 desde la plataforma 39A",
+        "tripulación del Apolo 8: Borman, Lovell y Anders",
+        "fotografía Blue Marble AS17-148-22727"
+      ],
+      "fuentes": [
+        {
+          "afirmacion": "Bill Anders tomó Earthrise el 24 de diciembre de 1968 desde la órbita lunar (Apolo 8).",
+          "url": "https://www.nasa.gov/image-article/earthrise-by-nasa-astronaut-bill-anders/"
+        },
+        {
+          "afirmacion": "El Apolo 8 despegó el 21 de diciembre de 1968 desde la plataforma 39A del Centro Espacial Kennedy; Borman, Lovell y Anders fueron los primeros humanos en orbitar la Luna.",
+          "url": "https://www.nasa.gov/mission/apollo-8/"
+        },
+        {
+          "afirmacion": "Población mundial: unos 3.545 millones en 1968 y unos 8.092 millones en 2023 (HYDE, Gapminder y UN WPP 2024, Our World in Data).",
+          "url": "https://ourworldindata.org/grapher/population"
+        }
+      ]
+    }
+  ]
+}
