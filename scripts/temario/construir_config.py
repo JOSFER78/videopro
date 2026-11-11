@@ -87,7 +87,7 @@ def construir(guion, marcas, temario):
                 entrada["kicker"] = parte["kicker"]
             config["parts"].append(entrada)
             parte_vista = pi
-            if pi == len(guion["partes"]) - 1 and indice_en is None:
+            if pi == len(guion["partes"]) - 1 and indice_en is None and not any(f.get("indice") for _, f in frases):
                 indice_en = inicio
         if frase.get("indice"):
             indice_en = inicio

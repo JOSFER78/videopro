@@ -267,7 +267,9 @@ window.renderHud = (t) => {
   $("#map .place").textContent = cur ? cur.name : ""; $("#map .where").textContent = cur ? cur.where : "";
 
   // Dato comparativo
-  const d = latest(C.data, t);
+  // El dato solo vive en la parte que lo presenta: al cambiar de parte se retira
+  let d = latest(C.data, t);
+  if (d && d.at < part.at) d = null;
   $("#datum").style.opacity = d ? ease((t - d.at) / 0.5) : 0;
   if (d) {
     $("#datum .k").textContent = d.label; $("#datum .v").textContent = d.value; $("#datum .u").textContent = d.unit || "";

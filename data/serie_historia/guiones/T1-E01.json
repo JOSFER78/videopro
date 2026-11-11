@@ -55,8 +55,12 @@
             "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
             "licencia": "CC BY-SA 3.0",
             "focus": [
-              38,
-              22
+              14,
+              8
+            ],
+            "zoom": [
+              1.7,
+              1.85
             ]
           },
           "pronunciacion": "Marruecos, mil novecientos sesenta y uno. Unos mineros excavan una colina llamada Yébel Irjud. Buscan barita, un mineral.",
@@ -90,7 +94,15 @@
         },
         {
           "texto": "Lo llaman Irhoud uno. Y enseguida empieza el problema: nadie sabe qué edad tiene.",
-          "pronunciacion": "Lo llaman Irjud uno. Y enseguida empieza el problema: nadie sabe qué edad tiene."
+          "pronunciacion": "Lo llaman Irjud uno. Y enseguida empieza el problema: nadie sabe qué edad tiene.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Cráneo Irhoud 1",
+            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg"
+          }
         },
         {
           "texto": "Primero se dice que es un neandertal, de unos cuarenta mil años.",
@@ -147,7 +159,14 @@
             "tipo": "archivo",
             "que_se_ve": "sílex quemados de Jebel Irhoud",
             "busqueda": "Jebel Irhoud heated flint artefacts",
-            "descartada": true
+            "archivo": "media/T1-E01/silex_irhoud.png",
+            "credito": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Stone_tools_from_Jebel_Irhoud.png",
+            "focus": [
+              50,
+              30
+            ]
           }
         },
         {
@@ -309,18 +328,41 @@
             "tipo": "archivo",
             "que_se_ve": "mandíbula Irhoud 11",
             "busqueda": "Irhoud 11 mandible",
-            "descartada": true
+            "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+            "credito": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
           "texto": "Irhoud dice otra cosa: primero llegó la cara, y la forma del cerebro cambió después, poco a poco.",
-          "pronunciacion": "Irjud dice otra cosa: primero llegó la cara, y la forma del cerebro cambió después, poco a poco."
+          "pronunciacion": "Irjud dice otra cosa: primero llegó la cara, y la forma del cerebro cambió después, poco a poco.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Cráneo Irhoud 1, de lado",
+            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+            "credito": "Cráneo Irhoud 1, de lado · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg"
+          }
         },
         {
           "texto": "Piensa en una casa: primero se levanta la fachada, y el interior se va reformando durante años."
         },
         {
-          "texto": "Y con la forma, según el equipo, quizá cambió también su manera de funcionar."
+          "texto": "Y con la forma, según el equipo, quizá cambió también su manera de funcionar.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Cráneo Irhoud 1",
+            "archivo": "media/T1-E01/16_jebel_irhoud_endocast.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg"
+          }
         },
         {
           "texto": "Y ese cambio ocurrió dentro de nuestra propia especie. No aparecimos de golpe: nos fuimos haciendo.",
@@ -426,7 +468,14 @@
             "tipo": "archivo",
             "que_se_ve": "puntas Levallois de Jebel Irhoud",
             "busqueda": "Jebel Irhoud Levallois point",
-            "descartada": true
+            "archivo": "media/T1-E01/silex_irhoud.png",
+            "credito": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Stone_tools_from_Jebel_Irhoud.png",
+            "focus": [
+              50,
+              30
+            ]
           },
           "pronunciacion": "Hay más. Las herramientas de piedra de Irjud se parecen mucho a las de la misma época en el este y el sur de África."
         },
@@ -469,7 +518,15 @@
         {
           "texto": "No hubo un jardín único. La cuna fue el continente entero.",
           "emocion": 0.7,
-          "aprendido": "Nuestra cuna fue toda África"
+          "aprendido": "Nuestra cuna fue toda África",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "África",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África · Foto: Bamse · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png"
+          }
         }
       ]
     },
@@ -501,8 +558,12 @@
             "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
             "licencia": "CC BY-SA 3.0",
             "focus": [
-              38,
-              22
+              14,
+              8
+            ],
+            "zoom": [
+              1.7,
+              1.85
             ]
           },
           "pronunciacion": "Primera. ¿En qué país está la colina de Yébel Irjud?"
@@ -538,10 +599,14 @@
             "tipo": "archivo",
             "que_se_ve": "sílex quemados de Jebel Irhoud",
             "busqueda": "Jebel Irhoud heated flint",
-            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
-            "credito": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg",
-            "licencia": "CC BY-SA 2.0"
+            "archivo": "media/T1-E01/silex_irhoud.png",
+            "credito": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Stone_tools_from_Jebel_Irhoud.png",
+            "licencia": "CC BY 4.0",
+            "focus": [
+              50,
+              30
+            ]
           },
           "pronunciacion": "Tercera. ¿Cuántos años adelantó Irjud el origen de nuestra especie?"
         },
@@ -558,7 +623,8 @@
             "credito": "África · Foto: Bamse · CC BY-SA 3.0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
             "licencia": "CC BY-SA 3.0"
-          }
+          },
+          "indice": true
         },
         {
           "texto": "Tres puntos en el mapa: Marruecos, Etiopía y Sudáfrica. Ninguno es, por sí solo, la cuna."

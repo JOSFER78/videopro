@@ -108,8 +108,12 @@
       "src": "media/T1-E01/21_africa_topographic_map.jpg",
       "credit": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
       "focus": [
-        38,
-        22
+        14,
+        8
+      ],
+      "zoom": [
+        1.7,
+        1.85
       ]
     },
     {
@@ -120,6 +124,11 @@
         50,
         40
       ]
+    },
+    {
+      "at": 38.72,
+      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
     },
     {
       "at": 54.41,
@@ -133,6 +142,15 @@
       "focus": [
         55,
         45
+      ]
+    },
+    {
+      "at": 72.82,
+      "src": "media/T1-E01/silex_irhoud.png",
+      "credit": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+      "focus": [
+        50,
+        30
       ]
     },
     {
@@ -178,6 +196,25 @@
       "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
     },
     {
+      "at": 175.53,
+      "src": "media/T1-E01/03_jebel_irhoud.jpg",
+      "credit": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 181.36,
+      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+      "credit": "Cráneo Irhoud 1, de lado · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
+    },
+    {
+      "at": 193.46,
+      "src": "media/T1-E01/16_jebel_irhoud_endocast.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
       "at": 204.68,
       "src": "media/T1-E01/21_africa_topographic_map.jpg",
       "credit": "África · Foto: Bamse · CC BY-SA 3.0"
@@ -197,6 +234,15 @@
       "credit": "África · Foto: Bamse · CC BY-SA 3.0"
     },
     {
+      "at": 255.72,
+      "src": "media/T1-E01/silex_irhoud.png",
+      "credit": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+      "focus": [
+        50,
+        30
+      ]
+    },
+    {
       "at": 262.67,
       "src": "media/T1-E01/25_gazella_cuvieri.jpg",
       "credit": "Gacela de Cuvier · Foto: Mourad Harzallah · CC BY 4.0"
@@ -205,6 +251,11 @@
       "at": 275.33,
       "src": "media/T1-E01/29_jebel_irhoud_composite_reconstruction.jpg",
       "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 287.83,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África · Foto: Bamse · CC BY-SA 3.0"
     },
     {
       "at": 292.42,
@@ -216,8 +267,12 @@
       "src": "media/T1-E01/21_africa_topographic_map.jpg",
       "credit": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
       "focus": [
-        38,
-        22
+        14,
+        8
+      ],
+      "zoom": [
+        1.7,
+        1.85
       ]
     },
     {
@@ -231,8 +286,12 @@
     },
     {
       "at": 321.72,
-      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
-      "credit": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
+      "src": "media/T1-E01/silex_irhoud.png",
+      "credit": "Herramientas de sílex de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA Leipzig · CC BY 4.0",
+      "focus": [
+        50,
+        30
+      ]
     },
     {
       "at": 330.34,
@@ -386,7 +445,7 @@
     }
   ],
   "index": {
-    "at": 292.72,
+    "at": 330.64,
     "kicker": "Quédate con esto",
     "takeaway": "Hace 300.000 años ya teníamos nuestra cara, no nuestro cerebro: nos fuimos haciendo, en toda África."
   },
