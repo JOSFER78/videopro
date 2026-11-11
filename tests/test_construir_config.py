@@ -79,3 +79,29 @@ class TestConstruir(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class TestPaqueteYoutube(unittest.TestCase):
+    def test_timestamps_use_on_screen_names_and_start_at_zero(self):
+        spec2 = importlib.util.spec_from_file_location("paquete_youtube", BASE_DIR / "scripts" / "temario" / "paquete_youtube.py")
+        py = importlib.util.module_from_spec(spec2)
+        spec2.loader.exec_module(py)
+        config = {"channel": "Temario", "series": "Historia", "season": "Temporada 1",
+                  "parts": [{"label": "El hallazgo", "at": 0}, {"label": "La fecha", "at": 4}, {"label": "Toda África", "at": 95.4},
+                            {"label": "Repaso", "at": 200}]}
+        guion = copy.deepcopy(GUION)
+        guion["fuentes"] = [{"afirmacion": "Datación", "url": "https://example.org/a"}]
+        guion["partes"][0]["frases"][0]["visual"]["pagina"] = "https://commons.wikimedia.org/x"
+        with self.assertRaises(ValueError):
+            py.paquete(guion, config)                               # sin bloque youtube
+        guion["youtube"] = {"titulos": ["Uno", "Dos", "Tres"], "descripcion": "Texto.", "comentario": "¿Y tú?"}
+        texto = py.paquete(guion, config)
+        # la parte que empieza a los 4 s se omite: YouTube pide 10 s entre marcas
+        self.assertEqual(py.marcas(config), [(0, "El hallazgo"), (95.4, "Toda África"), (200, "Repaso")])
+        self.assertIn("0:00 El hallazgo\n1:35 Toda África\n3:20 Repaso", texto)
+        self.assertIn("Foto: X · CC BY — https://commons.wikimedia.org/x", texto)
+        self.assertIn("no hace falta", texto)
+
+
+if __name__ == "__main__":
+    unittest.main()
