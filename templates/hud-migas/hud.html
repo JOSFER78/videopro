@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Plantilla Migas</title>
+<style>
+  @font-face { font-family: "Anton"; src: url("fonts/anton-latin-400-normal.woff2"); }
+  @font-face { font-family: "Archivo"; font-weight: 500; src: url("fonts/archivo-latin-500-normal.woff2"); }
+  @font-face { font-family: "Archivo"; font-weight: 800; src: url("fonts/archivo-latin-800-normal.woff2"); }
+
+  /* Negro, blanco y un único color eléctrico. Bloques planos de borde recto. */
+  :root { --hot: #d2ff1f; --black: #0b0b0b; --white: #ffffff; --grey: #8d8d8d; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent;
+               font-family: "Archivo", Arial, sans-serif; font-weight: 800; color: var(--white); text-transform: uppercase; }
+
+  /*
+   * ZONAS FIJAS (nada sale de la suya, así nada se pisa):
+   *   y  56–110   barra superior: migas a la izquierda, contador a la derecha
+   *   y 118–142   crédito de la imagen (derecha)
+ *   y 430–720   dato ancla (abajo a la izquierda: la imagen manda)
+   *   y 730–850   pregunta al público
+   *   y 884–1080  banda inferior: pregunta del capítulo, parte y regla de recorrido
+   */
+
+  /* 1. MIGAS */
+  #crumbs { position: absolute; left: 64px; top: 56px; height: 54px; display: flex; white-space: nowrap; }
+  .crumb { height: 54px; overflow: hidden; }
+  .crumb span { display: block; height: 54px; line-height: 56px; padding: 0 20px; font-size: 24px; letter-spacing: .03em;
+                background: var(--black); color: var(--white); border-right: 2px solid #2c2c2c; }
+  .crumb.now span { background: var(--hot); color: var(--black); border-right: 0; }
+  #counter { position: absolute; right: 64px; top: 56px; height: 54px; line-height: 56px; padding: 0 20px; font-size: 24px;
+             letter-spacing: .03em; background: var(--black); white-space: nowrap; }
+  #counter b { color: var(--hot); font-weight: 800; }
+
+  #credit { position: absolute; right: 64px; top: 118px; height: 26px; line-height: 27px; padding: 0 10px; background: var(--black);
+            font-size: 14px; font-weight: 500; letter-spacing: .08em; color: #cfcfcf; white-space: nowrap; }
+
+  /* 2. DATO ANCLA — un bloque de color con el dato en negro, y debajo qué significa */
+  #anchor { position: absolute; left: 64px; top: 430px; }
+  #anchor .big { display: inline-block; background: var(--hot); color: var(--black); font-family: "Anton", Impact, sans-serif;
+                 font-weight: 400; line-height: 1; padding: 22px 40px 14px; white-space: nowrap; }
+  #anchor .small { display: table; margin-top: 14px; background: var(--black); padding: 14px 24px 12px; font-size: 44px;
+                   letter-spacing: .01em; white-space: nowrap; }
+
+  /* 3. PREGUNTA AL PÚBLICO */
+  #ask { position: absolute; left: 64px; top: 738px; height: 104px; display: flex; white-space: nowrap; }
+  #ask .k { background: var(--white); color: var(--black); font-size: 30px; padding: 0 24px; line-height: 106px; }
+  #ask .t { background: var(--black); font-size: 34px; padding: 0 28px; line-height: 106px; text-transform: none; }
+
+  /* 4. BANDA INFERIOR */
+  #band { position: absolute; left: 0; right: 0; bottom: 0; height: 196px; background: var(--black); }
+  #question { position: absolute; left: 64px; top: 22px; font-size: 25px; white-space: nowrap; text-transform: none; }
+  #question b { color: var(--hot); text-transform: uppercase; margin-right: 14px; letter-spacing: .04em; }
+  #part { position: absolute; right: 64px; top: 22px; font-size: 25px; white-space: nowrap; color: var(--grey); }
+  #part b { color: var(--white); margin-left: 12px; }
+  #track { position: absolute; left: 64px; top: 0; }
+  .base { stroke: #3a3a3a; stroke-width: 10; }
+  .trail { stroke: var(--hot); stroke-width: 10; }
+  .tick { stroke: #3a3a3a; stroke-width: 2; }
+  .ticklabel { font-family: "Archivo", sans-serif; font-weight: 500; font-size: 17px; fill: var(--grey); letter-spacing: .06em; }
+  .stop { fill: var(--black); stroke: #6a6a6a; stroke-width: 4; }
+  .stop.done { fill: var(--hot); stroke: var(--hot); }
+  #flag { position: absolute; top: 76px; height: 38px; line-height: 40px; padding: 0 14px; background: var(--hot); color: var(--black);
+          font-size: 21px; white-space: nowrap; }
+  #flag i { font-style: normal; font-weight: 500; margin-left: 10px; }
+  #pin { position: absolute; top: 114px; width: 4px; height: 20px; background: var(--hot); }
+
+  /* 5. PÁGINA FINAL — ocupa toda la pantalla: resumen (tres ideas) o decisión (A/B) */
+  #page { position: absolute; inset: 0; background: var(--hot); color: var(--black); padding: 76px 96px 0; }
+  #page .k { font-size: 28px; letter-spacing: .06em; }
+  #page h2 { font-family: "Anton", Impact, sans-serif; font-weight: 400; font-size: 168px; line-height: 1.02; margin-top: 6px; white-space: nowrap; }
+  .point { display: flex; align-items: center; gap: 34px; height: 124px; border-top: 5px solid var(--black); font-size: 56px;
+           text-transform: none; white-space: nowrap; }
+  .point .n { font-family: "Anton", Impact, sans-serif; font-weight: 400; font-size: 92px; width: 70px; line-height: 1; }
+  #points { margin-top: 34px; border-bottom: 5px solid var(--black); }
+  #options { display: flex; gap: 32px; margin-top: 44px; }
+  .opt { flex: 1; background: var(--black); color: var(--white); padding: 34px 40px 36px; }
+  .opt .key { font-family: "Anton", Impact, sans-serif; font-weight: 400; font-size: 150px; line-height: 1; color: var(--hot); }
+  .opt .label { font-size: 54px; line-height: 1.05; margin-top: 10px; }
+  .opt .hint { font-size: 30px; font-weight: 500; text-transform: none; color: #c9c9c9; margin-top: 10px; }
+  #how { position: absolute; left: 0; right: 0; bottom: 0; height: 150px; background: var(--black); color: var(--white);
+         padding: 0 96px; display: flex; align-items: center; justify-content: space-between; font-size: 32px; white-space: nowrap; }
+  #how .do { text-transform: none; }
+  #how .do b { background: var(--hot); color: var(--black); padding: 8px 16px 5px; margin-right: 20px; text-transform: uppercase; }
+  #how .next { color: var(--grey); font-size: 26px; }
+  #how .next b { color: var(--white); margin-left: 10px; }
+</style>
+</head>
+<body>
+<div id="crumbs" data-zone></div>
+<div id="counter" data-zone></div>
+<div id="credit" data-zone></div>
+<div id="anchor" data-zone><div class="big"></div><div class="small"></div></div>
+<div id="ask" data-zone><div class="k"></div><div class="t"></div></div>
+<div id="band" data-zone>
+  <div id="question" data-fit></div><div id="part" data-fit></div>
+  <svg id="track" width="1792" height="196" viewBox="0 0 1792 196"></svg>
+  <div id="flag" data-fit></div><div id="pin"></div>
+</div>
+<div id="page">
+  <div class="k"></div><h2 data-fit></h2><div id="points"></div><div id="options"></div>
+  <div id="how"><div class="do" data-fit></div><div class="next" data-fit></div></div>
+</div>
+
+<script>
+/*
+ * Plantilla "Migas": sitúa al espectador en todo momento (dónde estamos, qué parte, qué pregunta).
+ * Todo es función pura del tiempo t (segundos): window.initHud(config) una vez y
+ * window.renderHud(t) por fotograma. Sin transiciones CSS, para capturas exactas.
+ */
+const $ = (s) => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 4);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const wipe = (el, k, from = "left") => {           // revela un bloque de lado a lado
+  el.style.clipPath = from === "left" ? `inset(0 ${(1 - k) * 100}% 0 0)` : `inset(0 0 0 ${(1 - k) * 100}%)`;
+};
+const TW = 1792, LINE_Y = 142;                      // regla: ancho útil y altura de la línea
+let C = null;
+
+window.initHud = (config) => {
+  C = config;
+  if (C.accent) document.documentElement.style.setProperty("--hot", C.accent);
+
+  $("#crumbs").innerHTML = C.crumbs.map((c) => `<div class="crumb"><span>${esc(c.label)}</span></div>`).join("");
+  $("#counter").innerHTML = C.counter ? `${esc(C.counter.label)} <b>${esc(C.counter.value)}</b>` : "";
+  if (!C.counter) $("#counter").style.display = "none";
+  $("#question").innerHTML = C.question ? `<b>${esc(C.question.kicker)}</b>${esc(C.question.text)}` : "";
+
+  const R = C.ruler;
+  $("#track").innerHTML =
+    (R.ticks || []).map((k) => `<line class="tick" x1="${k.pos * TW}" y1="${LINE_Y}" x2="${k.pos * TW}" y2="${LINE_Y + 18}"/>
+      ${k.label ? `<text class="ticklabel" x="${k.pos * TW + 8}" y="${LINE_Y + 34}">${esc(k.label)}</text>` : ""}`).join("") +
+    `<line class="base" x1="0" y1="${LINE_Y}" x2="${TW}" y2="${LINE_Y}"/>
+     <line class="trail" id="trail" x1="0" y1="${LINE_Y}" x2="0" y2="${LINE_Y}"/>` +
+    R.marks.map((m) => `<rect class="stop" x="${m.pos * TW - 9}" y="${LINE_Y - 9}" width="18" height="18"/>`).join("");
+
+  const P = C.page;
+  if (P) {
+    $("#page .k").textContent = P.kicker;
+    $("#page h2").textContent = P.title;
+    $("#points").style.display = (P.points || []).length ? "block" : "none";
+    $("#points").innerHTML = (P.points || []).map((p, i) =>
+      `<div class="point row"><span class="n">${i + 1}</span><span data-fit>${esc(p)}</span></div>`).join("");
+    $("#options").style.display = (P.options || []).length ? "flex" : "none";
+    $("#options").innerHTML = (P.options || []).map((o) =>
+      `<div class="opt row"><div class="key">${esc(o.key)}</div><div class="label">${esc(o.label)}</div><div class="hint">${esc(o.hint || "")}</div></div>`).join("");
+    $("#how .do").innerHTML = `<b>${esc(P.action)}</b>${esc(P.prompt)}`;
+    $("#how .next").innerHTML = P.next ? `${esc(P.nextLabel || "Siguiente")}<b>${esc(P.next)}</b>` : "";
+  }
+};
+
+window.renderHud = (t) => {
+  const intro = ease(t / 0.5);
+  const pageOn = C.page && t >= C.page.at;
+  const pageK = C.page ? ease((t - C.page.at) / 0.45) : 0;
+
+  // 1. Migas: entran de una en una; las del mismo "slot" se sustituyen
+  let last = 0;
+  const crumbs = [...document.querySelectorAll(".crumb")];
+  crumbs.forEach((el, i) => {
+    const c = C.crumbs[i];
+    const replaced = c.slot != null && C.crumbs.some((o, j) => j > i && o.slot === c.slot && t >= o.at);
+    const k = replaced ? 0 : ease((t - c.at) / 0.35);
+    if (t >= c.at && !replaced) last = i;
+    el.style.maxWidth = `${k * 620}px`;
+  });
+  crumbs.forEach((el, i) => el.classList.toggle("now", i === last));
+  $("#crumbs").style.visibility = $("#counter").style.visibility = pageOn ? "hidden" : "visible";
+  wipe($("#counter"), intro, "right");
+
+  // Crédito de la imagen que se está viendo
+  const cr = !pageOn && (C.credits || []).filter((x) => t >= x.at).pop();
+  $("#credit").style.visibility = cr ? "visible" : "hidden";
+  if (cr) $("#credit").textContent = cr.text;
+
+  // 2. Dato ancla: el tamaño se ajusta para que el bloque nunca se salga de su zona
+  const an = !pageOn && (C.anchors || []).find((x) => t >= x.at && t < x.at + x.hold);
+  const anchor = $("#anchor");
+  if (an) {
+    const big = anchor.querySelector(".big"), small = anchor.querySelector(".small");
+    if (big.dataset.text !== an.big) {
+      big.textContent = an.big; big.dataset.text = an.big; small.textContent = an.small || "";
+      let size = 210; big.style.fontSize = `${size}px`;
+      while ((big.offsetWidth > 1640 || big.offsetHeight > 260) && size > 80) { size -= 6; big.style.fontSize = `${size}px`; }
+    }
+    const kin = ease((t - an.at) / 0.3), kout = ease((t - (an.at + an.hold - 0.25)) / 0.25);
+    anchor.style.visibility = "visible";
+    wipe(big, kin * (1 - kout)); wipe(small, ease((t - an.at - 0.18) / 0.3) * (1 - kout));
+  } else anchor.style.visibility = "hidden";
+
+  // 3. Pregunta al público
+  const a = !pageOn && (C.asks || []).find((x) => t >= x.at && t < x.at + x.hold);
+  const ask = $("#ask");
+  if (a) {
+    ask.querySelector(".k").textContent = a.kicker; ask.querySelector(".t").textContent = a.text;
+    ask.style.visibility = "visible";
+    wipe(ask, ease((t - a.at) / 0.35) * (1 - ease((t - (a.at + a.hold - 0.3)) / 0.3)));
+  } else ask.style.visibility = "hidden";
+
+  // 4. Banda inferior: el marcador viaja de parada en parada; solo la parada actual lleva rótulo
+  const M = C.ruler.marks;
+  let pos = M[0].pos, cur = -1;
+  for (let i = 0; i < M.length; i++) {
+    if (t < M[i].at) break;
+    cur = i;
+    const next = M[i + 1];
+    const travel = Math.min(C.ruler.travel || 1.4, next ? next.at - M[i].at : 0);
+    pos = next ? M[i].pos + (next.pos - M[i].pos) * ease((t - (next.at - travel)) / travel) : M[i].pos;
+  }
+  document.querySelectorAll(".stop").forEach((r, i) => r.classList.toggle("done", t >= M[i].at));
+  $("#trail").setAttribute("x1", M[0].pos * TW); $("#trail").setAttribute("x2", pos * TW);
+  $("#trail").style.visibility = cur >= 0 ? "visible" : "hidden";
+  const flag = $("#flag"), pin = $("#pin");
+  flag.style.visibility = pin.style.visibility = cur >= 0 ? "visible" : "hidden";
+  if (cur >= 0) {
+    flag.innerHTML = `${esc(M[cur].label)}<i>${esc(M[cur].when || "")}</i>`;
+    const x = 64 + pos * TW;
+    pin.style.left = `${x - 2}px`;
+    flag.style.left = `${clamp(x - flag.offsetWidth / 2, 64, 64 + TW - flag.offsetWidth)}px`;
+  }
+  const parts = C.parts || [];
+  const idx = parts.findIndex((p) => t < p.end);
+  const pi = idx === -1 ? parts.length - 1 : idx;
+  if (parts.length) $("#part").innerHTML = `${esc(C.partLabel || "Parte")} ${pi + 1}/${parts.length}<b>${esc(parts[pi].label)}</b>`;
+  $("#band").style.transform = `translateY(${(1 - intro) * 200 + pageK * 200}px)`;
+
+  // 5. Página final
+  const page = $("#page");
+  if (pageOn) {
+    page.style.visibility = "visible";
+    wipe(page, pageK);
+    document.querySelectorAll("#page .row").forEach((el, i) =>
+      wipe(el, ease((t - C.page.at - 0.6 - i * (C.page.stagger || 0.8)) / 0.4)));
+    $("#how").style.transform = `translateY(${(1 - ease((t - C.page.at - 0.5) / 0.4)) * 150}px)`;
+  } else page.style.visibility = "hidden";
+};
+
+/*
+ * Comprobación de maquetación en el instante actual: devuelve la lista de problemas (vacía si todo bien).
+ *  - dos zonas visibles que se pisan
+ *  - texto marcado con data-fit que se sale de la pantalla o se corta
+ */
+window.checkLayout = () => {
+  const problems = [];
+  const visible = (el) => getComputedStyle(el).visibility !== "hidden" && el.offsetWidth > 0;
+  const zones = [...document.querySelectorAll("[data-zone]")].filter(visible)
+    .map((el) => ({ id: el.id, r: (el.id === "anchor" ? el : el).getBoundingClientRect() }));
+  for (let i = 0; i < zones.length; i++) for (let j = i + 1; j < zones.length; j++) {
+    const a = zones[i].r, b = zones[j].r;
+    if (a.left < b.right - 1 && b.left < a.right - 1 && a.top < b.bottom - 1 && b.top < a.bottom - 1)
+      problems.push(`se pisan: ${zones[i].id} y ${zones[j].id}`);
+  }
+  const fits = [...document.querySelectorAll("[data-fit]"), ...document.querySelectorAll("#anchor .big, #anchor .small, #ask, #crumbs")]
+    .filter((el) => visible(el) && visible(el.closest("#page, [data-zone]") || el));
+  for (const el of fits) {
+    const r = el.getBoundingClientRect();
+    if (r.left < 40 || r.right > 1880) problems.push(`se sale de pantalla: ${el.id || el.className || el.tagName} "${el.textContent.slice(0, 30)}"`);
+  }
+  const q = $("#question").getBoundingClientRect(), p = $("#part").getBoundingClientRect();
+  if (visible($("#band")) && q.right > p.left - 30) problems.push("se pisan: pregunta del capítulo y parte");
+  const how = [...document.querySelectorAll("#how > div")].map((e) => e.getBoundingClientRect());
+  if (visible($("#page")) && how[1].width && how[0].right > how[1].left - 30) problems.push("se pisan: acción y siguiente capítulo");
+  return problems;
+};
+</script>
+</body>
+</html>

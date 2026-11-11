@@ -1,0 +1,215 @@
+{
+  "duration": 38,
+  "accent": "#d2ff1f",
+  "crumbs": [
+    {
+      "label": "Del Big Bang a hoy",
+      "at": 0.3
+    },
+    {
+      "label": "Todo en un año",
+      "at": 0.8
+    },
+    {
+      "label": "Enero",
+      "at": 3.4,
+      "slot": "parte"
+    },
+    {
+      "label": "Septiembre",
+      "at": 9.4,
+      "slot": "parte"
+    },
+    {
+      "label": "Navidad",
+      "at": 14.6,
+      "slot": "parte"
+    },
+    {
+      "label": "31 de diciembre",
+      "at": 20.4,
+      "slot": "parte"
+    }
+  ],
+  "counter": {
+    "label": "Capítulo",
+    "value": "01 / 20"
+  },
+  "question": {
+    "kicker": "Pregunta de hoy",
+    "text": "Si el universo durase un año, ¿qué día aparecemos nosotros?"
+  },
+  "partLabel": "Parte",
+  "parts": [
+    {
+      "label": "El Big Bang",
+      "end": 7.4
+    },
+    {
+      "label": "La Tierra y la vida",
+      "end": 14.5
+    },
+    {
+      "label": "Los dinosaurios",
+      "end": 20.4
+    },
+    {
+      "label": "Nosotros",
+      "end": 38
+    }
+  ],
+  "ruler": {
+    "travel": 1.6,
+    "ticks": [
+      {
+        "pos": 0.0,
+        "label": "ENE"
+      },
+      {
+        "pos": 0.08493150684931507,
+        "label": "FEB"
+      },
+      {
+        "pos": 0.16164383561643836,
+        "label": "MAR"
+      },
+      {
+        "pos": 0.2465753424657534,
+        "label": "ABR"
+      },
+      {
+        "pos": 0.3287671232876712,
+        "label": "MAY"
+      },
+      {
+        "pos": 0.4136986301369863,
+        "label": "JUN"
+      },
+      {
+        "pos": 0.4958904109589041,
+        "label": "JUL"
+      },
+      {
+        "pos": 0.5808219178082191,
+        "label": "AGO"
+      },
+      {
+        "pos": 0.6657534246575343,
+        "label": "SEP"
+      },
+      {
+        "pos": 0.7479452054794521,
+        "label": "OCT"
+      },
+      {
+        "pos": 0.8328767123287671,
+        "label": "NOV"
+      },
+      {
+        "pos": 0.915068493150685,
+        "label": "DIC"
+      }
+    ],
+    "marks": [
+      {
+        "pos": 0,
+        "label": "Big Bang",
+        "when": "1 ene",
+        "at": 3.4
+      },
+      {
+        "pos": 0.6684931506849315,
+        "label": "Nace la Tierra",
+        "when": "2 sep",
+        "at": 9.6
+      },
+      {
+        "pos": 0.7315068493150685,
+        "label": "Primera vida",
+        "when": "25 sep",
+        "at": 12.4
+      },
+      {
+        "pos": 0.9808219178082191,
+        "label": "Dinosaurios",
+        "when": "25 dic",
+        "at": 15.2
+      },
+      {
+        "pos": 1,
+        "label": "Nosotros",
+        "when": "31 dic · 23:48",
+        "at": 22.6
+      }
+    ]
+  },
+  "anchors": [
+    {
+      "at": 3.6,
+      "hold": 3.4,
+      "big": "1 ENERO",
+      "small": "El Big Bang"
+    },
+    {
+      "at": 9.6,
+      "hold": 4.2,
+      "big": "SEPTIEMBRE",
+      "small": "Nace la Tierra. Poco después, la vida"
+    },
+    {
+      "at": 15.2,
+      "hold": 4.6,
+      "big": "25 → 30 DIC",
+      "small": "Llegan y se van los dinosaurios"
+    },
+    {
+      "at": 22.6,
+      "hold": 3.6,
+      "big": "31 DIC · 23:48",
+      "small": "Aparecemos nosotros"
+    },
+    {
+      "at": 26.5,
+      "hold": 3.3,
+      "big": "12 SEGUNDOS",
+      "small": "Toda la historia escrita"
+    }
+  ],
+  "page": {
+    "at": 30.3,
+    "kicker": "Quédate con esto",
+    "title": "El universo en un año",
+    "stagger": 0.8,
+    "points": [
+      "El Big Bang es el 1 de enero.",
+      "La Tierra no llega hasta septiembre.",
+      "Nosotros: 31 de diciembre, a las 23:48."
+    ],
+    "action": "Comenta",
+    "prompt": "¿Qué momento del año te ha sorprendido más?",
+    "nextLabel": "Siguiente",
+    "next": "La humanidad en un solo día"
+  },
+  "credits": [
+    {
+      "at": 0,
+      "text": "Imagen: NASA / ESA · Hubble eXtreme Deep Field"
+    },
+    {
+      "at": 7.4,
+      "text": "Vídeo: NASA · Estación Espacial Internacional"
+    },
+    {
+      "at": 14.5,
+      "text": "Vídeo: Mixkit"
+    },
+    {
+      "at": 20.4,
+      "text": "Vídeo: Mixkit"
+    },
+    {
+      "at": 26.5,
+      "text": "Vídeo: NASA · Black Marble"
+    }
+  ]
+}
