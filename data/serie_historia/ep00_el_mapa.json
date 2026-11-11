@@ -1,0 +1,2322 @@
+{
+ "serie": "Historia de la humanidad",
+ "temporada": 1,
+ "temporada_titulo": "Temporada 1 · Episodio 0 · El mapa",
+ "episodio": 0,
+ "titulo": "El mapa",
+ "subtitulo": "La historia de la humanidad en 15 minutos",
+ "pregunta_del_episodio": "De los 300.000 años de nuestra especie, ¿qué parte hemos vivido sin escribir una sola palabra?",
+ "respuesta": "Más del 98 %: la escritura tiene poco más de 5.000 años.",
+ "nota_formato": "Cada frase de `locucion` es una unidad de voz. `dicho` es la misma frase escrita como suena (solo cuando hace falta). `tono`: n = narrativo, a = asombro. Los campos `desde` apuntan al id de la frase en la que entra cada cosa. Hay varios visuales por parte porque la imagen cambia con lo que se dice.",
+ "partes": [
+  {
+   "label": "Apertura",
+   "kicker": "Episodio 0 · Apertura",
+   "titulo": "El mapa",
+   "idea": "Toda la historia humana en nueve ideas",
+   "locucion": [
+    {
+     "id": "a01",
+     "texto": "Esto es la Tierra. Todo lo que vas a ver en este vídeo ocurrió aquí."
+    },
+    {
+     "id": "a02",
+     "texto": "Nuestra especie lleva en ella unos trescientos mil años."
+    },
+    {
+     "id": "a03",
+     "texto": "En los próximos quince minutos vamos a recorrerlos enteros. Y para no perdernos, vamos a usar un mapa."
+    },
+    {
+     "id": "a04",
+     "texto": "Arriba tienes el índice: nueve capítulos. Cada uno, una sola idea."
+    },
+    {
+     "id": "a05",
+     "texto": "Abajo, la línea del tiempo. Y a la derecha, el lugar exacto donde ocurrió cada cosa."
+    },
+    {
+     "id": "a06",
+     "texto": "Antes de empezar, una pregunta. Guárdala, porque la respondemos al final."
+    },
+    {
+     "id": "a07",
+     "tono": "a",
+     "texto": "De todo ese tiempo, ¿qué parte hemos vivido sin escribir ni una sola palabra?"
+    },
+    {
+     "id": "a08",
+     "texto": "Empezamos por el principio. En Marruecos."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "a01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tierra_apolo17_c.jpg",
+     "que_se_ve": "La Tierra entera, con África en el centro.",
+     "credito_pantalla": "La Tierra desde el Apolo 17 (1972) · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA / tripulación del Apolo 17",
+     "origen": "https://images.nasa.gov/details/as17-148-22727",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.22
+     ]
+    }
+   ],
+   "lugar": null,
+   "anios_atras": 300000,
+   "viaje": [
+    {
+     "desde": "a01",
+     "anios_atras": 1
+    },
+    {
+     "desde": "a02",
+     "anios_atras": 300000
+    }
+   ],
+   "dato": null,
+   "pregunta_pausa": {
+    "despues_de": "a07",
+    "segundos": 3.0,
+    "texto": "¿Qué parte de nuestra historia no está escrita?",
+    "rotulo": "La pregunta del episodio"
+   },
+   "aprendido": null,
+   "fuentes": [
+    "https://www.nasa.gov/image-article/blue-marble-image-of-earth-from-apollo-17/"
+   ]
+  },
+  {
+   "step": 1,
+   "label": "Nuestro origen",
+   "kicker": "Capítulo 1 de 9",
+   "titulo": "Nuestro origen",
+   "idea": "Somos africanos, y más antiguos de lo que creíamos",
+   "beats": [
+    {
+     "label": "El cráneo",
+     "desde": "c1_01"
+    },
+    {
+     "label": "La fecha",
+     "desde": "c1_06"
+    },
+    {
+     "label": "La idea",
+     "desde": "c1_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c1_01",
+     "texto": "Mil novecientos sesenta y uno. En una mina de Marruecos, a unos cien kilómetros de Marrakech, unos mineros encuentran un cráneo.",
+     "dicho": "Mil novecientos sesenta y uno. En una mina de Marruecos, a unos cien kilómetros de Marraquech, unos mineros encuentran un cráneo."
+    },
+    {
+     "id": "c1_02",
+     "texto": "El lugar se llama Jebel Irhoud.",
+     "dicho": "El lugar se llama Yébel Irjud."
+    },
+    {
+     "id": "c1_03",
+     "texto": "Mira la cara: es plana y pequeña, como la nuestra. Si te cruzaras con esta persona por la calle, con un gorro puesto, no te llamaría la atención."
+    },
+    {
+     "id": "c1_04",
+     "texto": "Pero la parte de atrás del cráneo es alargada, más antigua. Es uno de los nuestros, a medio hacer."
+    },
+    {
+     "id": "c1_05",
+     "texto": "Durante décadas nadie supo decir bien cuántos años tenía."
+    },
+    {
+     "id": "c1_06",
+     "texto": "Hasta que un equipo volvió a excavar el yacimiento, y encontró más huesos junto a herramientas de piedra que habían pasado por el fuego. Y la piedra quemada se puede fechar."
+    },
+    {
+     "id": "c1_07",
+     "texto": "El resultado se publicó en dos mil diecisiete."
+    },
+    {
+     "id": "c1_08",
+     "tono": "a",
+     "texto": "Unos trescientos quince mil años."
+    },
+    {
+     "id": "c1_09",
+     "texto": "Cien mil años más que los restos más antiguos de nuestra especie que se conocían entonces, en Etiopía."
+    },
+    {
+     "id": "c1_10",
+     "texto": "Y están en la otra punta de África. Por eso sus descubridores proponen que no nacimos en un único rincón: para entonces ya estábamos repartidos por todo el continente."
+    },
+    {
+     "id": "c1_11",
+     "texto": "Primera idea: somos una especie africana, y bastante más antigua de lo que creíamos."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c1_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/irhoud_craneo.jpg",
+     "que_se_ve": "El cráneo Irhoud 1 completo.",
+     "credito_pantalla": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Jonathan Chen",
+     "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+     "focus": [
+      50,
+      45
+     ],
+     "zoom": [
+      1.0,
+      1.08
+     ]
+    },
+    {
+     "desde": "c1_03",
+     "tipo": "archivo",
+     "archivo": "media/ep00/irhoud_craneo.jpg",
+     "que_se_ve": "La cara del cráneo, de cerca.",
+     "credito_pantalla": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Jonathan Chen",
+     "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+     "focus": [
+      45,
+      62
+     ],
+     "zoom": [
+      1.25,
+      1.45
+     ]
+    },
+    {
+     "desde": "c1_06",
+     "tipo": "archivo",
+     "archivo": "media/ep00/irhoud_hublin.jpg",
+     "que_se_ve": "El director de la excavación señala los fósiles en el yacimiento.",
+     "credito_pantalla": "Jean-Jacques Hublin en la excavación de Jebel Irhoud · Foto: Shannon McPherron, MPI EVA · CC BY-SA 2.0",
+     "licencia": "CC BY-SA 2.0",
+     "autor": "Shannon McPherron, MPI EVA Leipzig",
+     "origen": "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Hublin_at_Jebel_Irhoud.jpg",
+     "focus": [
+      55,
+      55
+     ],
+     "zoom": [
+      1.12,
+      1.02
+     ]
+    },
+    {
+     "desde": "c1_08",
+     "tipo": "archivo",
+     "archivo": "media/ep00/irhoud_herramientas_c.jpg",
+     "que_se_ve": "Las herramientas de piedra halladas junto a los huesos, con las que se obtuvo la fecha.",
+     "credito_pantalla": "Herramientas de piedra de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA · CC BY 4.0",
+     "licencia": "CC BY 4.0",
+     "autor": "Mohammed Kamal, MPI EVA Leipzig",
+     "origen": "https://commons.wikimedia.org/wiki/File:Stone_tools_from_Jebel_Irhoud.png",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c1_10",
+     "tipo": "archivo",
+     "archivo": "media/ep00/irhoud_craneo.jpg",
+     "que_se_ve": "El cráneo, de nuevo.",
+     "credito_pantalla": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Jonathan Chen",
+     "origen": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+     "focus": [
+      50,
+      40
+     ],
+     "zoom": [
+      1.15,
+      1.0
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c1_01",
+    "nombre": "Jebel Irhoud",
+    "pais": "Marruecos",
+    "lon": -8.87,
+    "lat": 31.85,
+    "encuadre": [
+     -20,
+     0,
+     55,
+     40
+    ]
+   },
+   "anios_atras": 315000,
+   "viaje": [
+    {
+     "desde": "c1_01",
+     "anios_atras": 65
+    },
+    {
+     "desde": "c1_08",
+     "anios_atras": 315000
+    }
+   ],
+   "dato": {
+    "desde": "c1_08",
+    "rotulo": "Edad de los fósiles",
+    "valor": "315.000",
+    "unidad": "años (± 34.000)",
+    "comparacion": "<b>Unos 100.000 años más</b> que el récord anterior, en Etiopía"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c1_07",
+    "segundos": 2.6,
+    "texto": "¿Cuántos años dirías que tiene?"
+   },
+   "aprendido": {
+    "desde": "c1_11",
+    "texto": "Somos africanos, y más antiguos de lo que creíamos"
+   },
+   "fuentes": [
+    "https://www.nature.com/articles/nature22336",
+    "https://www.nature.com/articles/nature22335",
+    "https://www.scientificamerican.com/article/ancient-fossils-from-morocco-mess-up-modern-human-origins/",
+    "https://www.nature.com/articles/s41586-021-04275-8"
+   ],
+   "cuando": "hace 315.000 años",
+   "idea_indice": "Africanos, y muy antiguos"
+  },
+  {
+   "step": 2,
+   "label": "Salimos de África",
+   "kicker": "Capítulo 2 de 9",
+   "titulo": "Salimos de África",
+   "idea": "Caminando, llegamos a todos los continentes",
+   "beats": [
+    {
+     "label": "La salida",
+     "desde": "c2_01"
+    },
+    {
+     "label": "Las huellas",
+     "desde": "c2_04"
+    },
+    {
+     "label": "La idea",
+     "desde": "c2_10"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c2_01",
+     "texto": "Durante muchísimo tiempo, África fue casi todo nuestro mundo."
+    },
+    {
+     "id": "c2_02",
+     "texto": "Hasta que, hace entre cincuenta mil y setenta mil años, unos pocos grupos cruzaron hacia Asia. Y sus descendientes ya no pararon."
+    },
+    {
+     "id": "c2_03",
+     "texto": "No tenían mapas, ni ruedas, ni caballos. Iban a pie, unos kilómetros más lejos en cada generación."
+    },
+    {
+     "id": "c2_04",
+     "texto": "Para saber hasta dónde llegaron hay que ir al otro lado del planeta. A un desierto de arena blanca en Nuevo México: White Sands.",
+     "dicho": "Para saber hasta dónde llegaron hay que ir al otro lado del planeta. A un desierto de arena blanca en Nuevo México: Guáit Sands."
+    },
+    {
+     "id": "c2_05",
+     "texto": "Aquí hubo un lago. Y en lo que fue su orilla, alguien dejó esto."
+    },
+    {
+     "id": "c2_06",
+     "texto": "Huellas. Pies descalzos en el barro. Muchas son pequeñas: de niños y de adolescentes."
+    },
+    {
+     "id": "c2_07",
+     "texto": "Entre las capas de huellas quedaron atrapadas semillas de una planta del lago. Y las semillas se pueden fechar."
+    },
+    {
+     "id": "c2_08",
+     "tono": "a",
+     "texto": "Entre veintiún mil y veintitrés mil años."
+    },
+    {
+     "id": "c2_09",
+     "texto": "En lo más frío de la última glaciación, con medio hemisferio norte bajo el hielo, ya había niños y adolescentes caminando por el barro en América."
+    },
+    {
+     "id": "c2_10",
+     "texto": "Habíamos salido de un continente y habíamos llegado, andando, a todos los demás donde se podía vivir."
+    },
+    {
+     "id": "c2_11",
+     "texto": "Segunda idea: somos la especie que no se quedó en casa."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c2_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/africa_epic_c.jpg",
+     "que_se_ve": "África vista desde el espacio.",
+     "credito_pantalla": "África desde el satélite DSCOVR · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA / DSCOVR EPIC",
+     "origen": "https://images.nasa.gov/details/GSFC_20171208_Archive_e000676",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c2_02",
+     "tipo": "archivo",
+     "archivo": "media/ep00/mar_rojo_sinai.jpg",
+     "que_se_ve": "El Sinaí y el mar Rojo: la frontera entre África y Asia.",
+     "credito_pantalla": "Sinaí y mar Rojo desde el transbordador (STS-112) · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA",
+     "origen": "https://images.nasa.gov/details/sts112-702-002",
+     "focus": [
+      55,
+      40
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c2_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/whitesands_orbita.jpg",
+     "que_se_ve": "El campo de dunas blancas de White Sands visto desde la órbita.",
+     "credito_pantalla": "White Sands desde la órbita (STS-60) · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA",
+     "origen": "https://images.nasa.gov/details/sts060-83-016",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.2
+     ]
+    },
+    {
+     "desde": "c2_05",
+     "tipo": "archivo",
+     "archivo": "media/ep00/huellas_adulto_nino.jpg",
+     "que_se_ve": "Los rastros de pisadas sobre el antiguo lecho del lago.",
+     "credito_pantalla": "Rastros de huellas en White Sands · Foto: NPS · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "National Park Service",
+     "origen": "https://www.nps.gov/whsa/learn/nature/fossilized-footprints.htm",
+     "focus": [
+      20,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c2_06",
+     "tipo": "archivo",
+     "archivo": "media/ep00/huellas_whitesands_c.jpg",
+     "que_se_ve": "Las huellas de pies descalzos, con la escala.",
+     "credito_pantalla": "Huellas humanas fósiles, White Sands · Foto: NPS · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "National Park Service",
+     "origen": "https://www.nps.gov/whsa/learn/nature/fossilized-footprints.htm",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c2_07",
+     "tipo": "archivo",
+     "archivo": "media/ep00/huellas_zanja_c.jpg",
+     "que_se_ve": "La zanja donde se ven las capas con huellas.",
+     "credito_pantalla": "Zanja de excavación con huellas, White Sands · Foto: NPS · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "National Park Service",
+     "origen": "https://www.nps.gov/whsa/learn/nature/fossilized-footprints.htm",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c2_09",
+     "tipo": "archivo",
+     "archivo": "media/ep00/huellas_adulto_nino.jpg",
+     "que_se_ve": "Huellas de un adulto y de un niño pequeño, una junto a otra.",
+     "credito_pantalla": "Huellas de un adulto y un niño, White Sands · Foto: NPS · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "National Park Service",
+     "origen": "https://www.nps.gov/whsa/learn/nature/fossilized-footprints.htm",
+     "focus": [
+      62,
+      50
+     ],
+     "zoom": [
+      1.25,
+      1.4
+     ]
+    }
+   ],
+   "lugar": [
+    {
+     "desde": "c2_02",
+     "nombre": "Sinaí y mar Rojo",
+     "pais": "Entre África y Asia",
+     "lon": 34.0,
+     "lat": 28.5,
+     "encuadre": [
+      10,
+      -5,
+      85,
+      42
+     ]
+    },
+    {
+     "desde": "c2_04",
+     "nombre": "White Sands",
+     "pais": "Nuevo México, EE. UU.",
+     "lon": -106.3,
+     "lat": 32.8,
+     "encuadre": [
+      -135,
+      8,
+      -65,
+      55
+     ]
+    }
+   ],
+   "anios_atras": 60000,
+   "viaje": [
+    {
+     "desde": "c2_02",
+     "anios_atras": 60000
+    },
+    {
+     "desde": "c2_08",
+     "anios_atras": 22000
+    }
+   ],
+   "dato": {
+    "desde": "c2_08",
+    "rotulo": "Edad de las huellas",
+    "valor": "≈ 22.000",
+    "unidad": "años (entre 21.000 y 23.000)",
+    "comparacion": "En plena <b>última glaciación</b>, ya había gente en América"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c2_07",
+    "segundos": 2.6,
+    "texto": "¿Cuándo pasaron por aquí?"
+   },
+   "aprendido": {
+    "desde": "c2_11",
+    "texto": "Caminando, llegamos a todos los continentes"
+   },
+   "fuentes": [
+    "https://www.science.org/doi/10.1126/science.abg7586",
+    "https://www.usgs.gov/news/national-news-release/study-confirms-age-oldest-fossil-human-footprints-north-america",
+    "https://www.nps.gov/whsa/learn/nature/fossilized-footprints.htm",
+    "https://www.nature.com/articles/s41586-025-09154-0"
+   ],
+   "cuando": "hace 60.000 años"
+  },
+  {
+   "step": 3,
+   "label": "Imaginar",
+   "kicker": "Capítulo 3 de 9",
+   "titulo": "Imaginar lo que no existe",
+   "idea": "Aprendimos a imaginar lo que no existe",
+   "beats": [
+    {
+     "label": "La cueva",
+     "desde": "c3_01"
+    },
+    {
+     "label": "La figura",
+     "desde": "c3_04"
+    },
+    {
+     "label": "La idea",
+     "desde": "c3_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c3_01",
+     "texto": "Agosto de mil novecientos treinta y nueve. En una cueva del sur de Alemania, unos arqueólogos recogen cientos de astillas de marfil de mamut."
+    },
+    {
+     "id": "c3_02",
+     "texto": "A los pocos días empieza la guerra. Las astillas acaban en una caja, y la caja, olvidada en un almacén."
+    },
+    {
+     "id": "c3_03",
+     "texto": "Pasaron treinta años hasta que alguien se sentó a juntarlas, como un rompecabezas."
+    },
+    {
+     "id": "c3_04",
+     "texto": "Y apareció esto."
+    },
+    {
+     "id": "c3_05",
+     "texto": "Una figura de treinta y un centímetros. De pie. Con cuerpo de persona… y cabeza de león."
+    },
+    {
+     "id": "c3_06",
+     "texto": "Tiene unos cuarenta mil años."
+    },
+    {
+     "id": "c3_07",
+     "tono": "a",
+     "texto": "Y fíjate en lo importante: un hombre león no existe. Nadie lo vio nunca. Alguien lo imaginó, y después lo talló para que los demás también pudieran verlo."
+    },
+    {
+     "id": "c3_08",
+     "texto": "Un artesano de hoy hizo la prueba: tallar una copia con las mismas herramientas de piedra."
+    },
+    {
+     "id": "c3_09",
+     "tono": "a",
+     "texto": "Más de trescientas horas."
+    },
+    {
+     "id": "c3_10",
+     "texto": "Trescientas horas de alguien que no estaba cazando ni buscando comida. Mientras tanto, otros tuvieron que alimentarlo: hacer aquella figura le importaba a todo el grupo."
+    },
+    {
+     "id": "c3_11",
+     "texto": "Tercera idea: aprendimos a imaginar cosas que no existen, y a compartirlas."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c3_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/stadel_cueva.jpg",
+     "que_se_ve": "La entrada de la cueva.",
+     "credito_pantalla": "Cueva de Hohlenstein-Stadel · Foto: Thilo Parg · CC BY-SA 3.0",
+     "licencia": "CC BY-SA 3.0",
+     "autor": "Thilo Parg",
+     "origen": "https://commons.wikimedia.org/wiki/File:H%C3%B6hle_Hohlenstein_Hohlensteinstadel.jpg",
+     "focus": [
+      45,
+      55
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c3_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/hombre_leon_1_c.jpg",
+     "que_se_ve": "La figura completa.",
+     "credito_pantalla": "El Hombre León, Museo de Ulm · Foto: Dagmar Hollmann · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Dagmar Hollmann",
+     "origen": "https://commons.wikimedia.org/wiki/File:Loewenmensch1.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c3_07",
+     "tipo": "archivo",
+     "archivo": "media/ep00/hombre_leon_1.jpg",
+     "que_se_ve": "La cabeza de león, de cerca.",
+     "credito_pantalla": "El Hombre León, Museo de Ulm · Foto: Dagmar Hollmann · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Dagmar Hollmann",
+     "origen": "https://commons.wikimedia.org/wiki/File:Loewenmensch1.jpg",
+     "focus": [
+      50,
+      10
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c3_08",
+     "tipo": "archivo",
+     "archivo": "media/ep00/hombre_leon_2_c.jpg",
+     "que_se_ve": "La figura de perfil: se aprecia la talla.",
+     "credito_pantalla": "El Hombre León, de perfil · Foto: Thilo Parg · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Thilo Parg",
+     "origen": "https://commons.wikimedia.org/wiki/File:Loewenmensch2.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c3_10",
+     "tipo": "archivo",
+     "archivo": "media/ep00/hombre_leon_2.jpg",
+     "que_se_ve": "Detalle del torso y los brazos tallados.",
+     "credito_pantalla": "El Hombre León, de perfil · Foto: Thilo Parg · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Thilo Parg",
+     "origen": "https://commons.wikimedia.org/wiki/File:Loewenmensch2.jpg",
+     "focus": [
+      50,
+      32
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c3_01",
+    "nombre": "Hohlenstein-Stadel",
+    "pais": "Baden-Wurtemberg, Alemania",
+    "lon": 10.17,
+    "lat": 48.55,
+    "encuadre": [
+     -12,
+     34,
+     32,
+     62
+    ]
+   },
+   "anios_atras": 40000,
+   "viaje": [
+    {
+     "desde": "c3_01",
+     "anios_atras": 87
+    },
+    {
+     "desde": "c3_06",
+     "anios_atras": 40000
+    }
+   ],
+   "dato": {
+    "desde": "c3_09",
+    "rotulo": "Tiempo de talla",
+    "valor": "300 h",
+    "unidad": "o más, con útiles de piedra",
+    "comparacion": "Como <b>ocho semanas</b> de trabajo a jornada completa"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c3_08",
+    "segundos": 2.6,
+    "texto": "¿Cuánto tardó en tallarla?"
+   },
+   "aprendido": {
+    "desde": "c3_11",
+    "texto": "Aprendimos a imaginar lo que no existe"
+   },
+   "fuentes": [
+    "https://bawue.museum-digital.de/object/2497?lang=en",
+    "https://en.wikipedia.org/wiki/Lion-man_of_Hohlenstein-Stadel"
+   ],
+   "cuando": "hace 40.000 años"
+  },
+  {
+   "step": 4,
+   "label": "Echamos raíces",
+   "kicker": "Capítulo 4 de 9",
+   "titulo": "Echamos raíces",
+   "idea": "Al cultivar, nos quedamos en un sitio",
+   "beats": [
+    {
+     "label": "La semilla",
+     "desde": "c4_01"
+    },
+    {
+     "label": "La torre",
+     "desde": "c4_05"
+    },
+    {
+     "label": "La idea",
+     "desde": "c4_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c4_01",
+     "texto": "Hasta aquí, todos los seres humanos del mundo vivían moviéndose, detrás de los animales y de los frutos de cada estación."
+    },
+    {
+     "id": "c4_02",
+     "texto": "Y entonces, en Oriente Próximo, algunos grupos empiezan a hacer algo distinto. Guardan semillas de trigo y de cebada silvestres… y las plantan."
+    },
+    {
+     "id": "c4_03",
+     "texto": "Plantar tiene una consecuencia. Hay que quedarse a esperar la cosecha. Y después, hay que guardarla y defenderla."
+    },
+    {
+     "id": "c4_04",
+     "texto": "Esto es Jericó, junto al río Jordán. Un oasis con un manantial que no se seca nunca."
+    },
+    {
+     "id": "c4_05",
+     "texto": "Y esto es lo que sus habitantes levantaron: una torre de piedra de más de ocho metros, con una escalera por dentro, pegada a una muralla."
+    },
+    {
+     "id": "c4_06",
+     "texto": "Piedra sobre piedra, sin metal, sin ruedas y sin animales de carga."
+    },
+    {
+     "id": "c4_07",
+     "tono": "a",
+     "texto": "Hacia el año ocho mil antes de Cristo. Hace unos diez mil años."
+    },
+    {
+     "id": "c4_08",
+     "texto": "Más de cinco mil años antes de la primera pirámide de Egipto."
+    },
+    {
+     "id": "c4_09",
+     "texto": "Nadie sabe con seguridad para qué servía. Pero una torre así solo la construye gente que ya no piensa irse."
+    },
+    {
+     "id": "c4_10",
+     "texto": "Gente con casas, con vecinos, con cosas que guardar. Y con un trabajo que antes no existía: cuidar la tierra todo el año."
+    },
+    {
+     "id": "c4_11",
+     "texto": "Cuarta idea: al cultivar, echamos raíces. Dejamos de seguir a la comida y empezamos a producirla."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c4_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/trigo_silvestre.jpg",
+     "que_se_ve": "Espigas de trigo silvestre.",
+     "credito_pantalla": "Trigo silvestre (Triticum dicoccoides) · Foto: Davidbena · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Davidbena",
+     "origen": "https://commons.wikimedia.org/wiki/File:Wild_wheat_(Triticum_dicoccoides).jpg",
+     "focus": [
+      60,
+      40
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c4_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/jerico_tell.jpg",
+     "que_se_ve": "Vista aérea del montículo de la antigua Jericó y su oasis.",
+     "credito_pantalla": "Tell es-Sultan, la antigua Jericó · Foto: Fullo88 · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Fullo88",
+     "origen": "https://commons.wikimedia.org/wiki/File:Tell_es-sultan.jpg",
+     "focus": [
+      50,
+      55
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c4_05",
+     "tipo": "archivo",
+     "archivo": "media/ep00/jerico_torre.jpg",
+     "que_se_ve": "La torre de piedra dentro de la excavación.",
+     "credito_pantalla": "Torre de Jericó · Foto: Reinhard Dietrich · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Reinhard Dietrich",
+     "origen": "https://commons.wikimedia.org/wiki/File:Tower_of_Jericho.jpg",
+     "focus": [
+      45,
+      45
+     ],
+     "zoom": [
+      1.0,
+      1.14
+     ]
+    },
+    {
+     "desde": "c4_09",
+     "tipo": "archivo",
+     "archivo": "media/ep00/jerico_excavacion.jpg",
+     "que_se_ve": "Los muros excavados del asentamiento.",
+     "credito_pantalla": "Excavaciones de Tell es-Sultan, Jericó · Foto: A. Sobkowski · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "A. Sobkowski",
+     "origen": "https://commons.wikimedia.org/wiki/File:Jerycho8.jpg",
+     "focus": [
+      50,
+      55
+     ],
+     "zoom": [
+      1.12,
+      1.0
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c4_02",
+    "nombre": "Jericó",
+    "pais": "Valle del Jordán, Cisjordania",
+    "lon": 35.44,
+    "lat": 31.87,
+    "encuadre": [
+     22,
+     20,
+     52,
+     44
+    ]
+   },
+   "anios_atras": 10000,
+   "viaje": [
+    {
+     "desde": "c4_01",
+     "anios_atras": 12000
+    },
+    {
+     "desde": "c4_07",
+     "anios_atras": 10000
+    }
+   ],
+   "dato": {
+    "desde": "c4_07",
+    "rotulo": "Edad de la torre",
+    "valor": "≈ 10.000",
+    "unidad": "años",
+    "comparacion": "<b>Más de 5.000 años antes</b> que la primera pirámide de Egipto"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c4_06",
+    "segundos": 2.6,
+    "texto": "¿Cuándo la construyeron?"
+   },
+   "aprendido": {
+    "desde": "c4_11",
+    "texto": "Al cultivar, echamos raíces"
+   },
+   "fuentes": [
+    "https://www.antiquity.ac.uk/projgall/barkai327",
+    "https://en.wikipedia.org/wiki/Tower_of_Jericho",
+    "https://en.wikipedia.org/wiki/Tell_es-Sultan"
+   ],
+   "cuando": "hace 10.000 años"
+  },
+  {
+   "step": 5,
+   "label": "Escribir",
+   "kicker": "Capítulo 5 de 9",
+   "titulo": "Escribir para contar",
+   "idea": "La escritura nació para llevar las cuentas",
+   "beats": [
+    {
+     "label": "La ciudad",
+     "desde": "c5_01"
+    },
+    {
+     "label": "La tablilla",
+     "desde": "c5_05"
+    },
+    {
+     "label": "La idea",
+     "desde": "c5_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c5_01",
+     "texto": "Las aldeas crecen. Y en el sur de Mesopotamia, entre el Tigris y el Éufrates, una de ellas se convierte en otra cosa."
+    },
+    {
+     "id": "c5_02",
+     "texto": "Uruk. Hace algo más de cinco mil años viven aquí decenas de miles de personas. Es una de las primeras ciudades del mundo."
+    },
+    {
+     "id": "c5_03",
+     "texto": "Y una ciudad tiene un problema nuevo: ya nadie conoce a todo el mundo."
+    },
+    {
+     "id": "c5_04",
+     "texto": "¿Quién ha entregado su cebada al templo? ¿Cuántas ovejas debe cada uno? La memoria ya no alcanza."
+    },
+    {
+     "id": "c5_05",
+     "texto": "Así que alguien coge un trozo de arcilla húmeda, del tamaño de la palma de la mano, y hace unas marcas."
+    },
+    {
+     "id": "c5_06",
+     "texto": "Esta tablilla tiene unos cinco mil años. Mírala bien."
+    },
+    {
+     "id": "c5_07",
+     "tono": "a",
+     "texto": "No es un poema. No es una oración. Es una cuenta: cuánta cebada se ha repartido, y a quién."
+    },
+    {
+     "id": "c5_08",
+     "texto": "Los puntos y las muescas son números. Los dibujos, lo que se cuenta."
+    },
+    {
+     "id": "c5_09",
+     "texto": "En Uruk se han encontrado miles de tablillas de esa primera época. Y la gran mayoría son eso mismo: cuentas. De grano, de cerveza, de ganado, de telas."
+    },
+    {
+     "id": "c5_10",
+     "texto": "Las leyes, las cartas y los poemas llegaron siglos después."
+    },
+    {
+     "id": "c5_11",
+     "texto": "Quinta idea: la escritura no nació para contar historias. Nació para contar sacos."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c5_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tigris_eufrates.jpg",
+     "que_se_ve": "La llanura del sur de Mesopotamia donde desembocan el Tigris y el Éufrates (falso color).",
+     "credito_pantalla": "Tigris y Éufrates, imagen de satélite en falso color (ASTER) · NASA/JPL · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA/GSFC/METI/ERSDAC/JAROS, U.S./Japan ASTER Science Team",
+     "origen": "https://images.nasa.gov/details/PIA11021",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.18
+     ]
+    },
+    {
+     "desde": "c5_02",
+     "tipo": "archivo",
+     "archivo": "media/ep00/uruk_zigurat.jpg",
+     "que_se_ve": "Las ruinas de Uruk; el cartel del yacimiento dice «Las primeras palabras escritas empezaron aquí».",
+     "credito_pantalla": "Ruinas del zigurat de Uruk (Warka, Irak) · Foto: David Stanley · CC BY 2.0",
+     "licencia": "CC BY 2.0",
+     "autor": "David Stanley (D-Stanley)",
+     "origen": "https://commons.wikimedia.org/wiki/File:Uruk_Ziggurat_(30744982822).jpg",
+     "focus": [
+      40,
+      45
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c5_05",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tablilla_met_c.jpg",
+     "que_se_ve": "La tablilla de arcilla completa.",
+     "credito_pantalla": "Tablilla protocuneiforme, c. 3100–2900 a. C. · The Metropolitan Museum of Art · CC0",
+     "licencia": "CC0",
+     "autor": "The Metropolitan Museum of Art, 1988.433.1",
+     "origen": "https://www.metmuseum.org/art/collection/search/329081",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c5_07",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tablilla_met.jpg",
+     "que_se_ve": "Los signos de la tablilla, de cerca: números y dibujos.",
+     "credito_pantalla": "Tablilla protocuneiforme, c. 3100–2900 a. C. · The Metropolitan Museum of Art · CC0",
+     "licencia": "CC0",
+     "autor": "The Metropolitan Museum of Art, 1988.433.1",
+     "origen": "https://www.metmuseum.org/art/collection/search/329081",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      2.3,
+      2.6
+     ]
+    },
+    {
+     "desde": "c5_09",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tablilla_met_b.jpg",
+     "que_se_ve": "El reverso de la tablilla, con la impresión del sello.",
+     "credito_pantalla": "La misma tablilla, reverso con impresión de sello · The Metropolitan Museum of Art · CC0",
+     "licencia": "CC0",
+     "autor": "The Metropolitan Museum of Art, 1988.433.1",
+     "origen": "https://www.metmuseum.org/art/collection/search/329081",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c5_02",
+    "nombre": "Uruk",
+    "pais": "Sur de Irak",
+    "lon": 45.64,
+    "lat": 31.32,
+    "encuadre": [
+     28,
+     18,
+     62,
+     44
+    ]
+   },
+   "anios_atras": 5200,
+   "viaje": [
+    {
+     "desde": "c5_02",
+     "anios_atras": 5200
+    }
+   ],
+   "dato": {
+    "desde": "c5_07",
+    "rotulo": "Lo primero que se escribió",
+    "valor": "Cuentas",
+    "unidad": "de cebada, cerveza y ganado",
+    "comparacion": "La literatura llegó <b>siglos después</b>"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c5_06",
+    "segundos": 2.6,
+    "texto": "¿Qué crees que pone?"
+   },
+   "aprendido": {
+    "desde": "c5_11",
+    "texto": "La escritura nació para llevar las cuentas"
+   },
+   "fuentes": [
+    "https://collectionapi.metmuseum.org/public/collection/v1/objects/329081",
+    "https://www.metmuseum.org/art/collection/search/329081",
+    "https://en.wikipedia.org/wiki/Proto-cuneiform"
+   ],
+   "cuando": "hace 5.200 años"
+  },
+  {
+   "step": 6,
+   "label": "Imperios",
+   "kicker": "Capítulo 6 de 9",
+   "titulo": "Millones bajo una ley",
+   "idea": "Un imperio: millones de desconocidos, una ley",
+   "beats": [
+    {
+     "label": "El ejército",
+     "desde": "c6_01"
+    },
+    {
+     "label": "El censo",
+     "desde": "c6_06"
+    },
+    {
+     "label": "La idea",
+     "desde": "c6_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c6_01",
+     "texto": "Marzo de mil novecientos setenta y cuatro. Cerca de la ciudad china de Xi'an, unos campesinos cavan un pozo y dan con una cabeza de barro.",
+     "dicho": "Marzo de mil novecientos setenta y cuatro. Cerca de la ciudad china de Sián, unos campesinos cavan un pozo y dan con una cabeza de barro."
+    },
+    {
+     "id": "c6_02",
+     "texto": "Debajo había un ejército entero. Miles de soldados de terracota, de tamaño real, en formación de combate."
+    },
+    {
+     "id": "c6_03",
+     "texto": "Vigilan la tumba de Qin Shi Huang: el hombre que, en el año doscientos veintiuno antes de Cristo, unió China por primera vez.",
+     "dicho": "Vigilan la tumba de Chin Shi Juáng: el hombre que, en el año doscientos veintiuno antes de Cristo, unió China por primera vez."
+    },
+    {
+     "id": "c6_04",
+     "texto": "Para gobernar un territorio así no bastaban los soldados. Impuso una sola escritura, las mismas pesas y las mismas medidas para todos."
+    },
+    {
+     "id": "c6_05",
+     "texto": "Eso es un imperio: millones de personas que no se conocen, y que siguen las mismas reglas."
+    },
+    {
+     "id": "c6_06",
+     "texto": "Sus sucesores, la dinastía Han, hicieron algo que solo un imperio puede hacer: contar a toda su gente, casa por casa.",
+     "dicho": "Sus sucesores, la dinastía Jan, hicieron algo que solo un imperio puede hacer: contar a toda su gente, casa por casa."
+    },
+    {
+     "id": "c6_07",
+     "texto": "El censo del año dos de nuestra era se ha conservado."
+    },
+    {
+     "id": "c6_08",
+     "tono": "a",
+     "texto": "Casi sesenta millones de personas."
+    },
+    {
+     "id": "c6_09",
+     "texto": "Todas apuntadas, todas pagando impuestos al mismo emperador, al que jamás iban a ver."
+    },
+    {
+     "id": "c6_10",
+     "texto": "Y en esos mismos años, en la otra punta del continente, Roma hacía algo parecido alrededor del Mediterráneo."
+    },
+    {
+     "id": "c6_11",
+     "texto": "Sexta idea: un imperio es una forma de que millones de desconocidos vivan bajo una misma ley."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c6_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/terracota_fosa1.jpg",
+     "que_se_ve": "La fosa 1 entera.",
+     "credito_pantalla": "Ejército de Terracota, fosa 1 · Foto: Jmhullot · CC BY 3.0",
+     "licencia": "CC BY 3.0",
+     "autor": "Jmhullot",
+     "origen": "https://commons.wikimedia.org/wiki/File:Terracotta_Army,_View_of_Pit_1.jpg",
+     "focus": [
+      50,
+      60
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c6_02",
+     "tipo": "archivo",
+     "archivo": "media/ep00/terracota_filas.jpg",
+     "que_se_ve": "Las filas de soldados en formación.",
+     "credito_pantalla": "Ejército de Terracota, fosa 1 · Foto: xiquinhosilva · CC BY 2.0",
+     "licencia": "CC BY 2.0",
+     "autor": "xiquinhosilva",
+     "origen": "https://commons.wikimedia.org/wiki/File:51714-Terracota-Army.jpg",
+     "focus": [
+      50,
+      65
+     ],
+     "zoom": [
+      1.05,
+      1.2
+     ]
+    },
+    {
+     "desde": "c6_03",
+     "tipo": "archivo",
+     "archivo": "media/ep00/terracota_rostro_c.jpg",
+     "que_se_ve": "Uno de los soldados, de cerca.",
+     "credito_pantalla": "Soldado de terracota · Foto: shankar s. · CC BY 2.0",
+     "licencia": "CC BY 2.0",
+     "autor": "shankar s.",
+     "origen": "https://commons.wikimedia.org/wiki/File:I_was_impressed_with_the_life-like_expression_(35300697030).jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c6_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/terracota_frente.jpg",
+     "que_se_ve": "Soldados alineados, todos con el mismo uniforme.",
+     "credito_pantalla": "Primera fila de la fosa 1 · Foto: BrokenSphere · CC BY-SA 3.0",
+     "licencia": "CC BY-SA 3.0",
+     "autor": "BrokenSphere",
+     "origen": "https://commons.wikimedia.org/wiki/File:Terracotta_Army_Pit_1_front_rank_detail.JPG",
+     "focus": [
+      50,
+      40
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c6_06",
+     "tipo": "archivo",
+     "archivo": "media/ep00/terracota_filas.jpg",
+     "que_se_ve": "Cientos de figuras, una por persona.",
+     "credito_pantalla": "Ejército de Terracota, fosa 1 · Foto: xiquinhosilva · CC BY 2.0",
+     "licencia": "CC BY 2.0",
+     "autor": "xiquinhosilva",
+     "origen": "https://commons.wikimedia.org/wiki/File:51714-Terracota-Army.jpg",
+     "focus": [
+      30,
+      60
+     ],
+     "zoom": [
+      1.3,
+      1.1
+     ]
+    },
+    {
+     "desde": "c6_10",
+     "tipo": "archivo",
+     "archivo": "media/ep00/augusto_c.jpg",
+     "que_se_ve": "La estatua del emperador romano Augusto.",
+     "credito_pantalla": "Augusto de Prima Porta, Museos Vaticanos · Foto: Till Niermann · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Till Niermann",
+     "origen": "https://commons.wikimedia.org/wiki/File:Statue-Augustus.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    }
+   ],
+   "lugar": [
+    {
+     "desde": "c6_01",
+     "nombre": "Xi'an",
+     "pais": "Shaanxi, China",
+     "lon": 109.27,
+     "lat": 34.38,
+     "encuadre": [
+      72,
+      14,
+      138,
+      54
+     ]
+    },
+    {
+     "desde": "c6_10",
+     "nombre": "Roma",
+     "pais": "Italia",
+     "lon": 12.48,
+     "lat": 41.9,
+     "encuadre": [
+      -12,
+      26,
+      44,
+      56
+     ]
+    }
+   ],
+   "anios_atras": 2200,
+   "viaje": [
+    {
+     "desde": "c6_01",
+     "anios_atras": 52
+    },
+    {
+     "desde": "c6_03",
+     "anios_atras": 2247
+    },
+    {
+     "desde": "c6_07",
+     "anios_atras": 2024
+    }
+   ],
+   "dato": {
+    "desde": "c6_08",
+    "rotulo": "Censo Han · año 2",
+    "valor": "≈ 59 M",
+    "unidad": "personas (57,7 a 59,6 M)",
+    "comparacion": "Uno de los <b>censos más antiguos</b> que se conservan"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c6_07",
+    "segundos": 2.6,
+    "texto": "¿Cuántas personas contaron?"
+   },
+   "aprendido": {
+    "desde": "c6_11",
+    "texto": "Un imperio: millones bajo una misma ley"
+   },
+   "fuentes": [
+    "https://www.smithsonianmag.com/history/terra-cotta-soldiers-on-the-march-30942673/",
+    "https://en.wikipedia.org/wiki/Economy_of_the_Han_dynasty"
+   ],
+   "cuando": "hace 2.200 años"
+  },
+  {
+   "step": 7,
+   "label": "Se conecta",
+   "kicker": "Capítulo 7 de 9",
+   "titulo": "El mundo se conecta",
+   "idea": "Varios mundos se convirtieron en una sola red",
+   "beats": [
+    {
+     "label": "Dos mitades",
+     "desde": "c7_01"
+    },
+    {
+     "label": "La nao",
+     "desde": "c7_04"
+    },
+    {
+     "label": "La idea",
+     "desde": "c7_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c7_01",
+     "texto": "Hasta hace quinientos años, la humanidad vivía en mundos separados."
+    },
+    {
+     "id": "c7_02",
+     "texto": "En América nadie había visto un caballo. En Europa nadie había probado una patata, ni un tomate, ni el chocolate."
+    },
+    {
+     "id": "c7_03",
+     "texto": "En mil cuatrocientos noventa y dos, Colón cruza el Atlántico, y esas dos mitades se encuentran. Este es el mapa más antiguo que se conserva en el que aparecen juntas."
+    },
+    {
+     "id": "c7_04",
+     "texto": "Pero la prueba de que el mundo es uno solo llega treinta años después. Y llega en barco."
+    },
+    {
+     "id": "c7_05",
+     "texto": "Septiembre de mil quinientos diecinueve. Cinco naves salen de Sanlúcar de Barrameda, en Cádiz, al mando de Fernando de Magallanes. Quieren llegar a Asia navegando hacia el oeste."
+    },
+    {
+     "id": "c7_06",
+     "texto": "Tres años después vuelve una sola: la nao Victoria, con Juan Sebastián Elcano al mando."
+    },
+    {
+     "id": "c7_07",
+     "texto": "Ha dado la vuelta entera al planeta. Es la primera vez que alguien lo hace."
+    },
+    {
+     "id": "c7_08",
+     "tono": "a",
+     "texto": "Volvieron dieciocho hombres. Habían salido unos doscientos cincuenta."
+    },
+    {
+     "id": "c7_09",
+     "texto": "Magallanes no estaba entre ellos: había muerto en Filipinas, a mitad de camino."
+    },
+    {
+     "id": "c7_10",
+     "texto": "Desde entonces, lo que ocurre en un continente acaba llegando a todos los demás: las plantas, la plata, las ideas… y también las enfermedades."
+    },
+    {
+     "id": "c7_11",
+     "texto": "Séptima idea: el mundo dejó de ser varios mundos y se convirtió en una sola red."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c7_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/cosa_mapa.jpg",
+     "que_se_ve": "La mitad derecha del mapa: Europa, África y Asia, el mundo conocido hasta entonces.",
+     "credito_pantalla": "Mapa de Juan de la Cosa (1500), Museo Naval de Madrid · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Juan de la Cosa, 1500",
+     "origen": "https://commons.wikimedia.org/wiki/File:1500_map_by_Juan_de_la_Cosa_rotated.jpg",
+     "focus": [
+      78,
+      50
+     ],
+     "zoom": [
+      2.0,
+      1.9
+     ]
+    },
+    {
+     "desde": "c7_03",
+     "tipo": "archivo",
+     "archivo": "media/ep00/cosa_mapa.jpg",
+     "que_se_ve": "El mapa completo: a la izquierda, en verde, aparece América.",
+     "credito_pantalla": "Mapa de Juan de la Cosa (1500), Museo Naval de Madrid · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Juan de la Cosa, 1500",
+     "origen": "https://commons.wikimedia.org/wiki/File:1500_map_by_Juan_de_la_Cosa_rotated.jpg",
+     "focus": [
+      45,
+      50
+     ],
+     "zoom": [
+      1.75,
+      1.22
+     ]
+    },
+    {
+     "desde": "c7_05",
+     "tipo": "archivo",
+     "archivo": "media/ep00/victoria_ortelius.jpg",
+     "que_se_ve": "La nao Victoria dibujada en un mapa del siglo XVI.",
+     "credito_pantalla": "La nao Victoria en el mapa del Pacífico de Ortelius (1589) · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Abraham Ortelius",
+     "origen": "https://commons.wikimedia.org/wiki/File:Detail_from_a_map_of_Ortelius_-_Magellan%27s_ship_Victoria.png",
+     "focus": [
+      45,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    },
+    {
+     "desde": "c7_06",
+     "tipo": "archivo",
+     "archivo": "media/ep00/victoria_replica_c.jpg",
+     "que_se_ve": "La réplica navegable de la nao Victoria.",
+     "credito_pantalla": "Réplica de la nao Victoria · Foto: Christian Ferrer · CC BY 4.0",
+     "licencia": "CC BY 4.0",
+     "autor": "Christian Ferrer",
+     "origen": "https://commons.wikimedia.org/wiki/File:Nao_Victoria_(ship,_1992),_S%C3%A8te_cf04.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c7_10",
+     "tipo": "archivo",
+     "archivo": "media/ep00/ortelius_mundo.jpg",
+     "que_se_ve": "El mundo completo en un solo mapa, medio siglo después.",
+     "credito_pantalla": "Ortelius, «Typus Orbis Terrarum» (1570) · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Abraham Ortelius",
+     "origen": "https://commons.wikimedia.org/wiki/File:OrteliusWorldMap1570.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.14
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c7_05",
+    "nombre": "Sanlúcar de Barrameda",
+    "pais": "Cádiz, España",
+    "lon": -6.35,
+    "lat": 36.78,
+    "encuadre": [
+     -30,
+     22,
+     20,
+     52
+    ]
+   },
+   "anios_atras": 504,
+   "viaje": [
+    {
+     "desde": "c7_01",
+     "anios_atras": 534
+    },
+    {
+     "desde": "c7_06",
+     "anios_atras": 504
+    }
+   ],
+   "dato": {
+    "desde": "c7_08",
+    "rotulo": "Volvieron en la Victoria",
+    "valor": "18",
+    "unidad": "hombres, tras tres años",
+    "comparacion": "Habían salido <b>unos 250</b> (entre 237 y 270), en cinco naves"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c7_07",
+    "segundos": 2.6,
+    "texto": "¿Cuántos volvieron?"
+   },
+   "aprendido": {
+    "desde": "c7_11",
+    "texto": "El mundo se convirtió en una sola red"
+   },
+   "fuentes": [
+    "https://www.ebsco.com/research-starters/history/ferdinand-magellan-expedition",
+    "https://www.nationalgeographic.com/history/history-magazine/article/this-man-was-actually-first-to-sail-around-the-world",
+    "https://en.wikipedia.org/wiki/Columbian_exchange",
+    "https://en.wikipedia.org/wiki/Map_of_Juan_de_la_Cosa"
+   ],
+   "cuando": "hace 500 años"
+  },
+  {
+   "step": 8,
+   "label": "Máquinas",
+   "kicker": "Capítulo 8 de 9",
+   "titulo": "La fuerza de las máquinas",
+   "idea": "La fuerza dejó de salir de los músculos",
+   "beats": [
+    {
+     "label": "El vapor",
+     "desde": "c8_01"
+    },
+    {
+     "label": "La cifra",
+     "desde": "c8_07"
+    },
+    {
+     "label": "La idea",
+     "desde": "c8_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c8_01",
+     "texto": "En toda la historia que llevamos contada, la fuerza salía de cuatro sitios: los músculos, los animales, el viento y el agua."
+    },
+    {
+     "id": "c8_02",
+     "texto": "En el siglo dieciocho, en Gran Bretaña, aparece una quinta: el vapor. Se quema carbón, se hierve agua, y el vapor empuja un pistón."
+    },
+    {
+     "id": "c8_03",
+     "texto": "James Watt mejora esa máquina hasta hacerla rentable, y en pocas décadas mueve bombas, telares y fábricas enteras.",
+     "dicho": "Yeims Guat mejora esa máquina hasta hacerla rentable, y en pocas décadas mueve bombas, telares y fábricas enteras."
+    },
+    {
+     "id": "c8_04",
+     "texto": "Y en mil ochocientos veintinueve, el vapor se sube a unas ruedas."
+    },
+    {
+     "id": "c8_05",
+     "texto": "Esta locomotora se llama Rocket. La construyó Robert Stephenson, y ese octubre ganó el concurso para elegir las máquinas de la línea entre Liverpool y Mánchester.",
+     "dicho": "Esta locomotora se llama Róquet. La construyó Róbert Estívenson, y ese octubre ganó el concurso para elegir las máquinas de la línea entre Líverpul y Mánchester."
+    },
+    {
+     "id": "c8_06",
+     "texto": "Por primera vez, personas y mercancías cruzan el país sin depender de un animal, y sin cansarse."
+    },
+    {
+     "id": "c8_07",
+     "texto": "Con las máquinas llega más de todo: más comida, más ropa, más ciudades. Y más gente."
+    },
+    {
+     "id": "c8_08",
+     "tono": "a",
+     "texto": "Hacia mil ochocientos éramos unos mil millones. Hoy somos más de ocho mil millones."
+    },
+    {
+     "id": "c8_09",
+     "texto": "Habíamos tardado trescientos mil años en llegar a los primeros mil millones. Los otros siete mil llegaron en poco más de doscientos."
+    },
+    {
+     "id": "c8_10",
+     "texto": "Nada en toda nuestra historia había cambiado tanto, ni tan deprisa."
+    },
+    {
+     "id": "c8_11",
+     "texto": "Octava idea: cuando la fuerza dejó de salir de los músculos, todo se multiplicó."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c8_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/rueda_agua.jpg",
+     "que_se_ve": "Una rueda movida por el agua.",
+     "credito_pantalla": "Rueda hidráulica de Finch Foundry (Devon) · Foto: Diliff · CC BY-SA 3.0",
+     "licencia": "CC BY-SA 3.0",
+     "autor": "David Iliff (Diliff)",
+     "origen": "https://commons.wikimedia.org/wiki/File:Finch_Foundary_Water_Wheel,_Devon,_UK_-_Diliff.jpg",
+     "focus": [
+      30,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.14
+     ]
+    },
+    {
+     "desde": "c8_02",
+     "tipo": "archivo",
+     "archivo": "media/ep00/watt_museo_c.jpg",
+     "que_se_ve": "Un grabado de la máquina de vapor de Watt: cilindro, balancín y volante.",
+     "credito_pantalla": "Máquina de vapor de Watt, grabado de época · Wikimedia Commons · CC BY-SA 3.0",
+     "licencia": "CC BY-SA 3.0",
+     "autor": "DigbyDalton (reproducción)",
+     "origen": "https://commons.wikimedia.org/wiki/File:WattsSteamEngine.jpeg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c8_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/rocket_c.jpg",
+     "que_se_ve": "La locomotora Rocket original.",
+     "credito_pantalla": "Rocket (1829), National Railway Museum, York · Foto: Benjamin Smith · CC BY-SA 4.0",
+     "licencia": "CC BY-SA 4.0",
+     "autor": "Benjamin Smith",
+     "origen": "https://commons.wikimedia.org/wiki/File:York_-_National_Railway_Museum_-The_Rocket.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.1
+     ]
+    },
+    {
+     "desde": "c8_07",
+     "tipo": "archivo",
+     "archivo": "media/ep00/fabricas_1820.jpg",
+     "que_se_ve": "Fábricas de algodón y chimeneas en Mánchester.",
+     "credito_pantalla": "Fábricas de algodón McConnel, Mánchester, hacia 1820 · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "Autor desconocido, c. 1820",
+     "origen": "https://commons.wikimedia.org/wiki/File:McConnel_%26_Company_mills,_about_1820.jpg",
+     "focus": [
+      50,
+      50
+     ],
+     "zoom": [
+      1.0,
+      1.15
+     ]
+    }
+   ],
+   "lugar": {
+    "desde": "c8_02",
+    "nombre": "Rainhill",
+    "pais": "Entre Liverpool y Mánchester",
+    "lon": -2.76,
+    "lat": 53.41,
+    "encuadre": [
+     -14,
+     46,
+     10,
+     62
+    ]
+   },
+   "anios_atras": 197,
+   "viaje": [
+    {
+     "desde": "c8_02",
+     "anios_atras": 250
+    },
+    {
+     "desde": "c8_04",
+     "anios_atras": 197
+    }
+   ],
+   "dato": {
+    "desde": "c8_08",
+    "rotulo": "Población mundial",
+    "valor": "× 8",
+    "unidad": "desde 1800",
+    "comparacion": "De <b>1.000 millones</b> a 8.000 millones en dos siglos"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c8_07",
+    "segundos": 2.6,
+    "texto": "¿Cuántos éramos en 1800?"
+   },
+   "aprendido": {
+    "desde": "c8_11",
+    "texto": "Las máquinas lo multiplicaron todo"
+   },
+   "fuentes": [
+    "https://www.un.org/en/dayof8billion",
+    "https://ourworldindata.org/population-growth-over-time",
+    "https://www.railwaymuseum.org.uk/objects-and-stories/stephensons-rocket-rainhill-and-rise-locomotive",
+    "https://blog.sciencemuseum.org.uk/james-watt-and-the-separate-condenser"
+   ],
+   "cuando": "hace 200 años"
+  },
+  {
+   "step": 9,
+   "label": "Se acelera",
+   "kicker": "Capítulo 9 de 9",
+   "titulo": "Todo se acelera",
+   "idea": "El cambio ya no se mide en milenios",
+   "beats": [
+    {
+     "label": "El avión",
+     "desde": "c9_01"
+    },
+    {
+     "label": "La Luna",
+     "desde": "c9_04"
+    },
+    {
+     "label": "La idea",
+     "desde": "c9_11"
+    }
+   ],
+   "locucion": [
+    {
+     "id": "c9_01",
+     "texto": "Diecisiete de diciembre de mil novecientos tres. En una playa de Carolina del Norte, un avión de madera y tela se levanta del suelo."
+    },
+    {
+     "id": "c9_02",
+     "texto": "Lo han construido dos hermanos que fabrican bicicletas: Orville y Wilbur Wright.",
+     "dicho": "Lo han construido dos hermanos que fabrican bicicletas: Órvil y Uílbur Ráit."
+    },
+    {
+     "id": "c9_03",
+     "texto": "El vuelo dura doce segundos. Recorre menos de cuarenta metros. Esta es la fotografía de ese instante."
+    },
+    {
+     "id": "c9_04",
+     "texto": "Ahora mira esta otra. Veinte de julio de mil novecientos sesenta y nueve. Dos personas caminan sobre la Luna."
+    },
+    {
+     "id": "c9_05",
+     "texto": "Entre una foto y la otra, el mismo siglo."
+    },
+    {
+     "id": "c9_06",
+     "tono": "a",
+     "texto": "Menos de sesenta y seis años."
+    },
+    {
+     "id": "c9_07",
+     "texto": "Menos que una vida. Hubo gente que vio volar los primeros aviones de niña y, de anciana, vio en la televisión la llegada a la Luna."
+    },
+    {
+     "id": "c9_08",
+     "texto": "Compáralo con todo lo anterior. Decenas de miles de años para llenar el planeta. Miles, para levantar la primera ciudad. Y ahora, una sola vida para ir de la arena de una playa a la Luna."
+    },
+    {
+     "id": "c9_09",
+     "texto": "Y no se ha frenado. Esto es la Tierra de noche."
+    },
+    {
+     "id": "c9_10",
+     "tono": "a",
+     "texto": "Cada punto de luz es una ciudad. Electricidad, máquinas, y millones de personas conectadas entre sí."
+    },
+    {
+     "id": "c9_11",
+     "texto": "Novena idea: el cambio ya no se mide en milenios. Se mide en años."
+    }
+   ],
+   "visuales": [
+    {
+     "desde": "c9_01",
+     "tipo": "archivo",
+     "archivo": "media/ep00/primer_vuelo.jpg",
+     "que_se_ve": "La fotografía original del primer vuelo en Kitty Hawk.",
+     "credito_pantalla": "Primer vuelo, 17-12-1903 · Foto: John T. Daniels · Library of Congress · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "John T. Daniels / Wright brothers collection, Library of Congress",
+     "origen": "https://www.loc.gov/pictures/item/00652085/",
+     "focus": [
+      50,
+      45
+     ],
+     "zoom": [
+      1.12,
+      1.25
+     ]
+    },
+    {
+     "desde": "c9_04",
+     "tipo": "archivo",
+     "archivo": "media/ep00/aldrin_luna.jpg",
+     "que_se_ve": "Un astronauta de pie sobre la Luna.",
+     "credito_pantalla": "Buzz Aldrin en la Luna, Apolo 11 (1969) · Foto: Neil Armstrong · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA / Neil Armstrong",
+     "origen": "https://images.nasa.gov/details/as11-40-5903",
+     "focus": [
+      52,
+      28
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c9_07",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tierra_desde_luna.jpg",
+     "que_se_ve": "La Tierra asomando sobre la Luna.",
+     "credito_pantalla": "La Tierra sobre el horizonte lunar, Apolo 11 · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA",
+     "origen": "https://images.nasa.gov/details/as11-44-6552",
+     "focus": [
+      50,
+      42
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    },
+    {
+     "desde": "c9_09",
+     "tipo": "archivo",
+     "archivo": "media/ep00/tierra_noche.mp4",
+     "que_se_ve": "Las luces de las ciudades de Norteamérica y la India vistas de noche desde el espacio.",
+     "credito_pantalla": "La Tierra de noche (satélite Suomi NPP) · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA Goddard / Suomi NPP VIIRS",
+     "origen": "https://images.nasa.gov/details/GSFC_20170412_Lights_m12573_EarthAtNight"
+    },
+    {
+     "desde": "c9_11",
+     "tipo": "archivo",
+     "archivo": "media/ep00/luces_europa_africa.jpg",
+     "que_se_ve": "Europa, África y Oriente Medio de noche.",
+     "credito_pantalla": "Luces nocturnas de Europa, África y Oriente Medio · NASA · Dominio público",
+     "licencia": "Dominio público",
+     "autor": "NASA Earth Observatory / Suomi NPP",
+     "origen": "https://images.nasa.gov/details/GSFC_20171208_Archive_e001591",
+     "focus": [
+      50,
+      35
+     ],
+     "zoom": [
+      1.0,
+      1.12
+     ]
+    }
+   ],
+   "lugar": [
+    {
+     "desde": "c9_01",
+     "nombre": "Kitty Hawk",
+     "pais": "Carolina del Norte, EE. UU.",
+     "lon": -75.67,
+     "lat": 36.02,
+     "encuadre": [
+      -125,
+      12,
+      -55,
+      55
+     ]
+    },
+    {
+     "desde": "c9_09",
+     "nombre": "Todo el planeta",
+     "pais": "8.000 millones de personas",
+     "lon": 0,
+     "lat": -89,
+     "encuadre": [
+      -180,
+      -60,
+      180,
+      80
+     ]
+    }
+   ],
+   "anios_atras": 57,
+   "viaje": [
+    {
+     "desde": "c9_01",
+     "anios_atras": 123
+    },
+    {
+     "desde": "c9_04",
+     "anios_atras": 57
+    },
+    {
+     "desde": "c9_09",
+     "anios_atras": 1
+    }
+   ],
+   "dato": {
+    "desde": "c9_06",
+    "rotulo": "Del primer vuelo a la Luna",
+    "valor": "65 años",
+    "unidad": "y siete meses",
+    "comparacion": "<b>Menos que una vida</b> humana"
+   },
+   "pregunta_pausa": {
+    "despues_de": "c9_05",
+    "segundos": 2.6,
+    "texto": "¿Cuántos años hay entre las dos fotos?"
+   },
+   "aprendido": {
+    "desde": "c9_11",
+    "texto": "El cambio ya no se mide en milenios, sino en años"
+   },
+   "fuentes": [
+    "https://airandspace.si.edu/collection-objects/1903-wright-flyer/nasm_A19610048000",
+    "https://www.nasa.gov/history/apollo-11-mission-overview/"
+   ],
+   "cuando": "hace 57 años"
+  },
+  {
+   "label": "Cierre",
+   "kicker": "Repaso",
+   "titulo": "El índice completo",
+   "idea": "Nueve capítulos, nueve ideas",
+   "locucion": [
+    {
+     "id": "z01",
+     "texto": "Ya tienes el mapa completo. Vamos a repasarlo."
+    },
+    {
+     "id": "z02",
+     "texto": "Uno: somos africanos, y más antiguos de lo que creíamos."
+    },
+    {
+     "id": "z03",
+     "texto": "Dos: caminando, llegamos a todos los continentes."
+    },
+    {
+     "id": "z04",
+     "texto": "Tres: aprendimos a imaginar lo que no existe."
+    },
+    {
+     "id": "z05",
+     "texto": "Cuatro: al cultivar, echamos raíces."
+    },
+    {
+     "id": "z06",
+     "texto": "Cinco: la escritura nació para llevar las cuentas."
+    },
+    {
+     "id": "z07",
+     "texto": "Seis: los imperios pusieron a millones de personas bajo una misma ley."
+    },
+    {
+     "id": "z08",
+     "texto": "Siete: el mundo se convirtió en una sola red."
+    },
+    {
+     "id": "z09",
+     "texto": "Ocho: las máquinas lo multiplicaron todo."
+    },
+    {
+     "id": "z10",
+     "texto": "Y nueve: el cambio se acelera."
+    },
+    {
+     "id": "z11",
+     "texto": "Ahora, la pregunta del principio. ¿Qué parte de nuestra historia hemos vivido sin escribir una sola palabra?"
+    },
+    {
+     "id": "z12",
+     "texto": "Nuestra especie tiene unos trescientos mil años. La escritura, poco más de cinco mil."
+    },
+    {
+     "id": "z13",
+     "tono": "a",
+     "texto": "Es decir: más del noventa y ocho por ciento de nuestra historia no está escrito en ninguna parte."
+    },
+    {
+     "id": "z14",
+     "texto": "Mira la línea de abajo. La hemos estirado para que se vea lo reciente. Si fuera una regla normal, los capítulos cinco al nueve, todo lo que solemos llamar Historia, cabrían en el último dos por ciento."
+    },
+    {
+     "id": "z15",
+     "texto": "Todo lo demás solo lo conocemos por huesos, por piedras y por huellas. Por eso esta serie empieza ahí."
+    },
+    {
+     "id": "z16",
+     "texto": "En el episodio uno volvemos a Marruecos, a Jebel Irhoud, para contar despacio cómo empezó todo.",
+     "dicho": "En el episodio uno volvemos a Marruecos, a Yébel Irjud, para contar despacio cómo empezó todo."
+    },
+    {
+     "id": "z17",
+     "texto": "Y te dejo una pregunta para los comentarios: de las nueve ideas, ¿cuál crees que ha cambiado más nuestra vida?"
+    }
+   ],
+   "visuales": [],
+   "lugar": null,
+   "anios_atras": 1,
+   "viaje": [
+    {
+     "desde": "z12",
+     "anios_atras": 300000
+    },
+    {
+     "desde": "z14",
+     "anios_atras": 5200
+    },
+    {
+     "desde": "z16",
+     "anios_atras": 315000
+    }
+   ],
+   "dato": null,
+   "pregunta_pausa": null,
+   "aprendido": null,
+   "indice": {
+    "rotulo": "Temporada 1 · Índice",
+    "frases": [
+     {
+      "desde": "z01",
+      "texto": "Nueve capítulos, nueve ideas"
+     },
+     {
+      "desde": "z11",
+      "texto": "¿Qué parte de nuestra historia no está escrita?"
+     },
+     {
+      "desde": "z13",
+      "texto": "Más del 98 % de nuestra historia no está escrito"
+     },
+     {
+      "desde": "z16",
+      "texto": "Siguiente episodio: Nuestro origen"
+     },
+     {
+      "desde": "z17",
+      "texto": "De las nueve ideas, ¿cuál nos cambió más?"
+     }
+    ],
+    "filas_desde": [
+     "z02",
+     "z03",
+     "z04",
+     "z05",
+     "z06",
+     "z07",
+     "z08",
+     "z09",
+     "z10"
+    ],
+    "siguiente_desde": "z16"
+   },
+   "fuentes": [
+    "https://www.nature.com/articles/nature22336",
+    "https://en.wikipedia.org/wiki/Proto-cuneiform"
+   ]
+  }
+ ],
+ "notas_de_contraste": [
+  "Jebel Irhoud: 315 ± 34 mil años por termoluminiscencia (Richter et al. y Hublin et al., Nature 2017). El récord anterior, Omo Kibish, se daba entonces en ~195.000 años; en 2022 se revisó a un mínimo de ~233.000, así que la diferencia actual es menor. La locución dice «los que se conocían entonces».",
+  "Salida de África: las fuentes van de «unos 50.000» a «70.000–50.000» años; se usa el rango.",
+  "Hombre León: 35.000–41.000 años; se dice «unos cuarenta mil». Horas de la réplica: 320, 360 y «más de 370» según la fuente; la cifra de 400 no se pudo abrir en origen, por eso se dice «más de trescientas».",
+  "Torre de Jericó: 8,25–8,5 m y ~8300–8000 a. C. según la fuente; se dice «más de ocho metros» y «hacia el 8000 a. C.». La primera pirámide (Zoser, ~2650 a. C.) es la fecha convencional.",
+  "Uruk: el 85 % de las ~5.000 tablillas arcaicas son administrativas (Englund 2011, vía Wikipedia). Población: 25.000–50.000 solo en fuentes secundarias; se dice «decenas de miles».",
+  "Censo Han del año 2: circulan 57,7 y 59,6 millones; se dice «casi sesenta millones» y el rótulo da el rango.",
+  "Magallanes–Elcano: tripulación de 237 a ~270 según la fuente; se dice «unos doscientos cincuenta». Los 18 supervivientes son los europeos de la tripulación original.",
+  "Del primer vuelo (17-12-1903) al alunizaje (20-7-1969): 65 años y 7 meses; se dice «menos de sesenta y seis»."
+ ],
+ "mapa_general": [
+  -170,
+  -58,
+  190,
+  80
+ ],
+ "eje": {
+  "from": 400000,
+  "to": 10,
+  "title": "Eje cronológico",
+  "note": "años atrás · escala logarítmica: lo reciente está ampliado",
+  "ticks": [
+   {
+    "yearsAgo": 300000,
+    "label": "300.000"
+   },
+   {
+    "yearsAgo": 100000,
+    "label": "100.000"
+   },
+   {
+    "yearsAgo": 30000,
+    "label": "30.000"
+   },
+   {
+    "yearsAgo": 10000,
+    "label": "10.000"
+   },
+   {
+    "yearsAgo": 3000,
+    "label": "3.000"
+   },
+   {
+    "yearsAgo": 1000,
+    "label": "1.000"
+   },
+   {
+    "yearsAgo": 300,
+    "label": "300"
+   },
+   {
+    "yearsAgo": 100,
+    "label": "100"
+   },
+   {
+    "yearsAgo": 30,
+    "label": "30"
+   },
+   {
+    "yearsAgo": 10,
+    "label": "Hoy"
+   }
+  ]
+ },
+ "miniaturas": [
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/hombre_leon_1.jpg",
+   "focus": [
+    50,
+    9
+   ],
+   "zoom": 1.0,
+   "shift": [
+    22,
+    0
+   ],
+   "kicker": "Toda nuestra historia",
+   "hook": [
+    {
+     "text": "300.000 años",
+     "highlight": true
+    },
+    {
+     "text": "en 15 minutos"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/irhoud_craneo.jpg",
+   "focus": [
+    50,
+    45
+   ],
+   "zoom": 1.0,
+   "shift": [
+    20,
+    0
+   ],
+   "kicker": "La historia que no se escribió",
+   "hook": [
+    {
+     "text": "El 98 %",
+     "highlight": true
+    },
+    {
+     "text": "sin escribir"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/aldrin_luna.jpg",
+   "focus": [
+    55,
+    25
+   ],
+   "zoom": 1.0,
+   "shift": [
+    16,
+    0
+   ],
+   "kicker": "Del primer cráneo a la Luna",
+   "hook": [
+    {
+     "text": "9 ideas",
+     "highlight": true
+    },
+    {
+     "text": "15 minutos"
+    }
+   ]
+  }
+ ],
+ "youtube": {
+  "titulos": [
+   "Toda la historia de la humanidad en 15 minutos (el mapa)",
+   "300.000 años en 15 minutos: las 9 ideas que nos trajeron hasta aquí",
+   "El 98 % de nuestra historia no está escrito | Historia de la humanidad, episodio 0"
+  ],
+  "descripcion": [
+   "Nuestra especie tiene unos 300.000 años. En 15 minutos los recorremos enteros con un mapa: nueve capítulos, una sola idea en cada uno, y un objeto real que la sostiene: un cráneo en Marruecos, unas huellas en Nuevo México, una figura de marfil, una torre, una tablilla, un ejército de barro, una nao, una locomotora y una fotografía en una playa.",
+   "",
+   "Este es el episodio 0 de la serie: el índice de todo lo que viene. Cada capítulo tendrá después su propio episodio.",
+   "",
+   "La pregunta del episodio: de esos 300.000 años, ¿qué parte hemos vivido sin escribir una sola palabra? La respuesta, al final."
+  ],
+  "pie": [
+   "La locución de este vídeo es una voz sintética. Todas las imágenes son fotografías o documentos reales de uso libre; los créditos aparecen en pantalla y en la lista de arriba.",
+   "Las fechas más antiguas son estimaciones con margen de error: en pantalla y en la locución se da el rango cuando las fuentes no coinciden."
+  ],
+  "comentario_fijado": "De las nueve ideas del episodio, ¿cuál crees que ha cambiado más nuestra vida? Yo dudo entre la 4 (echar raíces) y la 8 (las máquinas). Te leo. Y si ves algún dato que no cuadra, dímelo con la fuente y lo corrijo: todas las nuestras están en la descripción."
+ }
+}

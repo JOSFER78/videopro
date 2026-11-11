@@ -43,7 +43,8 @@
 // window.initThumb(config): mismo archivo del episodio + config.thumb
 //   {seasonNumber, seasonColor, image, focus, zoom, shift: [x%, y%], kicker, hook: [{text, highlight}]}
 window.initThumb = (C) => {
-  const T = C.thumb, ep = C.episodes[C.episode - 1], $ = (s) => document.querySelector(s);
+  // un episodio panorámico (episode: 0) no tiene fila propia en la temporada: abarca todo el eje
+  const T = C.thumb, ep = C.episodes[C.episode - 1] || { when: T.when || "", yearsAgo: C.axis.from }, $ = (s) => document.querySelector(s);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   if (T.seasonColor) document.documentElement.style.setProperty("--season", T.seasonColor);
   $("#img").src = T.image; $("#img").style.objectPosition = `${T.focus?.[0] ?? 50}% ${T.focus?.[1] ?? 50}%`;
