@@ -26,7 +26,7 @@
   #hook div { display: table; white-space: nowrap; line-height: 1.04; padding: 0 14px 0 0; text-shadow: 0 6px 30px rgba(0,0,0,.6); }
   #hook div.hl { background: var(--season); color: #0c0d0f; padding: 6px 20px 0; text-shadow: none; margin: 4px 0; }
   #strip { position: absolute; left: 0; right: 0; bottom: 0; height: 62px; background: #0c0d0f; display: flex; align-items: center; padding: 0 44px; gap: 28px; }
-  #strip .series { font-size: 23px; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+  #strip .series { font-size: 21px; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
   #strip .line { position: relative; flex: 1; height: 4px; background: #4c4e53; }
   #strip .line b { position: absolute; top: 0; right: 0; height: 4px; background: var(--season); }
   #strip .line i { position: absolute; top: -12px; width: 6px; height: 28px; background: var(--season); }
@@ -52,7 +52,7 @@ window.initThumb = (C) => {
   $("#badge .e").textContent = `E${String(C.episode).padStart(2, "0")}`;
   $("#kicker").textContent = T.kicker || ""; $("#kicker").style.display = T.kicker ? "block" : "none";
   $("#hook").innerHTML = T.hook.map((l) => `<div class="${l.highlight ? "hl" : ""}">${esc(l.text)}</div>`).join("");
-  $("#strip .series").textContent = C.series; $("#strip .when").textContent = ep.when;
+  $("#strip .series").textContent = C.channel ? `${C.channel} · ${C.series}` : C.series; $("#strip .when").textContent = ep.when;
   const a = Math.log10(C.axis.from), b = Math.log10(C.axis.to);
   const p = Math.min(1, Math.max(0, (a - Math.log10(ep.yearsAgo)) / (a - b)));
   $("#strip .line i").style.left = `calc(${p * 100}% - 3px)`; $("#strip .line b").style.width = `${(1 - p) * 100}%`;

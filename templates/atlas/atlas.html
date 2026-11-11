@@ -27,8 +27,9 @@
    */
 
   /* ÍNDICE */
-  #brand { position: absolute; left: 64px; top: 40px; width: 430px; }
-  #brand .series { font-size: 19px; color: var(--ink); }
+  #brand { position: absolute; left: 64px; top: 40px; width: 436px; }
+  #brand .series { font-size: 16px; letter-spacing: .12em; color: var(--dim); }
+  #brand .series b { color: var(--hot); font-weight: 600; margin-right: 12px; }
   #brand .season { font-size: 31px; line-height: 38px; color: var(--dim); font-style: italic; margin-top: 6px; }
   #steps { position: absolute; left: 520px; right: 64px; top: 40px; height: 80px; display: flex; gap: 10px; }
   .step { flex: 1; min-width: 0; border-top: 2px solid var(--faint); padding-top: 9px; color: var(--faint); }
@@ -165,7 +166,8 @@ const fmtYears = (ya) => {
 window.initHud = (config) => {
   C = config;
   if (C.accent) document.documentElement.style.setProperty("--hot", C.accent);
-  $("#brand .series").textContent = C.series;
+  // Canal (fijo) y tema (cambia de una serie a otra): el canal explica cualquier tema con el mismo sistema
+  $("#brand .series").innerHTML = (C.channel ? `<b>${esc(C.channel)}</b>` : "") + esc(C.series);
   $("#brand .season").textContent = C.season;
 
   // Índice superior: un tramo por episodio; el actual, abierto, con sus partes

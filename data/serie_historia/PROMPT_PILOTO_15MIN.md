@@ -13,6 +13,10 @@ de la serie: toda la historia de la humanidad en **15 minutos (±1)**, en españ
 «Episodio 0 · El mapa»: recorre los nueve capítulos de la Temporada 1 a razón de una idea por
 capítulo, y sirve de índice de todo lo que vendrá. No lo subas a YouTube ni publiques nada.
 
+El canal es **universal**: explica cualquier tema con el mismo sistema (Canal › Tema › Temporada ›
+Episodio › Parte). «Historia de la humanidad» es el primer tema, no el canal. En el archivo de
+configuración, `channel` es el nombre del canal y `series` el tema.
+
 Lo que distingue a este canal y no se negocia:
 
 1. **Está organizado como un libro con índice.** En pantalla siempre se ve en qué temporada, episodio
