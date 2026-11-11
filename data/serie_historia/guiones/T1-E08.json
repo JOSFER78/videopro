@@ -85,7 +85,7 @@
             "rotulo": "Carbón en 1800",
             "valor": "2",
             "unidad": "%",
-            "comparacion": "En 1800 solo el 2 % de la energía primaria del mundo venía del carbón; en 1910 ya superaba la mitad (55 %). (Estos datos no cuentan el trabajo de personas y animales.)"
+            "comparacion": "Energía primaria mundial; en 1910, <b>55 %</b>"
           },
           "visual": {
             "tipo": "archivo",
@@ -201,7 +201,7 @@
             "rotulo": "Años bombeando",
             "valor": "128",
             "unidad": "años",
-            "comparacion": "De 1795 a 1923, cuando la sustituyeron bombas eléctricas."
+            "comparacion": "De <b>1795 a 1923</b>, hasta las bombas eléctricas"
           },
           "visual": {
             "tipo": "archivo",
@@ -306,7 +306,7 @@
             "rotulo": "Carbón en 1910",
             "valor": "55",
             "unidad": "%",
-            "comparacion": "Del 2 % en 1800 al 55 % en 1910 de la energía primaria mundial (sin contar el trabajo de personas y animales)."
+            "comparacion": "Era el <b>2 %</b> en 1800 (energía primaria)"
           },
           "visual": {
             "tipo": "archivo",
@@ -456,5 +456,14 @@
       "afirmacion": "Gran parte del carbón se formó en el periodo Carbonífero, hace unos 359–299 millones de años.",
       "url": "https://en.wikipedia.org/wiki/Carboniferous"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "La máquina de vapor que bombeó agua durante más de un siglo",
+      "Cómo el carbón cambió el mundo: del músculo a la máquina",
+      "La viga de Elsecar: así nació la industria"
+    ],
+    "descripcion": "Durante casi toda la historia, la energía salió de un cuerpo: brazos, bueyes, agua, viento y leña. Hasta que una máquina empezó a quemar carbón para sacar agua de una mina. En Elsecar vemos cómo un cambio de combustible puso en marcha la industria.\n\nEpisodio 8 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: en 1800, ¿qué parte de la energía del mundo crees que salía del carbón, casi toda, la mitad o casi nada?"
+  }
 }

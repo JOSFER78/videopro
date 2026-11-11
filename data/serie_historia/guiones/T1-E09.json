@@ -123,7 +123,7 @@
             "rotulo": "Humanos hoy",
             "valor": "8.000",
             "unidad": "millones",
-            "comparacion": "En 2023 éramos unos 8.092 millones; en 1968, el año de Earthrise, unos 3.545 millones. Más del doble en una vida humana."
+            "comparacion": "En 1968 éramos <b>3.545 millones</b>"
           },
           "visual": {
             "tipo": "archivo",
@@ -497,5 +497,14 @@
       "afirmacion": "Reloj de un día (temario T1-E00): la escritura, hacia 3200 a. C., cae hacia las 23:35. Cálculo propio: 58 años / 300.000 × 86.400 s ≈ 17 s antes de medianoche para Earthrise (1968).",
       "url": "https://mpiwg-berlin.mpg.de/sites/default/files/migrated/p183.pdf"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "La foto de la Tierra que cambió cómo nos vemos",
+      "Nochebuena en órbita lunar y la foto de la Tierra",
+      "Un solo planeta, una sola humanidad: lo que vimos desde fuera"
+    ],
+    "descripcion": "En Nochebuena, tres hombres en órbita lunar vieron salir la Tierra sobre el horizonte y la fotografiaron. Desde esa imagen repasamos los nueve objetos de esta historia y nos preguntamos qué significa ser, por primera vez, una sola humanidad conectada.\n\nEpisodio 9 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: desde que se tomó esta foto, ¿cuánto crees que ha crecido la humanidad? Escribe tu cálculo."
+  }
 }

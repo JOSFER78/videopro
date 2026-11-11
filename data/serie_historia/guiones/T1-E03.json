@@ -112,7 +112,7 @@
             "rotulo": "Ventaja del garabato",
             "valor": "30.000",
             "unidad": "años",
-            "comparacion": "Es al menos 30.000 años más antiguo que cualquier otro dibujo abstracto o figurativo conocido cuando se publicó, en 2018."
+            "comparacion": "<b>30.000 años</b> más que cualquier otro dibujo"
           },
           "emocion": 0.8
         },
@@ -458,5 +458,14 @@
       "afirmacion": "Se estudió con microscopio, espectroscopia Raman y microscopio electrónico; las líneas terminan de golpe en el borde, así que el dibujo era mayor; en la misma capa hay cuentas cubiertas de ocre y ocres grabados con patrones parecidos; dirigió el estudio Christopher Henshilwood (Universidad de Bergen, Noruega, y Universidad de Witwatersrand, Sudáfrica); depósitos de la Edad de Piedra Media de entre 100.000 y 72.000 años.",
       "url": "https://www.sci.news/archaeology/earliest-drawing-human-blombos-cave-06408.html"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "El garabato más antiguo del mundo y lo que nos cuenta",
+      "Nueve rayas rojas en una piedra de Sudáfrica",
+      "¿Un garabato puede ser una tecnología? Blombos, hace 73.000 años"
+    ],
+    "descripcion": "En una cueva de Sudáfrica apareció un trozo de piedra con nueve rayas rojas cruzadas. Parece un simple garabato, pero se estudió durante años con microscopio y luz para saber si alguien lo hizo a propósito. Y de ahí sale una idea: guardar ideas fuera de la cabeza.\n\nEpisodio 3 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: ¿cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos? Escribe tu cifra y compárala al final."
+  }
 }

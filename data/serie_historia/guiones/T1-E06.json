@@ -134,7 +134,7 @@
             "rotulo": "Altura del relieve",
             "valor": "100",
             "unidad": "metros",
-            "comparacion": "Está tallado a unos 100 m sobre el suelo, como en lo alto de un edificio de unos 30 pisos: no estaba hecho para leerse de cerca, sino para impresionar."
+            "comparacion": "Como un edificio de unos <b>30 pisos</b>"
           }
         },
         {
@@ -458,5 +458,14 @@
       "afirmacion": "La mayoría de los historiadores modernos no considera convincente la versión de Darío y suponen que la suplantación por un mago fue una invención para justificar que se hizo con el trono.",
       "url": "https://en.wikipedia.org/wiki/Gaumata"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "Darío y la roca donde escribió su versión de la historia",
+      "Behistún: cómo se fabrica una historia oficial",
+      "Por qué un rey talló su relato a cien metros de altura"
+    ],
+    "descripcion": "Un rey llega al trono y necesita que todos acepten su versión de lo ocurrido. En el monte Behistún, en el oeste de Irán, Darío la dejó escrita en tres lenguas. Este episodio cuenta cómo un relato compartido puede sostener un imperio tanto como sus soldados.\n\nEpisodio 6 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: si quisieras que un imperio entero creyera tu versión, ¿dónde la pondrías? Cuéntame tu idea."
+  }
 }

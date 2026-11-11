@@ -93,7 +93,7 @@
             "rotulo": "Habitantes de Uruk, máximo",
             "valor": "50.000",
             "unidad": "personas",
-            "comparacion": "Es una estimación máxima; aun así, era la mayor zona urbana de su tiempo."
+            "comparacion": "Máximo estimado; la <b>mayor zona urbana</b> entonces"
           },
           "anios_atras": 5126
         },
@@ -272,7 +272,7 @@
             "rotulo": "Tamaño de la tablilla",
             "valor": "6",
             "unidad": "cm",
-            "comparacion": "Cabe en la palma de la mano, y de objetos así desciende todo lo que se ha escrito después."
+            "comparacion": "Cabe en <b>la palma de la mano</b>"
           }
         },
         {
@@ -468,5 +468,14 @@
       "afirmacion": "Nuevo: sobre globular de arcilla con fichas de contabilidad, periodo de Uruk (h. 3500 a. C.), hallado en la acrópolis de Susa; coordenadas de Susa 32°11′26″N 48°15′28″E.",
       "url": "https://en.wikipedia.org/wiki/Susa"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "¿Qué fue lo primero que escribió la humanidad?",
+      "Uruk y la tablilla que cabe en la mano",
+      "Por qué se inventó la escritura (y no fue para contar historias)"
+    ],
+    "descripcion": "Hacia el 3100 antes de Cristo, Uruk, en el sur de Mesopotamia, tenía más gente de la que la memoria podía llevar. Antes de las letras hubo bolitas de barro y sellos. Y en una tablilla de unos seis centímetros está lo primero que alguien decidió apuntar.\n\nEpisodio 5 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: ¿qué crees que se escribió primero, un poema, una ley o una cuenta de cebada? Dime tu apuesta."
+  }
 }

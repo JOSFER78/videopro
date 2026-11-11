@@ -220,7 +220,7 @@
             "rotulo": "Nombres en el globo",
             "valor": "2.000",
             "unidad": "topónimos",
-            "comparacion": "Unos 2.000 nombres de lugares y ninguno en América."
+            "comparacion": "<b>Ninguno</b> de ellos está en América"
           },
           "visual": {
             "tipo": "archivo",
@@ -519,5 +519,14 @@
       "afirmacion": "Colón hizo escala en Canarias y salió de La Gomera el 6 de septiembre de 1492: desde ahí fueron unas cinco semanas sin tierra hasta el 12 de octubre. San Salvador es solo la candidata más probable para Guanahaní.",
       "url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "El globo más antiguo del mundo y su gran hueco en el mapa",
+      "¿Qué le faltaba al mapa del mundo en 1492?",
+      "Una bola de lino en Núremberg que guardaba un hueco"
+    ],
+    "descripcion": "En Núremberg, Europa reunió su planeta en una esfera de lino: el globo más antiguo que se conserva. Lo miramos de cerca, nombre a nombre, y vemos qué había entre Europa y Asia. Después, qué pasó cuando Colón volvió y las orillas se tocaron.\n\nEpisodio 7 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: ¿cuántos lugares crees que nombraba el globo más completo de 1492, y cuántos de ellos en América?"
+  }
 }

@@ -309,7 +309,7 @@
             "rotulo": "ADN neandertal",
             "valor": "2",
             "unidad": "%",
-            "comparacion": "Es la media en humanos actuales según el Museo de Historia Natural de Londres; quienes tienen antepasados fuera de África llevan más que quienes los tienen dentro."
+            "comparacion": "Media actual; <b>más</b> con antepasados fuera de África"
           },
           "emocion": 0.8
         },
@@ -494,5 +494,14 @@
       "afirmacion": "Israel Hershkovitz, de la Universidad de Tel Aviv, dirigió el estudio antropológico del cráneo; el cráneo tiene unos 55.000 años, «cerca en el tiempo» del probable cruce con neandertales.",
       "url": "https://www.eurekalert.org/news-releases/828013"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "Un cráneo en una cueva de Israel y la salida de África",
+      "¿Llevas ADN neandertal? Lo que dejó la salida de África",
+      "Cuando sapiens y neandertales fueron vecinos de cueva"
+    ],
+    "descripcion": "En 2008, unas obras rompieron el techo de una cueva en Israel y apareció la parte de arriba de un cráneo humano. Es el primer fósil que tenemos de nuestra especie justo cuando salía de África. Seguimos a sus descendientes hasta una cueva de Alemania y miramos qué huella dejó el encuentro con otros humanos que ya vivían allí.\n\nEpisodio 2 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: los neandertales se extinguieron hace decenas de miles de años, ¿crees que queda algo de ellos dentro de ti? Cuéntame qué piensas."
+  }
 }

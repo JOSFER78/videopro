@@ -137,7 +137,7 @@
             "rotulo": "Huesos de animales domésticos",
             "valor": "0",
             "unidad": "de 100.000",
-            "comparacion": "Más del 60 % son de gacela; el resto, jabalí, oveja salvaje, ciervo y aves. Todo caza."
+            "comparacion": "Todo caza; más del <b>60 %</b> gacela"
           }
         },
         {
@@ -245,7 +245,7 @@
             "rotulo": "Humanos en la Tierra",
             "valor": "4,5",
             "unidad": "millones",
-            "comparacion": "Es la población mundial estimada hacia el 10.000 a. C. Hoy somos unas 1.800 veces más."
+            "comparacion": "Hoy somos <b>1.800 veces</b> más"
           }
         },
         {
@@ -535,5 +535,14 @@
       "afirmacion": "Lang et al. 2013 (World Archaeology 45/3): la caza de gacela persa en Göbekli Tepe sigue un patrón estacional (de pleno verano al otoño).",
       "url": "https://katalog.lib.cas.cz/KNAV/EdsRecord/edsjsr,edsjsr.42003584"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "Levantaron pilares de diez toneladas sin tener granjas",
+      "Göbekli Tepe: ¿primero el campo o primero la reunión?",
+      "La colina de Turquía que dio la vuelta a la historia"
+    ],
+    "descripcion": "En el sureste de Turquía hay una colina llena de pilares de piedra con animales tallados, unos seis mil años más antiguos que Stonehenge. ¿Quién los levantó y de qué vivía? La pista no está en los pilares, sino en la basura que dejaron alrededor. Y puede cambiar el orden en que contamos el origen de la agricultura.\n\nEpisodio 4 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: de más de cien mil huesos hallados en la colina, ¿cuántos crees que son de animales domésticos? Cuéntame tu cifra."
+  }
 }
