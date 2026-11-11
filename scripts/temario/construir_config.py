@@ -130,8 +130,17 @@ def construir(guion, marcas, temario):
     if guion.get("indice"):
         config["index"] = {"at": round(indice_en, 2), "kicker": guion["indice"]["kicker"],
                            "takeaway": guion["indice"]["conclusion"]}
-    if guion.get("miniatura"):
-        config["thumb"] = guion["miniatura"]
+    mini = guion.get("miniatura") or {}
+    if mini.get("archivo") or mini.get("ganchos") or mini.get("gancho"):
+        ganchos = mini.get("ganchos") or [mini.get("gancho") or [episodios[config["episode"] - 1]["title"]]]
+        base = {"seasonNumber": temporada["temporada"], "seasonColor": temporada.get("color", "#ff4b33"),
+                "image": mini.get("archivo") or config["visuals"][0]["src"], "kicker": mini.get("antetitulo", "")}
+        for clave in ("focus", "zoom", "shift"):
+            if clave in mini:
+                base[clave] = mini[clave]
+        # una miniatura por gancho; la primera línea de cada uno va resaltada
+        config["thumbs"] = [{**base, "hook": [{"text": linea, "highlight": i == 0} for i, linea in enumerate(lineas)]}
+                            for lineas in ganchos]
     return config
 
 

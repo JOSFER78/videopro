@@ -658,12 +658,32 @@
     "conclusion": "Hace 300.000 años ya teníamos nuestra cara, no nuestro cerebro: nos fuimos haciendo, en toda África."
   },
   "miniatura": {
-    "antetitulo": "La primera cara como la tuya",
-    "gancho": [
-      "Tu cara",
-      "300.000 años"
+    "antetitulo": "El cráneo que cambió la fecha",
+    "que_se_ve": "cráneo Irhoud 1 de frente",
+    "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+    "focus": [
+      50,
+      38
     ],
-    "que_se_ve": "cráneo Irhoud 1 de frente, sobre fondo oscuro (foto real del Museo Arqueológico de Rabat)"
+    "zoom": 1.18,
+    "shift": [
+      19,
+      2
+    ],
+    "ganchos": [
+      [
+        "300.000",
+        "años"
+      ],
+      [
+        "Tu cara",
+        "ya existía"
+      ],
+      [
+        "No fue",
+        "un solo lugar"
+      ]
+    ]
   },
   "fuentes": [
     {

@@ -449,12 +449,81 @@
     "kicker": "Quédate con esto",
     "takeaway": "Hace 300.000 años ya teníamos nuestra cara, no nuestro cerebro: nos fuimos haciendo, en toda África."
   },
-  "thumb": {
-    "antetitulo": "La primera cara como la tuya",
-    "gancho": [
-      "Tu cara",
-      "300.000 años"
-    ],
-    "que_se_ve": "cráneo Irhoud 1 de frente, sobre fondo oscuro (foto real del Museo Arqueológico de Rabat)"
-  }
+  "thumbs": [
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E01/03_jebel_irhoud.jpg",
+      "kicker": "El cráneo que cambió la fecha",
+      "focus": [
+        50,
+        38
+      ],
+      "zoom": 1.18,
+      "shift": [
+        19,
+        2
+      ],
+      "hook": [
+        {
+          "text": "300.000",
+          "highlight": true
+        },
+        {
+          "text": "años",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E01/03_jebel_irhoud.jpg",
+      "kicker": "El cráneo que cambió la fecha",
+      "focus": [
+        50,
+        38
+      ],
+      "zoom": 1.18,
+      "shift": [
+        19,
+        2
+      ],
+      "hook": [
+        {
+          "text": "Tu cara",
+          "highlight": true
+        },
+        {
+          "text": "ya existía",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E01/03_jebel_irhoud.jpg",
+      "kicker": "El cráneo que cambió la fecha",
+      "focus": [
+        50,
+        38
+      ],
+      "zoom": 1.18,
+      "shift": [
+        19,
+        2
+      ],
+      "hook": [
+        {
+          "text": "No fue",
+          "highlight": true
+        },
+        {
+          "text": "un solo lugar",
+          "highlight": false
+        }
+      ]
+    }
+  ]
 }
