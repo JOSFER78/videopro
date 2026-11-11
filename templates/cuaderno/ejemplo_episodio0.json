@@ -1,0 +1,285 @@
+{
+  "duration": 36,
+  "crumbs": [
+    {
+      "label": "Historia de la humanidad",
+      "at": 0.2
+    },
+    {
+      "label": "Temporada 1",
+      "at": 0.5
+    },
+    {
+      "label": "Episodio 0",
+      "at": 0.8
+    },
+    {
+      "label": "Origen",
+      "at": 1.0,
+      "slot": "parte"
+    },
+    {
+      "label": "Poblar el planeta",
+      "at": 8.82,
+      "slot": "parte"
+    },
+    {
+      "label": "Aceleración",
+      "at": 15.96,
+      "slot": "parte"
+    },
+    {
+      "label": "Repaso",
+      "at": 25.54,
+      "slot": "parte"
+    }
+  ],
+  "panelTitle": "Lo que hemos logrado",
+  "chapters": [
+    {
+      "title": "Nuestro origen",
+      "when": "Hace 300.000 años",
+      "yearsAgo": 300000,
+      "color": "#e07a3a",
+      "goal": "Nuestra especie"
+    },
+    {
+      "title": "Salimos de África",
+      "when": "Hace 60.000 años",
+      "yearsAgo": 60000,
+      "color": "#d9a02b",
+      "goal": "Poblar el planeta"
+    },
+    {
+      "title": "Arte y símbolos",
+      "when": "Hace 40.000 años",
+      "yearsAgo": 40000,
+      "color": "#b5543e",
+      "goal": "Arte y símbolos"
+    },
+    {
+      "title": "La agricultura",
+      "when": "Hace 12.000 años",
+      "yearsAgo": 12000,
+      "color": "#6a9a3e",
+      "goal": "Agricultura"
+    },
+    {
+      "title": "Ciudades y escritura",
+      "when": "3200 a. C.",
+      "yearsAgo": 5226,
+      "color": "#c8894f",
+      "goal": "Ciudades y escritura"
+    },
+    {
+      "title": "Imperios e ideas",
+      "when": "500 a. C. – 400 d. C.",
+      "yearsAgo": 2526,
+      "color": "#a04a9a",
+      "goal": "Imperios e ideas"
+    },
+    {
+      "title": "El mundo se conecta",
+      "when": "1450 – 1492",
+      "yearsAgo": 576,
+      "color": "#3c78c2",
+      "goal": "Imprenta y rutas"
+    },
+    {
+      "title": "Ciencia e industria",
+      "when": "1687 – 1800",
+      "yearsAgo": 339,
+      "color": "#74768c",
+      "goal": "Ciencia e industria"
+    },
+    {
+      "title": "El mundo de hoy",
+      "when": "1900 – hoy",
+      "yearsAgo": 126,
+      "color": "#2a8a9c",
+      "goal": "Era digital"
+    }
+  ],
+  "timeline": {
+    "from": 300000,
+    "to": 10,
+    "note": "años atrás (escala logarítmica)",
+    "ticks": [
+      {
+        "yearsAgo": 300000,
+        "label": "300.000"
+      },
+      {
+        "yearsAgo": 100000,
+        "label": "100.000"
+      },
+      {
+        "yearsAgo": 30000,
+        "label": "30.000"
+      },
+      {
+        "yearsAgo": 10000,
+        "label": "10.000"
+      },
+      {
+        "yearsAgo": 3000,
+        "label": "3.000"
+      },
+      {
+        "yearsAgo": 1000,
+        "label": "1.000"
+      },
+      {
+        "yearsAgo": 300,
+        "label": "300"
+      },
+      {
+        "yearsAgo": 100,
+        "label": "100"
+      },
+      {
+        "yearsAgo": 30,
+        "label": "30"
+      },
+      {
+        "yearsAgo": 10,
+        "label": "hoy"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "at": 1.5,
+      "yearsAgo": 300000
+    },
+    {
+      "at": 11.0,
+      "yearsAgo": 60000,
+      "travel": 2.0
+    },
+    {
+      "at": 17.0,
+      "yearsAgo": 40000,
+      "travel": 1.0
+    },
+    {
+      "at": 18.0,
+      "yearsAgo": 12000,
+      "travel": 0.8
+    },
+    {
+      "at": 19.0,
+      "yearsAgo": 5226,
+      "travel": 0.8
+    },
+    {
+      "at": 19.9,
+      "yearsAgo": 2526,
+      "travel": 0.7
+    },
+    {
+      "at": 20.7,
+      "yearsAgo": 576,
+      "travel": 0.7
+    },
+    {
+      "at": 21.4,
+      "yearsAgo": 339,
+      "travel": 0.6
+    },
+    {
+      "at": 22.2,
+      "yearsAgo": 126,
+      "travel": 0.7
+    },
+    {
+      "at": 23.2,
+      "yearsAgo": 10,
+      "travel": 0.8
+    }
+  ],
+  "parts": [
+    {
+      "at": 0.4,
+      "title": "Nuestro origen",
+      "idea": "Hace 300.000 años ya había gente como tú",
+      "ideaDelay": 3.2
+    },
+    {
+      "at": 8.82,
+      "title": "Poblamos el planeta",
+      "idea": "Casi toda nuestra historia fuimos pocos y nómadas",
+      "ideaDelay": 1.6
+    },
+    {
+      "at": 15.96,
+      "title": "Y todo se acelera",
+      "idea": "En 12.000 años pasamos de aldeas a 8.000 millones",
+      "ideaDelay": 4.6
+    },
+    {
+      "at": 25.54,
+      "title": "La temporada 1",
+      "idea": "Siguiente > Capítulo 1: Nuestro origen",
+      "ideaDelay": 6.2
+    }
+  ],
+  "data": {
+    "label": "Población mundial",
+    "points": [
+      {
+        "at": 1.8,
+        "when": "hace 300.000 años",
+        "value": "quizá decenas de miles"
+      },
+      {
+        "at": 18.0,
+        "when": "hace 12.000 años",
+        "value": "unos 4 millones"
+      },
+      {
+        "at": 19.9,
+        "when": "500 a. C.",
+        "value": "unos 100 millones"
+      },
+      {
+        "at": 21.4,
+        "when": "año 1800",
+        "value": "1.000 millones"
+      },
+      {
+        "at": 23.2,
+        "when": "año 2023",
+        "value": "8.100 millones"
+      }
+    ]
+  },
+  "asks": [
+    {
+      "at": 12.0,
+      "hold": 3.4,
+      "kicker": "Pausa y piensa",
+      "text": "¿Cuántos éramos entonces?"
+    }
+  ],
+  "footage": [
+    {
+      "at": 2.7,
+      "file": "media/fuego.mp4"
+    },
+    {
+      "at": 8.9,
+      "file": "media/tierra.mp4"
+    },
+    {
+      "at": 15.96,
+      "file": "media/noche.mp4"
+    }
+  ],
+  "grid": {
+    "at": 25.6,
+    "stagger": 0.38,
+    "highlight": 1,
+    "highlightAt": 5.6
+  }
+}

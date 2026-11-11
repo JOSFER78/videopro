@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Plantilla Cuaderno</title>
+<style>
+  @font-face { font-family: "Mano"; src: url("fonts/patrick-hand-latin-400-normal.woff2"); }
+  @font-face { font-family: "Rotulador"; src: url("fonts/caveat-brush-latin-400-normal.woff2"); }
+  :root { --paper: #e9e6dc; --ink: #232321; --soft: #6d6a62; --red: #d2553a; --marker: #ffd95a; --blue: #2a63c9; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: transparent;
+               font-family: "Mano", "Comic Sans MS", cursive; color: var(--ink); }
+
+  /*
+   * ZONAS FIJAS — el vídeo nunca va a pantalla completa:
+   *   arriba izq.   migas: serie › temporada › episodio › parte
+   *   centro        título de la parte, ESCENARIO (marco con el vídeo o la imagen) y la idea en rojo
+   *   derecha       "lo que hemos logrado" + un dato comparativo
+   *   pie           línea del tiempo con chinchetas numeradas: en qué momento estamos
+   */
+  #paper { position: absolute; inset: 0; background-color: var(--paper);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='7'/%3E%3CfeColorMatrix values='0 0 0 0 .35  0 0 0 0 .33  0 0 0 0 .28  0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  body.hud-only #paper { display: none; }
+  body.paper-only > *:not(#paper) { display: none; }
+  /* En la capa de rótulos el papel tapa todo menos el hueco del escenario */
+  .mask { position: absolute; background: inherit; }
+
+  svg.ink { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: visible; pointer-events: none; }
+
+  #crumbs { position: absolute; left: 46px; top: 26px; height: 56px; font-size: 34px; white-space: nowrap; display: flex; align-items: center; color: var(--soft); }
+  .crumb { display: inline-flex; align-items: center; overflow: hidden; height: 56px; }
+  .crumb .sep { margin: 0 16px; }
+  .crumb.now span:last-child { color: var(--ink); background: var(--marker); padding: 0 8px; }
+
+  #title { position: absolute; left: 96px; width: 1344px; top: 84px; height: 84px; text-align: center; font-family: "Rotulador", cursive;
+           font-size: 76px; line-height: 84px; white-space: nowrap; }
+  #stage { position: absolute; left: 201px; top: 178px; width: 1134px; height: 638px; }
+  #idea { position: absolute; left: 96px; width: 1344px; top: 826px; height: 62px; text-align: center; font-family: "Rotulador", cursive;
+          font-size: 50px; line-height: 62px; color: var(--red); white-space: nowrap; }
+
+  #panel { position: absolute; left: 1480px; top: 128px; width: 400px; height: 600px; padding: 20px 22px; }
+  #panel h3 { font-family: "Rotulador", cursive; font-weight: 400; font-size: 44px; line-height: 50px; text-align: center; margin-bottom: 8px; white-space: nowrap; }
+  .goal { display: flex; align-items: center; gap: 14px; height: 52px; font-size: 31px; white-space: nowrap; padding: 0 6px; }
+  .goal .dot { flex: none; width: 34px; height: 34px; border-radius: 50%; color: #fff; font-size: 22px; line-height: 34px; text-align: center; }
+  .goal.todo { color: #a9a69d; }
+  .goal.todo .dot { background: transparent !important; color: #a9a69d; box-shadow: inset 0 0 0 2px #a9a69d; }
+  .goal.now .name { background: var(--marker); padding: 0 6px; }
+
+  #data { position: absolute; left: 1480px; top: 748px; width: 400px; height: 96px; padding: 10px 20px; }
+  #data .label { font-size: 23px; color: var(--soft); display: flex; justify-content: space-between; white-space: nowrap; }
+  #data .value { font-size: 42px; line-height: 46px; color: var(--blue); white-space: nowrap; }
+
+  .ticklabel { position: absolute; top: 992px; width: 140px; margin-left: -70px; text-align: center; font-size: 25px; color: var(--soft); }
+  #scaleNote { position: absolute; right: 44px; top: 1030px; font-size: 22px; color: var(--soft); }
+  .pin { position: absolute; top: 912px; width: 36px; height: 36px; margin-left: -18px; border-radius: 50%; color: #fff; font-size: 23px;
+         line-height: 36px; text-align: center; }
+
+  #ask { position: absolute; left: 520px; top: 640px; width: 500px; padding: 16px 24px 18px; background: var(--marker); text-align: center;
+         box-shadow: 5px 6px 0 rgba(0,0,0,.25); }
+  #ask .k { font-size: 24px; color: var(--soft); }
+  #ask .t { font-size: 36px; line-height: 40px; }
+
+  /* Cuadrícula de capítulos: ocupa el escenario en los repasos */
+  #grid { position: absolute; left: 96px; top: 178px; width: 1344px; height: 638px; background: inherit; display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(3, minmax(0, 1fr)); gap: 34px 40px; padding: 8px 6px; }
+  .card { position: relative; display: flex; align-items: center; gap: 16px; padding: 0 16px; overflow: hidden; }
+  .card.now { background: #fbf3cd; }
+  .card .num { flex: none; width: 62px; height: 62px; border-radius: 50%; color: #fff; font-size: 40px; line-height: 62px; text-align: center; }
+  .card .name { font-family: "Rotulador", cursive; font-size: 37px; line-height: 42px; white-space: nowrap; }
+  .card .when { font-size: 27px; color: var(--soft); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="paper"></div>
+<div id="hudpaper" style="position:absolute;inset:0;background-color:#e9e6dc"></div>
+<svg class="ink" id="ink"></svg>
+<div id="crumbs" data-fit></div>
+<div id="title" data-fit></div>
+<div id="idea" data-fit></div>
+<div id="grid"></div>
+<svg class="ink" id="gridInk"></svg>
+<div id="ask"><div class="k"></div><div class="t" data-fit></div></div>
+<div id="panel"><h3 data-fit></h3><div id="goals"></div></div>
+<div id="data"><div class="label"><span class="what"></span><span class="when"></span></div><div class="value" data-fit></div></div>
+<div id="pins"></div><div id="ticks"></div><div id="scaleNote"></div>
+
+<script src="vendor/rough.js"></script>
+<script>
+/*
+ * Plantilla "Cuaderno": todo dibujado a mano sobre papel, con el vídeo dentro de un marco.
+ * window.initHud(config) una vez y window.renderHud(t) por fotograma. Todo es función pura de t
+ * y los trazos usan semillas fijas, así que el mismo t da siempre el mismo fotograma.
+ */
+const $ = (s) => document.querySelector(s);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const wipe = (el, k) => { el.style.clipPath = `inset(-10% ${(1 - clamp(k)) * 100}% -10% -2%)`; };
+const STAGE = { x: 201, y: 178, w: 1134, h: 638 };          // hueco del vídeo (16:9)
+const LINE = { x0: 70, x1: 1772, y: 964 };                   // línea del tiempo del pie
+const BOIL = 3;                                              // variantes de trazo que se alternan ("línea viva")
+let C = null, trailLen = 0;
+
+// Posición en la línea: escala logarítmica de "años atrás" (lo reciente no queda aplastado)
+const timePos = (yearsAgo) => {
+  const a = Math.log10(C.timeline.from), b = Math.log10(C.timeline.to);
+  return clamp((a - Math.log10(Math.max(yearsAgo, C.timeline.to))) / (a - b));
+};
+const lineX = (yearsAgo) => LINE.x0 + timePos(yearsAgo) * (LINE.x1 - LINE.x0);
+
+function drawInk(svg, shapes) {
+  // Cada forma se dibuja BOIL veces con semillas distintas; en cada instante se ve una sola variante
+  const rc = rough.svg(svg);
+  svg.innerHTML = "";
+  for (let v = 0; v < BOIL; v++) {
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("class", "boil"); g.dataset.v = v;
+    shapes.forEach((s, i) => {
+      const o = { seed: 100 + i * 7 + v * 131, roughness: s.rough ?? 1.5, bowing: 1.2, stroke: s.stroke || "#232321",
+                  strokeWidth: s.width || 3.4, fill: s.fill, fillStyle: "solid" };
+      const node = s.type === "rect" ? rc.rectangle(s.x, s.y, s.w, s.h, o) : rc.line(s.x1, s.y1, s.x2, s.y2, o);
+      if (s.id) node.dataset.id = s.id;
+      g.appendChild(node);
+    });
+    svg.appendChild(g);
+  }
+}
+
+window.initHud = (config) => {
+  C = config;
+  const colorOf = (n) => C.chapters[n - 1].color;
+
+  // El papel de la capa de rótulos tapa todo menos el hueco del escenario
+  const paperBg = getComputedStyle($("#paper"));
+  const hp = $("#hudpaper");
+  hp.style.backgroundImage = paperBg.backgroundImage;
+  hp.style.clipPath = `polygon(evenodd, 0 0, 1920px 0, 1920px 1080px, 0 1080px, 0 0,
+    ${STAGE.x}px ${STAGE.y}px, ${STAGE.x}px ${STAGE.y + STAGE.h}px, ${STAGE.x + STAGE.w}px ${STAGE.y + STAGE.h}px, ${STAGE.x + STAGE.w}px ${STAGE.y}px, ${STAGE.x}px ${STAGE.y}px)`;
+  $("#grid").style.backgroundColor = paperBg.backgroundColor; $("#grid").style.backgroundImage = paperBg.backgroundImage;
+
+  $("#crumbs").innerHTML = C.crumbs.map((c, i) =>
+    `<span class="crumb">${i ? '<span class="sep">›</span>' : ""}<span>${esc(c.label)}</span></span>`).join("");
+
+  $("#panel h3").textContent = C.panelTitle || "Lo que hemos logrado";
+  $("#goals").innerHTML = C.chapters.map((c, i) =>
+    `<div class="goal"><span class="dot" style="background:${c.color}">${i + 1}</span><span class="name">${esc(c.goal)}</span></div>`).join("");
+
+  $("#pins").innerHTML = C.chapters.map((c, i) =>
+    `<div class="pin" style="left:${lineX(c.yearsAgo)}px;background:${c.color}">${i + 1}</div>`).join("");
+  $("#ticks").innerHTML = C.timeline.ticks.map((k) =>
+    `<div class="ticklabel" style="left:${lineX(k.yearsAgo)}px">${esc(k.label)}</div>`).join("");
+  $("#scaleNote").textContent = C.timeline.note || "";
+
+  drawInk($("#ink"), [
+    { type: "rect", x: STAGE.x - 5, y: STAGE.y - 5, w: STAGE.w + 10, h: STAGE.h + 10, width: 5, id: "stage" },
+    { type: "rect", x: 1480, y: 128, w: 400, h: 600, fill: "#fffefa" },
+    { type: "rect", x: 1480, y: 748, w: 400, h: 96, fill: "#fffefa" },
+    { type: "line", x1: LINE.x0, y1: LINE.y, x2: LINE.x1 + 80, y2: LINE.y, stroke: "#b9b5aa", width: 7, rough: 0.8 },
+    ...C.timeline.ticks.map((k) => ({ type: "line", x1: lineX(k.yearsAgo), y1: LINE.y, x2: lineX(k.yearsAgo), y2: LINE.y + 24, width: 3 })),
+    ...C.chapters.map((c) => ({ type: "line", x1: lineX(c.yearsAgo), y1: 946, x2: lineX(c.yearsAgo), y2: LINE.y, width: 3 })),
+  ]);
+  // Lo recorrido (rojo) y el punto de "estamos aquí": trazo propio para poder alargarlo con el tiempo
+  const ns = "http://www.w3.org/2000/svg";
+  const trail = document.createElementNS(ns, "line");
+  trail.id = "trail"; trail.setAttribute("stroke", "#d2553a"); trail.setAttribute("stroke-width", 8); trail.setAttribute("stroke-linecap", "round");
+  trail.setAttribute("y1", LINE.y); trail.setAttribute("y2", LINE.y); trail.setAttribute("x1", LINE.x0);
+  const here = document.createElementNS(ns, "circle");
+  here.id = "here"; here.setAttribute("r", 13); here.setAttribute("cy", LINE.y); here.setAttribute("fill", "#d2553a"); here.setAttribute("stroke", "#fffefa"); here.setAttribute("stroke-width", 3);
+  $("#ink").append(trail, here);
+
+  if (C.grid) {
+    $("#grid").innerHTML = C.chapters.map((c, i) =>
+      `<div class="card"><div class="num" style="background:${c.color}">${i + 1}</div><div><div class="name" data-fit>${esc(c.title)}</div><div class="when">${esc(c.when)}</div></div></div>`).join("");
+    const g = $("#grid").getBoundingClientRect();
+    drawInk($("#gridInk"), [...document.querySelectorAll(".card")].map((el) => {
+      const r = el.getBoundingClientRect(); return { type: "rect", x: r.left, y: r.top, w: r.width, h: r.height, width: 4.5 };
+    }));
+  }
+};
+
+window.renderHud = (t) => {
+  // "Línea viva": la variante de trazo cambia unas pocas veces por segundo
+  const v = Math.floor(t * (C.boilFps || 4)) % BOIL;
+  document.querySelectorAll(".boil").forEach((g) => { g.style.display = Number(g.dataset.v) === v ? "inline" : "none"; });
+
+  // Migas: las del mismo "slot" se sustituyen
+  let last = 0;
+  const crumbs = [...document.querySelectorAll(".crumb")];
+  crumbs.forEach((el, i) => {
+    const c = C.crumbs[i];
+    const replaced = c.slot != null && C.crumbs.some((o, j) => j > i && o.slot === c.slot && t >= o.at);
+    const k = replaced ? 0 : ease((t - c.at) / 0.4);
+    if (t >= c.at && !replaced) last = i;
+    el.style.maxWidth = `${k * 600}px`;
+  });
+  crumbs.forEach((el, i) => el.classList.toggle("now", i === last));
+
+  // Parte actual: título arriba e idea en rojo debajo, escritos de izquierda a derecha
+  const part = [...C.parts].reverse().find((p) => t >= p.at) || null;
+  const title = $("#title"), idea = $("#idea");
+  if (part) {
+    title.textContent = part.title; idea.textContent = part.idea || "";
+    wipe(title, (t - part.at) / 0.7); wipe(idea, (t - part.at - (part.ideaDelay ?? 1.2)) / 0.8);
+  } else { title.textContent = ""; idea.textContent = ""; }
+
+  // Momento actual en el tiempo: se desplaza de un hito al siguiente
+  const stops = C.journey;
+  let ya = stops[0].yearsAgo, started = t >= stops[0].at;
+  for (let i = 0; i < stops.length; i++) {
+    if (t < stops[i].at) break;
+    const next = stops[i + 1];
+    if (!next) { ya = stops[i].yearsAgo; break; }
+    const travel = Math.min(next.travel || 1.5, next.at - stops[i].at);
+    const k = ease((t - (next.at - travel)) / travel);
+    // se interpola sobre la posición en la línea, no sobre los años, para que el avance sea uniforme a la vista
+    const p = timePos(stops[i].yearsAgo) + (timePos(next.yearsAgo) - timePos(stops[i].yearsAgo)) * k;
+    ya = Math.pow(10, Math.log10(C.timeline.from) - p * (Math.log10(C.timeline.from) - Math.log10(C.timeline.to)));
+  }
+  const x = lineX(ya);
+  $("#trail").setAttribute("x2", x); $("#here").setAttribute("cx", x);
+  $("#trail").style.visibility = $("#here").style.visibility = started ? "visible" : "hidden";
+
+  // Hitos: logrado cuando el recorrido los alcanza; el último logrado es el actual
+  let reached = 0;
+  C.chapters.forEach((c, i) => { if (started && ya <= c.yearsAgo * 1.0001) reached = i + 1; });
+  document.querySelectorAll(".goal").forEach((el, i) => {
+    el.classList.toggle("todo", i >= reached); el.classList.toggle("now", i === reached - 1);
+  });
+  document.querySelectorAll(".pin").forEach((el, i) => {
+    const on = i < reached;
+    el.style.opacity = on ? 1 : 0.28; el.style.transform = `scale(${on ? 1 : 0.8})`;
+  });
+
+  // Dato comparativo
+  const d = [...(C.data?.points || [])].reverse().find((p) => t >= p.at);
+  $("#data .what").textContent = C.data?.label || "";
+  $("#data .when").textContent = d ? d.when : "";
+  $("#data .value").textContent = d ? d.value : "";
+  if (d) wipe($("#data .value"), (t - d.at) / 0.5);
+
+  // Pregunta al público (pausa y piensa)
+  const a = (C.asks || []).find((q) => t >= q.at && t < q.at + q.hold);
+  const ask = $("#ask");
+  ask.style.visibility = a ? "visible" : "hidden";
+  if (a) {
+    ask.querySelector(".k").textContent = a.kicker; ask.querySelector(".t").textContent = a.text;
+    const k = ease((t - a.at) / 0.3) * (1 - ease((t - (a.at + a.hold - 0.3)) / 0.3));
+    ask.style.transform = `rotate(-2deg) scale(${0.6 + 0.4 * k})`; ask.style.opacity = k;
+  }
+
+  // Cuadrícula de capítulos (repaso): sustituye al vídeo en el escenario
+  const gridOn = C.grid && t >= C.grid.at;
+  $("#grid").style.visibility = $("#gridInk").style.visibility = gridOn ? "visible" : "hidden";
+  document.querySelector('#ink [data-id="stage"]')?.parentNode && document.querySelectorAll('#ink [data-id="stage"]').forEach((n) => { n.style.visibility = gridOn ? "hidden" : "visible"; });
+  if (gridOn) {
+    const cards = [...document.querySelectorAll(".card")];
+    const boxes = [...document.querySelectorAll("#gridInk .boil")].map((g) => [...g.children]);
+    cards.forEach((el, i) => {
+      const k = ease((t - C.grid.at - 0.3 - i * (C.grid.stagger || 0.35)) / 0.4);
+      el.style.opacity = k; el.classList.toggle("now", C.grid.highlight === i + 1 && t >= C.grid.at + (C.grid.highlightAt || 0));
+      boxes.forEach((b) => { if (b[i]) b[i].style.opacity = k; });
+    });
+  }
+};
+
+/* Comprobación de maquetación en el instante actual: lista de problemas (vacía si todo bien). */
+window.checkLayout = () => {
+  const problems = [];
+  const vis = (el) => getComputedStyle(el).visibility !== "hidden" && el.offsetWidth > 0;
+  for (const el of document.querySelectorAll("[data-fit]")) {
+    if (!vis(el) || !el.textContent) continue;
+    const box = el.closest("#panel, #data, .card, #ask") || el;
+    const range = document.createRange(); range.selectNodeContents(el);
+    // las migas recortan las que aún no han entrado: ahí cuenta la caja, no el texto oculto
+    const r = el.id === "crumbs" ? el.getBoundingClientRect() : range.getBoundingClientRect(), b = box.getBoundingClientRect();
+    const pad = box === el ? -1 : 6;       // dentro de una caja dibujada se deja margen hasta el borde
+    if (r.right > b.right - pad || r.left < b.left - 2 || r.right > 1900) problems.push(`no cabe: "${el.textContent.slice(0, 40)}"`);
+  }
+  const zones = ["#crumbs", "#title", "#idea", "#panel", "#data"].map((s) => {
+    return { s, r: $(s).getBoundingClientRect() };
+  }).filter((z) => z.r.width > 0);
+  for (let i = 0; i < zones.length; i++) for (let j = i + 1; j < zones.length; j++) {
+    const a = zones[i].r, b = zones[j].r;
+    if (a.left < b.right - 1 && b.left < a.right - 1 && a.top < b.bottom - 1 && b.top < a.bottom - 1) problems.push(`se pisan: ${zones[i].s} y ${zones[j].s}`);
+  }
+  const what = $("#data .what").getBoundingClientRect(), when = $("#data .when").getBoundingClientRect();
+  if (when.width && what.right > when.left - 8) problems.push("no cabe: rótulo y fecha del dato comparativo");
+  if (vis($("#grid"))) for (const c of document.querySelectorAll(".card")) {
+    const n = c.querySelector(".name"), range = document.createRange(); range.selectNodeContents(n);
+    if (range.getBoundingClientRect().right > c.getBoundingClientRect().right - 8) problems.push(`no cabe en su tarjeta: "${n.textContent}"`);
+  }
+  const goals = [...document.querySelectorAll(".goal .name")].map((e) => e.getBoundingClientRect());
+  if (goals.some((g) => g.right > 1874)) problems.push("no cabe: un hito del panel derecho");
+  return problems;
+};
+window.STAGE = STAGE;
+</script>
+</body>
+</html>
