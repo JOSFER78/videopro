@@ -103,7 +103,7 @@ def main(argv):
     for parte in guion["partes"]:
         for frase in parte["frases"]:
             v = frase.get("visual") or {}
-            if v.get("tipo") != "archivo" or not v.get("busqueda"):
+            if v.get("tipo") != "archivo" or not v.get("busqueda") or v.get("descartada"):
                 continue
             n += 1
             if v.get("archivo") and (RAIZ / "templates" / "atlas" / v["archivo"]).exists():

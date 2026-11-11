@@ -333,6 +333,8 @@ window.checkLayout = () => {
     const limit = sel === "#index .take" ? $("#rows").getBoundingClientRect().top - 10 : box.bottom - 10;
     if (r.bottom > limit) problems.push(`no cabe en alto: "${el.textContent.slice(0, 40)}"`);
   }
+  const cmp = $("#datum .cmp"), unit = $("#datum .u");
+  if (vis(cmp) && cmp.textContent && cmp.getBoundingClientRect().top < unit.getBoundingClientRect().bottom + 6) problems.push("no cabe: la comparación del dato pisa la unidad");
   const tls = [...document.querySelectorAll(".tl")].map((e) => e.getBoundingClientRect());
   for (let i = 1; i < tls.length; i++) {
     const a = document.querySelectorAll(".tl")[i - 1], b = document.querySelectorAll(".tl")[i];

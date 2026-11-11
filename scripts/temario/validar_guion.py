@@ -87,6 +87,8 @@ def validar(guion, temario):
                 d = f["dato"]
                 if not d.get("rotulo") or not str(d.get("valor", "")):
                     p.append(f"{aqui}: dato sin rótulo o valor")
+                if palabras(d.get("comparacion", "")) > 10 or palabras(str(d.get("unidad", ""))) > 4:
+                    p.append(f"{aqui}: la comparación del dato pasa de 10 palabras o la unidad de 4 (no caben en la tarjeta)")
                 if palabras(d.get("rotulo", "")) > 4:
                     p.append(f"{aqui}: rótulo del dato de más de 4 palabras")
                 if not any(x.get("pausa") for x in frases[: j + 1]):

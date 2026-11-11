@@ -59,7 +59,8 @@ def construir(guion, marcas, temario):
         raise GuionError(f"{guion['codigo']} no está en el temario")
     con_cero = codigos[0].endswith("E00")
     episodios = [{
-        "title": e["titulo"], "when": (e.get("cuando") or {}).get("texto", ""),
+        # en el índice de pantalla va el título corto («Nuestro origen»), sin el subtítulo de después de los dos puntos
+        "title": e.get("titulo_corto") or e["titulo"].split(":")[0].strip(), "when": (e.get("cuando") or {}).get("texto", ""),
         "yearsAgo": (e.get("cuando") or {}).get("anios_atras") or None,
         "n": f"{i if con_cero else i + 1:02d}",
     } for i, e in enumerate(temporada["episodios"])]

@@ -1,0 +1,401 @@
+{
+  "duration": 361.13,
+  "channel": "Temario",
+  "series": "Historia de la humanidad",
+  "season": "Temporada 1 · De dónde venimos",
+  "episode": 2,
+  "episodes": [
+    {
+      "title": "El mapa",
+      "when": "de hace 300.000 años a hoy",
+      "yearsAgo": 300000,
+      "n": "00"
+    },
+    {
+      "title": "Nuestro origen",
+      "when": "hace unos 300.000 años",
+      "yearsAgo": 300000,
+      "n": "01"
+    },
+    {
+      "title": "Salimos de África",
+      "when": "hace unos 50.000 años",
+      "yearsAgo": 50000,
+      "n": "02"
+    },
+    {
+      "title": "Arte y símbolos",
+      "when": "hace unos 73.000 años",
+      "yearsAgo": 73000,
+      "n": "03"
+    },
+    {
+      "title": "La agricultura",
+      "when": "hace unos 11.000 años",
+      "yearsAgo": 11000,
+      "n": "04"
+    },
+    {
+      "title": "Ciudades y escritura",
+      "when": "hacia 3200 a. C.",
+      "yearsAgo": 5226,
+      "n": "05"
+    },
+    {
+      "title": "Imperios",
+      "when": "hacia 520 a. C.",
+      "yearsAgo": 2546,
+      "n": "06"
+    },
+    {
+      "title": "El mundo se conecta",
+      "when": "1492",
+      "yearsAgo": 534,
+      "n": "07"
+    },
+    {
+      "title": "Ciencia e industria",
+      "when": "1795",
+      "yearsAgo": 231,
+      "n": "08"
+    },
+    {
+      "title": "El mundo de hoy",
+      "when": "1968 – hoy",
+      "yearsAgo": 58,
+      "n": "09"
+    }
+  ],
+  "parts": [
+    {
+      "label": "Una colina",
+      "at": 0,
+      "title": "Huesos sin fecha",
+      "idea": "Jebel Irhoud, Marruecos"
+    },
+    {
+      "label": "Cara y cerebro",
+      "at": 117.67,
+      "title": "Mira de frente, luego de lado",
+      "idea": "Irhoud 1 e Irhoud 10"
+    },
+    {
+      "label": "Toda África",
+      "at": 204.68,
+      "title": "Más de una cuna",
+      "idea": "Tres puntos en el mapa"
+    },
+    {
+      "label": "Repaso",
+      "at": 292.42,
+      "title": "Tres preguntas",
+      "idea": "Nos hicimos poco a poco"
+    }
+  ],
+  "visuals": [
+    {
+      "at": 0.7,
+      "src": "media/T1-E01/01_proto_cuneiform_tablet_metropolitan_muse.jpg",
+      "credit": "Tablilla protocuneiforme, Met Museum · Foto: Wikimedia Commons · CC0"
+    },
+    {
+      "at": 7.45,
+      "src": "media/T1-E01/02_irhoud_1_skull.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 20.43,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
+      "focus": [
+        38,
+        22
+      ]
+    },
+    {
+      "at": 28.54,
+      "src": "media/T1-E01/03_jebel_irhoud.jpg",
+      "credit": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 54.41,
+      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
+    },
+    {
+      "at": 66.15,
+      "src": "media/excavacion_irhoud.jpg",
+      "credit": "Jean-Jacques Hublin en Jebel Irhoud · Foto: Shannon McPherron, MPI EVA Leipzig · CC BY-SA 2.0",
+      "focus": [
+        55,
+        45
+      ]
+    },
+    {
+      "at": 105.09,
+      "src": "media/T1-E01/03_jebel_irhoud.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 112.64,
+      "src": "media/excavacion_irhoud.jpg",
+      "credit": "Yacimiento de Jebel Irhoud · Foto: Shannon McPherron, MPI EVA Leipzig · CC BY-SA 2.0",
+      "focus": [
+        35,
+        55
+      ]
+    },
+    {
+      "at": 117.67,
+      "src": "media/T1-E01/03_jebel_irhoud.jpg",
+      "credit": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 132.8,
+      "src": "media/T1-E01/13_jemaa_el_fnaa_crowd.jpg",
+      "credit": "Plaza Jemaa el-Fna, Marrakech · Foto: Andrzej Kosiński · CC BY-SA 3.0"
+    },
+    {
+      "at": 138.47,
+      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+      "credit": "Cráneo Irhoud 1, de lado · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
+    },
+    {
+      "at": 156.4,
+      "src": "media/T1-E01/16_jebel_irhoud_endocast.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 204.68,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África · Foto: Bamse · CC BY-SA 3.0"
+    },
+    {
+      "at": 222.41,
+      "src": "media/omo_kibish.jpg",
+      "credit": "Cráneo de Omo Kibish (réplica) · Foto: GuillaumeG · CC BY-SA 4.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 229.12,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África · Foto: Bamse · CC BY-SA 3.0"
+    },
+    {
+      "at": 262.67,
+      "src": "media/T1-E01/25_gazella_cuvieri.jpg",
+      "credit": "Gacela de Cuvier · Foto: Mourad Harzallah · CC BY 4.0"
+    },
+    {
+      "at": 275.33,
+      "src": "media/T1-E01/29_jebel_irhoud_composite_reconstruction.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 292.42,
+      "src": "media/T1-E01/02_irhoud_1_skull.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 297.57,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
+      "focus": [
+        38,
+        22
+      ]
+    },
+    {
+      "at": 306.79,
+      "src": "media/T1-E01/03_jebel_irhoud.jpg",
+      "credit": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+      "focus": [
+        50,
+        40
+      ]
+    },
+    {
+      "at": 321.72,
+      "src": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+      "credit": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0"
+    },
+    {
+      "at": 330.34,
+      "src": "media/T1-E01/21_africa_topographic_map.jpg",
+      "credit": "África · Foto: Bamse · CC BY-SA 3.0"
+    },
+    {
+      "at": 342.04,
+      "src": "media/T1-E01/32_sinai_peninsula_from_space.jpg",
+      "credit": "El Nilo y el Sinaí desde la Estación Espacial · Foto: Expedition 35 Crew Image courtesy of the NAS · Public domain"
+    }
+  ],
+  "map": {
+    "bounds": [
+      -20,
+      -36,
+      50,
+      38
+    ],
+    "places": [
+      {
+        "at": 21.23,
+        "name": "Jebel Irhoud",
+        "where": "Marruecos",
+        "lon": -8.8725,
+        "lat": 31.855
+      },
+      {
+        "at": 223.21,
+        "name": "Omo Kibish",
+        "where": "Etiopía",
+        "lon": 35.967,
+        "lat": 4.8
+      },
+      {
+        "at": 237.75,
+        "name": "Florisbad",
+        "where": "Sudáfrica",
+        "lon": 26.067,
+        "lat": -28.767
+      }
+    ]
+  },
+  "data": [
+    {
+      "at": 106.39,
+      "label": "Origen adelantado",
+      "value": "100.000",
+      "unit": "años más antiguo",
+      "compare": "Récord anterior: <b>195.000 años</b>"
+    }
+  ],
+  "asks": [
+    {
+      "at": 102.59,
+      "hold": 2.7,
+      "kicker": "Pausa y piensa",
+      "text": "¿Cuánto más antiguos crees que eran estos huesos que el récord anterior: diez mil años, cincuenta mil o cien mil?"
+    }
+  ],
+  "learned": [
+    {
+      "at": 117.52,
+      "hold": 3.4,
+      "text": "Hace 300.000 años ya había Homo sapiens"
+    },
+    {
+      "at": 204.53,
+      "hold": 3.4,
+      "text": "La cara moderna llegó antes que el cerebro"
+    },
+    {
+      "at": 292.27,
+      "hold": 3.4,
+      "text": "Nuestra cuna fue toda África"
+    }
+  ],
+  "peek": [],
+  "axis": {
+    "from": 300000,
+    "to": 10,
+    "title": "Eje cronológico",
+    "note": "años atrás · escala logarítmica",
+    "ticks": [
+      {
+        "yearsAgo": 300000,
+        "label": "300.000"
+      },
+      {
+        "yearsAgo": 100000,
+        "label": "100.000"
+      },
+      {
+        "yearsAgo": 30000,
+        "label": "30.000"
+      },
+      {
+        "yearsAgo": 10000,
+        "label": "10.000"
+      },
+      {
+        "yearsAgo": 3000,
+        "label": "3.000"
+      },
+      {
+        "yearsAgo": 1000,
+        "label": "1.000"
+      },
+      {
+        "yearsAgo": 300,
+        "label": "300"
+      },
+      {
+        "yearsAgo": 100,
+        "label": "100"
+      },
+      {
+        "yearsAgo": 30,
+        "label": "30"
+      },
+      {
+        "yearsAgo": 10,
+        "label": "hoy"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "at": 0,
+      "yearsAgo": 10
+    },
+    {
+      "at": 21.53,
+      "yearsAgo": 65,
+      "travel": 1.8
+    },
+    {
+      "at": 106.19,
+      "yearsAgo": 300000,
+      "travel": 1.8
+    },
+    {
+      "at": 223.51,
+      "yearsAgo": 195000,
+      "travel": 1.8
+    },
+    {
+      "at": 238.05,
+      "yearsAgo": 260000,
+      "travel": 1.8
+    }
+  ],
+  "index": {
+    "at": 292.72,
+    "kicker": "Quédate con esto",
+    "takeaway": "Hace 300.000 años ya teníamos nuestra cara, no nuestro cerebro: nos fuimos haciendo, en toda África."
+  },
+  "thumb": {
+    "antetitulo": "La primera cara como la tuya",
+    "gancho": [
+      "Tu cara",
+      "300.000 años"
+    ],
+    "que_se_ve": "cráneo Irhoud 1 de frente, sobre fondo oscuro (foto real del Museo Arqueológico de Rabat)"
+  }
+}

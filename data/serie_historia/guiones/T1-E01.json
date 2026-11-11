@@ -24,14 +24,9 @@
             "que_se_ve": "tablilla protocuneiforme del Metropolitan Museum, vista en el episodio cero",
             "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1",
             "archivo": "media/T1-E01/01_proto_cuneiform_tablet_metropolitan_muse.jpg",
-            "credito": "tablilla protocuneiforme del Metropolitan Muse · Foto: Wikimedia Commons · CC0",
-            "licencia": "CC0",
+            "credito": "Tablilla protocuneiforme, Met Museum · Foto: Wikimedia Commons · CC0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293251.jpg",
-              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293245.jpg",
-              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_vs1988.433.1xx.jpg"
-            ]
+            "licencia": "CC0"
           }
         },
         {
@@ -41,14 +36,9 @@
             "que_se_ve": "cráneo Irhoud 1 en el Museo Arqueológico de Rabat",
             "busqueda": "Irhoud 1 skull",
             "archivo": "media/T1-E01/02_irhoud_1_skull.jpg",
-            "credito": "cráneo Irhoud 1 en el Museo Arqueológico de Ra · Foto: Jonathan Chen · CC BY-SA 4.0",
-            "licencia": "CC BY-SA 4.0",
+            "credito": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
-              "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1-Homo_Sapiens.jpg",
-              "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg"
-            ]
+            "licencia": "CC BY-SA 4.0"
           }
         },
         {
@@ -59,7 +49,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "colina y cantera de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud"
+            "busqueda": "Jebel Irhoud",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
+            "licencia": "CC BY-SA 3.0",
+            "focus": [
+              38,
+              22
+            ]
           },
           "pronunciacion": "Marruecos, mil novecientos sesenta y uno. Unos mineros excavan una colina llamada Yébel Irjud. Buscan barita, un mineral.",
           "lugar": {
@@ -75,7 +73,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Irhoud 1, vista frontal",
-            "busqueda": "Irhoud 1 cranium"
+            "busqueda": "Irhoud 1 cranium",
+            "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+            "credito": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              50,
+              40
+            ]
           },
           "emocion": 0.7
         },
@@ -91,7 +97,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo neandertal de La Ferrassie 1",
-            "busqueda": "La Ferrassie 1 skull"
+            "busqueda": "La Ferrassie 1 skull",
+            "descartada": true
           }
         },
         {
@@ -99,7 +106,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mandíbula juvenil Irhoud 3",
-            "busqueda": "Irhoud 3 mandible"
+            "busqueda": "Irhoud 3 mandible",
+            "descartada": true
           }
         },
         {
@@ -107,7 +115,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "yacimiento de Jebel Irhoud en excavación",
-            "busqueda": "Jebel Irhoud excavation"
+            "busqueda": "Jebel Irhoud excavation",
+            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg",
+            "licencia": "CC BY-SA 2.0"
           }
         },
         {
@@ -115,14 +127,27 @@
         },
         {
           "texto": "En dos mil cuatro vuelve un equipo marroquí y alemán, dirigido por Abdelouahed Ben-Ncer y Jean-Jacques Hublin.",
-          "pronunciacion": "En dos mil cuatro vuelve un equipo marroquí y alemán, dirigido por Abdeluajed Ben Nser y Yan Yak Ublán."
+          "pronunciacion": "En dos mil cuatro vuelve un equipo marroquí y alemán. Lo dirigen Abdeluajed Ben Nser y Yan Yak Ublán.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "Jean-Jacques Hublin señalando los restos en Jebel Irhoud",
+            "archivo": "media/excavacion_irhoud.jpg",
+            "credito": "Jean-Jacques Hublin en Jebel Irhoud · Foto: Shannon McPherron, MPI EVA Leipzig · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Hublin_at_Jebel_Irhoud.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              55,
+              45
+            ]
+          }
         },
         {
           "texto": "Encuentran más huesos, de al menos cinco personas. Y junto a ellos, algo mejor para fechar: sílex quemados.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sílex quemados de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud heated flint artefacts"
+            "busqueda": "Jebel Irhoud heated flint artefacts",
+            "descartada": true
           }
         },
         {
@@ -146,7 +171,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "número de la revista Nature del 8 de junio de 2017",
-            "busqueda": "Nature journal 8 June 2017 issue 546"
+            "busqueda": "Nature journal 8 June 2017 issue 546",
+            "descartada": true
           },
           "pronunciacion": "Los resultados se publican en dos mil diecisiete, en la revista Néichur."
         },
@@ -156,19 +182,22 @@
             "tipo": "archivo",
             "que_se_ve": "cráneo Irhoud 1, vista de tres cuartos",
             "busqueda": "Irhoud 1 skull Morocco",
-            "archivo": "media/T1-E01/10_irhoud_1_skull_morocco.jpg",
-            "credito": "cráneo Irhoud 1, vista de tres cuartos · Foto: Bioanthropologist1 · CC BY-SA 4.0",
-            "licencia": "CC BY-SA 4.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Modern_H._sapiens.jpg",
-            "alternativas": []
+            "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              50,
+              40
+            ]
           },
           "pronunciacion": "Cien mil años más antiguos. El récord anterior rondaba los ciento noventa y cinco mil. Irjud salta a unos trescientos mil.",
           "pausa": "¿Cuánto más antiguos crees que eran estos huesos que el récord anterior: diez mil años, cincuenta mil o cien mil?",
           "dato": {
             "rotulo": "Origen adelantado",
             "valor": "100.000",
-            "unidad": "años",
-            "comparacion": "Antes de Jebel Irhoud, los fósiles más antiguos de nuestra especie (Omo Kibish, Etiopía) tenían unos 195.000 años; Irhoud llevó el origen unos 100.000 años más atrás."
+            "unidad": "años más antiguo",
+            "comparacion": "Récord anterior: <b>195.000 años</b>"
           },
           "anios_atras": 300000,
           "emocion": 0.8
@@ -178,7 +207,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "colina de Jebel Irhoud, vista general",
-            "busqueda": "Jebel Irhoud hill Morocco"
+            "busqueda": "Jebel Irhoud hill Morocco",
+            "archivo": "media/excavacion_irhoud.jpg",
+            "credito": "Yacimiento de Jebel Irhoud · Foto: Shannon McPherron, MPI EVA Leipzig · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jean-Jacques_Hublin_at_Jebel_Irhoud.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              35,
+              55
+            ]
           },
           "aprendido": "Hace 300.000 años ya había Homo sapiens"
         }
@@ -194,7 +231,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "reconstrucción compuesta de Irhoud 1 e Irhoud 10, vista frontal",
-            "busqueda": "Jebel Irhoud composite reconstruction Hublin"
+            "busqueda": "Jebel Irhoud composite reconstruction Hublin",
+            "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+            "credito": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
@@ -211,10 +256,9 @@
             "que_se_ve": "plaza Jemaa el-Fna de Marrakech llena de gente",
             "busqueda": "Jemaa el-Fnaa crowd",
             "archivo": "media/T1-E01/13_jemaa_el_fnaa_crowd.jpg",
-            "credito": "plaza Jemaa el-Fna de Marrakech llena de gente · Foto: Andrzej Kosiński · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
+            "credito": "Plaza Jemaa el-Fna, Marrakech · Foto: Andrzej Kosiński · CC BY-SA 3.0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Jemaa_el-Fnaa_at_night_-_Maroco_-_Marrakesh.jpg",
-            "alternativas": []
+            "licencia": "CC BY-SA 3.0"
           }
         },
         {
@@ -222,7 +266,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "reconstrucción de Irhoud, vista lateral",
-            "busqueda": "Jebel Irhoud skull reconstruction lateral view"
+            "busqueda": "Jebel Irhoud skull reconstruction lateral view",
+            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+            "credito": "Cráneo Irhoud 1, de lado · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg",
+            "licencia": "CC BY-SA 2.0"
           }
         },
         {
@@ -233,7 +281,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "comparación de un cráneo humano actual y el cráneo de Irhoud de perfil",
-            "busqueda": "modern human skull Jebel Irhoud comparison"
+            "busqueda": "modern human skull Jebel Irhoud comparison",
+            "descartada": true
           }
         },
         {
@@ -241,7 +290,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "molde interno virtual del cráneo de Irhoud",
-            "busqueda": "Jebel Irhoud endocast"
+            "busqueda": "Jebel Irhoud endocast",
+            "archivo": "media/T1-E01/16_jebel_irhoud_endocast.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+            "licencia": "CC BY-SA 4.0"
           }
         },
         {
@@ -255,7 +308,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mandíbula Irhoud 11",
-            "busqueda": "Irhoud 11 mandible"
+            "busqueda": "Irhoud 11 mandible",
+            "descartada": true
           }
         },
         {
@@ -273,7 +327,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo humano actual de perfil",
-            "busqueda": "modern human skull lateral view"
+            "busqueda": "modern human skull lateral view",
+            "descartada": true
           },
           "aprendido": "La cara moderna llegó antes que el cerebro"
         }
@@ -289,7 +344,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa físico de África",
-            "busqueda": "Africa relief map"
+            "busqueda": "Africa relief map",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África · Foto: Bamse · CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
+            "licencia": "CC BY-SA 3.0"
           }
         },
         {
@@ -303,7 +362,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "valle del río Omo, en Etiopía",
-            "busqueda": "Omo River Ethiopia"
+            "busqueda": "Omo River Ethiopia",
+            "archivo": "media/omo_kibish.jpg",
+            "credito": "Cráneo de Omo Kibish (réplica) · Foto: GuillaumeG · CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Omo_Kibish_-_MCN_4152.jpg",
+            "licencia": "CC BY-SA 4.0",
+            "focus": [
+              50,
+              40
+            ]
           },
           "lugar": {
             "nombre": "Omo Kibish",
@@ -318,7 +385,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa físico de África",
-            "busqueda": "Africa topographic map"
+            "busqueda": "Africa topographic map",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África · Foto: Bamse · CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
+            "licencia": "CC BY-SA 3.0"
           }
         },
         {
@@ -326,7 +397,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo de Florisbad",
-            "busqueda": "Florisbad skull"
+            "busqueda": "Florisbad skull",
+            "descartada": true
           },
           "lugar": {
             "nombre": "Florisbad",
@@ -344,7 +416,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa físico de África",
-            "busqueda": "Africa relief map"
+            "busqueda": "Africa relief map",
+            "descartada": true
           }
         },
         {
@@ -352,7 +425,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "puntas Levallois de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud Levallois point"
+            "busqueda": "Jebel Irhoud Levallois point",
+            "descartada": true
           },
           "pronunciacion": "Hay más. Las herramientas de piedra de Irjud se parecen mucho a las de la misma época en el este y el sur de África."
         },
@@ -361,7 +435,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "gacela de Cuvier, una gacela norteafricana",
-            "busqueda": "Gazella cuvieri"
+            "busqueda": "Gazella cuvieri",
+            "archivo": "media/T1-E01/25_gazella_cuvieri.jpg",
+            "credito": "Gacela de Cuvier · Foto: Mourad Harzallah · CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Gazella_cuvieri_254446886.jpg",
+            "licencia": "CC BY 4.0"
           }
         },
         {
@@ -372,7 +450,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "puntas Levallois de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud stone tools"
+            "busqueda": "Jebel Irhoud stone tools",
+            "archivo": "media/T1-E01/29_jebel_irhoud_composite_reconstruction.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+            "licencia": "CC BY-SA 4.0"
           },
           "pronunciacion": "Ben Nser lo resume así: el norte de África llevaba mucho tiempo olvidado en este debate. Y ahora está en el centro."
         },
@@ -401,7 +483,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Irhoud 1",
-            "busqueda": "Irhoud 1 skull"
+            "busqueda": "Irhoud 1 skull",
+            "archivo": "media/T1-E01/02_irhoud_1_skull.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Jonathan Chen · CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+            "licencia": "CC BY-SA 4.0"
           }
         },
         {
@@ -409,7 +495,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "colina de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud"
+            "busqueda": "Jebel Irhoud",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África: Marruecos, al noroeste · Foto: Bamse · CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
+            "licencia": "CC BY-SA 3.0",
+            "focus": [
+              38,
+              22
+            ]
           },
           "pronunciacion": "Primera. ¿En qué país está la colina de Yébel Irjud?"
         },
@@ -421,7 +515,15 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "reconstrucción compuesta de Irhoud 1 e Irhoud 10",
-            "busqueda": "Jebel Irhoud composite reconstruction"
+            "busqueda": "Jebel Irhoud composite reconstruction",
+            "archivo": "media/T1-E01/03_jebel_irhoud.jpg",
+            "credito": "Cráneo Irhoud 1, de frente · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+            "licencia": "CC BY-SA 2.0",
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
@@ -435,7 +537,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sílex quemados de Jebel Irhoud",
-            "busqueda": "Jebel Irhoud heated flint"
+            "busqueda": "Jebel Irhoud heated flint",
+            "archivo": "media/T1-E01/14_jebel_irhoud_skull_reconstruction_latera.jpg",
+            "credito": "Cráneo Irhoud 1 · Foto: Ryan Somma from Occoquan, USA · CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg",
+            "licencia": "CC BY-SA 2.0"
           },
           "pronunciacion": "Tercera. ¿Cuántos años adelantó Irjud el origen de nuestra especie?"
         },
@@ -447,7 +553,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa físico de África",
-            "busqueda": "Africa relief map"
+            "busqueda": "Africa relief map",
+            "archivo": "media/T1-E01/21_africa_topographic_map.jpg",
+            "credito": "África · Foto: Bamse · CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Africa_topography_map_with_borders.png",
+            "licencia": "CC BY-SA 3.0"
           }
         },
         {
@@ -458,7 +568,11 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "península del Sinaí vista desde el espacio",
-            "busqueda": "Sinai Peninsula from space"
+            "busqueda": "Sinai Peninsula from space",
+            "archivo": "media/T1-E01/32_sinai_peninsula_from_space.jpg",
+            "credito": "El Nilo y el Sinaí desde la Estación Espacial · Foto: Expedition 35 Crew Image courtesy of the NAS · Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:ISS035-E-007148_Nile_-_Sinai_-_Dead_Sea_-_Wide_Angle_View.jpg",
+            "licencia": "Public domain"
           }
         },
         {
@@ -466,7 +580,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "entrada de la cueva de Manot",
-            "busqueda": "Manot Cave"
+            "busqueda": "Manot Cave",
+            "descartada": true
           }
         }
       ]
@@ -521,5 +636,14 @@
       "afirmacion": "Coordenadas de los restos de Omo (Etiopía): 4°48′N 35°58′E; unos 195.000 años.",
       "url": "https://en.wikipedia.org/wiki/Omo_remains"
     }
-  ]
+  ],
+  "youtube": {
+    "titulos": [
+      "El cráneo que adelantó 100.000 años nuestro origen",
+      "Hace 300.000 años ya teníamos tu cara (pero no tu cerebro)",
+      "No nacimos en un solo lugar: lo que cuenta Jebel Irhoud"
+    ],
+    "descripcion": "En 1961, unos mineros encontraron un cráneo en una colina de Marruecos. Durante décadas nadie supo su edad. Cuando por fin se fechó, cambió la historia de nuestra especie: tenía unos 300.000 años, la cara ya era como la nuestra y el cerebro todavía no.\n\nEpisodio 1 de «Historia de la humanidad». Una idea por episodio, siempre con dónde y cuándo en pantalla, y un repaso al final.",
+    "comentario": "Antes de ver la respuesta: ¿cuánto más antiguos crees que eran estos huesos que el récord anterior, diez mil, cincuenta mil o cien mil años? Cuéntame qué pensaste."
+  }
 }

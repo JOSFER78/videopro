@@ -46,7 +46,7 @@ tiempos. Se valida con `python3 scripts/temario/validar_guion.py <archivo>`.
 | `visual` | Qué se ve mientras se dice. `tipo`: `archivo` (foto o vídeo real: da `busqueda`), `flow` (recreación: da `prompt_flow` en inglés) o se omite para mantener la imagen anterior. Siempre `que_se_ve`. |
 | `lugar` | Si la frase nombra un sitio nuevo: aparece en el minimapa. |
 | `anios_atras` | Si la frase sitúa un momento: la aguja del eje viaja allí. |
-| `dato` | `{rotulo, valor, unidad, comparacion}`. El único número grande de la parte. |
+| `dato` | `{rotulo, valor, unidad, comparacion}`. El único número grande de la parte. `rotulo` ≤ 4 palabras, `unidad` ≤ 4 y `comparacion` ≤ 10: es una tarjeta pequeña. |
 | `pausa` | Pregunta que se muestra en un silencio **antes** de esta frase. La frase da la respuesta. |
 | `aprendido` | 3–8 palabras que quedan en la tarjeta «Aprendido» al acabar la frase. |
 
