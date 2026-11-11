@@ -26,7 +26,7 @@ UA = {"User-Agent": "videopro-media-search/1.0 (educational history series; gith
 PAUSA = 4.0
 
 
-def pedir(url, binario=False, intentos=6):
+def pedir(url, binario=False, intentos=4):
     for i in range(intentos):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
@@ -95,7 +95,11 @@ def main(argv):
     guion = json.load(open(ruta, encoding="utf-8"))
     carpeta = MEDIA / guion["codigo"]
     carpeta.mkdir(parents=True, exist_ok=True)
-    vistos, sin_imagen, n = {}, [], 0
+    vistos, sin_imagen, n, usadas = {}, [], 0, set()
+    for parte in guion["partes"]:
+        for frase in parte["frases"]:
+            if (frase.get("visual") or {}).get("pagina"):
+                usadas.add(frase["visual"]["pagina"])
     for parte in guion["partes"]:
         for frase in parte["frases"]:
             v = frase.get("visual") or {}
@@ -108,7 +112,17 @@ def main(argv):
             if clave in vistos:                      # misma búsqueda: misma imagen
                 v.update(vistos[clave])
                 continue
-            lista = candidatos(v["busqueda"], cuantos)
+            # si la búsqueda exacta no da nada, se prueba con menos palabras (el nombre propio va delante)
+            palabras_busqueda = v["busqueda"].split()
+            lista = None
+            for corte in sorted({len(palabras_busqueda), min(3, len(palabras_busqueda)), min(2, len(palabras_busqueda))}, reverse=True):
+                lista = candidatos(" ".join(palabras_busqueda[:corte]), max(cuantos, 8))
+                if lista:
+                    break
+            # no repetir la misma foto en frases distintas del episodio mientras haya otra
+            if lista:
+                nuevas = [c for c in lista if c["pagina"] not in usadas]
+                lista = nuevas or lista
             if lista is None:
                 sin_imagen.append((n, v["busqueda"], "Commons no responde"))
                 continue
@@ -136,6 +150,7 @@ def main(argv):
             }
             v.update(asignado)
             vistos[clave] = asignado
+            usadas.add(elegido["pagina"])
             print(f"{n:02d}  {elegido['licencia']:14} {elegido['titulo'][:64]}", flush=True)
             json.dump(guion, open(ruta, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     if not solo_buscar:

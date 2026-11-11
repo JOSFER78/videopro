@@ -111,7 +111,7 @@
           "texto": "Es como leer la fecha en la capa de polvo que cubre un objeto olvidado."
         },
         {
-          "texto": "Resultado: unos cincuenta y cinco mil años. Justo cuando nuestros antepasados cruzaban esa puerta.",
+          "texto": "Resultado: unos cincuenta y cinco mil años. Más o menos cuando nuestros antepasados cruzaban esa puerta.",
           "anios_atras": 55000,
           "emocion": 0.7
         },
@@ -131,7 +131,7 @@
             "busqueda": "Map of early human migrations"
           },
           "anios_atras": 50000,
-          "aprendido": "Salimos de África hace unos 50.000 años"
+          "aprendido": "Los no africanos descienden de esa salida"
         }
       ]
     },
@@ -194,8 +194,8 @@
           "texto": "Los genetistas aprendieron a leer el ADN de huesos neandertales y lo compararon con el nuestro.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "hueso neandertal muestreado para ADN antiguo",
-            "busqueda": "Neanderthal bone DNA sampling"
+            "que_se_ve": "Svante Pääbo, que dirigió la lectura del genoma neandertal",
+            "busqueda": "Svante Pääbo"
           }
         },
         {
@@ -205,8 +205,8 @@
           "texto": "Y encontraron trozos de ADN neandertal en personas vivas. Sapiens y neandertales tuvieron hijos juntos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "modelo de doble hélice de ADN",
-            "busqueda": "DNA double helix model"
+            "que_se_ve": "portada de Science de mayo de 2010, con el primer borrador del genoma neandertal",
+            "busqueda": "Science 2010 Neandertal genome cover"
           },
           "emocion": 0.8
         },
@@ -214,8 +214,8 @@
           "texto": "En dos mil veinticuatro, dos estudios de ADN antiguo, en las revistas Nature y Science, le pusieron fecha a esa mezcla.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "revistas Nature y Science de diciembre de 2024",
-            "busqueda": "Nature Science journals December 2024"
+            "que_se_ve": "cráneo de Zlatý kůň (Chequia), uno de los genomas antiguos de los estudios de 2024",
+            "busqueda": "Zlatý kůň skull"
           },
           "pronunciacion": "En dos mil veinticuatro, dos estudios de ADN antiguo, en las revistas Néichur y Sáiens, le pusieron fecha a esa mezcla."
         },
@@ -234,7 +234,7 @@
           "texto": "Esos hijos tuvieron a su vez hijos. Y así, generación tras generación, hasta casi todos nosotros."
         },
         {
-          "texto": "Manot uno vivió justo antes de esa época, en una región donde los neandertales estaban cerca.",
+          "texto": "Manot uno vivió poco antes de esa época, en una región donde los neandertales estaban cerca.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1",
@@ -301,8 +301,8 @@
           "texto": "Queda. Si tienes antepasados fuera de África, llevas ADN neandertal. De media, en la humanidad actual, alrededor de un dos por ciento.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "modelo de doble hélice de ADN",
-            "busqueda": "DNA double helix model"
+            "que_se_ve": "cromosomas humanos al microscopio (cariotipo)",
+            "busqueda": "human karyotype"
           },
           "pausa": "Los neandertales se extinguieron hace decenas de miles de años. ¿Crees que queda algo de ellos dentro de ti?",
           "dato": {
@@ -320,12 +320,7 @@
           "texto": "Puede parecer poco. Pero tu ADN tiene miles de millones de letras, y un dos por ciento son millones."
         },
         {
-          "texto": "Vienen repartidas en trocitos por todo el genoma. Pequeñas, pero están ahí.",
-          "visual": {
-            "tipo": "archivo",
-            "que_se_ve": "cromosomas humanos al microscopio (cariotipo)",
-            "busqueda": "human karyotype"
-          }
+          "texto": "Vienen repartidas en trocitos por todo el genoma. Pequeñas, pero están ahí."
         },
         {
           "texto": "Los neandertales desaparecieron. Y aun así, algo de ellos sigue caminando por la calle, dentro de miles de millones de personas.",
@@ -342,7 +337,7 @@
             "que_se_ve": "multitud en la Puerta del Sol de Madrid",
             "busqueda": "Puerta del Sol Madrid crowd"
           },
-          "aprendido": "Llevamos un 2 % de ADN neandertal"
+          "aprendido": "Llevamos de media un 2 % neandertal"
         }
       ]
     },
@@ -396,8 +391,8 @@
           "texto": "Tercera. ¿Qué parte de nuestro ADN es neandertal, de media?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "modelo de doble hélice de ADN",
-            "busqueda": "DNA double helix model"
+            "que_se_ve": "cromosomas humanos al microscopio (cariotipo)",
+            "busqueda": "human karyotype"
           }
         },
         {
@@ -494,6 +489,10 @@
     {
       "afirmacion": "Cueva de Amud (Alta Galilea, Israel), 32°52′20″N 35°30′06″E: el neandertal Amud 1, fechado por termoluminiscencia en unos 50.000–60.000 años.",
       "url": "https://en.wikipedia.org/wiki/Amud_Cave"
+    },
+    {
+      "afirmacion": "Israel Hershkovitz, de la Universidad de Tel Aviv, dirigió el estudio antropológico del cráneo; el cráneo tiene unos 55.000 años, «cerca en el tiempo» del probable cruce con neandertales.",
+      "url": "https://www.eurekalert.org/news-releases/828013"
     }
   ]
 }

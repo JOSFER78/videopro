@@ -22,7 +22,16 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla protocuneiforme del Metropolitan Museum, vista en el episodio cero",
-            "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1"
+            "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1",
+            "archivo": "media/T1-E01/01_proto_cuneiform_tablet_metropolitan_muse.jpg",
+            "credito": "tablilla protocuneiforme del Metropolitan Muse · Foto: Wikimedia Commons · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293251.jpg",
+              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293245.jpg",
+              "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_vs1988.433.1xx.jpg"
+            ]
           }
         },
         {
@@ -30,7 +39,16 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Irhoud 1 en el Museo Arqueológico de Rabat",
-            "busqueda": "Irhoud 1 skull"
+            "busqueda": "Irhoud 1 skull",
+            "archivo": "media/T1-E01/02_irhoud_1_skull.jpg",
+            "credito": "cráneo Irhoud 1 en el Museo Arqueológico de Ra · Foto: Jonathan Chen · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud-1_NMNH.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1._Homo_Sapiens.jpg",
+              "https://commons.wikimedia.org/wiki/File:Jebel_Irhoud_1-Homo_Sapiens.jpg",
+              "https://commons.wikimedia.org/wiki/File:Homo_Sapiens_160,000_Years_Old_(4697753017).jpg"
+            ]
           }
         },
         {
@@ -137,7 +155,12 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Irhoud 1, vista de tres cuartos",
-            "busqueda": "Irhoud 1 skull Morocco"
+            "busqueda": "Irhoud 1 skull Morocco",
+            "archivo": "media/T1-E01/10_irhoud_1_skull_morocco.jpg",
+            "credito": "cráneo Irhoud 1, vista de tres cuartos · Foto: Bioanthropologist1 · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Modern_H._sapiens.jpg",
+            "alternativas": []
           },
           "pronunciacion": "Cien mil años más antiguos. El récord anterior rondaba los ciento noventa y cinco mil. Irjud salta a unos trescientos mil.",
           "pausa": "¿Cuánto más antiguos crees que eran estos huesos que el récord anterior: diez mil años, cincuenta mil o cien mil?",
@@ -186,7 +209,12 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "plaza Jemaa el-Fna de Marrakech llena de gente",
-            "busqueda": "Jemaa el-Fnaa crowd"
+            "busqueda": "Jemaa el-Fnaa crowd",
+            "archivo": "media/T1-E01/13_jemaa_el_fnaa_crowd.jpg",
+            "credito": "plaza Jemaa el-Fna de Marrakech llena de gente · Foto: Andrzej Kosiński · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Jemaa_el-Fnaa_at_night_-_Maroco_-_Marrakesh.jpg",
+            "alternativas": []
           }
         },
         {

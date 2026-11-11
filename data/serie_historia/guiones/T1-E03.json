@@ -29,8 +29,8 @@
           "texto": "Alrededor de un dos por ciento. Hoy retrocedemos: lo que vas a ver es más de veinte mil años anterior a esa salida.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "modelo de doble hélice de ADN",
-            "busqueda": "DNA double helix model"
+            "que_se_ve": "mapa de las primeras migraciones fuera de África, visto en el episodio 2",
+            "busqueda": "Map of early human migrations"
           }
         },
         {
@@ -80,7 +80,7 @@
           "texto": "La miras y piensas: esto lo podría haber hecho un niño ayer, con un rotulador."
         },
         {
-          "texto": "Tres líneas cruzadas por otras seis: nueve rayas en total. Parece una almohadilla, el símbolo de tu teclado.",
+          "texto": "Tres líneas cruzadas por otras seis: nueve rayas en total. Recuerda a una rejilla, como la almohadilla de tu teclado.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
@@ -91,7 +91,7 @@
           "texto": "Las líneas se cortan de golpe en el borde. El dibujo seguía: era más grande, y quizá más complejo."
         },
         {
-          "texto": "Pero el nivel donde estaba tiene unos setenta y tres mil años.",
+          "texto": "Y el nivel donde estaba tiene unos setenta y tres mil años.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de silcreta L13 de Blombos, vista completa",
@@ -121,7 +121,7 @@
         },
         {
           "texto": "No copia nada que se vea en la naturaleza. Es un símbolo puro.",
-          "aprendido": "El dibujo más antiguo es abstracto"
+          "aprendido": "El dibujo más antiguo conocido es abstracto"
         }
       ]
     },
@@ -154,8 +154,8 @@
           "texto": "Primero, bajo el microscopio: ¿el rojo era parte de la piedra, o estaba encima?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "microscopio óptico de laboratorio",
-            "busqueda": "stereo microscope laboratory"
+            "que_se_ve": "líneas de ocre de la lasca de Blombos vistas al microscopio (publicación de 2018)",
+            "busqueda": "Blombos Cave drawing microscope Henshilwood 2018"
           }
         },
         {
@@ -219,7 +219,7 @@
           }
         },
         {
-          "texto": "Y más de setenta cuentas de concha, algunas teñidas de ocre. Quienes vivían aquí repetían patrones y se adornaban.",
+          "texto": "Y cuentas de concha, algunas teñidas de ocre. Quienes vivían aquí repetían patrones y se adornaban.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cuentas de concha Nassarius de Blombos",
@@ -313,15 +313,15 @@
           "texto": "Pero sí sabemos algo: alguien quiso dejarlas ahí, y otros podían verlas."
         },
         {
-          "texto": "Pero el mecanismo es el mismo que usas tú cada día. Cuando lees un mensaje, entiendes una marca que dejó otra persona.",
+          "texto": "Y el mecanismo es el mismo que usas tú cada día. Cuando lees un mensaje, entiendes una marca que dejó otra persona."
+        },
+        {
+          "texto": "Las letras de un libro, las notas de una partitura, las cifras de una factura: marcas que guardan ideas fuera de la cabeza.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "partitura autógrafa de Bach",
             "busqueda": "Bach autograph manuscript"
           }
-        },
-        {
-          "texto": "Las letras de un libro, las notas de una partitura, las cifras de una factura: marcas que guardan ideas fuera de la cabeza."
         },
         {
           "texto": "La escritura llegará muchísimo después, como viste en el episodio cero. Pero su idea de fondo ya está en este garabato.",
@@ -390,7 +390,7 @@
           "texto": "Guarda un significado que otros pueden leer, incluso cuando su autor ya no está."
         },
         {
-          "texto": "Y recuerda: el dibujo más antiguo que conocemos no es un animal. Es una almohadilla roja."
+          "texto": "Y recuerda: el dibujo más antiguo que conocemos no es un animal. Es una rejilla de rayas rojas."
         },
         {
           "texto": "Quédate con esto: el símbolo es la tecnología que hará posibles el arte, la escritura y la ciencia.",
@@ -415,7 +415,7 @@
           }
         },
         {
-          "texto": "Lo hizo antes de saber sembrar. Lo veremos en el próximo episodio.",
+          "texto": "Y, por lo que sabemos, lo hizo antes de sembrar. Lo veremos en el próximo episodio.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "recinto D de Göbekli Tepe",

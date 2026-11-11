@@ -172,7 +172,7 @@
           }
         },
         {
-          "texto": "Detrás está la energía del episodio anterior. Primero el carbón, después el petróleo, moviendo tractores, fábricas, barcos y hospitales.",
+          "texto": "Detrás, en buena parte, está la energía del episodio anterior. Primero el carbón, después el petróleo, moviendo tractores, fábricas, barcos y hospitales.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "máquina Newcomen de Elsecar y su balancín",
@@ -208,7 +208,7 @@
           "texto": "Lo que ocurre en una ciudad lo sabes en la otra punta del mundo antes de terminarte el café."
         },
         {
-          "texto": "Ocho mil millones de personas, en un mismo planeta, a un clic unas de otras.",
+          "texto": "Ocho mil millones de personas en un mismo planeta, cada vez más conectadas.",
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
@@ -286,7 +286,7 @@
           }
         },
         {
-          "texto": "En mil cuatrocientos noventa y dos, las orillas del planeta volvieron a tocarse. Con el carbón, los viajes se volvieron rápidos.",
+          "texto": "En mil cuatrocientos noventa y dos, las orillas del planeta empezaron a unirse. Con el carbón, los viajes se volvieron rápidos.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
@@ -305,7 +305,7 @@
           "anios_atras": 58
         },
         {
-          "texto": "El veintisiete de diciembre, los tres volvieron a casa y cayeron en el mar, sanos y salvos.",
+          "texto": "El veintisiete de diciembre, los tres volvieron y amerizaron, sanos y salvos.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cápsula del Apolo 8 en el océano tras el amerizaje",
@@ -438,7 +438,7 @@
           }
         },
         {
-          "texto": "Y la empezamos donde empezó todo: junto a una hoguera, en una cueva de Israel, hace trescientos mil años.",
+          "texto": "Y la empezamos junto a una hoguera que se encendió una y otra vez en una cueva de Israel, hace unos trescientos mil años.",
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",

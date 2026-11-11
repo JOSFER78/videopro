@@ -69,13 +69,16 @@
           }
         },
         {
-          "texto": "En el año quinientos veintidós antes de Cristo, Darío derrocó a otro que ocupaba el trono, un tal Gaumata.",
+          "texto": "En el quinientos veintidós antes de Cristo, Darío derrocó al rey. Dijo que era un impostor, un tal Gaumata.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "figura tumbada bajo el pie de Darío, identificada con Gaumata",
             "busqueda": "Behistun relief Gaumata"
           },
           "anios_atras": 2548
+        },
+        {
+          "texto": "Muchos historiadores sospechan que esa historia la inventó el propio Darío, para justificarse."
         },
         {
           "texto": "Después vinieron las rebeliones. Pueblo tras pueblo se levantó contra él, y Darío tuvo que vencerlos uno a uno.",
@@ -167,7 +170,7 @@
           }
         },
         {
-          "texto": "Imagina que eres uno de ellos. Levantas la vista y ves al rey, enorme, mirándote desde la roca.",
+          "texto": "Imagina que eres uno de ellos. Levantas la vista y, muy arriba en la roca, ves al rey y a sus prisioneros.",
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: viajeros en el camino real miran hacia el relieve del acantilado",
@@ -177,7 +180,7 @@
           }
         },
         {
-          "texto": "Ni siquiera hace falta saber leer. La imagen ya lo dice todo."
+          "texto": "Ni siquiera hace falta saber leer. La imagen habla por sí sola."
         },
         {
           "texto": "Ahora mira el relieve de cerca. Mide unos cinco metros y medio de ancho.",
@@ -450,6 +453,10 @@
     {
       "afirmacion": "Nuevo: Ecbatana, capital del reino medo, se identifica con la actual Hamadán; coordenadas 34°48′23″N 48°30′58″E.",
       "url": "https://en.wikipedia.org/wiki/Ecbatana"
+    },
+    {
+      "afirmacion": "La mayoría de los historiadores modernos no considera convincente la versión de Darío y suponen que la suplantación por un mago fue una invención para justificar que se hizo con el trono.",
+      "url": "https://en.wikipedia.org/wiki/Gaumata"
     }
   ]
 }

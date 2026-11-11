@@ -78,7 +78,7 @@
           }
         },
         {
-          "texto": "En otros pilares hay zorros, serpientes, leones y escorpiones. Animales que dan miedo, no animales para comer.",
+          "texto": "En otros pilares hay zorros, serpientes, leones y escorpiones. Sobre todo animales peligrosos, no las presas que comían.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
@@ -218,7 +218,7 @@
           }
         },
         {
-          "texto": "Y hay un detalle curioso. Las gacelas solo pasaban por esta zona en ciertas épocas del año.",
+          "texto": "Y hay una pista. Según varios estudios, la caza de gacelas se concentraba en ciertas épocas del año.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "manada de gacelas persas en la estepa",
@@ -292,7 +292,7 @@
           }
         },
         {
-          "texto": "Allí apareció uno de los trigos domesticados más antiguos que se conocen, de hace unos diez mil quinientos años.",
+          "texto": "En una aldea de esa zona, los genetistas sitúan uno de los trigos domesticados más antiguos, de hace unos diez mil quinientos años.",
           "emocion": 0.75,
           "visual": {
             "tipo": "archivo",
@@ -344,7 +344,7 @@
           }
         },
         {
-          "texto": "Tiene lógica. Si mucha gente quiere quedarse junta en un sitio, el grano silvestre no alcanza.",
+          "texto": "Muchos investigadores lo ven así: si mucha gente quiere quedarse junta en un sitio, el grano silvestre no alcanza.",
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: recolectores siegan trigo silvestre junto a la colina",
@@ -352,10 +352,10 @@
           }
         },
         {
-          "texto": "Así que alguien empieza a guardar semillas y a plantarlas cerca. Quedarse lleva a sembrar."
+          "texto": "Alguien empieza a guardar semillas y a plantarlas cerca. Quedarse lleva a sembrar."
         },
         {
-          "texto": "En la propia colina han aparecido muchas piedras de moler. Allí se molía grano en grandes cantidades.",
+          "texto": "En la propia colina han aparecido miles de piedras de moler. Allí se molía cereal en grandes cantidades.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "piedras de moler neolíticas halladas en Göbekli Tepe",
@@ -363,7 +363,7 @@
           }
         },
         {
-          "texto": "Lo que aún no sabemos es si aquel grano era silvestre o ya sembrado."
+          "texto": "Por lo que sabemos, era cereal silvestre. Allí todavía no se sembraba."
         },
         {
           "texto": "Y sembrar lo cambia todo. Más comida en el mismo sitio significa más gente.",
@@ -479,7 +479,7 @@
           }
         },
         {
-          "texto": "En el próximo episodio llegas a Uruk, la primera gran ciudad, donde la escritura nació para contar cebada.",
+          "texto": "En el próximo episodio llegas a Uruk, una de las primeras grandes ciudades, donde la escritura nació para contar cebada.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla protocuneiforme del Met con impresiones de sello",
@@ -522,6 +522,18 @@
     {
       "afirmacion": "Población mundial estimada: unos 4,5 millones en el 10.000 a. C. y unos 8.092 millones en 2023 (HYDE/UN WPP, Our World in Data); cociente ≈ 1.800.",
       "url": "https://ourworldindata.org/grapher/population"
+    },
+    {
+      "afirmacion": "Ian Hodder: los pilares están dominados no por presas comestibles sino por criaturas amenazantes; «sociocultural changes come first, agriculture comes later». El trigo domesticado más antiguo lo identificaron genetistas en una aldea a unas 20 millas.",
+      "url": "https://www.smithsonianmag.com/history/gobekli-tepe-the-worlds-first-temple-83613665/"
+    },
+    {
+      "afirmacion": "Dietrich et al. 2019 (PLOS ONE): 7.268 útiles de molienda en Göbekli Tepe, con huellas de procesado de cereal; picos de actividad estacionales interpretados como grandes festines de trabajo; no se conocen plantas domesticadas en el yacimiento.",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0215214"
+    },
+    {
+      "afirmacion": "Lang et al. 2013 (World Archaeology 45/3): la caza de gacela persa en Göbekli Tepe sigue un patrón estacional (de pleno verano al otoño).",
+      "url": "https://katalog.lib.cas.cz/KNAV/EdsRecord/edsjsr,edsjsr.42003584"
     }
   ]
 }

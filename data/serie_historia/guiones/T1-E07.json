@@ -213,7 +213,7 @@
           }
         },
         {
-          "texto": "Unos dos mil nombres de lugares y cincuenta inscripciones largas. ¿En América? Ninguno.",
+          "texto": "Unos dos mil nombres de lugares. ¿Y en América? Ninguno.",
           "pausa": "¿Cuántos lugares crees que nombraba el globo más completo de 1492? ¿Y cuántos de ellos en América?",
           "emocion": 0.8,
           "dato": {
@@ -286,7 +286,7 @@
           }
         },
         {
-          "texto": "El doce de octubre, después de más de dos meses en el mar, ven tierra. Pero no es Asia.",
+          "texto": "El doce de octubre, más de dos meses después de zarpar, ven tierra. Pero no es Asia.",
           "emocion": 0.85,
           "visual": {
             "tipo": "flow",
@@ -296,7 +296,7 @@
           "anios_atras": 534
         },
         {
-          "texto": "Es una isla de las Bahamas que sus habitantes llamaban Guanahaní.",
+          "texto": "Es una isla de las Bahamas que sus habitantes llamaban Guanahaní. Probablemente, la actual San Salvador.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "costa de la isla de San Salvador, en las Bahamas",
@@ -336,8 +336,8 @@
           }
         },
         {
-          "texto": "En mil quinientos siete, un mapa impreso en Saint-Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
-          "pronunciacion": "En mil quinientos siete, un mapa impreso en San Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
+          "texto": "En mil quinientos siete, un mapa preparado en Saint-Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
+          "pronunciacion": "En mil quinientos siete, un mapa preparado en San Dié, en Lorena, escribe en ese hueco un nombre nuevo: América.",
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
@@ -370,7 +370,7 @@
           }
         },
         {
-          "texto": "La viruela, por desgracia, también cruzó, y fue la más mortífera de todas. Volveremos a ella en otra temporada.",
+          "texto": "La viruela, por desgracia, también cruzó, y fue de las más mortíferas. Volveremos a ella en otra temporada.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ilustración del Códice Florentino sobre la viruela entre los mexicas",
@@ -467,7 +467,7 @@
           }
         },
         {
-          "texto": "En el próximo episodio viajamos a una mina inglesa, donde una máquina quema carbón para sacar agua de una mina de carbón.",
+          "texto": "En el próximo episodio viajamos a Inglaterra, donde una máquina quema carbón para sacar agua de una mina de carbón.",
           "emocion": 0.6,
           "visual": {
             "tipo": "archivo",
@@ -514,6 +514,10 @@
     {
       "afirmacion": "El intercambio colombino empezó con el primer viaje de Colón en 1492: patata y maíz se extendieron desde América; caballos y trigo llegaron a América; también cruzaron enfermedades como la viruela.",
       "url": "https://en.wikipedia.org/wiki/Columbian_exchange"
+    },
+    {
+      "afirmacion": "Colón hizo escala en Canarias y salió de La Gomera el 6 de septiembre de 1492: desde ahí fueron unas cinco semanas sin tierra hasta el 12 de octubre. San Salvador es solo la candidata más probable para Guanahaní.",
+      "url": "https://en.wikipedia.org/wiki/Voyages_of_Christopher_Columbus"
     }
   ]
 }

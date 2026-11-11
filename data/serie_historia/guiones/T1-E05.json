@@ -81,7 +81,7 @@
           }
         },
         {
-          "texto": "Unas cincuenta mil personas. En su mejor momento, Uruk fue la mayor ciudad del mundo.",
+          "texto": "Quizá hasta cincuenta mil personas. Hacia el tres mil cien antes de Cristo, era la mayor ciudad del mundo.",
           "emocion": 0.8,
           "pausa": "¿Cuántas personas crees que llegaron a vivir en Uruk?",
           "visual": {
@@ -90,16 +90,16 @@
             "busqueda": "Uruk aerial view"
           },
           "dato": {
-            "rotulo": "Habitantes de Uruk",
+            "rotulo": "Habitantes de Uruk, máximo",
             "valor": "50.000",
             "unidad": "personas",
-            "comparacion": "Hacia el 3100 a. C. era la mayor zona urbana del mundo."
+            "comparacion": "Es una estimación máxima; aun así, era la mayor zona urbana de su tiempo."
           },
           "anios_atras": 5126
         },
         {
-          "texto": "Para que te hagas una idea. En Göbekli Tepe se reunían cientos de personas durante unas semanas.",
-          "pronunciacion": "Para que te hagas una idea. En Guebekli Tepe se reunían cientos de personas durante unas semanas.",
+          "texto": "Para que te hagas una idea. En Göbekli Tepe se reunían, quizá, cientos de personas, y solo por un tiempo.",
+          "pronunciacion": "Para que te hagas una idea. En Guebekli Tepe se reunían, quizá, cientos de personas, y solo por un tiempo.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "recinto D de Göbekli Tepe",
@@ -236,8 +236,8 @@
           }
         },
         {
-          "texto": "En el barrio de los templos de Uruk, llamado Eanna, están los ejemplos de escritura más antiguos que se conocen.",
-          "pronunciacion": "En el barrio de los templos de Uruk, llamado Eana, están los ejemplos de escritura más antiguos que se conocen.",
+          "texto": "En el barrio de los templos de Uruk, llamado Eanna, están algunos de los ejemplos de escritura más antiguos que se conocen.",
+          "pronunciacion": "En el barrio de los templos de Uruk, llamado Eana, están algunos de los ejemplos de escritura más antiguos que se conocen.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "recinto de Eanna en las ruinas de Uruk",
@@ -284,10 +284,10 @@
           }
         },
         {
-          "texto": "El museo la fecha entre el tres mil cien y el dos mil novecientos antes de Cristo, y cree que viene de Uruk."
+          "texto": "Y tiene unos cuatro centímetros de grueso. Más que una hoja, parece una galleta gorda de barro."
         },
         {
-          "texto": "Y tiene unos cuatro de grueso. Más que una hoja, parece una galleta gorda de barro."
+          "texto": "El museo la fecha entre el tres mil cien y el dos mil novecientos antes de Cristo, y cree que viene de Uruk."
         },
         {
           "texto": "Las marcas hundidas en el barro son números. Junto a ellas, el signo de lo que se reparte: la cebada.",
@@ -306,7 +306,7 @@
           }
         },
         {
-          "texto": "En la huella ves a un hombre, unos perros de caza y unos jabalíes. Es la firma del administrador que dio el visto bueno.",
+          "texto": "En la huella ves a un hombre, unos perros de caza y unos jabalíes. Es la marca del administrador que controlaba el reparto.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",

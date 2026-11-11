@@ -77,7 +77,7 @@
           }
         },
         {
-          "texto": "En mil ochocientos, casi nada: ni un dos por ciento. Casi todo lo demás era leña, paja y otras plantas, la energía del sol de ese mismo año.",
+          "texto": "En mil ochocientos, casi nada: menos de un dos por ciento. Casi todo lo demás era leña, paja y otras plantas: energía del sol de hace pocos años.",
           "pausa": "En 1800, ¿qué parte de la energía del mundo crees que salía del carbón: casi toda, la mitad o casi nada?",
           "emocion": 0.8,
           "anios_atras": 226,
@@ -315,7 +315,7 @@
           }
         },
         {
-          "texto": "Y ese carbón es luz del sol de hace millones de años, guardada bajo tierra.",
+          "texto": "Y ese carbón es luz del sol de hace cientos de millones de años, guardada bajo tierra.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fósil de helecho del Carbonífero en una pizarra de carbón",
@@ -324,7 +324,7 @@
         },
         {
           "texto": "Hasta entonces vivíamos de lo que crecía cada año. Ahora abríamos una despensa que se había llenado durante eras.",
-          "aprendido": "El carbón pasó de casi nada a la mitad"
+          "aprendido": "Carbón: de casi nada a más de la mitad"
         }
       ]
     },
@@ -371,7 +371,7 @@
           }
         },
         {
-          "texto": "Por eso sigue en su sitio. En dos mil catorce la restauraron, y su viga vuelve a cabecear.",
+          "texto": "Por eso sigue en su sitio. En dos mil catorce la restauraron, y su viga vuelve a cabecear, ahora movida por hidráulica.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "la máquina Newcomen de Elsecar restaurada",
@@ -396,7 +396,7 @@
           }
         },
         {
-          "texto": "Sin ese cambio de combustible no habría habido fábricas, ni trenes, ni cohetes."
+          "texto": "Ese cambio abrió el camino a las fábricas, a los trenes y, mucho después, a los cohetes."
         },
         {
           "texto": "Con esa energía, la humanidad creció como nunca. Y menos de dos siglos después de Elsecar, tres personas despegaron hacia la Luna.",
@@ -447,6 +447,14 @@
     {
       "afirmacion": "Energía primaria mundial (Smil 2017 y Energy Institute, Our World in Data): carbón ≈ 1,7 % en 1800 (biomasa tradicional ≈ 98 %) y ≈ 55 % en 1910; la serie no incluye el trabajo muscular humano ni animal.",
       "url": "https://ourworldindata.org/grapher/global-energy-substitution"
+    },
+    {
+      "afirmacion": "La máquina se restauró entre 2012 y 2014 y ahora se mueve con un sistema hidráulico.",
+      "url": "https://en.wikipedia.org/wiki/Elsecar_Heritage_Centre"
+    },
+    {
+      "afirmacion": "Gran parte del carbón se formó en el periodo Carbonífero, hace unos 359–299 millones de años.",
+      "url": "https://en.wikipedia.org/wiki/Carboniferous"
     }
   ]
 }
