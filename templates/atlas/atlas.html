@@ -40,9 +40,10 @@
   .step.now { flex: 5.4; border-color: var(--hot); color: var(--ink); display: flex; gap: 16px; align-items: baseline; position: relative; }
   .step.now .n { color: var(--hot); }
   .step.now .t { font-family: "Serif", serif; font-size: 34px; line-height: 36px; flex: 1; min-width: 0; }
-  .step .t { display: none; }
+  .step .t, .step .parts { display: none; }
   .step.now .t { display: block; }
-  #parts { position: absolute; left: 0; right: 0; top: 56px; display: flex; gap: 6px; }
+  .step.now .parts { display: flex; }
+  .parts { position: absolute; left: 0; right: 0; top: 56px; gap: 6px; }
   .part { flex: 1; min-width: 0; }
   .part .bar { height: 3px; background: var(--faint); position: relative; }
   .part .bar i { position: absolute; left: 0; top: 0; bottom: 0; background: var(--ink); }
@@ -103,14 +104,17 @@
   #rows { position: absolute; left: 0; right: 0; bottom: 0; height: 392px; display: grid; grid-template-columns: 1fr 1fr 1fr; grid-auto-rows: 1fr; column-gap: 44px; }
   .row { display: flex; align-items: baseline; gap: 18px; border-top: 1px solid var(--line); padding-top: 16px; color: var(--dim); min-width: 0; }
   .row .n { font-size: 17px; font-weight: 600; letter-spacing: .06em; width: 30px; }
-  .row .t { font-family: "Serif", serif; font-size: 35px; line-height: 38px; flex: 1; min-width: 0; }
+  .row .c { flex: 1; min-width: 0; }
+  .row .t { font-family: "Serif", serif; font-size: 35px; line-height: 38px; }
+  .row .i { font-size: 17px; line-height: 23px; margin-top: 5px; color: var(--dim); }
+  .row:not(.done) .i { visibility: hidden; }
   .row .w { font-size: 15px; white-space: nowrap; }
   .row.done { color: var(--ink); }
   .row.done .n { color: var(--hot); }
   .row.next .t { color: var(--ink); }
   .row .tag { font-size: 12px; font-weight: 600; letter-spacing: .14em; padding: 3px 8px; margin-left: 6px; }
   .row.done .tag { background: var(--ink); color: #111; }
-  .row.next .tag { border: 1px solid var(--hot); color: var(--hot); }
+  .row .tag.nx { border: 1px solid var(--hot); color: var(--hot); background: none; }
 </style>
 </head>
 <body>
@@ -152,7 +156,25 @@ const AX = { x0: 64, x1: 1856, y: 972 };
 const STAGE = { x: 64, y: 150, w: 1444, h: 700 };
 const isVideo = (v) => /\.(mp4|mov|webm|mkv)$/i.test(v.src);
 window.STAGE = STAGE; window.isVideoSrc = (src) => isVideo({ src });
-let C = null, proj = null;
+let C = null, proj = null, PANO = false, mapKey = "";
+
+// Minimapa: proyección equirrectangular sobre el encuadre pedido. Cada lugar puede traer el suyo
+// (place.bounds) y el mapa viaja de uno a otro; solo se redibuja cuando el encuadre cambia.
+const frame = (b) => {
+  const key = b.map((v) => v.toFixed(2)).join();
+  if (key === mapKey) return; mapKey = key;
+  const [lon0, lat0, lon1, lat1] = b;
+  const k = Math.cos(((lat0 + lat1) / 2) * Math.PI / 180);
+  const s = Math.min(288 / ((lon1 - lon0) * k), 268 / (lat1 - lat0));
+  const ox = (288 - (lon1 - lon0) * k * s) / 2, oy = (268 - (lat1 - lat0) * s) / 2;
+  proj = ([lon, lat]) => [ox + (lon - lon0) * k * s, oy + (lat1 - lat) * s];
+  // los contornos que cruzan el antimeridiano se desenrollan para que no tracen una raya de lado a lado
+  const unwrap = (ring) => { let off = 0; return ring.map((p, i) => { if (i) { const d = p[0] - ring[i - 1][0]; if (d > 180) off -= 360; else if (d < -180) off += 360; } return [p[0] + off, p[1]]; }); };
+  $("#land").setAttribute("d", window.LAND_110M.map((ring) => { const u = unwrap(ring), wraps = u.some((p, i) => p[0] !== ring[i][0]);
+    return (wraps ? [-360, 0, 360] : [0]).map((o) => "M" + u.map((p) => proj([p[0] + o, p[1]]).map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join(""); }).join(""));
+  document.querySelectorAll("#map .pl").forEach((g, i) => { const [x, y] = proj([C.map.places[i].lon, C.map.places[i].lat]);
+    g.querySelectorAll("circle").forEach((c) => { c.setAttribute("cx", x.toFixed(1)); c.setAttribute("cy", y.toFixed(1)); }); });
+};
 
 const timePos = (ya) => {
   const a = Math.log10(C.axis.from), b = Math.log10(C.axis.to);
@@ -174,23 +196,22 @@ window.initHud = (config) => {
   $("#brand .season").textContent = C.season;
 
   // Índice superior: un tramo por episodio; el actual, abierto, con sus partes
+  // En un episodio panorámico (episode: 0) cada parte dice a qué episodio de la temporada corresponde
+  // (part.step) y el tramo abierto va avanzando; dentro se ven los pasos de esa parte (part.beats).
+  PANO = !C.episode;
+  const bars = (list) => `<div class="parts">${list.map((p) => `<div class="part"><div class="bar"><i></i></div><div class="lbl" data-fit>${esc(p.label)}</div></div>`).join("")}</div>`;
   $("#steps").innerHTML = C.episodes.map((e, i) => {
     const n = num(e, i), cur = i + 1 === C.episode;
-    return `<div class="step ${i + 1 < C.episode ? "done" : ""} ${cur ? "now" : ""}"><span class="n">${n}</span><span class="t" data-fit>${esc(e.title)}</span>${
-      cur ? `<div id="parts">${C.parts.map((p) => `<div class="part"><div class="bar"><i></i></div><div class="lbl" data-fit>${esc(p.label)}</div></div>`).join("")}</div>` : ""}</div>`;
+    const own = PANO ? C.parts.find((p) => p.step === i + 1) : null;
+    return `<div class="step ${!PANO && i + 1 < C.episode ? "done" : ""} ${cur ? "now" : ""}"><span class="n">${n}</span><span class="t" data-fit>${esc(e.title)}</span>${
+      cur ? bars(C.parts) : own?.beats ? bars(own.beats) : ""}</div>`;
   }).join("");
 
   // Minimapa: proyección equirrectangular sobre la región pedida
-  const [lon0, lat0, lon1, lat1] = C.map.bounds;
-  const k = Math.cos(((lat0 + lat1) / 2) * Math.PI / 180);
-  const s = Math.min(288 / ((lon1 - lon0) * k), 268 / (lat1 - lat0));
-  const ox = (288 - (lon1 - lon0) * k * s) / 2, oy = (268 - (lat1 - lat0) * s) / 2;
-  proj = ([lon, lat]) => [ox + (lon - lon0) * k * s, oy + (lat1 - lat) * s];
-  const d = window.LAND_110M.map((ring) => "M" + ring.map((p) => proj(p).map((v) => v.toFixed(1)).join(",")).join("L") + "Z").join("");
   $("#map svg").innerHTML = `<defs><clipPath id="mc"><rect width="288" height="268"/></clipPath></defs>
-    <rect width="288" height="268" fill="#0f1113"/><g clip-path="url(#mc)"><path d="${d}" fill="#2b2e33" stroke="#3b3f45" stroke-width=".8"/></g>` +
-    C.map.places.map((p, i) => { const [x, y] = proj([p.lon, p.lat]);
-      return `<g class="pl" data-i="${i}"><circle class="ring" cx="${x}" cy="${y}" r="6" fill="none" stroke="#ff4b33" stroke-width="1.6"/><circle cx="${x}" cy="${y}" r="5.5" fill="#ff4b33" stroke="#0f1113" stroke-width="1.5"/></g>`; }).join("");
+    <rect width="288" height="268" fill="#0f1113"/><g clip-path="url(#mc)"><path id="land" fill="#2b2e33" stroke="#3b3f45" stroke-width=".8"/>` +
+    C.map.places.map((p, i) => `<g class="pl" data-i="${i}"><circle class="ring" r="6" fill="none" stroke="#ff4b33" stroke-width="1.6"/><circle class="dot" r="5.5" fill="#ff4b33" stroke="#0f1113" stroke-width="1.5"/></g>`).join("") + "</g>";
+  mapKey = ""; frame(C.map.bounds);
 
   // Eje cronológico
   $("#axisTitle").textContent = C.axis.title; $("#axisNote").textContent = C.axis.note || "";
@@ -205,9 +226,10 @@ window.initHud = (config) => {
   if (C.index) {
     $("#index .k").textContent = C.index.kicker; $("#index .take").textContent = C.index.takeaway;
     $("#rows").innerHTML = C.episodes.map((e, i) => {
-      const st = i + 1 <= C.episode ? "done" : i === C.episode ? "next" : "";
-      return `<div class="row ${st}"><span class="n">${num(e, i)}</span><span class="t" data-fit>${esc(e.title)}</span><span class="w">${esc(e.when)}${
-        st === "done" ? '<span class="tag">VISTO</span>' : st === "next" ? '<span class="tag">SIGUIENTE</span>' : ""}</span></div>`;
+      const st = PANO ? "" : i + 1 <= C.episode ? "done" : i === C.episode ? "next" : "";
+      return `<div class="row ${st}"><span class="n">${num(e, i)}</span><span class="c"><div class="t" data-fit>${esc(e.title)}</div>${
+        e.idea ? `<div class="i" data-fit>${esc(e.idea)}</div>` : ""}</span><span class="w">${esc(e.when)}${
+        st === "done" ? '<span class="tag">VISTO</span>' : st === "next" || (PANO && i === 0) ? '<span class="tag nx">SIGUIENTE</span>' : ""}</span></div>`;
     }).join("");
   }
 };
@@ -218,10 +240,22 @@ window.renderHud = (t) => {
 
   // Partes del episodio en el índice superior
   const pi = Math.max(0, C.parts.findIndex((p, i) => t < (C.parts[i + 1]?.at ?? Infinity)));
-  document.querySelectorAll(".part").forEach((el, i) => {
-    const start = C.parts[i].at, end = C.parts[i + 1]?.at ?? C.duration;
-    el.classList.toggle("now", i === pi); el.classList.toggle("done", i < pi);
+  const partEnd = (i) => C.parts[i + 1]?.at ?? C.duration;
+  const fill = (root, list, last) => root.querySelectorAll(".part").forEach((el, i) => {
+    const start = list[i].at, end = list[i + 1]?.at ?? last;
+    const cur = t >= start && t < end;
+    el.classList.toggle("now", cur); el.classList.toggle("done", t >= end);
     el.querySelector("i").style.width = `${clamp((t - start) / (end - start)) * 100}%`;
+  });
+  if (!PANO) fill(document, C.parts, C.duration);
+  else document.querySelectorAll(".step").forEach((el, i) => {
+    // el tramo se abre al empezar su parte y se cierra al acabar, mientras se abre el siguiente
+    const j = C.parts.findIndex((p) => p.step === i + 1);
+    const open = j < 0 ? 0 : ease((t - C.parts[j].at) / 0.7) * (1 - ease((t - partEnd(j)) / 0.7));
+    el.classList.toggle("now", open > 0); el.classList.toggle("done", j >= 0 && t >= partEnd(j) + 0.7);
+    el.style.flexGrow = 1 + 4.4 * open;
+    el.querySelector(".t").style.opacity = open; if (el.querySelector(".parts")) el.querySelector(".parts").style.opacity = open;
+    if (j >= 0 && C.parts[j].beats) fill(el, C.parts[j].beats, partEnd(j));
   });
 
   // Episodio al que se asoma el relato (p. ej. el episodio 0 recorre los nueve): se marca en el índice y en el eje
@@ -232,10 +266,12 @@ window.renderHud = (t) => {
   // Imagen: fundido entre la anterior y la actual, con un acercamiento lento
   const vis = C.visuals, vi = Math.max(0, vis.findIndex((v, i) => t < (vis[i + 1]?.at ?? Infinity)));
   const paint = (img, v, fade) => {
-    if (!v || isVideo(v)) { img.style.opacity = 0; return; }      // los vídeos no se pintan aquí: van por el hueco
-    if (img.dataset.src !== v.src) { img.src = v.src; img.dataset.src = v.src; }
-    const end = vis[vis.indexOf(v) + 1]?.at ?? C.duration;
-    const z = (v.zoom?.[0] ?? 1.03) + ((v.zoom?.[1] ?? 1.12) - (v.zoom?.[0] ?? 1.03)) * clamp((t - v.at) / (end + 0.8 - v.at));
+    if (!v || (isVideo(v) && !v.frames)) { img.style.opacity = 0; return; }
+    // un vídeo llega como carpeta de fotogramas (la prepara render.js): se elige el que toca en t
+    const src = v.frames ? `${v.frames}/${String(Math.round(clamp((t - v.at) * v.fps + 1, 1, v.count))).padStart(5, "0")}.jpg` : v.src;
+    if (img.dataset.src !== src) { img.src = src; img.dataset.src = src; }
+    const end = vis[vis.indexOf(v) + 1]?.at ?? C.duration, z0 = v.zoom?.[0] ?? (v.frames ? 1 : 1.03), z1 = v.zoom?.[1] ?? (v.frames ? 1 : 1.12);
+    const z = z0 + (z1 - z0) * clamp((t - v.at) / (end + 0.8 - v.at));
     img.style.objectPosition = `${v.focus?.[0] ?? 50}% ${v.focus?.[1] ?? 50}%`;
     img.style.transformOrigin = img.style.objectPosition;
     img.style.transform = `scale(${z})`; img.style.opacity = fade;
@@ -243,10 +279,6 @@ window.renderHud = (t) => {
   const fade = ease((t - vis[vi].at) / 0.8);
   paint($("#imgA"), vis[vi - 1] && fade < 1 ? vis[vi - 1] : null, 1);
   paint($("#imgB"), t >= vis[0].at ? vis[vi] : null, vi === 0 ? ease((t - vis[0].at) / 0.8) : fade);
-  // Si el plano actual es un vídeo, se abre el hueco del escenario para que se vea lo que hay debajo
-  const hole = t >= vis[0].at && isVideo(vis[vi]) && !(indexOn && indexK >= 1);
-  $("#stage").style.background = hole ? "transparent" : "#000";
-  $("#bg").style.clipPath = hole ? `polygon(evenodd, 0 0, 1920px 0, 1920px 1080px, 0 1080px, 0 0, ${STAGE.x}px ${STAGE.y}px, ${STAGE.x}px ${STAGE.y + STAGE.h}px, ${STAGE.x + STAGE.w}px ${STAGE.y + STAGE.h}px, ${STAGE.x + STAGE.w}px ${STAGE.y}px, ${STAGE.x}px ${STAGE.y}px)` : "none";
   $("#credit").textContent = t >= vis[0].at ? vis[vi].credit : "";
   $("#credit").style.visibility = t >= vis[0].at && !indexOn ? "visible" : "hidden";
 
@@ -257,20 +289,25 @@ window.renderHud = (t) => {
   $("#lower").style.opacity = k; $("#lower").style.transform = `translateY(${(1 - k) * 18}px)`;
 
   // Minimapa: los lugares aparecen cuando se nombran; el último es el actual
-  const shown = C.map.places.filter((p) => t >= p.at), cur = shown[shown.length - 1];
+  // Un lugar puede caducar (until) para que no se quede en pantalla cuando ya se habla de otra cosa.
+  const shown = C.map.places.filter((p) => t >= p.at && (p.until == null || t < p.until)), cur = shown[shown.length - 1];
+  // Encuadre: map.views = [{at, bounds}] hace viajar el mapa de una región a otra
+  const views = C.map.views || [], vn = views.filter((v) => t >= v.at).length;
+  const b1 = views[vn - 1]?.bounds || C.map.bounds, b0 = views[vn - 2]?.bounds || C.map.bounds, mk = vn ? ease((t - views[vn - 1].at) / 1.6) : 1;
+  frame(b1.map((v, i) => b0[i] + (v - b0[i]) * mk));
   document.querySelectorAll("#map .pl").forEach((g, i) => {
     const p = C.map.places[i], on = t >= p.at, ph = ((t - p.at) * 0.8) % 1;
-    g.style.opacity = on ? ease((t - p.at) / 0.4) : 0;
+    g.style.opacity = shown.includes(p) ? ease((t - p.at) / 0.4) : 0;
     const ring = g.querySelector(".ring");
     ring.setAttribute("r", p === cur ? 6 + ph * 16 : 6); ring.style.opacity = p === cur ? 1 - ph : 0;
   });
   $("#map .place").textContent = cur ? cur.name : ""; $("#map .where").textContent = cur ? cur.where : "";
 
   // Dato comparativo
-  // El dato solo vive en la parte que lo presenta: al cambiar de parte se retira
+  // El dato solo vive en la parte que lo presenta (o hasta su 'until'): al cambiar de parte se retira
   let d = latest(C.data, t);
   if (d && d.at < part.at) d = null;
-  $("#datum").style.opacity = d ? ease((t - d.at) / 0.5) : 0;
+  $("#datum").style.opacity = d ? ease((t - d.at) / 0.5) * (d.until == null ? 1 : 1 - ease((t - d.until) / 0.5)) : 0;
   if (d) {
     $("#datum .k").textContent = d.label; $("#datum .v").textContent = d.value; $("#datum .u").textContent = d.unit || "";
     $("#datum .cmp").innerHTML = d.compare || ""; $("#datum .cmp").style.display = d.compare ? "block" : "none";
@@ -304,8 +341,9 @@ window.renderHud = (t) => {
   $("#needle").setAttribute("x1", x); $("#needle").setAttribute("x2", x); $("#trail").setAttribute("x1", x);
   const tag = $("#needleTag"); tag.textContent = fmtYears(ya);
   tag.style.left = `${clamp(x - tag.offsetWidth / 2, AX.x0, AX.x1 - tag.offsetWidth)}px`;
-  document.querySelectorAll(".ep").forEach((el, i) => el.classList.toggle("done", reached(i)));
-  document.querySelectorAll(".epdot").forEach((c, i) => { c.setAttribute("fill", reached(i) ? "#f3f1ec" : "#0c0d0f"); c.setAttribute("stroke", reached(i) ? "#f3f1ec" : "#8e9096"); });
+  const seen = (i) => PANO ? C.parts.some((p) => p.step === i + 1 && t >= p.at) : reached(i);
+  document.querySelectorAll(".ep").forEach((el, i) => el.classList.toggle("done", seen(i)));
+  document.querySelectorAll(".epdot").forEach((c, i) => { c.setAttribute("fill", seen(i) ? "#f3f1ec" : "#0c0d0f"); c.setAttribute("stroke", seen(i) ? "#f3f1ec" : "#8e9096"); });
   // la etiqueta del episodio que queda bajo la aguja se oculta para que no se pisen
   document.querySelectorAll(".ep").forEach((el, i) => {
     const ex = C.episodes[i].yearsAgo ? axisX(C.episodes[i].yearsAgo) : -200;
@@ -318,6 +356,10 @@ window.renderHud = (t) => {
   idx.style.visibility = indexOn ? "visible" : "hidden";
   if (indexOn) {
     idx.style.opacity = indexK;
+    // el repaso puede ir cambiando de frase (index.takes) y encendiendo cada fila cuando se nombra (index.rows)
+    const take = latest(C.index.takes, t); if (take) $("#index .take").textContent = take.text;
+    if (C.index.rows) document.querySelectorAll(".row").forEach((r, i) => r.classList.toggle("done", t >= C.index.rows[i].at));
+    const nx = $("#index .tag.nx"); if (nx && C.index.nextAt != null) nx.style.display = t >= C.index.nextAt ? "" : "none";
     document.querySelectorAll(".row").forEach((r, i) => { const rk = ease((t - C.index.at - 0.5 - i * 0.12) / 0.5); r.style.opacity = rk; r.style.transform = `translateY(${(1 - rk) * 14}px)`; });
   }
   for (const s of ["#stage", "#map", "#datum"]) $(s).style.visibility = indexOn && indexK >= 1 ? "hidden" : "visible";
@@ -326,7 +368,7 @@ window.renderHud = (t) => {
 /* Comprobación en el instante actual: textos que no caben en su caja y etiquetas del eje que se pisan. */
 window.checkLayout = () => {
   const problems = [];
-  const vis = (el) => { for (let e = el; e && e !== document.body; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.visibility === "hidden" || cs.display === "none") return false; } return el.offsetWidth > 0; };
+  const vis = (el) => { for (let e = el; e && e !== document.body; e = e.parentElement) { const cs = getComputedStyle(e); if (cs.visibility === "hidden" || cs.display === "none" || cs.opacity < 0.98) return false; } return el.offsetWidth > 0; };
   for (const el of document.querySelectorAll("[data-fit]"))
     if (vis(el) && el.scrollWidth > el.clientWidth + 1) problems.push(`no cabe: "${el.textContent.slice(0, 40)}"`);
   for (const sel of ["#learned .t", "#index .take", "#ask .t"]) {

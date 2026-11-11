@@ -61,7 +61,8 @@ def construir(guion, marcas, temario):
     episodios = [{
         # en el índice de pantalla va el título corto («Nuestro origen»), sin el subtítulo de después de los dos puntos
         "title": e.get("titulo_corto") or e["titulo"].split(":")[0].strip(), "when": (e.get("cuando") or {}).get("texto", ""),
-        "yearsAgo": (e.get("cuando") or {}).get("anios_atras") or None,
+        # el episodio 0 recorre toda la temporada: no ocupa un punto del eje
+        "yearsAgo": None if con_cero and i == 0 else (e.get("cuando") or {}).get("anios_atras") or None,
         "n": f"{i if con_cero else i + 1:02d}",
     } for i, e in enumerate(temporada["episodios"])]
 

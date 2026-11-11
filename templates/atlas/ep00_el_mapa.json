@@ -1,0 +1,1670 @@
+{
+ "channel": "Temario",
+ "duration": 859.96,
+ "series": "Historia de la humanidad",
+ "season": "Temporada 1 · Episodio 0 · El mapa",
+ "episode": 0,
+ "episodes": [
+  {
+   "title": "Nuestro origen",
+   "when": "hace 315.000 años",
+   "yearsAgo": 315000,
+   "idea": "Africanos, y muy antiguos"
+  },
+  {
+   "title": "Salimos de África",
+   "when": "hace 60.000 años",
+   "yearsAgo": 60000,
+   "idea": "Caminando, llegamos a todos los continentes"
+  },
+  {
+   "title": "Imaginar lo que no existe",
+   "when": "hace 40.000 años",
+   "yearsAgo": 40000,
+   "idea": "Aprendimos a imaginar lo que no existe"
+  },
+  {
+   "title": "Echamos raíces",
+   "when": "hace 10.000 años",
+   "yearsAgo": 10000,
+   "idea": "Al cultivar, echamos raíces"
+  },
+  {
+   "title": "Escribir para contar",
+   "when": "hace 5.200 años",
+   "yearsAgo": 5200,
+   "idea": "La escritura nació para llevar las cuentas"
+  },
+  {
+   "title": "Millones bajo una ley",
+   "when": "hace 2.200 años",
+   "yearsAgo": 2200,
+   "idea": "Un imperio: millones bajo una misma ley"
+  },
+  {
+   "title": "El mundo se conecta",
+   "when": "hace 500 años",
+   "yearsAgo": 504,
+   "idea": "El mundo se convirtió en una sola red"
+  },
+  {
+   "title": "La fuerza de las máquinas",
+   "when": "hace 200 años",
+   "yearsAgo": 197,
+   "idea": "Las máquinas lo multiplicaron todo"
+  },
+  {
+   "title": "Todo se acelera",
+   "when": "hace 57 años",
+   "yearsAgo": 57,
+   "idea": "El cambio ya no se mide en milenios, sino en años"
+  }
+ ],
+ "parts": [
+  {
+   "label": "Apertura",
+   "at": 1.0,
+   "title": "El mapa",
+   "idea": "Toda la historia humana en nueve ideas",
+   "kicker": "Episodio 0 · Apertura"
+  },
+  {
+   "label": "Nuestro origen",
+   "at": 51.29,
+   "title": "Nuestro origen",
+   "idea": "Somos africanos, y más antiguos de lo que creíamos",
+   "kicker": "Capítulo 1 de 9",
+   "step": 1,
+   "beats": [
+    {
+     "label": "El cráneo",
+     "at": 51.29
+    },
+    {
+     "label": "La fecha",
+     "at": 85.08
+    },
+    {
+     "label": "La idea",
+     "at": 124.02
+    }
+   ]
+  },
+  {
+   "label": "Salimos de África",
+   "at": 132.02,
+   "title": "Salimos de África",
+   "idea": "Caminando, llegamos a todos los continentes",
+   "kicker": "Capítulo 2 de 9",
+   "step": 2,
+   "beats": [
+    {
+     "label": "La salida",
+     "at": 132.02
+    },
+    {
+     "label": "Las huellas",
+     "at": 151.83
+    },
+    {
+     "label": "La idea",
+     "at": 191.05
+    }
+   ]
+  },
+  {
+   "label": "Imaginar",
+   "at": 204.3,
+   "title": "Imaginar lo que no existe",
+   "idea": "Aprendimos a imaginar lo que no existe",
+   "kicker": "Capítulo 3 de 9",
+   "step": 3,
+   "beats": [
+    {
+     "label": "La cueva",
+     "at": 204.3
+    },
+    {
+     "label": "La figura",
+     "at": 226.42
+    },
+    {
+     "label": "La idea",
+     "at": 268.66
+    }
+   ]
+  },
+  {
+   "label": "Echamos raíces",
+   "at": 276.81,
+   "title": "Echamos raíces",
+   "idea": "Al cultivar, nos quedamos en un sitio",
+   "kicker": "Capítulo 4 de 9",
+   "step": 4,
+   "beats": [
+    {
+     "label": "La semilla",
+     "at": 276.81
+    },
+    {
+     "label": "La torre",
+     "at": 308.67
+    },
+    {
+     "label": "La idea",
+     "at": 351.27
+    }
+   ]
+  },
+  {
+   "label": "Escribir",
+   "at": 361.92,
+   "title": "Escribir para contar",
+   "idea": "La escritura nació para llevar las cuentas",
+   "kicker": "Capítulo 5 de 9",
+   "step": 5,
+   "beats": [
+    {
+     "label": "La ciudad",
+     "at": 361.92
+    },
+    {
+     "label": "La tablilla",
+     "at": 388.06
+    },
+    {
+     "label": "La idea",
+     "at": 429.12
+    }
+   ]
+  },
+  {
+   "label": "Imperios",
+   "at": 437.69,
+   "title": "Millones bajo una ley",
+   "idea": "Un imperio: millones de desconocidos, una ley",
+   "kicker": "Capítulo 6 de 9",
+   "step": 6,
+   "beats": [
+    {
+     "label": "El ejército",
+     "at": 437.69
+    },
+    {
+     "label": "El censo",
+     "at": 475.03
+    },
+    {
+     "label": "La idea",
+     "at": 506.52
+    }
+   ]
+  },
+  {
+   "label": "Se conecta",
+   "at": 515.03,
+   "title": "El mundo se conecta",
+   "idea": "Varios mundos se convirtieron en una sola red",
+   "kicker": "Capítulo 7 de 9",
+   "step": 7,
+   "beats": [
+    {
+     "label": "Dos mitades",
+     "at": 515.03
+    },
+    {
+     "label": "La nao",
+     "at": 537.94
+    },
+    {
+     "label": "La idea",
+     "at": 584.93
+    }
+   ]
+  },
+  {
+   "label": "Máquinas",
+   "at": 593.25,
+   "title": "La fuerza de las máquinas",
+   "idea": "La fuerza dejó de salir de los músculos",
+   "kicker": "Capítulo 8 de 9",
+   "step": 8,
+   "beats": [
+    {
+     "label": "El vapor",
+     "at": 593.25
+    },
+    {
+     "label": "La cifra",
+     "at": 640.23
+    },
+    {
+     "label": "La idea",
+     "at": 667.4
+    }
+   ]
+  },
+  {
+   "label": "Se acelera",
+   "at": 675.8,
+   "title": "Todo se acelera",
+   "idea": "El cambio ya no se mide en milenios",
+   "kicker": "Capítulo 9 de 9",
+   "step": 9,
+   "beats": [
+    {
+     "label": "El avión",
+     "at": 675.8
+    },
+    {
+     "label": "La Luna",
+     "at": 700.21
+    },
+    {
+     "label": "La idea",
+     "at": 747.14
+    }
+   ]
+  },
+  {
+   "label": "Cierre",
+   "at": 755.07,
+   "title": "El índice completo",
+   "idea": "Nueve capítulos, nueve ideas",
+   "kicker": "Repaso"
+  }
+ ],
+ "visuals": [
+  {
+   "at": 1.0,
+   "src": "media/ep00/tierra_apolo17_c.jpg",
+   "credit": "La Tierra desde el Apolo 17 (1972) · NASA · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.22
+   ]
+  },
+  {
+   "at": 51.29,
+   "src": "media/ep00/irhoud_craneo_c.jpg",
+   "credit": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 62.76,
+   "src": "media/ep00/irhoud_craneo.jpg",
+   "credit": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+   "focus": [
+    45,
+    60
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 84.93,
+   "src": "media/ep00/irhoud_hublin.jpg",
+   "credit": "Jean-Jacques Hublin en la excavación de Jebel Irhoud · Foto: Shannon McPherron, MPI EVA · CC BY-SA 2.0",
+   "focus": [
+    55,
+    55
+   ],
+   "zoom": [
+    1.12,
+    1.02
+   ]
+  },
+  {
+   "at": 101.48,
+   "src": "media/ep00/irhoud_herramientas_c.jpg",
+   "credit": "Herramientas de piedra de Jebel Irhoud · Foto: Mohammed Kamal, MPI EVA · CC BY 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 113.59,
+   "src": "media/ep00/irhoud_craneo_c.jpg",
+   "credit": "Irhoud 1 (molde, Smithsonian NMNH) · Foto: Jonathan Chen · CC BY-SA 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.12,
+    1.0
+   ]
+  },
+  {
+   "at": 132.02,
+   "src": "media/ep00/africa_epic_c.jpg",
+   "credit": "África desde el satélite DSCOVR · NASA · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 138.3,
+   "src": "media/ep00/mar_rojo_sinai.jpg",
+   "credit": "Sinaí y mar Rojo desde el transbordador (STS-112) · NASA · Dominio público",
+   "focus": [
+    55,
+    40
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 151.68,
+   "src": "media/ep00/whitesands_orbita.jpg",
+   "credit": "White Sands desde la órbita (STS-60) · NASA · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.2
+   ]
+  },
+  {
+   "at": 158.93,
+   "src": "media/ep00/huellas_adulto_nino.jpg",
+   "credit": "Rastros de huellas en White Sands · Foto: NPS · Dominio público",
+   "focus": [
+    20,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 164.13,
+   "src": "media/ep00/huellas_whitesands_c.jpg",
+   "credit": "Huellas humanas fósiles, White Sands · Foto: NPS · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 169.58,
+   "src": "media/ep00/huellas_zanja_c.jpg",
+   "credit": "Zanja de excavación con huellas, White Sands · Foto: NPS · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 182.18,
+   "src": "media/ep00/huellas_adulto_nino.jpg",
+   "credit": "Huellas de un adulto y un niño, White Sands · Foto: NPS · Dominio público",
+   "focus": [
+    62,
+    50
+   ],
+   "zoom": [
+    1.25,
+    1.4
+   ]
+  },
+  {
+   "at": 204.3,
+   "src": "media/ep00/stadel_cueva.jpg",
+   "credit": "Cueva de Hohlenstein-Stadel · Foto: Thilo Parg · CC BY-SA 3.0",
+   "focus": [
+    45,
+    55
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 226.27,
+   "src": "media/ep00/hombre_leon_1_c.jpg",
+   "credit": "El Hombre León, Museo de Ulm · Foto: Dagmar Hollmann · CC BY-SA 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 237.37,
+   "src": "media/ep00/hombre_leon_1.jpg",
+   "credit": "El Hombre León, Museo de Ulm · Foto: Dagmar Hollmann · CC BY-SA 4.0",
+   "focus": [
+    50,
+    10
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 247.16,
+   "src": "media/ep00/hombre_leon_2_c.jpg",
+   "credit": "El Hombre León, de perfil · Foto: Thilo Parg · CC BY-SA 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 259.71,
+   "src": "media/ep00/hombre_leon_2.jpg",
+   "credit": "El Hombre León, de perfil · Foto: Thilo Parg · CC BY-SA 4.0",
+   "focus": [
+    50,
+    32
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 276.81,
+   "src": "media/ep00/trigo_silvestre.jpg",
+   "credit": "Trigo silvestre (Triticum dicoccoides) · Foto: Davidbena · CC BY-SA 4.0",
+   "focus": [
+    60,
+    40
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 302.23,
+   "src": "media/ep00/jerico_tell.jpg",
+   "credit": "Tell es-Sultan, la antigua Jericó · Foto: Fullo88 · Dominio público",
+   "focus": [
+    50,
+    55
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 308.52,
+   "src": "media/ep00/jerico_torre.jpg",
+   "credit": "Torre de Jericó · Foto: Reinhard Dietrich · Dominio público",
+   "focus": [
+    45,
+    45
+   ],
+   "zoom": [
+    1.0,
+    1.14
+   ]
+  },
+  {
+   "at": 336.01,
+   "src": "media/ep00/jerico_excavacion.jpg",
+   "credit": "Excavaciones de Tell es-Sultan, Jericó · Foto: A. Sobkowski · Dominio público",
+   "focus": [
+    50,
+    55
+   ],
+   "zoom": [
+    1.12,
+    1.0
+   ]
+  },
+  {
+   "at": 361.92,
+   "src": "media/ep00/tigris_eufrates.jpg",
+   "credit": "Tigris y Éufrates, imagen de satélite en falso color (ASTER) · NASA/JPL · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.18
+   ]
+  },
+  {
+   "at": 370.65,
+   "src": "media/ep00/uruk_zigurat.jpg",
+   "credit": "Ruinas del zigurat de Uruk (Warka, Irak) · Foto: David Stanley · CC BY 2.0",
+   "focus": [
+    40,
+    45
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 387.91,
+   "src": "media/ep00/tablilla_met_c.jpg",
+   "credit": "Tablilla protocuneiforme, c. 3100–2900 a. C. · The Metropolitan Museum of Art · CC0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 402.99,
+   "src": "media/ep00/tablilla_met.jpg",
+   "credit": "Tablilla protocuneiforme, c. 3100–2900 a. C. · The Metropolitan Museum of Art · CC0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    2.3,
+    2.6
+   ]
+  },
+  {
+   "at": 414.46,
+   "src": "media/ep00/tablilla_met_b.jpg",
+   "credit": "La misma tablilla, reverso con impresión de sello · The Metropolitan Museum of Art · CC0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 437.69,
+   "src": "media/ep00/terracota_fosa1.jpg",
+   "credit": "Ejército de Terracota, fosa 1 · Foto: Jmhullot · CC BY 3.0",
+   "focus": [
+    50,
+    60
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 447.51,
+   "src": "media/ep00/terracota_filas.jpg",
+   "credit": "Ejército de Terracota, fosa 1 · Foto: xiquinhosilva · CC BY 2.0",
+   "focus": [
+    50,
+    65
+   ],
+   "zoom": [
+    1.05,
+    1.2
+   ]
+  },
+  {
+   "at": 454.29,
+   "src": "media/ep00/terracota_rostro_c.jpg",
+   "credit": "Soldado de terracota · Foto: shankar s. · CC BY 2.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 461.35,
+   "src": "media/ep00/terracota_frente.jpg",
+   "credit": "Primera fila de la fosa 1 · Foto: BrokenSphere · CC BY-SA 3.0",
+   "focus": [
+    50,
+    40
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 474.88,
+   "src": "media/ep00/terracota_filas.jpg",
+   "credit": "Ejército de Terracota, fosa 1 · Foto: xiquinhosilva · CC BY 2.0",
+   "focus": [
+    30,
+    60
+   ],
+   "zoom": [
+    1.3,
+    1.1
+   ]
+  },
+  {
+   "at": 499.45,
+   "src": "media/ep00/augusto_c.jpg",
+   "credit": "Augusto de Prima Porta, Museos Vaticanos · Foto: Till Niermann · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 515.03,
+   "src": "media/ep00/cosa_mapa.jpg",
+   "credit": "Mapa de Juan de la Cosa (1500), Museo Naval de Madrid · Dominio público",
+   "focus": [
+    78,
+    50
+   ],
+   "zoom": [
+    2.0,
+    1.9
+   ]
+  },
+  {
+   "at": 528.69,
+   "src": "media/ep00/cosa_mapa.jpg",
+   "credit": "Mapa de Juan de la Cosa (1500), Museo Naval de Madrid · Dominio público",
+   "focus": [
+    30,
+    50
+   ],
+   "zoom": [
+    1.28,
+    1.18
+   ]
+  },
+  {
+   "at": 543.93,
+   "src": "media/ep00/victoria_ortelius.jpg",
+   "credit": "La nao Victoria en el mapa del Pacífico de Ortelius (1589) · Dominio público",
+   "focus": [
+    45,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 554.04,
+   "src": "media/ep00/victoria_replica_c.jpg",
+   "credit": "Réplica de la nao Victoria · Foto: Christian Ferrer · CC BY 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 576.38,
+   "src": "media/ep00/ortelius_mundo.jpg",
+   "credit": "Ortelius, «Typus Orbis Terrarum» (1570) · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.14
+   ]
+  },
+  {
+   "at": 593.25,
+   "src": "media/ep00/rueda_agua.jpg",
+   "credit": "Rueda hidráulica de Finch Foundry (Devon) · Foto: Diliff · CC BY-SA 3.0",
+   "focus": [
+    30,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.14
+   ]
+  },
+  {
+   "at": 602.11,
+   "src": "media/ep00/watt_museo_c.jpg",
+   "credit": "Máquina de vapor de Watt, grabado de época · Wikimedia Commons · CC BY-SA 3.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 619.75,
+   "src": "media/ep00/rocket_c.jpg",
+   "credit": "Rocket (1829), National Railway Museum, York · Foto: Benjamin Smith · CC BY-SA 4.0",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 640.08,
+   "src": "media/ep00/fabricas_1820.jpg",
+   "credit": "Fábricas de algodón McConnel, Mánchester, hacia 1820 · Dominio público",
+   "focus": [
+    50,
+    50
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ]
+  },
+  {
+   "at": 675.8,
+   "src": "media/ep00/primer_vuelo.jpg",
+   "credit": "Primer vuelo, 17-12-1903 · Foto: John T. Daniels · Library of Congress · Dominio público",
+   "focus": [
+    50,
+    45
+   ],
+   "zoom": [
+    1.12,
+    1.25
+   ]
+  },
+  {
+   "at": 700.06,
+   "src": "media/ep00/aldrin_luna.jpg",
+   "credit": "Buzz Aldrin en la Luna, Apolo 11 (1969) · Foto: Neil Armstrong · NASA · Dominio público",
+   "focus": [
+    52,
+    10
+   ],
+   "zoom": [
+    1.0,
+    1.1
+   ]
+  },
+  {
+   "at": 717.42,
+   "src": "media/ep00/tierra_desde_luna.jpg",
+   "credit": "La Tierra sobre el horizonte lunar, Apolo 11 · NASA · Dominio público",
+   "focus": [
+    50,
+    42
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "at": 735.25,
+   "src": "media/ep00/tierra_noche.mp4",
+   "credit": "La Tierra de noche (satélite Suomi NPP) · NASA · Dominio público"
+  },
+  {
+   "at": 746.99,
+   "src": "media/ep00/luces_europa_africa.jpg",
+   "credit": "Luces nocturnas de Europa, África y Oriente Medio · NASA · Dominio público",
+   "focus": [
+    50,
+    35
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  }
+ ],
+ "map": {
+  "bounds": [
+   -170,
+   -58,
+   190,
+   80
+  ],
+  "places": [
+   {
+    "at": 52.59,
+    "until": 132.02,
+    "name": "Jebel Irhoud",
+    "where": "Marruecos",
+    "lon": -8.87,
+    "lat": 31.85
+   },
+   {
+    "at": 138.35,
+    "until": 204.3,
+    "name": "Sinaí y mar Rojo",
+    "where": "Entre África y Asia",
+    "lon": 34.0,
+    "lat": 28.5
+   },
+   {
+    "at": 151.73,
+    "until": 204.3,
+    "name": "White Sands",
+    "where": "Nuevo México, EE. UU.",
+    "lon": -106.3,
+    "lat": 32.8
+   },
+   {
+    "at": 205.6,
+    "until": 276.81,
+    "name": "Hohlenstein-Stadel",
+    "where": "Baden-Wurtemberg, Alemania",
+    "lon": 10.17,
+    "lat": 48.55
+   },
+   {
+    "at": 285.14,
+    "until": 361.92,
+    "name": "Jericó",
+    "where": "Valle del Jordán, Cisjordania",
+    "lon": 35.44,
+    "lat": 31.87
+   },
+   {
+    "at": 370.7,
+    "until": 437.69,
+    "name": "Uruk",
+    "where": "Sur de Irak",
+    "lon": 45.64,
+    "lat": 31.32
+   },
+   {
+    "at": 438.99,
+    "until": 515.03,
+    "name": "Xi'an",
+    "where": "Shaanxi, China",
+    "lon": 109.27,
+    "lat": 34.38
+   },
+   {
+    "at": 499.5,
+    "until": 515.03,
+    "name": "Roma",
+    "where": "Italia",
+    "lon": 12.48,
+    "lat": 41.9
+   },
+   {
+    "at": 543.98,
+    "until": 593.25,
+    "name": "Sanlúcar de Barrameda",
+    "where": "Cádiz, España",
+    "lon": -6.35,
+    "lat": 36.78
+   },
+   {
+    "at": 602.16,
+    "until": 675.8,
+    "name": "Rainhill",
+    "where": "Entre Liverpool y Mánchester",
+    "lon": -2.76,
+    "lat": 53.41
+   },
+   {
+    "at": 677.1,
+    "until": 755.07,
+    "name": "Kitty Hawk",
+    "where": "Carolina del Norte, EE. UU.",
+    "lon": -75.67,
+    "lat": 36.02
+   },
+   {
+    "at": 735.3,
+    "until": 755.07,
+    "name": "Todo el planeta",
+    "where": "8.000 millones de personas",
+    "lon": 0,
+    "lat": -200
+   }
+  ],
+  "views": [
+   {
+    "at": 52.59,
+    "bounds": [
+     -20,
+     0,
+     55,
+     40
+    ]
+   },
+   {
+    "at": 132.02,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 138.35,
+    "bounds": [
+     10,
+     -5,
+     85,
+     42
+    ]
+   },
+   {
+    "at": 151.73,
+    "bounds": [
+     -135,
+     8,
+     -65,
+     55
+    ]
+   },
+   {
+    "at": 204.3,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 205.6,
+    "bounds": [
+     -12,
+     34,
+     32,
+     62
+    ]
+   },
+   {
+    "at": 276.81,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 285.14,
+    "bounds": [
+     22,
+     20,
+     52,
+     44
+    ]
+   },
+   {
+    "at": 361.92,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 370.7,
+    "bounds": [
+     28,
+     18,
+     62,
+     44
+    ]
+   },
+   {
+    "at": 437.69,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 438.99,
+    "bounds": [
+     72,
+     14,
+     138,
+     54
+    ]
+   },
+   {
+    "at": 499.5,
+    "bounds": [
+     -12,
+     26,
+     44,
+     56
+    ]
+   },
+   {
+    "at": 515.03,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 543.98,
+    "bounds": [
+     -30,
+     22,
+     20,
+     52
+    ]
+   },
+   {
+    "at": 593.25,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 602.16,
+    "bounds": [
+     -14,
+     46,
+     10,
+     62
+    ]
+   },
+   {
+    "at": 675.8,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   },
+   {
+    "at": 677.1,
+    "bounds": [
+     -125,
+     12,
+     -55,
+     55
+    ]
+   },
+   {
+    "at": 735.3,
+    "bounds": [
+     -180,
+     -60,
+     180,
+     80
+    ]
+   },
+   {
+    "at": 755.07,
+    "bounds": [
+     -170,
+     -58,
+     190,
+     80
+    ]
+   }
+  ]
+ },
+ "data": [
+  {
+   "at": 101.98,
+   "until": 131.62,
+   "label": "Edad de los fósiles",
+   "value": "315.000",
+   "unit": "años (± 34.000)",
+   "compare": "<b>Unos 100.000 años más</b> que el récord anterior, en Etiopía"
+  },
+  {
+   "at": 178.75,
+   "until": 203.9,
+   "label": "Edad de las huellas",
+   "value": "≈ 22.000",
+   "unit": "años (entre 21.000 y 23.000)",
+   "compare": "En plena <b>última glaciación</b>, ya había gente en América"
+  },
+  {
+   "at": 256.8,
+   "until": 276.41,
+   "label": "Tiempo de talla",
+   "value": "300 h",
+   "unit": "o más, con útiles de piedra",
+   "compare": "Como <b>ocho semanas</b> de trabajo a jornada completa"
+  },
+  {
+   "at": 325.3,
+   "until": 361.52,
+   "label": "Edad de la torre",
+   "value": "≈ 10.000",
+   "unit": "años",
+   "compare": "<b>Más de 5.000 años antes</b> que la primera pirámide de Egipto"
+  },
+  {
+   "at": 403.49,
+   "until": 437.29,
+   "label": "Lo primero que se escribió",
+   "value": "Cuentas",
+   "unit": "de cebada, cerveza y ganado",
+   "compare": "La literatura llegó <b>siglos después</b>"
+  },
+  {
+   "at": 490.81,
+   "until": 499.4,
+   "label": "Censo Han · año 2",
+   "value": "≈ 59 M",
+   "unit": "personas (57,7 a 59,6 M)",
+   "compare": "Uno de los <b>censos más antiguos</b> que se conservan"
+  },
+  {
+   "at": 567.99,
+   "until": 592.85,
+   "label": "Volvieron en la Victoria",
+   "value": "18",
+   "unit": "hombres, tras tres años",
+   "compare": "Habían salido <b>unos 250</b> (entre 237 y 270), en cinco naves"
+  },
+  {
+   "at": 649.4,
+   "until": 675.4,
+   "label": "Población mundial",
+   "value": "× 8",
+   "unit": "desde 1800",
+   "compare": "De <b>1.000 millones</b> a 8.000 millones en dos siglos"
+  },
+  {
+   "at": 715.45,
+   "until": 754.67,
+   "label": "Del primer vuelo a la Luna",
+   "value": "65 años",
+   "unit": "y siete meses",
+   "compare": "<b>Menos que una vida</b> humana"
+  }
+ ],
+ "asks": [
+  {
+   "at": 41.13,
+   "hold": 3.0,
+   "kicker": "La pregunta del episodio",
+   "text": "¿Qué parte de nuestra historia no está escrita?"
+  },
+  {
+   "at": 98.78,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuántos años dirías que tiene?"
+  },
+  {
+   "at": 175.55,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuándo pasaron por aquí?"
+  },
+  {
+   "at": 253.6,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuánto tardó en tallarla?"
+  },
+  {
+   "at": 322.1,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuándo la construyeron?"
+  },
+  {
+   "at": 400.29,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Qué crees que pone?"
+  },
+  {
+   "at": 487.61,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuántas personas contaron?"
+  },
+  {
+   "at": 564.79,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuántos volvieron?"
+  },
+  {
+   "at": 646.2,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuántos éramos en 1800?"
+  },
+  {
+   "at": 712.25,
+   "hold": 2.6,
+   "kicker": "Pausa y piensa",
+   "text": "¿Cuántos años hay entre las dos fotos?"
+  }
+ ],
+ "learned": [
+  {
+   "at": 124.52,
+   "hold": 7.3,
+   "text": "Somos africanos, y más antiguos de lo que creíamos"
+  },
+  {
+   "at": 197.51,
+   "hold": 6.59,
+   "text": "Caminando, llegamos a todos los continentes"
+  },
+  {
+   "at": 269.16,
+   "hold": 7.45,
+   "text": "Aprendimos a imaginar lo que no existe"
+  },
+  {
+   "at": 351.77,
+   "hold": 9.94,
+   "text": "Al cultivar, echamos raíces"
+  },
+  {
+   "at": 429.62,
+   "hold": 7.87,
+   "text": "La escritura nació para llevar las cuentas"
+  },
+  {
+   "at": 507.02,
+   "hold": 7.81,
+   "text": "Un imperio: millones bajo una misma ley"
+  },
+  {
+   "at": 585.43,
+   "hold": 7.62,
+   "text": "El mundo se convirtió en una sola red"
+  },
+  {
+   "at": 667.9,
+   "hold": 7.7,
+   "text": "Las máquinas lo multiplicaron todo"
+  },
+  {
+   "at": 747.64,
+   "hold": 7.23,
+   "text": "El cambio ya no se mide en milenios, sino en años"
+  }
+ ],
+ "journey": [
+  {
+   "at": 0,
+   "yearsAgo": 10
+  },
+  {
+   "at": 2.6,
+   "yearsAgo": 1,
+   "travel": 2.2
+  },
+  {
+   "at": 8.73,
+   "yearsAgo": 300000,
+   "travel": 2.2
+  },
+  {
+   "at": 52.89,
+   "yearsAgo": 65,
+   "travel": 2.2
+  },
+  {
+   "at": 101.83,
+   "yearsAgo": 315000,
+   "travel": 2.2
+  },
+  {
+   "at": 138.65,
+   "yearsAgo": 60000,
+   "travel": 2.2
+  },
+  {
+   "at": 178.6,
+   "yearsAgo": 22000,
+   "travel": 2.2
+  },
+  {
+   "at": 205.9,
+   "yearsAgo": 87,
+   "travel": 2.2
+  },
+  {
+   "at": 234.31,
+   "yearsAgo": 40000,
+   "travel": 2.2
+  },
+  {
+   "at": 278.41,
+   "yearsAgo": 12000,
+   "travel": 2.2
+  },
+  {
+   "at": 325.15,
+   "yearsAgo": 10000,
+   "travel": 2.2
+  },
+  {
+   "at": 371.0,
+   "yearsAgo": 5200,
+   "travel": 2.2
+  },
+  {
+   "at": 439.29,
+   "yearsAgo": 52,
+   "travel": 2.2
+  },
+  {
+   "at": 454.64,
+   "yearsAgo": 2247,
+   "travel": 2.2
+  },
+  {
+   "at": 483.23,
+   "yearsAgo": 2024,
+   "travel": 2.2
+  },
+  {
+   "at": 516.63,
+   "yearsAgo": 534,
+   "travel": 2.2
+  },
+  {
+   "at": 554.39,
+   "yearsAgo": 504,
+   "travel": 2.2
+  },
+  {
+   "at": 602.46,
+   "yearsAgo": 250,
+   "travel": 2.2
+  },
+  {
+   "at": 620.1,
+   "yearsAgo": 197,
+   "travel": 2.2
+  },
+  {
+   "at": 677.4,
+   "yearsAgo": 123,
+   "travel": 2.2
+  },
+  {
+   "at": 700.41,
+   "yearsAgo": 57,
+   "travel": 2.2
+  },
+  {
+   "at": 735.6,
+   "yearsAgo": 1,
+   "travel": 2.2
+  },
+  {
+   "at": 808.66,
+   "yearsAgo": 300000,
+   "travel": 2.2
+  },
+  {
+   "at": 821.42,
+   "yearsAgo": 5200,
+   "travel": 2.2
+  },
+  {
+   "at": 840.48,
+   "yearsAgo": 315000,
+   "travel": 2.2
+  }
+ ],
+ "axis": {
+  "from": 400000,
+  "to": 10,
+  "title": "Eje cronológico",
+  "note": "años atrás · escala logarítmica: lo reciente está ampliado",
+  "ticks": [
+   {
+    "yearsAgo": 300000,
+    "label": "300.000"
+   },
+   {
+    "yearsAgo": 100000,
+    "label": "100.000"
+   },
+   {
+    "yearsAgo": 30000,
+    "label": "30.000"
+   },
+   {
+    "yearsAgo": 10000,
+    "label": "10.000"
+   },
+   {
+    "yearsAgo": 3000,
+    "label": "3.000"
+   },
+   {
+    "yearsAgo": 1000,
+    "label": "1.000"
+   },
+   {
+    "yearsAgo": 300,
+    "label": "300"
+   },
+   {
+    "yearsAgo": 100,
+    "label": "100"
+   },
+   {
+    "yearsAgo": 30,
+    "label": "30"
+   },
+   {
+    "yearsAgo": 10,
+    "label": "Hoy"
+   }
+  ]
+ },
+ "index": {
+  "at": 755.07,
+  "kicker": "Temporada 1 · Índice",
+  "takeaway": "Nueve capítulos, nueve ideas",
+  "takes": [
+   {
+    "at": 755.07,
+    "text": "Nueve capítulos, nueve ideas"
+   },
+   {
+    "at": 801.56,
+    "text": "¿Qué parte de nuestra historia no está escrita?"
+   },
+   {
+    "at": 814.61,
+    "text": "Más del 98 % de nuestra historia no está escrito"
+   },
+   {
+    "at": 840.28,
+    "text": "Siguiente episodio: Nuestro origen"
+   },
+   {
+    "at": 847.02,
+    "text": "De las nueve ideas, ¿cuál nos cambió más?"
+   }
+  ],
+  "rows": [
+   {
+    "at": 759.63
+   },
+   {
+    "at": 764.28
+   },
+   {
+    "at": 769.29
+   },
+   {
+    "at": 773.3
+   },
+   {
+    "at": 777.85
+   },
+   {
+    "at": 782.84
+   },
+   {
+    "at": 789.74
+   },
+   {
+    "at": 793.01
+   },
+   {
+    "at": 797.46
+   }
+  ],
+  "nextAt": 840.48
+ },
+ "thumbs": [
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/hombre_leon_1.jpg",
+   "focus": [
+    50,
+    9
+   ],
+   "zoom": 1.0,
+   "shift": [
+    22,
+    0
+   ],
+   "kicker": "Toda nuestra historia",
+   "hook": [
+    {
+     "text": "300.000 años",
+     "highlight": true
+    },
+    {
+     "text": "en 15 minutos"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/irhoud_craneo.jpg",
+   "focus": [
+    50,
+    45
+   ],
+   "zoom": 1.0,
+   "shift": [
+    20,
+    0
+   ],
+   "kicker": "La historia que no se escribió",
+   "hook": [
+    {
+     "text": "El 98 %",
+     "highlight": true
+    },
+    {
+     "text": "sin escribir"
+    }
+   ]
+  },
+  {
+   "seasonNumber": 1,
+   "seasonColor": "#ff4b33",
+   "when": "300.000 años",
+   "image": "media/ep00/aldrin_luna.jpg",
+   "focus": [
+    55,
+    25
+   ],
+   "zoom": 1.0,
+   "shift": [
+    16,
+    0
+   ],
+   "kicker": "Del primer cráneo a la Luna",
+   "hook": [
+    {
+     "text": "9 ideas",
+     "highlight": true
+    },
+    {
+     "text": "15 minutos"
+    }
+   ]
+  }
+ ]
+}
