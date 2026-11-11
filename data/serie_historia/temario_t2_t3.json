@@ -1,0 +1,254 @@
+{
+  "temporadas": [
+    {
+      "temporada": 2,
+      "titulo": "La energía: de dónde sale la fuerza",
+      "lente": "Sigue cómo los humanos han conseguido fuerza para vivir y trabajar: del fuego al músculo animal, el agua, el viento, el carbón, el petróleo y su factura en la atmósfera.",
+      "por_que_esta": "La energía es la variable oculta detrás de cada hito de la Temporada 1: no hay agricultura, ciudades ni industria sin un salto en la energía disponible por persona. Sus anclas son objetos físicos sorprendentes y fotografiables (una lámpara de grasa, un molino romano de 16 ruedas, una máquina de vapor todavía en su sitio) que nada tienen que ver con los textos, cráneos y mapas de la primera temporada.",
+      "episodios": [
+        {
+          "codigo": "T2-E01",
+          "titulo": "La primera hoguera de casa",
+          "idea": "Controlar el fuego convirtió una cueva en un hogar: cocinar, calentarse y reunirse alrededor del mismo punto.",
+          "ancla": {
+            "objeto": "Hogar central de la cueva de Qesem (in situ), con capas de ceniza y huesos quemados",
+            "lugar": {"nombre": "Cueva de Qesem, cerca de Kafr Qasim", "pais": "Israel", "lon": 34.98, "lat": 32.11}
+          },
+          "cuando": {"texto": "hace unos 300.000 años", "anios_atras": 300000},
+          "enlaza_con": "T1-E01",
+          "fuentes": [
+            {"afirmacion": "En la parte central de la cueva de Qesem se halló un hogar de unos 300.000 años, usado de forma repetida; la cueva se ocupó entre ~420.000 y ~220.000 años atrás.", "url": "https://en.wikipedia.org/wiki/Qesem_Cave"}
+          ]
+        },
+        {
+          "codigo": "T2-E02",
+          "titulo": "Una lámpara para pintar en la oscuridad",
+          "idea": "El arte de las cuevas solo fue posible porque alguien inventó luz portátil quemando grasa animal.",
+          "ancla": {
+            "objeto": "Lámpara de grasa de Lascaux, de arenisca roja pulida; hallada en el Pozo de Lascaux (Montignac) y conservada en el Musée national de Préhistoire (coordenadas del museo)",
+            "lugar": {"nombre": "Musée national de Préhistoire, Les Eyzies", "pais": "Francia", "lon": 1.0104, "lat": 44.9373}
+          },
+          "cuando": {"texto": "hace unos 17.000 años (Magdaleniense)", "anios_atras": 17000},
+          "enlaza_con": "T1-E03",
+          "fuentes": [
+            {"afirmacion": "La lámpara de Lascaux es magdaleniense, de hace unos 17.000 años; arenisca roja; hallada en el suelo del Pozo; conservada en el Musée national de Préhistoire de Les Eyzies.", "url": "https://donsmaps.com/lascauxlamp.html"},
+            {"afirmacion": "El Musée national de Préhistoire expone la célebre lámpara de la cueva de Lascaux.", "url": "https://www.culture.gouv.fr/Media/medias-creation-rapide/Le-centenaire-du-MNP-revue-Archeologia-juillet-aout-2023-.pdf"}
+          ]
+        },
+        {
+          "codigo": "T2-E03",
+          "titulo": "El buey: el primer motor con patas",
+          "idea": "Domesticar animales de tiro multiplicó la fuerza humana, y una vasija polaca dibuja ya carros con ruedas.",
+          "ancla": {
+            "objeto": "Vasija de Bronocice, con uno de los dibujos de vehículos con ruedas más antiguos; hallada en Bronocice y conservada en el Museo Arqueológico de Cracovia (coordenadas del museo)",
+            "lugar": {"nombre": "Muzeum Archeologiczne w Krakowie, Cracovia", "pais": "Polonia", "lon": 19.9367, "lat": 50.0577}
+          },
+          "cuando": {"texto": "hacia 3500 a. C.", "anios_atras": 5525},
+          "enlaza_con": "T1-E04",
+          "fuentes": [
+            {"afirmacion": "La vasija de Bronocice data de hacia 3500 a. C. (radiocarbono ~3635–3370 a. C.), muestra cinco carros de cuatro ruedas y se conserva en el Museo Arqueológico de Cracovia.", "url": "https://en.wikipedia.org/wiki/Bronocice_pot"}
+          ]
+        },
+        {
+          "codigo": "T2-E04",
+          "titulo": "La fábrica de harina del Imperio romano",
+          "idea": "Roma encadenó 16 ruedas hidráulicas en una ladera para moler pan para una ciudad entera: energía del agua a escala industrial.",
+          "ancla": {
+            "objeto": "Molinos de Barbegal (ruinas in situ): dos hileras de ocho ruedas hidráulicas alimentadas por acueducto",
+            "lugar": {"nombre": "Barbegal, Fontvieille (cerca de Arlés)", "pais": "Francia", "lon": 4.7214, "lat": 43.7025}
+          },
+          "cuando": {"texto": "siglos II–III d. C.", "anios_atras": 1900},
+          "enlaza_con": "T1-E06",
+          "fuentes": [
+            {"afirmacion": "Los molinos de Barbegal funcionaron desde comienzos del siglo II hasta finales del III, con 16 ruedas y una capacidad estimada de ~4,5 toneladas de harina al día.", "url": "https://en.wikipedia.org/wiki/Barbegal_aqueduct_and_mills"}
+          ]
+        },
+        {
+          "codigo": "T2-E05",
+          "titulo": "Don Quijote atacó la tecnología punta",
+          "idea": "Los molinos de viento eran las máquinas más potentes de su tiempo; el viento movía harina en tierra y barcos en el océano.",
+          "ancla": {
+            "objeto": "Molinos Burleta, Infanto y Sardinero, del siglo XVI, con estructura y maquinaria originales (in situ)",
+            "lugar": {"nombre": "Sierra de los Molinos, Campo de Criptana", "pais": "España", "lon": -3.123, "lat": 39.406}
+          },
+          "cuando": {"texto": "siglo XVI; Don Quijote (1605) los convierte en gigantes", "anios_atras": 421},
+          "enlaza_con": "T1-E07",
+          "fuentes": [
+            {"afirmacion": "De los molinos de Campo de Criptana, tres datan del siglo XVI.", "url": "https://es.wikipedia.org/wiki/Campo_de_Criptana"},
+            {"afirmacion": "Sardinero, Infanto y Burleta son los tres molinos originales de Campo de Criptana y conservan su maquinaria intacta.", "url": "https://www.directoalpaladar.com/viajes/este-pueblo-ciudad-real-famosos-sus-molinos-tiene-albaicin-igual-bonito-que-granada"},
+            {"afirmacion": "La primera parte del Quijote, con el episodio de los molinos, se publicó el 16 de enero de 1605.", "url": "https://en.wikipedia.org/wiki/Don_Quixote"}
+          ]
+        },
+        {
+          "codigo": "T2-E06",
+          "titulo": "Quemar carbón para sacar agua",
+          "idea": "La primera máquina de vapor útil no movía trenes: bombeaba agua de minas de carbón, y así el carbón alimentó su propia extracción.",
+          "ancla": {
+            "objeto": "Máquina de vapor Newcomen de Elsecar, en su emplazamiento original de la mina Elsecar New Colliery",
+            "lugar": {"nombre": "Elsecar, cerca de Barnsley", "pais": "Reino Unido", "lon": -1.4197, "lat": 53.4939}
+          },
+          "cuando": {"texto": "1795", "anios_atras": 231},
+          "enlaza_con": "T1-E08",
+          "fuentes": [
+            {"afirmacion": "La máquina Newcomen de Elsecar se construyó en 1795, bombeó agua de la mina hasta 1923 y se considera la máquina de vapor más antigua que sigue en su lugar original.", "url": "https://en.wikipedia.org/wiki/Elsecar_Heritage_Centre"}
+          ]
+        },
+        {
+          "codigo": "T2-E07",
+          "titulo": "El pozo que inventó el siglo XX",
+          "idea": "Un pozo perforado en Pensilvania abrió la era del petróleo: energía líquida, barata y fácil de transportar.",
+          "ancla": {
+            "objeto": "Pozo Drake, con réplica de la torre y casa de máquinas (1945) en el emplazamiento original",
+            "lugar": {"nombre": "Drake Well Museum, Titusville, Pensilvania", "pais": "Estados Unidos", "lon": -79.6574, "lat": 41.6112}
+          },
+          "cuando": {"texto": "27 de agosto de 1859", "anios_atras": 167},
+          "enlaza_con": "T1-E08",
+          "fuentes": [
+            {"afirmacion": "Drake y el perforador William A. Smith lograron el primer pozo comercialmente exitoso el 27 de agosto de 1859; en el sitio hay una réplica de 1945.", "url": "https://en.wikipedia.org/wiki/Drake_Well_Museum"}
+          ]
+        },
+        {
+          "codigo": "T2-E08",
+          "titulo": "El volcán que mide nuestra factura",
+          "idea": "Toda esa energía quemada deja CO₂ en el aire, y un observatorio en un volcán lo mide sin pausa desde 1958.",
+          "ancla": {
+            "objeto": "Observatorio de Mauna Loa (curva de Keeling), a 3.397 m en la ladera norte del volcán",
+            "lugar": {"nombre": "Mauna Loa, isla de Hawái", "pais": "Estados Unidos", "lon": -155.5763, "lat": 19.5362}
+          },
+          "cuando": {"texto": "marzo de 1958", "anios_atras": 68},
+          "enlaza_con": "T1-E09",
+          "fuentes": [
+            {"afirmacion": "Las mediciones continuas de CO₂ en Mauna Loa comenzaron en marzo de 1958, dirigidas por Charles David Keeling.", "url": "https://en.wikipedia.org/wiki/Mauna_Loa_Observatory"},
+            {"afirmacion": "Coordenadas 19.5362 N, 155.5763 O; la erupción de 2022 cortó el acceso y una carretera provisional se completó el 26 de marzo de 2026.", "url": "https://gml.noaa.gov/obop/mlo/"}
+          ]
+        }
+      ]
+    },
+    {
+      "temporada": 3,
+      "titulo": "Los invisibles: enfermedades que hicieron historia",
+      "lente": "Sigue a los microbios y males que viajaron con nosotros: de las caries de nuestros ancestros a las pestes, las vacunas y los antibióticos.",
+      "por_que_esta": "Cada paso de la Temporada 1 (salir de África, sembrar, juntarnos en ciudades, conectar el mundo) abrió la puerta a una enfermedad nueva, así que el mismo eje se lee como una historia de contagios y respuestas. Es el ángulo más distinto a la energía y a la primera temporada, y deja anclas inesperadas: un cráneo con caries, una momia con viruela, lápidas que dicen «murió de pestilencia» y la piel de una vaca.",
+      "episodios": [
+        {
+          "codigo": "T3-E01",
+          "titulo": "Un ancestro con dolor de muelas",
+          "idea": "Ya hace 300.000 años un humano arcaico sufría la peor caries conocida del Pleistoceno: la enfermedad es tan antigua como nosotros.",
+          "ancla": {
+            "objeto": "Cráneo Kabwe 1 (Broken Hill), hallado en la mina de Kabwe (Zambia) en 1921 y conservado en el Natural History Museum de Londres (coordenadas del museo)",
+            "lugar": {"nombre": "Natural History Museum, Londres", "pais": "Reino Unido", "lon": -0.1764, "lat": 51.4967}
+          },
+          "cuando": {"texto": "hace unos 299.000 años (± 25.000)", "anios_atras": 299000},
+          "enlaza_con": "T1-E01",
+          "fuentes": [
+            {"afirmacion": "El cráneo de Broken Hill se dató en 2020 en unos 299.000 años (± 25.000) y se expone en la galería de Evolución Humana del Natural History Museum.", "url": "https://www.nhm.ac.uk/discover/news/2020/april/dating-the-broken-hill-skull--homo-heidelbergensis.html"},
+            {"afirmacion": "10 de sus 15 dientes tienen caries; ningún otro fósil del Pleistoceno muestra caries tan severas.", "url": "https://en.wikipedia.org/wiki/Kabwe_1"}
+          ]
+        },
+        {
+          "codigo": "T3-E02",
+          "titulo": "El regalo neandertal que llegó con la COVID",
+          "idea": "Al salir de África nos cruzamos con neandertales, y un trozo de su ADN aún cambia cómo enfermamos hoy.",
+          "ancla": {
+            "objeto": "Cueva de Vindija, cuyo neandertal (Vindija 33.19) comparte la variante genética de riesgo ante la COVID-19 grave",
+            "lugar": {"nombre": "Cueva de Vindija, cerca de Ivanec", "pais": "Croacia", "lon": 16.0797, "lat": 46.3017}
+          },
+          "cuando": {"texto": "neandertal de hace ~50.000 años; el cruce, hace ~60.000", "anios_atras": 50000},
+          "enlaza_con": "T1-E02",
+          "fuentes": [
+            {"afirmacion": "La variante de riesgo ante la COVID-19 grave se parece mucho a la de un neandertal de Croacia de unos 50.000 años y llegó a los humanos modernos por cruces hace unos 60.000 años.", "url": "https://www.mpg.de/15451493/neandertal-gene-variant-increases-risk-of-severe-covid-19"},
+            {"afirmacion": "Ubicación de la cueva de Vindija (46°18′N 16°04′E) y restos neandertales de más de 44.000 años.", "url": "https://en.wikipedia.org/wiki/Vindija_Cave"}
+          ]
+        },
+        {
+          "codigo": "T3-E03",
+          "titulo": "Vivir junto al ganado tiene un precio",
+          "idea": "La vida en aldeas agrícolas trajo enfermedades nuevas: en un poblado hoy bajo el mar están los casos de tuberculosis más antiguos conocidos.",
+          "ancla": {
+            "objeto": "Esqueletos de una mujer y un niño con tuberculosis en Atlit Yam, aldea neolítica sumergida",
+            "lugar": {"nombre": "Atlit Yam, frente a la costa de Atlit", "pais": "Israel", "lon": 34.9352, "lat": 32.7108}
+          },
+          "cuando": {"texto": "hacia 6900 a. C.", "anios_atras": 8925},
+          "enlaza_con": "T1-E04",
+          "fuentes": [
+            {"afirmacion": "Atlit Yam se construyó hacia 6900 a. C. y se abandonó hacia 6300 a. C.; los esqueletos de una mujer y un niño muestran los casos de tuberculosis más antiguos conocidos.", "url": "https://en.wikipedia.org/wiki/Atlit_Yam"}
+          ]
+        },
+        {
+          "codigo": "T3-E04",
+          "titulo": "El faraón con la cara marcada",
+          "idea": "Las ciudades densas permiten que los virus no se apaguen nunca, y la momia de un faraón podría mostrar uno de los casos de viruela más antiguos.",
+          "ancla": {
+            "objeto": "Momia de Ramsés V, con lesiones en la cara atribuidas a la viruela, en el Museo Nacional de la Civilización Egipcia",
+            "lugar": {"nombre": "Museo Nacional de la Civilización Egipcia, El Cairo", "pais": "Egipto", "lon": 31.2486, "lat": 30.0083}
+          },
+          "cuando": {"texto": "1144 a. C. (muerte de Ramsés V)", "anios_atras": 3169},
+          "enlaza_con": "T1-E05",
+          "fuentes": [
+            {"afirmacion": "Ramsés V reinó de 1148 a 1144 a. C.; una teoría atribuye las lesiones de su cara a la viruela; su momia se exhibe en el Museo Nacional de la Civilización Egipcia.", "url": "https://en.wikipedia.org/wiki/Ramesses_V"}
+          ]
+        },
+        {
+          "codigo": "T3-E05",
+          "titulo": "Las lápidas que dicen «murió de pestilencia»",
+          "idea": "La Peste Negra empezó en Asia central y viajó por las rutas del imperio mongol; unas lápidas cristianas de 1338 marcan su origen.",
+          "ancla": {
+            "objeto": "Lápidas con inscripciones siríacas del cementerio de Kara-Djigach, valle del Chüy (excavado 1885–1892); coordenadas aproximadas del área de Biskek, sitio exacto no verificado",
+            "lugar": {"nombre": "Kara-Djigach, valle del Chüy", "pais": "Kirguistán", "lon": 74.7, "lat": 42.85}
+          },
+          "cuando": {"texto": "1338–1339", "anios_atras": 688},
+          "enlaza_con": "T1-E06",
+          "fuentes": [
+            {"afirmacion": "Las lápidas del valle del Chüy registran un pico de muertes por «pestilencia» en 1338–1339; un estudio de ADN de 2022 halló Yersinia pestis en Kara-Djigach, ancestro directo de las cepas de la Peste Negra de 1346–1347.", "url": "https://en.wikipedia.org/wiki/Black_Death"},
+            {"afirmacion": "De 467 lápidas fechadas, 118 corresponden a 1338 y 1339; los cementerios se excavaron entre 1885 y 1892.", "url": "https://www.sciencenews.org/?p=3114678"},
+            {"afirmacion": "Kara-Djigach está en el valle del Chüy, Kirguistán, al pie del Tian Shan.", "url": "https://www.eurekalert.org/multimedia/957564"}
+          ]
+        },
+        {
+          "codigo": "T3-E06",
+          "titulo": "El arma que nadie llevó a propósito",
+          "idea": "Cuando el mundo se conectó, la viruela llegó a América antes que muchos soldados y arrasó Tenochtitlan en 1520.",
+          "ancla": {
+            "objeto": "Códice Florentino, libro XII, folio 53v: dibujo nahua de enfermos de viruela; conservado en la Biblioteca Medicea Laurenziana",
+            "lugar": {"nombre": "Biblioteca Medicea Laurenziana, Florencia", "pais": "Italia", "lon": 11.2536, "lat": 43.7747}
+          },
+          "cuando": {"texto": "epidemia de 1520 (dibujada en el códice, h. 1569–1577)", "anios_atras": 506},
+          "enlaza_con": "T1-E07",
+          "fuentes": [
+            {"afirmacion": "El folio 53v del libro XII del Códice Florentino muestra la epidemia de viruela de 1520 durante la lucha por Tenochtitlan; el códice se fecha en 1577.", "url": "https://aztecglyphs.wired-humanities.org/node/8350"},
+            {"afirmacion": "La versión final del Códice Florentino se completó en 1569 y se conserva en la Biblioteca Medicea Laurenziana.", "url": "https://en.wikipedia.org/wiki/Florentine_Codex"}
+          ]
+        },
+        {
+          "codigo": "T3-E07",
+          "titulo": "La vaca que salvó millones de vidas",
+          "idea": "Jenner usó la viruela vacuna de una ordeñadora para proteger a un niño: así nació la vacuna, palabra que viene de «vaca».",
+          "ancla": {
+            "objeto": "Piel de la vaca Blossom, colgada en la biblioteca de St George's (Tooting)",
+            "lugar": {"nombre": "St George's, University of London, Tooting", "pais": "Reino Unido", "lon": -0.1747, "lat": 51.4268}
+          },
+          "cuando": {"texto": "14 de mayo de 1796", "anios_atras": 230},
+          "enlaza_con": "T1-E08",
+          "fuentes": [
+            {"afirmacion": "El 14 de mayo de 1796 Jenner inoculó a James Phipps con material de Sarah Nelmes, contagiada por la vaca Blossom, cuya piel cuelga en la biblioteca de St George's en Tooting.", "url": "https://en.wikipedia.org/wiki/Edward_Jenner"}
+          ]
+        },
+        {
+          "codigo": "T3-E08",
+          "titulo": "Un moho en un laboratorio desordenado",
+          "idea": "Un hongo que contaminó una placa abrió la era de los antibióticos, la razón por la que hoy una infección rara vez mata.",
+          "ancla": {
+            "objeto": "Laboratorio de Alexander Fleming, restaurado como museo en el St Mary's Hospital",
+            "lugar": {"nombre": "Alexander Fleming Laboratory Museum, Paddington, Londres", "pais": "Reino Unido", "lon": -0.1731, "lat": 51.5172}
+          },
+          "cuando": {"texto": "septiembre de 1928", "anios_atras": 98},
+          "enlaza_con": "T1-E09",
+          "fuentes": [
+            {"afirmacion": "Fleming observó el efecto de la penicilina el 3 de septiembre de 1928 y lo confirmó el 28 de septiembre en el St Mary's Hospital.", "url": "https://en.wikipedia.org/wiki/Penicillin"},
+            {"afirmacion": "El laboratorio de Fleming en el St Mary's Hospital fue restaurado e incorporado a un museo.", "url": "https://en.wikipedia.org/wiki/Alexander_Fleming_Laboratory_Museum"}
+          ]
+        }
+      ]
+    }
+  ]
+}

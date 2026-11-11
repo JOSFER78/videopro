@@ -83,6 +83,9 @@ Para cada parte, por este orden de preferencia:
    No descargues nada «por si acaso».
 2. **Recreación con Google Flow** cuando no exista imagen libre, o para dar vida a una imagen real.
 
+**Toda imagen o vídeo generado se hace siempre con Google Flow desde el navegador**: ni otros generadores, ni
+API, ni modelos locales. Lo que no sea de Flow tiene que ser material real con su licencia.
+
 Cómo usar Flow (https://flow.google.com, con mi sesión ya iniciada; si no lo está, párate y
 dímelo, no pidas contraseñas):
 - Modelo **Gemini Omni 1.2 Flash** (Veo 3.1 Fast/Quality y Omni Flash 1.1 se retiran el 5-dic-2026).
