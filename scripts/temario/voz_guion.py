@@ -48,6 +48,7 @@ def parecido(a, b):
 
 
 UMBRAL = 0.78
+SIGLAS = {"ADN": "a de ene"}
 
 
 def main(argv):
@@ -76,6 +77,8 @@ def main(argv):
         meta = archivo + ".json"
         # lo que se lee puede escribirse distinto de lo que se muestra (fechas, nombres extranjeros)
         dicho = frase.get("pronunciacion") or frase["texto"]
+        for sigla, sonido in SIGLAS.items():            # las siglas se deletrean: la voz las lee como una palabra
+            dicho = re.sub(rf"\b{sigla}\b", sonido, dicho)
         if os.path.exists(archivo) and os.path.exists(meta) and json.load(open(meta))["dicho"] == dicho:
             onda, _ = torchaudio.load(archivo)
             guardado = json.load(open(meta))
@@ -83,6 +86,11 @@ def main(argv):
                 partes, _ = oido.transcribe(archivo, language="es")
                 guardado["oido"] = " ".join(p.text for p in partes)
             coincidencia = parecido(dicho, guardado["oido"])
+            if coincidencia < UMBRAL:
+                recortado = recortar_coletilla(archivo, dicho, oido)
+                if recortado:
+                    guardado["oido"], coincidencia = recortado, parecido(dicho, recortado)
+                    onda, _ = torchaudio.load(archivo)
             json.dump({"dicho": dicho, "oido": guardado["oido"], "coincidencia": coincidencia}, open(meta, "w"))
         else:
             mejor = None
@@ -101,6 +109,11 @@ def main(argv):
             onda, coincidencia, escuchado = mejor
             torchaudio.save(archivo, onda, sr)
             os.remove(archivo + ".tmp.wav")
+            if coincidencia < UMBRAL:
+                recortado = recortar_coletilla(archivo, dicho, oido)
+                if recortado:
+                    escuchado, coincidencia = recortado, parecido(dicho, recortado)
+                    onda, _ = torchaudio.load(archivo)
             json.dump({"dicho": dicho, "oido": escuchado, "coincidencia": coincidencia}, open(meta, "w"))
         if frase.get("pausa"):                       # silencio para la pregunta «pausa y piensa»
             seg = frase.get("pausa_seg", 2.8)
@@ -120,6 +133,32 @@ def main(argv):
     malas = [m for m in marcas if m.get("revisar")]
     print(f"OK {salida}  {t:.0f}s  frases a revisar: {len(malas)}")
     return 0
+
+
+def recortar_coletilla(archivo: str, dicho: str, oido) -> str | None:
+    """Si la voz añade palabras inventadas tras el final de la frase, corta el audio donde acaba la última
+    palabra del texto. Devuelve la nueva transcripción, o None si no había nada que cortar."""
+    import difflib, re, unicodedata
+    import torch, torchaudio
+
+    def norma(palabra: str) -> str:
+        sin = unicodedata.normalize("NFKD", palabra.lower())
+        return re.sub(r"[^a-z0-9]", "", "".join(c for c in sin if not unicodedata.combining(c)))
+
+    esperadas = [w for w in map(norma, dicho.split()) if w]
+    partes, _ = oido.transcribe(archivo, language="es", word_timestamps=True)
+    palabras = [w for p in partes for w in p.words if norma(w.word)]
+    # la última palabra del texto, buscada cerca de donde debería caer
+    for j in range(len(palabras) - 2, max(len(esperadas) - 5, 0) - 1, -1):
+        if abs(j + 1 - len(esperadas)) <= 3 and difflib.SequenceMatcher(None, norma(palabras[j].word), esperadas[-1]).ratio() >= 0.8:
+            onda, sr = torchaudio.load(archivo)
+            fin = min(onda.shape[-1], int((palabras[j].end + 0.12) * sr))
+            onda = onda[..., :fin].clone()
+            caida = int(0.04 * sr)
+            onda[..., -caida:] *= torch.linspace(1, 0, caida)
+            torchaudio.save(archivo, onda, sr)
+            return " ".join(w.word.strip() for w in palabras[:j + 1])
+    return None
 
 
 if __name__ == "__main__":
