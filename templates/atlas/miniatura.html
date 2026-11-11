@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Miniatura Atlas</title>
+<style>
+  @font-face { font-family: "Impacto"; src: url("fonts/anton-latin-400-normal.woff2"); }
+  @font-face { font-family: "Sans"; font-weight: 600; src: url("fonts/inter-latin-600-normal.woff2"); }
+  :root { --season: #ff4b33; }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1280px; height: 720px; overflow: hidden; background: #0c0d0f; color: #fff; font-family: "Sans", Arial, sans-serif; font-weight: 600; }
+  /*
+   * Tres capas de identidad:
+   *   CANAL      siempre igual: tipografía, insignia arriba a la izquierda y franja inferior con el eje del tiempo
+   *   TEMPORADA  un color propio (--season) en la insignia, el resaltado del gancho y la aguja
+   *   CAPÍTULO   la imagen real a sangre y un gancho de 2-4 palabras
+   */
+  #img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.12) saturate(1.15); }
+  #dark { position: absolute; inset: 0; background: linear-gradient(90deg, #060708 0, #060708 14%, rgba(6,7,8,.80) 38%, rgba(6,7,8,0) 68%), linear-gradient(0deg, rgba(6,7,8,.7) 0, rgba(6,7,8,0) 30%); }
+  #badge { position: absolute; left: 44px; top: 40px; display: flex; height: 76px; font-family: "Impacto", Impact, sans-serif; font-weight: 400; }
+  #badge span { line-height: 80px; padding: 0 22px; font-size: 52px; letter-spacing: .02em; white-space: nowrap; }
+  #badge .s { background: var(--season); color: #0c0d0f; }
+  #badge .e { background: #fff; color: #0c0d0f; }
+  #kicker { position: absolute; left: 44px; top: 150px; background: #0c0d0f; padding: 9px 16px 7px; font-size: 30px; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+  #hook { position: absolute; left: 44px; top: 214px; font-family: "Impacto", Impact, sans-serif; font-weight: 400; text-transform: uppercase; }
+  #hook div { display: table; white-space: nowrap; line-height: 1.04; padding: 0 14px 0 0; text-shadow: 0 6px 30px rgba(0,0,0,.6); }
+  #hook div.hl { background: var(--season); color: #0c0d0f; padding: 6px 20px 0; text-shadow: none; margin: 4px 0; }
+  #strip { position: absolute; left: 0; right: 0; bottom: 0; height: 62px; background: #0c0d0f; display: flex; align-items: center; padding: 0 44px; gap: 28px; }
+  #strip .series { font-size: 23px; letter-spacing: .16em; text-transform: uppercase; white-space: nowrap; }
+  #strip .line { position: relative; flex: 1; height: 4px; background: #4c4e53; }
+  #strip .line b { position: absolute; top: 0; right: 0; height: 4px; background: var(--season); }
+  #strip .line i { position: absolute; top: -12px; width: 6px; height: 28px; background: var(--season); }
+  #strip .when { font-size: 23px; letter-spacing: .08em; text-transform: uppercase; color: var(--season); white-space: nowrap; }
+</style>
+</head>
+<body>
+<img id="img"><div id="dark"></div>
+<div id="badge"><span class="s"></span><span class="e"></span></div>
+<div id="kicker"></div>
+<div id="hook"></div>
+<div id="strip"><span class="series"></span><div class="line"><b></b><i></i></div><span class="when"></span></div>
+<script>
+// window.initThumb(config): mismo archivo del episodio + config.thumb
+//   {seasonNumber, seasonColor, image, focus, zoom, shift: [x%, y%], kicker, hook: [{text, highlight}]}
+window.initThumb = (C) => {
+  const T = C.thumb, ep = C.episodes[C.episode - 1], $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  if (T.seasonColor) document.documentElement.style.setProperty("--season", T.seasonColor);
+  $("#img").src = T.image; $("#img").style.objectPosition = `${T.focus?.[0] ?? 50}% ${T.focus?.[1] ?? 50}%`;
+  $("#img").style.transform = `translate(${T.shift?.[0] ?? 0}%, ${T.shift?.[1] ?? 0}%) scale(${T.zoom ?? 1})`;
+  $("#badge .s").textContent = `T${T.seasonNumber}`;
+  $("#badge .e").textContent = `E${String(C.episode).padStart(2, "0")}`;
+  $("#kicker").textContent = T.kicker || ""; $("#kicker").style.display = T.kicker ? "block" : "none";
+  $("#hook").innerHTML = T.hook.map((l) => `<div class="${l.highlight ? "hl" : ""}">${esc(l.text)}</div>`).join("");
+  $("#strip .series").textContent = C.series; $("#strip .when").textContent = ep.when;
+  const a = Math.log10(C.axis.from), b = Math.log10(C.axis.to);
+  const p = Math.min(1, Math.max(0, (a - Math.log10(ep.yearsAgo)) / (a - b)));
+  $("#strip .line i").style.left = `calc(${p * 100}% - 3px)`; $("#strip .line b").style.width = `${(1 - p) * 100}%`;
+  // El gancho se agranda todo lo que cabe: sin pasar de 720 px de ancho ni tocar la franja inferior
+  const hook = $("#hook"); let size = 240;
+  const fits = () => hook.getBoundingClientRect().right <= 44 + 720 && hook.getBoundingClientRect().bottom <= 720 - 62 - 22;
+  hook.style.fontSize = `${size}px`;
+  while (!fits() && size > 60) { size -= 4; hook.style.fontSize = `${size}px`; }
+  window.thumbProblems = fits() ? [] : ["el gancho no cabe: acórtalo"];
+};
+</script>
+</body>
+</html>
