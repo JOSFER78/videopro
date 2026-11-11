@@ -83,9 +83,9 @@ Para cada parte, por este orden de preferencia:
    No descargues nada «por si acaso».
 2. **Recreación con Google Flow** cuando no exista imagen libre, o para dar vida a una imagen real.
 
-Cómo usar Flow (https://labs.google/fx/tools/flow, con mi sesión ya iniciada; si no lo está, párate y
+Cómo usar Flow (https://flow.google.com, con mi sesión ya iniciada; si no lo está, párate y
 dímelo, no pidas contraseñas):
-- Modelo **Omni Flash 1.2** (Veo 3.1 Fast/Quality y Omni Flash 1.1 se retiran el 5-dic-2026).
+- Modelo **Gemini Omni 1.2 Flash** (Veo 3.1 Fast/Quality y Omni Flash 1.1 se retiran el 5-dic-2026).
   Formato 16:9. Clips de 3 a 15 s.
 - **Dar vida a una imagen real de dominio público**: súbela como primer fotograma y pide un único
   movimiento de cámara lento. Ejemplo — busto de Napoleón: «slow 15-second orbit around the marble

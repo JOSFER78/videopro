@@ -35,6 +35,8 @@
   .step { flex: 1; min-width: 0; border-top: 2px solid var(--faint); padding-top: 9px; color: var(--faint); }
   .step .n { font-size: 19px; font-weight: 600; letter-spacing: .06em; }
   .step.done { border-color: var(--ink); color: var(--ink); }
+  .step.peek { border-color: var(--hot); color: var(--ink); }
+  .step.peek .n { color: var(--hot); }
   .step.now { flex: 5.4; border-color: var(--hot); color: var(--ink); display: flex; gap: 16px; align-items: baseline; position: relative; }
   .step.now .n { color: var(--hot); }
   .step.now .t { font-family: "Serif", serif; font-size: 34px; line-height: 36px; flex: 1; min-width: 0; }
@@ -144,6 +146,7 @@ const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
 const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
 const io = (t, at, hold, d = 0.45) => ease((t - at) / d) * (1 - ease((t - (at + hold - d)) / d));   // entra y sale
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const num = (e, i) => e.n ?? String(i + 1).padStart(2, "0");
 const latest = (list, t) => [...(list || [])].reverse().find((x) => t >= x.at) || null;
 const AX = { x0: 64, x1: 1856, y: 972 };
 const STAGE = { x: 64, y: 150, w: 1444, h: 700 };
@@ -172,7 +175,7 @@ window.initHud = (config) => {
 
   // Índice superior: un tramo por episodio; el actual, abierto, con sus partes
   $("#steps").innerHTML = C.episodes.map((e, i) => {
-    const n = String(i + 1).padStart(2, "0"), cur = i + 1 === C.episode;
+    const n = num(e, i), cur = i + 1 === C.episode;
     return `<div class="step ${i + 1 < C.episode ? "done" : ""} ${cur ? "now" : ""}"><span class="n">${n}</span><span class="t" data-fit>${esc(e.title)}</span>${
       cur ? `<div id="parts">${C.parts.map((p) => `<div class="part"><div class="bar"><i></i></div><div class="lbl" data-fit>${esc(p.label)}</div></div>`).join("")}</div>` : ""}</div>`;
   }).join("");
@@ -193,17 +196,17 @@ window.initHud = (config) => {
   $("#axisTitle").textContent = C.axis.title; $("#axisNote").textContent = C.axis.note || "";
   $("#axis").innerHTML = `<line x1="${AX.x0}" y1="${AX.y}" x2="${AX.x1}" y2="${AX.y}" stroke="#4c4e53" stroke-width="2"/>` +
     C.axis.ticks.map((k) => `<line x1="${axisX(k.yearsAgo)}" y1="${AX.y}" x2="${axisX(k.yearsAgo)}" y2="${AX.y + 12}" stroke="#4c4e53" stroke-width="2"/>`).join("") +
-    C.episodes.map((e) => `<circle class="epdot" cx="${axisX(e.yearsAgo)}" cy="${AX.y}" r="5" fill="#0c0d0f" stroke="#8e9096" stroke-width="2"/>`).join("") +
+    C.episodes.map((e) => e.yearsAgo ? `<circle class="epdot" cx="${axisX(e.yearsAgo)}" cy="${AX.y}" r="5" fill="#0c0d0f" stroke="#8e9096" stroke-width="2"/>` : `<g class="epdot"></g>`).join("") +
     `<line id="trail" x1="${AX.x1}" y1="${AX.y}" x2="${AX.x1}" y2="${AX.y}" stroke="#ff4b33" stroke-width="3"/>
      <line id="needle" y1="${AX.y - 30}" y2="${AX.y + 12}" stroke="#ff4b33" stroke-width="3"/>`;
   $("#tls").innerHTML = C.axis.ticks.map((k) => `<div class="tl" style="left:${axisX(k.yearsAgo)}px">${esc(k.label)}</div>`).join("");
-  $("#eps").innerHTML = C.episodes.map((e, i) => `<div class="ep" style="left:${axisX(e.yearsAgo)}px">${String(i + 1).padStart(2, "0")}</div>`).join("");
+  $("#eps").innerHTML = C.episodes.map((e, i) => `<div class="ep" style="left:${e.yearsAgo ? axisX(e.yearsAgo) : -200}px">${num(e, i)}</div>`).join("");
 
   if (C.index) {
     $("#index .k").textContent = C.index.kicker; $("#index .take").textContent = C.index.takeaway;
     $("#rows").innerHTML = C.episodes.map((e, i) => {
       const st = i + 1 <= C.episode ? "done" : i === C.episode ? "next" : "";
-      return `<div class="row ${st}"><span class="n">${String(i + 1).padStart(2, "0")}</span><span class="t" data-fit>${esc(e.title)}</span><span class="w">${esc(e.when)}${
+      return `<div class="row ${st}"><span class="n">${num(e, i)}</span><span class="t" data-fit>${esc(e.title)}</span><span class="w">${esc(e.when)}${
         st === "done" ? '<span class="tag">VISTO</span>' : st === "next" ? '<span class="tag">SIGUIENTE</span>' : ""}</span></div>`;
     }).join("");
   }
@@ -220,6 +223,11 @@ window.renderHud = (t) => {
     el.classList.toggle("now", i === pi); el.classList.toggle("done", i < pi);
     el.querySelector("i").style.width = `${clamp((t - start) / (end - start)) * 100}%`;
   });
+
+  // Episodio al que se asoma el relato (p. ej. el episodio 0 recorre los nueve): se marca en el índice y en el eje
+  const peek = latest(C.peek, t)?.episode ?? null;
+  document.querySelectorAll(".step").forEach((el, i) => el.classList.toggle("peek", i + 1 === peek));
+  const reached = (i) => i + 1 <= C.episode || (peek !== null && i + 1 <= peek);
 
   // Imagen: fundido entre la anterior y la actual, con un acercamiento lento
   const vis = C.visuals, vi = Math.max(0, vis.findIndex((v, i) => t < (vis[i + 1]?.at ?? Infinity)));
@@ -244,7 +252,7 @@ window.renderHud = (t) => {
 
   // Rótulo de la parte, sobre la imagen
   const part = C.parts[pi], k = ease((t - part.at - 0.2) / 0.6);
-  $("#lower .k").textContent = `Parte ${pi + 1} de ${C.parts.length}`;
+  $("#lower .k").textContent = part.kicker ?? `Parte ${pi + 1} de ${C.parts.length}`;
   $("#lower .h").textContent = part.title; $("#lower .s").textContent = part.idea || "";
   $("#lower").style.opacity = k; $("#lower").style.transform = `translateY(${(1 - k) * 18}px)`;
 
@@ -294,11 +302,11 @@ window.renderHud = (t) => {
   $("#needle").setAttribute("x1", x); $("#needle").setAttribute("x2", x); $("#trail").setAttribute("x1", x);
   const tag = $("#needleTag"); tag.textContent = fmtYears(ya);
   tag.style.left = `${clamp(x - tag.offsetWidth / 2, AX.x0, AX.x1 - tag.offsetWidth)}px`;
-  document.querySelectorAll(".ep").forEach((el, i) => el.classList.toggle("done", i + 1 <= C.episode));
-  document.querySelectorAll(".epdot").forEach((c, i) => { c.setAttribute("fill", i + 1 <= C.episode ? "#f3f1ec" : "#0c0d0f"); c.setAttribute("stroke", i + 1 <= C.episode ? "#f3f1ec" : "#8e9096"); });
+  document.querySelectorAll(".ep").forEach((el, i) => el.classList.toggle("done", reached(i)));
+  document.querySelectorAll(".epdot").forEach((c, i) => { c.setAttribute("fill", reached(i) ? "#f3f1ec" : "#0c0d0f"); c.setAttribute("stroke", reached(i) ? "#f3f1ec" : "#8e9096"); });
   // la etiqueta del episodio que queda bajo la aguja se oculta para que no se pisen
   document.querySelectorAll(".ep").forEach((el, i) => {
-    const ex = axisX(C.episodes[i].yearsAgo);
+    const ex = C.episodes[i].yearsAgo ? axisX(C.episodes[i].yearsAgo) : -200;
     el.style.visibility = Math.abs(ex - x) < tag.offsetWidth / 2 + 22 ? "hidden" : "visible";
   });
   $("#progress").style.width = `${clamp(t / C.duration) * 100}%`;

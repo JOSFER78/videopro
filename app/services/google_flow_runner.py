@@ -17,6 +17,10 @@ from typing import Optional
 from loguru import logger
 
 
+# Dirección actual de Flow; la antigua (labs.google/fx/tools/flow) redirige aquí.
+FLOW_URL = "https://flow.google.com"
+
+
 def flow_strict_mode() -> bool:
     """True si VIDEOPRO_FLOW_STRICT pide fallar en vez de sustituir el plano de Flow."""
     return os.environ.get("VIDEOPRO_FLOW_STRICT", "").strip().lower() in ("1", "true", "yes", "si", "sí")
@@ -45,7 +49,8 @@ async def _dismiss_modals(page):
 
 # Nombres con los que Flow ha listado el modelo Omni Flash, del más nuevo al más antiguo.
 # Omni Flash 1.1 se retira el 5-dic-2026; la 1.2 es la que admite extender y clips de 15 s.
-OMNI_MODEL_LABELS = ("Omni Flash 1.2", "Omni Flash", "Gemini Omni Flash")
+# La interfaz (nov. 2026) lo muestra como "Gemini Omni 1.2 Flash".
+OMNI_MODEL_LABELS = ("Omni 1.2 Flash", "Omni Flash 1.2", "Gemini Omni", "Omni Flash")
 
 
 async def _select_gemini_omni_flash(page) -> bool:
@@ -222,13 +227,13 @@ async def run_google_flow_job(
 
             flow_page = None
             for pg in context.pages:
-                if "labs.google" in pg.url or "flow" in pg.url:
+                if "flow.google.com" in pg.url or "labs.google" in pg.url:
                     flow_page = pg
                     break
 
             if not flow_page:
                 flow_page = await context.new_page()
-                await flow_page.goto("https://labs.google/fx/tools/flow", timeout=30000)
+                await flow_page.goto(FLOW_URL, timeout=30000)
                 await flow_page.wait_for_load_state("domcontentloaded")
 
             await _dismiss_modals(flow_page)
