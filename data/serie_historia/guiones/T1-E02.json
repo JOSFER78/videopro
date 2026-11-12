@@ -120,7 +120,25 @@
      }
     },
     {
-     "texto": "Y al empezar a explorarla, aparece la parte de arriba de un cráneo humano."
+     "texto": "Y al empezar a explorarla, aparece la parte de arriba de un cráneo humano.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "entrada de la cueva de Manot",
+      "busqueda": "Manot Cave entrance",
+      "archivo": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credito": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5",
+      "licencia": "CC BY 2.5",
+      "pagina": "https://commons.wikimedia.org/wiki/File:117261_manot_cave_-_before_breaching_an_entrance_PikiWiki_Israel.jpg",
+      "alternativas": [],
+      "focus": [
+       35,
+       55
+      ],
+      "zoom": [
+       1.25,
+       1.4
+      ]
+     }
     },
     {
      "texto": "Es una calota: la bóveda del cráneo, sin cara y sin mandíbula."
@@ -136,7 +154,25 @@
     },
     {
      "texto": "Lo estudia un equipo dirigido por Israel Hershkovitz, de la Universidad de Tel Aviv.",
-     "pronunciacion": "Lo estudia un equipo dirigido por Israel Jershkóvitz, de la Universidad de Tel Aviv."
+     "pronunciacion": "Lo estudia un equipo dirigido por Israel Jershkóvitz, de la Universidad de Tel Aviv.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "estalactitas y columnas del interior de la cueva de Manot",
+      "busqueda": "Manot Cave stalactites",
+      "archivo": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credito": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0",
+      "licencia": "CC BY-SA 3.0",
+      "pagina": "https://commons.wikimedia.org/wiki/File:MANOT_CAVE_SPELEOTHEM.JPG",
+      "alternativas": [],
+      "focus": [
+       30,
+       35
+      ],
+      "zoom": [
+       1.3,
+       1.45
+      ]
+     }
     },
     {
      "texto": "Encima tenía una costra de mineral. Midiendo en ella uranio y torio, se puede saber cuándo se formó.",
@@ -148,12 +184,48 @@
      }
     },
     {
-     "texto": "Es como leer la fecha en la capa de polvo que cubre un objeto olvidado."
+     "texto": "Es como leer la fecha en la capa de polvo que cubre un objeto olvidado.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "entrada de la cueva de Manot",
+      "busqueda": "Manot Cave entrance",
+      "archivo": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credito": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5",
+      "licencia": "CC BY 2.5",
+      "pagina": "https://commons.wikimedia.org/wiki/File:117261_manot_cave_-_before_breaching_an_entrance_PikiWiki_Israel.jpg",
+      "alternativas": [],
+      "focus": [
+       65,
+       45
+      ],
+      "zoom": [
+       1.1,
+       1.25
+      ]
+     }
     },
     {
      "texto": "Resultado: unos cincuenta y cinco mil años. Más o menos cuando nuestros antepasados cruzaban esa puerta.",
      "anios_atras": 55000,
-     "emocion": 0.7
+     "emocion": 0.7,
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "estalactitas y columnas del interior de la cueva de Manot",
+      "busqueda": "Manot Cave stalactites",
+      "archivo": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credito": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0",
+      "licencia": "CC BY-SA 3.0",
+      "pagina": "https://commons.wikimedia.org/wiki/File:MANOT_CAVE_SPELEOTHEM.JPG",
+      "alternativas": [],
+      "focus": [
+       70,
+       60
+      ],
+      "zoom": [
+       1.15,
+       1.3
+      ]
+     }
     },
     {
      "texto": "Su forma recuerda a cráneos africanos y europeos. Es el primer fósil que tenemos de aquel momento de salida.",
@@ -168,9 +240,17 @@
      "texto": "Casi todas las personas con antepasados fuera de África descienden de un grupo que salió hace unos cincuenta mil años.",
      "visual": {
       "tipo": "archivo",
-      "que_se_ve": "mapa de las primeras migraciones humanas fuera de África",
-      "busqueda": "Map of early human migrations",
-      "descartada": true
+      "que_se_ve": "península del Sinaí vista desde el espacio",
+      "busqueda": "Sinai Peninsula from space ISS",
+      "archivo": "media/T1-E02/30_sinai_peninsula_from_space.jpg",
+      "credito": "Sinaí y el Nilo desde el espacio · Foto: NASA, Expedition 35 · Dominio público",
+      "licencia": "Public domain",
+      "pagina": "https://commons.wikimedia.org/wiki/File:ISS035-E-007148_Nile_-_Sinai_-_Dead_Sea_-_Wide_Angle_View.jpg",
+      "alternativas": [
+       "https://commons.wikimedia.org/wiki/File:1916_map_of_Sinai_Peninsula,_Egypt,_the_Gulf_of_Suez_and_the_Gulf_of_Akaba_by_the_British_War_Office.jpg",
+       "https://commons.wikimedia.org/wiki/File:ISS035-E-007148_Nile_-_Sinai_-_Dead_Sea_-_Wide_Angle_View.jpg",
+       "https://commons.wikimedia.org/wiki/File:Peninsula_of_Sinai,_Sheet_1.png"
+      ]
      },
      "anios_atras": 50000,
      "aprendido": "Los no africanos descienden de esa salida"
@@ -208,7 +288,15 @@
       "archivo": "media/T1-E02/43_neanderthal_edenpictures_b.jpg",
       "credito": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0",
       "licencia": "CC BY 2.0",
-      "pagina": "https://www.flickr.com/photos/10485077@N06/28418907177"
+      "pagina": "https://www.flickr.com/photos/10485077@N06/28418907177",
+      "focus": [
+       50,
+       18
+      ],
+      "zoom": [
+       1.0,
+       1.08
+      ]
      }
     },
     {
@@ -280,21 +368,44 @@
      "texto": "Los genetistas aprendieron a leer el ADN de huesos neandertales y lo compararon con el nuestro.",
      "visual": {
       "tipo": "archivo",
-      "que_se_ve": "Svante Pääbo, que dirigió la lectura del genoma neandertal",
-      "busqueda": "Svante Pääbo",
-      "descartada": true
+      "que_se_ve": "sala blanca de ADN antiguo del Instituto Max Planck de Leipzig",
+      "busqueda": "ancient DNA clean room Max Planck Leipzig",
+      "archivo": "media/T1-E02/12_ancient_dna_clean_room_max_planck_leipzi.jpg",
+      "credito": "sala blanca de ADN antiguo del Instituto Max P · Foto: Max Planck Institute for Evolutionary Anthro · Public domain",
+      "licencia": "Public domain",
+      "pagina": "https://commons.wikimedia.org/wiki/File:Neanderthal_DNA_extraction.jpg",
+      "alternativas": [
+       "https://commons.wikimedia.org/wiki/File:Kap_Kobenhavn_Formation.jpg"
+      ]
      }
     },
     {
-     "texto": "La lógica es sencilla. Si nunca se hubieran mezclado, no habría nada de ellos en nosotros."
+     "texto": "La lógica es sencilla. Si nunca se hubieran mezclado, no habría nada de ellos en nosotros.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "cromosomas humanos (cariotipo)",
+      "archivo": "media/T1-E02/45_karyotype.jpg",
+      "credito": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0",
+      "licencia": "CC BY 2.0",
+      "pagina": "https://www.flickr.com/photos/47988426@N08/8252270882"
+     }
     },
     {
      "texto": "Y encontraron trozos de ADN neandertal en personas vivas. Sapiens y neandertales tuvieron hijos juntos.",
      "visual": {
       "tipo": "archivo",
-      "que_se_ve": "portada de Science de mayo de 2010, con el primer borrador del genoma neandertal",
-      "busqueda": "Neanderthal genome Science 2010",
-      "descartada": true
+      "que_se_ve": "cráneo neandertal de La Ferrassie 1",
+      "busqueda": "La Ferrassie 1 skull",
+      "archivo": "media/T1-E02/10_la_ferrassie_1_skull.jpg",
+      "credito": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5",
+      "licencia": "CC BY 2.5",
+      "pagina": "https://commons.wikimedia.org/wiki/File:Ferrassie_skull_clear.png",
+      "alternativas": [
+       "https://commons.wikimedia.org/wiki/File:Ferrassie_skull.jpg",
+       "https://commons.wikimedia.org/wiki/File:Smac_Pal%C3%A4olithikum_008.jpg",
+       "https://commons.wikimedia.org/wiki/File:Homo_neanderthalensis_comparison_(University_of_Zurich).JPG",
+       "https://commons.wikimedia.org/wiki/File:At_Wollaton_Hall_2023_048.jpg"
+      ]
      },
      "emocion": 0.8
     },
@@ -414,10 +525,49 @@
      }
     },
     {
-     "texto": "El ADN dice quién era hija de quién, cuarenta y cinco mil años después."
+     "texto": "El ADN dice quién era hija de quién, cuarenta y cinco mil años después.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "cueva Ilsenhöhle en Ranis, Turingia",
+      "busqueda": "Ranis Ilsenhöhle cave",
+      "archivo": "media/T1-E02/20_ranis_ilsenhohle_skeletal_remains.jpg",
+      "credito": "Cueva Ilsenhöhle, Ranis · Foto: Ansgar Koreng · CC BY 3.0 de",
+      "licencia": "CC BY 3.0 de",
+      "pagina": "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle,_Ranis,_Nordh%C3%B6hle,_151004,_ako.jpg",
+      "alternativas": [
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle_unter_der_Burg_Ranis,_151002,_ako.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ranis,_the_LRJ_and_other_MPUP_transitional_technocomplexes,_Brno_Bohunice,_Bacho_Kiro,_and_Zlat%C3%BD_k%C5%AF%C5%88.jpg"
+      ]
+     }
     },
     {
-     "texto": "Su ADN también llevaba la marca neandertal. Sus antepasados se habían mezclado unas ochenta generaciones antes."
+     "texto": "Su ADN también llevaba la marca neandertal. Sus antepasados se habían mezclado unas ochenta generaciones antes.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "cueva Ilsenhöhle en Ranis, Turingia",
+      "busqueda": "Ilsenhöhle Ranis",
+      "archivo": "media/T1-E02/19_ilsenhohle_ranis.jpg",
+      "credito": "cueva Ilsenhöhle en Ranis, Turingia · Foto: Ansgar Koreng · CC BY 3.0 de",
+      "licencia": "CC BY 3.0 de",
+      "pagina": "https://commons.wikimedia.org/wiki/File:Durchgang_zur_Ilsenh%C3%B6hle,_Ranis,_151002,_ako.jpg",
+      "alternativas": [
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle,_Ranis,_Nordh%C3%B6hle,_151004,_ako.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle,_Ranis,_S%C3%BCdh%C3%B6hle,_151004,_ako.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle_unter_der_Burg_Ranis,_151002,_ako.jpg",
+       "https://commons.wikimedia.org/wiki/File:Burg_Ranis_mit_darunter_gelegener_Ilsenh%C3%B6hle.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle_Burg_Ranis.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ilsenh%C3%B6hle_S%C3%BCdh%C3%B6hle.jpg",
+       "https://commons.wikimedia.org/wiki/File:Ranis_site_plan_and_main_West_profile_of_the_2016%E2%80%932022_excavation.jpg"
+      ],
+      "focus": [
+       50,
+       60
+      ],
+      "zoom": [
+       1.2,
+       1.35
+      ]
+     }
     },
     {
      "texto": "Esa familia no dejó descendientes entre los europeos posteriores. Pero otros grupos de la misma salida, sí.",
@@ -568,7 +718,23 @@
      }
     },
     {
-     "texto": "Con los neandertales. Y no una sola vez, sino durante un periodo largo."
+     "texto": "Con los neandertales. Y no una sola vez, sino durante un periodo largo.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "reconstrucción de un neandertal (museo)",
+      "archivo": "media/T1-E02/43_neanderthal_edenpictures_b.jpg",
+      "credito": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0",
+      "licencia": "CC BY 2.0",
+      "pagina": "https://www.flickr.com/photos/10485077@N06/28418907177",
+      "focus": [
+       50,
+       18
+      ],
+      "zoom": [
+       1.0,
+       1.08
+      ]
+     }
     },
     {
      "texto": "Entre hace unos cincuenta mil y cuarenta y cinco mil años, mientras nuestros antepasados salían."
@@ -585,7 +751,15 @@
      }
     },
     {
-     "texto": "Alrededor de un dos por ciento. Millones de letras que nos dejaron unos humanos que ya no existen."
+     "texto": "Alrededor de un dos por ciento. Millones de letras que nos dejaron unos humanos que ya no existen.",
+     "visual": {
+      "tipo": "archivo",
+      "que_se_ve": "cromosomas humanos (cariotipo)",
+      "archivo": "media/T1-E02/45_karyotype.jpg",
+      "credito": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0",
+      "licencia": "CC BY 2.0",
+      "pagina": "https://www.flickr.com/photos/47988426@N08/8252270882"
+     }
     },
     {
      "texto": "Quédate con esto: una salida que funcionó, hace unos cincuenta mil años, explica a casi toda la humanidad fuera de África.",
@@ -606,7 +780,8 @@
        "https://commons.wikimedia.org/wiki/File:Sinai_Peninsula_and_the_Dead_Sea_Rift_(27411443544).jpg",
        "https://commons.wikimedia.org/wiki/File:ISS048-E-25989_-_View_of_the_Sinai_Peninsula.jpg"
       ]
-     }
+     },
+     "indice": true
     },
     {
      "texto": "Una salida, una mezcla y una huella que todavía llevas dentro.",

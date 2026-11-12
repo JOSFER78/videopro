@@ -119,6 +119,63 @@
       "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0"
     },
     {
+      "at": 49.14,
+      "src": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credit": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5",
+      "focus": [
+        35,
+        55
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 62.39,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0",
+      "focus": [
+        30,
+        35
+      ],
+      "zoom": [
+        1.3,
+        1.45
+      ]
+    },
+    {
+      "at": 73.69,
+      "src": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credit": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5",
+      "focus": [
+        65,
+        45
+      ],
+      "zoom": [
+        1.1,
+        1.25
+      ]
+    },
+    {
+      "at": 79.0,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0",
+      "focus": [
+        70,
+        60
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 104.22,
+      "src": "media/T1-E02/30_sinai_peninsula_from_space.jpg",
+      "credit": "Sinaí y el Nilo desde el espacio · Foto: NASA, Expedition 35 · Dominio público"
+    },
+    {
       "at": 110.77,
       "src": "media/T1-E02/10_la_ferrassie_1_skull.jpg",
       "credit": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5"
@@ -126,7 +183,15 @@
     {
       "at": 114.36,
       "src": "media/T1-E02/43_neanderthal_edenpictures_b.jpg",
-      "credit": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0"
+      "credit": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0",
+      "focus": [
+        50,
+        18
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
     },
     {
       "at": 120.87,
@@ -149,6 +214,21 @@
       "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
     },
     {
+      "at": 154.77,
+      "src": "media/T1-E02/12_ancient_dna_clean_room_max_planck_leipzi.jpg",
+      "credit": "sala blanca de ADN antiguo del Instituto Max P · Foto: Max Planck Institute for Evolutionary Anthro · Public domain"
+    },
+    {
+      "at": 160.64,
+      "src": "media/T1-E02/45_karyotype.jpg",
+      "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
+    },
+    {
+      "at": 167.03,
+      "src": "media/T1-E02/10_la_ferrassie_1_skull.jpg",
+      "credit": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5"
+    },
+    {
       "at": 182.73,
       "src": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
       "credit": "cráneo neandertal de La Ferrassie 1 · Foto: 120 · CC BY 2.5"
@@ -167,6 +247,24 @@
       "at": 220.91,
       "src": "media/T1-E02/19_ilsenhohle_ranis.jpg",
       "credit": "cueva Ilsenhöhle en Ranis, Turingia · Foto: Ansgar Koreng · CC BY 3.0 de"
+    },
+    {
+      "at": 232.13,
+      "src": "media/T1-E02/20_ranis_ilsenhohle_skeletal_remains.jpg",
+      "credit": "Cueva Ilsenhöhle, Ranis · Foto: Ansgar Koreng · CC BY 3.0 de"
+    },
+    {
+      "at": 237.24,
+      "src": "media/T1-E02/19_ilsenhohle_ranis.jpg",
+      "credit": "cueva Ilsenhöhle en Ranis, Turingia · Foto: Ansgar Koreng · CC BY 3.0 de",
+      "focus": [
+        50,
+        60
+      ],
+      "zoom": [
+        1.2,
+        1.35
+      ]
     },
     {
       "at": 243.67,
@@ -204,7 +302,25 @@
       "credit": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5"
     },
     {
+      "at": 318.87,
+      "src": "media/T1-E02/43_neanderthal_edenpictures_b.jpg",
+      "credit": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0",
+      "focus": [
+        50,
+        18
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
       "at": 330.77,
+      "src": "media/T1-E02/45_karyotype.jpg",
+      "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
+    },
+    {
+      "at": 335.64,
       "src": "media/T1-E02/45_karyotype.jpg",
       "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
     },
@@ -360,7 +476,7 @@
     }
   ],
   "index": {
-    "at": 292.86,
+    "at": 342.05,
     "kicker": "Quédate con esto",
     "takeaway": "Fuera de África casi todos venimos de una salida de hace unos 50.000 años, y llevamos dentro un poco de neandertal."
   },
