@@ -30,6 +30,33 @@ p{margin:0;max-width:65ch}
 ol.pasos{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:8px;max-width:65ch}
 blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;white-space:pre-wrap;font-size:.98rem}
 .nota{color:var(--muted);font-size:.92rem}
+/* Maquetas de pantalla: son imágenes del vídeo, con su propio aspecto oscuro fijo */
+.mock{--v-bg:#0c0d0f;--v-ink:#f3f1ec;--v-dim:#8b8f93;--v-acc:#ff4b33;--v-ph:#2a3036;position:relative;aspect-ratio:16/9;max-width:100%;background:var(--v-ph);color:var(--v-ink);border-radius:8px;overflow:hidden;font-family:var(--body);container-type:inline-size}
+.mock .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--v-dim);font-size:3cqw;font-style:italic;text-align:center;padding:0 22%;background:linear-gradient(135deg,#3a3f3a,#1b1f22)}
+.mock>*:not(.ph){position:absolute;z-index:1}
+.thumb .badge{top:5%;left:4%;background:var(--v-acc);color:#0c0d0f;font-weight:600;font-size:2.6cqw;padding:.6cqw 1.6cqw;letter-spacing:.06em}
+.thumb .big{left:4%;bottom:7%;font-weight:600;font-size:10.5cqw;line-height:.95;letter-spacing:-.01em;text-shadow:0 .4cqw 2cqw #000}
+.thumb .num{right:4%;bottom:8%;text-align:right;font-family:var(--display);font-size:9cqw;line-height:1;color:var(--v-acc);text-shadow:0 .4cqw 2cqw #000}
+.thumb .num span{display:block;font-family:var(--body);font-size:2.8cqw;color:var(--v-ink);letter-spacing:.08em;text-transform:uppercase}
+.thumb .ph{align-items:flex-start;padding-top:12%}
+.frame .idx,.frame .parts{left:0;right:0;display:flex;gap:1.4cqw;padding:0 3%;font-size:1.9cqw;color:var(--v-dim);background:var(--v-bg)}
+.frame .idx{top:0;padding-top:1.6cqw;padding-bottom:.8cqw}
+.frame .parts{top:5.4cqw;padding-bottom:1.4cqw;font-size:1.7cqw}
+.frame .on{color:var(--v-ink);border-bottom:.3cqw solid var(--v-acc);padding-bottom:.3cqw}
+.frame .map{right:3%;top:22%;width:17%;aspect-ratio:1;background:var(--v-bg);border-radius:1cqw}
+.frame .map i{position:absolute;left:58%;top:44%;width:1.6cqw;height:1.6cqw;border-radius:50%;background:var(--v-acc)}
+.frame .map b{position:absolute;left:8%;bottom:8%;font-size:1.5cqw;font-weight:600;letter-spacing:.08em}
+.frame .qq{left:4%;bottom:17%;font-family:var(--display);font-size:5.2cqw;text-shadow:0 .3cqw 1.6cqw #000}
+.mock .axis{left:0;right:0;bottom:0;height:9%;background:var(--v-bg)}
+.mock .axis i{position:absolute;left:3%;right:3%;top:50%;height:.25cqw;background:var(--v-dim)}
+.mock .axis b{position:absolute;left:62%;top:14%;background:var(--v-acc);color:#0c0d0f;font-size:1.7cqw;padding:.3cqw 1.2cqw;font-weight:600}
+.concl,.quiz{background:var(--v-bg)}
+.mock .lab{left:6%;top:16%;color:var(--v-acc);font-size:2cqw;letter-spacing:.1em;font-weight:600}
+.mock .txt{left:6%;right:6%;top:30%;font-family:var(--display);font-size:5.4cqw;line-height:1.2}
+.quiz .ans{left:6%;top:50%;font-size:3.2cqw;color:var(--v-ink)}
+.quiz .ans b{color:var(--v-acc)}
+.quiz .dots{left:6%;bottom:14%;display:flex;gap:2.2cqw}
+.quiz .dots i{width:2.4cqw;height:2.4cqw;border-radius:50%;background:var(--v-acc)}
 </style>
 
 <div class="wrap">
@@ -47,6 +74,20 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
   </section>
 
   <section>
+    <p class="k">Otras opciones de nombre, analizadas por el equipo</p>
+    <ul class="caps">
+      <li><span class="n">A</span><b>Ariadne</b><span class="es">A favor: el nombre cuenta el método (hilo, laberinto, salida) y el hilo rojo sirve de firma visual. Identificador libre.</span><span class="q">En contra: se pronuncia distinto en cada idioma y puede parecer nombre de persona.</span></li>
+      <li><span class="n">B</span><b>Folio</b><span class="es">A favor: la página de un libro, encaja con el formato de libro con índice. Igual en inglés y español, cinco letras. Identificador libre.</span><span class="q">En contra: muy genérico, difícil de encontrar al buscar; existe la editorial The Folio Society.</span></li>
+      <li><span class="n">C</span><b>Lacuna</b><span class="es">A favor: la laguna, lo que se perdió. Original y ligado a lo inventado, olvidado y reinventado.</span><span class="q">En contra: nombra el hueco y no la respuesta; suena culto. El identificador ya existe, casi sin uso.</span></li>
+      <li><span class="n">D</span><b>Ab Ovo</b><span class="es">A favor: «desde el huevo», explicar cualquier tema desde su origen. Identificador libre.</span><span class="q">En contra: dos palabras en latín; en español se presta a broma.</span></li>
+      <li><span class="n">E</span><b>Lumen</b><span class="es">A favor: luz, claridad; se entiende en los dos idiomas. Identificador libre.</span><span class="q">En contra: lo usan muchas marcas y no dice nada del método.</span></li>
+      <li><span class="n">F</span><b>Tessera</b><span class="es">A favor: la tesela de un mosaico; cada vídeo es una pieza de la imagen completa.</span><span class="q">En contra: palabra poco conocida; el identificador ya existe.</span></li>
+    </ul>
+    <p class="nota">Descartados tras comprobarlos: Primer (ya es un canal de divulgación con 1,84 millones de suscriptores), The Long Why (existe un canal con casi la misma promesa), Throughline (ya existe) y Aleph (lo usó una secta).</p>
+    <p class="nota">Hay un agente buscando ahora una segunda tanda de nombres centrados en «claridad» y «explicar». Los añadiré aquí debajo.</p>
+  </section>
+
+  <section>
     <p class="k">La promesa</p>
     <p>La explicación más clara de la historia de la humanidad que hay en internet.</p>
     <p>Al terminar cada capítulo, cualquiera puede contar con sus palabras qué pasó, dónde, cuándo y por qué.</p>
@@ -54,8 +95,12 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
 
   <section>
     <p class="k">La serie</p>
-    <h2>The Long Thread <small>The Whole Human Story, One Question at a Time</small></h2>
-    <p>El largo hilo: toda la historia humana, pregunta a pregunta.</p>
+    <h2>The Human Story <small>From the First Fire to Eight Billion People, One Question at a Time</small></h2>
+    <p>La historia humana: del primer fuego a ocho mil millones de personas, pregunta a pregunta.</p>
+    <p>El título dice de qué va sin tener que explicarlo. Otras opciones igual de directas:</p>
+    <p><b>The History of Humanity, Made Clear</b>: la historia de la humanidad, explicada con claridad.</p>
+    <p><b>How Humanity Happened</b>: cómo ocurrió la humanidad, en catorce preguntas.</p>
+    <p><b>Humankind: The Whole Story</b>: la humanidad, la historia completa.</p>
     <p>Catorce capítulos en orden, de los primeros humanos a hoy. De 15 a 20 minutos cada uno.</p>
   </section>
 
@@ -98,6 +143,55 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
       <li>Al final, las preguntas con su respuesta en tres o cuatro láminas.</li>
       <li>Última frase: la pregunta que abre el capítulo siguiente.</li>
     </ol>
+  </section>
+
+  <section>
+    <p class="k">Cómo se ve: la miniatura</p>
+    <div class="mock thumb">
+      <div class="badge">THE HUMAN STORY · 4</div>
+      <div class="big">BREAD<br>BEFORE<br>FARMS</div>
+      <div class="num">14,400<span>years ago</span></div>
+      <div class="ph">foto real: pan plano sobre piedra caliente</div>
+    </div>
+    <p>Una foto real a toda pantalla, el título en tres palabras y una sola cifra. El número de capítulo arriba, para que se vea que es una serie.</p>
+    <p>Todas las miniaturas de la serie comparten el mismo diseño: se reconocen de un vistazo.</p>
+  </section>
+
+  <section>
+    <p class="k">Cómo se ve: durante el vídeo</p>
+    <div class="mock frame">
+      <div class="idx"><span>1</span><span>2</span><span>3</span><span class="on">4 · Bread Before Farms</span><span>5</span><span>6</span><span>7</span><span>…</span><span>14</span></div>
+      <div class="parts"><span class="on">1 · Why settle?</span><span>2 · The price</span><span>3 · Everything speeds up</span></div>
+      <div class="ph">vídeo real o de Flow del lugar del que se habla</div>
+      <div class="map"><i></i><b>NEAR EAST</b></div>
+      <div class="qq">Why did we stop moving?</div>
+      <div class="axis"><i></i><b>11,000 years ago</b></div>
+    </div>
+    <p>Arriba, el índice: en qué capítulo de la serie estás y en qué parte del capítulo.</p>
+    <p>A la derecha, el mapa: dónde ocurre.</p>
+    <p>Abajo, el eje del tiempo: cuándo ocurre.</p>
+    <p>Sobre la imagen, la pregunta de esa parte, hasta que se responde.</p>
+  </section>
+
+  <section>
+    <p class="k">Cómo se ve: la conclusión de cada parte</p>
+    <div class="mock concl">
+      <div class="lab">PART 1 · WHAT WE NOW KNOW</div>
+      <div class="txt">We didn't settle to live better.<br>We settled because grain can be stored.</div>
+      <div class="axis"><i></i><b>11,000 years ago</b></div>
+    </div>
+    <p>Al acabar cada parte, la conclusión en una frase, a pantalla completa y con un silencio. Es lo que el espectador se lleva.</p>
+  </section>
+
+  <section>
+    <p class="k">Cómo se ve: las preguntas del final</p>
+    <div class="mock quiz">
+      <div class="lab">QUESTION 2 OF 3</div>
+      <div class="txt">Was farming invented once?</div>
+      <div class="ans"><b>No.</b> At least 11 times, by people who never met.</div>
+      <div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    <p>Tres o cuatro láminas al final. Primero la pregunta sola, unos segundos para pensar, y después la respuesta con su dibujo: aquí, once puntos que se encienden en el mapa.</p>
   </section>
 
   <section>
