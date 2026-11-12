@@ -1,0 +1,432 @@
+{
+  "duration": 370.66,
+  "channel": "Temario",
+  "series": "Historia de la humanidad",
+  "season": "Temporada 1 · De dónde venimos",
+  "episode": 3,
+  "episodes": [
+    {
+      "title": "El mapa",
+      "when": "de hace 300.000 años a hoy",
+      "yearsAgo": null,
+      "n": "00"
+    },
+    {
+      "title": "Nuestro origen",
+      "when": "hace unos 300.000 años",
+      "yearsAgo": 300000,
+      "n": "01"
+    },
+    {
+      "title": "Salimos de África",
+      "when": "hace unos 50.000 años",
+      "yearsAgo": 50000,
+      "n": "02"
+    },
+    {
+      "title": "Arte y símbolos",
+      "when": "hace unos 73.000 años",
+      "yearsAgo": 73000,
+      "n": "03"
+    },
+    {
+      "title": "La agricultura",
+      "when": "hace unos 11.000 años",
+      "yearsAgo": 11000,
+      "n": "04"
+    },
+    {
+      "title": "Ciudades y escritura",
+      "when": "hacia 3200 a. C.",
+      "yearsAgo": 5226,
+      "n": "05"
+    },
+    {
+      "title": "Imperios",
+      "when": "hacia 520 a. C.",
+      "yearsAgo": 2546,
+      "n": "06"
+    },
+    {
+      "title": "El mundo se conecta",
+      "when": "1492",
+      "yearsAgo": 534,
+      "n": "07"
+    },
+    {
+      "title": "Ciencia e industria",
+      "when": "1795",
+      "yearsAgo": 231,
+      "n": "08"
+    },
+    {
+      "title": "El mundo de hoy",
+      "when": "1968 – hoy",
+      "yearsAgo": 58,
+      "n": "09"
+    }
+  ],
+  "parts": [
+    {
+      "label": "La puerta",
+      "at": 0,
+      "title": "Un techo que se rompe",
+      "idea": "Cueva de Manot, Israel"
+    },
+    {
+      "label": "El encuentro",
+      "at": 110.77,
+      "title": "Vecinos en el corredor",
+      "idea": "Sapiens y neandertales"
+    },
+    {
+      "label": "Llevas su huella",
+      "at": 214.24,
+      "title": "Lo que queda dentro",
+      "idea": "Ranis, Alemania"
+    },
+    {
+      "label": "Repaso",
+      "at": 292.56,
+      "title": "Tres preguntas",
+      "idea": "Una salida que funcionó"
+    }
+  ],
+  "visuals": [
+    {
+      "at": 0.7,
+      "src": "media/T1-E02/01_jebel_irhoud_composite_reconstruction.jpg",
+      "credit": "reconstrucción compuesta de Irhoud 1 e Irhoud · Foto: Jonathan Chen · CC BY-SA 4.0"
+    },
+    {
+      "at": 19.43,
+      "src": "media/T1-E02/30_sinai_peninsula_from_space.jpg",
+      "credit": "Sinaí y el Nilo desde el espacio · Foto: NASA, Expedition 35 · Dominio público"
+    },
+    {
+      "at": 32.57,
+      "src": "media/T1-E02/46_galilee_a.jpg",
+      "credit": "paisaje de Galilea · Foto: Emmanuel Dyan · CC BY 2.0"
+    },
+    {
+      "at": 37.0,
+      "src": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credit": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5"
+    },
+    {
+      "at": 43.59,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0"
+    },
+    {
+      "at": 110.77,
+      "src": "media/T1-E02/10_la_ferrassie_1_skull.jpg",
+      "credit": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5"
+    },
+    {
+      "at": 114.36,
+      "src": "media/T1-E02/43_neanderthal_edenpictures_b.jpg",
+      "credit": "reconstrucción de un neandertal (museo) · Foto: edenpictures · CC BY 2.0"
+    },
+    {
+      "at": 120.87,
+      "src": "media/T1-E02/40_nahal_amud_caves.jpg",
+      "credit": "cuevas del arroyo Amud, Galilea · Foto: Paul and Jill · CC BY 2.0"
+    },
+    {
+      "at": 127.06,
+      "src": "media/T1-E02/46_galilee_a.jpg",
+      "credit": "paisaje de Galilea · Foto: Emmanuel Dyan · CC BY 2.0"
+    },
+    {
+      "at": 141.67,
+      "src": "media/T1-E02/12_ancient_dna_clean_room_max_planck_leipzi.jpg",
+      "credit": "sala blanca de ADN antiguo del Instituto Max P · Foto: Max Planck Institute for Evolutionary Anthro · Public domain"
+    },
+    {
+      "at": 148.42,
+      "src": "media/T1-E02/45_karyotype.jpg",
+      "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
+    },
+    {
+      "at": 182.73,
+      "src": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+      "credit": "cráneo neandertal de La Ferrassie 1 · Foto: 120 · CC BY 2.5"
+    },
+    {
+      "at": 202.58,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0"
+    },
+    {
+      "at": 214.24,
+      "src": "media/T1-E02/18_ranis_thuringia.jpg",
+      "credit": "pueblo de Ranis, Turingia · Foto: Ansgar Koreng · CC BY 3.0 de"
+    },
+    {
+      "at": 220.91,
+      "src": "media/T1-E02/19_ilsenhohle_ranis.jpg",
+      "credit": "cueva Ilsenhöhle en Ranis, Turingia · Foto: Ansgar Koreng · CC BY 3.0 de"
+    },
+    {
+      "at": 243.67,
+      "src": "media/T1-E02/20_ranis_ilsenhohle_skeletal_remains.jpg",
+      "credit": "Cueva Ilsenhöhle, Ranis · Foto: Ansgar Koreng · CC BY 3.0 de"
+    },
+    {
+      "at": 266.4,
+      "src": "media/T1-E02/45_karyotype.jpg",
+      "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
+    },
+    {
+      "at": 277.54,
+      "src": "media/T1-E02/23_shinjuku_crossing_crowd.jpg",
+      "credit": "multitud en la estación de Shinjuku, Tokio · Foto: Roberto Ciucci · CC BY 2.0"
+    },
+    {
+      "at": 292.56,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0"
+    },
+    {
+      "at": 297.83,
+      "src": "media/T1-E02/04_manot_cave_entrance.jpg",
+      "credit": "entrada de la cueva de Manot · Foto: רון לביא · CC BY 2.5"
+    },
+    {
+      "at": 308.45,
+      "src": "media/T1-E02/05_manot_cave_stalactites.jpg",
+      "credit": "estalactitas y columnas del interior de la cue · Foto: Manot Cave Expedition משלחת החפירות במערת מנ · CC BY-SA 3.0"
+    },
+    {
+      "at": 314.72,
+      "src": "media/T1-E02/10_la_ferrassie_1_skull.jpg",
+      "credit": "cráneo neandertal de La Ferrassie 1 · Foto: User:120 · CC BY 2.5"
+    },
+    {
+      "at": 330.77,
+      "src": "media/T1-E02/45_karyotype.jpg",
+      "credit": "cromosomas humanos (cariotipo) · Foto: Can H. · CC BY 2.0"
+    },
+    {
+      "at": 341.75,
+      "src": "media/T1-E02/30_sinai_peninsula_from_space.jpg",
+      "credit": "península del Sinaí vista desde el espacio · Foto: Expedition 35 Crew Image courtesy of the NAS · Public domain"
+    },
+    {
+      "at": 348.38,
+      "src": "media/T1-E02/23_shinjuku_crossing_crowd.jpg",
+      "credit": "Cruce peatonal de Shinjuku, Tokio · Foto: ver página · CC BY 2.0"
+    }
+  ],
+  "map": {
+    "bounds": [
+      -12,
+      0,
+      52,
+      58
+    ],
+    "places": [
+      {
+        "at": 37.8,
+        "name": "Cueva de Manot",
+        "where": "Israel",
+        "lon": 35.1933,
+        "lat": 33.035
+      },
+      {
+        "at": 121.67,
+        "name": "Cueva de Amud",
+        "where": "Israel",
+        "lon": 35.5017,
+        "lat": 32.8722
+      },
+      {
+        "at": 215.04,
+        "name": "Ranis (Ilsenhöhle)",
+        "where": "Alemania",
+        "lon": 11.568,
+        "lat": 50.664
+      }
+    ]
+  },
+  "data": [
+    {
+      "at": 254.44,
+      "label": "ADN neandertal",
+      "value": "2",
+      "unit": "%",
+      "compare": "Media actual; <b>más</b> con antepasados fuera de África"
+    }
+  ],
+  "asks": [
+    {
+      "at": 250.64,
+      "hold": 2.7,
+      "kicker": "Pausa y piensa",
+      "text": "Los neandertales se extinguieron hace decenas de miles de años. ¿Crees que queda algo de ellos dentro de ti?"
+    }
+  ],
+  "learned": [
+    {
+      "at": 110.62,
+      "hold": 3.4,
+      "text": "Los no africanos descienden de esa salida"
+    },
+    {
+      "at": 214.09,
+      "hold": 3.4,
+      "text": "Por el camino nos mezclamos con neandertales"
+    },
+    {
+      "at": 292.41,
+      "hold": 3.4,
+      "text": "Llevamos de media un 2 % neandertal"
+    }
+  ],
+  "peek": [],
+  "axis": {
+    "from": 300000,
+    "to": 10,
+    "title": "Eje cronológico",
+    "note": "años atrás · escala logarítmica",
+    "ticks": [
+      {
+        "yearsAgo": 300000,
+        "label": "300.000"
+      },
+      {
+        "yearsAgo": 100000,
+        "label": "100.000"
+      },
+      {
+        "yearsAgo": 30000,
+        "label": "30.000"
+      },
+      {
+        "yearsAgo": 10000,
+        "label": "10.000"
+      },
+      {
+        "yearsAgo": 3000,
+        "label": "3.000"
+      },
+      {
+        "yearsAgo": 1000,
+        "label": "1.000"
+      },
+      {
+        "yearsAgo": 300,
+        "label": "300"
+      },
+      {
+        "yearsAgo": 100,
+        "label": "100"
+      },
+      {
+        "yearsAgo": 30,
+        "label": "30"
+      },
+      {
+        "yearsAgo": 10,
+        "label": "hoy"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "at": 0,
+      "yearsAgo": 10
+    },
+    {
+      "at": 38.1,
+      "yearsAgo": 18,
+      "travel": 1.8
+    },
+    {
+      "at": 80.1,
+      "yearsAgo": 55000,
+      "travel": 1.8
+    },
+    {
+      "at": 105.32,
+      "yearsAgo": 50000,
+      "travel": 1.8
+    },
+    {
+      "at": 222.01,
+      "yearsAgo": 45000,
+      "travel": 1.8
+    }
+  ],
+  "index": {
+    "at": 292.86,
+    "kicker": "Quédate con esto",
+    "takeaway": "Fuera de África casi todos venimos de una salida de hace unos 50.000 años, y llevamos dentro un poco de neandertal."
+  },
+  "thumbs": [
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+      "kicker": "Salimos de África",
+      "focus": [
+        50,
+        45
+      ],
+      "zoom": 1.0,
+      "hook": [
+        {
+          "text": "Eres un 2 %",
+          "highlight": true
+        },
+        {
+          "text": "neandertal",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+      "kicker": "Salimos de África",
+      "focus": [
+        50,
+        45
+      ],
+      "zoom": 1.0,
+      "hook": [
+        {
+          "text": "Nos mezclamos",
+          "highlight": true
+        },
+        {
+          "text": "hace 50.000 años",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+      "kicker": "Salimos de África",
+      "focus": [
+        50,
+        45
+      ],
+      "zoom": 1.0,
+      "hook": [
+        {
+          "text": "2 especies",
+          "highlight": true
+        },
+        {
+          "text": "1 corredor",
+          "highlight": false
+        }
+      ]
+    }
+  ]
+}
