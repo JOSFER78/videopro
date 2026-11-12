@@ -22,7 +22,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1, visto en el episodio 2",
-            "busqueda": "Manot 1 skull"
+            "busqueda": "Manot 1 skull",
+            "descartada": true
           }
         },
         {
@@ -38,7 +39,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave"
+            "busqueda": "Blombos Cave Blombo"
           },
           "pronunciacion": "Viajamos a la cueva de Blómbos, en la costa sur de Sudáfrica, a unos trescientos kilómetros al este de Ciudad del Cabo.",
           "lugar": {
@@ -53,7 +54,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "costa rocosa junto a la cueva de Blombos",
-            "busqueda": "Blombos Cave coast"
+            "busqueda": "Blombos coast Blombos.jpg"
           }
         },
         {
@@ -61,7 +62,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "estratos excavados de la cueva de Blombos",
-            "busqueda": "Blombos Cave excavation"
+            "busqueda": "Blombos Cave deposit layers"
           }
         },
         {
@@ -69,20 +70,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Blombos Cave drawing silcrete flake",
-            "archivo": "media/T1-E03/06_blombos_cave_drawing_silcrete_flake.jpg",
-            "credito": "lasca de silcreta L13 de Blombos · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(3).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(5).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(4).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
           },
           "anios_atras": 15
         },
@@ -97,19 +85,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
-            "busqueda": "Blombos Cave drawing cross-hatched lines",
-            "archivo": "media/T1-E03/07_blombos_cave_drawing_cross_hatched_lines.jpg",
-            "credito": "detalle de las líneas de ocre de la lasca de B · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(5).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(4).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
           }
         },
         {
@@ -120,18 +96,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de silcreta L13 de Blombos, vista completa",
-            "busqueda": "Blombos Cave drawing Henshilwood 2018",
-            "archivo": "media/T1-E03/08_blombos_cave_drawing_henshilwood_2018.jpg",
-            "credito": "lasca de silcreta L13 de Blombos, vista comple · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(4).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
           },
           "anios_atras": 73000,
           "emocion": 0.7
@@ -141,17 +106,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Blombos Cave drawing",
-            "archivo": "media/T1-E03/09_blombos_cave_drawing.jpg",
-            "credito": "lasca de silcreta L13 de Blombos · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
           },
           "pausa": "¿Cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos?",
           "dato": {
@@ -181,16 +136,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de Blombos bajo luz de laboratorio",
-            "busqueda": "Blombos silcrete flake ochre",
-            "archivo": "media/T1-E03/10_blombos_silcrete_flake_ochre.jpg",
-            "credito": "lasca de Blombos bajo luz de laboratorio · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
           }
         },
         {
@@ -300,7 +246,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "conchas de abalón con ocre del taller de Blombos",
-            "busqueda": "Blombos Cave abalone shell ochre toolkit"
+            "busqueda": "Blombos Cave abalone shell ochre toolkit",
+            "descartada": true
           },
           "anios_atras": 100000
         },
@@ -312,7 +259,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ocre grabado de la cueva de Blombos",
-            "busqueda": "Blombos Cave engraved ochre"
+            "busqueda": "Blombos Cave engraved ochre",
+            "descartada": true
           }
         },
         {
@@ -320,7 +268,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cuentas de concha Nassarius de Blombos",
-            "busqueda": "Blombos Cave Nassarius shell beads"
+            "busqueda": "BBC shell beads"
           }
         },
         {
@@ -328,7 +276,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave"
+            "busqueda": "Blombos Cave Blombo"
           },
           "anios_atras": 73000,
           "aprendido": "En África, hace unos 73.000 años"
@@ -345,7 +293,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "punta bifacial de piedra de la cueva de Blombos",
-            "busqueda": "Blombos Cave Still Bay point"
+            "busqueda": "Blombos point"
           }
         },
         {
@@ -413,7 +361,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ocre grabado de la cueva de Blombos",
-            "busqueda": "Blombos Cave engraved ochre"
+            "busqueda": "Blombos Cave engraved ochre",
+            "descartada": true
           }
         },
         {
@@ -518,7 +467,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave"
+            "busqueda": "Blombos Cave Blombo"
           }
         },
         {
@@ -530,7 +479,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "costa rocosa junto a la cueva de Blombos",
-            "busqueda": "Blombos Cave coast"
+            "busqueda": "Blombos coast Blombos.jpg"
           }
         },
         {
@@ -585,7 +534,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cuentas de concha Nassarius de Blombos",
-            "busqueda": "Blombos Cave Nassarius shell beads"
+            "busqueda": "BBC shell beads"
           }
         },
         {
