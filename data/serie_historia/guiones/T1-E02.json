@@ -121,7 +121,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           },
           "emocion": 0.7
         },
@@ -134,7 +135,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1, detalle de la superficie",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           }
         },
         {
@@ -150,7 +152,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1, vista lateral",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           }
         },
         {
@@ -294,7 +297,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           }
         },
         {
@@ -455,7 +459,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           }
         },
         {
@@ -479,7 +484,8 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "cráneo Manot 1, vista lateral",
-            "busqueda": "Manot calvaria Homo sapiens"
+            "busqueda": "Manot calvaria Homo sapiens",
+            "descartada": true
           }
         },
         {
@@ -564,7 +570,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ocre grabado de la cueva de Blombos",
-            "busqueda": "Blombos ochre engraved"
+            "busqueda": "Blombos Cave engraved ochre"
           }
         },
         {
@@ -572,7 +578,7 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "lasca de silcreta con trazos de ocre de Blombos",
-            "busqueda": "Blombos ochre engraved"
+            "busqueda": "Blombos Cave engraved ochre"
           }
         }
       ]
