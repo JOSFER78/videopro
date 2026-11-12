@@ -94,6 +94,9 @@ def construir(guion, marcas, temario):
             indice_en = inicio
 
         visual = frase.get("visual") or {}
+        if not visual.get("archivo") and visual.get("respaldo"):
+            # plano de Flow aún sin generar: mientras tanto se ve la imagen real de respaldo
+            visual = visual["respaldo"]
         if visual.get("archivo"):
             if not visual.get("credito"):
                 raise GuionError(f"imagen sin crédito: {visual['archivo']}")

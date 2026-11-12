@@ -12,7 +12,7 @@
   },
   "partes": [
     {
-      "label": "Demasiada gente",
+      "label": "Demasiados",
       "titulo": "Una ciudad sin memoria suficiente",
       "idea": "Uruk, sur de Mesopotamia",
       "frases": [
@@ -21,8 +21,19 @@
           "emocion": 0.5,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilar 43 de Göbekli Tepe, visto en el episodio 4",
-            "busqueda": "Göbekli Tepe pillar 43"
+            "que_se_ve": "pilar 43, la «piedra del buitre», de Göbekli Tepe",
+            "archivo": "media/T1-E04/39_gobekli_tepe_vulture_stone.jpg",
+            "credito": "Pilar 43, piedra del buitre · Foto: Sue Fleckney · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Vulture_Stone,_Gobekli_Tepe,_Sanliurfa,_South-east_Anatolia,_Turkey.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -30,15 +41,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "espigas de escaña",
-            "busqueda": "Einkorn wheat Triticum monococcum"
+            "archivo": "media/T1-E05/02_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Sembrar trajo más comida, y más comida trajo más gente. Hoy ves adónde lleva eso.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "campos de cebada en la llanura mesopotámica",
-            "busqueda": "barley field Iraq"
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -46,7 +79,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ruinas de Uruk en el desierto de Irak",
-            "busqueda": "Uruk Warka ruins"
+            "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Uruk",
@@ -60,7 +104,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "zigurat de Anu y restos del Templo Blanco de Uruk",
-            "busqueda": "Uruk Anu ziggurat White Temple"
+            "archivo": "media/T1-E05/05_uruk_anu_ziggurat_white_temple.jpg",
+            "credito": "Zigurat de Anu, Uruk · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:White_Temple_ziggurat_in_Uruk.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 5226
         },
@@ -68,8 +123,19 @@
           "texto": "Lo que ves hoy son montones de barro en el desierto. Pero entonces aquí había templos, casas, talleres y campos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "restos de muros de adobe en Uruk",
-            "busqueda": "Uruk mud brick walls Eanna"
+            "que_se_ve": "zigurat de Anu y restos del Templo Blanco de Uruk",
+            "archivo": "media/T1-E05/05_uruk_anu_ziggurat_white_temple.jpg",
+            "credito": "Zigurat de Anu, Uruk · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:White_Temple_ziggurat_in_Uruk.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -77,7 +143,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "vaso de Warka, Museo de Irak",
-            "busqueda": "Warka Vase"
+            "archivo": "media/T1-E05/07_warka_vase.jpg",
+            "credito": "Vaso de Warka, Museo de Irak · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Warka_vase_(background_retouched).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -86,8 +163,19 @@
           "pausa": "¿Cuántas personas crees que llegaron a vivir en Uruk?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "vista aérea de la extensión de las ruinas de Uruk",
-            "busqueda": "Uruk aerial view"
+            "que_se_ve": "zigurat de Anu y restos del Templo Blanco de Uruk",
+            "archivo": "media/T1-E05/05_uruk_anu_ziggurat_white_temple.jpg",
+            "credito": "Zigurat de Anu, Uruk · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:White_Temple_ziggurat_in_Uruk.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "dato": {
             "rotulo": "Habitantes de Uruk, máximo",
@@ -102,16 +190,38 @@
           "pronunciacion": "Para que te hagas una idea. En Guebekli Tepe se reunían, quizá, cientos de personas, y solo por un tiempo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto D de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe enclosure D"
+            "que_se_ve": "recinto excavado de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt1.jpg",
+            "credito": "Recinto excavado de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1589877776",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Aquí viven decenas de miles, juntas, todo el año.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "plano de la ciudad de Uruk con su muralla",
-            "busqueda": "Uruk city plan map"
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -119,34 +229,125 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: patio de un almacén del templo de Uruk lleno de sacos y gente",
-            "prompt_flow": "Documentary-realistic wide shot of a busy courtyard of a mud-brick temple storehouse in ancient Uruk, Mesopotamia, around 3200 BC. Dozens of workers seen from behind and at a distance carry reed baskets and sacks of barley, sheep pass through, piles of grain under harsh midday sun, dust in the air. Natural colours, slow lateral camera move, no faces, no text."
+            "prompt_flow": "Documentary-realistic wide shot of a busy courtyard of a mud-brick temple storehouse in ancient Uruk, Mesopotamia, around 3200 BC. Dozens of workers seen from behind and at a distance carry reed baskets and sacks of barley, sheep pass through, piles of grain under harsh midday sun, dust in the air. Natural colours, slow lateral camera move, no faces, no text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+              "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+              "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+              "licencia": "CC BY-SA 2.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+              "zoom": [
+                1.15,
+                1.3
+              ],
+              "focus": [
+                62,
+                55
+              ]
+            }
           }
         },
         {
-          "texto": "Aquí no. Aquí hay cientos de trabajadores, montañas de sacos de cebada y rebaños enteros de ovejas."
+          "texto": "Aquí no. Aquí hay cientos de trabajadores, montañas de sacos de cebada y rebaños enteros de ovejas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vaso de Warka, Museo de Irak",
+            "archivo": "media/T1-E05/07_warka_vase.jpg",
+            "credito": "Vaso de Warka, Museo de Irak · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Warka_vase_(background_retouched).jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
-          "texto": "Y alguien tiene que repartir. Cuánto grano entra, cuánto sale, a quién se le da y quién lo debe todavía."
+          "texto": "Y alguien tiene que repartir. Cuánto grano entra, cuánto sale, a quién se le da y quién lo debe todavía.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vaso de Warka, Museo de Irak",
+            "archivo": "media/T1-E05/07_warka_vase.jpg",
+            "credito": "Vaso de Warka, Museo de Irak · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Warka_vase_(background_retouched).jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         },
         {
-          "texto": "Si nadie lleva la cuenta, alguien cobra dos veces y alguien se queda sin su ración."
+          "texto": "Si nadie lleva la cuenta, alguien cobra dos veces y alguien se queda sin su ración.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vaso de Warka, Museo de Irak",
+            "archivo": "media/T1-E05/07_warka_vase.jpg",
+            "credito": "Vaso de Warka, Museo de Irak · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Warka_vase_(background_retouched).jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
+          }
         },
         {
           "texto": "Con decenas de miles de personas, ninguna memoria humana da para tanto.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de Blombos con trazos de ocre, vista en el episodio 3",
-            "busqueda": "Blombos Cave drawing silcrete flake"
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
           "texto": "¿Te suena? Es lo que viste en Blombos. Hace falta guardar la información fuera de la cabeza.",
-          "aprendido": "La ciudad necesitaba memoria externa."
+          "aprendido": "La ciudad necesitaba memoria externa.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         }
       ]
     },
     {
-      "label": "Fichas y sellos",
+      "label": "Fichas",
       "titulo": "Bolitas de barro antes que letras",
       "idea": "De la ficha a la tablilla",
       "frases": [
@@ -155,27 +356,76 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
-            "busqueda": "clay tokens Mesopotamia accounting"
+            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Son fichas de contar. Conos, esferas y otras formas sencillas. Cada una vale por una cantidad de grano o de animales.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "fichas de arcilla de distintas formas en una vitrina",
-            "busqueda": "Mesopotamian clay tokens museum"
+            "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
+            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Más de doscientos años antes de la escritura, ya se usaban fichas así para contar.",
-          "anios_atras": 5426
+          "anios_atras": 5426,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
+            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         },
         {
           "texto": "Pero una ficha se pierde, o alguien la cambia por otra. Hace falta protegerlas.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sobre esférico de arcilla con fichas de contabilidad, de Susa",
-            "busqueda": "Susa clay envelope bulla tokens"
+            "archivo": "media/T1-E05/15_susa_bulla_cylinder_seal_impression.jpg",
+            "credito": "Bula de arcilla con fichas · Foto: Francesco Bini · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -185,37 +435,118 @@
             "pais": "Irán",
             "lon": 48.2578,
             "lat": 32.1906
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sobre esférico de arcilla con fichas de contabilidad, de Susa",
+            "archivo": "media/T1-E05/15_susa_bulla_cylinder_seal_impression.jpg",
+            "credito": "Bula de arcilla con fichas · Foto: Francesco Bini · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Por fuera llevaba la huella de un sello. Nadie podía abrirla sin que se notara. Era como un recibo con candado.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "bula de arcilla de Susa con impresión de sello cilíndrico",
-            "busqueda": "Susa bulla cylinder seal impression"
+            "que_se_ve": "sobre esférico de arcilla con fichas de contabilidad, de Susa",
+            "archivo": "media/T1-E05/15_susa_bulla_cylinder_seal_impression.jpg",
+            "credito": "Bula de arcilla con fichas · Foto: Francesco Bini · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Ahora fíjate en el truco. Para saber qué había dentro, apretaban las fichas contra la bola antes de cerrarla.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "bula de Susa con marcas de fichas impresas en la superficie",
-            "busqueda": "bulla token impressions Susa Louvre"
+            "que_se_ve": "sobre esférico de arcilla con fichas de contabilidad, de Susa",
+            "archivo": "media/T1-E05/15_susa_bulla_cylinder_seal_impression.jpg",
+            "credito": "Bula de arcilla con fichas · Foto: Francesco Bini · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Iran,_bulla_e_gettoni_usati_per_attestare_una_transazione_commerciale,_da_susa,_3100-2800_ac_ca._(louvre).jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
-          "texto": "Una marca por cada ficha. Si dentro había tres fichas, fuera se veían tres huellas."
+          "texto": "Una marca por cada ficha. Si dentro había tres fichas, fuera se veían tres huellas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "sobre de arcilla con fichas de Susa",
+            "archivo": "media/T1-E05/30_susa_clay_envelope_tokens.jpg",
+            "credito": "Sobre de arcilla con fichas, Louvre · Foto: Marie-Lan Nguyen · Public domain",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Accountancy_clay_envelope_Louvre_Sb1932.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Y alguien se dio cuenta de algo. Si las marcas ya dicen lo que hay, sobran las fichas.",
-          "emocion": 0.7
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla numérica de arcilla de finales del periodo de Uruk",
+            "archivo": "media/T1-E05/17_numerical_tablet_uruk_period_clay.jpg",
+            "credito": "Tablilla numérica de Uruk · Foto: Original: Daderot Derivative work : Zunkir · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Numerical_and_proto_cuneiforms_tablets_-_Oriental_Institute.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Así nacen las tablillas numéricas. Un trozo de barro plano, sin bola y sin fichas, solo con las marcas.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla numérica de arcilla de finales del periodo de Uruk",
-            "busqueda": "numerical tablet Uruk period clay"
+            "archivo": "media/T1-E05/17_numerical_tablet_uruk_period_clay.jpg",
+            "credito": "Tablilla numérica de Uruk · Foto: Original: Daderot Derivative work : Zunkir · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Numerical_and_proto_cuneiforms_tablets_-_Oriental_Institute.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           },
           "anios_atras": 5276
         },
@@ -224,7 +555,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla numérica con impresiones circulares y cónicas",
-            "busqueda": "numerical tablet impressions Susa Louvre"
+            "archivo": "media/T1-E05/18_numerical_tablet_impressions_susa_louvre.jpg",
+            "credito": "Tablilla numérica con impresiones · Foto: Zunkir · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Tablettes_numeriques_Sb_2313_6959.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -232,7 +574,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablillas protocuneiformes de Uruk",
-            "busqueda": "proto-cuneiform tablet Uruk"
+            "archivo": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+            "credito": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet._Counting_board,_the_archaic_cuneiform_sign_%22DUG%22_(vessel)_appears._From_Uruk,_Iraq._End_of_the_4th_millennium_BCE._Vorderasiatisches_Museum,_Berlin.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -240,19 +593,46 @@
           "pronunciacion": "En el barrio de los templos de Uruk, llamado Eana, están algunos de los ejemplos de escritura más antiguos que se conocen.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto de Eanna en las ruinas de Uruk",
-            "busqueda": "Eanna district Uruk"
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Es hacia el tres mil doscientos antes de Cristo. Allí, en Mesopotamia, nace la escritura.",
           "anios_atras": 5226,
-          "aprendido": "La escritura nació en Mesopotamia, 3200 a. C."
+          "aprendido": "La escritura nació en Mesopotamia, 3200 a. C.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablillas protocuneiformes de Uruk",
+            "archivo": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+            "credito": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet._Counting_board,_the_archaic_cuneiform_sign_%22DUG%22_(vessel)_appears._From_Uruk,_Iraq._End_of_the_4th_millennium_BCE._Vorderasiatisches_Museum,_Berlin.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         }
       ]
     },
     {
-      "label": "Números primero",
+      "label": "Los números",
       "titulo": "Lo primero que se escribió",
       "idea": "Tablilla del Met, reparto de cebada",
       "frases": [
@@ -260,8 +640,19 @@
           "texto": "Ahora mira bien este trozo de barro. Hoy está en el Museo Metropolitano de Nueva York.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "tablilla protocuneiforme con impresiones de sello, Met 1988.433.1",
-            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan Museum 1988.433.1"
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -273,28 +664,98 @@
             "valor": "6",
             "unidad": "cm",
             "comparacion": "Cabe en <b>la palma de la mano</b>"
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Cabe en la palma de tu mano.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "tablilla protocuneiforme sostenida en la mano, para dar escala",
-            "busqueda": "proto-cuneiform tablet in hand"
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Y tiene unos cuatro centímetros de grueso. Más que una hoja, parece una galleta gorda de barro."
+          "texto": "Y tiene unos cuatro centímetros de grueso. Más que una hoja, parece una galleta gorda de barro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         },
         {
-          "texto": "El museo la fecha entre el tres mil cien y el dos mil novecientos antes de Cristo, y cree que viene de Uruk."
+          "texto": "El museo la fecha entre el tres mil cien y el dos mil novecientos antes de Cristo, y cree que viene de Uruk.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Las marcas hundidas en el barro son números. Junto a ellas, el signo de lo que se reparte: la cebada.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "detalle de los signos numéricos de la tablilla del Met",
-            "busqueda": "proto-cuneiform numerical signs barley tablet detail"
+            "archivo": "media/T1-E05/23_proto_cuneiform_numerical_signs_barley_t.jpg",
+            "credito": "Tablilla de cebada, periodo de Uruk · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet,_record_of_barley_and_emmer._Late_Uruk_period,_3300-3100_BCE._Purchased_via_Christie%27s,_no_provenance.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -302,7 +763,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sello cilíndrico mesopotámico junto a su impresión en arcilla",
-            "busqueda": "Mesopotamian cylinder seal and impression"
+            "archivo": "media/T1-E05/24_mesopotamian_cylinder_seal_and_impressio.jpg",
+            "credito": "Impresión de sello cilíndrico · Foto: The original uploader was IronyWrit at Engli · Public domain",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Mesopotamian_cylinder_seal_impression.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -310,38 +782,114 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
-            "busqueda": "Met proto-cuneiform tablet cylinder seal impression male figure hunting dogs boars"
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Escritura, número y poder, en un solo trozo de barro.",
-          "emocion": 0.7
+          "emocion": 0.7,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
+          }
         },
         {
-          "texto": "El número dice cuánto. El signo dice qué. Y el sello dice quién lo autoriza."
+          "texto": "El número dice cuánto. El signo dice qué. Y el sello dice quién lo autoriza.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
+          }
         },
         {
           "texto": "Fíjate en lo que no hay. No hay verbos. No hay nombres de héroes. No hay historias.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablillas administrativas protocuneiformes en una vitrina",
-            "busqueda": "proto-cuneiform administrative tablets museum"
+            "archivo": "media/T1-E05/26_proto_cuneiform_administrative_tablets_m.jpg",
+            "credito": "Tablilla protocuneiforme administrativa · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Los primeros signos son cantidades y cosas: cebada, ovejas, tejidos. Lo que entra en el almacén y lo que sale.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "tablilla protocuneiforme con recuento de ovejas y cabras",
-            "busqueda": "proto-cuneiform tablet sheep goats account"
+            "que_se_ve": "tablilla protocuneiforme con impresiones de sello, Met 1988.433.1",
+            "archivo": "media/T1-E05/28_proto_cuneiform_tablet_metropolitan_muse.jpg",
+            "credito": "Tablilla protocuneiforme del Met · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293245.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "La escritura no se inventó para contar historias. Se inventó para llevar las cuentas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "tablilla protocuneiforme del Met, de frente",
-            "busqueda": "proto-cuneiform tablet Metropolitan Museum"
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -351,12 +899,44 @@
             "que_se_ve": "recreación: un escriba de espaldas marca una tablilla de barro con un cálamo",
             "plano_especial": true,
             "duracion_seg": 15,
-            "prompt_flow": "Documentary-realistic close shot over the shoulder of an ancient Mesopotamian scribe, seen from behind, pressing a reed stylus into a small wet clay tablet in a dim mud-brick room around 3200 BC. Warm light from a doorway, baskets of barley in the background, slow push-in to the fresh marks in the clay. Natural colours, no face visible, no readable text."
+            "prompt_flow": "Documentary-realistic close shot over the shoulder of an ancient Mesopotamian scribe, seen from behind, pressing a reed stylus into a small wet clay tablet in a dim mud-brick room around 3200 BC. Warm light from a doorway, baskets of barley in the background, slow push-in to the fresh marks in the clay. Natural colours, no face visible, no readable text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "tablillas protocuneiformes de Uruk",
+              "archivo": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+              "credito": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+              "licencia": "CC BY-SA 4.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet._Counting_board,_the_archaic_cuneiform_sign_%22DUG%22_(vessel)_appears._From_Uruk,_Iraq._End_of_the_4th_millennium_BCE._Vorderasiatisches_Museum,_Berlin.jpg",
+              "zoom": [
+                1.15,
+                1.3
+              ],
+              "focus": [
+                62,
+                55
+              ]
+            }
           }
         },
         {
           "texto": "Pero al principio, lo primero que alguien escribió fueron números y cosas.",
-          "aprendido": "Primero se escribieron números y cosas, no historias."
+          "aprendido": "Primero se escribieron números y cosas, no historias.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "tablilla protocuneiforme con impresiones de sello, Met 1988.433.1",
+            "archivo": "media/T1-E05/28_proto_cuneiform_tablet_metropolitan_muse.jpg",
+            "credito": "Tablilla protocuneiforme del Met · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_with_entries_concerning_malt_and_barley_groats_MET_DP293245.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         }
       ]
     },
@@ -368,21 +948,75 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
-            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
-          "texto": "Un reparto de cebada, con la huella del sello de un administrador."
+          "texto": "Un reparto de cebada, con la huella del sello de un administrador.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
-          "texto": "Un hombre, unos perros de caza y unos jabalíes, rodados sobre el barro para decir: esto lo autorizo yo."
+          "texto": "Un hombre, unos perros de caza y unos jabalíes, rodados sobre el barro para decir: esto lo autorizo yo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "impresión de sello con hombre, perros de caza y jabalíes en la tablilla del Met",
+            "archivo": "media/T1-E05/25_met_proto_cuneiform_tablet_cylinder_seal.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297595.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "¿Qué hubo antes de las tablillas con signos? Fichas de barro, y bolas de arcilla selladas para guardarlas.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sobre de arcilla con fichas de Susa",
-            "busqueda": "Susa clay envelope tokens"
+            "archivo": "media/T1-E05/30_susa_clay_envelope_tokens.jpg",
+            "credito": "Sobre de arcilla con fichas, Louvre · Foto: Marie-Lan Nguyen · Public domain",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Accountancy_clay_envelope_Louvre_Sb1932.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -390,15 +1024,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablillas protocuneiformes de Uruk",
-            "busqueda": "proto-cuneiform tablets Uruk"
+            "archivo": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+            "credito": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet._Counting_board,_the_archaic_cuneiform_sign_%22DUG%22_(vessel)_appears._From_Uruk,_Iraq._End_of_the_4th_millennium_BCE._Vorderasiatisches_Museum,_Berlin.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              50,
+              40
+            ]
           }
         },
         {
           "texto": "¿Y para qué se inventó la escritura? Para llevar las cuentas de una ciudad demasiado grande para la memoria.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "ruinas de Uruk",
-            "busqueda": "Uruk Warka"
+            "que_se_ve": "ruinas de Uruk en el desierto de Irak",
+            "archivo": "media/T1-E05/03_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -406,8 +1062,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "tablilla protocuneiforme del Met, de cerca",
-            "busqueda": "proto-cuneiform tablet Metropolitan Museum"
+            "que_se_ve": "tablilla protocuneiforme Met 1988.433.1",
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "indice": true
         },
@@ -415,8 +1082,19 @@
           "texto": "Y acuérdate de Blombos. Un símbolo guarda una idea fuera de la cabeza. En Uruk, ese símbolo se convierte en contabilidad.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de Blombos con trazos de ocre",
-            "busqueda": "Blombos Cave drawing"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -424,7 +1102,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "acantilado del monte Behistún con el relieve de Darío",
-            "busqueda": "Behistun inscription cliff"
+            "archivo": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+            "credito": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_I_%26_II_(3948706622).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -432,7 +1121,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "relieve de Darío I con los rebeldes atados, en Behistún",
-            "busqueda": "Behistun relief Darius"
+            "archivo": "media/T1-E05/36_behistun_relief_darius.jpg",
+            "credito": "Relieve de Darío en Behistún · Foto: Patrick C, known as dynamomosquito on Flickr · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_relief_Darius.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "asoma": 7
         }
@@ -449,7 +1149,22 @@
       "5.000 años",
       "contando cebada"
     ],
-    "que_se_ve": "tablilla protocuneiforme Met 1988.433.1 con impresiones de sello"
+    "que_se_ve": "tablilla protocuneiforme Met 1988.433.1 con impresiones de sello",
+    "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+    "ganchos": [
+      [
+        "5.000 años",
+        "contando cebada"
+      ],
+      [
+        "Lo primero escrito",
+        "fue una factura"
+      ],
+      [
+        "50.000 vecinos",
+        "0 memoria"
+      ]
+    ]
   },
   "fuentes": [
     {

@@ -18,7 +18,7 @@ mkdir -p "$OUT/shorts" "entregas/$COD"
 python3 scripts/temario/validar_guion.py "$GUION"
 ffmpeg -v error -y -i "$VOZ/$COD.wav" -af loudnorm=I=-16:TP=-1.5 -ar 44100 "$OUT/voz.wav"
 python3 scripts/temario/construir_config.py "$GUION" "$VOZ/$COD.wav.marcas.json" data/serie_historia/temario.json "$CONFIG"
-(cd templates/atlas && node render.js "$COD.config.json" "$OUT/master.mp4" --audio "$OUT/voz.wav")
+(cd templates/atlas && node render.js "$COD.config.json" "$OUT/master.mp4" --audio "$OUT/voz.wav" --jobs 4)
 python3 scripts/temario/revisar_video.py "$OUT/master.mp4" "$VOZ/$COD.wav.marcas.json" "$OUT/revision" 30
 (cd templates/atlas && node miniatura.js "$COD.config.json" "$RAIZ/entregas/$COD/miniatura.png")
 python3 scripts/temario/paquete_youtube.py "$GUION" "$CONFIG" "entregas/$COD/youtube.md"

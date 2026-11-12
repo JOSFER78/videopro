@@ -21,25 +21,33 @@
           "texto": "En el episodio anterior salimos de África. ¿Recuerdas cuánto ADN neandertal llevamos encima?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "cráneo Manot 1, visto en el episodio 2",
-            "busqueda": "Manot 1 skull",
-            "descartada": true
+            "que_se_ve": "cráneo neandertal de La Ferrassie 1",
+            "archivo": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+            "credito": "Cráneo neandertal de La Ferrassie 1 · Foto: 120 · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Ferrassie_skull.jpg"
           }
         },
         {
           "texto": "Alrededor de un dos por ciento. Hoy retrocedemos: lo que vas a ver es más de veinte mil años anterior a esa salida.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de las primeras migraciones fuera de África, visto en el episodio 2",
-            "busqueda": "Map of early human migrations"
+            "que_se_ve": "mapa de la costa sur de Sudáfrica con la cueva de Blombos",
+            "archivo": "media/T1-E03/02_blombo.jpg",
+            "credito": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_location.jpg"
           }
         },
         {
           "texto": "Viajamos a la cueva de Blombos, en la costa sur de Sudáfrica, a unos trescientos kilómetros al este de Ciudad del Cabo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave Blombo"
+            "que_se_ve": "mapa de la costa sur de Sudáfrica con la cueva de Blombos",
+            "archivo": "media/T1-E03/02_blombo.jpg",
+            "credito": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_location.jpg"
           },
           "pronunciacion": "Viajamos a la cueva de Blómbos, en la costa sur de Sudáfrica, a unos trescientos kilómetros al este de Ciudad del Cabo.",
           "lugar": {
@@ -53,8 +61,11 @@
           "texto": "Su entrada mira al mar.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "costa rocosa junto a la cueva de Blombos",
-            "busqueda": "Blombos coast Blombos.jpg"
+            "que_se_ve": "ladera y boca de la cueva de Blombos",
+            "archivo": "media/T1-E03/l_cueva.jpg",
+            "credito": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos.jpg"
           }
         },
         {
@@ -62,41 +73,137 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "estratos excavados de la cueva de Blombos",
-            "busqueda": "Blombos Cave deposit layers"
+            "busqueda": "Blombos Cave deposit layers",
+            "archivo": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+            "credito": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+            "licencia": "CC BY-SA 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_-_deposit_layers.jpg",
+            "alternativas": [],
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "En dos mil once, entre puntas de lanza y otros restos excavados, aparece una lasca de piedra pequeña.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
+            "que_se_ve": "estratos excavados de la cueva de Blombos",
+            "busqueda": "Blombos Cave deposit layers",
+            "archivo": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+            "credito": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+            "licencia": "CC BY-SA 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_-_deposit_layers.jpg",
+            "alternativas": [],
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 15
         },
         {
-          "texto": "Es silcreta, una roca dura. Y sobre una de sus caras hay rayas rojas."
+          "texto": "Es silcreta, una roca dura. Y sobre una de sus caras hay rayas rojas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
+          }
         },
         {
-          "texto": "La miras y piensas: esto lo podría haber hecho un niño ayer, con un rotulador."
+          "texto": "La miras y piensas: esto lo podría haber hecho un niño ayer, con un rotulador.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          }
         },
         {
           "texto": "Tres líneas cruzadas por otras seis: nueve rayas en total. Recuerda a una rejilla, como la almohadilla de tu teclado.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
-            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Las líneas se cortan de golpe en el borde. El dibujo seguía: era más grande, y quizá más complejo."
+          "texto": "Las líneas se cortan de golpe en el borde. El dibujo seguía: era más grande, y quizá más complejo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.35,
+              1.55
+            ],
+            "focus": [
+              55,
+              48
+            ]
+          }
         },
         {
           "texto": "Y el nivel donde estaba tiene unos setenta y tres mil años.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos, vista completa",
-            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 73000,
           "emocion": 0.7
@@ -105,8 +212,19 @@
           "texto": "Al menos treinta mil años más antiguo que cualquier otro dibujo conocido. Así estaban las cosas cuando se publicó, en dos mil dieciocho.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
           },
           "pausa": "¿Cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos?",
           "dato": {
@@ -118,11 +236,43 @@
           "emocion": 0.8
         },
         {
-          "texto": "Esperarías que el primer dibujo fuera un bisonte, o una mano. Y es un cruce de líneas."
+          "texto": "Esperarías que el primer dibujo fuera un bisonte, o una mano. Y es un cruce de líneas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          }
         },
         {
           "texto": "No copia nada que se vea en la naturaleza. Es un símbolo puro.",
-          "aprendido": "El dibujo más antiguo conocido es abstracto"
+          "aprendido": "El dibujo más antiguo conocido es abstracto",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         }
       ]
     },
@@ -135,45 +285,73 @@
           "texto": "Pero unas rayas rojas en una piedra pueden ser casualidad. Una mancha, un roce, un mineral de la propia roca.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de Blombos bajo luz de laboratorio",
-            "busqueda": "Claimed Oldest Known Drawing by Human Hands South African Cave"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.35,
+              1.55
+            ],
+            "focus": [
+              55,
+              48
+            ]
           }
         },
         {
           "texto": "Por eso el equipo de Christopher Henshilwood la estudió durante siete años antes de publicarla.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "retrato de Christopher Henshilwood",
-            "busqueda": "Christopher Henshilwood",
-            "archivo": "media/T1-E03/11_christopher_henshilwood.jpg",
-            "credito": "retrato de Christopher Henshilwood · Foto: Mhlayson · CC BY-SA 4.0",
-            "licencia": "CC BY-SA 4.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Rock_hyraxes.jpg",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Blombos_Cave_stratigraphy.jpg",
-              "https://commons.wikimedia.org/wiki/File:Blombos_Cave_location.jpg",
-              "https://commons.wikimedia.org/wiki/File:Lithic_Industries_at_Blombos_Cave,_Southern_Cape,_South_Africa_(c._105_%E2%80%93_90_Ka).jpg"
+            "que_se_ve": "estratos excavados de la cueva de Blombos",
+            "busqueda": "Blombos Cave deposit layers",
+            "archivo": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+            "credito": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+            "licencia": "CC BY-SA 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_-_deposit_layers.jpg",
+            "alternativas": [],
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
             ]
           },
           "pronunciacion": "Por eso el equipo de Cristofer Jénshilwud la estudió durante siete años antes de publicarla."
         },
         {
-          "texto": "Siete años para poder decir una sola frase: esto lo hizo alguien."
+          "texto": "Siete años para poder decir una sola frase: esto lo hizo alguien.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "estratos excavados de la cueva de Blombos",
+            "busqueda": "Blombos Cave deposit layers",
+            "archivo": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+            "credito": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+            "licencia": "CC BY-SA 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_-_deposit_layers.jpg",
+            "alternativas": [],
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
+          }
         },
         {
           "texto": "Primero, bajo el microscopio: ¿el rojo era parte de la piedra, o estaba encima?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "líneas de ocre de la lasca de Blombos vistas al microscopio (publicación de 2018)",
-            "busqueda": "Blombos Cave drawing microscope Henshilwood 2018",
-            "archivo": "media/T1-E03/12_blombos_cave_drawing_microscope_henshilw.jpg",
-            "credito": "líneas de ocre de la lasca de Blombos vistas a · Foto: MNXANL · CC BY-SA 4.0",
-            "licencia": "CC BY-SA 4.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
-            ]
+            "que_se_ve": "microscopio de laboratorio",
+            "archivo": "media/T1-E03/l_microscopio.jpg",
+            "credito": "Microscopio de laboratorio · Foto: labormikro · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/labormikro/1018237978"
           }
         },
         {
@@ -183,7 +361,7 @@
             "que_se_ve": "espectrómetro Raman",
             "busqueda": "Raman spectrometer",
             "archivo": "media/T1-E03/13_raman_spectrometer.jpg",
-            "credito": "espectrómetro Raman · Foto: Ijon · CC BY-SA 4.0",
+            "credito": "Espectrómetro Raman · Foto: Ijon · CC BY-SA 4.0",
             "licencia": "CC BY-SA 4.0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Raman_Spectroscopy_device_by_Bruker.jpg",
             "alternativas": [
@@ -205,7 +383,7 @@
             "que_se_ve": "trozos de ocre rojo",
             "busqueda": "red ochre pigment",
             "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
-            "credito": "trozos de ocre rojo · Foto: Wikimedia Commons · CC0",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
             "licencia": "CC0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
             "alternativas": [
@@ -215,11 +393,35 @@
               "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
               "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
               "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
             ]
           }
         },
         {
-          "texto": "Y el grosor de las rayas cuenta cómo se hizo: una punta de entre uno y tres milímetros."
+          "texto": "Y el grosor de las rayas cuenta cómo se hizo: una punta de entre uno y tres milímetros.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Como la de un lápiz de colores bien afilado.",
@@ -232,51 +434,185 @@
           }
         },
         {
-          "texto": "Alguien cogió un trozo de ocre afilado y lo usó como un lápiz."
+          "texto": "Alguien cogió un trozo de ocre afilado y lo usó como un lápiz.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment",
+            "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p03.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment,_ocher_-_Museo_Egizio_(Turin)_S_9927_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Altamira_Ocre_MHNT.PRE.2012.0.611.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
+              "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
+          }
         },
         {
           "texto": "No fue un accidente. Fue a propósito.",
-          "emocion": 0.8
+          "emocion": 0.8,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
-          "texto": "Alguien eligió el color, eligió la piedra y decidió dónde poner cada raya."
+          "texto": "Alguien eligió el color, eligió la piedra y decidió dónde poner cada raya.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.35,
+              1.55
+            ],
+            "focus": [
+              55,
+              48
+            ]
+          }
         },
         {
           "texto": "Y no era la primera vez que usaban ocre. En niveles de unos cien mil años hay un taller, con ocre mezclado y guardado en dos conchas de abalón.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "conchas de abalón con ocre del taller de Blombos",
-            "busqueda": "Blombos Cave abalone shell ochre toolkit",
-            "descartada": true
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment",
+            "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p03.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment,_ocher_-_Museo_Egizio_(Turin)_S_9927_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Altamira_Ocre_MHNT.PRE.2012.0.611.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
+              "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
           },
           "anios_atras": 100000
         },
         {
-          "texto": "Mezclar un pigmento y guardarlo para usarlo después ya dice mucho de quien lo hace."
+          "texto": "Mezclar un pigmento y guardarlo para usarlo después ya dice mucho de quien lo hace.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment",
+            "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p03.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment,_ocher_-_Museo_Egizio_(Turin)_S_9927_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Altamira_Ocre_MHNT.PRE.2012.0.611.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
+              "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          }
         },
         {
           "texto": "En la capa del dibujo había más: trozos de ocre grabados con dibujos parecidos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "ocre grabado de la cueva de Blombos",
-            "busqueda": "Blombos Cave engraved ochre",
-            "descartada": true
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment",
+            "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p03.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment,_ocher_-_Museo_Egizio_(Turin)_S_9927_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Altamira_Ocre_MHNT.PRE.2012.0.611.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
+              "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
           }
         },
         {
           "texto": "Y cuentas de concha, algunas teñidas de ocre. Quienes vivían aquí repetían patrones y se adornaban.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "cuentas de concha Nassarius de Blombos",
-            "busqueda": "BBC shell beads"
+            "que_se_ve": "cuentas de concha perforadas de Blombos",
+            "archivo": "media/T1-E03/l_cuentas.jpg",
+            "credito": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg",
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Lo hacían en África, hace unos setenta y tres mil años.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave Blombo"
+            "que_se_ve": "ladera y boca de la cueva de Blombos",
+            "archivo": "media/T1-E03/l_cueva.jpg",
+            "credito": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos.jpg"
           },
           "anios_atras": 73000,
           "aprendido": "En África, hace unos 73.000 años"
@@ -284,7 +620,7 @@
       ]
     },
     {
-      "label": "Memoria externa",
+      "label": "La memoria",
       "titulo": "Una idea fuera de la cabeza",
       "idea": "Herramienta frente a símbolo",
       "frases": [
@@ -292,33 +628,77 @@
           "texto": "Ahora piensa en la diferencia entre una herramienta y un símbolo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "punta bifacial de piedra de la cueva de Blombos",
-            "busqueda": "Blombos point"
+            "que_se_ve": "punta de piedra tallada de Blombos, tres vistas",
+            "archivo": "media/T1-E03/c_punta.jpg",
+            "credito": "Punta de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_point.JPG",
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Una punta de lanza sirve para cazar. Funciona aunque nadie sepa quién la hizo."
+          "texto": "Una punta de lanza sirve para cazar. Funciona aunque nadie sepa quién la hizo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "punta de piedra tallada de Blombos, tres vistas",
+            "archivo": "media/T1-E03/c_punta.jpg",
+            "credito": "Punta de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_point.JPG",
+            "zoom": [
+              1.0,
+              1.08
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Un símbolo no corta ni pincha. Solo sirve si alguien sabe leerlo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Blombos Cave drawing",
-            "archivo": "media/T1-E03/09_blombos_cave_drawing.jpg",
-            "credito": "lasca de silcreta L13 de Blombos · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
             ]
           }
         },
         {
-          "texto": "Una herramienta trabaja en el mundo. Un símbolo trabaja en la cabeza de quien lo mira."
+          "texto": "Una herramienta trabaja en el mundo. Un símbolo trabaja en la cabeza de quien lo mira.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Piensa en una marca en un árbol junto a un camino. Le dice algo a quien llega después.",
@@ -327,7 +707,7 @@
             "que_se_ve": "marca de pintura de un sendero en el tronco de un árbol",
             "busqueda": "trail blaze marking on tree",
             "archivo": "media/T1-E03/21_trail_blaze_marking_on_tree.jpg",
-            "credito": "marca de pintura de un sendero en el tronco de · Foto: Phoenix-Five · CC BY-SA 4.0",
+            "credito": "Marca de sendero en un árbol · Foto: Phoenix-Five · CC BY-SA 4.0",
             "licencia": "CC BY-SA 4.0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Boardman_River_Trail_Blaze.jpg",
             "alternativas": [
@@ -337,10 +717,39 @@
           }
         },
         {
-          "texto": "Imagina que alguien, al día siguiente, ve esas rayas y entiende algo. Ya no hace falta que su autor esté delante."
+          "texto": "Imagina que alguien, al día siguiente, ve esas rayas y entiende algo. Ya no hace falta que su autor esté delante.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "marca de pintura de un sendero en el tronco de un árbol",
+            "busqueda": "trail blaze marking on tree",
+            "archivo": "media/T1-E03/21_trail_blaze_marking_on_tree.jpg",
+            "credito": "Marca de sendero en un árbol · Foto: Phoenix-Five · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Boardman_River_Trail_Blaze.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:NCTBlueBlaze.JPG",
+              "https://commons.wikimedia.org/wiki/File:Phenology_III_Journals_1-6_-_DPLA_-_4fb8cf24bdaa8f32e8576cf714579e9a.jpg"
+            ]
+          }
         },
         {
-          "texto": "Esas rayas guardaban algo que estaba en la cabeza de quien las trazó. Lo sacaban fuera, a una piedra."
+          "texto": "Esas rayas guardaban algo que estaba en la cabeza de quien las trazó. Lo sacaban fuera, a una piedra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
+          }
         },
         {
           "texto": "Y una piedra dura más que una persona. Quien trazó esas rayas murió hace más de setenta mil años, y su gesto sigue aquí.",
@@ -351,45 +760,110 @@
           }
         },
         {
-          "texto": "Eso es una memoria externa: una idea que sobrevive a quien la pensó."
+          "texto": "Eso es una memoria externa: una idea que sobrevive a quien la pensó.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
-          "texto": "Tu cerebro olvida. Una marca en una piedra, no."
+          "texto": "Tu cerebro olvida. Una marca en una piedra, no.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.35,
+              1.55
+            ],
+            "focus": [
+              55,
+              48
+            ]
+          }
         },
         {
           "texto": "Y una marca se puede copiar, enseñar y heredar. Una idea que se queda en la cabeza muere con quien la tiene.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "ocre grabado de la cueva de Blombos",
-            "busqueda": "Blombos Cave engraved ochre",
-            "descartada": true
+            "que_se_ve": "cuentas de concha perforadas de Blombos",
+            "archivo": "media/T1-E03/l_cuentas.jpg",
+            "credito": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
+            ]
           }
         },
         {
           "texto": "No sabemos qué significaban aquellas rayas. Quizá nunca lo sepamos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de las líneas de ocre de la lasca de Blombos",
-            "busqueda": "Blombos Cave drawing cross-hatched lines",
-            "archivo": "media/T1-E03/07_blombos_cave_drawing_cross_hatched_lines.jpg",
-            "credito": "detalle de las líneas de ocre de la lasca de B · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(5).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(4).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
             ]
           }
         },
         {
-          "texto": "Pero sí sabemos algo: alguien quiso dejarlas ahí, y otros podían verlas."
+          "texto": "Pero sí sabemos algo: alguien quiso dejarlas ahí, y otros podían verlas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          }
         },
         {
-          "texto": "Y el mecanismo es el mismo que usas tú cada día. Cuando lees un mensaje, entiendes una marca que dejó otra persona."
+          "texto": "Y el mecanismo es el mismo que usas tú cada día. Cuando lees un mensaje, entiendes una marca que dejó otra persona.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "una persona lee un mensaje en el móvil",
+            "archivo": "media/T1-E03/f_movil.jpg",
+            "credito": "Foto: Artem Beliaikin · CC0",
+            "licencia": "CC0",
+            "pagina": "https://www.flickr.com/photos/belart84/40851099253"
+          }
         },
         {
           "texto": "Las letras de un libro, las notas de una partitura, las cifras de una factura: marcas que guardan ideas fuera de la cabeza.",
@@ -398,7 +872,7 @@
             "que_se_ve": "partitura autógrafa de Bach",
             "busqueda": "Bach autograph manuscript",
             "archivo": "media/T1-E03/24_bach_autograph_manuscript.jpg",
-            "credito": "partitura autógrafa de Bach · Foto: J.S. Bach · Public domain",
+            "credito": "Manuscrito autógrafo de Bach · Foto: J.S. Bach · Public domain",
             "licencia": "Public domain",
             "pagina": "https://commons.wikimedia.org/wiki/File:BWV56-autograph-manuscript-first-page-Bach-1726.jpg",
             "alternativas": [
@@ -419,7 +893,7 @@
             "que_se_ve": "tablilla protocuneiforme del Metropolitan Museum",
             "busqueda": "proto-cuneiform tablet Metropolitan Museum 1988.433.1",
             "archivo": "media/T1-E03/25_proto_cuneiform_tablet_metropolitan_muse.jpg",
-            "credito": "tablilla protocuneiforme del Metropolitan Muse · Foto: Wikimedia Commons · CC0",
+            "credito": "Tablilla protocuneiforme del Met · Foto: Wikimedia Commons · CC0",
             "licencia": "CC0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_concerning_the_distribution_of_barley_and_emmer_MET_DP297601.jpg",
             "alternativas": [
@@ -437,20 +911,18 @@
           "texto": "Todo empieza con el mismo gesto: dejar una marca para que otro la lea.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Blombos Cave drawing silcrete flake",
-            "archivo": "media/T1-E03/06_blombos_cave_drawing_silcrete_flake.jpg",
-            "credito": "lasca de silcreta L13 de Blombos · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(3).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(5).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(4).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.25,
+              1.4
+            ],
+            "focus": [
+              40,
+              50
             ]
           },
           "aprendido": "Un símbolo guarda una idea fuera del cerebro"
@@ -466,20 +938,34 @@
           "texto": "Repasemos. Tres preguntas, y contesta tú antes que yo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave Blombo"
+            "que_se_ve": "ladera y boca de la cueva de Blombos",
+            "archivo": "media/T1-E03/l_cueva.jpg",
+            "credito": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos.jpg"
           }
         },
         {
           "texto": "Primera. ¿En qué país está la cueva de Blombos?",
-          "pronunciacion": "Primera. ¿En qué país está la cueva de Blómbos?"
+          "pronunciacion": "Primera. ¿En qué país está la cueva de Blómbos?",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "mapa de la costa sur de Sudáfrica con la cueva de Blombos",
+            "archivo": "media/T1-E03/02_blombo.jpg",
+            "credito": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_location.jpg"
+          }
         },
         {
           "texto": "En Sudáfrica, en la costa sur del Cabo, a unos trescientos kilómetros de Ciudad del Cabo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "costa rocosa junto a la cueva de Blombos",
-            "busqueda": "Blombos coast Blombos.jpg"
+            "que_se_ve": "mapa de la costa sur de Sudáfrica con la cueva de Blombos",
+            "archivo": "media/T1-E03/02_blombo.jpg",
+            "credito": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos_Cave_location.jpg"
           }
         },
         {
@@ -489,7 +975,7 @@
             "que_se_ve": "trozos de ocre rojo",
             "busqueda": "red ochre pigment",
             "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
-            "credito": "trozos de ocre rojo · Foto: Wikimedia Commons · CC0",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
             "licencia": "CC0",
             "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
             "alternativas": [
@@ -499,64 +985,200 @@
               "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
               "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
               "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
             ]
           }
         },
         {
-          "texto": "Con un lápiz de ocre rojo, de punta finísima. El microscopio y la luz lo confirmaron: el rojo estaba encima, puesto a propósito."
+          "texto": "Con un lápiz de ocre rojo, de punta finísima. El microscopio y la luz lo confirmaron: el rojo estaba encima, puesto a propósito.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "trozos de ocre rojo",
+            "busqueda": "red ochre pigment",
+            "archivo": "media/T1-E03/14_red_ochre_pigment.jpg",
+            "credito": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p02.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment_Ochre_-_Museo_Egizio,_Turin_S_9927_p03.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_red_pigment,_ocher_-_Museo_Egizio_(Turin)_S_9927_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Altamira_Ocre_MHNT.PRE.2012.0.611.jpg",
+              "https://commons.wikimedia.org/wiki/File:Fragment_of_blue_pigment,_mineral_-_Museo_Egizio,_Turin_S_9927_ND_p01.jpg",
+              "https://commons.wikimedia.org/wiki/File:Links_gebrannte_Siena,_rechts_nat%C3%BCrliche.JPG",
+              "https://commons.wikimedia.org/wiki/File:Bengala,_banda_de_rock_mexicana.jpg"
+            ],
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Tercera. ¿Qué hace un símbolo que no hace una herramienta?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta L13 de Blombos",
-            "busqueda": "Blombos Cave drawing",
-            "archivo": "media/T1-E03/09_blombos_cave_drawing.jpg",
-            "credito": "lasca de silcreta L13 de Blombos · Foto: Rept0n1x · CC BY-SA 3.0",
-            "licencia": "CC BY-SA 3.0",
-            "pagina": "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(2).JPG",
-            "alternativas": [
-              "https://commons.wikimedia.org/wiki/File:Church_Road,_Liverpool_L13_(1).JPG",
-              "https://commons.wikimedia.org/wiki/File:Platform_for_L13_of_Madang_Road_Station_20160327.jpg",
-              "https://commons.wikimedia.org/wiki/File:L13-L2_interchange_interface_at_L13_Dongzhimen_Station_(20211216174757).jpg",
-              "https://commons.wikimedia.org/wiki/File:L13_4195_erkebispegarden.JPG"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
             ]
           }
         },
         {
-          "texto": "Guarda un significado que otros pueden leer, incluso cuando su autor ya no está."
+          "texto": "Guarda un significado que otros pueden leer, incluso cuando su autor ya no está.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.1,
+              1.0
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
-          "texto": "Y recuerda: el dibujo más antiguo que conocemos no es un animal. Es una rejilla de rayas rojas."
+          "texto": "Y recuerda: el dibujo más antiguo que conocemos no es un animal. Es una rejilla de rayas rojas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.35,
+              1.55
+            ],
+            "focus": [
+              55,
+              48
+            ]
+          }
         },
         {
           "texto": "Quédate con esto: el símbolo es la tecnología que hará posibles el arte, la escritura y la ciencia.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "cuentas de concha Nassarius de Blombos",
-            "busqueda": "BBC shell beads"
+            "que_se_ve": "cuentas de concha perforadas de Blombos",
+            "archivo": "media/T1-E03/l_cuentas.jpg",
+            "credito": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          },
+          "indice": true
+        },
+        {
+          "texto": "Y esa forma de pensar ya viajaba con nosotros cuando salimos de África.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cuentas de concha perforadas de Blombos",
+            "archivo": "media/T1-E03/l_cuentas.jpg",
+            "credito": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
           }
         },
         {
-          "texto": "Y esa forma de pensar ya viajaba con nosotros cuando salimos de África."
-        },
-        {
-          "texto": "Rayas, cuentas y colores: el equipaje más ligero, y el más potente, que hemos llevado nunca."
+          "texto": "Rayas, cuentas y colores: el equipaje más ligero, y el más potente, que hemos llevado nunca.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "cuentas de concha perforadas de Blombos",
+            "archivo": "media/T1-E03/l_cuentas.jpg",
+            "credito": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:BBC-shell-beads.jpg",
+            "zoom": [
+              1.5,
+              1.3
+            ],
+            "focus": [
+              60,
+              50
+            ]
+          }
         },
         {
           "texto": "Después seguimos caminando durante decenas de miles de años. Hasta que alguien, en lo que hoy es Turquía, levantó pilares de piedra.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "pilares en forma de T de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe pillars"
+            "busqueda": "Göbekli Tepe pillars",
+            "archivo": "media/T1-E03/28_gobekli_tepe_pillars.jpg",
+            "credito": "Pilares en T de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_banner.jpg",
+              "https://commons.wikimedia.org/wiki/File:The_archaeological_site_of_G%C3%B6bekli_Tepe_-_main_excavation_area.png",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Women.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_12_November_2022.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Woman.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Woman_in_Leopard_Pillar_Building.jpg"
+            ]
           }
         },
         {
           "texto": "Y, por lo que sabemos, lo hizo antes de sembrar. Lo veremos en el próximo episodio.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto D de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe enclosure D"
+            "que_se_ve": "pilares en forma de T de Göbekli Tepe",
+            "busqueda": "Göbekli Tepe pillars",
+            "archivo": "media/T1-E03/28_gobekli_tepe_pillars.jpg",
+            "credito": "Pilares en T de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "alternativas": [
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_banner.jpg",
+              "https://commons.wikimedia.org/wiki/File:The_archaeological_site_of_G%C3%B6bekli_Tepe_-_main_excavation_area.png",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Women.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_12_November_2022.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Woman.jpg",
+              "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Birthing_Woman_in_Leopard_Pillar_Building.jpg"
+            ]
           }
         }
       ]
@@ -572,7 +1194,22 @@
       "Un garabato",
       "de 73.000 años"
     ],
-    "que_se_ve": "lasca de silcreta de Blombos con las líneas rojas cruzadas (foto real de la publicación de 2018)"
+    "que_se_ve": "lasca de silcreta de Blombos con las líneas rojas cruzadas (foto real de la publicación de 2018)",
+    "archivo": "media/T1-E03/m_dibujo.jpg",
+    "ganchos": [
+      [
+        "Un garabato",
+        "de 73.000 años"
+      ],
+      [
+        "El primer dibujo",
+        "no es un animal"
+      ],
+      [
+        "9 rayas",
+        "73.000 años"
+      ]
+    ]
   },
   "fuentes": [
     {

@@ -21,16 +21,38 @@
           "emocion": 0.5,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "lasca de silcreta con trazos de ocre de Blombos, vista en el episodio 3",
-            "busqueda": "Blombos Cave drawing silcrete flake ochre"
+            "que_se_ve": "detalle de las líneas rojas cruzadas sobre la lasca de silcreta de Blombos",
+            "archivo": "media/T1-E03/l_dibujo.jpg",
+            "credito": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Claimed_Oldest_Known_Drawing_by_Human_Hands_Discovered_in_South_African_Cave.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "En una cueva de Sudáfrica, hace setenta y tres mil años. Unas rayas que guardaban una idea fuera de la cabeza.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "entrada de la cueva de Blombos sobre el mar",
-            "busqueda": "Blombos Cave"
+            "que_se_ve": "ladera y boca de la cueva de Blombos",
+            "archivo": "media/T1-E03/l_cueva.jpg",
+            "credito": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Blombos.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -38,7 +60,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe aerial view"
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 11000
         },
@@ -50,22 +83,60 @@
             "pais": "Turquía",
             "lon": 38.9217,
             "lat": 37.2236
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
           "texto": "En la cima hay círculos de piedras enormes. Son pilares con forma de letra te, y los más altos miden unos cinco metros.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto D de Göbekli Tepe con sus dos pilares centrales en forma de T",
-            "busqueda": "Göbekli Tepe enclosure D pillars"
+            "que_se_ve": "recinto excavado de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt1.jpg",
+            "credito": "Recinto excavado de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1589877776",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Ponte al lado de uno. Es casi tres veces más alto que tú.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "visitantes junto a los pilares de Göbekli Tepe, para dar escala",
-            "busqueda": "Göbekli Tepe pillars visitors scale"
+            "que_se_ve": "excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt3.jpg",
+            "credito": "Excavación de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588993575",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -74,7 +145,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "pilar 43, la «piedra del buitre», de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe pillar 43 vulture stone"
+            "archivo": "media/T1-E04/39_gobekli_tepe_vulture_stone.jpg",
+            "credito": "Pilar 43, piedra del buitre · Foto: Sue Fleckney · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Vulture_Stone,_Gobekli_Tepe,_Sanliurfa,_South-east_Anatolia,_Turkey.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -82,7 +164,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe fox relief pillar"
+            "archivo": "media/T1-E04/12_gobekli_tepe_pillar_18.jpg",
+            "credito": "Pilar de Göbekli Tepe con zorro · Foto: Zhengan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Pillar.JPG",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -90,27 +183,76 @@
           "pronunciacion": "Y todo esto es unos seis mil años más antiguo que Estónjench.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "círculo de piedras de Stonehenge",
-            "busqueda": "Stonehenge"
+            "que_se_ve": "Stonehenge",
+            "archivo": "media/T1-E04/f_stonehenge.jpg",
+            "credito": "Stonehenge · Foto: laszlo-photo · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/40467171@N00/3425200141",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Y no fue cosa de una generación. La colina estuvo en uso desde hace unos once mil quinientos años hasta hace unos diez mil.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "plano de los recintos A, B, C y D de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe site plan enclosures"
+            "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+            "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Unos mil quinientos años de gente volviendo una y otra vez al mismo sitio."
+          "texto": "Unos mil quinientos años de gente volviendo una y otra vez al mismo sitio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+            "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
+          }
         },
         {
           "texto": "Entonces, ¿quién lo levantó? La pista no está en los pilares. Está en la basura que dejaron alrededor.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "zona de excavación de Göbekli Tepe bajo la cubierta protectora",
-            "busqueda": "Göbekli Tepe excavation"
+            "que_se_ve": "excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt3.jpg",
+            "credito": "Excavación de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588993575",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
@@ -118,7 +260,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "gacela persa, la presa más cazada en Göbekli Tepe",
-            "busqueda": "Gazella subgutturosa goitered gazelle"
+            "archivo": "media/T1-E04/09_gazella_subgutturosa_goitered_gazelle.jpg",
+            "credito": "Gacela persa · Foto: H. Zell · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Gazella_subgutturosa_subgutturosa_-_Karlsruhe_Zoo_01.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -126,7 +279,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "jabalí salvaje",
-            "busqueda": "Sus scrofa wild boar"
+            "archivo": "media/T1-E04/10_sus_scrofa_wild_boar.jpg",
+            "credito": "Jabalí salvaje · Foto: Michael Gäbler · CC BY 3.0",
+            "licencia": "CC BY 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:A_young_wild_boar_in_his_environment.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -138,22 +302,60 @@
             "valor": "0",
             "unidad": "de 100.000",
             "comparacion": "Todo caza; más del <b>60 %</b> gacela"
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gacela persa",
+            "archivo": "media/T1-E04/33_goitered_gazelle.jpg",
+            "credito": "Gacela persa · Foto: Elşad İbrahimov · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Female_goitered_gazelle,_Shirvan_National_Park,_Azerbaijan.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Junto a los huesos salen martillos de piedra y cuchillas de sílex. Con eso tallaron la caliza.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "herramientas de sílex del Neolítico precerámico",
-            "busqueda": "Pre-Pottery Neolithic flint tools"
+            "que_se_ve": "pilar de Göbekli Tepe en la excavación",
+            "archivo": "media/T1-E04/f_gt2.jpg",
+            "credito": "Pilar de Göbekli Tepe en la excavación · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588996349",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "No tenían granjas ni rebaños. Los que tallaron estos pilares eran cazadores-recolectores.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilar central del recinto D de Göbekli Tepe, de cerca",
-            "busqueda": "Göbekli Tepe pillar 18"
+            "que_se_ve": "relieves de animales en un pilar de Göbekli Tepe",
+            "archivo": "media/T1-E04/21_gobekli_tepe_pillar_relief_animals.jpg",
+            "credito": "Relieve animal en pilar de Göbekli · Foto: Dosseman · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Animal_hunting_scene._Gobekli_Tepe.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "aprendido": "Göbekli Tepe lo construyeron cazadores-recolectores."
         }
@@ -168,20 +370,58 @@
           "texto": "Ahora piensa en cómo se hizo. Los pilares más grandes pesan hasta diez toneladas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilares de varias toneladas en pie en un recinto de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe T-shaped pillars"
+            "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
+            "archivo": "media/T1-E04/12_gobekli_tepe_pillar_18.jpg",
+            "credito": "Pilar de Göbekli Tepe con zorro · Foto: Zhengan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Pillar.JPG",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
           "texto": "Diez toneladas. Más o menos lo que pesan siete coches.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "cantera de caliza en la meseta de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe limestone quarry"
+            "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
+            "archivo": "media/T1-E04/12_gobekli_tepe_pillar_18.jpg",
+            "credito": "Pilar de Göbekli Tepe con zorro · Foto: Zhengan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Pillar.JPG",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           }
         },
         {
-          "texto": "No había ruedas, ni animales de tiro, ni metal. Solo cuerdas, sílex y brazos."
+          "texto": "No había ruedas, ni animales de tiro, ni metal. Solo cuerdas, sílex y brazos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt3.jpg",
+            "credito": "Excavación de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588993575",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
+          }
         },
         {
           "texto": "Klaus Schmidt, el arqueólogo que dirigió la excavación, calculó que hacían falta cientos de trabajadores.",
@@ -189,7 +429,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el arqueólogo Klaus Schmidt en Göbekli Tepe",
-            "busqueda": "Klaus Schmidt archaeologist Göbekli Tepe"
+            "archivo": "media/T1-E04/27_klaus_schmidt_gobekli_tepe_pillar.jpg",
+            "credito": "Klaus Schmidt, arqueólogo · Foto: Ordercrazy · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Klaus_Schmidt_Monumento_2014.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -200,40 +451,137 @@
             "que_se_ve": "recreación: cientos de personas arrastran un pilar en forma de T por la colina",
             "plano_especial": true,
             "duracion_seg": 15,
-            "prompt_flow": "Documentary-realistic wide shot at dawn on a dry limestone hilltop in southeastern Anatolia, 9500 BC. Hundreds of hunter-gatherers in hide clothing, seen from behind and at a distance, haul a huge T-shaped limestone pillar with long plant-fibre ropes, pulling in rhythm. Dust in low golden light, slow aerial dolly pulling back to reveal the crowd and the stone circle under construction. Natural colours, no faces visible, no text."
+            "prompt_flow": "Documentary-realistic wide shot at dawn on a dry limestone hilltop in southeastern Anatolia, 9500 BC. Hundreds of hunter-gatherers in hide clothing, seen from behind and at a distance, haul a huge T-shaped limestone pillar with long plant-fibre ropes, pulling in rhythm. Dust in low golden light, slow aerial dolly pulling back to reveal the crowd and the stone circle under construction. Natural colours, no faces visible, no text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+              "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+              "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+              "licencia": "CC BY-SA 4.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+              "zoom": [
+                1.15,
+                1.3
+              ],
+              "focus": [
+                65,
+                55
+              ]
+            }
           }
         },
         {
-          "texto": "Alguien tiene que marcar el ritmo. Alguien tiene que decidir dónde va cada piedra."
+          "texto": "Alguien tiene que marcar el ritmo. Alguien tiene que decidir dónde va cada piedra.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+            "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
-          "texto": "Y toda esa gente tiene que comer. Durante semanas, en el mismo sitio."
+          "texto": "Y toda esa gente tiene que comer. Durante semanas, en el mismo sitio.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
+          }
         },
         {
           "texto": "Hay que cazar más gacelas, recoger más grano silvestre y cocinar para todos.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "espigas de escaña silvestre, el trigo salvaje de la zona",
-            "busqueda": "Triticum boeoticum wild einkorn"
+            "archivo": "media/T1-E04/16_triticum_boeoticum_wild_einkorn.jpg",
+            "credito": "Espiga de escaña silvestre · Foto: Tracey Slotta · Public domain",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_boeoticum_Boiss._ssp._thaoudar_(Reuter_ex_Hausskn.)_Schiem._-_wild_einkorn_-_TRBOT_-_Tracey_Slotta_@_USDA-NRCS_PLANTS_Database.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Y hay una pista. Según varios estudios, la caza de gacelas se concentraba en ciertas épocas del año.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "manada de gacelas persas en la estepa",
-            "busqueda": "goitered gazelle herd steppe"
+            "que_se_ve": "gacela persa",
+            "archivo": "media/T1-E04/f_gacela.jpg",
+            "credito": "Gacela persa · Foto: Just chaos · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/7326810@N08/4149675110",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Quizá las reuniones se hacían justo entonces, cuando había carne de sobra para alimentar a todos."
+          "texto": "Quizá las reuniones se hacían justo entonces, cuando había carne de sobra para alimentar a todos.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gacela persa",
+            "archivo": "media/T1-E04/33_goitered_gazelle.jpg",
+            "credito": "Gacela persa · Foto: Elşad İbrahimov · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Female_goitered_gazelle,_Shirvan_National_Park,_Azerbaijan.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
+          }
         },
         {
           "texto": "Ahora piensa en cuánta gente había entonces en el mundo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "gráfica de la población mundial desde el 10.000 antes de Cristo",
-            "busqueda": "World population history graph"
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 12000
         },
@@ -246,14 +594,41 @@
             "valor": "4,5",
             "unidad": "millones",
             "comparacion": "Hoy somos <b>1.800 veces</b> más"
+          },
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
           "texto": "En un mundo tan vacío, juntar a cientos de personas en una colina era algo excepcional.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "la colina de Göbekli Tepe sobre la llanura vacía",
-            "busqueda": "Göbekli Tepe hill landscape"
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -261,18 +636,56 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe excavation layers walls"
+            "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+            "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
-          "texto": "Así, capa sobre capa, durante siglos, creció la colina que ves hoy."
+          "texto": "Así, capa sobre capa, durante siglos, creció la colina que ves hoy.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
+          }
         },
         {
           "texto": "Éramos muy pocos y vivíamos de la caza. Y aun así, nos reuníamos para construir algo enorme.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "relieves de animales en un pilar de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe pillar relief animals"
+            "archivo": "media/T1-E04/21_gobekli_tepe_pillar_relief_animals.jpg",
+            "credito": "Relieve animal en pilar de Göbekli · Foto: Dosseman · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Animal_hunting_scene._Gobekli_Tepe.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           },
           "aprendido": "Antes del campo éramos solo unos pocos millones."
         }
@@ -287,8 +700,19 @@
           "texto": "Ahora baja de la colina y camina unos treinta kilómetros.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "campos de cereal en la llanura de Şanlıurfa",
-            "busqueda": "Şanlıurfa plain wheat fields"
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           }
         },
         {
@@ -297,7 +721,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
-            "busqueda": "Einkorn wheat Triticum monococcum"
+            "archivo": "media/T1-E04/23_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 10500
         },
@@ -305,24 +740,57 @@
           "texto": "Fíjate en el orden, porque es lo importante. Primero, cazadores que se juntan para levantar piedras.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilar 43 de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe pillar 43"
+            "que_se_ve": "pilar 43, la «piedra del buitre», de Göbekli Tepe",
+            "archivo": "media/T1-E04/39_gobekli_tepe_vulture_stone.jpg",
+            "credito": "Pilar 43, piedra del buitre · Foto: Sue Fleckney · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Vulture_Stone,_Gobekli_Tepe,_Sanliurfa,_South-east_Anatolia,_Turkey.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
           "texto": "Después, muy cerca y poco tiempo más tarde, el trigo sembrado.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "granos y espigas de escaña cultivada",
-            "busqueda": "einkorn grains spikelets"
+            "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
+            "archivo": "media/T1-E04/23_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
           "texto": "La historia que solemos contar va al revés. Primero el campo, luego el pueblo y, al final, el templo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "aldea neolítica reconstruida de casas de barro",
-            "busqueda": "Neolithic village reconstruction mud brick houses"
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -330,8 +798,19 @@
           "pronunciacion": "Shmit le dio la vuelta. Para él, el gran esfuerzo de construir juntos preparó el terreno para todo lo demás.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "Klaus Schmidt junto a un pilar de Göbekli Tepe",
-            "busqueda": "Klaus Schmidt Göbekli Tepe pillar"
+            "que_se_ve": "el arqueólogo Klaus Schmidt en Göbekli Tepe",
+            "archivo": "media/T1-E04/27_klaus_schmidt_gobekli_tepe_pillar.jpg",
+            "credito": "Klaus Schmidt, arqueólogo · Foto: Ordercrazy · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Klaus_Schmidt_Monumento_2014.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
@@ -339,8 +818,19 @@
           "pronunciacion": "El arqueólogo Ian Jóder lo resume así: primero cambia la forma de vivir juntos; la agricultura llega después.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el arqueólogo Ian Hodder",
-            "busqueda": "Ian Hodder archaeologist"
+            "que_se_ve": "excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt3.jpg",
+            "credito": "Excavación de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588993575",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -348,41 +838,138 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: recolectores siegan trigo silvestre junto a la colina",
-            "prompt_flow": "Documentary-realistic medium-wide shot of a few Neolithic people seen from behind, harvesting tall wild wheat with flint sickles on a gentle slope in southeastern Anatolia at late afternoon. A limestone hill with a stone enclosure is visible far in the background. Warm natural light, handheld documentary feel, no faces, no text."
+            "prompt_flow": "Documentary-realistic medium-wide shot of a few Neolithic people seen from behind, harvesting tall wild wheat with flint sickles on a gentle slope in southeastern Anatolia at late afternoon. A limestone hill with a stone enclosure is visible far in the background. Warm natural light, handheld documentary feel, no faces, no text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "espigas de escaña silvestre, el trigo salvaje de la zona",
+              "archivo": "media/T1-E04/16_triticum_boeoticum_wild_einkorn.jpg",
+              "credito": "Espiga de escaña silvestre · Foto: Tracey Slotta · Public domain",
+              "licencia": "Public domain",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_boeoticum_Boiss._ssp._thaoudar_(Reuter_ex_Hausskn.)_Schiem._-_wild_einkorn_-_TRBOT_-_Tracey_Slotta_@_USDA-NRCS_PLANTS_Database.jpg",
+              "zoom": [
+                1.3,
+                1.18
+              ],
+              "focus": [
+                35,
+                45
+              ]
+            }
           }
         },
         {
-          "texto": "Alguien empieza a guardar semillas y a plantarlas cerca. Quedarse lleva a sembrar."
+          "texto": "Alguien empieza a guardar semillas y a plantarlas cerca. Quedarse lleva a sembrar.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "espigas de escaña silvestre, el trigo salvaje de la zona",
+            "archivo": "media/T1-E04/16_triticum_boeoticum_wild_einkorn.jpg",
+            "credito": "Espiga de escaña silvestre · Foto: Tracey Slotta · Public domain",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_boeoticum_Boiss._ssp._thaoudar_(Reuter_ex_Hausskn.)_Schiem._-_wild_einkorn_-_TRBOT_-_Tracey_Slotta_@_USDA-NRCS_PLANTS_Database.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
+          }
         },
         {
           "texto": "En la propia colina han aparecido miles de piedras de moler. Allí se molía cereal en grandes cantidades.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "piedras de moler neolíticas halladas en Göbekli Tepe",
-            "busqueda": "Göbekli Tepe grinding stones"
+            "que_se_ve": "recinto excavado de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt1.jpg",
+            "credito": "Recinto excavado de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1589877776",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
-          "texto": "Por lo que sabemos, era cereal silvestre. Allí todavía no se sembraba."
+          "texto": "Por lo que sabemos, era cereal silvestre. Allí todavía no se sembraba.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "recinto excavado de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt1.jpg",
+            "credito": "Recinto excavado de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1589877776",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
+          }
         },
         {
           "texto": "Y sembrar lo cambia todo. Más comida en el mismo sitio significa más gente.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "gráfica de la población mundial disparándose tras la agricultura",
-            "busqueda": "World population growth curve"
+            "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
+            "archivo": "media/T1-E04/23_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           }
         },
         {
           "texto": "De aquellos cuatro millones y medio hemos pasado a más de ocho mil millones. Unas mil ochocientas veces más.",
-          "emocion": 0.75
+          "emocion": 0.75,
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
+          }
         },
         {
           "texto": "Todo ese camino empezó cerca de esta colina, poco después de los pilares.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "vista general de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe"
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           },
           "aprendido": "La agricultura apareció muy cerca, poco después."
         }
@@ -396,8 +983,19 @@
           "pronunciacion": "Vamos a repasar. ¿Quién levantó Guebekli Tepe?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto D de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe enclosure D"
+            "que_se_ve": "recinto excavado de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt1.jpg",
+            "credito": "Recinto excavado de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1589877776",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -405,39 +1003,94 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "gacela persa",
-            "busqueda": "goitered gazelle"
+            "archivo": "media/T1-E04/33_goitered_gazelle.jpg",
+            "credito": "Gacela persa · Foto: Elşad İbrahimov · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Female_goitered_gazelle,_Shirvan_National_Park,_Azerbaijan.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           }
         },
         {
           "texto": "Gente que vivía de la caza y aun así movía piedras de diez toneladas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilares en forma de T de Göbekli Tepe",
-            "busqueda": "Göbekli Tepe T-shaped pillars"
+            "que_se_ve": "relieve de un zorro en un pilar de Göbekli Tepe",
+            "archivo": "media/T1-E04/12_gobekli_tepe_pillar_18.jpg",
+            "credito": "Pilar de Göbekli Tepe con zorro · Foto: Zhengan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_Pillar.JPG",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Recuerda la escena: cientos de personas tirando de la misma cuerda, en un mundo casi vacío.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "recinto de Göbekli Tepe al atardecer",
-            "busqueda": "Göbekli Tepe sunset"
+            "que_se_ve": "capas de relleno y muros superpuestos en la excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/20_gobekli_tepe_excavation_layers_walls.jpg",
+            "credito": "Muros excavados de Göbekli Tepe · Foto: Rolf Cosar · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe_-_100525.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           }
         },
         {
           "texto": "¿Qué apareció a unos treinta kilómetros, poco después? Uno de los trigos domesticados más antiguos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "espigas de escaña",
-            "busqueda": "Einkorn wheat"
+            "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
+            "archivo": "media/T1-E04/23_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "¿Y cuántos éramos entonces en todo el mundo? Unos cuatro millones y medio.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "gráfica de la población mundial",
-            "busqueda": "World population history graph"
+            "que_se_ve": "vista aérea de los recintos excavados de Göbekli Tepe",
+            "archivo": "media/T1-E04/01_gobekli_tepe_aerial_view.jpg",
+            "credito": "Excavaciones de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:G%C3%B6bekli_Tepe,_Urfa.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -445,8 +1098,19 @@
           "pronunciacion": "Ojo: excavaciones recientes muestran que allí ya comían cereales y vivían parte del año. La idea de Shmit sigue en debate.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "arqueólogos trabajando en Göbekli Tepe",
-            "busqueda": "Göbekli Tepe archaeologists excavation"
+            "que_se_ve": "excavación de Göbekli Tepe",
+            "archivo": "media/T1-E04/f_gt3.jpg",
+            "credito": "Excavación de Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588993575",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
@@ -454,8 +1118,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pilar 43 de Göbekli Tepe, de cerca",
-            "busqueda": "Göbekli Tepe vulture stone"
+            "que_se_ve": "pilar 43, la «piedra del buitre», de Göbekli Tepe",
+            "archivo": "media/T1-E04/39_gobekli_tepe_vulture_stone.jpg",
+            "credito": "Pilar 43, piedra del buitre · Foto: Sue Fleckney · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Vulture_Stone,_Gobekli_Tepe,_Sanliurfa,_South-east_Anatolia,_Turkey.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
           },
           "indice": true
         },
@@ -463,19 +1138,57 @@
           "texto": "Cuando muchos se quedan en un sitio, sembrar deja de ser una opción y se vuelve una necesidad.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "espigas de escaña cultivada",
-            "busqueda": "Einkorn field"
+            "que_se_ve": "espigas de escaña, uno de los primeros trigos cultivados",
+            "archivo": "media/T1-E04/23_einkorn_wheat_triticum_monococcum.jpg",
+            "credito": "Espiga de escaña · Foto: Roger Culos · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Triticum_monococcum_MHNT.BOT.2015.2.37.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              35,
+              45
+            ]
           }
         },
         {
-          "texto": "Y desde entonces no hemos dejado de crecer: de unos pocos millones a más de ocho mil millones."
+          "texto": "Y desde entonces no hemos dejado de crecer: de unos pocos millones a más de ocho mil millones.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campos junto a Göbekli Tepe",
+            "archivo": "media/T1-E04/f_aldea.jpg",
+            "credito": "Campos junto a Göbekli Tepe · Foto: Verity Cridland · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/58789412@N00/1588986415",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              65,
+              55
+            ]
+          }
         },
         {
           "texto": "Quedarse quieto trae más gente. Y más gente trae un problema nuevo: ¿quién se acuerda de quién debe qué?",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ruinas de Uruk en el desierto de Irak",
-            "busqueda": "Uruk Warka ruins"
+            "archivo": "media/T1-E04/22_uruk_eanna_ziggurat_ruins.jpg",
+            "credito": "Zigurat de Uruk, Irak · Foto: tobeytravels · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Uruk_ziggurat_(2).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -483,7 +1196,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla protocuneiforme del Met con impresiones de sello",
-            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+            "archivo": "media/T1-E04/23_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Sello cuneiforme del Metropolitan · Foto: Wikimedia Commons · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "asoma": 6
         }
@@ -500,7 +1224,22 @@
       "11.000 años",
       "sin granjeros"
     ],
-    "que_se_ve": "pilar 43 («piedra del buitre») de Göbekli Tepe"
+    "que_se_ve": "pilar 43 («piedra del buitre») de Göbekli Tepe",
+    "archivo": "media/T1-E04/39_gobekli_tepe_vulture_stone.jpg",
+    "ganchos": [
+      [
+        "Antes del trigo",
+        "un templo"
+      ],
+      [
+        "10 toneladas",
+        "sin ruedas"
+      ],
+      [
+        "11.000 años",
+        "antes de sembrar"
+      ]
+    ]
   },
   "fuentes": [
     {
