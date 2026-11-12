@@ -2,188 +2,106 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-/* Layout: sticky bar of project parts; below it one part at a time, as a column of option cards, each with its own ways to react. */
+/* Layout: one column. A few fully written proposals; under each, cold / warm / hot and one text box. Nothing else. */
 :root{
-  --bg:#f3f4f1; --surface:#ffffff; --ink:#1b2422; --muted:#5d6966; --line:#d5dad6;
-  --accent:#0f6b5c; --accent-ink:#ffffff; --soft:#e4ece9;
-  --yes:#1d7a46; --no:#b3392f; --doubt:#a06a00; --mark:#fff3bf; --star:#c98a00;
+  --bg:#f3f4f1; --surface:#ffffff; --ink:#1b2422; --muted:#5d6966; --line:#d5dad6; --soft:#e9eeeb;
+  --cold:#2f6fb0; --warm:#b07a12; --hot:#c2402f; --on:#ffffff; --accent:#0f6b5c;
   --display:"Fraunces",Georgia,serif; --body:"IBM Plex Sans",system-ui,sans-serif;
 }
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
   --bg:#141917; --surface:#1d2422; --ink:#e9eeeb; --muted:#9aa7a3; --line:#33403c; --soft:#26302d;
-  --accent:#4fc3ad; --accent-ink:#0c1513; --yes:#5fd08c; --no:#ff8a7d; --doubt:#f0c25a; --mark:#4a4320; --star:#f0c25a; color-scheme:dark } }
+  --cold:#6aa8e6; --warm:#e6b34a; --hot:#ff8a78; --on:#10161a; --accent:#4fc3ad; color-scheme:dark } }
 :root[data-theme="dark"]{
   --bg:#141917; --surface:#1d2422; --ink:#e9eeeb; --muted:#9aa7a3; --line:#33403c; --soft:#26302d;
-  --accent:#4fc3ad; --accent-ink:#0c1513; --yes:#5fd08c; --no:#ff8a7d; --doubt:#f0c25a; --mark:#4a4320; --star:#f0c25a; color-scheme:dark }
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:24px 96px}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-.wrap{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
-h1{font-family:var(--display);font-weight:600;font-size:2rem;line-height:1.15;margin:0}
-.lead{color:var(--muted);margin:8px 0 0;max-width:62ch}
+  --cold:#6aa8e6; --warm:#e6b34a; --hot:#ff8a78; --on:#10161a; --accent:#4fc3ad; color-scheme:dark }
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 96px}
+.wrap{max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+h1{font-family:var(--display);font-weight:600;font-size:1.9rem;line-height:1.15;margin:0}
+.lead{margin:8px 0 0;color:var(--muted)}
 .status{font-size:.85rem;color:var(--muted);margin:6px 0 0}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;gap:6px;overflow-x:auto;border-bottom:1px solid var(--line)}
-nav button{flex:none;white-space:nowrap;font-size:.88rem}
-nav button[aria-current="true"]{background:var(--ink);color:var(--bg);border-color:transparent}
-nav .n{opacity:.7;font-variant-numeric:tabular-nums;margin-left:6px}
-.parte{display:flex;flex-direction:column;gap:14px}
-.parte h2{font-family:var(--display);font-weight:500;font-size:1.5rem;margin:0;text-wrap:balance}
-.q{color:var(--muted);margin:0;max-width:62ch}
-.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.card.fav{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
-.card h3{font-size:1.08rem;font-weight:600;margin:0;text-wrap:balance}
-.card .sub{margin:-6px 0 0;color:var(--muted);font-style:italic}
+.ronda{font-family:var(--display);font-size:1.3rem;margin:0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card h2{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.2;margin:0;text-wrap:balance}
+.card .sub{margin:-8px 0 0;color:var(--muted);font-style:italic}
 .card p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
-.card blockquote{margin:0;padding:10px 12px;background:var(--soft);border-radius:8px;font-size:.95rem;white-space:pre-wrap}
-.tag{font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);font-weight:600}
-.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.lbl{font-size:.8rem;color:var(--muted);width:100%}
-button{font:inherit;cursor:pointer;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:6px 14px}
-button:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-button[aria-pressed="true"]{color:var(--accent-ink);border-color:transparent;background:var(--accent)}
-button.si[aria-pressed="true"]{background:var(--yes)} button.no[aria-pressed="true"]{background:var(--no)} button.duda[aria-pressed="true"]{background:var(--doubt)}
-.chip{font-size:.85rem;padding:4px 11px}
-.star{border:none;padding:2px 3px;font-size:1.35rem;line-height:1;color:var(--line);border-radius:4px}
-.star.on{color:var(--star)}
-textarea{font:inherit;width:100%;box-sizing:border-box;min-height:60px;resize:vertical;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);padding:10px}
+.k{font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:-8px}
+blockquote{margin:0;padding:12px 14px;background:var(--soft);border-radius:8px;white-space:pre-wrap;font-size:.97rem}
+.stars{display:flex;gap:4px}
+.star{border:none;padding:2px 6px;font-size:2rem;line-height:1;color:var(--line);font-weight:400}
+.star.on{color:var(--warm)}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--line);background:transparent;color:var(--ink);padding:12px 8px;font-weight:600}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.frio[aria-pressed="true"]{background:var(--cold);color:var(--on);border-color:transparent}
+button.templado[aria-pressed="true"]{background:var(--warm);color:var(--on);border-color:transparent}
+button.caliente[aria-pressed="true"]{background:var(--hot);color:var(--on);border-color:transparent}
+textarea{font:inherit;width:100%;box-sizing:border-box;min-height:84px;resize:vertical;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);padding:12px}
 .saved{font-size:.8rem;color:var(--muted);min-height:1.2em}
-.primary{background:var(--accent);color:var(--accent-ink);border-color:transparent;font-weight:600}
-.box{border:1px dashed var(--line);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
-.box h3{margin:0;font-size:1rem}
-.nota{background:var(--mark);border-radius:8px;padding:10px 12px;display:flex;gap:10px;justify-content:space-between;align-items:flex-start}
-.nota span{white-space:pre-wrap;min-width:0;overflow-wrap:anywhere}
-.nota button{padding:2px 10px;font-size:.8rem;flex:none}
-.empty{color:var(--muted);border:1px dashed var(--line);border-radius:10px;padding:18px}
-.foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.empty{color:var(--muted);border:1px dashed var(--line);border-radius:12px;padding:18px}
 </style>
 
 <div class="wrap">
   <header>
     <h1>Mesa de ideas</h1>
-    <p class="lead">El proyecto entero, por partes, antes de desarrollar nada. En cada tarjeta puedes votar, puntuar, pedir cambios con un toque y escribir. En cada parte puedes proponer tu propia opción. Todo se guarda solo; cuando termines, díselo a Claude en el chat.</p>
+    <p class="lead">Aquí abajo hay unas pocas propuestas ya escritas. Léelas, ponle <b>estrellas</b> a cada una y <b>escribe</b> debajo lo que te gusta, lo que no y lo que cambiarías. Con eso te traigo otra tanda más afinada.</p>
     <p class="status" id="status">Cargando…</p>
   </header>
-  <nav id="nav" aria-label="Partes del proyecto"></nav>
-  <main id="main"><div class="empty">Las ideas aparecerán aquí en cuanto se cargue la página.</div></main>
+  <main id="main" style="display:flex;flex-direction:column;gap:22px"><div class="empty">Las propuestas aparecerán aquí enseguida.</div></main>
 </div>
 
 <script>
 (async function(){
-  const $ = s => document.querySelector(s);
-  const status = $("#status"), main = $("#main"), nav = $("#nav");
+  const $ = s => document.querySelector(s), main = $("#main"), status = $("#status");
   const el = (t, c, txt) => { const e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; };
-  const CHIPS = ["Más sorpresa","Más claro","Más corto","Más emoción","Más serio","Más atrevido","Mézclala con otra","Esto ya lo he visto"];
   let db = null;
   try { db = await window.claude?.use?.("db"); } catch (e) { db = null; }
   if (!db) { status.textContent = "No se puede guardar desde esta vista. Abre la página con tu sesión de Claude iniciada."; return; }
-
-  let ideas = [], reac = {}, notas = [], actual = null, soloPend = false;
-  const timers = {}, dirty = {};
-  try { actual = Number(localStorage.getItem("mesa-parte")) || null; } catch (e) {}
+  let props = [], reac = {}; const timers = {}, dirty = {};
   const loading = setTimeout(() => { status.textContent = "Tarda más de lo normal. Recarga la página si no aparece nada."; }, 10000);
 
   function save(id, patch, savedEl){
     reac[id] = Object.assign({}, reac[id] || {}, patch, { actualizado: new Date().toISOString() });
-    dirty[id] = true; clearTimeout(timers[id]);
-    if (savedEl) savedEl.textContent = "Guardando…";
+    dirty[id] = true; clearTimeout(timers[id]); if (savedEl) savedEl.textContent = "Guardando…";
     timers[id] = setTimeout(async () => {
       try { await db.doc("reacciones/" + id).set(reac[id]); if (savedEl) savedEl.textContent = "Guardado"; }
       catch (e) { if (savedEl) savedEl.textContent = "No se pudo guardar: " + (e && e.message || "error"); }
-      dirty[id] = false; pintarNav();
+      dirty[id] = false;
     }, 600);
   }
-  const opinada = id => { const r = reac[id]; return !!(r && (r.voto || r.favorita || r.estrellas || (r.comentario || "").trim() || (r.chips || []).length)); };
-  const partes = () => { const m = {}; ideas.forEach(i => { const p = i.parte || 0; (m[p] = m[p] || { n: p, titulo: i.parte_titulo, pregunta: i.parte_pregunta, items: [] }); if (i.parte_titulo) m[p].titulo = i.parte_titulo; if (i.parte_pregunta) m[p].pregunta = i.parte_pregunta; m[p].items.push(i); }); return Object.values(m).sort((a, b) => a.n - b.n); };
 
-  function pintarNav(){
-    const ps = partes(); nav.textContent = "";
-    ps.forEach(p => { const b = el("button", null, p.n + ". " + (p.titulo || "")); b.type = "button";
-      const hechas = p.items.filter(i => opinada(i.id)).length; b.append(el("span", "n", hechas + "/" + p.items.length));
-      b.setAttribute("aria-current", String(p.n === actual)); b.onclick = () => ir(p.n); nav.append(b); });
-    const tot = ideas.length, h = ideas.filter(i => opinada(i.id)).length;
-    status.textContent = tot ? "Has opinado en " + h + " de " + tot + " tarjetas. Lo que marques y escribas se guarda solo." : "Todavía no hay ideas en la mesa.";
-  }
-  function ir(n){ actual = n; try { localStorage.setItem("mesa-parte", String(n)); } catch (e) {} pintar(); window.scrollTo({ top: 0 }); }
-
-  function card(idea){
-    const r = reac[idea.id] || {};
-    const c = el("article", "card" + (r.favorita ? " fav" : ""));
-    if (idea.etiqueta) c.append(el("div", "tag", idea.etiqueta));
-    c.append(el("h3", null, idea.titulo || ""));
-    if (idea.subtitulo) c.append(el("p", "sub", idea.subtitulo));
-    if (idea.texto) c.append(el("p", null, idea.texto));
-    if (idea.ejemplo) c.append(el("blockquote", null, idea.ejemplo));
-    const saved = el("div", "saved");
-    const votos = el("div", "row");
-    [["si","Me gusta"],["duda","Tengo dudas"],["no","No"]].forEach(([k, label]) => {
-      const b = el("button", k, label); b.type = "button"; b.setAttribute("aria-pressed", String(r.voto === k));
-      b.onclick = () => { const nv = (reac[idea.id] || {}).voto === k ? "" : k; save(idea.id, { voto: nv }, saved);
-        votos.querySelectorAll("button.si,button.duda,button.no").forEach(x => x.setAttribute("aria-pressed", String(x === b && nv === k))); };
-      votos.append(b);
-    });
-    const f = el("button", "favb", "Esta es la mía"); f.type = "button"; f.setAttribute("aria-pressed", String(!!r.favorita));
-    f.onclick = () => { const nv = !(reac[idea.id] || {}).favorita; save(idea.id, { favorita: nv }, saved); f.setAttribute("aria-pressed", String(nv)); c.classList.toggle("fav", nv); };
-    votos.append(f); c.append(votos);
-
-    const st = el("div", "row"); st.setAttribute("role", "group"); st.setAttribute("aria-label", "Puntuación de 1 a 5");
-    const pintaSt = v => st.querySelectorAll(".star").forEach((s, i) => s.classList.toggle("on", i < v));
+  function card(p){
+    const r = reac[p.id] || {}, c = el("article", "card");
+    c.append(el("h2", null, p.titulo || ""));
+    if (p.subtitulo) c.append(el("p", "sub", p.subtitulo));
+    (p.bloques || []).forEach(b => { if (b.k) c.append(el("div", "k", b.k)); c.append(el(b.cita ? "blockquote" : "p", null, b.t || "")); });
+    const saved = el("div", "saved"), t = el("div", "stars"); t.setAttribute("role", "group"); t.setAttribute("aria-label", "Puntuación de 1 a 5");
+    const pinta = v => t.querySelectorAll("button").forEach((s, i) => s.classList.toggle("on", i < v));
     for (let i = 1; i <= 5; i++) { const s = el("button", "star", "★"); s.type = "button"; s.setAttribute("aria-label", i + " de 5");
-      s.onclick = () => { const cur = (reac[idea.id] || {}).estrellas || 0, nv = cur === i ? 0 : i; save(idea.id, { estrellas: nv }, saved); pintaSt(nv); }; st.append(s); }
-    c.append(st); pintaSt(r.estrellas || 0);
-
-    const ch = el("div", "row"); ch.append(el("span", "lbl", "Pídeme un cambio con un toque:"));
-    CHIPS.forEach(t => { const b = el("button", "chip", t); b.type = "button"; b.setAttribute("aria-pressed", String((r.chips || []).includes(t)));
-      b.onclick = () => { const cur = new Set((reac[idea.id] || {}).chips || []); cur.has(t) ? cur.delete(t) : cur.add(t); save(idea.id, { chips: [...cur] }, saved); b.setAttribute("aria-pressed", String(cur.has(t))); };
-      ch.append(b); });
-    c.append(ch);
-
-    const ta = el("textarea"); ta.id = "c-" + idea.id; ta.placeholder = "Tu comentario: qué cambiarías, qué falta, qué sobra, con qué lo mezclarías…"; ta.value = r.comentario || "";
-    ta.setAttribute("aria-label", "Comentario sobre: " + (idea.titulo || ""));
-    ta.oninput = () => save(idea.id, { comentario: ta.value }, saved);
-    c.append(ta, saved);
-    return c;
+      s.onclick = () => { const cur = (reac[p.id] || {}).estrellas || 0, nv = cur === i ? 0 : i; save(p.id, { estrellas: nv }, saved); pinta(nv); }; t.append(s); }
+    pinta(r.estrellas || 0);
+    const ta = el("textarea"); ta.id = "c-" + p.id; ta.value = r.comentario || ""; ta.placeholder = "Qué te gusta de esta, qué no, qué le cambiarías…";
+    ta.setAttribute("aria-label", "Comentario sobre: " + (p.titulo || "")); ta.oninput = () => save(p.id, { comentario: ta.value }, saved);
+    c.append(t, ta, saved); return c;
   }
 
   function pintar(){
-    const a = document.activeElement; if (a && a.tagName === "TEXTAREA" && a.value) return; // no redibujar mientras se escribe
-    const ps = partes(); pintarNav(); main.textContent = "";
-    if (!ps.length) { main.append(el("div", "empty", "Todavía no hay ideas en la mesa. Claude las añadirá enseguida.")); return; }
-    if (!ps.some(p => p.n === actual)) actual = ps[0].n;
-    const idx = ps.findIndex(p => p.n === actual), p = ps[idx];
-    const s = el("section", "parte");
-    s.append(el("h2", null, "Parte " + p.n + " · " + (p.titulo || "")));
-    if (p.pregunta) s.append(el("p", "q", p.pregunta));
-    const filtro = el("div", "row"); const fb = el("button", "chip", "Ver solo las que me faltan"); fb.type = "button"; fb.setAttribute("aria-pressed", String(soloPend));
-    fb.onclick = () => { soloPend = !soloPend; pintar(); }; filtro.append(fb); s.append(filtro);
-    const lista = p.items.slice().sort((x, y) => (x.orden || 0) - (y.orden || 0)).filter(i => !soloPend || !opinada(i.id));
-    if (!lista.length) s.append(el("div", "empty", "Ya has opinado sobre todas las tarjetas de esta parte."));
-    lista.forEach(i => s.append(card(i)));
-
-    const pid = "parte-" + p.n, pr = reac[pid] || {};
-    const box = el("div", "box"); box.append(el("h3", null, "Tu opinión general sobre esta parte"));
-    const sv = el("div", "saved"); const ta = el("textarea"); ta.id = "c-" + pid; ta.value = pr.comentario || ""; ta.placeholder = "Qué te convence, qué no, hacia dónde lo llevarías…";
-    ta.setAttribute("aria-label", "Opinión general sobre la parte " + p.n); ta.oninput = () => save(pid, { comentario: ta.value }, sv); box.append(ta, sv); s.append(box);
-
-    const box2 = el("div", "box"); box2.append(el("h3", null, "Propón tu propia opción o enfoque"));
-    const tn = el("textarea"); tn.id = "n-" + p.n; tn.placeholder = "Un nombre, un título, una idea, un ejemplo, una referencia que te guste…"; tn.setAttribute("aria-label", "Tu propuesta para la parte " + p.n);
-    const add = el("button", "primary", "Añadir a la mesa"); add.type = "button";
-    add.onclick = async () => { const t = tn.value.trim(); if (!t) return; try { await db.collection("notas").add({ texto: t, parte: p.n, creado: new Date().toISOString() }); tn.value = ""; } catch (e) { status.textContent = "No se pudo guardar tu propuesta: " + (e && e.message || "error"); } };
-    const r1 = el("div", "row"); r1.append(add); box2.append(tn, r1);
-    notas.filter(n => (n.parte || 0) === p.n).sort((x, y) => String(y.creado).localeCompare(String(x.creado))).forEach(n => {
-      const d = el("div", "nota"); d.append(el("span", null, n.texto)); const x = el("button", null, "Quitar"); x.type = "button";
-      x.onclick = async () => { try { await db.doc("notas/" + n.id).delete(); } catch (e) { status.textContent = "No se pudo quitar."; } }; d.append(x); box2.append(d); });
-    s.append(box2);
-
-    const foot = el("div", "foot");
-    const prev = el("button", null, "← Parte anterior"); prev.type = "button"; prev.disabled = idx === 0; prev.onclick = () => ir(ps[idx - 1].n);
-    const next = el("button", "primary", "Siguiente parte →"); next.type = "button"; next.disabled = idx === ps.length - 1; next.onclick = () => ir(ps[idx + 1].n);
-    foot.append(prev, next); s.append(foot);
-    main.append(s);
+    const a = document.activeElement; if (a && a.tagName === "TEXTAREA" && a.value) return;
+    main.textContent = "";
+    if (!props.length) { main.append(el("div", "empty", "Todavía no hay propuestas. Claude las añadirá enseguida.")); return; }
+    const ronda = Math.max(...props.map(p => p.ronda || 1));
+    const lista = props.filter(p => (p.ronda || 1) === ronda).sort((x, y) => (x.orden || 0) - (y.orden || 0));
+    main.append(el("h2", "ronda", "Tanda " + ronda + (lista[0].ronda_titulo ? " · " + lista[0].ronda_titulo : "")));
+    lista.forEach(p => main.append(card(p)));
+    const gid = "general-" + ronda, g = reac[gid] || {}, box = el("article", "card"), sv = el("div", "saved");
+    box.append(el("h2", null, "Dime lo que quieras"));
+    box.append(el("p", null, "Lo que echas en falta, un ejemplo que te guste, cómo lo ves tú. Sin orden, como te salga."));
+    const ta = el("textarea"); ta.id = "c-" + gid; ta.style.minHeight = "140px"; ta.value = g.comentario || ""; ta.setAttribute("aria-label", "Comentario general");
+    ta.oninput = () => save(gid, { comentario: ta.value }, sv); box.append(ta, sv); main.append(box);
+    status.textContent = "Se guarda solo. Cuando acabes, dile «ya» a Claude en el chat.";
   }
 
   db.collection("reacciones").onSnapshot(s => { s.docs.forEach(d => { if (!dirty[d.id]) reac[d.id] = d.data() || {}; }); pintar(); }, () => {});
-  db.collection("ideas").onSnapshot(s => { clearTimeout(loading); ideas = s.docs.map(d => Object.assign({ id: d.id }, d.data())); pintar(); },
-    e => { clearTimeout(loading); status.textContent = "No se pudieron cargar las ideas: " + (e && e.message || "error"); });
-  db.collection("notas").onSnapshot(s => { notas = s.docs.map(d => Object.assign({ id: d.id }, d.data())); pintar(); }, () => {});
+  db.collection("propuestas").onSnapshot(s => { clearTimeout(loading); props = s.docs.map(d => Object.assign({ id: d.id }, d.data())); pintar(); },
+    e => { clearTimeout(loading); status.textContent = "No se pudieron cargar las propuestas: " + (e && e.message || "error"); });
 })();
 </script>
