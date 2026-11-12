@@ -1,0 +1,121 @@
+{
+  "codigo": "T1-E01-v2",
+  "partes": [
+    {
+      "label": "La mina",
+      "titulo": "La mina",
+      "frases": [
+        {
+          "texto": "Marruecos, mil novecientos sesenta y uno. Una mina de barita en una colina llamada Yébel Irjud.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "Un minero golpea la pared. Y la pared le devuelve una mirada.",
+          "emocion": 0.75
+        },
+        {
+          "texto": "Es un cráneo. Casi entero.",
+          "emocion": 0.7
+        }
+      ]
+    },
+    {
+      "label": "El error",
+      "titulo": "El error",
+      "frases": [
+        {
+          "texto": "Los científicos lo miran y dudan. La cara parece la nuestra. Pero la cabeza es alargada, antigua.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "Le ponen una edad: cuarenta mil años. Y un nombre provisional: un neandertal africano.",
+          "emocion": 0.5
+        },
+        {
+          "texto": "Lo guardan. Y durante cuarenta años, casi nadie vuelve a preguntar.",
+          "emocion": 0.6
+        }
+      ]
+    },
+    {
+      "label": "El regreso",
+      "titulo": "El regreso",
+      "frases": [
+        {
+          "texto": "Dos mil cuatro. Un equipo vuelve a la colina. La mina está abandonada, medio hundida.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "Excavan lo que quedó. Y aparecen más huesos: al menos cinco personas. Y junto a ellos, herramientas de sílex.",
+          "emocion": 0.6
+        },
+        {
+          "texto": "Algunas de esas piedras están quemadas. Alguien encendió fuego aquí.",
+          "emocion": 0.7
+        }
+      ]
+    },
+    {
+      "label": "El reloj",
+      "titulo": "El reloj",
+      "frases": [
+        {
+          "texto": "Y una piedra quemada guarda un secreto: recuerda cuándo se calentó por última vez.",
+          "emocion": 0.6
+        },
+        {
+          "texto": "Los investigadores leen ese reloj. Y el número no encaja con nada.",
+          "emocion": 0.7
+        },
+        {
+          "texto": "No son cuarenta mil años.",
+          "emocion": 0.75
+        },
+        {
+          "texto": "Son unos trescientos quince mil.",
+          "emocion": 0.85
+        }
+      ]
+    },
+    {
+      "label": "Lo que significa",
+      "titulo": "Lo que significa",
+      "frases": [
+        {
+          "texto": "Hasta ese día, el Homo sapiens más antiguo conocido tenía unos ciento noventa y cinco mil años, y estaba en Etiopía.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "Irjud lo adelanta más de cien mil años. Y lo coloca en la otra punta del continente.",
+          "emocion": 0.65
+        },
+        {
+          "texto": "No nacimos en un solo valle. Fuimos apareciendo por toda África.",
+          "emocion": 0.75
+        }
+      ]
+    },
+    {
+      "label": "Cierre",
+      "titulo": "Cierre",
+      "frases": [
+        {
+          "texto": "¿Qué encontraron? Un cráneo con cara moderna y cabeza antigua.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "¿Cómo supieron su edad? Por las piedras que alguien quemó junto a él.",
+          "emocion": 0.55
+        },
+        {
+          "texto": "¿Qué cambia? Nuestra especie es más vieja, y más africana, de lo que creíamos.",
+          "emocion": 0.6
+        },
+        {
+          "texto": "Trescientos mil años después, alguien salió de ese continente. Esa es la siguiente historia.",
+          "emocion": 0.7
+        }
+      ]
+    }
+  ]
+}
