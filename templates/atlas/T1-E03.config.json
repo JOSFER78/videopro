@@ -1,0 +1,896 @@
+{
+  "duration": 352.21,
+  "channel": "Temario",
+  "series": "Historia de la humanidad",
+  "season": "Temporada 1 · De dónde venimos",
+  "episode": 4,
+  "episodes": [
+    {
+      "title": "El mapa",
+      "when": "de hace 300.000 años a hoy",
+      "yearsAgo": null,
+      "n": "00"
+    },
+    {
+      "title": "Nuestro origen",
+      "when": "hace unos 300.000 años",
+      "yearsAgo": 300000,
+      "n": "01"
+    },
+    {
+      "title": "Salimos de África",
+      "when": "hace unos 50.000 años",
+      "yearsAgo": 50000,
+      "n": "02"
+    },
+    {
+      "title": "Arte y símbolos",
+      "when": "hace unos 73.000 años",
+      "yearsAgo": 73000,
+      "n": "03"
+    },
+    {
+      "title": "La agricultura",
+      "when": "hace unos 11.000 años",
+      "yearsAgo": 11000,
+      "n": "04"
+    },
+    {
+      "title": "Ciudades y escritura",
+      "when": "hacia 3200 a. C.",
+      "yearsAgo": 5226,
+      "n": "05"
+    },
+    {
+      "title": "Imperios",
+      "when": "hacia 520 a. C.",
+      "yearsAgo": 2546,
+      "n": "06"
+    },
+    {
+      "title": "El mundo se conecta",
+      "when": "1492",
+      "yearsAgo": 534,
+      "n": "07"
+    },
+    {
+      "title": "Ciencia e industria",
+      "when": "1795",
+      "yearsAgo": 231,
+      "n": "08"
+    },
+    {
+      "title": "El mundo de hoy",
+      "when": "1968 – hoy",
+      "yearsAgo": 58,
+      "n": "09"
+    }
+  ],
+  "parts": [
+    {
+      "label": "Rayas cruzadas",
+      "at": 0,
+      "title": "Nueve rayas rojas",
+      "idea": "Cueva de Blombos, Sudáfrica"
+    },
+    {
+      "label": "A propósito",
+      "at": 84.4,
+      "title": "Siete años de pruebas",
+      "idea": "Microscopio y luz"
+    },
+    {
+      "label": "La memoria",
+      "at": 173.68,
+      "title": "Una idea fuera de la cabeza",
+      "idea": "Herramienta frente a símbolo"
+    },
+    {
+      "label": "Repaso",
+      "at": 273.51,
+      "title": "Tres preguntas",
+      "idea": "El símbolo, una tecnología"
+    }
+  ],
+  "visuals": [
+    {
+      "at": 0.7,
+      "src": "media/T1-E02/16_la_ferrassie_skull_neanderthal.jpg",
+      "credit": "Cráneo neandertal de La Ferrassie 1 · Foto: 120 · CC BY 2.5"
+    },
+    {
+      "at": 7.57,
+      "src": "media/T1-E03/02_blombo.jpg",
+      "credit": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0"
+    },
+    {
+      "at": 14.08,
+      "src": "media/T1-E03/02_blombo.jpg",
+      "credit": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0"
+    },
+    {
+      "at": 20.75,
+      "src": "media/T1-E03/l_cueva.jpg",
+      "credit": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0"
+    },
+    {
+      "at": 25.14,
+      "src": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+      "credit": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 31.09,
+      "src": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+      "credit": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 37.44,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 42.91,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 46.78,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 54.13,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        55,
+        48
+      ],
+      "zoom": [
+        1.35,
+        1.55
+      ]
+    },
+    {
+      "at": 59.6,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 67.19,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 74.7,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 80.41,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 84.4,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        55,
+        48
+      ],
+      "zoom": [
+        1.35,
+        1.55
+      ]
+    },
+    {
+      "at": 90.59,
+      "src": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+      "credit": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 95.98,
+      "src": "media/T1-E03/04_blombos_cave_deposit_layers.jpg",
+      "credit": "Estratos de la cueva de Blombos · Foto: Kari Janne Stenersen · CC BY-SA 2.5",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 101.01,
+      "src": "media/T1-E03/l_microscopio.jpg",
+      "credit": "Microscopio de laboratorio · Foto: labormikro · CC BY-SA 2.0"
+    },
+    {
+      "at": 106.12,
+      "src": "media/T1-E03/13_raman_spectrometer.jpg",
+      "credit": "Espectrómetro Raman · Foto: Ijon · CC BY-SA 4.0"
+    },
+    {
+      "at": 114.87,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 119.66,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 129.56,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 134.63,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 139.22,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        55,
+        48
+      ],
+      "zoom": [
+        1.35,
+        1.55
+      ]
+    },
+    {
+      "at": 143.93,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 151.44,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 157.39,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 163.18,
+      "src": "media/T1-E03/l_cuentas.jpg",
+      "credit": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 169.77,
+      "src": "media/T1-E03/l_cueva.jpg",
+      "credit": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0"
+    },
+    {
+      "at": 173.68,
+      "src": "media/T1-E03/c_punta.jpg",
+      "credit": "Punta de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 178.71,
+      "src": "media/T1-E03/c_punta.jpg",
+      "credit": "Punta de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.0,
+        1.08
+      ]
+    },
+    {
+      "at": 184.14,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 189.33,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 194.36,
+      "src": "media/T1-E03/21_trail_blaze_marking_on_tree.jpg",
+      "credit": "Marca de sendero en un árbol · Foto: Phoenix-Five · CC BY-SA 4.0"
+    },
+    {
+      "at": 199.67,
+      "src": "media/T1-E03/21_trail_blaze_marking_on_tree.jpg",
+      "credit": "Marca de sendero en un árbol · Foto: Phoenix-Five · CC BY-SA 4.0"
+    },
+    {
+      "at": 206.42,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 220.04,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 224.63,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        55,
+        48
+      ],
+      "zoom": [
+        1.35,
+        1.55
+      ]
+    },
+    {
+      "at": 228.02,
+      "src": "media/T1-E03/l_cuentas.jpg",
+      "credit": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 234.81,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 240.24,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 246.51,
+      "src": "media/T1-E03/f_movil.jpg",
+      "credit": "Foto: Artem Beliaikin · CC0"
+    },
+    {
+      "at": 253.14,
+      "src": "media/T1-E03/24_bach_autograph_manuscript.jpg",
+      "credit": "Manuscrito autógrafo de Bach · Foto: J.S. Bach · Public domain"
+    },
+    {
+      "at": 260.77,
+      "src": "media/T1-E03/25_proto_cuneiform_tablet_metropolitan_muse.jpg",
+      "credit": "Tablilla protocuneiforme del Met · Foto: Wikimedia Commons · CC0"
+    },
+    {
+      "at": 268.4,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        40,
+        50
+      ],
+      "zoom": [
+        1.25,
+        1.4
+      ]
+    },
+    {
+      "at": 273.51,
+      "src": "media/T1-E03/l_cueva.jpg",
+      "credit": "Cueva de Blombos · Foto: Vincent Mourre / Inrap · CC BY-SA 3.0"
+    },
+    {
+      "at": 278.42,
+      "src": "media/T1-E03/02_blombo.jpg",
+      "credit": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0"
+    },
+    {
+      "at": 282.89,
+      "src": "media/T1-E03/02_blombo.jpg",
+      "credit": "Situación de la cueva de Blombos · T. H. Nel y C. S. Henshilwood · CC BY 4.0"
+    },
+    {
+      "at": 289.0,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 293.03,
+      "src": "media/T1-E03/14_red_ochre_pigment.jpg",
+      "credit": "Fragmento de ocre rojo · Foto: Museo Egizio · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 300.3,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 305.05,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.1,
+        1.0
+      ]
+    },
+    {
+      "at": 310.24,
+      "src": "media/T1-E03/l_dibujo.jpg",
+      "credit": "Dibujo de Blombos (detalle) · Henshilwood et al., 2018 · dominio público",
+      "focus": [
+        55,
+        48
+      ],
+      "zoom": [
+        1.35,
+        1.55
+      ]
+    },
+    {
+      "at": 316.23,
+      "src": "media/T1-E03/l_cuentas.jpg",
+      "credit": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 322.34,
+      "src": "media/T1-E03/l_cuentas.jpg",
+      "credit": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 327.89,
+      "src": "media/T1-E03/l_cuentas.jpg",
+      "credit": "Cuentas de concha de Blombos · C. Henshilwood · CC BY 2.5",
+      "focus": [
+        60,
+        50
+      ],
+      "zoom": [
+        1.5,
+        1.3
+      ]
+    },
+    {
+      "at": 333.44,
+      "src": "media/T1-E03/28_gobekli_tepe_pillars.jpg",
+      "credit": "Pilares en T de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0"
+    },
+    {
+      "at": 340.43,
+      "src": "media/T1-E03/28_gobekli_tepe_pillars.jpg",
+      "credit": "Pilares en T de Göbekli Tepe · Foto: Teomancimit · CC BY-SA 3.0"
+    }
+  ],
+  "map": {
+    "bounds": [
+      -20,
+      -38,
+      52,
+      36
+    ],
+    "places": [
+      {
+        "at": 14.88,
+        "name": "Cueva de Blombos",
+        "where": "Sudáfrica",
+        "lon": 21.2225,
+        "lat": -34.4144
+      }
+    ]
+  },
+  "data": [
+    {
+      "at": 68.49,
+      "label": "Ventaja del garabato",
+      "value": "30.000",
+      "unit": "años",
+      "compare": "<b>30.000 años</b> más que cualquier otro dibujo"
+    }
+  ],
+  "asks": [
+    {
+      "at": 64.69,
+      "hold": 2.7,
+      "kicker": "Pausa y piensa",
+      "text": "¿Cuánto más antiguo crees que es este garabato que los siguientes dibujos conocidos?"
+    }
+  ],
+  "learned": [
+    {
+      "at": 84.25,
+      "hold": 3.4,
+      "text": "El dibujo más antiguo conocido es abstracto"
+    },
+    {
+      "at": 173.53,
+      "hold": 3.4,
+      "text": "En África, hace unos 73.000 años"
+    },
+    {
+      "at": 273.36,
+      "hold": 3.4,
+      "text": "Un símbolo guarda una idea fuera del cerebro"
+    }
+  ],
+  "peek": [],
+  "axis": {
+    "from": 300000,
+    "to": 10,
+    "title": "Eje cronológico",
+    "note": "años atrás · escala logarítmica",
+    "ticks": [
+      {
+        "yearsAgo": 300000,
+        "label": "300.000"
+      },
+      {
+        "yearsAgo": 100000,
+        "label": "100.000"
+      },
+      {
+        "yearsAgo": 30000,
+        "label": "30.000"
+      },
+      {
+        "yearsAgo": 10000,
+        "label": "10.000"
+      },
+      {
+        "yearsAgo": 3000,
+        "label": "3.000"
+      },
+      {
+        "yearsAgo": 1000,
+        "label": "1.000"
+      },
+      {
+        "yearsAgo": 300,
+        "label": "300"
+      },
+      {
+        "yearsAgo": 100,
+        "label": "100"
+      },
+      {
+        "yearsAgo": 30,
+        "label": "30"
+      },
+      {
+        "yearsAgo": 10,
+        "label": "hoy"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "at": 0,
+      "yearsAgo": 10
+    },
+    {
+      "at": 32.19,
+      "yearsAgo": 15,
+      "travel": 1.8
+    },
+    {
+      "at": 60.7,
+      "yearsAgo": 73000,
+      "travel": 1.8
+    },
+    {
+      "at": 145.03,
+      "yearsAgo": 100000,
+      "travel": 1.8
+    },
+    {
+      "at": 170.87,
+      "yearsAgo": 73000,
+      "travel": 1.8
+    }
+  ],
+  "index": {
+    "at": 316.53,
+    "kicker": "Quédate con esto",
+    "takeaway": "Unas rayas de ocre de hace 73.000 años muestran que ya sabíamos guardar ideas fuera de la cabeza."
+  },
+  "thumbs": [
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E03/m_dibujo.jpg",
+      "kicker": "El primer dibujo conocido",
+      "hook": [
+        {
+          "text": "Un garabato",
+          "highlight": true
+        },
+        {
+          "text": "de 73.000 años",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E03/m_dibujo.jpg",
+      "kicker": "El primer dibujo conocido",
+      "hook": [
+        {
+          "text": "El primer dibujo",
+          "highlight": true
+        },
+        {
+          "text": "no es un animal",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E03/m_dibujo.jpg",
+      "kicker": "El primer dibujo conocido",
+      "hook": [
+        {
+          "text": "9 rayas",
+          "highlight": true
+        },
+        {
+          "text": "73.000 años",
+          "highlight": false
+        }
+      ]
+    }
+  ]
+}
