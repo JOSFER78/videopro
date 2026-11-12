@@ -23,9 +23,10 @@ h2 small{display:block;font-family:var(--body);font-weight:400;font-size:1rem;co
 p{margin:0;max-width:65ch}
 .caps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .caps li{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--thread);border-radius:8px;padding:12px 14px;display:grid;grid-template-columns:2.2rem 1fr;gap:4px 10px;min-width:0}
-.caps .n{font-family:var(--display);font-size:1.3rem;color:var(--thread);grid-row:span 3;font-variant-numeric:tabular-nums}
+.caps .n{font-family:var(--display);font-size:1.3rem;color:var(--thread);grid-row:1 / span 6;font-variant-numeric:tabular-nums}
 .caps b{font-weight:600}
 .caps .es{color:var(--ink)}
+.caps li>*:not(.n){grid-column:2}
 .caps .q{color:var(--muted);font-style:italic}
 ol.pasos{margin:0;padding-left:1.3rem;display:flex;flex-direction:column;gap:8px;max-width:65ch}
 blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;white-space:pre-wrap;font-size:.98rem}
@@ -66,25 +67,24 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
   </header>
 
   <section>
-    <p class="k">El canal</p>
-    <h2>Ariadne <small>Lema: «Follow the thread» · Sigue el hilo</small></h2>
-    <p>El hilo de Ariadna es lo que te saca del laberinto. El canal coge un tema enredado y te lleva de la mano hasta la salida.</p>
-    <p>Sirve para la historia y para cualquier tema que venga después.</p>
-    <p class="nota">El identificador @Ariadne parece libre en YouTube. La marca registrada está sin comprobar.</p>
-  </section>
-
-  <section>
-    <p class="k">Otras opciones de nombre, analizadas por el equipo</p>
+    <p class="k">El canal: tres nombres</p>
+    <p>Solo tres, cada uno con lo que significa, por qué encaja y lo que se ha comprobado.</p>
     <ul class="caps">
-      <li><span class="n">A</span><b>Ariadne</b><span class="es">A favor: el nombre cuenta el método (hilo, laberinto, salida) y el hilo rojo sirve de firma visual. Identificador libre.</span><span class="q">En contra: se pronuncia distinto en cada idioma y puede parecer nombre de persona.</span></li>
-      <li><span class="n">B</span><b>Folio</b><span class="es">A favor: la página de un libro, encaja con el formato de libro con índice. Igual en inglés y español, cinco letras. Identificador libre.</span><span class="q">En contra: muy genérico, difícil de encontrar al buscar; existe la editorial The Folio Society.</span></li>
-      <li><span class="n">C</span><b>Lacuna</b><span class="es">A favor: la laguna, lo que se perdió. Original y ligado a lo inventado, olvidado y reinventado.</span><span class="q">En contra: nombra el hueco y no la respuesta; suena culto. El identificador ya existe, casi sin uso.</span></li>
-      <li><span class="n">D</span><b>Ab Ovo</b><span class="es">A favor: «desde el huevo», explicar cualquier tema desde su origen. Identificador libre.</span><span class="q">En contra: dos palabras en latín; en español se presta a broma.</span></li>
-      <li><span class="n">E</span><b>Lumen</b><span class="es">A favor: luz, claridad; se entiende en los dos idiomas. Identificador libre.</span><span class="q">En contra: lo usan muchas marcas y no dice nada del método.</span></li>
-      <li><span class="n">F</span><b>Tessera</b><span class="es">A favor: la tesela de un mosaico; cada vídeo es una pieza de la imagen completa.</span><span class="q">En contra: palabra poco conocida; el identificador ya existe.</span></li>
+      <li><span class="n">1</span><b>Ariadne</b>
+        <span class="es">Qué significa: en el mito griego, Ariadna da a Teseo un hilo para salir del laberinto. Hoy «el hilo de Ariadna» es, en varios idiomas, la forma de decir «el método para no perderse».</span>
+        <span class="es">Por qué encaja: el canal promete justo eso, que nunca te pierdas. El hilo sería además la firma visual: una línea que recorre el índice y une cada capítulo con el siguiente. Lema: «Follow the thread» (Sigue el hilo).</span>
+        <span class="q">Comprobado: la dirección youtube.com/@Ariadne no existe hoy, y la búsqueda no encontró ningún canal de divulgación con ese nombre. Sin comprobar: el registro de marca. Riesgo: en inglés se pronuncia «ari-ad-ni» y puede parecer nombre de persona.</span></li>
+      <li><span class="n">2</span><b>Folio</b>
+        <span class="es">Qué significa: la hoja numerada de un libro. Se escribe y se entiende igual en inglés y en español.</span>
+        <span class="es">Por qué encaja: el formato del canal es un libro con índice, capítulos y láminas. Es el nombre más fácil de decir y de recordar. Lema: «Every topic, first page to last» (Cada tema, de la primera a la última página).</span>
+        <span class="q">Comprobado: youtube.com/@Folio no existe hoy; sí existe un canal pequeño llamado FolioTV, y una editorial inglesa de libros ilustrados, The Folio Society. Riesgo: es una palabra muy corriente, difícil de encontrar al buscar y de registrar.</span></li>
+      <li><span class="n">3</span><b>Lumen</b>
+        <span class="es">Qué significa: «luz» en latín, y la unidad con la que se mide la luz. Se entiende en los dos idiomas.</span>
+        <span class="es">Por qué encaja: es el que mejor dice «claridad», que es tu prioridad. Lema posible: «Made clear» (Explicado con claridad).</span>
+        <span class="q">Comprobado: youtube.com/@Lumen no existe hoy, pero hay una gran empresa de telecomunicaciones con ese nombre, Lumen Technologies. Riesgo: muy usado por otras marcas, y no cuenta nada del método.</span></li>
     </ul>
-    <p class="nota">Descartados tras comprobarlos: Primer (ya es un canal de divulgación con 1,84 millones de suscriptores), The Long Why (existe un canal con casi la misma promesa), Throughline (ya existe) y Aleph (lo usó una secta).</p>
-    <p class="nota">Hay un agente buscando ahora una segunda tanda de nombres centrados en «claridad» y «explicar». Los añadiré aquí debajo.</p>
+    <p>Mi recomendación: Ariadne. Es el único que explica cómo trabaja el canal sin tener que añadir nada.</p>
+    <p class="nota">Un agente está comprobando una segunda tanda. Si sale algún nombre mejor que estos tres, sustituirá al más flojo; no añadiré más a la lista.</p>
   </section>
 
   <section>
@@ -94,14 +94,22 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
   </section>
 
   <section>
-    <p class="k">La serie</p>
-    <h2>The Human Story <small>From the First Fire to Eight Billion People, One Question at a Time</small></h2>
-    <p>La historia humana: del primer fuego a ocho mil millones de personas, pregunta a pregunta.</p>
-    <p>El título dice de qué va sin tener que explicarlo. Otras opciones igual de directas:</p>
-    <p><b>The History of Humanity, Made Clear</b>: la historia de la humanidad, explicada con claridad.</p>
-    <p><b>How Humanity Happened</b>: cómo ocurrió la humanidad, en catorce preguntas.</p>
-    <p><b>Humankind: The Whole Story</b>: la humanidad, la historia completa.</p>
-    <p>Catorce capítulos en orden, de los primeros humanos a hoy. De 15 a 20 minutos cada uno.</p>
+    <p class="k">La serie: tres títulos</p>
+    <ul class="caps">
+      <li><span class="n">1</span><b>The Human Story</b>
+        <span class="es">Subtítulo: From the First Fire to Eight Billion People, One Question at a Time. En español: La historia humana, del primer fuego a ocho mil millones de personas, pregunta a pregunta.</span>
+        <span class="es">Por qué: dice de qué va en tres palabras, suena a relato y no a asignatura, y el subtítulo da el principio, el final y el método.</span>
+        <span class="q">A tener en cuenta: es un título corriente; que yo recuerde, existe un libro de historia con ese nombre. No lo he comprobado.</span></li>
+      <li><span class="n">2</span><b>How Humanity Happened</b>
+        <span class="es">Subtítulo: The Whole Story in Fourteen Questions. En español: Cómo ocurrió la humanidad, la historia completa en catorce preguntas.</span>
+        <span class="es">Por qué: promete una explicación (cómo), no una lista de fechas. Es el más original de los tres.</span>
+        <span class="q">A tener en cuenta: «happened» es algo informal; el número del subtítulo obliga a mantener catorce capítulos.</span></li>
+      <li><span class="n">3</span><b>The History of Humanity, Made Clear</b>
+        <span class="es">Sin subtítulo. En español: La historia de la humanidad, explicada con claridad.</span>
+        <span class="es">Por qué: es tu promesa convertida en título. Es exactamente lo que alguien escribiría en el buscador.</span>
+        <span class="q">A tener en cuenta: es el menos emocionante; funciona mejor como lema que como nombre.</span></li>
+    </ul>
+    <p>Mi recomendación: The Human Story como título y «Made clear» como lema de la serie.</p>
   </section>
 
   <section>
@@ -113,21 +121,23 @@ blockquote{margin:0;padding:14px 16px;background:var(--soft);border-radius:8px;w
 
   <section>
     <p class="k">Los capítulos</p>
+    <p>Cada uno con su pregunta, lo que explica y los datos más llamativos que salieron de la investigación.</p>
+    <p class="nota">Los datos vienen de los dosieres de investigación. Un agente los está contrastando ahora en fuente primaria; si alguno cae, lo corrijo aquí.</p>
     <ul class="caps">
-      <li><span class="n">1</span><b>We Were Not Alone</b><span class="es">No estábamos solos: varias clases de humanos compartieron la Tierra</span><span class="q">¿Qué nos hizo distintos?</span></li>
-      <li><span class="n">2</span><b>The Mind That Flickers</b><span class="es">La mente que parpadea: el arte y los inventos aparecen, se pierden y vuelven</span><span class="q">¿Cuándo empezamos a pensar como hoy?</span></li>
-      <li><span class="n">3</span><b>Everywhere</b><span class="es">Por todas partes: cómo unos pocos miles llegaron a todos los continentes</span><span class="q">¿Cómo conquistamos el planeta a pie?</span></li>
-      <li><span class="n">4</span><b>Bread Before Farms</b><span class="es">Pan antes que campos: por qué nos asentamos para vivir peor</span><span class="q">¿Por qué dejamos de movernos?</span></li>
-      <li><span class="n">5</span><b>The Accountant's Invention</b><span class="es">El invento del contable: la escritura nació como un recibo</span><span class="q">¿Para qué se inventó escribir?</span></li>
-      <li><span class="n">6</span><b>Builders of the Impossible</b><span class="es">Los constructores de lo imposible: Egipto y las primeras grandes obras</span><span class="q">¿Cómo se organiza a miles de personas sin dinero?</span></li>
-      <li><span class="n">7</span><b>The Day the World Forgot</b><span class="es">El día que el mundo olvidó: Grecia pasó cuatro siglos sin escribir</span><span class="q">¿Puede una civilización olvidar lo que sabe?</span></li>
-      <li><span class="n">8</span><b>The Machine Nobody Copied</b><span class="es">La máquina que nadie copió: Anticitera, el vapor y lo que ya se sabía hace dos mil años</span><span class="q">¿Por qué los antiguos no hicieron la revolución industrial?</span></li>
-      <li><span class="n">9</span><b>Going Backwards</b><span class="es">Hacia atrás: lo que Europa perdió tras Roma, y quién lo guardó</span><span class="q">¿Cómo se retrocede mil años?</span></li>
-      <li><span class="n">10</span><b>The Passenger</b><span class="es">El pasajero: los caminos que unieron el mundo llevaron la peste</span><span class="q">¿Qué pasa cuando el mundo conectado enferma?</span></li>
-      <li><span class="n">11</span><b>Three Discoveries of America</b><span class="es">América se descubrió tres veces: solo una no se olvidó</span><span class="q">¿Por qué 1492 lo cambió todo?</span></li>
-      <li><span class="n">12</span><b>The Engine</b><span class="es">La máquina: una bomba en una mina cambió más que cualquier rey</span><span class="q">¿Cómo dejamos de depender del músculo?</span></li>
-      <li><span class="n">13</span><b>The Century That Almost Ended It</b><span class="es">El siglo que casi lo acaba todo (desenlace, primera parte)</span><span class="q">¿Podemos sobrevivir a nuestro propio poder?</span></li>
-      <li><span class="n">14</span><b>Eight Billion</b><span class="es">Ocho mil millones (desenlace, segunda parte)</span><span class="q">¿Qué nos trajo hasta aquí, y qué podríamos volver a olvidar?</span></li>
+      <li><span class="n">1</span><b>We Were Not Alone</b><span class="es">No estábamos solos: varias clases de humanos compartieron la Tierra</span><span class="q">¿Qué nos hizo distintos?</span><span class="es">Qué explica: de dónde venimos, qué otras clases de humanos había y qué teníamos de distinto.</span><span class="q">Datos: caminábamos erguidos millones de años antes de tener un cerebro grande; las primeras herramientas de piedra, de hace 3,3 millones de años, son anteriores a los humanos.</span></li>
+      <li><span class="n">2</span><b>The Mind That Flickers</b><span class="es">La mente que parpadea: el arte y los inventos aparecen, se pierden y vuelven</span><span class="q">¿Cuándo empezamos a pensar como hoy?</span><span class="es">Qué explica: cómo aparecieron el arte, los adornos y los inventos, y por qué no fue de golpe.</span><span class="q">Datos: un dibujo de 73.000 años en Sudáfrica; el arco aparece hace unos 64.000 años y luego desaparece del registro durante milenios.</span></li>
+      <li><span class="n">3</span><b>Everywhere</b><span class="es">Por todas partes: cómo unos pocos miles llegaron a todos los continentes</span><span class="q">¿Cómo conquistamos el planeta a pie?</span><span class="es">Qué explica: la salida de África, la llegada a cada continente y la desaparición de las otras humanidades.</span><span class="q">Datos: para llegar a Australia hubo que cruzar casi 100 km de mar; casi todos llevamos algo de ADN neandertal.</span></li>
+      <li><span class="n">4</span><b>Bread Before Farms</b><span class="es">Pan antes que campos: por qué nos asentamos para vivir peor</span><span class="q">¿Por qué dejamos de movernos?</span><span class="es">Qué explica: por qué dejamos de ser nómadas, cómo empezó la agricultura y qué costó.</span><span class="q">Datos: se hacía pan 4.000 años antes de cultivar; la agricultura se inventó por separado al menos once veces; los primeros agricultores vivían peor.</span></li>
+      <li><span class="n">5</span><b>The Accountant's Invention</b><span class="es">El invento del contable: la escritura nació como un recibo</span><span class="q">¿Para qué se inventó escribir?</span><span class="es">Qué explica: cómo nacen las ciudades y por qué hizo falta escribir.</span><span class="q">Datos: las primeras tablillas son cuentas de cebada, no historias; la deuda existió unos 2.000 años antes que la moneda.</span></li>
+      <li><span class="n">6</span><b>Builders of the Impossible</b><span class="es">Los constructores de lo imposible: Egipto y las primeras grandes obras</span><span class="q">¿Cómo se organiza a miles de personas sin dinero?</span><span class="es">Qué explica: cómo un Estado antiguo levantaba obras gigantes: organización, comida, pagos y escritura.</span><span class="q">Datos: se conserva el diario de un capataz que llevaba piedra a la Gran Pirámide; la primera huelga documentada fue de obreros egipcios.</span></li>
+      <li><span class="n">7</span><b>The Day the World Forgot</b><span class="es">El día que el mundo olvidó: Grecia pasó cuatro siglos sin escribir</span><span class="q">¿Puede una civilización olvidar lo que sabe?</span><span class="es">Qué explica: que el progreso puede ir hacia atrás. Hacia 1200 a. C. se hunden a la vez varias civilizaciones conectadas.</span><span class="q">Datos: Grecia pasa unos cuatro siglos sin escritura y la recupera con otro sistema, el alfabeto, que solo se inventó una vez.</span></li>
+      <li><span class="n">8</span><b>The Machine Nobody Copied</b><span class="es">La máquina que nadie copió: Anticitera, el vapor y lo que ya se sabía hace dos mil años</span><span class="q">¿Por qué los antiguos no hicieron la revolución industrial?</span><span class="es">Qué explica: lo que sabían Grecia, Roma, la India y China, y por qué eso no desembocó en una revolución industrial.</span><span class="q">Datos: el mecanismo de Anticitera calculaba eclipses con engranajes; Herón describió una máquina de vapor unos 1.600 años antes de la industria.</span></li>
+      <li><span class="n">9</span><b>Going Backwards</b><span class="es">Hacia atrás: lo que Europa perdió tras Roma, y quién lo guardó</span><span class="q">¿Cómo se retrocede mil años?</span><span class="es">Qué explica: qué se perdió de verdad al caer Roma en Occidente, por qué, y quién lo conservó (Bizancio, el mundo islámico, China).</span><span class="q">Datos: en Britania desaparece el torno de alfarero durante siglos; pero los romanos, con sus baños, tenían tantos parásitos como los de después.</span></li>
+      <li><span class="n">10</span><b>The Passenger</b><span class="es">El pasajero: los caminos que unieron el mundo llevaron la peste</span><span class="q">¿Qué pasa cuando el mundo conectado enferma?</span><span class="es">Qué explica: cómo las rutas comerciales unieron Asia, África y Europa, y lo que viajó por ellas: papel, pólvora, brújula… y la peste.</span><span class="q">Datos: la Peste Negra es la única caída de la población mundial en siglos, y mató igual en ciudades limpias.</span></li>
+      <li><span class="n">11</span><b>Three Discoveries of America</b><span class="es">América se descubrió tres veces: solo una no se olvidó</span><span class="q">¿Por qué 1492 lo cambió todo?</span><span class="es">Qué explica: por qué el viaje de 1492 unió dos mundos para siempre cuando los anteriores no lo hicieron, y lo que costó.</span><span class="q">Datos: los vikingos estaban en Terranova en 1021; la imprenta de tipos móviles existía en China y Corea antes que en Europa.</span></li>
+      <li><span class="n">12</span><b>The Engine</b><span class="es">La máquina: una bomba en una mina cambió más que cualquier rey</span><span class="q">¿Cómo dejamos de depender del músculo?</span><span class="es">Qué explica: cómo la ciencia y el carbón cambiaron la forma de producir, y por qué empezó donde empezó.</span><span class="q">Datos: un mensaje viajaba igual de rápido en la Persia antigua que en 1860; la industria tardó un siglo en mejorar la esperanza de vida.</span></li>
+      <li><span class="n">13</span><b>The Century That Almost Ended It</b><span class="es">El siglo que casi lo acaba todo (desenlace, primera parte)</span><span class="q">¿Podemos sobrevivir a nuestro propio poder?</span><span class="es">Qué explica: el siglo XX: dos guerras mundiales, la bomba y el salto de población.</span><span class="q">Datos: un abono sintético sostiene hoy a casi media humanidad; hubo momentos en que una sola decisión evitó una guerra nuclear (se cuenta con cautela, porque los detalles se discuten).</span></li>
+      <li><span class="n">14</span><b>Eight Billion</b><span class="es">Ocho mil millones (desenlace, segunda parte)</span><span class="q">¿Qué nos trajo hasta aquí, y qué podríamos volver a olvidar?</span><span class="es">Qué explica: dónde estamos y la respuesta a la pregunta de toda la serie.</span><span class="q">Datos: de unos 4 millones de personas hace 10.000 años a más de 8.000 millones; nunca hubo tanta gente conectada, ni tanto saber que conservar.</span></li>
     </ul>
   </section>
 
