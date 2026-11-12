@@ -22,7 +22,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablilla protocuneiforme del Met, vista en el episodio 5",
-            "busqueda": "proto-cuneiform tablet seal impressions barley Metropolitan"
+            "archivo": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+            "credito": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+            "licencia": "CC0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Cuneiform_tablet-_administrative_account_of_barley_distribution_with_cylinder_seal_impression_of_a_male_figure,_hunting_dogs,_and_boars_MET_DP297597.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -30,15 +41,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "tablillas protocuneiformes de Uruk",
-            "busqueda": "proto-cuneiform tablets Uruk"
+            "archivo": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+            "credito": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clay_tablet._Counting_board,_the_archaic_cuneiform_sign_%22DUG%22_(vessel)_appears._From_Uruk,_Iraq._End_of_the_4th_millennium_BCE._Vorderasiatisches_Museum,_Berlin.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Hoy avanzas casi tres mil años y descubres que la escritura ya sirve para algo mucho más ambicioso: mandar.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "acantilado del monte Behistún visto desde la llanura",
-            "busqueda": "Mount Behistun cliff"
+            "que_se_ve": "acantilado del monte Behistún",
+            "archivo": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+            "credito": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_I_%26_II_(3948706622).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -56,8 +89,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "relieve de Darío I con los prisioneros atados, en Behistún",
-            "busqueda": "Behistun relief Darius"
+            "que_se_ve": "relieve de Behistún: Darío, el dios alado y los prisioneros atados",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -65,15 +109,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "figura de Darío I en el relieve de Behistún, de cerca",
-            "busqueda": "Behistun relief Darius detail"
+            "archivo": "media/T1-E06/l_dario.jpg",
+            "credito": "Darío I en Behistún (detalle) · Foto: Leen van Dorp · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Darius_the_Great.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "En el quinientos veintidós antes de Cristo, Darío derrocó al rey. Dijo que era un impostor, un tal Gaumata.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "figura tumbada bajo el pie de Darío, identificada con Gaumata",
-            "busqueda": "Behistun relief Gaumata"
+            "que_se_ve": "Darío pisando a la figura tumbada identificada con Gaumata, en Behistún",
+            "archivo": "media/T1-E06/l_dario_gaumata.jpg",
+            "credito": "Darío y Gaumata en Behistún · Foto: Patrick C (dynamosquito) · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_relief_Darius_and_Gaumata.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 2548
         },
@@ -85,7 +151,23 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: un ejército persa en marcha por un valle de los Zagros",
-            "prompt_flow": "Documentary-realistic wide aerial shot of an ancient Persian army of spearmen and horsemen marching in a long column through a dry mountain valley of the Zagros, around 520 BC, seen from far above and behind. Dust clouds, low morning sun, natural colours, no faces, no banners with text, no text."
+            "prompt_flow": "Documentary-realistic wide aerial shot of an ancient Persian army of spearmen and horsemen marching in a long column through a dry mountain valley of the Zagros, around 520 BC, seen from far above and behind. Dust clouds, low morning sun, natural colours, no faces, no banners with text, no text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "mapa del Imperio aqueménida en su mayor extensión",
+              "archivo": "media/T1-E06/mapa_imperio.jpg",
+              "credito": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+              "licencia": "CC BY-SA 4.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Achaemenid_Empire_(flat_map).svg",
+              "zoom": [
+                1.15,
+                1.3
+              ],
+              "focus": [
+                62,
+                55
+              ]
+            }
           }
         },
         {
@@ -96,7 +178,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "los prisioneros rebeldes atados en el relieve de Behistún",
-            "busqueda": "Behistun relief rebel kings"
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              78,
+              60
+            ]
           }
         },
         {
@@ -106,8 +199,19 @@
           "texto": "Y su imperio era enorme. No sabemos cuánta gente vivía en él, pero eran millones.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa del Imperio aqueménida en tiempos de Darío I",
-            "busqueda": "Achaemenid Empire map Darius"
+            "que_se_ve": "mapa del Imperio aqueménida en su mayor extensión",
+            "archivo": "media/T1-E06/mapa_imperio.jpg",
+            "credito": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Achaemenid_Empire_(flat_map).svg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -127,8 +231,19 @@
           "pausa": "Si quisieras que un imperio entero creyera tu versión, ¿dónde la pondrías?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "la inscripción de Behistún en lo alto del acantilado, vista desde abajo",
-            "busqueda": "Behistun inscription from below"
+            "que_se_ve": "la inscripción y el relieve de Behistún en lo alto del acantilado, vistos desde abajo",
+            "archivo": "media/T1-E06/unesco.jpg",
+            "credito": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Inscription_in_Persia_ca._520_BC-_UNESCO_World_Heritage_Site.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "dato": {
             "rotulo": "Altura del relieve",
@@ -145,7 +260,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ruinas de Babilonia, en Irak",
-            "busqueda": "Babylon ruins Iraq"
+            "archivo": "media/T1-E06/babilonia.jpg",
+            "credito": "Ruinas de Babilonia, Irak · Foto: Osama Shukir Muhammed Amin · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Ruins_of_Babylon,_Mesopotamia,_Iraq.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Babilonia",
@@ -159,8 +285,19 @@
           "pronunciacion": "Ecbatana es la actual Jamadán, al norte. Por ese camino pasaban soldados, mercaderes y mensajeros.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "colina de Ecbatana en Hamadán",
-            "busqueda": "Ecbatana Hamadan Hegmataneh"
+            "que_se_ve": "excavaciones del yacimiento de Ecbatana, en la actual Hamadán",
+            "archivo": "media/T1-E06/ecbatana.jpg",
+            "credito": "Yacimiento de Ecbatana, Hamadán · Foto: Ywpark2003 (Yong Woo Park) · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Archaeological_Site_of_Ecbatana_Achmetha_Palace_Ruins_Hamadan_Iran.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Ecbatana (Hamadán)",
@@ -176,7 +313,23 @@
             "que_se_ve": "recreación: viajeros en el camino real miran hacia el relieve del acantilado",
             "plano_especial": true,
             "duracion_seg": 15,
-            "prompt_flow": "Documentary-realistic slow crane shot in ancient Persia around 520 BC: a small caravan of travellers, a merchant with donkeys and two soldiers, seen from behind on a dusty road at the foot of a huge limestone cliff, stop and look up. The camera rises along the sunlit rock face to a freshly carved relief panel high above, with columns of carved cuneiform beside it, too far to read. Natural colours, no faces visible, no legible text."
+            "prompt_flow": "Documentary-realistic slow crane shot in ancient Persia around 520 BC: a small caravan of travellers, a merchant with donkeys and two soldiers, seen from behind on a dusty road at the foot of a huge limestone cliff, stop and look up. The camera rises along the sunlit rock face to a freshly carved relief panel high above, with columns of carved cuneiform beside it, too far to read. Natural colours, no faces visible, no legible text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "el relieve de Behistún en lo alto del acantilado, en una foto en color de los años veinte",
+              "archivo": "media/T1-E06/gadmer61.jpg",
+              "credito": "Behistún, autocromo · Foto: Frédéric Gadmer (Archives de la Planète) · CC BY-SA 4.0",
+              "licencia": "CC BY-SA 4.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Le_monument_de_Darius_1er_-_bas-relief_et_inscriptions_trilingues_en_cun%C3%A9iformes,_%C3%A0_63_m%C3%A8tres_de_hauteur_(521-524_avant_J.-C.)_-_A53561S.jpg",
+              "zoom": [
+                1.03,
+                1.12
+              ],
+              "focus": [
+                50,
+                50
+              ]
+            }
           }
         },
         {
@@ -186,8 +339,19 @@
           "texto": "Ahora mira el relieve de cerca. Mide unos cinco metros y medio de ancho.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "panel completo del relieve de Behistún",
-            "busqueda": "Behistun relief panel"
+            "que_se_ve": "el panel completo del relieve de Behistún",
+            "archivo": "media/T1-E06/l_stone_record.jpg",
+            "credito": "Relieve de Behistún · Foto: dynamosquito · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/25182210@N07/3936190483",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -195,7 +359,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "los nueve prisioneros atados por el cuello en el relieve de Behistún",
-            "busqueda": "Behistun relief bound prisoners"
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -203,23 +378,56 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "símbolo alado de Ahuramazda sobre el relieve de Behistún",
-            "busqueda": "Behistun Ahura Mazda winged symbol"
+            "archivo": "media/T1-E06/l_ahuramazda.jpg",
+            "credito": "Ahuramazda en Behistún · Foto: peuplier · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/73738791@N00/31391635590",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Alrededor, columnas y columnas de texto. Toda la inscripción ocupa unos quince metros de alto por veinticinco de ancho.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "columnas de texto cuneiforme en persa antiguo de Behistún",
-            "busqueda": "Behistun inscription Old Persian columns"
+            "que_se_ve": "columnas de texto cuneiforme junto a las figuras del relieve",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              20,
+              25
+            ]
           }
         },
         {
           "texto": "Cuenta la misma historia en tres lenguas: persa antiguo, elamita y babilonio. Así el mensaje llega más lejos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "versión babilonia de la inscripción de Behistún",
-            "busqueda": "Behistun inscription Babylonian version"
+            "que_se_ve": "columnas de cuneiforme de la inscripción, escrita en tres lenguas",
+            "archivo": "media/T1-E06/unesco.jpg",
+            "credito": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Inscription_in_Persia_ca._520_BC-_UNESCO_World_Heritage_Site.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              80,
+              88
+            ]
           }
         },
         {
@@ -230,8 +438,19 @@
           "emocion": 0.75,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de Darío y Ahuramazda en el relieve de Behistún",
-            "busqueda": "Behistun Darius Ahuramazda detail"
+            "que_se_ve": "Darío y Ahuramazda en el relieve de Behistún",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              35,
+              38
+            ]
           }
         },
         {
@@ -242,8 +461,19 @@
           "texto": "No reina porque ganó una pelea. Reina porque un dios lo eligió. Esa es la versión que Darío talló en piedra.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "relieve de Behistún iluminado por el sol",
-            "busqueda": "Behistun relief"
+            "que_se_ve": "el relieve de Behistún, en la roca, visto de cerca",
+            "archivo": "media/T1-E06/unesco.jpg",
+            "credito": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Inscription_in_Persia_ca._520_BC-_UNESCO_World_Heritage_Site.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "aprendido": "Darío justificó su poder con una historia tallada."
         }
@@ -258,16 +488,38 @@
           "texto": "Pero un acantilado no viaja. ¿Cómo llega esa historia a quien vive a miles de kilómetros?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa del Imperio aqueménida",
-            "busqueda": "Achaemenid Empire map"
+            "que_se_ve": "mapa del Imperio aqueménida en su mayor extensión",
+            "archivo": "media/T1-E06/mapa_imperio.jpg",
+            "credito": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Achaemenid_Empire_(flat_map).svg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Copiándola. En Egipto apareció una copia del texto en arameo, escrita en tiempos de otro Darío, el segundo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "papiro arameo con la copia de la inscripción de Behistún hallado en Egipto",
-            "busqueda": "Aramaic Behistun papyrus Elephantine"
+            "que_se_ve": "papiro arameo con la traducción de la inscripción de Behistún, de Elefantina",
+            "archivo": "media/T1-E06/l_papiro.jpg",
+            "credito": "Papiro arameo con la versión de Behistún, Elefantina · Foto: Jona Lendering (Livius.org) · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Aramaic_translation_of_the_behistun_inscripton.png",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -279,7 +531,23 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "recreación: un campesino entrega sacos de grano a un funcionario persa",
-            "prompt_flow": "Documentary-realistic medium shot in a village of the ancient Persian Empire around 500 BC: a farmer seen from behind hands sacks of grain to a seated royal official under a reed awning, while a scribe nearby writes on a clay tablet. Dry fields in the background, late afternoon light, natural colours, no faces, no text."
+            "prompt_flow": "Documentary-realistic medium shot in a village of the ancient Persian Empire around 500 BC: a farmer seen from behind hands sacks of grain to a seated royal official under a reed awning, while a scribe nearby writes on a clay tablet. Dry fields in the background, late afternoon light, natural colours, no faces, no text.",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "ruinas de Babilonia, una de las capitales del imperio persa",
+              "archivo": "media/T1-E06/babilonia.jpg",
+              "credito": "Ruinas de Babilonia, Irak · Foto: Osama Shukir Muhammed Amin · CC BY-SA 4.0",
+              "licencia": "CC BY-SA 4.0",
+              "pagina": "https://commons.wikimedia.org/wiki/File:Ruins_of_Babylon,_Mesopotamia,_Iraq.jpg",
+              "zoom": [
+                1.3,
+                1.18
+              ],
+              "focus": [
+                38,
+                45
+              ]
+            }
           }
         },
         {
@@ -295,8 +563,19 @@
           "texto": "Cuando todo el mundo cree la misma historia, obedecer deja de parecer una imposición. Parece lo normal.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "relieve de Behistún con Darío y Ahuramazda",
-            "busqueda": "Behistun relief Darius Ahuramazda"
+            "que_se_ve": "Darío y Ahuramazda presidiendo la fila de rebeldes en Behistún",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -306,32 +585,76 @@
           "texto": "Pasa lo mismo hoy con un billete. Es solo papel, pero vale porque todos creemos que vale.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "billete de banco de euro",
-            "busqueda": "euro banknote"
+            "que_se_ve": "billetes de euro de la serie Europa",
+            "archivo": "media/T1-E06/l_billetes.jpg",
+            "credito": "Billetes de euro, serie Europa · Bericht · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Euro_banknotes,_Europa_series.png",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Un rey, una ley, una moneda. Funcionan mientras la gente cree en ellos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "dárico de oro con la figura del rey persa",
-            "busqueda": "Achaemenid gold daric coin"
+            "que_se_ve": "dárico de oro persa con el rey arquero arrodillado",
+            "archivo": "media/T1-E06/l_daric.jpg",
+            "credito": "Dárico de oro, 485-420 a. C. · Foto: Classical Numismatic Group (CNG) · CC BY-SA 2.5",
+            "licencia": "CC BY-SA 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Daric_coin_of_the_Achaemenid_Empire_(Darius_I_to_Xerxes_II).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Recuerda Uruk. Allí la escritura llevaba la cuenta de la cebada. Aquí lleva la cuenta de quién manda y por qué.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "signos cuneiformes de la inscripción de Behistún, de cerca",
-            "busqueda": "Behistun inscription cuneiform close-up"
+            "que_se_ve": "signos cuneiformes de la inscripción de Behistún",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              75,
+              18
+            ]
           }
         },
         {
           "texto": "Por eso los imperios no se sostienen solo con espadas. Se sostienen sobre historias que millones comparten.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "acantilado de Behistún al atardecer",
-            "busqueda": "Bisotun cliff sunset"
+            "que_se_ve": "el acantilado de Behistún sobre la llanura",
+            "archivo": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+            "credito": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_I_%26_II_(3948706622).jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "aprendido": "Los imperios se sostienen sobre relatos compartidos."
         }
@@ -344,8 +667,19 @@
           "texto": "Vamos a repasar. ¿Quién mandó tallar la inscripción de Behistún?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "inscripción de Behistún",
-            "busqueda": "Behistun inscription"
+            "que_se_ve": "la inscripción de Behistún",
+            "archivo": "media/T1-E06/unesco.jpg",
+            "credito": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Inscription_in_Persia_ca._520_BC-_UNESCO_World_Heritage_Site.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -356,31 +690,75 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "símbolo alado de Ahuramazda en Behistún",
-            "busqueda": "Behistun Faravahar Ahura Mazda"
+            "archivo": "media/T1-E06/l_ahuramazda.jpg",
+            "credito": "Ahuramazda en Behistún · Foto: peuplier · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/73738791@N00/31391635590",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "¿Dónde puso su versión? A cien metros de altura, sobre el camino de Babilonia a Ecbatana, y en tres lenguas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "acantilado de Behistún sobre la llanura",
-            "busqueda": "Bisotun cliff"
+            "que_se_ve": "el acantilado de Behistún sobre la llanura",
+            "archivo": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+            "credito": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_I_%26_II_(3948706622).jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Recuerda la imagen. El rey pisando a su rival, los rebeldes atados y el dios encima, dándole la razón.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "relieve completo de Behistún",
-            "busqueda": "Behistun relief panel"
+            "que_se_ve": "el relieve completo de Behistún",
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "¿Y qué mantiene unido a un imperio, además de la fuerza? Una historia compartida que hace que obedecer parezca justo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa del Imperio aqueménida",
-            "busqueda": "Achaemenid Empire map"
+            "que_se_ve": "mapa del Imperio aqueménida en su mayor extensión",
+            "archivo": "media/T1-E06/mapa_imperio.jpg",
+            "credito": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Achaemenid_Empire_(flat_map).svg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -388,8 +766,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "relieve de Darío en Behistún, de cerca",
-            "busqueda": "Behistun relief Darius"
+            "que_se_ve": "Darío I en el relieve de Behistún, de cerca",
+            "archivo": "media/T1-E06/l_dario.jpg",
+            "credito": "Darío I en Behistún (detalle) · Foto: Leen van Dorp · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_Darius_the_Great.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "indice": true
         },
@@ -398,8 +787,19 @@
           "pronunciacion": "Y un último giro. Más de dos mil años después, un británico llamado Henri Rólinson subió a copiar estas columnas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "retrato de Henry Rawlinson",
-            "busqueda": "Henry Creswicke Rawlinson portrait"
+            "que_se_ve": "retrato fotográfico de Henry Rawlinson",
+            "archivo": "media/T1-E06/l_rawlinson.jpg",
+            "credito": "Sir Henry Creswicke Rawlinson · Lock & Whitfield / Wellcome Collection · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Sir_Henry_Creswicke_Rawlinson._Photograph_by_Lock_%26_Whitfiel_Wellcome_V0027054.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -410,8 +810,19 @@
           "texto": "Cada imperio contaba su historia sobre su trozo de mundo. Pero nadie tenía todavía el mapa completo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "globo de Behaim (Erdapfel) en el Germanisches Nationalmuseum",
-            "busqueda": "Behaim globe Erdapfel"
+            "que_se_ve": "el globo de Behaim (Erdapfel) en el Germanisches Nationalmuseum",
+            "archivo": "media/T1-E07/l_globo_gnm.jpg",
+            "credito": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -431,7 +842,22 @@
       "100 metros",
       "de propaganda"
     ],
-    "que_se_ve": "relieve de Darío I con los prisioneros atados en Behistún"
+    "que_se_ve": "relieve de Darío I con los prisioneros atados en Behistún",
+    "archivo": "media/T1-E06/reliefs.jpg",
+    "ganchos": [
+      [
+        "100 metros",
+        "de propaganda"
+      ],
+      [
+        "3 idiomas",
+        "una sola versión"
+      ],
+      [
+        "9 rebeldes",
+        "atados al rey"
+      ]
+    ]
   },
   "fuentes": [
     {

@@ -356,13 +356,13 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
-            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "archivo": "media/T1-E05/l_fichas.jpg",
             "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
             "licencia": "CC BY 2.5",
             "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
             "zoom": [
-              1.03,
-              1.12
+              1.0,
+              1.08
             ],
             "focus": [
               50,
@@ -375,17 +375,17 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
-            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "archivo": "media/T1-E05/l_fichas.jpg",
             "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
             "licencia": "CC BY 2.5",
             "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
             "zoom": [
-              1.3,
-              1.18
+              1.12,
+              1.04
             ],
             "focus": [
-              38,
-              45
+              50,
+              50
             ]
           }
         },
@@ -395,17 +395,17 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fichas de arcilla (tokens) de Mesopotamia con formas de cono, esfera y disco",
-            "archivo": "media/T1-E05/12_clay_tokens_mesopotamia_accounting.jpg",
+            "archivo": "media/T1-E05/l_fichas.jpg",
             "credito": "Fichas de arcilla de Susa · Foto: Wikimedia Commons · CC BY 2.5",
             "licencia": "CC BY 2.5",
             "pagina": "https://commons.wikimedia.org/wiki/File:Clay_accounting_tokens_Susa_Louvre_n1.jpg",
             "zoom": [
-              1.15,
-              1.3
+              1.05,
+              1.15
             ],
             "focus": [
-              62,
-              55
+              50,
+              50
             ]
           }
         },
@@ -496,13 +496,13 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sobre de arcilla con fichas de Susa",
-            "archivo": "media/T1-E05/30_susa_clay_envelope_tokens.jpg",
+            "archivo": "media/T1-E05/l_sobre.jpg",
             "credito": "Sobre de arcilla con fichas, Louvre · Foto: Marie-Lan Nguyen · Public domain",
             "licencia": "Public domain",
             "pagina": "https://commons.wikimedia.org/wiki/File:Accountancy_clay_envelope_Louvre_Sb1932.jpg",
             "zoom": [
-              1.03,
-              1.12
+              1.0,
+              1.08
             ],
             "focus": [
               50,
@@ -1005,17 +1005,17 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sobre de arcilla con fichas de Susa",
-            "archivo": "media/T1-E05/30_susa_clay_envelope_tokens.jpg",
+            "archivo": "media/T1-E05/l_sobre.jpg",
             "credito": "Sobre de arcilla con fichas, Louvre · Foto: Marie-Lan Nguyen · Public domain",
             "licencia": "Public domain",
             "pagina": "https://commons.wikimedia.org/wiki/File:Accountancy_clay_envelope_Louvre_Sb1932.jpg",
             "zoom": [
-              1.3,
-              1.18
+              1.12,
+              1.04
             ],
             "focus": [
-              38,
-              45
+              50,
+              50
             ]
           }
         },

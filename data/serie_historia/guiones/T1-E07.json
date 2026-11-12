@@ -22,7 +22,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "relieve de Darío I en Behistún, visto en el episodio 6",
-            "busqueda": "Behistun relief Darius"
+            "archivo": "media/T1-E06/reliefs.jpg",
+            "credito": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Behistun_inscription_reliefs.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -30,16 +41,38 @@
           "pronunciacion": "Por la de Ahura Mazda. Darío mandaba sobre millones de personas, y aun así su imperio era solo un rincón de un planeta que nadie había visto entero.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "símbolo alado de Ahuramazda sobre el relieve de Behistún",
-            "busqueda": "Behistun Inscription Ahura Mazda winged symbol"
+            "que_se_ve": "símbolo alado de Ahuramazda en Behistún",
+            "archivo": "media/T1-E06/l_ahuramazda.jpg",
+            "credito": "Ahuramazda en Behistún · Foto: peuplier · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/73738791@N00/31391635590",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Hoy saltamos dos mil años. Estamos en mil cuatrocientos noventa y dos, en Núremberg, en el sur de Alemania.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "casco antiguo de Núremberg con el castillo imperial",
-            "busqueda": "Nuremberg Kaiserburg old town"
+            "que_se_ve": "tejados del casco antiguo de Núremberg",
+            "archivo": "media/T1-E07/l_nuremberg.jpg",
+            "credito": "Núremberg (Kaiserburg) · Foto: Allie Caulfield · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/28577026@N02/4160839184",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Núremberg (Germanisches Nationalmuseum)",
@@ -54,16 +87,38 @@
           "pronunciacion": "Aquí, Martin Béjaim y sus colaboradores están fabricando una bola del mundo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "estatua de Martin Behaim en Núremberg",
-            "busqueda": "Martin Behaim monument Nuremberg"
+            "que_se_ve": "busto de Martin Behaim con su nombre grabado",
+            "archivo": "media/T1-E07/l_behaim_monumento.jpg",
+            "credito": "Busto de Martin Behaim · Foto: hannibal1107 · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/21022123@N04/18882695099",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "El encargo lo paga el concejo de la ciudad. Quieren tener el mundo entero en una sala, al alcance de la mano.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "antiguo ayuntamiento de Núremberg",
-            "busqueda": "Altes Rathaus Nürnberg"
+            "que_se_ve": "antiguo ayuntamiento (Altes Rathaus) de Núremberg, sala gótica",
+            "archivo": "media/T1-E07/rathaus.jpg",
+            "credito": "Altes Rathaus, Núremberg · Foto: Chris06 · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:2024_Altes_Rathaus_N%C3%BCrnberg,_gotischer_Saalbau_(1).jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -71,7 +126,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el globo de Behaim completo sobre su pedestal",
-            "busqueda": "Behaim globe Erdapfel"
+            "archivo": "media/T1-E07/l_globo_gnm.jpg",
+            "credito": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -80,7 +146,23 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "Recreación: taller de 1492, un artesano de espaldas pinta un huso del globo",
-            "prompt_flow": "Documentary-realistic slow push-in, late fifteenth-century German workshop lit by a single window, a craftsman seen from behind leaning over a long curved paper gore, painting coastlines with a fine brush, an unfinished linen globe on a wooden stand in soft focus, dust in the light beam, natural light, fine film grain, no faces, no text, no captions, no logos"
+            "prompt_flow": "Documentary-realistic slow push-in, late fifteenth-century German workshop lit by a single window, a craftsman seen from behind leaning over a long curved paper gore, painting coastlines with a fine brush, an unfinished linen globe on a wooden stand in soft focus, dust in the light beam, natural light, fine film grain, no faces, no text, no captions, no logos",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "los husos del globo de Behaim desplegados, tal como se pintaban antes de envolver la bola",
+              "archivo": "media/T1-E07/l_husos.jpg",
+              "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+              "licencia": "Public domain",
+              "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+              "zoom": [
+                1.3,
+                1.18
+              ],
+              "focus": [
+                38,
+                45
+              ]
+            }
           }
         },
         {
@@ -88,7 +170,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el Erdapfel de cerca, con sus colores gastados",
-            "busqueda": "Erdapfel Behaim globe detail"
+            "archivo": "media/T1-E07/l_esfera.jpg",
+            "credito": "Globo de Behaim (Erdapfel) · Foto: Vitold Muratov · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Martin_Behaim_Erdapfel.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -103,24 +196,57 @@
           "texto": "Pasó años en una sala del ayuntamiento de Núremberg. Desde mil novecientos siete se guarda en el Museo Nacional Germano, en la misma ciudad.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "sala del Germanisches Nationalmuseum con el globo de Behaim en su vitrina",
-            "busqueda": "Germanisches Nationalmuseum Behaim globe"
+            "que_se_ve": "el globo de Behaim en su vitrina del Germanisches Nationalmuseum",
+            "archivo": "media/T1-E07/l_vitrina.jpg",
+            "credito": "Globo de Behaim (Erdapfel) · Foto: Vitold Muratov · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Martin_Behaim_Erdapfel.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Sobre ella está todo lo que Europa sabía del planeta: costas, reinos, islas y mares.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de Europa y África en el Erdapfel",
-            "busqueda": "Behaim globe Europe Africa"
+            "que_se_ve": "detalle de Europa y África en los husos del globo de Behaim",
+            "archivo": "media/T1-E07/husos_europa_africa.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Gírala despacio, como harías tú delante de la vitrina. Pasa Europa, pasa África, pasa la India.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle del océano Índico y la India en el Erdapfel",
-            "busqueda": "Erdapfel Behaim globe Indian Ocean"
+            "que_se_ve": "detalle del océano Índico y Asia en los husos del globo de Behaim",
+            "archivo": "media/T1-E07/husos_india.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -131,8 +257,19 @@
           "emocion": 0.8,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el Atlántico vacío en el globo de Behaim",
-            "busqueda": "Behaim globe Atlantic Ocean"
+            "que_se_ve": "el Atlántico, casi vacío, al oeste de Europa en los husos del globo de Behaim",
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "aprendido": "El globo más antiguo no tiene América"
         }
@@ -147,8 +284,19 @@
           "texto": "Fíjate en la cara del globo que mira al oeste de Europa.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "los husos del globo de Behaim desplegados en un mapa plano",
-            "busqueda": "Behaim globe gores Ravenstein"
+            "que_se_ve": "los husos del globo de Behaim desplegados en un plano",
+            "archivo": "media/T1-E07/l_husos.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -156,23 +304,56 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el océano entre Portugal y Asia en los husos del globo de Behaim",
-            "busqueda": "Behaim globe Atlantic Asia map"
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Ponte en el lugar de un marino de mil cuatrocientos noventa y dos. Miras este globo y piensas: hacia el oeste, el camino a Asia está despejado.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el Atlántico vacío en el globo de Behaim",
-            "busqueda": "Behaim globe Atlantic Ocean"
+            "que_se_ve": "el globo de Behaim, tal como lo miraría un marino de 1492",
+            "archivo": "media/T1-E07/l_globo_gnm.jpg",
+            "credito": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Delante de Asia aparece una isla grande: Cipango. Así llamaban entonces a Japón.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de Cipango en el Erdapfel",
-            "busqueda": "Behaim globe Cipango"
+            "que_se_ve": "islas del extremo oriente en el globo de Behaim, entre ellas Cipango",
+            "archivo": "media/T1-E07/husos_cipango.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Japón (Cipango en el globo)",
@@ -191,8 +372,19 @@
           "texto": "Entre las costas de Europa y ese Japón mal colocado, el globo solo pinta un océano vacío.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el océano vacío entre Europa y Asia en el Erdapfel",
-            "busqueda": "Erdapfel empty ocean between Europe and Asia"
+            "que_se_ve": "el océano casi vacío entre Europa y Asia en el globo de Behaim",
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -201,15 +393,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "la Tierra vista desde el espacio con América entera",
-            "busqueda": "Blue Marble Western Hemisphere NASA"
+            "archivo": "media/T1-E07/l_tierra.jpg",
+            "credito": "Blue Marble 2012 · NASA Goddard Photo and Video · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/24662369@N07/6760135001",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Y no es un globo pobre. Quienes lo hicieron lo llenaron de nombres y de textos.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "inscripciones pintadas en la superficie del Erdapfel",
-            "busqueda": "Behaim globe inscriptions"
+            "que_se_ve": "inscripciones y nombres escritos sobre el globo de Behaim",
+            "archivo": "media/T1-E07/husos_textos.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -225,7 +439,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "nombres de lugares escritos sobre el globo de Behaim",
-            "busqueda": "Erdapfel place names detail"
+            "archivo": "media/T1-E07/husos_europa_africa.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -235,16 +460,38 @@
           "texto": "Los pueblos de América llevaban miles de años viviendo allí. Pero entre sus orillas y las de Europa no había ningún contacto duradero.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "la Tierra vista desde el espacio con el Atlántico entre América y Europa",
-            "busqueda": "Atlantic Ocean from space NASA"
+            "que_se_ve": "la Tierra vista desde el espacio, con el Atlántico entre América y el Viejo Mundo",
+            "archivo": "media/T1-E07/l_tierra.jpg",
+            "credito": "Blue Marble 2012 · NASA Goddard Photo and Video · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/24662369@N07/6760135001",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Y ese mismo año, mil cuatrocientos noventa y dos, tres barcos salen de Palos, en España, hacia ese océano vacío.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "réplicas de la Niña, la Pinta y la Santa María en el Muelle de las Carabelas",
-            "busqueda": "Muelle de las Carabelas Palos replicas"
+            "que_se_ve": "réplica de una carabela en el Muelle de las Carabelas, en Palos de la Frontera",
+            "archivo": "media/T1-E07/l_carabelas.jpg",
+            "credito": "Réplica de una carabela, Muelle de las Carabelas (Palos) · Foto: Adam Jones · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/41000732@N04/4654048092",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Palos de la Frontera",
@@ -258,7 +505,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el globo de Behaim completo, de nuevo",
-            "busqueda": "Behaim globe Erdapfel"
+            "archivo": "media/T1-E07/l_globo_gnm.jpg",
+            "credito": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "aprendido": "A aquel mapa le faltaba un continente"
         }
@@ -274,15 +532,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "retrato de un hombre identificado como Colón, de Sebastiano del Piombo",
-            "busqueda": "Sebastiano del Piombo portrait of a man said to be Christopher Columbus"
+            "archivo": "media/T1-E07/l_colon.jpg",
+            "credito": "Retrato de un hombre, identificado como Cristóbal Colón · Sebastiano del Piombo (Metropolitan Museum) · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://www.metmuseum.org/art/collection/search/437645",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "En un globo como este, el plan tiene sentido. Entre España y Cipango solo hay agua.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el Atlántico vacío y Cipango en los husos del globo de Behaim",
-            "busqueda": "Behaim globe gores Ravenstein"
+            "que_se_ve": "el Atlántico vacío entre España y Cipango en los husos del globo de Behaim",
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -291,7 +571,23 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "Recreación (plano especial, 15 s): tres naves de 1492 en mar abierto y una franja de tierra al amanecer",
-            "prompt_flow": "15-second documentary-realistic aerial shot at dawn over the open Atlantic, the camera glides slowly forward above long ocean swells toward three small fifteenth-century sailing ships seen from far behind, square sails catching the first light, and a thin low line of a green island slowly appears on the horizon, soft golden mist, natural light, fine film grain, no people visible up close, no text, no captions, no logos"
+            "prompt_flow": "15-second documentary-realistic aerial shot at dawn over the open Atlantic, the camera glides slowly forward above long ocean swells toward three small fifteenth-century sailing ships seen from far behind, square sails catching the first light, and a thin low line of a green island slowly appears on the horizon, soft golden mist, natural light, fine film grain, no people visible up close, no text, no captions, no logos",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "réplica de una carabela, respaldo de la recreación del viaje",
+              "archivo": "media/T1-E07/l_carabelas.jpg",
+              "credito": "Réplica de una carabela, Muelle de las Carabelas (Palos) · Foto: Adam Jones · CC BY-SA 2.0",
+              "licencia": "CC BY-SA 2.0",
+              "pagina": "https://www.flickr.com/photos/41000732@N04/4654048092",
+              "zoom": [
+                1.3,
+                1.18
+              ],
+              "focus": [
+                62,
+                55
+              ]
+            }
           },
           "anios_atras": 534
         },
@@ -299,8 +595,19 @@
           "texto": "Es una isla de las Bahamas que sus habitantes llamaban Guanahaní. Probablemente, la actual San Salvador.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "costa de la isla de San Salvador, en las Bahamas",
-            "busqueda": "San Salvador Island Bahamas coast"
+            "que_se_ve": "costa de San Salvador (Bahamas) con una cruz que recuerda el desembarco",
+            "archivo": "media/T1-E07/l_sansalvador.jpg",
+            "credito": "San Salvador, Bahamas · Foto: Rüdiger Stehn · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/69570948@N04/26047262056",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Guanahaní (isla de San Salvador)",
@@ -313,8 +620,19 @@
           "texto": "Colón cree que ha llegado a las Indias, y vuelve para contarlo.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de la ruta del primer viaje de Colón",
-            "busqueda": "Columbus first voyage route map"
+            "que_se_ve": "mapa de la ruta del primer viaje de Colón por el Caribe",
+            "archivo": "media/T1-E07/l_ruta.jpg",
+            "credito": "Ruta del primer viaje de Colón · Keith Pickering · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Columbus_first_voyage.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -332,7 +650,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el Atlántico vacío en el globo de Behaim",
-            "busqueda": "Behaim globe Atlantic Ocean"
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -341,8 +670,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
-            "busqueda": "Waldseemüller map 1507 America"
+            "que_se_ve": "mapa de Waldseemüller de 1507, el primero con la palabra América",
+            "archivo": "media/T1-E07/wald_big.jpg",
+            "credito": "Mapa de Waldseemüller, 1507 · Martin Waldseemüller (Library of Congress) · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Waldseemuller_map_2.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "anios_atras": 519
         },
@@ -358,15 +698,42 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "Recreación: puerto del siglo XVI con barriles, sacos y caballos junto a una nave",
-            "prompt_flow": "Documentary-realistic slow lateral tracking shot along a sixteenth-century wooden harbour quay, barrels, grain sacks and two horses waiting beside a moored sailing ship, dockworkers seen from behind at a distance carrying cargo up a gangplank, overcast morning light, natural colours, fine film grain, no faces, no text, no captions, no logos"
+            "prompt_flow": "Documentary-realistic slow lateral tracking shot along a sixteenth-century wooden harbour quay, barrels, grain sacks and two horses waiting beside a moored sailing ship, dockworkers seen from behind at a distance carrying cargo up a gangplank, overcast morning light, natural colours, fine film grain, no faces, no text, no captions, no logos",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "réplica de una carabela amarrada, respaldo de la recreación del puerto",
+              "archivo": "media/T1-E07/l_carabelas.jpg",
+              "credito": "Réplica de una carabela, Muelle de las Carabelas (Palos) · Foto: Adam Jones · CC BY-SA 2.0",
+              "licencia": "CC BY-SA 2.0",
+              "pagina": "https://www.flickr.com/photos/41000732@N04/4654048092",
+              "zoom": [
+                1.4,
+                1.25
+              ],
+              "focus": [
+                62,
+                55
+              ]
+            }
           }
         },
         {
           "texto": "El maíz y la patata viajan de América al resto del mundo. El caballo y el trigo hacen el camino contrario.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mazorcas de maíz y patatas nativas de los Andes",
-            "busqueda": "Andean native potatoes maize market"
+            "que_se_ve": "puesto de papas nativas en un mercado de Perú",
+            "archivo": "media/T1-E07/l_papas.jpg",
+            "credito": "Papas en un mercado de Perú · Foto: rrunaway · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/23376466@N06/5396561365",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -374,15 +741,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "ilustración del Códice Florentino sobre la viruela entre los mexicas",
-            "busqueda": "Florentine Codex smallpox"
+            "archivo": "media/T1-E07/l_viruela.jpg",
+            "credito": "Viruela en el Códice Florentino · Foto: Jaontiveros · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Florentinoviruela.JPG",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Ya no hay dos mundos que se ignoran. Hay uno solo, que empieza a mezclarse.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de Waldseemüller de 1507 con la palabra America",
-            "busqueda": "Waldseemüller map 1507 America"
+            "que_se_ve": "detalle de América en el mapa de Waldseemüller de 1507",
+            "archivo": "media/T1-E07/l_waldseemuller_america.jpg",
+            "credito": "Waldseemüller 1507, detalle de América · Foto: brownpau · Dominio público (PDM 1.0)",
+            "licencia": "Public Domain Mark 1.0",
+            "pagina": "https://www.flickr.com/photos/44124483743@N01/45218628652",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -390,8 +779,19 @@
           "emocion": 0.7,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de Waldseemüller completo",
-            "busqueda": "Waldseemüller map 1507 Library of Congress"
+            "que_se_ve": "el mapa de Waldseemüller completo",
+            "archivo": "media/T1-E07/wald_big.jpg",
+            "credito": "Mapa de Waldseemüller, 1507 · Martin Waldseemüller (Library of Congress) · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Waldseemuller_map_2.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           },
           "aprendido": "Al cruzar el océano, empezó un mundo conectado"
         }
@@ -407,7 +807,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "sala del Germanisches Nationalmuseum con el globo de Behaim",
-            "busqueda": "Germanisches Nationalmuseum Behaim globe"
+            "archivo": "media/T1-E07/l_vitrina.jpg",
+            "credito": "Globo de Behaim (Erdapfel) · Foto: Vitold Muratov · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Martin_Behaim_Erdapfel.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -419,23 +830,56 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el océano vacío entre Europa y Asia en el Erdapfel",
-            "busqueda": "Erdapfel empty ocean between Europe and Asia"
+            "archivo": "media/T1-E07/husos_atlantico.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "¿Y por qué le falta? Porque se hizo justo antes de que la noticia del viaje de Colón llegara a Europa.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "mapa de la ruta del primer viaje de Colón",
-            "busqueda": "Columbus first voyage route map"
+            "que_se_ve": "mapa de la ruta del primer viaje de Colón por el Caribe",
+            "archivo": "media/T1-E07/l_ruta.jpg",
+            "credito": "Ruta del primer viaje de Colón · Keith Pickering · CC BY-SA 3.0",
+            "licencia": "CC BY-SA 3.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Columbus_first_voyage.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Por eso, entre Europa y Asia, el globo solo pinta agua y un Japón fuera de sitio.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "detalle de Cipango en el Erdapfel",
-            "busqueda": "Behaim globe Cipango"
+            "que_se_ve": "Cipango y las islas de Oriente en el globo de Behaim",
+            "archivo": "media/T1-E07/husos_cipango.jpg",
+            "credito": "Husos del globo de Behaim (facsímil, 1908) · Ernst Ravenstein · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:RavensteinBehaim.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -443,8 +887,20 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el globo de Behaim completo",
-            "busqueda": "Behaim globe Erdapfel"
-          }
+            "archivo": "media/T1-E07/l_globo_gnm.jpg",
+            "credito": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          },
+          "indice": true
         },
         {
           "texto": "Ahora piensa en esto. Durante milenios, el mapa del mundo cambió muy despacio."
@@ -455,15 +911,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "mapa de Waldseemüller de 1507",
-            "busqueda": "Waldseemüller map 1507 America"
+            "archivo": "media/T1-E07/wald_big.jpg",
+            "credito": "Mapa de Waldseemüller, 1507 · Martin Waldseemüller (Library of Congress) · Dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Waldseemuller_map_2.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              30,
+              45
+            ]
           }
         },
         {
           "texto": "Pero mover barcos, cosechas y ciudades exigía cada vez más fuerza. Y esa fuerza seguía saliendo de brazos, animales, viento y leña.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "molino de viento histórico de madera",
-            "busqueda": "historic post mill windmill"
+            "que_se_ve": "molino de viento histórico de madera (molino de poste hueco)",
+            "archivo": "media/T1-E07/l_molino.jpg",
+            "credito": "Molino de poste hueco, Países Bajos · Foto: Dennis (archer10) · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/22490717@N02/12320949895",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -471,8 +949,19 @@
           "emocion": 0.6,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "máquina Newcomen de Elsecar y su balancín",
-            "busqueda": "Elsecar Newcomen engine"
+            "que_se_ve": "interior de la máquina Newcomen de Elsecar, con sus varillas de bombeo",
+            "archivo": "media/T1-E07/l_newcomen.jpg",
+            "credito": "Máquina Newcomen, Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         }
       ]
@@ -488,7 +977,22 @@
       "2.000 nombres,",
       "cero América"
     ],
-    "que_se_ve": "el globo de Behaim (Erdapfel) con el Atlántico vacío en primer plano"
+    "que_se_ve": "el globo de Behaim (Erdapfel) con el Atlántico vacío en primer plano",
+    "archivo": "media/T1-E07/husos_atlantico.jpg",
+    "ganchos": [
+      [
+        "2.000 nombres,",
+        "cero América"
+      ],
+      [
+        "51 centímetros",
+        "de planeta"
+      ],
+      [
+        "15 años",
+        "hasta «América»"
+      ]
+    ]
   },
   "fuentes": [
     {

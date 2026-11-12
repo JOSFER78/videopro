@@ -298,7 +298,7 @@
           "emocion": 0.8,
           "pausa": "De más de cien mil huesos, ¿cuántos crees que son de animales domésticos?",
           "dato": {
-            "rotulo": "Huesos de animales domésticos",
+            "rotulo": "Huesos domésticos",
             "valor": "0",
             "unidad": "de 100.000",
             "comparacion": "Todo caza; más del <b>60 %</b> gacela"
