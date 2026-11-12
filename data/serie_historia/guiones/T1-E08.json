@@ -21,59 +21,189 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "el globo de Behaim (Erdapfel), visto en el episodio 7",
-            "busqueda": "Behaim globe Erdapfel"
+            "archivo": "media/T1-E08/l_behaim.jpg",
+            "credito": "Globo de Behaim (Erdapfel), Germanisches Nationalmuseum · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Erdglobus,_sogenannter_Behaim-Globus.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "América. Al cruzar el océano, el mundo empezó a conectarse. Pero hazte otra pregunta: ¿con qué fuerza se movía ese mundo?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "réplicas de las naves de Colón en el Muelle de las Carabelas",
-            "busqueda": "Muelle de las Carabelas Palos replicas"
+            "que_se_ve": "réplica de una de las naves de Colón en el Muelle de las Carabelas, en Palos de la Frontera",
+            "archivo": "media/T1-E08/l_carabelas.jpg",
+            "credito": "Réplica de nave de Colón, Muelle de las Carabelas · Foto: Adam Jones, Ph.D. · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/41000732@N04/4654048092",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Hoy pulsas un interruptor y algo se mueve. Pero hasta hace poco más de dos siglos, casi toda la fuerza del mundo salía de cuerpos y de plantas."
+          "texto": "Hoy pulsas un interruptor y algo se mueve. Pero hasta hace poco más de dos siglos, casi toda la fuerza del mundo salía de cuerpos y de plantas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campesinos trillando a mano con mayales en el Salterio de Luttrell",
+            "archivo": "media/T1-E08/salterio_trilla.jpg",
+            "credito": "Dos hombres trillando, Salterio de Luttrell (c. 1325-1335), British Library · Anónimo medieval · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Two_men_threshing_sheaf_-_Luttrell_Psalter_(c.1325-1335),_f.74v_-_BL_Add_MS_42130.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Mira cualquier trabajo de entonces. Arar, moler, tejer, cargar, cavar. Detrás de cada uno hay un cuerpo cansado.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "campesinos arando con bueyes en el Salterio de Luttrell",
-            "busqueda": "Luttrell Psalter ploughing oxen"
+            "que_se_ve": "agricultor arando con un buey en Tigray (Etiopía), a tracción animal como en tiempos antiguos",
+            "archivo": "media/T1-E08/l_tigray_arado.jpg",
+            "credito": "Arado con buey, Tigray (Etiopía) · Foto: Rod Waddington · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/64607715@N05/14424613203",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Piensa en tu pan de cada día. Antes de llegar a la mesa, alguien ha tenido que sembrar, segar, trillar y moler ese grano, casi todo a mano."
+          "texto": "Piensa en tu pan de cada día. Antes de llegar a la mesa, alguien ha tenido que sembrar, segar, trillar y moler ese grano, casi todo a mano.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "campesinos trillando el grano a mano con mayales en el Salterio de Luttrell",
+            "archivo": "media/T1-E08/salterio_trilla.jpg",
+            "credito": "Dos hombres trillando, Salterio de Luttrell (c. 1325-1335), British Library · Anónimo medieval · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Two_men_threshing_sheaf_-_Luttrell_Psalter_(c.1325-1335),_f.74v_-_BL_Add_MS_42130.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
-          "texto": "Unas veces es tu brazo. Otras, la espalda de un buey o de un caballo."
+          "texto": "Unas veces es tu brazo. Otras, la espalda de un buey o de un caballo.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "agricultor arando con un buey en Tigray (Etiopía), a tracción animal",
+            "archivo": "media/T1-E08/l_tigray_arado.jpg",
+            "credito": "Arado con buey, Tigray (Etiopía) · Foto: Rod Waddington · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/64607715@N05/14424613203",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Si tienes suerte, un río mueve la rueda de tu molino, o el viento empuja sus aspas.",
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "molino de agua en el Salterio de Luttrell",
-            "busqueda": "Luttrell Psalter watermill"
+            "archivo": "media/T1-E08/salterio_molino.jpg",
+            "credito": "Un molino de agua, Salterio de Luttrell (c. 1325-1335), British Library · Anónimo medieval · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Psalm_103;_a_watermill_-_Luttrell_Psalter_(c.1325-1335),_f.181_-_BL_Add_MS_42130.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Pero el río no siempre pasa donde lo necesitas, y el viento sopla cuando quiere él, no cuando quieres tú."
+          "texto": "Pero el río no siempre pasa donde lo necesitas, y el viento sopla cuando quiere él, no cuando quieres tú.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "molino de agua en el Salterio de Luttrell",
+            "archivo": "media/T1-E08/salterio_molino.jpg",
+            "credito": "Un molino de agua, Salterio de Luttrell (c. 1325-1335), British Library · Anónimo medieval · CC0",
+            "licencia": "CC0 1.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Psalm_103;_a_watermill_-_Luttrell_Psalter_(c.1325-1335),_f.181_-_BL_Add_MS_42130.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Y para calentarte, cocinar o fundir hierro, quemas lo que crece: leña y carbón vegetal.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "carbonera tradicional humeando en un bosque",
-            "busqueda": "charcoal kiln traditional clamp burning wood"
+            "que_se_ve": "carbonera tradicional de leña apilada para hacer carbón vegetal",
+            "archivo": "media/T1-E08/carbonera.jpg",
+            "credito": "Carbonera tradicional (Meiler) en Tharandt · Foto: Loracco · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Clamp_in_Tharandt_001.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Y un bosque talado tarda muchos años en volver a crecer. La leña de mañana depende del sol de hoy.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "bosque de robles talado con tocones",
-            "busqueda": "coppiced woodland stumps"
+            "que_se_ve": "monte bajo de castaño talado, que tarda años en rebrotar",
+            "archivo": "media/T1-E08/monte_bajo.jpg",
+            "credito": "Bosque de castaños talado para leña · Foto: Martinvl · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Coppiced_sweet_chestnut_woodland.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -90,11 +220,38 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
-            "busqueda": "Our World in Data global primary energy substitution"
+            "archivo": "media/T1-E08/l_energia_mundial.jpg",
+            "credito": "Consumo mundial de energía primaria por fuente · Our World in Data (Smil; BP) · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Global-energy-substitution_(OWID_0549).png",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Y eso que en esa cuenta ni siquiera entra el trabajo de personas y animales."
+          "texto": "Y eso que en esa cuenta ni siquiera entra el trabajo de personas y animales.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
+            "archivo": "media/T1-E08/l_energia_mundial.jpg",
+            "credito": "Consumo mundial de energía primaria por fuente · Our World in Data (Smil; BP) · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Global-energy-substitution_(OWID_0549).png",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Ese es el techo. Lo que crece en un año, más lo que dan tus músculos. Para romperlo había que cambiar de combustible.",
@@ -102,7 +259,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "pila de leña cortada",
-            "busqueda": "stacked firewood logs"
+            "archivo": "media/T1-E08/l_lena.jpg",
+            "credito": "Leña apilada · Foto: Ruth and Dave · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/95142644@N00/33127606755",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "aprendido": "La industria fue un cambio de energía"
         }
@@ -119,7 +287,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "talleres del Elsecar Heritage Centre",
-            "busqueda": "Elsecar Heritage Centre"
+            "archivo": "media/T1-E08/l_elsecar_talleres.jpg",
+            "credito": "Elsecar Heritage Centre · Foto: Neil T · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/41894148532@N01/40310700265",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           },
           "lugar": {
             "nombre": "Elsecar, Barnsley (South Yorkshire)",
@@ -129,7 +308,23 @@
           }
         },
         {
-          "texto": "Hoy es un museo tranquilo. Hace algo más de dos siglos, aquí olía a humo y a carbón."
+          "texto": "Hoy es un museo tranquilo. Hace algo más de dos siglos, aquí olía a humo y a carbón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "talleres del Elsecar Heritage Centre",
+            "archivo": "media/T1-E08/l_elsecar_talleres.jpg",
+            "credito": "Elsecar Heritage Centre · Foto: Neil T · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/41894148532@N01/40310700265",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "En mil setecientos noventa y cuatro, el conde Fitzwilliam manda abrir una mina de carbón nueva.",
@@ -137,8 +332,19 @@
           "anios_atras": 232,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "pozo de la mina Elsecar New Colliery junto a la casa de máquinas",
-            "busqueda": "Elsecar New Colliery shaft"
+            "que_se_ve": "castillete del pozo y casa de máquinas de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_pozo.jpg",
+            "credito": "Pozo y casa de máquinas de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.geograph.org.uk/photo/145055",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -146,19 +352,62 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "Recreación: galería de mina del siglo XVIII con agua hasta las rodillas, un minero de espaldas",
-            "prompt_flow": "Documentary-realistic slow handheld push along a narrow eighteenth-century coal mine tunnel lit by one candle, black water up to the knees rippling, water dripping from the rock ceiling, a single miner seen from behind wading away with a wooden bucket, deep shadows, natural low light, fine film grain, no faces, no text, no captions, no logos"
+            "prompt_flow": "Documentary-realistic slow handheld push along a narrow eighteenth-century coal mine tunnel lit by one candle, black water up to the knees rippling, water dripping from the rock ceiling, a single miner seen from behind wading away with a wooden bucket, deep shadows, natural low light, fine film grain, no faces, no text, no captions, no logos",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "galería de una mina de carbón histórica, con escalera y raíles",
+              "archivo": "media/T1-E08/l_mina_galeria.jpg",
+              "credito": "Galería de una mina de carbón · Foto: dritenour7 · CC BY 2.0",
+              "licencia": "CC BY 2.0",
+              "pagina": "https://www.flickr.com/photos/50438360@N05/4672461913",
+              "zoom": [
+                1.03,
+                1.12
+              ],
+              "focus": [
+                50,
+                50
+              ]
+            }
           }
         },
         {
-          "texto": "Sacarla a fuerza de brazos es lento y agotador. Y a esa profundidad, el agua nunca deja de entrar."
+          "texto": "Sacarla a fuerza de brazos es lento y agotador. Y a esa profundidad, el agua nunca deja de entrar.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "galería de una mina de carbón histórica, con escalera y raíles",
+            "archivo": "media/T1-E08/l_mina_galeria.jpg",
+            "credito": "Galería de una mina de carbón · Foto: dritenour7 · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/50438360@N05/4672461913",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Así que, al año siguiente, junto al pozo se levanta una casa alta con una viga enorme asomando por arriba.",
           "anios_atras": 231,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "casa de máquinas de Elsecar con el balancín asomando",
-            "busqueda": "Elsecar Newcomen engine house beam"
+            "que_se_ve": "castillete del pozo y casa de máquinas de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_pozo.jpg",
+            "credito": "Pozo y casa de máquinas de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.geograph.org.uk/photo/145055",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -166,30 +415,95 @@
           "pronunciacion": "Dentro hay una máquina de vapor del tipo que inventó Tomas Niúcomen. Funciona así.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "diagrama de una máquina atmosférica de Newcomen",
-            "busqueda": "Newcomen atmospheric engine diagram"
+            "que_se_ve": "esquema de una máquina atmosférica de Newcomen",
+            "archivo": "media/T1-E08/l_newcomen_esquema.jpg",
+            "credito": "Esquema de la máquina atmosférica de Newcomen · Emoscopes · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Newcomen_atmospheric_engine_animation.gif",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "El fuego de carbón hierve agua y el vapor llena un cilindro. Luego un chorro de agua fría lo enfría de golpe."
+          "texto": "El fuego de carbón hierve agua y el vapor llena un cilindro. Luego un chorro de agua fría lo enfría de golpe.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "esquema de una máquina atmosférica de Newcomen",
+            "archivo": "media/T1-E08/l_newcomen_esquema.jpg",
+            "credito": "Esquema de la máquina atmosférica de Newcomen · Emoscopes · CC BY 2.5",
+            "licencia": "CC BY 2.5",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Newcomen_atmospheric_engine_animation.gif",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "El vapor se encoge, el aire de fuera empuja el pistón hacia abajo y la gran viga cabecea como un balancín.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el balancín de la máquina Newcomen de Elsecar",
-            "busqueda": "Elsecar Newcomen engine beam"
+            "que_se_ve": "el balancín de madera de la máquina Newcomen de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+            "credito": "Balancín de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine_-_beam_-_geograph.org.uk_-_3808178.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "En el otro extremo, unas varas largas bajan al pozo y suben agua. Unas doce veces por minuto, sin cansarse."
+          "texto": "En el otro extremo, unas varas largas bajan al pozo y suben agua. Unas doce veces por minuto, sin cansarse.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "interior de la máquina Newcomen de Elsecar, con sus tuberías y varas",
+            "archivo": "media/T1-E08/l_elsecar_maquina.jpg",
+            "credito": "Interior de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "Día y noche, sin comer y sin dormir. Lo que antes exigía muchas espaldas, ahora lo hace el fuego.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "varas de bomba de la máquina de Elsecar bajando al pozo",
-            "busqueda": "Elsecar Newcomen engine pump rods shaft"
+            "que_se_ve": "el balancín de madera de la máquina Newcomen de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+            "credito": "Balancín de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine_-_beam_-_geograph.org.uk_-_3808178.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -205,22 +519,60 @@
           },
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "la máquina Newcomen de Elsecar por dentro, con su cilindro",
-            "busqueda": "Elsecar Newcomen engine cylinder interior"
+            "que_se_ve": "interior de la máquina Newcomen de Elsecar, con sus tuberías y varas",
+            "archivo": "media/T1-E08/l_elsecar_maquina.jpg",
+            "credito": "Interior de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "Hoy sigue en su sitio. Es la máquina de vapor más antigua del mundo que no se ha movido de donde la pusieron.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "exterior de la casa de máquinas Newcomen de Elsecar hoy",
-            "busqueda": "Elsecar Newcomen beam engine"
+            "que_se_ve": "castillete del pozo y casa de máquinas de Elsecar, donde la máquina sigue en su sitio",
+            "archivo": "media/T1-E08/l_elsecar_pozo.jpg",
+            "credito": "Pozo y casa de máquinas de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.geograph.org.uk/photo/145055",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Fíjate en para qué servía. No movía trenes ni telares. Sacaba agua de una mina.",
           "emocion": 0.6,
-          "aprendido": "Las primeras máquinas de vapor servían a minas"
+          "aprendido": "Las primeras máquinas de vapor servían a minas",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "galería de una mina de carbón histórica, con escalera y raíles",
+            "archivo": "media/T1-E08/l_mina_galeria.jpg",
+            "credito": "Galería de una mina de carbón · Foto: dritenour7 · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/50438360@N05/4672461913",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         }
       ]
     },
@@ -235,21 +587,80 @@
           "visual": {
             "tipo": "flow",
             "que_se_ve": "Recreación (plano especial, 15 s): la mina de Elsecar hacia 1795 al anochecer, con el balancín cabeceando y humo de carbón",
-            "prompt_flow": "15-second documentary-realistic slow crane shot at dusk over a small late-eighteenth-century English coal mine, a tall stone engine house with a huge wooden beam slowly rocking up and down above a pit shaft, thick coal smoke rising from a brick chimney, heaps of coal and wooden wagons in the foreground, two miners seen far away from behind pushing a cart, orange glow from the boiler fire, natural light, fine film grain, no text, no captions, no logos"
+            "prompt_flow": "15-second documentary-realistic slow crane shot at dusk over a small late-eighteenth-century English coal mine, a tall stone engine house with a huge wooden beam slowly rocking up and down above a pit shaft, thick coal smoke rising from a brick chimney, heaps of coal and wooden wagons in the foreground, two miners seen far away from behind pushing a cart, orange glow from the boiler fire, natural light, fine film grain, no text, no captions, no logos",
+            "respaldo": {
+              "tipo": "archivo",
+              "que_se_ve": "castillete del pozo y casa de máquinas de Elsecar",
+              "archivo": "media/T1-E08/l_elsecar_pozo.jpg",
+              "credito": "Pozo y casa de máquinas de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+              "licencia": "CC BY-SA 2.0",
+              "pagina": "https://www.geograph.org.uk/photo/145055",
+              "zoom": [
+                1.4,
+                1.25
+              ],
+              "focus": [
+                38,
+                45
+              ]
+            }
           }
         },
         {
-          "texto": "Era una máquina torpe. Gastaba muchísimo combustible, porque en cada golpe enfriaba su propio cilindro."
+          "texto": "Era una máquina torpe. Gastaba muchísimo combustible, porque en cada golpe enfriaba su propio cilindro.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "interior de la máquina Newcomen de Elsecar, con sus tuberías y varas",
+            "archivo": "media/T1-E08/l_elsecar_maquina.jpg",
+            "credito": "Interior de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         },
         {
-          "texto": "Imagínala tragando carbón a paladas, golpe tras golpe, solo para no pararse."
+          "texto": "Imagínala tragando carbón a paladas, golpe tras golpe, solo para no pararse.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "montón de carbón junto a una mina",
+            "archivo": "media/T1-E08/l_carbon_mina.jpg",
+            "credito": "Montón de carbón junto a la mina de Ulan · Foto: Beyond Coal and Gas · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/98076023@N02/9304139157",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
+          }
         },
         {
           "texto": "En cualquier otro sitio habría salido carísima. Pero en una mina, el carbón está ahí mismo, y casi no cuesta nada.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "montón de carbón junto a una mina histórica",
-            "busqueda": "coal heap colliery historic photograph"
+            "que_se_ve": "montón de carbón junto a una mina",
+            "archivo": "media/T1-E08/l_carbon_mina.jpg",
+            "credito": "Montón de carbón junto a la mina de Ulan · Foto: Beyond Coal and Gas · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/98076023@N02/9304139157",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -258,7 +669,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "casa de máquinas de Elsecar junto al pozo de la mina",
-            "busqueda": "Elsecar Newcomen engine house"
+            "archivo": "media/T1-E08/l_elsecar_pozo.jpg",
+            "credito": "Pozo y casa de máquinas de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.geograph.org.uk/photo/145055",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -273,8 +695,19 @@
           },
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "grabado de Thomas Barney de 1719 de la máquina de Newcomen de Dudley Castle",
-            "busqueda": "Thomas Barney 1719 Newcomen engine Dudley Castle"
+            "que_se_ve": "cartel de la réplica de la máquina de Newcomen de 1712 en el Black Country Living Museum, a menos de una milla del lugar original",
+            "archivo": "media/T1-E08/l_cartel_newcomen.jpg",
+            "credito": "Cartel de la réplica de la máquina de Newcomen (1712), Black Country Living Museum · Foto: ell brown · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/39415781@N06/6053886192",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -282,20 +715,58 @@
           "pronunciacion": "En ese siglo se construyeron cientos. Después, Yeims Uat mejoró el diseño: su máquina gastaba más o menos la mitad de combustible.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "máquina de vapor de Boulton y Watt en el Science Museum de Londres",
-            "busqueda": "Boulton and Watt engine Science Museum London"
+            "que_se_ve": "máquina de vapor de Boulton y Watt de Smethwick (1779), en el museo Thinktank de Birmingham",
+            "archivo": "media/T1-E08/maquina_smethwick.jpg",
+            "credito": "Máquina de Smethwick (Boulton y Watt), Thinktank Birmingham · Foto: Geni · CC BY-SA 4.0",
+            "licencia": "CC BY-SA 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Smethwick_Engine_thinktank_museum.JPG",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Y entonces el vapor salió de las minas, hacia las fábricas, los barcos y los trenes.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "locomotora Rocket de Stephenson en el Science Museum",
-            "busqueda": "Stephenson's Rocket Science Museum"
+            "que_se_ve": "la locomotora Rocket de Stephenson en el Science Museum",
+            "archivo": "media/T1-E08/l_rocket.jpg",
+            "credito": "Rocket de Stephenson, Science Museum · Foto: Peter Richmond · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/69364392@N00/2560858655",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
-          "texto": "Cada una de esas máquinas pedía carbón. Y ese carbón salía de minas que, para no inundarse, necesitaban más máquinas."
+          "texto": "Cada una de esas máquinas pedía carbón. Y ese carbón salía de minas que, para no inundarse, necesitaban más máquinas.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "galería de una mina de carbón histórica",
+            "archivo": "media/T1-E08/l_mina_galeria.jpg",
+            "credito": "Galería de una mina de carbón · Foto: dritenour7 · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/50438360@N05/4672461913",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Más de la mitad. Un cincuenta y cinco por ciento. En poco más de un siglo, el mundo cambió de combustible.",
@@ -311,20 +782,58 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
-            "busqueda": "Our World in Data global primary energy substitution"
+            "archivo": "media/T1-E08/l_energia_mundial.jpg",
+            "credito": "Consumo mundial de energía primaria por fuente · Our World in Data (Smil; BP) · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Global-energy-substitution_(OWID_0549).png",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
           "texto": "Y ese carbón es luz del sol de hace cientos de millones de años, guardada bajo tierra.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "fósil de helecho del Carbonífero en una pizarra de carbón",
-            "busqueda": "Carboniferous fern fossil coal measures"
+            "que_se_ve": "fósil de helecho del Carbonífero en una pizarra con carbón",
+            "archivo": "media/T1-E08/l_helecho_fosil.jpg",
+            "credito": "Fósil de helecho en pizarra carbonosa (Pensilvaniense) · Foto: James St. John · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/47445767@N05/15251791316",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Hasta entonces vivíamos de lo que crecía cada año. Ahora abríamos una despensa que se había llenado durante eras.",
-          "aprendido": "Carbón: de casi nada a más de la mitad"
+          "aprendido": "Carbón: de casi nada a más de la mitad",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "fósil de helecho del Carbonífero en una pizarra con carbón",
+            "archivo": "media/T1-E08/l_helecho_fosil.jpg",
+            "credito": "Fósil de helecho en pizarra carbonosa (Pensilvaniense) · Foto: James St. John · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/47445767@N05/15251791316",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         }
       ]
     },
@@ -338,27 +847,76 @@
           "pronunciacion": "Tres preguntas antes de seguir. ¿Qué hacía la máquina de Élsecar?",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "casa de máquinas de Elsecar con el balancín",
-            "busqueda": "Elsecar Newcomen engine house beam"
+            "que_se_ve": "el balancín de madera de la máquina Newcomen de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+            "credito": "Balancín de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine_-_beam_-_geograph.org.uk_-_3808178.jpg",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
-          "texto": "Sacar agua de una mina de carbón, quemando carbón."
+          "texto": "Sacar agua de una mina de carbón, quemando carbón.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "montón de carbón junto a una mina",
+            "archivo": "media/T1-E08/l_carbon_mina.jpg",
+            "credito": "Montón de carbón junto a la mina de Ulan · Foto: Beyond Coal and Gas · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/98076023@N02/9304139157",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          }
         },
         {
           "texto": "¿Cuánta energía del mundo salía del carbón en mil ochocientos? Alrededor de un dos por ciento.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente",
-            "busqueda": "Our World in Data global primary energy substitution"
+            "que_se_ve": "gráfico de Our World in Data con la energía primaria mundial por fuente desde 1800",
+            "archivo": "media/T1-E08/l_energia_mundial.jpg",
+            "credito": "Consumo mundial de energía primaria por fuente · Our World in Data (Smil; BP) · CC BY 4.0",
+            "licencia": "CC BY 4.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Global-energy-substitution_(OWID_0549).png",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
           "texto": "¿Y hasta cuándo trabajó la máquina? Hasta mil novecientos veintitrés, cuando llegaron las bombas eléctricas.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "el balancín de la máquina Newcomen de Elsecar",
-            "busqueda": "Elsecar Newcomen engine beam"
+            "que_se_ve": "el balancín de madera de la máquina Newcomen de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+            "credito": "Balancín de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine_-_beam_-_geograph.org.uk_-_3808178.jpg",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
@@ -367,15 +925,37 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "retrato fotográfico de Henry Ford",
-            "busqueda": "Henry Ford portrait photograph"
+            "archivo": "media/T1-E08/l_henry_ford.jpg",
+            "credito": "Henry Ford, hacia 1919 · Foto: Fred Hartsook · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Henry_Ford,_head-and-shoulders_portrait,_facing_slightly_left)_-_Hartsook_photo_LCCN94506959_Trim.jpg",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
           "texto": "Por eso sigue en su sitio. En dos mil catorce la restauraron, y su viga vuelve a cabecear, ahora movida por hidráulica.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "la máquina Newcomen de Elsecar restaurada",
-            "busqueda": "Elsecar Newcomen engine restored"
+            "que_se_ve": "el balancín de la máquina Newcomen de Elsecar",
+            "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+            "credito": "Balancín de la máquina Newcomen de Elsecar · Foto: Chris Allen · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://commons.wikimedia.org/wiki/File:Elsecar_Newcomen_engine_-_beam_-_geograph.org.uk_-_3808178.jpg",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              62,
+              55
+            ]
           }
         },
         {
@@ -383,28 +963,78 @@
           "emocion": 0.6,
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "campesinos arando con bueyes en el Salterio de Luttrell",
-            "busqueda": "Luttrell Psalter ploughing oxen"
-          }
+            "que_se_ve": "agricultor arando con un buey, el músculo como fuerza de trabajo",
+            "archivo": "media/T1-E08/l_tigray_arado.jpg",
+            "credito": "Arado con buey, Tigray (Etiopía) · Foto: Rod Waddington · CC BY-SA 2.0",
+            "licencia": "CC BY-SA 2.0",
+            "pagina": "https://www.flickr.com/photos/64607715@N05/14424613203",
+            "zoom": [
+              1.15,
+              1.3
+            ],
+            "focus": [
+              62,
+              55
+            ]
+          },
+          "indice": true
         },
         {
           "texto": "Y recuerda el círculo: carbón que alimenta máquinas que sacan más carbón.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "grabado de Thomas Barney de 1719 de la máquina de Newcomen",
-            "busqueda": "Thomas Barney 1719 Newcomen engine Dudley Castle"
+            "que_se_ve": "montón de carbón junto a una mina",
+            "archivo": "media/T1-E08/l_carbon_mina.jpg",
+            "credito": "Montón de carbón junto a la mina de Ulan · Foto: Beyond Coal and Gas · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/98076023@N02/9304139157",
+            "zoom": [
+              1.4,
+              1.25
+            ],
+            "focus": [
+              38,
+              45
+            ]
           }
         },
         {
-          "texto": "Ese cambio abrió el camino a las fábricas, a los trenes y, mucho después, a los cohetes."
+          "texto": "Ese cambio abrió el camino a las fábricas, a los trenes y, mucho después, a los cohetes.",
+          "visual": {
+            "tipo": "archivo",
+            "que_se_ve": "la locomotora Rocket de Stephenson en el Science Museum",
+            "archivo": "media/T1-E08/l_rocket.jpg",
+            "credito": "Rocket de Stephenson, Science Museum · Foto: Peter Richmond · CC BY 2.0",
+            "licencia": "CC BY 2.0",
+            "pagina": "https://www.flickr.com/photos/69364392@N00/2560858655",
+            "zoom": [
+              1.3,
+              1.18
+            ],
+            "focus": [
+              38,
+              45
+            ]
+          }
         },
         {
           "texto": "Con esa energía, la humanidad creció como nunca. Y menos de dos siglos después de Elsecar, tres personas despegaron hacia la Luna.",
           "pronunciacion": "Con esa energía, la humanidad creció como nunca. Y menos de dos siglos después de Élsecar, tres personas despegaron hacia la Luna.",
           "visual": {
             "tipo": "archivo",
-            "que_se_ve": "despegue del Apolo 8 desde la plataforma 39A",
-            "busqueda": "Apollo 8 launch Saturn V"
+            "que_se_ve": "despegue del Apolo 8 con el cohete Saturno V",
+            "archivo": "media/T1-E08/l_apolo8_despegue.jpg",
+            "credito": "Despegue del Apolo 8 (21 de diciembre de 1968) · NASA · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://images.nasa.gov/details/S68-56050",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         },
         {
@@ -413,7 +1043,18 @@
           "visual": {
             "tipo": "archivo",
             "que_se_ve": "fotografía Earthrise del Apolo 8",
-            "busqueda": "Earthrise AS08-14-2383"
+            "archivo": "media/T1-E08/earthrise.jpg",
+            "credito": "Earthrise, Apolo 8 (AS08-14-2383) · Foto: William Anders / NASA · dominio público",
+            "licencia": "Public domain",
+            "pagina": "https://images.nasa.gov/details/as08-14-2383",
+            "zoom": [
+              1.03,
+              1.12
+            ],
+            "focus": [
+              50,
+              50
+            ]
           }
         }
       ]
@@ -429,7 +1070,22 @@
       "128 años",
       "sin parar"
     ],
-    "que_se_ve": "el balancín de la máquina Newcomen de Elsecar asomando de su casa de máquinas"
+    "que_se_ve": "el balancín de la máquina Newcomen de Elsecar asomando de su casa de máquinas",
+    "archivo": "media/T1-E08/l_elsecar_viga.jpg",
+    "ganchos": [
+      [
+        "128 años",
+        "bombeando agua"
+      ],
+      [
+        "2 %",
+        "carbón en 1800"
+      ],
+      [
+        "55 %",
+        "carbón en un siglo"
+      ]
+    ]
   },
   "fuentes": [
     {
