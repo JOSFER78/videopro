@@ -1,0 +1,760 @@
+{
+  "duration": 333.92,
+  "channel": "Temario",
+  "series": "Historia de la humanidad",
+  "season": "Temporada 1 · De dónde venimos",
+  "episode": 7,
+  "episodes": [
+    {
+      "title": "El mapa",
+      "when": "de hace 300.000 años a hoy",
+      "yearsAgo": null,
+      "n": "00"
+    },
+    {
+      "title": "Nuestro origen",
+      "when": "hace unos 300.000 años",
+      "yearsAgo": 300000,
+      "n": "01"
+    },
+    {
+      "title": "Salimos de África",
+      "when": "hace unos 50.000 años",
+      "yearsAgo": 50000,
+      "n": "02"
+    },
+    {
+      "title": "Arte y símbolos",
+      "when": "hace unos 73.000 años",
+      "yearsAgo": 73000,
+      "n": "03"
+    },
+    {
+      "title": "La agricultura",
+      "when": "hace unos 11.000 años",
+      "yearsAgo": 11000,
+      "n": "04"
+    },
+    {
+      "title": "Ciudades y escritura",
+      "when": "hacia 3200 a. C.",
+      "yearsAgo": 5226,
+      "n": "05"
+    },
+    {
+      "title": "Imperios",
+      "when": "hacia 520 a. C.",
+      "yearsAgo": 2546,
+      "n": "06"
+    },
+    {
+      "title": "El mundo se conecta",
+      "when": "1492",
+      "yearsAgo": 534,
+      "n": "07"
+    },
+    {
+      "title": "Ciencia e industria",
+      "when": "1795",
+      "yearsAgo": 231,
+      "n": "08"
+    },
+    {
+      "title": "El mundo de hoy",
+      "when": "1968 – hoy",
+      "yearsAgo": 58,
+      "n": "09"
+    }
+  ],
+  "parts": [
+    {
+      "label": "Un usurpador",
+      "at": 0,
+      "title": "Un trono que hay que justificar",
+      "idea": "Monte Behistún, oeste de Irán"
+    },
+    {
+      "label": "El relato",
+      "at": 86.24,
+      "title": "Propaganda tallada en la roca",
+      "idea": "Tres lenguas, un dios, un camino"
+    },
+    {
+      "label": "Obedecer",
+      "at": 181.05,
+      "title": "Menos soldados, más relato",
+      "idea": "Una historia compartida sostiene el imperio"
+    },
+    {
+      "label": "Repaso",
+      "at": 256.56,
+      "title": "",
+      "idea": ""
+    }
+  ],
+  "visuals": [
+    {
+      "at": 0.7,
+      "src": "media/T1-E05/29_proto_cuneiform_tablet_seal_impressions_.jpg",
+      "credit": "Tablilla de cebada con sello (Met 1988.433.1) · The Metropolitan Museum of Art · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 6.77,
+      "src": "media/T1-E05/19_proto_cuneiform_tablet_uruk.jpg",
+      "credit": "Tablilla protocuneiforme arcaica · Foto: Osama Shukir Muhammed Amin FRCP(Glasg) · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 12.56,
+      "src": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+      "credit": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 24.66,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 31.57,
+      "src": "media/T1-E06/l_dario.jpg",
+      "credit": "Darío I en Behistún (detalle) · Foto: Leen van Dorp · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 37.52,
+      "src": "media/T1-E06/l_dario_gaumata.jpg",
+      "credit": "Darío y Gaumata en Behistún · Foto: Patrick C (dynamosquito) · CC BY-SA 2.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 49.22,
+      "src": "media/T1-E06/mapa_imperio.jpg",
+      "credit": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 62.6,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        78,
+        60
+      ],
+      "zoom": [
+        1.3,
+        1.18
+      ]
+    },
+    {
+      "at": 71.54,
+      "src": "media/T1-E06/mapa_imperio.jpg",
+      "credit": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 86.24,
+      "src": "media/T1-E06/unesco.jpg",
+      "credit": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 99.46,
+      "src": "media/T1-E06/babilonia.jpg",
+      "credit": "Ruinas de Babilonia, Irak · Foto: Osama Shukir Muhammed Amin · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 105.49,
+      "src": "media/T1-E06/ecbatana.jpg",
+      "credit": "Yacimiento de Ecbatana, Hamadán · Foto: Ywpark2003 (Yong Woo Park) · CC BY 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 112.2,
+      "src": "media/T1-E06/gadmer61.jpg",
+      "credit": "Behistún, autocromo · Foto: Frédéric Gadmer (Archives de la Planète) · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 124.1,
+      "src": "media/T1-E06/l_stone_record.jpg",
+      "credit": "Relieve de Behistún · Foto: dynamosquito · CC BY-SA 2.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 129.37,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 135.56,
+      "src": "media/T1-E06/l_ahuramazda.jpg",
+      "credit": "Ahuramazda en Behistún · Foto: peuplier · CC BY 2.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 141.27,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        20,
+        25
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 147.94,
+      "src": "media/T1-E06/unesco.jpg",
+      "credit": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+      "focus": [
+        80,
+        88
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 160.8,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        35,
+        38
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 174.62,
+      "src": "media/T1-E06/unesco.jpg",
+      "credit": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 181.05,
+      "src": "media/T1-E06/mapa_imperio.jpg",
+      "credit": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+      "focus": [
+        38,
+        45
+      ],
+      "zoom": [
+        1.3,
+        1.18
+      ]
+    },
+    {
+      "at": 186.84,
+      "src": "media/T1-E06/l_papiro.jpg",
+      "credit": "Papiro arameo con la versión de Behistún, Elefantina · Foto: Jona Lendering (Livius.org) · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 198.1,
+      "src": "media/T1-E06/babilonia.jpg",
+      "credit": "Ruinas de Babilonia, Irak · Foto: Osama Shukir Muhammed Amin · CC BY-SA 4.0",
+      "focus": [
+        38,
+        45
+      ],
+      "zoom": [
+        1.3,
+        1.18
+      ]
+    },
+    {
+      "at": 221.1,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        38,
+        45
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 234.2,
+      "src": "media/T1-E06/l_billetes.jpg",
+      "credit": "Billetes de euro, serie Europa · Bericht · CC0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 239.03,
+      "src": "media/T1-E06/l_daric.jpg",
+      "credit": "Dárico de oro, 485-420 a. C. · Foto: Classical Numismatic Group (CNG) · CC BY-SA 2.5",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 243.82,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        75,
+        18
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 249.81,
+      "src": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+      "credit": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 256.56,
+      "src": "media/T1-E06/unesco.jpg",
+      "credit": "Inscripción de Behistún · Foto: PersianDutchNetwork · CC BY-SA 4.0",
+      "focus": [
+        38,
+        45
+      ],
+      "zoom": [
+        1.3,
+        1.18
+      ]
+    },
+    {
+      "at": 266.34,
+      "src": "media/T1-E06/l_ahuramazda.jpg",
+      "credit": "Ahuramazda en Behistún · Foto: peuplier · CC BY 2.0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 271.57,
+      "src": "media/T1-E05/35_behistun_inscription_cliff.jpg",
+      "credit": "Acantilado de Behistún, Irán · Foto: dynamosquito from France · CC BY-SA 2.0",
+      "focus": [
+        38,
+        45
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 278.64,
+      "src": "media/T1-E06/reliefs.jpg",
+      "credit": "Relieve y columnas de Behistún · Autor desconocido · Dominio público",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 286.15,
+      "src": "media/T1-E06/mapa_imperio.jpg",
+      "credit": "Mapa del Imperio aqueménida · Ali Zifan · CC BY-SA 4.0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.4,
+        1.25
+      ]
+    },
+    {
+      "at": 292.34,
+      "src": "media/T1-E06/l_dario.jpg",
+      "credit": "Darío I en Behistún (detalle) · Foto: Leen van Dorp · CC0",
+      "focus": [
+        62,
+        55
+      ],
+      "zoom": [
+        1.15,
+        1.3
+      ]
+    },
+    {
+      "at": 300.25,
+      "src": "media/T1-E06/l_rawlinson.jpg",
+      "credit": "Sir Henry Creswicke Rawlinson · Lock & Whitfield / Wellcome Collection · CC BY 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    },
+    {
+      "at": 315.27,
+      "src": "media/T1-E07/l_globo_gnm.jpg",
+      "credit": "Globo de Behaim, Núremberg · Foto: Germanisches Nationalmuseum · CC BY-SA 4.0",
+      "focus": [
+        50,
+        50
+      ],
+      "zoom": [
+        1.03,
+        1.12
+      ]
+    }
+  ],
+  "map": {
+    "bounds": [
+      43.5,
+      31.5,
+      49.5,
+      35.5
+    ],
+    "places": [
+      {
+        "at": 19.35,
+        "name": "Monte Behistún",
+        "where": "Irán",
+        "lon": 47.4358,
+        "lat": 34.3906
+      },
+      {
+        "at": 100.26,
+        "name": "Babilonia",
+        "where": "Irak",
+        "lon": 44.4211,
+        "lat": 32.5425
+      },
+      {
+        "at": 106.29,
+        "name": "Ecbatana (Hamadán)",
+        "where": "Irán",
+        "lon": 48.5161,
+        "lat": 34.8064
+      }
+    ]
+  },
+  "data": [
+    {
+      "at": 87.54,
+      "label": "Altura del relieve",
+      "value": "100",
+      "unit": "metros",
+      "compare": "Como un edificio de unos <b>30 pisos</b>"
+    }
+  ],
+  "asks": [
+    {
+      "at": 83.74,
+      "hold": 2.7,
+      "kicker": "Pausa y piensa",
+      "text": "Si quisieras que un imperio entero creyera tu versión, ¿dónde la pondrías?"
+    }
+  ],
+  "learned": [
+    {
+      "at": 83.29,
+      "hold": 3.4,
+      "text": "La fuerza sola no basta para gobernar millones."
+    },
+    {
+      "at": 180.9,
+      "hold": 3.4,
+      "text": "Darío justificó su poder con una historia tallada."
+    },
+    {
+      "at": 256.41,
+      "hold": 3.4,
+      "text": "Los imperios se sostienen sobre relatos compartidos."
+    }
+  ],
+  "peek": [
+    {
+      "at": 321.88,
+      "episode": 8
+    }
+  ],
+  "axis": {
+    "from": 300000,
+    "to": 10,
+    "title": "Eje cronológico",
+    "note": "años atrás · escala logarítmica",
+    "ticks": [
+      {
+        "yearsAgo": 300000,
+        "label": "300.000"
+      },
+      {
+        "yearsAgo": 100000,
+        "label": "100.000"
+      },
+      {
+        "yearsAgo": 30000,
+        "label": "30.000"
+      },
+      {
+        "yearsAgo": 10000,
+        "label": "10.000"
+      },
+      {
+        "yearsAgo": 3000,
+        "label": "3.000"
+      },
+      {
+        "yearsAgo": 1000,
+        "label": "1.000"
+      },
+      {
+        "yearsAgo": 300,
+        "label": "300"
+      },
+      {
+        "yearsAgo": 100,
+        "label": "100"
+      },
+      {
+        "yearsAgo": 30,
+        "label": "30"
+      },
+      {
+        "yearsAgo": 10,
+        "label": "hoy"
+      }
+    ]
+  },
+  "journey": [
+    {
+      "at": 0,
+      "yearsAgo": 10
+    },
+    {
+      "at": 38.62,
+      "yearsAgo": 2548,
+      "travel": 1.8
+    },
+    {
+      "at": 169.25,
+      "yearsAgo": 2546,
+      "travel": 1.8
+    },
+    {
+      "at": 309.06,
+      "yearsAgo": 191,
+      "travel": 1.8
+    }
+  ],
+  "index": {
+    "at": 292.64,
+    "kicker": "Quédate con esto",
+    "takeaway": "El poder de los imperios descansa sobre relatos compartidos."
+  },
+  "thumbs": [
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E06/reliefs.jpg",
+      "kicker": "Propaganda tallada en piedra",
+      "hook": [
+        {
+          "text": "100 metros",
+          "highlight": true
+        },
+        {
+          "text": "de propaganda",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E06/reliefs.jpg",
+      "kicker": "Propaganda tallada en piedra",
+      "hook": [
+        {
+          "text": "3 idiomas",
+          "highlight": true
+        },
+        {
+          "text": "una sola versión",
+          "highlight": false
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "seasonColor": "#ff4b33",
+      "image": "media/T1-E06/reliefs.jpg",
+      "kicker": "Propaganda tallada en piedra",
+      "hook": [
+        {
+          "text": "9 rebeldes",
+          "highlight": true
+        },
+        {
+          "text": "atados al rey",
+          "highlight": false
+        }
+      ]
+    }
+  ]
+}
