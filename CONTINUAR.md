@@ -1,5 +1,15 @@
 # Cómo continuar este proyecto en otra conversación
 
+> **ACTUALIZACIÓN 12-11-2026 (noche). Manda sobre lo que viene debajo.**
+> - **Canal:** el canal ya no es Panlogia. Ahora se llama **Kilocuatrocientos** (@kilocuatrocientos, https://www.youtube.com/@kilocuatrocientos). Está publicado con cabecera, avatar, nombre y descripción numerada del 01 al 07.
+> - **Siguiente trabajo:** está en `plan/GOAL_kilocuatrocientos.md`. Incluye la marca fijada, el equipo (orquestador Opus y agentes Sonnet), el tope de 4000 créditos de Flow y los entregables, en orden: manual de marca, plantilla de gráficos, intro de productora, tráiler y episodio 1.
+> - **Referencias de marca:**
+>   - `data/serie_historia/canal/marca/kilo400/` (cabecera g7.jpg, logo l1.jpg)
+>   - `data/serie_historia/canal/marca/pub/kilo400/avatar.jpg`
+> - **Mesa local:** http://localhost:4173. Se arranca con `.claude/launch.json` («mesa»).
+> - **Navegador:** usar el de Claude, con una pestaña propia por agente. Otra sesión trabajó a la vez en Flow y en Studio, y se pisaban.
+> - **YouTube Studio no deja leer archivos locales.** Para subir imágenes, se cargan desde la URL de flow-content y se componen en un canvas dentro de la página.
+
 Este archivo resume el estado para que una sesión nueva de Claude (por ejemplo, en el ordenador de la dueña del proyecto) siga donde se quedó la anterior. Rama: `claude/epic-sagan-49cg73`.
 
 ## Qué es el proyecto
@@ -23,7 +33,7 @@ Un canal de YouTube **universal** que explica grandes temas en forma de serie. P
 ## Estado del nombre del canal
 
 - Descartados: Temario, Ariadne, Meridian (no disponibles o muy usados), Lucidario (suena español), frases como Then It Clicked (no son nombres propios), todo lo que lleve «map».
-- **Candidato actual: Panlogia.** En YouTube el identificador `@panlogia` salió libre (marca verde), pero el campo «Nombre» dio el error «No puedes usar este nombre para tu canal». Pendiente: que pruebe a crear el canal con otro texto en «Nombre» (p. ej. «Panlogia Channel») manteniendo `@panlogia`; si rechaza todo, es límite de la cuenta de Google.
+- **Cerrado: Panlogia.** El canal ya está creado en YouTube (comprobado el 12-11-2026 en su Chrome): identificador `@panlogia` reservado, nombre visible «Panlogia ,always see where you are», en la cuenta de Google davidsevilla101. Pendiente menor, si ella quiere: quitar el espacio antes de la coma o dejar el nombre en «Panlogia» a secas (YouTube Studio). Marca registrada sin comprobar.
 - Reservas: Holomundi, Omnimundi.
 - Para comprobar un nombre: `python3 scripts/canal/comprobar_nombre.py "Nombre"`. Un identificador sin canal público NO garantiza que esté libre; solo lo confirma YouTube.
 
@@ -32,7 +42,7 @@ Un canal de YouTube **universal** que explica grandes temas en forma de serie. P
 Página privada donde ella comenta la propuesta: https://claude.ai/artifact/5NYewBQLd1iFrLeLFe42Ez
 Fuente: `data/serie_historia/canal/mesa-de-ideas.html`. Para actualizarla desde otra conversación, publicar ese archivo pasando esa dirección como `url` (leerla antes). Ella comenta con la herramienta de comentarios y los envía a Claude; no hay aviso automático, así que conviene leer los comentarios cuando diga «ya».
 
-Contenido actual de la mesa: nombre del canal por decidir, descripción, estilo visual, tono, sonido, qué es el canal, formato fijo, tres títulos de serie (recomendado: «The Human Story»), piloto + 14 capítulos con lo que explica cada uno, maquetas de miniatura y pantallas, y una parte de capítulo de ejemplo.
+Contenido actual de la mesa: nombre del canal cerrado (Panlogia), descripción, estilo visual, tono, sonido, qué es el canal, formato fijo, tres títulos de serie (recomendado: «The Human Story»), piloto + 14 capítulos con lo que explica cada uno, maquetas de miniatura y pantallas, y una parte de capítulo de ejemplo.
 
 ## Dónde está cada cosa
 
@@ -50,6 +60,6 @@ Los vídeos del concepto anterior (E01-E05) no están en git; se le enviaron por
 
 ## Siguiente paso
 
-1. Cerrar el nombre del canal con ella.
+1. Nombre del canal: cerrado (Panlogia, `@panlogia`). Solo queda el retoque opcional del nombre visible.
 2. Seguir puliendo en la mesa: título de la serie, capítulos, tono.
 3. Solo cuando ella lo apruebe: piloto corto. En su ordenador sí se puede abrir Flow con su navegador.
